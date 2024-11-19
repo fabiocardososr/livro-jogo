@@ -46,7 +46,7 @@ public class CadastrarLivroFlorestaDaDestruicao {
 
         //Regras de equipamentos
         StringBuilder dica = manipularArquivos.lerTexto("textos/dica.liv");
-        System.out.println("\n\n\nDICAS: \n\n"+dica);
+        System.out.println("\n\nDICAS: \n\n"+dica);
 
 
     }
