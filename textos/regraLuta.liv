@@ -1,0 +1,51 @@
+Frequentemente, você encontrará seções no livro que trazem instruções para que você lute
+contra algum tipo de criatura. Talvez seja dada a opção de fugir, mas, caso contrário - ou se
+você resolver atacar a criatura de qualquer maneira - você deve resolver a batalha conforme
+descrito a seguir.
+
+Os índices, HABILIDADE E ENERGIA, de cada criatura são dados no livro a cada vez que você tem um encontro.
+
+A seqüência de combate é explicada como é feita, caso seja jogando utilizando o livro físico, mas aqui 
+não tem necessidade já que tudo será calculado pela aplicação, mas sempre é bom saber como é a regra, não é.
+
+Segue a sequência de combate:
+
+1. Jogue ambos os dados uma vez para a criatura. Some ao índice de HABILIDADE dela. Este
+total é a Força de Ataque da criatura.
+
+2. Jogue ambos os dados para você mesmo. Some o número obtido a seu índice atual de
+HABILIDADE. Este total é a sua Força de Ataque.
+
+3. Se a sua Força de Ataque for maior do que a da criatura, você conseguiu feri-la. Siga para o
+item 4. Se a Força de Ataque da criatura for maior do que a sua, ela conseguiu ferir você.
+Siga para o item 5. Se os dois totais de Força de Ataque forem iguais, vocês escaparam dos
+golpes um do outro - comece a Série de Ataque seguinte a partir do item 1.
+
+4. Você feriu a criatura, portanto, subtraia 2 pontos do índice de ENERGIA dela. Você pode
+usar sua SORTE nesse momento para causar maiores danos.
+
+5. A criatura feriu você, portanto, subtraia 2 pontos do seu próprio índice de ENERGIA. Mais
+uma vez, você pode usar sua SORTE nessa fase.
+
+6. Faça os ajustes apropriados no seu índice de ENERGIA ou no da criatura (e em seu índice
+de SORTE, se você tiver usado a SORTE).
+
+7. Comece a Série de Ataque seguinte, retornando para seu índice de HABILIDADE atual e
+repetindo os itens 1-6. Esta seqüência continua até que o índice de ENERGIA seu ou da
+criatura com que você está lutando tenha sido reduzido a zero (morte).
+
+
+LUTA CONTRA MAIS DE UMA CRIATURA
+
+Se você se deparar com mais de uma criatura num determinado encontro, as instruções na
+página lhe dirão como lidar com a batalha. Às vezes você as tratará como um único monstro;
+às vezes lutará contra uma de cada vez.
+
+
+FUGA
+
+Em algumas páginas, você pode ter a opção de fugir da batalha, caso as coisas estejam indo
+mal para você. Porém, se você de fato fugir, a criatura automaticamente lhe causa um
+ferimento (subtraia 2 pontos de ENERGIA) quando você escapa. Este é o preço da covardia.
+Repare que você pode usar a SORTE em relação a esse ferimento da maneira normal (ver
+abaixo). Você só pode Fugir se esta opção for especificamente dada na página.
