@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CadastrarLivroFlorestaDaDestruicao {
-    private final EntityManager ENTITY = JPAUtil.getEntityManager(); //Entidade de persistência
+    private final EntityManager ENTITY = JPAUtil.getEntityManager(); //Entidade de persistência.
     private final LivroDAO LIVRODAO = new LivroDAO(ENTITY); //Entidade de persistência
     private final ManipularArquivos MANIPULARARQUIVOS = new ManipularArquivos();
     private final String NOMELIVO = "Floresta da Destruição (Darkwood)";
