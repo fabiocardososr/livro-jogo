@@ -6,21 +6,51 @@ import javax.persistence.*;
 @Table(name = "livro")
 public class Livro {
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLivro;
+
+    @ManyToOne
+    @JoinColumn(name="idSecao")
+    private Secao secaoInicial;
 
     private String nome;
     private String descricao;
-    private int secaoInicial;
+    private String regraCalcularIndicesIniciais;
+    private String regraLuta;
+    private String regraUsoSorte;
+    private String regraReposicaoIndices;
+    private String regraEquipamentos;
+    private String dicas;
+    private String historia;
+    private String imagem; //geralmente endereço de onde se encontra a imagem, se existir.
 
-    //Hibernate exige para consultas
-    public Livro() {
-    }
-
-    public Livro(String nome, String descricao, int secaoInicial) {
+    public Livro(Integer idLivro, String nome, String descricao, String regraCalcularIndicesIniciais, String regraLuta,
+                  String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
+                 String dicas, String historia) {
+        this.idLivro = idLivro;
         this.nome = nome;
         this.descricao = descricao;
+        this.regraCalcularIndicesIniciais = regraCalcularIndicesIniciais;
+        this.regraLuta = regraLuta;
+        this.regraUsoSorte = regraUsoSorte;
+        this.regraReposicaoIndices = regraReposicaoInidices;
+        this.regraEquipamentos = regraEquipamentos;
+        this.dicas = dicas;
+        this.historia = historia;
+    }
+
+
+
+    public void setSecaoInicial(Secao secaoInicial) {
         this.secaoInicial = secaoInicial;
+    }
+
+    public int getIdLivro() {
+        return idLivro;
+    }
+
+    public Secao getSecaoInicial() {
+        return secaoInicial;
     }
 
     public String getNome() {
@@ -31,17 +61,53 @@ public class Livro {
         return descricao;
     }
 
-    public int getSecaoInicial() {
-        return secaoInicial;
+    public String getRegraCalcularIndicesIniciais() {
+        return regraCalcularIndicesIniciais;
+    }
+
+    public String getRegraLuta() {
+        return regraLuta;
+    }
+
+    public String getRegraUsoSorte() {
+        return regraUsoSorte;
+    }
+
+    public String getRegraReposicaoIndices() {
+        return regraReposicaoIndices;
+    }
+
+    public String getRegraEquipamentos() {
+        return regraEquipamentos;
+    }
+
+    public String getDicas() {
+        return dicas;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public String getImagem() {
+        return imagem;
     }
 
     @Override
     public String toString() {
         return "Livro{" +
                 "idLivro=" + idLivro +
+                ", secaoInicial=" + secaoInicial.toString() +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", secaoInicial=" + secaoInicial +
+                ", regraCalcularIndicesIniciais='" + regraCalcularIndicesIniciais + '\'' +
+                ", regraLuta='" + regraLuta + '\'' +
+                ", regraUsoSorte='" + regraUsoSorte + '\'' +
+                ", regraReposicaoIndices='" + regraReposicaoIndices + '\'' +
+                ", regraEquipamentos='" + regraEquipamentos + '\'' +
+                ", dicas='" + dicas + '\'' +
+                ", historia='" + historia + '\'' +
+                ", imagem='" + imagem + '\'' +
                 '}';
     }
 }

@@ -1,54 +1,81 @@
 package livro.jogo.cadastros;
 
 import livro.jogo.DAO.LivroDAO;
+import livro.jogo.entidades.Livro;
+import livro.jogo.entidades.Secao;
 import livro.jogo.utils.JPAUtil;
 import livro.jogo.utils.ManipularArquivos;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastrarLivroFlorestaDaDestruicao {
     private final EntityManager entity = JPAUtil.getEntityManager(); //Entidade de persistência
     private final LivroDAO livroDao = new LivroDAO(entity); //Entidade de persistência
     private final ManipularArquivos manipularArquivos = new ManipularArquivos();
+    private final String nomeLivro = "Floresta da Destruição (Darkwood)";
+    private Livro livro;
+    List listaSecoes;
 
     public void carregarLivro(){
 
         //Carregar Livro
         tabelaLivro(manipularArquivos);
 
+        //carregar secoes
+        this.listaSecoes = tabelaSecao(manipularArquivos);
     }
 
     public void tabelaLivro(ManipularArquivos manipularArquivos){
 
         //Descrição do livro
-        StringBuilder descricaoLivro = manipularArquivos.lerTexto("textos/descricaoLivro.liv");
-        System.out.println("\n\nDESCRIÇÃO DO LIVRO: \n\n"+descricaoLivro);
+        StringBuilder descricaoLivro = manipularArquivos.lerTexto("textosflorestaestruicao/descricaoLivro.liv");
 
         //Descrição dos índices de HABILIDADE, ENERGIA E SORTE
-        StringBuilder regraCalculoIndicesIniciais = manipularArquivos.lerTexto("textos/descricaoLivro.liv");
-        System.out.println("\n\nREGRA DE CÁLCULO DOS ÍNDICES DE HABILIDADE, ENERGIA E SORTE: \n\n"+regraCalculoIndicesIniciais);
+        StringBuilder regraCalculoIndicesIniciais = manipularArquivos.lerTexto("textosflorestaestruicao/regraCalcularIndicesIniciais.liv");
 
         //Regras de como é feita a batalha
-        StringBuilder regraLuta = manipularArquivos.lerTexto("textos/regraLuta.liv");
-        System.out.println("\n\nREGRAS DE BATALHA: \n\n"+regraLuta);
+        StringBuilder regraLuta = manipularArquivos.lerTexto("textosflorestaestruicao/regraLuta.liv");
 
-        //Regras de como é feita a batalha
-        StringBuilder regraUsoSorte = manipularArquivos.lerTexto("textos/regraUsoSorte.liv");
-        System.out.println("\n\nREGRAS DE USO DA SORTE: \n\n"+regraUsoSorte);
+        //Regras de REGRAS DE USO DA SORTE
+        StringBuilder regraUsoSorte = manipularArquivos.lerTexto("textosflorestaestruicao/regraUsoSorte.liv");
+
 
         //Regras reposicao dos índices HABILIDADE, ENERGIA E SORTE
-        StringBuilder regraReposicaoIndice = manipularArquivos.lerTexto("textos/regraReposicaoIndice.liv");
-        System.out.println("\n\nREGRAS DE USO DA SORTE: \n\n"+regraReposicaoIndice);
+        StringBuilder regraReposicaoIndice = manipularArquivos.lerTexto("textosflorestaestruicao/regraReposicaoIndice.liv");
+
 
         //Regras de equipamentos
-        StringBuilder regraEquipamentos = manipularArquivos.lerTexto("textos/regraEquipamentos.liv");
-        System.out.println("\n\nREGRAS DE EQUIPAMENTOS: \n\n"+regraEquipamentos);
+        StringBuilder regraEquipamentos = manipularArquivos.lerTexto("textosflorestaestruicao/regraEquipamentos.liv");
+
 
         //Regras de equipamentos
-        StringBuilder dica = manipularArquivos.lerTexto("textos/dica.liv");
-        System.out.println("\n\nDICAS: \n\n"+dica);
+        StringBuilder dica = manipularArquivos.lerTexto("textosflorestaestruicao/dica.liv");
 
 
+        //Regras início da história
+        StringBuilder historia = manipularArquivos.lerTexto("textosflorestaestruicao/historia.liv");
+
+        int idLivro = 1; //O campo id não vai ser autoincrement, vou declarar para cada livro.
+        this.livro = new Livro(1,this.nomeLivro,descricaoLivro.toString(),regraCalculoIndicesIniciais.toString(),
+                regraLuta.toString(),regraUsoSorte.toString(),regraReposicaoIndice.toString(),
+                regraEquipamentos.toString(),dica.toString(),historia.toString());
+
+
+
+    }
+
+    public ArrayList<Secao> tabelaSecao(ManipularArquivos manipularArquivos){
+        List listaSecao = new ArrayList();
+        String textoSecao;
+
+        //Secao 1 - Necessário atualizar livro que contém a primeira seção, o início.
+        textoSecao = String.valueOf(manipularArquivos.lerTexto("textosflorestaestruicao/secao1.liv"));
+        Secao secao1 = new Secao(this.livro.getIdLivro(), textoSecao, 1,"imagens/secao1.png");
+        this.livro.setSecaoInicial(secao1);
+        System.out.println(this.livro);
+        return null;
     }
 
 
