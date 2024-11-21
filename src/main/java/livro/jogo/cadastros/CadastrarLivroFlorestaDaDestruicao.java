@@ -11,20 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CadastrarLivroFlorestaDaDestruicao {
-    private final EntityManager entity = JPAUtil.getEntityManager(); //Entidade de persistência
-    private final LivroDAO livroDao = new LivroDAO(entity); //Entidade de persistência
-    private final ManipularArquivos manipularArquivos = new ManipularArquivos();
-    private final String nomeLivro = "Floresta da Destruição (Darkwood)";
+    private final EntityManager ENTITY = JPAUtil.getEntityManager(); //Entidade de persistência
+    private final LivroDAO LIVRODAO = new LivroDAO(ENTITY); //Entidade de persistência
+    private final ManipularArquivos MANIPULARARQUIVOS = new ManipularArquivos();
+    private final String NOMELIVO = "Floresta da Destruição (Darkwood)";
     private Livro livro;
     List listaSecoes;
 
     public void carregarLivro(){
 
         //Carregar Livro
-        tabelaLivro(manipularArquivos);
+        tabelaLivro(MANIPULARARQUIVOS);
 
         //carregar secoes
-        this.listaSecoes = tabelaSecao(manipularArquivos);
+        this.listaSecoes = tabelaSecao(MANIPULARARQUIVOS);
     }
 
     public void tabelaLivro(ManipularArquivos manipularArquivos){
@@ -58,7 +58,7 @@ public class CadastrarLivroFlorestaDaDestruicao {
         StringBuilder historia = manipularArquivos.lerTexto("textosflorestaestruicao/historia.liv");
 
         int idLivro = 1; //O campo id não vai ser autoincrement, vou declarar para cada livro.
-        this.livro = new Livro(1,this.nomeLivro,descricaoLivro.toString(),regraCalculoIndicesIniciais.toString(),
+        this.livro = new Livro(1,this.NOMELIVO,descricaoLivro.toString(),regraCalculoIndicesIniciais.toString(),
                 regraLuta.toString(),regraUsoSorte.toString(),regraReposicaoIndice.toString(),
                 regraEquipamentos.toString(),dica.toString(),historia.toString());
 
