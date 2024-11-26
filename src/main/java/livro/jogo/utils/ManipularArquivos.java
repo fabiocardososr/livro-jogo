@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class ManipularArquivos {
-    private String nomeArq;
 
-    public StringBuilder lerTexto(String nomeArq) {
+    public static StringBuilder lerTexto(String nomeArq) {
         StringBuilder texto = new StringBuilder();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(nomeArq));

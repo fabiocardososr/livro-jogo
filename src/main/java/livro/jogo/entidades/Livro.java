@@ -6,13 +6,10 @@ import javax.persistence.*;
 @Table(name = "livro")
 public class Livro {
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private int idLivro;
-
-    @ManyToOne
-    @JoinColumn(name="idSecao")
-    private Secao secaoInicial;
-
+    private int secaoInicial; //É a seção inicial
     private String nome;
     private String descricao;
     private String regraCalcularIndicesIniciais;
@@ -22,11 +19,11 @@ public class Livro {
     private String regraEquipamentos;
     private String dicas;
     private String historia;
-    private String imagem; //geralmente endereço de onde se encontra a imagem, se existir.
+    private String imagem; //Endereço de onde se encontra a imagem, se existir.
 
-    public Livro(Integer idLivro, String nome, String descricao, String regraCalcularIndicesIniciais, String regraLuta,
+    public Livro(Integer idLivro, String nome, String descricao, Integer secaoInicial, String regraCalcularIndicesIniciais, String regraLuta,
                   String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
-                 String dicas, String historia) {
+                 String dicas, String historia, String caminhoImagem) {
         this.idLivro = idLivro;
         this.nome = nome;
         this.descricao = descricao;
@@ -37,21 +34,24 @@ public class Livro {
         this.regraEquipamentos = regraEquipamentos;
         this.dicas = dicas;
         this.historia = historia;
+        this.imagem = caminhoImagem;
     }
 
-
-
-    public void setSecaoInicial(Secao secaoInicial) {
-        this.secaoInicial = secaoInicial;
+    public int getSecaoInicial() {
+        return secaoInicial;
     }
+
+//    public void setSecaoInicial(Secao secaoInicial) {
+//        this.secaoInicial = secaoInicial;
+//    }
 
     public int getIdLivro() {
         return idLivro;
     }
 
-    public Secao getSecaoInicial() {
-        return secaoInicial;
-    }
+//    public Secao getSecaoInicial() {
+//        return secaoInicial;
+//    }
 
     public String getNome() {
         return nome;
@@ -97,7 +97,7 @@ public class Livro {
     public String toString() {
         return "Livro{" +
                 "idLivro=" + idLivro +
-                ", secaoInicial=" + secaoInicial.toString() +
+                //", secaoInicial=" + secaoInicial.toString() +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", regraCalcularIndicesIniciais='" + regraCalcularIndicesIniciais + '\'' +
