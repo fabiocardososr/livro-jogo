@@ -28,4 +28,9 @@ public class SecaoDAO {
         secao = this.entidade.merge(secao);
         this.entidade.remove(secao);
     }
+
+    public void apagarTodos(){
+        String jpql = "delete from Secao";
+        this.entidade.createQuery(jpql).executeUpdate();
+    }
 }

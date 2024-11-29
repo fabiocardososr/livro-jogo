@@ -32,7 +32,22 @@ public class InserirNoBd {
         //Comitar
         entity.getTransaction().commit();
         entity.close();
-
     }
 
+    //Feito para limpar a base enquanto vou criando o código para inserção dos registros
+    public static void apagarTudo(){
+        EntityManager entity  = JPAUtil.getEntityManager();
+        entity.getTransaction().begin();
+        ProximaSecaoDAO proximaSecaoDAO = new ProximaSecaoDAO(entity);
+        SecaoDAO secaoDAO               = new SecaoDAO(entity);
+        LivroDAO livroDAO               = new LivroDAO(entity);
+
+        proximaSecaoDAO.apagarTodos();
+        secaoDAO.apagarTodos();
+        livroDAO.apagarTodos();
+
+        //Comitar
+        entity.getTransaction().commit();
+        entity.close();
+    }
 }

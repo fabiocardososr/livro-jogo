@@ -29,4 +29,9 @@ public class ProximaSecaoDAO {
         proximaSecao = this.entidade.merge(proximaSecao);
         this.entidade.remove(proximaSecao);
     }
+
+    public void apagarTodos(){
+        String jpql = "delete from ProximaSecao";
+        this.entidade.createQuery(jpql).executeUpdate();
+    }
 }
