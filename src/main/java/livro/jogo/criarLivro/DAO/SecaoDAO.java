@@ -1,31 +1,31 @@
-package livro.jogo.DAO;
+package livro.jogo.criarLivro.DAO;
 
-import livro.jogo.entidades.Livro;
-
+import livro.jogo.criarLivro.entidades.Secao;
 import javax.persistence.EntityManager;
 
-public class LivroDAO {
+public class SecaoDAO {
+
     private final EntityManager entidade;
 
-    public LivroDAO(EntityManager entidade) {
+    public SecaoDAO(EntityManager entidade) {
         this.entidade = entidade;
     }
 
-    public void inserirRegistro(Livro livro){
+    public void inserirRegistro(Secao secao){
 
-        this.entidade.persist(livro);
+        this.entidade.persist(secao);
     }
 
-    public void atualizar(Livro livro){
+    public void atualizar(Secao secao){
 
-        this.entidade.merge(livro);
+        this.entidade.merge(secao);
     }
 
-    public void remover(Livro livro){
+    public void remover(Secao secao){
         /*  É necessáriofazer isso porque preciso garantir que esteja no modo "Managed".
          Só que o comando merge ele cria uma cópia do objeto deixando-o em modo "Managed". No caso faço a atribuição
          ao objeto que veio como parâmetro para que ele fique neste modo que quero.*/
-        livro = this.entidade.merge(livro);
-        this.entidade.remove(livro);
+        secao = this.entidade.merge(secao);
+        this.entidade.remove(secao);
     }
 }

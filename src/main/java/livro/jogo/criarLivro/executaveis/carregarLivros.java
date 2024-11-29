@@ -1,6 +1,6 @@
-package livro.jogo.executaveis;
+package livro.jogo.criarLivro.executaveis;
 
-import livro.jogo.cadastros.CadastrarLivroFlorestaDaDestruicao;
+import livro.jogo.criarLivro.cadastro.CadastrarLivroFlorestaDaDestruicao;
 
 public class carregarLivros {
 

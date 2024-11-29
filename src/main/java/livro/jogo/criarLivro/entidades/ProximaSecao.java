@@ -1,29 +1,26 @@
-package livro.jogo.entidades;
+package livro.jogo.criarLivro.entidades;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="ProximaSecao")
+@Table(name="proximasecao")
 public class ProximaSecao {
+
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int idLivro;
+    private int idProximaSecao;
+
     @ManyToOne
     @JoinColumn(name="idSecao")
     private Secao secao;
+
     private int codProximaSecao;
     private String textoOpcao; //Aqui descreve a opção para ir a outra página
 
-    public ProximaSecao(int idLivro, Secao secao, int codProximaSecao, String textoOpcao) {
-        this.idLivro            = idLivro;
+    public ProximaSecao(Secao secao, int codProximaSecao, String textoOpcao) {
         this.secao              = secao;
         this.codProximaSecao    = codProximaSecao;
         this.textoOpcao         = textoOpcao;
-    }
-
-    public int getIdLivro() {
-        return idLivro;
     }
 
     public Secao getSecao() {
@@ -41,8 +38,7 @@ public class ProximaSecao {
     @Override
     public String toString() {
         return "ProximaSecao{" +
-                "id=" + id +
-                ", idLivro=" + idLivro +
+                "id=" + idProximaSecao +
                 ", idSecao=" + secao.toString() +
                 ", codProximaSecao=" + codProximaSecao +
                 ", textoOpcao='" + textoOpcao + '\'' +

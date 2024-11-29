@@ -1,10 +1,8 @@
-package livro.jogo.utils;
+package livro.jogo.criarLivro.utils;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class ManipularArquivos {
 

@@ -1,4 +1,4 @@
-package livro.jogo.entidades;
+package livro.jogo.criarLivro.entidades;
 
 import javax.persistence.*;
 
@@ -6,52 +6,44 @@ import javax.persistence.*;
 @Table(name = "livro")
 public class Livro {
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private int idLivro;
     private int secaoInicial; //É a seção inicial
     private String nome;
     private String descricao;
     private String regraCalcularIndicesIniciais;
-    private String regraLuta;
+    private String regraBatalha;
     private String regraUsoSorte;
-    private String regraReposicaoIndices;
+    private String regraReposicaoIndices ;
     private String regraEquipamentos;
     private String dicas;
     private String historia;
     private String imagem; //Endereço de onde se encontra a imagem, se existir.
 
-    public Livro(Integer idLivro, String nome, String descricao, Integer secaoInicial, String regraCalcularIndicesIniciais, String regraLuta,
+    public Livro(Integer idLivro, String nome, String descricao, Integer secaoInicial,
+                 String regraCalcularIndicesIniciais, String regraBatalha,
                   String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
                  String dicas, String historia, String caminhoImagem) {
         this.idLivro = idLivro;
         this.nome = nome;
         this.descricao = descricao;
         this.regraCalcularIndicesIniciais = regraCalcularIndicesIniciais;
-        this.regraLuta = regraLuta;
+        this.regraBatalha = regraBatalha;
         this.regraUsoSorte = regraUsoSorte;
         this.regraReposicaoIndices = regraReposicaoInidices;
         this.regraEquipamentos = regraEquipamentos;
         this.dicas = dicas;
         this.historia = historia;
         this.imagem = caminhoImagem;
+        this.secaoInicial = secaoInicial;
     }
 
     public int getSecaoInicial() {
         return secaoInicial;
     }
 
-//    public void setSecaoInicial(Secao secaoInicial) {
-//        this.secaoInicial = secaoInicial;
-//    }
-
     public int getIdLivro() {
         return idLivro;
     }
-
-//    public Secao getSecaoInicial() {
-//        return secaoInicial;
-//    }
 
     public String getNome() {
         return nome;
@@ -66,7 +58,7 @@ public class Livro {
     }
 
     public String getRegraLuta() {
-        return regraLuta;
+        return regraBatalha;
     }
 
     public String getRegraUsoSorte() {
@@ -97,11 +89,11 @@ public class Livro {
     public String toString() {
         return "Livro{" +
                 "idLivro=" + idLivro +
-                //", secaoInicial=" + secaoInicial.toString() +
+                ", secaoInicial=" + secaoInicial +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", regraCalcularIndicesIniciais='" + regraCalcularIndicesIniciais + '\'' +
-                ", regraLuta='" + regraLuta + '\'' +
+                ", regraBatalha='" + regraBatalha + '\'' +
                 ", regraUsoSorte='" + regraUsoSorte + '\'' +
                 ", regraReposicaoIndices='" + regraReposicaoIndices + '\'' +
                 ", regraEquipamentos='" + regraEquipamentos + '\'' +
