@@ -1,8 +1,6 @@
 package livro.jogo.criarLivro.entidades;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "secao")

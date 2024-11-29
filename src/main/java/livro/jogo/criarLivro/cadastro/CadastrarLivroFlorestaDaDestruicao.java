@@ -3,6 +3,7 @@ package livro.jogo.criarLivro.cadastro;
 import livro.jogo.criarLivro.entidades.Livro;
 import livro.jogo.criarLivro.entidades.ProximaSecao;
 import livro.jogo.criarLivro.entidades.Secao;
+import livro.jogo.criarLivro.entidades.TipoEfeito;
 import livro.jogo.criarLivro.utils.InserirNoBd;
 import livro.jogo.criarLivro.utils.ManipularArquivos;
 
@@ -10,12 +11,27 @@ public class CadastrarLivroFlorestaDaDestruicao {
 
     public void carregarLivroFlorestaDestruicao(){
 
-        //Apaga tudo para refazer
+        /********** Apaga tudo para refazer **********/
         InserirNoBd.apagarTudo();
 
-        //Inserção dos dados
+
+        /********** Inserção dos dados ***********/
+        //TipoEfeito (Se HABILIDADE, SORTE e ENERGIA)
+        inserirTiposEfeito();
+
         Livro livro = carregaLivro();
-        carregaSecoes(livro);
+        inserirSecoes(livro);
+    }
+
+    /********************** CARREGAR TIPOS DE EFEITOS ***************************/
+    private void inserirTiposEfeito(){
+        TipoEfeito tipoEfeito1 = new TipoEfeito(1,"HABILIDADE");
+        TipoEfeito tipoEfeito2 = new TipoEfeito(2,"ENERGIA");
+        TipoEfeito tipoEfeito3 = new TipoEfeito(3,"SORTE");
+
+        InserirNoBd.gravarNoBd(tipoEfeito1);
+        InserirNoBd.gravarNoBd(tipoEfeito2);
+        InserirNoBd.gravarNoBd(tipoEfeito3);
     }
 
     /********************** CARREGAR LIVROS ***************************/
@@ -59,7 +75,7 @@ public class CadastrarLivroFlorestaDaDestruicao {
         return livro;
     }
 
-    private void carregaSecoes(Livro livro){
+    private void inserirSecoes(Livro livro){
 
         secao1(livro);
         secao2(livro);
@@ -134,6 +150,9 @@ public class CadastrarLivroFlorestaDaDestruicao {
         ProximaSecao proximaSecao2 = new ProximaSecao(secao,PROXIMA_OPCAO_SECAO_2, OPCAO_DESCRICAO_2);
         InserirNoBd.gravarNoBd(proximaSecao1);
         InserirNoBd.gravarNoBd(proximaSecao2);
+
+        //Cadastrar item
+
     }
 
 
