@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.utils;
+package livro.jogo.criarLivro.cadastro.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

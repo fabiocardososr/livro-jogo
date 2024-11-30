@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.executaveis;
+package livro.jogo.criarLivro.cadastro.executaveis;
 
 import livro.jogo.criarLivro.cadastro.CadastrarLivroFlorestaDaDestruicao;
 

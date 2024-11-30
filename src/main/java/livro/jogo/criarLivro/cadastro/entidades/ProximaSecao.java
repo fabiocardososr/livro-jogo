@@ -1,6 +1,12 @@
-package livro.jogo.criarLivro.entidades;
+package livro.jogo.criarLivro.cadastro.entidades;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="proximasecao")

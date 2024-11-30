@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.utils;
+package livro.jogo.criarLivro.cadastro.utils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

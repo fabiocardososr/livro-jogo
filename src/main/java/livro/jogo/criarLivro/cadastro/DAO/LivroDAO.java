@@ -1,6 +1,6 @@
-package livro.jogo.criarLivro.DAO;
+package livro.jogo.criarLivro.cadastro.DAO;
 
-import livro.jogo.criarLivro.entidades.Livro;
+import livro.jogo.criarLivro.cadastro.entidades.Livro;
 
 import javax.persistence.EntityManager;
 import java.util.List;

@@ -1,6 +1,6 @@
-package livro.jogo.criarLivro.DAO;
+package livro.jogo.criarLivro.cadastro.DAO;
 
-import livro.jogo.criarLivro.entidades.TipoEfeito;
+import livro.jogo.criarLivro.cadastro.entidades.TipoEfeito;
 import javax.persistence.EntityManager;
 
 public class TipoEfeitoDAO {

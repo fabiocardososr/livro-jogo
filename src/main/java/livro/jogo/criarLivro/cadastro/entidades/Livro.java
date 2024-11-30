@@ -1,6 +1,8 @@
-package livro.jogo.criarLivro.entidades;
+package livro.jogo.criarLivro.cadastro.entidades;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "livro")

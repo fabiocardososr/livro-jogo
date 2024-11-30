@@ -1,13 +1,7 @@
-package livro.jogo.criarLivro.utils;
+package livro.jogo.criarLivro.cadastro.utils;
 
-import livro.jogo.criarLivro.DAO.LivroDAO;
-import livro.jogo.criarLivro.DAO.ProximaSecaoDAO;
-import livro.jogo.criarLivro.DAO.SecaoDAO;
-import livro.jogo.criarLivro.DAO.TipoEfeitoDAO;
-import livro.jogo.criarLivro.entidades.Livro;
-import livro.jogo.criarLivro.entidades.ProximaSecao;
-import livro.jogo.criarLivro.entidades.Secao;
-import livro.jogo.criarLivro.entidades.TipoEfeito;
+import livro.jogo.criarLivro.cadastro.DAO.*;
+import livro.jogo.criarLivro.cadastro.entidades.*;
 
 import javax.persistence.EntityManager;
 
@@ -33,6 +27,14 @@ public class InserirNoBd {
             TipoEfeitoDAO tipoEfeitoDAO = new TipoEfeitoDAO(entity);
             tipoEfeitoDAO.inserirRegistro((TipoEfeito) classe);
         }
+        else if (classe instanceof Item) {
+            ItemDAO itemDAO = new ItemDAO(entity);
+            itemDAO.inserirRegistro((Item) classe);
+        }
+        else if (classe instanceof SecaoItens) {
+            SecaoItensDAO secaoItensDAO = new SecaoItensDAO(entity);
+            secaoItensDAO.inserirRegistro((SecaoItens) classe);
+        }
 
         //Comitar
         entity.getTransaction().commit();
@@ -46,15 +48,12 @@ public class InserirNoBd {
         EntityManager entity  = JPAUtil.getEntityManager();
         entity.getTransaction().begin();
 
-        ProximaSecaoDAO proximaSecaoDAO = new ProximaSecaoDAO(entity);
-        SecaoDAO secaoDAO               = new SecaoDAO(entity);
-        LivroDAO livroDAO               = new LivroDAO(entity);
-        TipoEfeitoDAO tipoEfeitoDAO     = new TipoEfeitoDAO(entity);
-
-        proximaSecaoDAO.apagarTodos();
-        secaoDAO.apagarTodos();
-        livroDAO.apagarTodos();
-        tipoEfeitoDAO.apagarTodos();
+        new SecaoItensDAO(entity).apagarTodos();
+        new ProximaSecaoDAO(entity).apagarTodos();
+        new SecaoDAO(entity).apagarTodos();
+        new ItemDAO(entity).apagarTodos();
+        new LivroDAO(entity).apagarTodos();
+        new TipoEfeitoDAO(entity).apagarTodos();
 
         //Comitar
         entity.getTransaction().commit();

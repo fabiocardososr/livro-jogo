@@ -1,6 +1,6 @@
-package livro.jogo.criarLivro.DAO;
+package livro.jogo.criarLivro.cadastro.DAO;
 
-import livro.jogo.criarLivro.entidades.ProximaSecao;
+import livro.jogo.criarLivro.cadastro.entidades.ProximaSecao;
 import javax.persistence.EntityManager;
 
 public class ProximaSecaoDAO {
