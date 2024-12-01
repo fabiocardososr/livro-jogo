@@ -8,7 +8,8 @@ public class carregarLivros {
 
         /* ** Inicializar classes que farão a inserção na base de dados usando as classes DAO ** */
         CadastrarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CadastrarLivroFlorestaDaDestruicao();
-        livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
+        //livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
+        livroFlorestaDaDestruicao.teste();
 
     }
 

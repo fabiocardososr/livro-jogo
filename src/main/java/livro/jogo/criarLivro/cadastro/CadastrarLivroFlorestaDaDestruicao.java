@@ -1,8 +1,14 @@
 package livro.jogo.criarLivro.cadastro;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import livro.jogo.criarLivro.cadastro.entidades.*;
+import livro.jogo.criarLivro.cadastro.entidades.auxiliar.LivroAuxiliarJson;
 import livro.jogo.criarLivro.cadastro.utils.InserirNoBd;
 import livro.jogo.criarLivro.cadastro.utils.ManipularArquivos;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class CadastrarLivroFlorestaDaDestruicao {
 
@@ -229,7 +235,30 @@ public class CadastrarLivroFlorestaDaDestruicao {
     }
 
     public void teste(){
-        
+        String nomeArquivoContemTexto = "textosflorestaestruicao/livroJson.liv";
+        var texto = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
+
+        //System.out.println(texto);
+
+        //Gson gson = new GsonBuilder().create();
+        //Gson
+       // ProximaSecao proximaSecao =
+
+        Gson gson = new GsonBuilder().create();
+        LivroAuxiliarJson obj = gson.fromJson(texto,LivroAuxiliarJson.class);
+        System.out.println(obj.getIdLivro());
+        System.out.println("\n\n\n\n=================\n\n\n\n");
+        System.out.println("SEÇÃO INCIAL: "+obj.getSecaoInicial());
+
+        //SUBSTITUA ESTE CÓDIGO LÁ NA CARREGAMENTO DOS TEXTOS DO LIVRO
+
+
+
+
+
+
+        //vai ter que criar um objeto tente mudar o json para apenas um registro, sem usar [], pois pelo que entendi
+        //significa um array, faça funcionar depois vc tenta.
     }
 
 

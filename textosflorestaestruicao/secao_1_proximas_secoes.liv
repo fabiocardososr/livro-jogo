@@ -1,1 +1,8 @@
-[{opcao: "261", descricao: "Subirá as escadas atrás dele?"},{opcao: "54", descricao: "Desembainhará sua espada para atacá-lo?"}]
+{
+   "ProximaSecao":
+      {
+         " opcao":"261",
+         "descricao":"Subirá as escadas atrás dele?"
+      }
+   
+}
