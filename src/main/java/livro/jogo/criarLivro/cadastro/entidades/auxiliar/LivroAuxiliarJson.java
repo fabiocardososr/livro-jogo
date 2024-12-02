@@ -4,6 +4,7 @@ package livro.jogo.criarLivro.cadastro.entidades.auxiliar;
 public class LivroAuxiliarJson {
     private final int idLivro;
     private final int secaoInicial;
+    private final String nome;
     private final String descricaoLivro;
     private final String regraCalculoIndicesIniciais;
     private final String regraBatalha;
@@ -12,11 +13,13 @@ public class LivroAuxiliarJson {
     private final String regraEquipamentos;
     private final String dica;
     private final String historia;
+    private final String imagem;
 
-    public LivroAuxiliarJson(int idLivro, int secaoInicial, String descricaoLivro, String regraCalculoIndicesIniciais,
+    public LivroAuxiliarJson(int idLivro, String nome, int secaoInicial, String descricaoLivro, String regraCalculoIndicesIniciais,
                              String regraBatalha, String regraUsoSorte, String regraReposicaoIndice,
-                             String regraEquipamentos, String dica, String historia) {
+                             String regraEquipamentos, String dica, String historia, String imagem) {
         this.idLivro = idLivro;
+        this.nome = nome;
         this.secaoInicial = secaoInicial;
         this.descricaoLivro = descricaoLivro;
         this.regraCalculoIndicesIniciais = regraCalculoIndicesIniciais;
@@ -26,6 +29,15 @@ public class LivroAuxiliarJson {
         this.regraEquipamentos = regraEquipamentos;
         this.dica = dica;
         this.historia = historia;
+        this.imagem = imagem;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public int getIdLivro() {
@@ -72,6 +84,7 @@ public class LivroAuxiliarJson {
     public String toString() {
         return "LivroAuxiliarJson{" +
                 "idLivro=" + idLivro +
+                ", secaoInicial=" + nome +
                 ", secaoInicial=" + secaoInicial +
                 ", descricaoLivro='" + descricaoLivro + '\'' +
                 ", regraCalculoIndicesIniciais='" + regraCalculoIndicesIniciais + '\'' +

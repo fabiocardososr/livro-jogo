@@ -41,7 +41,7 @@ public class CadastrarLivroFlorestaDaDestruicao {
     /********************** CARREGAR LIVROS ***************************/
 
     private Livro carregaLivro(){
-        final int IDLIVRO = 1; //O campo id não vai ser autoincrement, vou declarar para cada livro.
+        /*final int IDLIVRO = 1; //O campo id não vai ser autoincrement, vou declarar para cada livro.
         final int SECAO_INCIAL = 1; //Corresponde a primeira seção do livro. I início da história interativa
         //Descrição do livro
         StringBuilder descricaoLivro = ManipularArquivos.lerTexto("textosflorestaestruicao/descricaoLivro.liv");
@@ -66,12 +66,16 @@ public class CadastrarLivroFlorestaDaDestruicao {
 
         //Regras início da história
         StringBuilder historia = ManipularArquivos.lerTexto("textosflorestaestruicao/historia.liv");
+        */
 
-        String nomeLivro = "Floresta da Destruição (Darkwood)";
-        String imagens = "imagens/capalivro.png;imagens/mapaInicial.png";
-        Livro livro = new Livro(IDLIVRO, nomeLivro,descricaoLivro.toString(),SECAO_INCIAL,regraCalculoIndicesIniciais.toString(),
-                regraBatalha.toString(),regraUsoSorte.toString(),regraReposicaoIndice.toString(),
-                regraEquipamentos.toString(),dica.toString(),historia.toString(), imagens);
+        var texto = ManipularArquivos.lerTexto("textosflorestaestruicao/livroJson.liv").toString();
+        Gson gson = new GsonBuilder().create();
+        LivroAuxiliarJson livroObj = gson.fromJson(texto,LivroAuxiliarJson.class);
+
+        Livro livro = new Livro(livroObj.getIdLivro(), livroObj.getNome(),livroObj.getDescricaoLivro(),livroObj.getSecaoInicial(),
+                livroObj.getRegraCalculoIndicesIniciais(),livroObj.getRegraBatalha(),livroObj.getRegraUsoSorte(),
+                livroObj.getRegraReposicaoIndice(),livroObj.getRegraEquipamentos(),livroObj.getDica(),
+                livroObj.getHistoria(), livroObj.getImagem());
 
         //Grava no banco
         InserirNoBd.gravarNoBd(livro);
@@ -237,12 +241,6 @@ public class CadastrarLivroFlorestaDaDestruicao {
     public void teste(){
         String nomeArquivoContemTexto = "textosflorestaestruicao/livroJson.liv";
         var texto = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
-
-        //System.out.println(texto);
-
-        //Gson gson = new GsonBuilder().create();
-        //Gson
-       // ProximaSecao proximaSecao =
 
         Gson gson = new GsonBuilder().create();
         LivroAuxiliarJson obj = gson.fromJson(texto,LivroAuxiliarJson.class);
