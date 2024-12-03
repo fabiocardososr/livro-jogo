@@ -9,9 +9,9 @@ import javax.persistence.Table;
 public class Livro {
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
     private int idLivro;
-    private int secaoInicial; //É a seção inicial
     private String nome;
     private String descricao;
+    private int secaoInicial; //É a seção inicial
     private String regraCalcularIndicesIniciais;
     private String regraBatalha;
     private String regraUsoSorte;
@@ -21,9 +21,12 @@ public class Livro {
     private String historia;
     private String imagem; //Endereço de onde se encontra a imagem, se existir.
 
+    public Livro() {
+    }
+
     public Livro(Integer idLivro, String nome, String descricao, Integer secaoInicial,
                  String regraCalcularIndicesIniciais, String regraBatalha,
-                  String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
+                 String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
                  String dicas, String historia, String caminhoImagem) {
         this.idLivro = idLivro;
         this.nome = nome;
@@ -39,10 +42,6 @@ public class Livro {
         this.secaoInicial = secaoInicial;
     }
 
-    public int getSecaoInicial() {
-        return secaoInicial;
-    }
-
     public int getIdLivro() {
         return idLivro;
     }
@@ -55,11 +54,15 @@ public class Livro {
         return descricao;
     }
 
+    public int getSecaoInicial() {
+        return secaoInicial;
+    }
+
     public String getRegraCalcularIndicesIniciais() {
         return regraCalcularIndicesIniciais;
     }
 
-    public String getRegraLuta() {
+    public String getRegraBatalha() {
         return regraBatalha;
     }
 

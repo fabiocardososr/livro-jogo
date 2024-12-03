@@ -1,32 +1,37 @@
 package livro.jogo.criarLivro.cadastro;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.entidades.*;
-import livro.jogo.criarLivro.cadastro.entidades.auxiliar.LivroAuxiliarJson;
+import livro.jogo.criarLivro.cadastro.json.SecaoJson;
 import livro.jogo.criarLivro.cadastro.utils.InserirNoBd;
 import livro.jogo.criarLivro.cadastro.utils.ManipularArquivos;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 public class CadastrarLivroFlorestaDaDestruicao {
 
     public void carregarLivroFlorestaDestruicao(){
+        ObjectMapper objMapper = new ObjectMapper();
+
 
         /********** Apaga tudo para refazer **********/
         InserirNoBd.apagarTudo();
 
-
         /********** Inserção dos dados nas tabelas ***********/
 
-        inserirTiposEfeito(); //TipoEfeito (Se HABILIDADE, SORTE, ENERGIA ou NENHUM)
-        Livro livro = carregaLivro();
-        inserirSecoes(livro);
+        //TipoEfeito (Se HABILIDADE, SORTE, ENERGIA ou NENHUM)
+        carregaTiposEfeito();
+
+        //Carregar dados do livro
+        Livro livro = carregaLivro(objMapper);
+
+        //Carregar seções
+        inserirSecoes(objMapper, livro );
     }
 
     /********************** CARREGAR TIPOS DE EFEITOS ***************************/
-    private void inserirTiposEfeito(){
+    private void carregaTiposEfeito(){
         TipoEfeito tipoEfeito1 = new TipoEfeito(1,"HABILIDADE");
         TipoEfeito tipoEfeito2 = new TipoEfeito(2,"ENERGIA");
         TipoEfeito tipoEfeito3 = new TipoEfeito(3,"SORTE");
@@ -40,101 +45,74 @@ public class CadastrarLivroFlorestaDaDestruicao {
 
     /********************** CARREGAR LIVROS ***************************/
 
-    private Livro carregaLivro(){
-        /*final int IDLIVRO = 1; //O campo id não vai ser autoincrement, vou declarar para cada livro.
-        final int SECAO_INCIAL = 1; //Corresponde a primeira seção do livro. I início da história interativa
-        //Descrição do livro
-        StringBuilder descricaoLivro = ManipularArquivos.lerTexto("textosflorestaestruicao/descricaoLivro.liv");
+    private Livro carregaLivro(ObjectMapper objMapper)  {
 
-        //Descrição dos índices de HABILIDADE, ENERGIA E SORTE
-        StringBuilder regraCalculoIndicesIniciais = ManipularArquivos.lerTexto("textosflorestaestruicao/regraCalcularIndicesIniciais.liv");
-
-        //Regras de como é feita a batalha
-        StringBuilder regraBatalha = ManipularArquivos.lerTexto("textosflorestaestruicao/regraBatalha.liv");
-
-        //Regras de REGRAS DE USO DA SORTE
-        StringBuilder regraUsoSorte = ManipularArquivos.lerTexto("textosflorestaestruicao/regraUsoSorte.liv");
-
-        //Regras reposicao dos índices HABILIDADE, ENERGIA E SORTE
-        StringBuilder regraReposicaoIndice = ManipularArquivos.lerTexto("textosflorestaestruicao/regraReposicaoIndice.liv");
-
-        //Regras de equipamentos
-        StringBuilder regraEquipamentos = ManipularArquivos.lerTexto("textosflorestaestruicao/regraEquipamentos.liv");
-
-        //Regras de equipamentos
-        StringBuilder dica = ManipularArquivos.lerTexto("textosflorestaestruicao/dica.liv");
-
-        //Regras início da história
-        StringBuilder historia = ManipularArquivos.lerTexto("textosflorestaestruicao/historia.liv");
-        */
-
-        var texto = ManipularArquivos.lerTexto("textosflorestaestruicao/livroJson.liv").toString();
-        Gson gson = new GsonBuilder().create();
-        LivroAuxiliarJson livroObj = gson.fromJson(texto,LivroAuxiliarJson.class);
-
-        Livro livro = new Livro(livroObj.getIdLivro(), livroObj.getNome(),livroObj.getDescricaoLivro(),livroObj.getSecaoInicial(),
-                livroObj.getRegraCalculoIndicesIniciais(),livroObj.getRegraBatalha(),livroObj.getRegraUsoSorte(),
-                livroObj.getRegraReposicaoIndice(),livroObj.getRegraEquipamentos(),livroObj.getDica(),
-                livroObj.getHistoria(), livroObj.getImagem());
-
-        //Grava no banco
-        InserirNoBd.gravarNoBd(livro);
-
-        return livro;
+        try {
+            var json = ManipularArquivos.lerTexto("textosflorestaestruicao/livro/livro.Json").toString();
+            var livro = objMapper.readValue(json, Livro.class); //Transformando JSDON em objeto (API Jackson)
+            InserirNoBd.gravarNoBd(livro);
+            return livro;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void inserirSecoes(Livro livro){
+    private void inserirSecoes(ObjectMapper objMapper, Livro livro){
 
-        secao1(livro);
-        secao2(livro);
-        secao3(livro);
-        secao4(livro);
-        secao5(livro);
+        //Seção 1
+        secao(objMapper, livro,"textosflorestaestruicao/secoes/secao_1.json");
+
+        //Seção 2
+        secao(objMapper, livro,"textosflorestaestruicao/secoes/secao_2.json");
+
+        //Seção 3
+        secao(objMapper, livro,"textosflorestaestruicao/secoes/secao_3.json");
+
+//        secao2(livro);
+//        secao3(livro);
+//        secao4(livro);
+//        secao5(livro);
 
     }
 
 
     /* ********************** MÉTODOS DAS SEÇÕES ************************ */
 
+    private void secao(ObjectMapper objMapper, Livro livro, String enderecoDoArquivoDaSecao){
 
-    private void secao1(Livro livro){
-        final int SECAO_LIVRO                   = 1; //Referencia a secao real no livro
-        final String nomeArquivoContemTexto     = "textosflorestaestruicao/secao_1.liv";
-        final String IMG                        = "imagens/secao1.png";
-        final String OPCAO_DESCRICAO_1          = "Subirá as escadas atrás dele?";
-        final int PROXIMA_OPCAO_SECAO_1         = 261;
-        final String OPCAO_DESCRICAO_2          = "Desembainhará sua espada para atacá-lo?";
-        final int PROXIMA_OPCAO_SECAO_2         = 54;
+        try {
+            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
+            var  secaoJson = objMapper.readValue(json, SecaoJson.class);
 
-        //Carrega o texto da seção
-        var texto = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
+            //Seção
+            Secao secao = new Secao(livro,secaoJson.getTexto(), secaoJson.getCodSecaoLivro(),secaoJson.getEnderecoImagem());
+            InserirNoBd.gravarNoBd(secao);
 
-        //Carregar seção com os dados
-        Secao secao = new Secao(livro, texto, SECAO_LIVRO,IMG);
+            //Próxima seção
+            List proximasSecoes = secaoJson.getProximasSecoes();
+            for (int i = 0; i < proximasSecoes.size(); i++) {
 
-        //Inserir secao no BD
-        InserirNoBd.gravarNoBd(secao);
+                ProximaSecao proximaSecao = (ProximaSecao) proximasSecoes.get(i);
+                proximaSecao.setSecao(secao);
+                InserirNoBd.gravarNoBd(proximaSecao);
+                System.out.println(proximaSecao);
+            }
 
-        //Próximas seções
-        ProximaSecao proximaSecao1 = new ProximaSecao(secao,PROXIMA_OPCAO_SECAO_1,OPCAO_DESCRICAO_1);
-        ProximaSecao proximaSecao2 = new ProximaSecao(secao,PROXIMA_OPCAO_SECAO_2, OPCAO_DESCRICAO_2);
-        InserirNoBd.gravarNoBd(proximaSecao1);
-        InserirNoBd.gravarNoBd(proximaSecao2);
-    }
+            //Cadastrar itens da seção, se existir
+            List itens = secaoJson.getItens();
+            for (int i = 0; i < itens.size(); i++) {
 
-    private void secao2(Livro livro){
-        final String IMG = "";
-        final int SECAO_LIVRO = 2;
-        final String nomeArquivoContemTexto = "textosflorestaestruicao/secao_2.liv";
+                Item item = (Item) itens.get(i);
+                item.setTipoEfeito(new TipoEfeito(4, "NENHUM"));
 
-        //Carrega o texto da seção
-        var texto = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
+                InserirNoBd.gravarNoBd(item);
+            }
 
-        //Carregar seção com os dados
-        Secao secao = new Secao(livro, texto, SECAO_LIVRO,IMG);
+            //CADASTRAR NA TABELA livros.secaoItens SIGA O EXEMPLO DO OBJETO Item
 
-        //Inserir secao no BD
-        InserirNoBd.gravarNoBd(secao);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void secao3(Livro livro){
@@ -238,25 +216,17 @@ public class CadastrarLivroFlorestaDaDestruicao {
         InserirNoBd.gravarNoBd(new SecaoItens(secao,item,1));
     }
 
-    public void teste(){
-        String nomeArquivoContemTexto = "textosflorestaestruicao/livroJson.liv";
-        var texto = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
+    public void teste() throws JsonProcessingException {
+//        String nomeArquivoContemTexto = "textosflorestaestruicao/secoes/secao_1.json";
+//        var json = ManipularArquivos.lerTexto(nomeArquivoContemTexto).toString();
+//
+//        final var objMapper = new ObjectMapper();
+//        final var  secaoJson = objMapper.readValue(json, SecaoJson.class);
+//
+//       //System.out.println(livro.getIdLivro());
+//        System.out.println("\n\n\n\n=================\n\n\n\n");
+//        System.out.println("SEÇÃO INCIAL: "+secaoJson.toString());
 
-        Gson gson = new GsonBuilder().create();
-        LivroAuxiliarJson obj = gson.fromJson(texto,LivroAuxiliarJson.class);
-        System.out.println(obj.getIdLivro());
-        System.out.println("\n\n\n\n=================\n\n\n\n");
-        System.out.println("SEÇÃO INCIAL: "+obj.getSecaoInicial());
-
-        //SUBSTITUA ESTE CÓDIGO LÁ NA CARREGAMENTO DOS TEXTOS DO LIVRO
-
-
-
-
-
-
-        //vai ter que criar um objeto tente mudar o json para apenas um registro, sem usar [], pois pelo que entendi
-        //significa um array, faça funcionar depois vc tenta.
     }
 
 

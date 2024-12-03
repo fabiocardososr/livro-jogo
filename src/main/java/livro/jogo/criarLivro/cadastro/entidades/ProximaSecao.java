@@ -1,5 +1,7 @@
 package livro.jogo.criarLivro.cadastro.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +16,19 @@ public class ProximaSecao {
 
     @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private int idProximaSecao;
 
     @ManyToOne
     @JoinColumn(name="idSecao")
+    @JsonIgnore
     private Secao secao;
 
     private int codProximaSecao;
     private String textoOpcao; //Aqui descreve a opção para ir a outra página
+
+    public ProximaSecao() {
+    }
 
     public ProximaSecao(Secao secao, int codProximaSecao, String textoOpcao) {
         this.secao              = secao;
@@ -41,11 +48,15 @@ public class ProximaSecao {
         return textoOpcao;
     }
 
+    public void setSecao(Secao secao) {
+        this.secao = secao;
+    }
+
     @Override
     public String toString() {
         return "ProximaSecao{" +
                 "id=" + idProximaSecao +
-                ", idSecao=" + secao.toString() +
+               // ", idSecao=" + secao.toString() +
                 ", codProximaSecao=" + codProximaSecao +
                 ", textoOpcao='" + textoOpcao + '\'' +
                 '}';

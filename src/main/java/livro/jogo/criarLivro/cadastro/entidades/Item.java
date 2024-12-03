@@ -1,5 +1,7 @@
 package livro.jogo.criarLivro.cadastro.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,26 +13,28 @@ import javax.persistence.ManyToOne;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private int idItem;
 
     @ManyToOne
     @JoinColumn(name = "idTipoEfeito")
+    @JsonIgnore
     private TipoEfeito tipoEfeito;                  //indica onde o artefato vai atuar se na HABILIDADE, ENERGIA OU SORTE
 
-    private final String descricao;
-    private final int valorCusto;                         //Como se trata de moedas de ouro pode ficar com tipo inteiro
-    private final int modificador;                        //Altera o valor dos efeitos. Seja ele bom ou ruim, temporário ou permanente (ver os flags). Portanto pode ser um valor negativo também (se efeito ruim)
-    private final int quantidadeUsoTemporario;            //Este campo é setado caso o flgUsoTemporario = "S". Pois este campo indica quantas vezes o efeito será ativado, já que é temporário.
-    private final String flgUsoTemporario;                //Diz se o item tem efeito temporário, seja uma arma ou poção. Exemplo somar mais 1 nas rolagem de dados por duas batalhas.
-    private final String flgUsoUnico;                    //Indica que uma vez usado tem que ser descartado
-    private final String flgUsoPermanente;               //Indica se o efeito do item afeta permanentemente o personagem enquanto usar o item. Exemplo, um item que causa perda de -2 dois pontos nas rolagem de ataques.
-    private final String flgAfetaRolagemDados;           //Indica que o efeito deste item afeta a rolagem de dados tanto para o bem(flgEfeitoPositivo) ou para o mal(flgEfeitoNegativo) decrementando/somando o que consta no campo modificador.
-    private final String flgAfetaNivelAtualPersonagem;   //Diz se o efeito do item afeta os níveis atuais de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
-    private final String flgAfetaNivelMaxPersonagem;      //Diz se o efeito do item afeta os níveis MAX (aumentando o valor que foi definido na rolagem de dados na criação do personagem) de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
+    private  String descricao;
+    private  int valorCusto;                         //Como se trata de moedas de ouro pode ficar com tipo inteiro
+    private  int modificador;                        //Altera o valor dos efeitos. Seja ele bom ou ruim, temporário ou permanente (ver os flags). Portanto pode ser um valor negativo também (se efeito ruim)
+    private  int quantidadeUsoTemporario;            //Este campo é setado caso o flgUsoTemporario = "S". Pois este campo indica quantas vezes o efeito será ativado, já que é temporário.
+    private  String flgUsoTemporario;                //Diz se o item tem efeito temporário, seja uma arma ou poção. Exemplo somar mais 1 nas rolagem de dados por duas batalhas.
+    private  String flgUsoUnico;                    //Indica que uma vez usado tem que ser descartado
+    private  String flgUsoPermanente;               //Indica se o efeito do item afeta permanentemente o personagem enquanto usar o item. Exemplo, um item que causa perda de -2 dois pontos nas rolagem de ataques.
+    private  String flgAfetaRolagemDados;           //Indica que o efeito deste item afeta a rolagem de dados tanto para o bem(flgEfeitoPositivo) ou para o mal(flgEfeitoNegativo) decrementando/somando o que consta no campo modificador.
+    private  String flgAfetaNivelAtualPersonagem;   //Diz se o efeito do item afeta os níveis atuais de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
+    private  String flgAfetaNivelMaxPersonagem;      //Diz se o efeito do item afeta os níveis MAX (aumentando o valor que foi definido na rolagem de dados na criação do personagem) de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
 
-    public Item( TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUsoTemporario,
-                 String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados,
-                 String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem) {
+    public Item(TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUsoTemporario,
+                String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados,
+                String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem) {
         this.tipoEfeito = tipoEfeito;
         this.descricao = descricao;
         this.valorCusto = valorCusto;
@@ -42,6 +46,13 @@ public class Item {
         this.flgAfetaRolagemDados = flgAfetaRolagemDados;
         this.flgAfetaNivelAtualPersonagem = flgAfetaNivelAtualPersonagem;
         this.flgAfetaNivelMaxPersonagem = flgAfetaNivelMaxPersonagem;
+    }
+
+    public void setTipoEfeito(TipoEfeito tipoEfeito) {
+        this.tipoEfeito = tipoEfeito;
+    }
+
+    public Item() {
     }
 
     public int getIdItem() {

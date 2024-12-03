@@ -1,5 +1,7 @@
 package livro.jogo.criarLivro.cadastro.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +16,24 @@ public class Secao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private int idSecao;
 
     @ManyToOne
     @JoinColumn(name="idLivro")
+    @JsonIgnore
     private Livro livro;
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
     private String texto;
     private Integer codSecaoLivro;
     private String enderecoImagem;
+
+    public Secao() {
+    }
 
     public Secao(Livro livro, String texto, Integer codSessaoLivro, String enderecoImagem) {
         this.livro = livro;
