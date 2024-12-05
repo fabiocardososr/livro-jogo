@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.cadastro.executaveis;
+package livro.jogo.criarLivro.executaveis;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import livro.jogo.criarLivro.cadastro.CadastrarLivroFlorestaDaDestruicao;

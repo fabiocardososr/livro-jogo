@@ -1,26 +1,8 @@
-package livro.jogo.criarLivro.cadastro.entidades;
+package livro.jogo.criarLivro.entidades;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-@Entity
 public class Item {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private int idItem;
-
-    @ManyToOne
-    @JoinColumn(name = "idTipoEfeito")
-    @JsonIgnore
     private TipoEfeito tipoEfeito;                  //indica onde o artefato vai atuar se na HABILIDADE, ENERGIA OU SORTE
-
     private  String descricao;
     private  int valorCusto;                         //Como se trata de moedas de ouro pode ficar com tipo inteiro
     private  int modificador;                        //Altera o valor dos efeitos. Seja ele bom ou ruim, temporário ou permanente (ver os flags). Portanto pode ser um valor negativo também (se efeito ruim)
@@ -31,26 +13,6 @@ public class Item {
     private  String flgAfetaRolagemDados;           //Indica que o efeito deste item afeta a rolagem de dados tanto para o bem(flgEfeitoPositivo) ou para o mal(flgEfeitoNegativo) decrementando/somando o que consta no campo modificador.
     private  String flgAfetaNivelAtualPersonagem;   //Diz se o efeito do item afeta os níveis atuais de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
     private  String flgAfetaNivelMaxPersonagem;      //Diz se o efeito do item afeta os níveis MAX (aumentando o valor que foi definido na rolagem de dados na criação do personagem) de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
-
-    public Item(TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUsoTemporario,
-                String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados,
-                String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem) {
-        this.tipoEfeito = tipoEfeito;
-        this.descricao = descricao;
-        this.valorCusto = valorCusto;
-        this.modificador = modificador;
-        this.quantidadeUsoTemporario = quantidadeUsoTemporario;
-        this.flgUsoTemporario = flgUsoTemporario;
-        this.flgUsoUnico = flgUsoUnico;
-        this.flgUsoPermanente = flgUsoPermanente;
-        this.flgAfetaRolagemDados = flgAfetaRolagemDados;
-        this.flgAfetaNivelAtualPersonagem = flgAfetaNivelAtualPersonagem;
-        this.flgAfetaNivelMaxPersonagem = flgAfetaNivelMaxPersonagem;
-    }
-
-    public void setTipoEfeito(TipoEfeito tipoEfeito) {
-        this.tipoEfeito = tipoEfeito;
-    }
 
     public Item() {
     }

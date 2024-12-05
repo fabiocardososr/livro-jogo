@@ -1,4 +1,5 @@
-package livro.jogo.criarLivro.cadastro.utils;
+//Classe responsável por ler os dados de uim arquivo
+package livro.jogo.criarLivro.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,7 +1,7 @@
-package livro.jogo.criarLivro.cadastro.json;
+package livro.jogo.criarLivro.json;
 
-import livro.jogo.criarLivro.cadastro.entidades.Item;
-import livro.jogo.criarLivro.cadastro.entidades.ProximaSecao;
+import livro.jogo.criarLivro.entidades.Item;
+import livro.jogo.criarLivro.entidades.ProximaSecao;
 
 import java.util.ArrayList;
 

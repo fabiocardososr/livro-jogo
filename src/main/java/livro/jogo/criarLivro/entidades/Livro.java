@@ -1,13 +1,6 @@
-package livro.jogo.criarLivro.cadastro.entidades;
+package livro.jogo.criarLivro.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "livro")
 public class Livro {
-    @Id //Infoma que o atributo "id" é a chave primaria que vem da tabela
     private int idLivro;
     private String nome;
     private String descricao;
@@ -88,23 +81,5 @@ public class Livro {
 
     public String getImagem() {
         return imagem;
-    }
-
-    @Override
-    public String toString() {
-        return "Livro{" +
-                "idLivro=" + idLivro +
-                ", secaoInicial=" + secaoInicial +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", regraCalcularIndicesIniciais='" + regraCalcularIndicesIniciais + '\'' +
-                ", regraBatalha='" + regraBatalha + '\'' +
-                ", regraUsoSorte='" + regraUsoSorte + '\'' +
-                ", regraReposicaoIndices='" + regraReposicaoIndices + '\'' +
-                ", regraEquipamentos='" + regraEquipamentos + '\'' +
-                ", dicas='" + dicas + '\'' +
-                ", historia='" + historia + '\'' +
-                ", imagem='" + imagem + '\'' +
-                '}';
     }
 }
