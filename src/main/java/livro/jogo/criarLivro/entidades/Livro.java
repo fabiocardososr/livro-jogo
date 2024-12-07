@@ -1,5 +1,7 @@
 package livro.jogo.criarLivro.entidades;
 
+import java.util.HashMap;
+
 public class Livro {
     private int idLivro;
     private String nome;
@@ -13,26 +15,10 @@ public class Livro {
     private String dicas;
     private String historia;
     private String imagem; //Endereço de onde se encontra a imagem, se existir.
+    private final HashMap<Integer, Secao> mapSecao = new HashMap<Integer, Secao>();
 
-    public Livro() {
-    }
-
-    public Livro(Integer idLivro, String nome, String descricao, Integer secaoInicial,
-                 String regraCalcularIndicesIniciais, String regraBatalha,
-                 String regraUsoSorte, String regraReposicaoInidices, String regraEquipamentos,
-                 String dicas, String historia, String caminhoImagem) {
-        this.idLivro = idLivro;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.regraCalcularIndicesIniciais = regraCalcularIndicesIniciais;
-        this.regraBatalha = regraBatalha;
-        this.regraUsoSorte = regraUsoSorte;
-        this.regraReposicaoIndices = regraReposicaoInidices;
-        this.regraEquipamentos = regraEquipamentos;
-        this.dicas = dicas;
-        this.historia = historia;
-        this.imagem = caminhoImagem;
-        this.secaoInicial = secaoInicial;
+    public HashMap<Integer, Secao> getMapSecao() {
+        return mapSecao;
     }
 
     public int getIdLivro() {

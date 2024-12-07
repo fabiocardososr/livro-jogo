@@ -8,12 +8,7 @@ import java.util.HashMap;
 
 public class ManipularDados {
     private static Livro livro;
-    private static final HashMap<Integer, Secao> mapSecao = new HashMap<Integer, Secao>();
 
-    public ManipularDados(Livro livro) {
-        this.livro = livro;
-
-    }
 
     public static Livro getLivro() {
         return livro;
@@ -24,15 +19,21 @@ public class ManipularDados {
     }
 
     public static HashMap<Integer, Secao> getMapSecao(){
-        return mapSecao;
+        return livro.getMapSecao();
     }
 
     public static void imprimirInfoSecoes() {
 
-        for (Integer key : mapSecao.keySet()) {
+        //Dados do livro
+        System.out.print("\n\nIdLivro: "+ livro.getIdLivro());
+        System.out.println("\nNome: "+ livro.getNome());
+        System.out.println("Descrição: "+ livro.getDescricao());
+        System.out.println("\n======================================\n\n");
+
+        for (Integer key : livro.getMapSecao().keySet()) {
 
             //Capturamos o valor a partir da chave
-            Secao secao = (Secao) mapSecao.get(key);
+            Secao secao = (Secao) livro.getMapSecao()                                                                .get(key);
             System.out.println("\n\nCod. Seção: "+ secao.getCodSecaoLivro());
             System.out.println("Desc. Seção: "+ secao.getTexto());
             System.out.println("Imagem da Seção: "+ secao.getEnderecoImagem());

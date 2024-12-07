@@ -6,18 +6,15 @@ import livro.jogo.criarLivro.entidades.*;
 import livro.jogo.criarLivro.utils.ManipularArquivos;
 import livro.jogo.criarLivro.utils.ManipularDados;
 
-import java.util.HashMap;
+import java.io.File;
 
 public class CarregarLivroFlorestaDaDestruicao {
     public void carregarLivroFlorestaDestruicao(){
 
         ObjectMapper objMapper = new ObjectMapper();
 
-        //Carregar dados do livro
-        Livro livro = carregaLivro(objMapper);
-
         //Guarda as informações do livro para usar quando necessário.
-        ManipularDados.setLivro(livro);
+        ManipularDados.setLivro( carregaLivro(objMapper) );
 
         //Carregar seções
         inserirSecoes(objMapper);
@@ -37,22 +34,19 @@ public class CarregarLivroFlorestaDaDestruicao {
 
     private void inserirSecoes(ObjectMapper objMapper) {
 
-        //Seções
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_1.json");
-        secao(objMapper,  "textosflorestaestruicao/secoes/secao_2.json");
-        secao(objMapper,  "textosflorestaestruicao/secoes/secao_3.json");
-        secao(objMapper,  "textosflorestaestruicao/secoes/secao_4.json");
-        secao(objMapper,  "textosflorestaestruicao/secoes/secao_5.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_6.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_7.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_8.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_9.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_10.json");
-        secao(objMapper, "textosflorestaestruicao/secoes/secao_11.json");
+        //São exatas 400 seções
+        for (int i=1; i<=400; i++) {
+            var endereco = "textosflorestaestruicao/secoes/secao_"+i+".json";
+            var existe = (new File(endereco)).exists();
+
+            if (existe)
+                secao(objMapper, endereco);
+            else
+                System.out.println("INEXISTENTE o Arquivo: "+endereco);
+        }
 
         //Apenas para verificar se tudo ocorreu bem(depois pode remover)
         ManipularDados.imprimirInfoSecoes();
-
     }
 
 
@@ -61,13 +55,13 @@ public class CarregarLivroFlorestaDaDestruicao {
     private void secao(ObjectMapper objMapper, String enderecoDoArquivoDaSecao){
 
         try {
-
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
             var  secao = objMapper.readValue(json, Secao.class);
             ManipularDados.getMapSecao().put(secao.getCodSecaoLivro(),secao);
 
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);
+            //throw new RuntimeException(e);
         }
     }
 

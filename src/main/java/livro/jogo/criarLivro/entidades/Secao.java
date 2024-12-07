@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Secao {
     private Integer codSecaoLivro;
-    private Integer idLivro;
     private String texto;
     private String enderecoImagem;
     private ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
@@ -15,10 +14,6 @@ public class Secao {
     private ArrayList<Inimigo> inimigos = new ArrayList<>();
 
     public Secao() {
-    }
-
-    public Integer getIdLivro() {
-        return idLivro;
     }
 
     public Integer getCodSecaoLivro() {
@@ -48,7 +43,6 @@ public class Secao {
     @Override
     public String toString() {
         return "Secao{" +
-                " idLivro="+idLivro+
                 "codSecaoLivro=" + codSecaoLivro +
                 ", texto='" + texto + '\'' +
                 ", enderecoImagem='" + enderecoImagem + '\'' +
