@@ -1,6 +1,7 @@
 {
-  "texto": "Você segue mais cinco setas até o tronco de uma velha árvore já morta, mas ainda enraizada no solo. Você vê que o tronco é oco, e que o buraco continua pelo chão adentro, formando um túnel. Está escuro no buraco, e você não consegue ver a que distância está o fundo.",
+  "idLivro":"1",
   "codSecaoLivro": "3",
+  "texto": "Você segue mais cinco setas até o tronco de uma velha árvore já morta, mas ainda enraizada no solo. Você vê que o tronco é oco, e que o buraco continua pelo chão adentro, formando um túnel. Está escuro no buraco, e você não consegue ver a que distância está o fundo.",
   "enderecoImagem": "",
   "proximasSecoes": [
     {
@@ -14,6 +15,8 @@
   ],
   "itens":[
   {
+	"idItem":"1",
+	"tipoEfeito":"NENHUM",
 	"descricao":"Anel da Luz",
 	"valorCusto":"3",
 	"modificador":"0",   

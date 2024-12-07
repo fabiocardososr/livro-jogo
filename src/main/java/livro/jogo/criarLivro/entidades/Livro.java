@@ -82,4 +82,22 @@ public class Livro {
     public String getImagem() {
         return imagem;
     }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "idLivro=" + idLivro +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", secaoInicial=" + secaoInicial +
+                ", regraCalcularIndicesIniciais='" + regraCalcularIndicesIniciais + '\'' +
+                ", regraBatalha='" + regraBatalha + '\'' +
+                ", regraUsoSorte='" + regraUsoSorte + '\'' +
+                ", regraReposicaoIndices='" + regraReposicaoIndices + '\'' +
+                ", regraEquipamentos='" + regraEquipamentos + '\'' +
+                ", dicas='" + dicas + '\'' +
+                ", historia='" + historia + '\'' +
+                ", imagem='" + imagem + '\'' +
+                '}';
+    }
 }

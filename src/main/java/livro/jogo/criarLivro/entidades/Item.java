@@ -64,4 +64,22 @@ public class Item {
     public String getFlgAfetaNivelMaxPersonagem() {
         return flgAfetaNivelMaxPersonagem;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "idItem=" + idItem +
+                ", tipoEfeito=" + tipoEfeito +
+                ", descricao='" + descricao + '\'' +
+                ", valorCusto=" + valorCusto +
+                ", modificador=" + modificador +
+                ", quantidadeUsoTemporario=" + quantidadeUsoTemporario +
+                ", flgUsoTemporario='" + flgUsoTemporario + '\'' +
+                ", flgUsoUnico='" + flgUsoUnico + '\'' +
+                ", flgUsoPermanente='" + flgUsoPermanente + '\'' +
+                ", flgAfetaRolagemDados='" + flgAfetaRolagemDados + '\'' +
+                ", flgAfetaNivelAtualPersonagem='" + flgAfetaNivelAtualPersonagem + '\'' +
+                ", flgAfetaNivelMaxPersonagem='" + flgAfetaNivelMaxPersonagem + '\'' +
+                '}';
+    }
 }

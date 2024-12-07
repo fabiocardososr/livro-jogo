@@ -7,20 +7,19 @@ import java.util.ArrayList;
 
 public class Secao {
     private Integer codSecaoLivro;
+    private Integer idLivro;
     private String texto;
     private String enderecoImagem;
     private ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
     private ArrayList<Item> itens = new ArrayList<>();
+    private ArrayList<Inimigo> inimigos = new ArrayList<>();
 
     public Secao() {
     }
 
-    public Secao(String texto, Integer codSessaoLivro, String enderecoImagem) {
-        this.texto = texto;
-        this.codSecaoLivro = codSessaoLivro;
-        this.enderecoImagem = enderecoImagem;
+    public Integer getIdLivro() {
+        return idLivro;
     }
-
 
     public Integer getCodSecaoLivro() {
         return codSecaoLivro;
@@ -42,15 +41,20 @@ public class Secao {
         return itens;
     }
 
+    public ArrayList<Inimigo> getInimigos() {
+        return inimigos;
+    }
+
     @Override
     public String toString() {
         return "Secao{" +
+                " idLivro="+idLivro+
                 "codSecaoLivro=" + codSecaoLivro +
                 ", texto='" + texto + '\'' +
                 ", enderecoImagem='" + enderecoImagem + '\'' +
-                ", proximasSecoes= opcao 1: " + proximasSecoes.get(0).getCodProximaSecao()+
-                " opcao 2: "+proximasSecoes.get(1).getCodProximaSecao() +
+                ", proximasSecoes= " + proximasSecoes+
                 ", itens=" + itens +
+                ", Inimigos=["+inimigos+"]"+
                 '}';
     }
 }

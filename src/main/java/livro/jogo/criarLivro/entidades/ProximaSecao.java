@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ProximaSecao {
     private int codProximaSecao;
     private String textoOpcao; //Aqui descreve a opção para ir a outra página
-    private int secaoAtual;  //Refere-se a seção em que estas opções estão disponíveis
 
     public ProximaSecao() {
     }
@@ -18,16 +17,11 @@ public class ProximaSecao {
         return textoOpcao;
     }
 
-    public int getSecaoAtual() {
-        return secaoAtual;
-    }
 
     @Override
     public String toString() {
-        return "ProximaSecao{" +
+        return "\nProximaSecao{" +
                 "codProximaSecao=" + codProximaSecao +
-                ", textoOpcao='" + textoOpcao + '\'' +
-                ", secaoAtual=" + secaoAtual +
-                '}';
+                ", textoOpcao='" + textoOpcao +'}';
     }
 }
