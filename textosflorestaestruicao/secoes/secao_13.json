@@ -1,0 +1,10 @@
+{  
+  "codSecaoLivro":"13",
+  "texto":"As vibrações atingem seu corpo como ondas de choque que o martelassem. Suas pernas parecem chumbo, e você não consegue mexê-las. De repente, a cabana desaba e vem ao chão. O céu escurece, um vento começa a uivar à sua volta. Venta cada vez mais forte, chegando a atingir a força de uma tempestade e acabando por derrubar você ao chão. Você se agarra na varanda e protege o rosto da sujeira e dos detritos que a tempestade faz voar pelo ar. Mais alto do que o ruído ensurdecedor do vento, você ouve uma risada, seguida por uma voz profunda que exulta: - “Estou livre! Estou livre”! Você libertou um ELEMENTAL DA TERRA no mundo - e perde, por isso, 3 pontos de SORTE. Gradualmente, o vento uivante vai morrendo, e o céu clareia.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Levantando-se em meio aos destroços, você caminha lentamente de volta à trilha para prosseguir rumo ao norte.",
+      "codProximaSecao":"149"
+    }
+  ]
+ }

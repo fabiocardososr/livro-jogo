@@ -1,0 +1,10 @@
+{  
+  "codSecaoLivro":"32",
+  "texto":"Você enfia a mão em sua mochila e entrega 10 Peças de Ouro e dois objetos a Arragon. Faça as modificações necessárias na sua Lista de Equipamentos. Arragon então ordena que você vá embora, e você sai rápido da casa e volta à encruzilhada na trilha. Perde por isso, 1 ponto de SORTE e se dirige para o norte ao longo da trilha.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"150"
+    }
+  ]
+ }

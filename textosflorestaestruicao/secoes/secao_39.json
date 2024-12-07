@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "39",
+  "texto": "Você estica a rede e, em seguida, a faz girar em torno de sua cabeça. Você a lança na direção do Troll da Caverna e fica observando enquanto ela voa silenciosamente pelo ar e aterrissa sobre o seu alvo imóvel. Ela se enrosca em torno do Troll da Caverna, que acorda rapidamente de seu sono, rosna alto e tenta se livrar da rede. Você corre na direção da cadeira de pedra e toma a bolsa de couro do furioso Troll da Caverna. Você sai correndo da caverna, deixando Troll da Caverna ocupado na sua luta para se desvencilhar da rede.",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"287"
+    }
+  ]
+}

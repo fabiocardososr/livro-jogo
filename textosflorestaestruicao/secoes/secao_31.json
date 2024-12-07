@@ -1,0 +1,10 @@
+{  
+  "codSecaoLivro":"31",
+  "texto":"Você engatinha para fora do túnel e segue caminhando pela escada na parede do poço. Você sobe para fora do poço e retorna à trilha",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"362"
+    }
+  ]
+ }

@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"16",
+  "texto":"Você grita para os três humanóides que estão cuidando de um roçado de fungos de topo vermelho. Outra vez eles ignoram sua presença, continuando o trabalho deles. Você pega um dos fungos, parte um pedaço do topo e começa a comer. O gosto é bom, mas uma dor terrível invade seu estômago. O fungo é venenoso",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Você tem uma Poção Antiveneno?",
+      "codProximaSecao":"211"
+    },
+	{	  
+      "textoOpcao":"Se você não possuir esta poção",
+      "codProximaSecao":"345"
+    }
+  ]
+ }
+

@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"21",
+  "texto":"A dor aumenta, e você rapidamente procura em sua mochila e retira a pequena garrafa com o rótulo de Poção Antiveneno. Você engole o conteúdo. Seu corpo relaxa, os efeitos do veneno vão sumindo. Você fica imaginando o que mais está reservado para você nessa floresta e volta-se para o norte, subindo a trilha",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"226"
+    }
+  ]
+ }
+

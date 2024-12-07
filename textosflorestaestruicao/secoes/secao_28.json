@@ -1,0 +1,14 @@
+{  
+  "codSecaoLivro":"28",
+  "texto":"Veja opções",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se você possui uma Braçadeira da Força",
+      "codProximaSecao":"52"
+    },
+	{	  
+      "textoOpcao":"e você não possui este item",
+      "codProximaSecao":"266"
+    }
+  ]
+ }
