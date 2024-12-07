@@ -1,0 +1,12 @@
+{  
+  "idLivro":"1",
+  "codSecaoLivro":"10",
+  "texto":"Você apanha uma pedra de bom tamanho do chão e faz pontaria. Em seguida, lança a pedra com toda a sua força no Ogro, mas fica decepcionado ao vê-la passar voando por sobre sua cabeça e se espatifar contra a parede do outro lado da caverna.",
+  "enderecoImagem": "imagens/secao10.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Você solta um palavrão, mas resolve, ainda assim, avançar pela caverna para atacar o Ogro",
+      "codProximaSecao":"290"
+    }
+  ]
+ }

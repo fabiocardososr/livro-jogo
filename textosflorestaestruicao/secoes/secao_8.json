@@ -1,0 +1,16 @@
+{  
+  "idLivro":"1",
+  "codSecaoLivro":"8",
+  "texto":"Seguindo ao longo da trilha, você ouve passos e vozes que discutem adiante",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se quiser ir de encontro aos donos das vozes",
+      "codProximaSecao":"317"
+    },
+	{	  
+      "textoOpcao":"Se preferir se esconder no mato para deixar que eles passem",
+      "codProximaSecao":"392"
+    }
+  ]
+ }
+
