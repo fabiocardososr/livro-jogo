@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"54",
+  "texto":"Quando você desembainha a espada, Yaztromo se volta para você e o aconselha sem se alterar a não ser tolo, pois a magia dele é poderosa",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se você ainda desejar atacá-lo",
+      "codProximaSecao":"399"
+    },
+	{	  
+      "textoOpcao":"Muda de ideia e resolve segui-lo escada acima",
+      "codProximaSecao":"261"
+    }
+  ]
+ }
+

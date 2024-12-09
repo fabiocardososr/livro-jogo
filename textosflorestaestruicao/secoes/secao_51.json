@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"51",
+  "texto":"Você vai andando pelo vale verdejante até chegar a uma encruzilhada na trilha.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se quiser dirigir-se ao norte",
+      "codProximaSecao":"199"
+    },
+	{	  
+      "textoOpcao":"Se desejar continuar para o leste",
+      "codProximaSecao":"397"
+    }
+  ]
+ }
+

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "60",
+  "texto": "Você prende a respiração e remexe na sua mochila, procurando freneticamente por seus Filtros Nasais. Teste sua Sorte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você teve sorte! Os encontra imediatamente e os coloca nas narinas",
+      "codProximaSecao": "183"
+    },
+	{	  
+      "textoOpcao": "Você Não teve sorte! Não consegue encontrá-los com suficiente rapidez e é forçado a inspirar o gás venenoso",
+      "codProximaSecao": "44"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "87",
+  "texto": "A trilha conduz ao longo de um espinhaço da colina e chega a outra encruzilhada. Você vê que o caminho leva de volta ao rio, por isso, resolve se dirigir ao norte de novo.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "90"
+    }
+  ]
+}

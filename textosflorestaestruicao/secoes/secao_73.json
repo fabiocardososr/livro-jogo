@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "73",
+  "texto": "Você recua e, em seguida, dá carga contra a porta. Precisará fazer um teste e será jogado dois dados.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Se o número obtido for igual ou menor do que tanto o seu índice de SORTE quanto o de HABILIDADE, a porta se abre",
+      "codProximaSecao": "327"
+    },
+	{	  
+      "textoOpcao": "Se o número obtido for maior do que qualquer um dos dois índices, SORTE ou HABILIDADE, você se choca contra a porta e é atirado de volta, esfregando o ombro machucado. Você resolve não se arriscar a sofrer mais ferimentos e retorna à trilha para seguir para o norte",
+      "codProximaSecao": "112"
+    }
+  ]
+}

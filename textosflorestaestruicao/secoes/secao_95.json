@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "95",
+  "texto": "Você tenta com todas as suas forças deslocar a tampa de pedra, mas ela nem se mexe. Você tem a Poeira da Levitação?",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Se tiver",
+      "codProximaSecao": "173"
+    },
+	{	  
+      "textoOpcao": "Não tem",
+      "codProximaSecao": "368"
+    }
+  ]
+ }
