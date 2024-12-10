@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "119",
+  "texto": "O terreno é bastante íngreme, enquanto a trilha vai serpenteando por entre as colinas. Quando você chega no alto, o sol está bem quente. Por toda a volta, na distância, você vê o círculo verde da Floresta de Darkwood. Ainda há névoa pairando sobre o mato alto atrás de você, mas, à sua frente, você vê um vale banhado pela luz do sol. Tudo está quieto. Quando você começa a descer pelo outro lado da colina, vê uma encruzilhada na trilha.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "90"
+    },
+	{	  
+      "textoOpcao": "Rumar para o oeste pela nova ramificação?",
+      "codProximaSecao": "216"
+    }
+  ]
+  }

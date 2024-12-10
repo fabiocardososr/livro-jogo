@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "130",
+  "texto": "A trilha se insinua por entre árvores retorcidas e moitas de espinhos. Você ouve um rosnado acima de você e olha para o alto, vendo uma criatura que parece ser meio-gato e meio-mulher em um galho sobre a trilha. Tem um pêlo curto, preto e reluzente como o de uma pantera, possui patas na extremidade de seus braços e pernas com garras afiadas. O rosto tem feições humanas, com olhos repuxados e dentes compridos. Parece estar pronta para dar o bote",
+  "enderecoImagem": "imagens/secao_130.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Desembainhar sua espada e lutar contra a MULHER-GATO?",
+      "codProximaSecao": "153"
+    },
+	{	  
+      "textoOpcao": "Correr rapidamente para adiante (mas perderá 1 ponto de SORTE)?",
+      "codProximaSecao": "355"
+    }
+  ]
+}
