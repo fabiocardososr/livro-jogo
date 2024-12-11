@@ -3,11 +3,11 @@
   "texto": "Ao colocar o anel em seu dedo médio, você é subitamente acometido por uma dor lancinante. A dor acaba sumindo depois de algum tempo, mas você não consegue tirar o anel do dedo. Você está usando um Anel da Lentidão, o qual é amaldiçoado e forçará você a subtrair 2 pontos de todos os lances de dados futuros ao computar sua Força de Ataque durante um combate.",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Experimentar a luva?",
+      "textoOpcao": "Experimentar a manopla(luva)?",
       "codProximaSecao": "374"
     },
 	{	  
-      "textoOpcao": "Ignorar a luva (ou já a tiver experimentado), você terá que rumar para o norte de novo pela trilha.",
+      "textoOpcao": "Ignorar a manopla(luva) (ou já a tiver experimentado), você terá que rumar para o norte de novo pela trilha.",
       "codProximaSecao": "360"
     }
   ]

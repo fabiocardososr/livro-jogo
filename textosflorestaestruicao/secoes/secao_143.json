@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "143",
+  "texto": "Sua espada corta o fungo de um metro de altura tão facilmente quanto se fosse manteiga. Uma grande nuvem de esporos se espalha saída do caule, dificultando a respiração, Você começa a tossir e engasgar, perdendo 2 pontos de ENERGIA.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Estando vivo, vá para",
+      "codProximaSecao": "80"
+    }
+  ]
+  }

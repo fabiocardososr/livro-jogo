@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "148",
+  "texto": "A trilha continua para o norte, e logo você chega a uma outra encruzilhada.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "97"
+    },
+	 {	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "20"
+    }
+  ]
+  }

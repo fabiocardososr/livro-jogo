@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "141",
+  "texto": "Você pergunta ao Anão se ele é de Stonebridge. Ele olha para você com raiva e salta de pé, apanhando seu machado. Diz que odeia os anões de Stonebridge, e que está em busca do martelo de guerra de Gillibran, na floresta de Darkwood, para levá-lo para sua aldeia, Mirewater, no oeste. Ele diz a você que o nome dele é Trumble, e que a águia favorita dele se perdeu na tentativa de se apossar do martelo de guerra de Gillibran. Você compreende que está falando com um inimigo de Stonebridge; por isso, perde 1 ponto de SORTE.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Atacar Trumble",
+      "codProximaSecao": "347"
+    },
+	{	  
+      "textoOpcao": "Dizer a ele que não tem condições de ajudá-lo, dando adeus e continuar para o leste pela trilha?",
+      "codProximaSecao": "59"
+    }
+  ]
+}
