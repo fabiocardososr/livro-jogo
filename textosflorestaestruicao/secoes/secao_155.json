@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "155",
+  "texto": "Você se instala para dormir de novo, mas começa a tremer e ter calafrios. O suor brota de seu corpo, embora você sinta muito frio.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui alguma beladona?",
+      "codProximaSecao": "83"
+    },
+	{	  
+      "textoOpcao": "Não possui beladona?",
+      "codProximaSecao": "259"
+    }
+  ]
+  }

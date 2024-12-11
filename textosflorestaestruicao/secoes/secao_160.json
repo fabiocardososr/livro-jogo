@@ -1,0 +1,19 @@
+{  	
+  "codSecaoLivro": "160",
+  "texto": "A trilha estreita continua cortando através da floresta cerrada. Animais estranhos soltam gritos, e roídos ecoam pelas árvores. Finalmente, a trilha se alarga até aproximadamente um metro de um lado a outro. Logo, você chega a um poste de sinalização de madeira coberto de musgo, sobre o qual está pousado um corvo grande. Os dois braços do poste de sinalização dizem NORTE e LESTE. Enquanto você está decidindo para que lado ir, ouve as palavras - Boa Tarde!. Você olha na direção de onde veio a voz e vê o corvo olhando para você inquisitivamente. - Boa tarde! - você responde lentamente, sentindo-se meio bobo. O corvo fala de novo, perguntando para que lado você está indo. Você responde que está procurando dois goblins, criaturas pequenas e musculosas de pele marrom escamosa. - Minha informação custa 1 Peça de Ouro - declara o corvo com firmeza.",
+  "enderecoImagem": "imagens/secao_160.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Pagará pela informação dele?",
+      "codProximaSecao": "343"
+    },
+	{	  
+      "textoOpcao": "Ignorará o corvo e seguirá para, o norte?",
+      "codProximaSecao": "8"
+    },
+	{	  
+      "textoOpcao": "Ignorará o corvo e seguirá para o leste?",
+      "codProximaSecao": "239"
+    }
+  ]
+}
