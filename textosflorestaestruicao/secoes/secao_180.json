@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "180",
+  "texto": "Caminhando rapidamente pela trilha, através de mato que chega até a cintura, você chega a uma outra encruzilhada da trilha.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Continuar caminhando para o norte?",
+      "codProximaSecao": "105"
+    },
+	{
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "361"
+    }
+  ]
+}

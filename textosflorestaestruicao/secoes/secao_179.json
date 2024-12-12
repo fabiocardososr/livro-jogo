@@ -1,0 +1,10 @@
+{
+  "codSecaoLivro": "179",
+  "texto": "Você coloca o elmo na sua cabeça. Um impulso de força começa percorrer seu corpo, fazendo com que você se sinta forte e destemido. O elmo possui propriedades mágicas e permitirá que você acrescente um ponto a todos os seus lances de dados futuros ao computar sua própria Força de Ataque durante combates, contanto que o esteja usando. Anote isso na sua lista de Equipamentos. Você começa a caminhar para o norte de novo, satisfeito com seu novo equipamento.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "115"
+    }
+  ]
+}
