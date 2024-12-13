@@ -1,0 +1,18 @@
+{  	
+  "codSecaoLivro": "286",
+  "texto": "Quando você ergue a espada para desferir o primeiro golpe, a criatura começa a se metamorfosear diante de seus olhos. Ele se torna mais alto e fica verde. Uma grande cauda coberta de esporões se estende a partir de suas costas, seus braços ficam mais grossos, e suas mãos desenvolvem garras afiadas. O rosto se deforma e torna-se o de um réptil de olhos vermelhos e uma boca enorme que abriga dúzias de dentes afiados como navalhas.\nEle não é um Goblin, mas sim um MUDA-FORMAS, e você terá que lutar contra ele.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "373"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"55",
+		"nome":"MUDA-FORMAS",
+		"habilidade":"10",
+		"energia":"10"
+	}
+  ]
+  }

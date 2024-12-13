@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "267",
+  "texto": "A trilha conduz à entrada de uma grande caverna e não parece prosseguir mais para o leste.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Entrar na caverna?",
+      "codProximaSecao": "196"
+    },
+	{	  
+      "textoOpcao": "Retornar à encruzilhada e seguir para o norte?",
+      "codProximaSecao": "25"
+    }
+  ]
+}
