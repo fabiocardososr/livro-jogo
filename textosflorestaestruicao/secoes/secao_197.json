@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "197",
+  "texto": "-",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Se possui Poção Antiveneno?",
+      "codProximaSecao": "24"
+    },
+	 {
+      "textoOpcao": "Se não possuir",
+      "codProximaSecao": "53"
+    }
+  ]
+}

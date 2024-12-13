@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "228",
+  "texto": "O fosso é circular, com lados lisos, e você está fraco por causa da queda. Você remexe na sua mochila e tira as botas de couro marrom. Elas parecem muito leves em seus pés. Você se agacha e, com um salto poderoso, cai fora do fosso. Você limpa a poeira de suas roupas e continua sua caminhada para o norte, descendo a garganta.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "255"
+    }
+  ]
+}

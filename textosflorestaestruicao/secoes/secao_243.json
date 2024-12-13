@@ -1,0 +1,15 @@
+
+{  	
+  "codSecaoLivro": "243",
+  "texto": "Você diz a ele que sente muito, mas não viu o tal sino de metal. O pobre e velho frade franze o cenho e em seguida pergunta se você gostaria de dar a ele 1 Peça de Ouro por uma boa causa.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar uma moeda?",
+      "codProximaSecao": "166"
+    },
+	{	  
+      "textoOpcao": "Não fazer doação?",
+      "codProximaSecao": "33"
+    }
+  ]
+  }

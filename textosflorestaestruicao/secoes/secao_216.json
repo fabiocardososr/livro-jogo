@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "216",
+  "texto": "A trilha conduz ao longo de um espinhaço da colina e termina em uma outra encruzilhada. Você vê que o caminho para o sul leva de volta ao rio, por isso você resolve rumar para o norte outra vez.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "278"
+    }
+  ]
+  }

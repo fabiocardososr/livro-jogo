@@ -1,0 +1,34 @@
+{  	
+  "codSecaoLivro": "231",
+  "texto": "A trilha faz curvas e meandros e depois vira bruscamente de repente para o oeste. Seguindo no novo rumo; você ouve guinchos em meio às árvores a sua volta. Escuta o ruído de asas batendo e olha para cima, vendo assim três aves grandes que mergulham descendo sobre você. Seus bicos e garras parecem afiados como navalhas.\n\nVocê tem um segundo para desembainhar sua espada e se defender dos GAVIÕES DA MORTE. Deve Lutar contra um de cada vez.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "224"
+    },
+	{	  
+      "textoOpcao": "Fugir correndo para o oeste pela trilha?",
+      "codProximaSecao": "332"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"44",
+		"nome":"GAVIÃO DA MORTE",
+		"habilidade":"4",
+		"energia":"4"
+	},
+	{
+		"idInimigo":"45",
+		"nome":"GAVIÃO DA MORTE",
+		"habilidade":"4",
+		"energia":"3"
+	},
+	{
+		"idInimigo":"46",
+		"nome":"GAVIÃO DA MORTE",
+		"habilidade":"5",
+		"energia":"4"
+	}
+  ]
+}
