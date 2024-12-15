@@ -17,20 +17,6 @@
   ],
   "itens":[
   {
-	"idItem":"39",
-	"tipoEfeito":"HABILIDADE",
-	"descricao":"Manopla de Ferro (Manopla de Habilidade com Arma)",
-	"valorCusto":"0",
-	"modificador":"1",   
-	"quantidadeUsoTemporario":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"S",
-    "flgAfetaRolagemDados":"S",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
-  },
-  {
 	"idItem":"40",
 	"tipoEfeito":"NENHUM",
 	"descricao":"Faca de Arremesso",
@@ -41,20 +27,6 @@
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",
     "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
-  },
-  {
-	"idItem":"41",
-	"tipoEfeito":"HABILIDADE",
-	"descricao":"Anel de Ouro (Anel da Lentidão)",
-	"valorCusto":"0",
-	"modificador":"-2",   
-	"quantidadeUsoTemporario":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"S",
-    "flgAfetaRolagemDados":"S",
 	"flgAfetaNivelAtualPersonagem":"N",
 	"flgAfetaNivelMaxPersonagem":"N"
   }

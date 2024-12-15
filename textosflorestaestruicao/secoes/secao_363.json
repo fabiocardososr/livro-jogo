@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "363",
+  "texto": "Você revista a mochila do Anão e encontra uma garrafa arrolhada que contém um líquido claro.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Beber o conteúdo da garrafa?",
+      "codProximaSecao": "68"
+    },
+	{	  
+      "textoOpcao": "Deixar a garrafa de lado e partir para o leste de novo pela trilha?",
+      "codProximaSecao": "59"
+    }
+  ]
+}
