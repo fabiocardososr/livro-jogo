@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "343",
+  "texto": "Você coloca a Peça de Ouro no alto do poste de sinalização, conforme pedido pelo corvo, e depois disso ele diz:\n- Vá para o norte.\nVocê pergunta ao corvo porque ele precisa de Peças de Ouro, e ele responde que precisa de 30 Peças de Ouro para pagar a Yaztromo, a fim de que ele o transforme num ser humano de novo. Você diz adeus ao corvo",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o norte?",
+      "codProximaSecao": "8"
+    },
+    {
+      "textoOpcao": "Continuar indo para o leste?",
+      "codProximaSecao": "239"
+    }
+  ]
+  }

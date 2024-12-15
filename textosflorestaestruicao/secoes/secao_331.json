@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "331",
+  "texto": "Você logo chega a uma outra encruzilhada na trilha. Você vê que a trilha que conduz ao sul ruma direto de volta para a floresta e resolve não ir por ela.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Continuar para o oeste?",
+      "codProximaSecao": "124"
+    },
+	{	  
+      "textoOpcao": "Ir para o norte?",
+      "codProximaSecao": "309"
+    }
+  ]
+}

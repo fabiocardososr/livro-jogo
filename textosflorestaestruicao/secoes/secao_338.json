@@ -1,0 +1,30 @@
+{  	
+  "codSecaoLivro": "338",
+  "texto": "O gás é tóxico, e seus olhos começam a lacrimejar. Você prende a respiração por tempo suficiente para achar seus Filtros Nasais e colocá-los em posição no interior das narinas. Você inspira cautelosamente, mas tudo está bem. Depois de algum tempo, a nuvem de gás em torno de seu rosto se dissipa. \nVocê coloca a caixa de prata na sua mochila.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Caminhar até a criatura na jaula?",
+      "codProximaSecao": "85"
+    },
+	{	  
+      "textoOpcao": "Sair da caverna e continuar sua jornada rumo ao norte?",
+      "codProximaSecao": "358"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"43",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Caixa de Prata (tinha Gás Venenoso)",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+}

@@ -1,0 +1,30 @@
+{  	
+  "codSecaoLivro": "322",
+  "texto": "A luz de seu anel penetra nas profundezas escuras do tronco de árvore e do túnel abaixo.\nVocê vê um medalhão de ouro pendente de uma fita de seda a seu alcance, num pedaço de madeira preso ao interior do tronco. Vale 5 Peças de Ouro, e você o coloca na sua mochila.\nO fundo do túnel fica uns cinco metros mais abaixo.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Possui Corda de Escalada?",
+      "codProximaSecao": "94"
+    },
+	{	  
+      "textoOpcao": "Não possui Corda de Escalada?",
+      "codProximaSecao": "380"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"42",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Medalhão de Ouro\n(pendente de uma fita de seda)",
+	"valorCusto":"5",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+}

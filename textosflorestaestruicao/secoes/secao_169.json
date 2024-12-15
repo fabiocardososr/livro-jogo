@@ -10,5 +10,21 @@
       "textoOpcao": "Sair da caverna e continuar sua jornada na direção do norte?",
       "codProximaSecao": "358"
     }
+  ],
+  "itens":[
+  {
+	"idItem":"43",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Caixa de Prata (tinha Gás Venenoso)",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
   ]
 }

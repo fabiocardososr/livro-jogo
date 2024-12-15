@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "314",
+  "texto": "O terreno é bastante íngreme agora, à medida em que a trilha vai serpenteando entre as colinas. Quando você alcança o topo da colina, o sol está bastante quente. Por toda a volta na distância, você vê o círculo verde e compacto da Floresta de Darkwood. A névoa ainda paira sobre o mato alto atrás de você, mas à sua frente você vê o fundo de um vale banhado na luz do sol. Tudo está quieto. Quando você começa a descer pelo outro lado da colina, repara numa pequena cabana de madeira com a porta ligeiramente aberta.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Entrar na cabana?",
+      "codProximaSecao": "294"
+    },
+	{	  
+      "textoOpcao": "Continuar na direção norte?",
+      "codProximaSecao": "288"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{  	
+  "codSecaoLivro": "310",
+  "texto": "O Troll da Caverna se levanta e grunhe alto. Ele está muito aborrecido por ver um intruso na sua caverna e caminha na sua direção, brandindo a clava.\nVocê terá que lutar contra ele.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "101"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"59",
+		"nome":"TROLL DA CAVERNA",
+		"habilidade":"8",
+		"energia":"9"
+	}
+  ]
+}

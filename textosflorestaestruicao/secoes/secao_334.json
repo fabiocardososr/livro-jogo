@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "334",
+  "texto": "Entre as colinas, você vê o fundo do vale, verde e plano, que se estende à sua frente e, além dele, uma sinistra muralha de árvores - a floresta de Darkwood! Do outro lado dela está Stonebridge, o fim de sua jornada. Chegando no vale, a trilha termina numa encruzilhada.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Rumar para o oeste?",
+      "codProximaSecao": "113"
+    },
+	{	  
+      "textoOpcao": "Seguir para o leste?",
+      "codProximaSecao": "51"
+    }
+  ]
+}
