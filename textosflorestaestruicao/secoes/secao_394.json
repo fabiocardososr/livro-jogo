@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "394",
+  "texto": "Gradualmente, o mato à sua volta se torna mais baixo, enquanto o terreno começa a se elevar suavemente. À sua frente, você pode ouvir o som de água corrente. Logo, você chega à margem de um rio de fluxo lento. É um rio muito raso, e há pedras através das quais se pode atravessar para a outra margem, onde a trilha continua para o norte, perdendo-se na distância.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Atravessará o rio pela passagem das pedras?",
+      "codProximaSecao": "66"
+    },
+	{	  
+      "textoOpcao": "Atravessará a pé pela água rasa para o outro lado do rio?",
+      "codProximaSecao": "186"
+    }
+  ]
+}

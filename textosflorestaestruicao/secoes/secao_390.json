@@ -1,14 +1,14 @@
 {  	
-  "codSecaoLivro": "369",
-  "texto": "O vale é verde e agradável, e você fica imaginando porque um lugar tão tranquilo teria se tornado a moradia de tantas criaturas repulsivas. Caminhando ao longo da trilha, você vê na distância a forma altiva de um homem já meio calvo, vestindo longas vestes marrons, que vem na sua direção. Quando ele chega mais perto, você vê que se trata de um frade.",
+  "codSecaoLivro": "390",
+  "texto": "Na distância, você vê a muralha de árvores de um marrom escuro que se ergue à sua frente. A trilha conduz diretamente à Floresta de Darkwood e logo principia a descrever curvas e voltas entre raízes e moitas enredadas. A trilha acaba se dividindo.",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Começará a conversar com ele?",
-      "codProximaSecao": "191"
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "190"
     },
 	{	  
-      "textoOpcao": "Caminhará adiante, passando por ele com um aceno de cabeça?",
-      "codProximaSecao": "390"
+      "textoOpcao": "Rumar para o oeste?",
+      "codProximaSecao": "280"
     }
   ]
 }

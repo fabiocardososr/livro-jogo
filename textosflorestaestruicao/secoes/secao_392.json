@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "392",
+  "texto": "Quando você se agacha no mato fora da trilha, as vozes ficam mais altas. Depois, dois pares de pernas magras, vestindo roupas esfarrapadas, passam por você rapidamente, espalhando poeira e detritos. As vozes logo vão morrendo na distância. Você retorna à trilha e prossegue para o norte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "157"
+    }
+  ]
+}
