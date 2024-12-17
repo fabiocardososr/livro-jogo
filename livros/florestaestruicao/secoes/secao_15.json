@@ -1,0 +1,20 @@
+{  
+  "codSecaoLivro":"15",
+  "texto":"A encosta é íngreme, e você escorrega na gosma, rolando pelo buraco até o fundo de uma grande caverna barrenta. Você salta de pé e fica alarmado ao ver a ponta brilhante do ferrão venenoso na extremidade da cauda de um enorme VERME DE PEÇONHA que está vindo na sua direção. O Verme de Peçonha tem uns cinco metros de comprimento, e seus segmentos amarelos são imensos, mas você está preocupado em proteger-se do ferrão. Não há tempo para fugir para fora do buraco - você tem que desembainhar sua espada e lutar.",
+  "enderecoImagem": "livros/florestaestruicao/imagens/secao15.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se vencer",
+      "codProximaSecao":"217"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"5",
+		"nome":"VERME DE PEÇONHA",
+		"habilidade":"8",
+		"energia":"7"
+	}
+  ]
+ }
+

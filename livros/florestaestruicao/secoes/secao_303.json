@@ -1,0 +1,18 @@
+{  	
+  "codSecaoLivro": "303",
+  "texto": "Alto no céu, você vê uma grande criatura voadora. É, com certeza, maior do que qualquer ave que você tenha visto antes. À medida em que ela se aproxima, você desembainha a espada. Ela solta um grito agudo e alto, e você pode ver sua cabeça longa e a boca cheia de dentes aguçados. Tem uma pele verde de réptil, e suas asas têm cinco metros de ponta a ponta.\nNão há nenhum lugar para se proteger no vale, e você terá que lutar contra o PTERODÁCTILO que mergulha sobre você.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "247"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"58",
+		"nome":"PTERODÁCTILO",
+		"habilidade":"7",
+		"energia":"8"
+	}
+  ]
+}

@@ -1,0 +1,22 @@
+{  	
+  "codSecaoLivro": "352",
+  "texto": "O Homem-Macaco é muito ágil na sua movimentação pela árvore, e você tem dificuldade para brandir a espada.\nSerá reduzido 2 pontos de sua Força de Ataque durante cada série de combate.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "207"
+    },
+	{	  
+      "textoOpcao": "Fugir, ulando da plataforma para o chão cinco metros abaixo?",
+      "codProximaSecao": "156"
+    }	
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"66",
+		"nome":"HOMEM-MACACO",
+		"habilidade":"8",
+		"energia":"7"
+	}
+  ]
+}

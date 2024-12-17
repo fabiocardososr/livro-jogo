@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "93",
+  "texto": "De volta à encruzilhada.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "61"
+    },
+	{	  
+      "textoOpcao": "Continuar a caminho do sul?",
+      "codProximaSecao": "270"
+    }
+  ]
+ }

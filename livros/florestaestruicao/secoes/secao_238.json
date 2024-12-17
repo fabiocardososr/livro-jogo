@@ -1,0 +1,11 @@
+
+{  	
+  "codSecaoLivro": "238",
+  "texto": "Caminhando para o oeste pelo fundo do vale, você passa por uma encruzilhada na trilha, a qual conduz para o sul, de volta às colinas. Você decide continuar caminhando para o oeste.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "221"
+    }
+  ]
+  }

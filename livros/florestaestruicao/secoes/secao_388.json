@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "388",
+  "texto": "-",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "O Lobisomem feriu você durante o combate?",
+      "codProximaSecao": "155"
+    },
+	{	  
+      "textoOpcao": "Não recebeu nenhum ferimento. Ganhou 1 ponto de SORTE",
+      "codProximaSecao": "316"
+    }
+  ]
+}

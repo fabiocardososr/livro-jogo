@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "144",
+  "texto": "Continuando por seu caminho através do vale, você vê a muralha escura da Floresta de Darkwood se erguer diante de você mais uma vez. A trilha conduz diretamente para a vegetação baixa e cerrada, e logo você está caminhando entre árvores altas e moitas espessas e espinhosas. Está escuro e quieto. A trilha não demora a se bifurcar.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Rumar para o oeste?",
+      "codProximaSecao": "213"
+    },
+	{	  
+      "textoOpcao": "Seguir para o leste?",
+      "codProximaSecao": "387"
+    }
+  ]
+  }

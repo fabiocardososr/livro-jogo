@@ -1,0 +1,14 @@
+{  
+  "codSecaoLivro":"12",
+  "texto":"Você diz ao Gnomo que talvez tenha sido um pouco precipitado ao desembainhar a espada, mas tinha de estar preparado para tudo nos limites da cruel Floresta de Darkwood. Ele replica que isso não é desculpa para puxar uma arma diante de um velho indefeso, e que, se você quiser sua espada de volta, isso custará 10 Peças de Ouro ou dois artigos do tesouro da sua mochila. Você paga a ele o que preferir e, para seu alívio, sua espada adorada é devolvida",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se quiser continuar a conversa com ele",
+      "codProximaSecao":"271"
+    },
+	{	  
+      "textoOpcao":"Se achar que já basta de Gnomo e preferir seguir pela trilha para o oeste",
+      "codProximaSecao":"67"
+    }
+  ]
+ }

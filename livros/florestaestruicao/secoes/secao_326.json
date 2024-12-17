@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "326",
+  "texto": "Junto à margem do rio, não parece haver nenhum outro meio de atravessá-lo, a não ser o barco.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "145"
+    }
+  ]
+}

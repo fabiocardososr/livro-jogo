@@ -1,0 +1,18 @@
+{  	
+  "codSecaoLivro": "323",
+  "texto": "Caminhando para o norte, você logo chega a uma encruzilhada na trilha.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "291"
+    },
+	{	  
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "99"
+    },
+	{	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "102"
+    }
+  ]
+}

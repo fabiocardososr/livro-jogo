@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "40",
+  "texto": "Você se levanta e xinga, limpando a poeira de suas roupas com as mãos. Fica tentado a esperar por ali para descobrir quem colocou a armadilha, mas acaba resolvendo não fazer isso.",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"274"
+    }
+  ]
+}

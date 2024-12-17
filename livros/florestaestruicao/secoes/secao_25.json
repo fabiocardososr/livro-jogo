@@ -1,0 +1,14 @@
+{  
+  "codSecaoLivro":"25",
+  "texto":"A trilha acaba por se tornar plana, e você se vê no fundo de um vale. A trilha também continua para o norte, mas há um novo caminho que leva na direção do oeste.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Para continuar para o norte",
+      "codProximaSecao":"369"
+    },
+	{	  
+      "textoOpcao":"Para ir para o oeste",
+      "codProximaSecao":"56"
+    }
+  ]
+ }

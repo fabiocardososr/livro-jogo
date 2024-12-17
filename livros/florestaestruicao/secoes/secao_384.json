@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "384",
+  "texto": "À sua frente, no mato, você ouve um gemido baixo. Você olha para cima e vê os abutres pacientemente esperando no alto. Alguns passos adiante, você se depara com a visão horrível de um homem imenso, com músculos como que de ferro, amarrado pelas pernas e braços a quatro estacas grandes, profundamente enterradas no solo. O homem está nu, exceto por uma pequena tanga, e sua pele está muitíssimo ferida pela exposição ao sol. Seu rosto e peito mostram os sinais sangrentos de torturas cruéis. Seus algozes provavelmente não conseguiram dele as informações que queriam, pois ele é um BÁRBARO!",
+  "enderecoImagem": "livros/florestaestruicao/imagens/secao_384.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você quiser libertá-lo?",
+      "codProximaSecao": "128"
+    },
+	{	  
+      "textoOpcao": "Deixá-lo na sua agonia e voltar à trilha para seguir para o norte?",
+      "codProximaSecao": "394"
+    }
+  ]
+}

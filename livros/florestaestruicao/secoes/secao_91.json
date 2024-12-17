@@ -1,0 +1,27 @@
+{  	
+  "codSecaoLivro": "91",
+  "texto": "Você abre o livro e fica surpreso ao ver que as páginas são escavadas no meio. No interior da cavidade, há uma pequena jóia numa corrente de prata. Ao lado dela está um pergaminho que diz: \n\"OLHO DE ÂMBAR\nInstruções para uso\nColoque o colar em volta de seu pescoço e interrogue aqueles que você teme; Eles, não importa quanto o esforço, somente a verdade a você dirão sempre\"\n\nVocê coloca o colar em volta de seu pescoço e imagina que esse achado acabará por ser útil nessa floresta cruel! Você ganha 1 ponto de SORTE. Saindo da cabana, você retorna à trilha e se dirige ao norte.",
+  "enderecoImagem": "livros/florestaestruicao/imagens/secao_91.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "220"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"15",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Colar",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+ }

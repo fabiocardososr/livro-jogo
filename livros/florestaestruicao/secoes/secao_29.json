@@ -1,0 +1,29 @@
+{  
+  "codSecaoLivro":"29",
+  "texto":"Numa pequena clareira em meio às árvores, você vê duas pequenas criaturas de pele cheia de verrugas, vestindo armaduras de couro. Eles parecem estar discutindo sobre quem deveria se encarregar do coelho que está sendo assando ao fogo num espeto. Ao verem você, eles interrompem a discussão e puxam suas espadas curtas. Você terá que lutar contra os ORCS que avançam na sua direção.",
+  "enderecoImagem": "livros/florestaestruicao/imagens/secao_29.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se você vencer a batalha",
+      "codProximaSecao":"383"
+    },
+	{	  
+      "textoOpcao":"Se quiser Fugir durante a batalha, poderá fazer isso correndo de volta para a trilha e prosseguindo para o norte(sujeito a regra de Fuga)",
+      "codProximaSecao":"254"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"6",
+		"nome":"ORC",
+		"habilidade":"5",
+		"energia":"5"
+	},
+	{
+		"idInimigo":"7",
+		"nome":"ORC",
+		"habilidade":"5",
+		"energia":"6"
+	}
+  ]
+ }

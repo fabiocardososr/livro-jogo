@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "395",
+  "texto": "Ao invés de o pavio se acender, um clarão ofuscante sai da lanterna, tão forte que o deixa incapaz de ver qualquer coisa. Você cambaleia e cai no chão.\nTeste a sua Sorte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! Você não sofre nada com a queda",
+      "codProximaSecao": "154"
+    },
+	{	  
+      "textoOpcao": "Azar! Sua cabeça se choca contra um tronco\nVocê perde 3 pontos de ENERGIA. Se ainda estiver vivo, volte para",
+      "codProximaSecao": "370"
+    }
+  ]
+}

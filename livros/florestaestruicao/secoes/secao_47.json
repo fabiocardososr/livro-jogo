@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "47",
+  "texto": "Enquanto sua atenção é desviada pelo servo, a Bruxa berra umas palavras estranhas no ar. De repente, ela desaparece num raio brilhante e reaparece na forma de um pequeno morcego que sai voando pela porta aberta. Ao ver isso, o corcunda se atira ao chão e começa a chorar.",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Você pode vasculhar a cabana em busca de alguma coisa útil",
+      "codProximaSecao":"26"
+    },
+	{	  
+      "textoOpcao":"Sair da cabana e retornar à trilha para seguir para o norte",
+      "codProximaSecao":"220"
+    }
+  ]
+}

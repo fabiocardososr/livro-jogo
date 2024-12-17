@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "250",
+  "texto": "O vaso cai ao chão, mas não quebra, embora apareçam rachaduras por toda parte. Você começa a sentir uma vibração e então, nota que há rachaduras que surgem por toda parte na varanda e nos lados da cabana. A vibração fica mais forte - todo o seu corpo começa a tremer, e sua cabeça dá a sensação de estar prestes a explodir.\nVocê perde 2 pontos de ENERGIA.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "82"
+    }
+  ]
+}

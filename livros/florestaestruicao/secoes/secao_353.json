@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "353",
+  "texto": "Quando você acorda, descobre que está deitado no chão, do lado de fora da cabana de madeira. Você senta e olha dentro de sua mochila.\nTodas as suas Provisões foram roubadas!\nFelizmente, não há nada mais faltando, e você ainda tem sua espada. Você olha dentro da cabana, mas está deserta.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar uma olhada na cabana a procura de alguma coisa útil?",
+      "codProximaSecao": "26"
+    },
+	{	  
+      "textoOpcao": "Sair da cabana e retornar à trilha e rumar para o norte?",
+      "codProximaSecao": "220"
+    }	
+  ]
+}

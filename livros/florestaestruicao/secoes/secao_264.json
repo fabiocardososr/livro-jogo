@@ -1,0 +1,18 @@
+{  	
+  "codSecaoLivro": "264",
+  "texto": "O pequeno humanóide é um clone e não tem vontade própria. Não oferece resistência. Sua espada separa sua cabeça dos ombros dele e a atira no chão. Os outros não reparam na sua presença. Você fica imaginando quem controla todos eles. Subitamente, você nota que o clone humanóide que você decapitou está se dissolvendo numa poça de líquido roxo, e um novo fungo brota do solo. À medida em que o fungo cresce, a poça roxa é absorvida pelo solo.\nO fungo tem um topo roxo que gira, se movendo para encarar você.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ficar para observar o fungo de topo roxo?",
+      "codProximaSecao": "367"
+    },
+	{	  
+      "textoOpcao": "Rumar na direção do fungo de topo verde?",
+      "codProximaSecao": "189"
+    },
+	{	  
+      "textoOpcao": "Rumar na direção do fungo de topo vermelho?",
+      "codProximaSecao": "282"
+    }
+  ]
+}

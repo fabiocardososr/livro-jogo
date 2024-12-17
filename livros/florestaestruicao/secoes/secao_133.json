@@ -1,0 +1,30 @@
+{  	
+  "codSecaoLivro": "133",
+  "texto": "Ao colocar o anel em seu dedo médio, você é subitamente acometido por uma dor lancinante. A dor acaba sumindo depois de algum tempo, mas você não consegue tirar o anel do dedo. Você está usando um Anel da Lentidão, o qual é amaldiçoado e forçará você a subtrair 2 pontos de todos os lances de dados futuros ao computar sua Força de Ataque durante um combate.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Experimentar a manopla(luva)?",
+      "codProximaSecao": "374"
+    },
+	{	  
+      "textoOpcao": "Ignorar a manopla(luva) (ou já a tiver experimentado), você terá que rumar para o norte de novo pela trilha.",
+      "codProximaSecao": "360"
+    }
+  ],
+  "itens":[  
+  {
+	"idItem":"41",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Anel de Ouro (Anel da Lentidão)",
+	"valorCusto":"0",
+	"modificador":"-2",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+}

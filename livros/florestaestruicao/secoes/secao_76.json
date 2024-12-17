@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "76",
+  "texto": "A trilha faz uma curva repentina para a direita e prossegue na direção norte, penetrando na vegetação baixa e densa.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "206"
+    }
+  ]
+}

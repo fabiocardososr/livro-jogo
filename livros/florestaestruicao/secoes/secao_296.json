@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "296",
+  "texto": "De volta à encruzilhada.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Engatinhar para o sul de volta para o poço?",
+      "codProximaSecao": "398"
+    },
+    {
+      "textoOpcao": "Continuar para o oeste?",
+      "codProximaSecao": "284"
+    }
+  ]
+  }

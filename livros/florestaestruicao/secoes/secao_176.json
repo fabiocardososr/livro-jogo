@@ -1,0 +1,26 @@
+{
+  "codSecaoLivro": "176",
+  "texto": "Você se inclina sobre o corpo sem vida do Goblin louco e examina a vara presa a seu pescoço: Ela é feita de ébano, e há uma rosca de tarraxa numa das extremidades. Você fica excitado ao ver a letra G nitidamente gravada na outra extremidade do que deve ser o cabo do martelo de guerra dos anões. Você põe seu achado na mochila e sai da caverna para continuar para o norte em sua missão.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "358"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"25",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Cabo do Martelo de Guerra dos Anões",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+}

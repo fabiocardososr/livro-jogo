@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "336",
+  "texto": "Começa uma dor no seu estômago, que pouco a pouco se espalha por todo o seu corpo.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Você tem uma Poção Antiveneno?",
+      "codProximaSecao": "21"
+    },
+	{	  
+      "textoOpcao": "Não possui Poção Antiveneno?",
+      "codProximaSecao": "108"
+    }
+  ]
+}

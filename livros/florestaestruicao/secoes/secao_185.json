@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "185",
+  "texto": "Você fica surpreso ao não ver nenhuma marca ou sinal de contusão na sua mão. Você tenta colocar sua mão no vaso de volta, mas uma barreira invisível bloqueia a entrada e impede que você o faça.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Largar o vaso no chão para arrebentá-lo?",
+      "codProximaSecao": "250"
+    },
+	{
+      "textoOpcao": "Colocá-lo na varanda e retornar à trilha para rumar para o norte de novo?",
+      "codProximaSecao": "149"
+    }
+  ]
+}

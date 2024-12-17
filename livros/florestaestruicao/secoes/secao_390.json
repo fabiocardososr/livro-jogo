@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "390",
+  "texto": "Na distância, você vê a muralha de árvores de um marrom escuro que se ergue à sua frente. A trilha conduz diretamente à Floresta de Darkwood e logo principia a descrever curvas e voltas entre raízes e moitas enredadas. A trilha acaba se dividindo.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "190"
+    },
+	{	  
+      "textoOpcao": "Rumar para o oeste?",
+      "codProximaSecao": "280"
+    }
+  ]
+}

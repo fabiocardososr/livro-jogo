@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "177",
+  "texto": "Do lado de fora, na luz intensa, você repara mais uma vez na quietude morta. Uma trilha estreita conduz para o norte a partir do mato alto que circunda a torre de Yaztromo, penetrando na vegetação densa da Floresta de Darkwood. Com poucos passos, você se vê cercado pela floresta escura e espessa; pedras e raízes nodosas parecem se esconder nas sombras, e você quase chega a acreditar que elas estão tentando fazer com que você tropece. A luz diminui rapidamente, e o ar se torna úmido e desagradável. Você vai entrando cada vez mais fundo na penumbra. Finalmente, a trilha se divide em dois ramos pelos lados de uma enorme árvore velha.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "289"
+    },
+	{
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "160"
+    }
+  ]
+}

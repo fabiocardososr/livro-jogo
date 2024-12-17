@@ -1,0 +1,19 @@
+{  	
+  "codSecaoLivro": "142",
+  "texto": "À medida em que a trilha vai seguindo na direção norte, o mato vai ficando mais baixo, e o terreno começa a se elevar suavemente. À sua frente, você ouve o som de água corrente. Logo, você chega às margens de um rio que corre tranqüilamente. Não há ponte, mas você vê que a trilha continua para o norte do outro lado do rio. Diante de você, orgulhosamente ereto, está um animal branco magnífico, meio-homem, meio-cavalo. Traz um arco e um carcais de flechas a tiracolo. É um CENTAURO.",
+  "enderecoImagem": "livros/florestaestruicao/imagens/secao_142.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Tentará iniciar uma conversa com ele?",
+      "codProximaSecao": "366"
+    },
+    {
+      "textoOpcao": "Contornará a criatura para atravessar o rio?",
+      "codProximaSecao": "178"
+    },
+	{
+      "textoOpcao": "Desembainhará sua espada para atacá-lo? ",
+      "codProximaSecao": "251"
+    }
+  ]
+  }

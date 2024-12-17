@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "393",
+  "texto": "Conduzindo ao longo do tranquilo fundo do vale, a trilha chega ao fim numa encruzilhada. O caminho para o sul conduz de volta para as colinas, portanto você resolve não ir por ele, e segue para o norte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "369"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "256",
+  "texto": "Descendo pela escada, você não repara que há um degrau faltando. Você escorrega e perde o apoio do pé.\nTeste a sua Sorte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! Você consegue agarrar-se à escada com as mãos.",
+      "codProximaSecao": "122"
+    },
+	{	  
+      "textoOpcao": "Azar! você cai da escada e despenca até a água lá embaixo.",
+      "codProximaSecao": "295"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{  
+  "codSecaoLivro":"9",
+  "texto":"ocê destranca a porta e dá um passo atrás, desembainhando sua espada caso o Goblin tente lhe atacar. Ele apanha um banco de madeira e, brandindo o objeto no ar, abre a porta com um pontapé e avança sobre você aos gritos",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se vencer",
+      "codProximaSecao":"176"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"4",
+		"nome":"GOBLIN",
+		"habilidade":"5",
+		"energia":"4"
+	}
+  ]
+ }
+

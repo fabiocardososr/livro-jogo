@@ -1,0 +1,30 @@
+{  	
+  "codSecaoLivro": "79",
+  "texto": "Você fica de pé com as costas contra a árvore e se prepara para lutar contra os Morcegos Vampiros. Você lutará contra um de cada vez, à medida que eles mergulham para atacá-lo do alto.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Se vencer, vá para",
+      "codProximaSecao": "386"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"13",
+		"nome":"MORCEGO VAMPIRO",
+		"habilidade":"5",
+		"energia":"5"
+	},
+	{
+		"idInimigo":"14",
+		"nome":"MORCEGO VAMPIRO",
+		"habilidade":"6",
+		"energia":"5"
+	},
+	{
+		"idInimigo":"15",
+		"nome":"MORCEGO VAMPIRO",
+		"habilidade":"5",
+		"energia":"7"
+	}
+  ]
+}

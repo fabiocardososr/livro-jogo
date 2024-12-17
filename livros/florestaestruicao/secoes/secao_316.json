@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "316",
+  "texto": "Finalmente, você consegue voltar a dormir, mas passa a noite inquieto. De manhã, você recolhe seus pertences e ruma para o norte pela trilha para as colinas.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "198"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "113",
+  "texto": "A trilha faz uma curva repentina para a direita e ruma para o norte, cruzando o fundo do vale. À esquerda da trilha, você vê um lago grande com uma pequena cabana de madeira, de teto de palha, às suas margens",  
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Investigar a cabana?",
+      "codProximaSecao": "324"
+    },
+	{	  
+      "textoOpcao": "Ignorá-la e continuar para o norte pela trilha?",
+      "codProximaSecao": "149"
+    }
+  ]
+  }

@@ -1,0 +1,31 @@
+{  
+  "codSecaoLivro":"7",
+  "texto":"Você puxa sua espada e se prepara para enfrentar os agressores de corpos listrados em preto e amarelo. São ABELHAS ASSASSINAS. Elas atacarão em enxames separados, cada enxame contando como uma única criatura.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se vencer",
+      "codProximaSecao":"23"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"1",
+		"nome":"ABELHAS ASSASSINAS",
+		"habilidade":"7",
+		"energia":"3"
+	},
+	{
+		"idInimigo":"2",
+		"nome":"ABELHAS ASSASSINAS",
+		"habilidade":"8",
+		"energia":"4"
+	},
+	{
+		"idInimigo":"3",
+		"nome":"ABELHAS ASSASSINAS",
+		"habilidade":"7",
+		"energia":"4"
+	}
+  ]
+ }
+

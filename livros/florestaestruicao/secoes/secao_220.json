@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "220",
+  "texto": "Caminhando ao longo da trilha estreita, você repara numa árvore grande e velha à sua esquerda, cujo tronco possui um grande buraco um pouco acima da altura da sua cabeça.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Esticar a mão para enfiá-la no buraco?",
+      "codProximaSecao": "275"
+    },
+	{	  
+      "textoOpcao": "Continuar caminhando para o norte?",
+      "codProximaSecao": "115"
+    }
+  ]
+  }

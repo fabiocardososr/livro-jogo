@@ -1,0 +1,15 @@
+
+{  	
+  "codSecaoLivro": "281",
+  "texto": "Você chega a um cruzamento. O caminho para o sul leva de volta para as colinas, portanto, você decide não optar por esta alternativa.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Seguir para o norte?",
+      "codProximaSecao": "163"
+    },
+	{	  
+      "textoOpcao": "Continuar para o leste?",
+      "codProximaSecao": "393"
+    }
+  ]
+  }

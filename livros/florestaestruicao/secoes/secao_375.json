@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "375",
+  "texto": "Aparece uma encruzilhada na trilha.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "150"
+    },
+	{	  
+      "textoOpcao": "Prosseguir para o oeste?",
+      "codProximaSecao": "236"
+    }
+  ]
+}

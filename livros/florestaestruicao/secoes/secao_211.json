@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "211",
+  "texto": "Você pega a pequena garrafa com o rotulo Poção Antiveneno na sua mochila e engole o conteúdo. A dor no seu estômago desaparece gradualmente, e você relaxa. Não parece haver muito motivo para ficar aqui por mais tempo, e você caminha até os degraus na parede do outro lado.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "293"
+    }
+  ]
+  }
