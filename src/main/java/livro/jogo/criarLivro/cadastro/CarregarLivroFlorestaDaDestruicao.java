@@ -25,7 +25,7 @@ public class CarregarLivroFlorestaDaDestruicao {
     private Livro carregaLivro(ObjectMapper objMapper)  {
 
         try {
-            var json = ManipularArquivos.lerTexto("livros/textosflorestaestruicao/livro/livroFlorestaDaDestruicao.Json").toString();
+            var json = ManipularArquivos.lerTexto("livros/florestaestruicao/livro/livroFlorestaDaDestruicao.Json").toString();
             return objMapper.readValue(json, Livro.class); //Transformando JSDON em objeto (API Jackson)
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -36,7 +36,7 @@ public class CarregarLivroFlorestaDaDestruicao {
 
         //São exatas 400 seções
         for (int i=1; i<=400; i++) {
-            var endereco = "livros/textosflorestaestruicao/secoes/secao_"+i+".json";
+            var endereco = "livros/florestaestruicao/secoes/secao_"+i+".json";
             var existe = (new File(endereco)).exists();
 
             if (existe)
