@@ -30,7 +30,7 @@ public class TelaPrincipal extends JFrame {
     private void carregarIconTela(){
         BufferedImage img;
         try {
-            img = ImageIO.read(new File("imagens/capalivro.png"));
+            img = ImageIO.read(new File("livros/textosflorestaestruicao/imagens/capalivro.png"));
             setIconImage(img);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -41,7 +41,7 @@ public class TelaPrincipal extends JFrame {
 
         //Carregar capa do livro
         JLabel labelImgCapaLivro = new JLabel();
-        labelImgCapaLivro.setIcon( new ImageIcon("imagens/capalivro.png"));
+        labelImgCapaLivro.setIcon( new ImageIcon("livros/textosflorestaestruicao/imagens/capalivro.png"));
 
         //Configurando o "tituloCapaLivro"
         JLabel tituloCapaLivro = new JLabel("A FLORESTA DA DESTRUIÇÃO");
