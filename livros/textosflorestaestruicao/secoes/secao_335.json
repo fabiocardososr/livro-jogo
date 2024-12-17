@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "335",
+  "texto": "Você desce pelos escorregadios degraus de pedra até a base da cachoeira. Olha para cima e vê um arco-íris magnífico refletido no vapor d'água. Está escuro na garganta, e é impossível ver através da parede de água em que os degraus terminam.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Atravessar a lâmina de água?",
+      "codProximaSecao": "181"
+    },
+	{	  
+      "textoOpcao": "Subir de volta pelos degraus de pedra?",
+      "codProximaSecao": "326"
+    }
+  ]
+}

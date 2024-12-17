@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "170",
+  "texto": "Você entra num quarto bem mobiliado ornamentado com belos objetos e tapetes felpudos. Sentado numa escrivaninha, junto à parede do outro lado do quarto, há um homem velho, usando vestes roxas e um chapéu cônico. Ele se levanta da cadeira e diz:\n- Eu sou Arragon, e você é um insignificante mortal. Você teve a petulância de entrar na minha morada sem ser convidado, sem dúvida para me roubar e se apossar de minhas riquezas e tesouros. Você está enganado, estrangeiro, pois eu é que o privarei de suas riquezas. A não ser que você me dê 10 Peças de Ouro e dois objetos de sua mochila para serem incorporados à minha coleção de curiosidades, eu o transformarei em pedra",
+    "enderecoImagem": "livros/textosflorestaestruicao/imagens/secao_170.png",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Você está usando o Colar Olho de Âmbar?",
+      "codProximaSecao": "223"
+    },
+	{
+      "textoOpcao": "Você não está usando o Colar Olho de Âmbar",
+      "codProximaSecao": "346"
+    }
+  ]
+}

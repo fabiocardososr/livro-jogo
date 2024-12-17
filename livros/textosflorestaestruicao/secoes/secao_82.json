@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "82",
+  "texto": "Você possui uma Poção da Imobilidade?",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Se possuir, vá para",
+      "codProximaSecao": "235"
+    },
+	{	  
+      "textoOpcao": "Não possui, vá para",
+      "codProximaSecao": "13"
+    }
+  ]
+}

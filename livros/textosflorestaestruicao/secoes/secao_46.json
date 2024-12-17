@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "46",
+  "texto": "A cenoura sai voando pelo ar mas, antes de chegar ao Gnomo, ela se transforma numa borboleta e se afasta, esvoaçando na brisa. O Gnomo começa a cortar lascas de um pedaço de madeira com uma faca pequena, tendo no rosto uma expressão enfastiada. Você perde 2 pontos de SORTE. Resolve então que deveria tratá-lo com um pouco mais de respeito e pede desculpas ao Gnomo.",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Volte para",
+      "codProximaSecao":"12"
+    }
+  ]
+}

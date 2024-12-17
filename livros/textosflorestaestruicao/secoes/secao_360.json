@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "360",
+  "texto": "Caminhando ao longo da estreita trilha, você subitamente ouve o estalo seco de um galho que se parte e o murmúrio de vozes baixas. Você desembainha sua espada e espera ansiosamente, com as costas de encontro a um grande carvalho. Então, vindos de trás das árvores, surgem quatro homens e uma mulher, vestidos com túnicas verdes. Todos parecem ameaçadores, e trazem espadas e machados nas mãos. A jovem mulher dá um passo adiante e diz que você está invadindo o território deles e terá que pagar uma taxa de cinco objetos da sua mochila ou enfrentar as consequências.",
+    "enderecoImagem": "livros/textosflorestaestruicao/imagens/secao_360.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar o que querem?",
+      "codProximaSecao": "279"
+    },
+	{	  
+      "textoOpcao": "Cuspir no chão em resposta e lutar contra eles?",
+      "codProximaSecao": "104"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "90",
+  "texto": "A trilha prossegue para o norte, descendo a colina, entre grandes rochedos e pedras. Você tem uma sensação desagradável de estar sendo observado. Em seguida, vindos de trás de um dos grandes rochedos à esquerda da trilha, surgem dois homens musculosos com barba e cabelos compridos. Estão vestindo peles de animais e parecem ameaçadores. Um deles ajusta uma flecha no arco e a dispara. Teste a sua Sorte.",
+  "enderecoImagem": "livros/textosflorestaestruicao/imagens/secao_90.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! A flecha não o acerta e passa voando pela sua cabeça",
+      "codProximaSecao": "210"
+    },
+    {
+      "textoOpcao": "Azar! A flecha se aloja no seu ombro e você sofre uma perda de 3 pontos de ENERGIA.",
+      "codProximaSecao": "348"
+    }
+  ]
+  }

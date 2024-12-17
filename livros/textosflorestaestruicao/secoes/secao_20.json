@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"20",
+  "texto":"Caminhando para o leste, você se depara com uma ramificação da trilha que segue para o sul. Você decide ignorar isso e continua para o leste.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"277"
+    }
+  ]
+ }
+

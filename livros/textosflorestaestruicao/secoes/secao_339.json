@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "339",
+  "texto": "Logo, você atinge a margem de um rio que flui suavemente. Você vê que a trilha continua para o norte sobre o rio, via uma ponte velha e instável de madeira.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Quer atravessar o rio por essa ponte?",
+      "codProximaSecao": "65"
+    },
+	{	  
+      "textoOpcao": "Prefere nadar para o outro lado do rio, segurando sua mochila fora da água para manter o conteúdo seco?",
+      "codProximaSecao": "75"
+    }
+  ]
+}

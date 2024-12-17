@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "355",
+  "texto": "Você chega a uma outra encruzilhada na trilha. Ignorando o caminho para o sul, você continua para o leste.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "340"
+    }
+  ]
+}

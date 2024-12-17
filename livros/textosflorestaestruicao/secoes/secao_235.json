@@ -1,0 +1,11 @@
+
+{  	
+  "codSecaoLivro": "235",
+  "texto": "Você procura rapidamente na sua mochila e retira a pequena garrafa arrolhada que contém a poção. Você engole o líquido. Uma calma se espalha pelo seu corpo, apesar do caos à sua volta. Subitamente, a cabana desaba e desmonta no chão. Você decide que está na hora de sair desse lugar e correr de volta para a trilha, rumando para o norte.\nSome 1 ponto de SORTE",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "149"
+    }
+  ]
+  }

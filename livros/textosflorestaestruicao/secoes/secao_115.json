@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "115",
+  "texto": "A trilha logo chega a uma encruzilhada",  
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "382"
+    },
+	{	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "277"
+    }
+  ]
+  }

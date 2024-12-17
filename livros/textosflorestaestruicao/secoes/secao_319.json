@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "319",
+  "texto": "Você possui Botas Saltadoras?",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Se possui",
+      "codProximaSecao": "228"
+    },
+	{	  
+      "textoOpcao": "Não possui",
+      "codProximaSecao": "14"
+    }
+  ]
+}

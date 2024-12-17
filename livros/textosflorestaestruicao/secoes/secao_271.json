@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "271",
+  "texto": "Você se aproxima do Gnomo com o braço estendido, oferecendo-se para apertar a mão dele, um convite que ele aceita com uma expressão de dúvida no rosto. Você então conta a ele sobre sua missão, como você conheceu o pobre Perna Grande, e porque decidiu ajudar os anões de Stonebridge. Você pergunta se ele tem alguma informação que pudesse ajudá-lo.\nEle responde que ele não se importa muito com anões, mas que de fato possui informações que poderiam ser úteis para você. Porém, essa informação custará 5 Peças de Ouro ou um artigo do tesouro na sua mochila.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vai pagar o ganancioso Gnomo pelas informações dele?",
+      "codProximaSecao": "297"
+    },
+	{	  
+      "textoOpcao": "Caso não tenha condições ou não quiser pagar a ele, diga-lhe o que pensa dele e parta para o oeste pela trilha",
+      "codProximaSecao": "67"
+    }
+  ]
+}

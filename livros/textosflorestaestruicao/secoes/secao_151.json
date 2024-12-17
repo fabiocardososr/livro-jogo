@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "151",
+  "texto": "O túnel termina numa entrada para uma caverna. Há uma cortina que tapa a entrada, e você não consegue ver lá dentro.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Puxar a cortina e entrar na caverna?",
+      "codProximaSecao": "71"
+    },
+	 {	  
+      "textoOpcao": "Dar meia volta e retornar à encruzilhada no túnel?",
+      "codProximaSecao": "296"
+    }
+  ]
+  }

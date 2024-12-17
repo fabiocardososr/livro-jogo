@@ -1,0 +1,18 @@
+{
+  "codSecaoLivro": "187",
+  "texto": "Caminhando pela trilha sinuosa, você vê uma criatura pequena e musculosa, de pele marrom coberta de escamas, sentada em um tronco à direita da trilha. Ela tem uma expressão malhumorada no rosto, enquanto joga lentamente uma vara preta e brilhante de uma mão para outra. Talvez ela seja um dos Goblins que você está procurando.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Desembainhará sua espada e atacará o Goblin?",
+      "codProximaSecao": "286"
+    },
+	{
+      "textoOpcao": "Tentará iniciar uma conversa com o Goblin?",
+      "codProximaSecao": "203"
+    },
+	{
+      "textoOpcao": "Ignorará o Goblin e continuará caminhando para o norte?",
+      "codProximaSecao": "6"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "328",
+  "texto": "Apesar de ser feita de carvalho duro, a cadeira é surpreendentemente confortável. Você começa a comer, mas, ao invés de se sentir mais forte, sente-se mais fraco.\nVocê está sentado numa Cadeira de Sugamento da Vida, que suga 4 pontos de seu índice de ENERGIA, apesar da porção de suas Provisões comida.\nSe ainda estiver vivo, você consegue levantar-se vagarosamente da cadeira e cambalear para o norte pela trilha.",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "118"
+    }
+  ]
+}

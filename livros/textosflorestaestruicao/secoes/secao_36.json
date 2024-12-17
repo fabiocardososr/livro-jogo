@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "36",
+  "texto": "Pensando a respeito do estranho de vestes longas, você se sente um pouco desconfortável. Havia alguma coisa na sua maneira de ser que não inspirava confiança. Você pára para dar uma olhada na sua mochila e fica aborrecido ao descobrir que algumas coisas desapareceram. O homem era um ladrão! Retire de sua Folha de Aventuras todas as Peças de Ouro restantes ou dois artigos mágicos dos que você comprou de Yaztromo. Você fica em dúvida se deve ou não sair correndo atrás do ladrão, mas pressente que ele não estará onde disse que iria. Você xinga o gatuno e prossegue na direção norte.",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"vá para",
+      "codProximaSecao":"187"
+    }
+  ]
+  }

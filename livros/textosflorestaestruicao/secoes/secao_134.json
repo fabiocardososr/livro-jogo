@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "134",
+  "texto": "Você enuncia um desejo, mas nada acontece.\nVocê perde 1 ponto de SORTE.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Esfregar lama quente nos seus ferimentos?",
+      "codProximaSecao": "283"
+    },
+	{	  
+      "textoOpcao": "Deseja partir para o norte pela trilha?",
+      "codProximaSecao": "303"
+    }
+  ]
+}

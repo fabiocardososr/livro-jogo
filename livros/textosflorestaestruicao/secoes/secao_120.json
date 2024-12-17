@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "120",
+  "texto": "Você deixa cair uma pedra pelo tronco oco da árvore, descendo pelo túnel abaixo. Deve haver uns cinco metros até o fundo.\n\nVocê possui uma Corda de Escalada?",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possuindo",
+      "codProximaSecao": "94"
+    },
+	{	  
+      "textoOpcao": "Não possuindo",
+      "codProximaSecao": "380"
+    }
+  ]
+  }

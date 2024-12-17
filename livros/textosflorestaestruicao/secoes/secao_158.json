@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "158",
+  "texto": "Você começa a perder o equilíbrio, à medida em que a ilusão vai distorcendo sua mente. Você fecha os olhos e enfia a mão na sua mochila, tirando a Fita de Cabeça da Concentração, a qual você rapidamente coloca na cabeça. A sensação de tontura na sua cabeça desaparece, e você abre os olhos de novo para ver a velha que agora você se dá conta de que é uma BRUXA. Para impedir que você a alcance, o servo joga uma cadeira de madeira em você.\n\nTeste a sua SORTE",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! A cadeira não acerta em você.",
+      "codProximaSecao": "47"
+    },
+	{	  
+      "textoOpcao": "Azar! A cadeira o atinge no lado da cabeça, fazendo com que você perca os sentidos.",
+      "codProximaSecao": "353"
+    }
+  ]
+}

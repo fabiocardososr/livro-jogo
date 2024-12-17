@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"50",
+  "texto":"Em volta do pescoço de um dos Montanheses Selvagens, você encontra uma pequena chave de prata presa a um cordão de couro. Você desamarra o cordão e põe a chave na sua mochila. Em seguida, parte novamente para o norte",  
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Vá para",
+      "codProximaSecao":"188"
+    }
+  ]
+ }
+

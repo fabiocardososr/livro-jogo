@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "260",
+  "texto": "Ao ver que a flecha não matou você, o Centauro empina sobre as patas traseiras e avança na sua direção a galope. Você tem que saltar de lado para evitar ser atropelado. Ele passa trovejando por você, numa nuvem de poeira, e pára a uns dez metros de distância, mais abaixo na trilha, a mesma pela qual você chegou. Talvez lutar contra o nobre Centauro não seja uma ideia tão boa, afinal de contas. Você põe a espada na bainha e resolve atravessar o rio.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "178"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "126",
+  "texto": "Você levanta delicadamente a tampa da caixa, mas, ao fazê-lo, um gás amarelo escapa e envolve seu rosto.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui Filtros Nasais?",
+      "codProximaSecao": "365"
+    },
+	{	  
+      "textoOpcao": "Não possui Filtros Nasais",
+      "codProximaSecao": "22"
+    }
+  ]
+  }

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "254",
+  "texto": "Mais adiante, na estreita trilha, você ouve um rosnado profundo ti sua esquerda nas árvores.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer ver que criatura está rosnando?",
+      "codProximaSecao": "241"
+    },
+	{	  
+      "textoOpcao": "Ignorar a criatura e continuar para o norte pela trilha?",
+      "codProximaSecao": "300"
+    }
+  ]
+}

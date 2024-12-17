@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "189",
+  "texto": "Os fungos de topo verde estão sendo regados por dois humanóides.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Quer comer um pouco de fungo?",
+      "codProximaSecao": "269"
+    },
+	{
+      "textoOpcao": "Sair da caverna pelos degraus na parede do outro lado?",
+      "codProximaSecao": "293"
+    }
+  ]
+}

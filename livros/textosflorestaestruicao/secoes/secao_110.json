@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "110",
+  "texto": "-",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Revistar a mochila de couro do Gremlin?",
+      "codProximaSecao": "257"
+    },
+	{	  
+      "textoOpcao": "Sair do túnel sem mais demora?",
+      "codProximaSecao": "31"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "161",
+  "texto": "Quando sua mão penetra na escuridão absoluta do vaso, é acometida por uma dor intensa. Primeiro, você tem a sensação de que ela está sendo esmagada, depois que está em chamas.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Retirar sua mão do vaso?",
+      "codProximaSecao": "185"
+    },
+	{	  
+      "textoOpcao": "Tatear lá por dentro para descobrir o que há no vaso?",
+      "codProximaSecao": "341"
+    }
+  ]
+}

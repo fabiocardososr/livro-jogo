@@ -1,0 +1,19 @@
+
+{  	
+  "codSecaoLivro": "241",
+  "texto": "À medida em que vai abrindo caminho entre as árvores na direção dos grunhidos, você subitamente dá de cara com um enorme URSO pardo. Há um pequeno dardo cravado em seu peito, e ele parece estar enlouquecido de dor e raiva.\nVocê desembainha sua espada e se prepara para lutar.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "219"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"47",
+		"nome":"URSO",
+		"habilidade":"7",
+		"energia":"8"
+	}
+  ]
+  }

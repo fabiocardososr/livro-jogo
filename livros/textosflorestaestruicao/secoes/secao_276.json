@@ -1,0 +1,47 @@
+
+{  	
+  "codSecaoLivro": "276",
+  "texto": "Quando você recua para atacar o cavaleiro mascarado, o maior dos quatro cães salta sobre você, o que o obriga a lutar contra ele primeiro.\n\nSe você derrotar o Cão-de-Caça, terá que lutar então com os outros três cães e seu dono em pares. Ambos os membros de um par terão a chance de um ataque separado contra você em cada Série de Ataque, mas você terá que escolher qual dos dois será atacado por você. Ataque o alvo determinado como numa batalha normal. Contra o outro, você jogará para conhecer sua Força de Ataque da maneira normal, mas não vai causar-Ihe ferimento se sua Força de Ataque for maior - terá que contar isso apenas como se você tivesse se defendido com sucesso de um golpe dele. É claro que, se a Força de Ataque dele for maior, você sofrerá ferimento do modo normal.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "62"
+    },
+	{	  
+      "textoOpcao": "",
+      "codProximaSecao": ""
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"49",
+		"nome":"CÃO-DE-CAÇA",
+		"habilidade":"7",
+		"energia":"6"
+	},
+	{
+		"idInimigo":"50",
+		"nome":"CÃO-DE-CAÇA",
+		"habilidade":"6",
+		"energia":"6"
+	},
+	{
+		"idInimigo":"51",
+		"nome":"CÃO-DE-CAÇA",
+		"habilidade":"5",
+		"energia":"6"
+	},
+	{
+		"idInimigo":"52",
+		"nome":"CÃO-DE-CAÇA",
+		"habilidade":"6",
+		"energia":"5"
+	},
+	{
+		"idInimigo":"53",
+		"nome":"MASCARADO",
+		"habilidade":"8",
+		"energia":"7"
+	}
+  ]
+  }

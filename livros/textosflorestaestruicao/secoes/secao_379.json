@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "379",
+  "texto": "-",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Tentar arrombar a porta?",
+      "codProximaSecao": "73"
+    },
+	{	  
+      "textoOpcao": "Retornar à trilha e rumar para o norte?",
+      "codProximaSecao": "112"
+    }
+  ]
+}

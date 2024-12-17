@@ -1,0 +1,30 @@
+{  	
+  "codSecaoLivro": "374",
+  "texto": "Você coloca a manopla na sua mão e segura a espada. Desferindo golpes no ar com ela, você se sente mais habilidoso do que o habitual com sua arma.\n\nVocê agora possui uma Manopla de Habilidade com Arma, que permitirá que você acrescente 1 ponto a todos os seus lances de dados futuros, quando estiver calculando sua própria Força de Ataque durante os combates, por tanto tempo quanto a usar.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Experimentar o anel de ouro?",
+      "codProximaSecao": "133"
+    },
+	{	  
+      "textoOpcao": "Ignorar o anel de ouro (ou se já experimentou), você deve rumar para o norte outra vez pela trilha?",
+      "codProximaSecao": "360"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"39",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Manopla de Ferro (Manopla de Habilidade com Arma)",
+	"valorCusto":"0",
+	"modificador":"1",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+}

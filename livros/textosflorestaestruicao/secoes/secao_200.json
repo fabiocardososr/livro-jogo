@@ -1,0 +1,14 @@
+{
+  "codSecaoLivro": "200",
+  "texto": "Você pega a pequena chave de prata na sua mochila e a coloca no buraco da fechadura. Serve perfeitamente, e você gira uma vez. A fechadura estala, e a porta de pedra se abre. Degraus de pedra conduzem da porta a profundezas de penumbra. Você não consegue nada lá embaixo.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Descer as escadas?",
+      "codProximaSecao": "351"
+    },
+	 {
+      "textoOpcao": "Sair da construção, retornar à trilha e rumar para o norte?",
+      "codProximaSecao": "112"
+    }
+  ]
+}

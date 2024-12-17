@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "368",
+  "texto": "Não há mais nada que você possa fazer nesse aposento, por isso você resolve caminhar de volta para as escadas e retornar à trilha para rumar para o norte.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "112"
+    }
+  ]
+}

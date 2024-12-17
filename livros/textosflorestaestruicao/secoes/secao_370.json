@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "370",
+  "texto": "Você tateia à sua volta freneticamente em completa escuridão. Lentamente, sua visão retorna, e você se levanta de novo. Com sua própria visão totalmente recuperada, você parte para o norte de novo pela trilha.\nContudo, enquanto você estava no chão, um artigo caiu de sua mochila. Escolha um item para remover de sua mochila.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "231"
+    }
+  ]
+}

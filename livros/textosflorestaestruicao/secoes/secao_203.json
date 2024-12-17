@@ -1,0 +1,18 @@
+{
+  "codSecaoLivro": "203",
+  "texto": "Quando você começa a falar, o Goblin olha para cima e sorri. Em seguida, ele dá início a uma metamorfose diante de seus olhos. Torna-se mais alto e esverdeado. Uma grande cauda coberta de esporões se estende de suas costas, seus braços engrossam, e suas mãos desenvolvem garras afiadas. O rosto se deforma e assume as formas de um réptil de olhos vermelhos, boca escancarada e dúzias de dentes aguçados. Ele não é um Goblin, mas um MUDA-FORMAS.\nVocê terá que lutar contra ele.",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "373"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"38",
+		"nome":"MUDA-FORMAS",
+		"habilidade":"10",
+		"energia":"10"
+	}
+  ]
+}

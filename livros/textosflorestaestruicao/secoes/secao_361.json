@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "361",
+  "texto": "Vindo não de muito longe, adiante, chega a você o ruído penetrante de cachorros que se aproximam latindo. De repente, uma raposa marrom com os olhos arregalados de medo passa em disparada por você, correndo para o leste. O latido frenético dos cães fica mais alto.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer enfrentar a matilha que se aproxima?",
+      "codProximaSecao": "396"
+    },
+	{	  
+      "textoOpcao": "Se esconder no mato alto fora da trilha e deixar que eles passem correndo em perseguição à raposa?",
+      "codProximaSecao": "86"
+    }
+  ]
+}

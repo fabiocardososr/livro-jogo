@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "309",
+  "texto": "A trilha corta pelo meio do mato, que chega à altura da cintura. Embora sua visibilidade seja boa, você não se sente muito tranquilo em relação às criaturas que podem estar espreitando você em ambos os lados da trilha. Repentinamente, o mato à sua esquerda se agita, e dois tubos de madeira aparecem, apontando diretamente para você. São zarabatanas pertencentes a dois PIGMEUS, que disparam dardos na sua direção.\n\nTeste a sua Sorte duas vezes, uma para cada dardo",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte dupla! Os dardos não o atingem.",
+      "codProximaSecao": "77"
+    },
+	{	  
+      "textoOpcao": "Azar! Um ou dois dardos o atinge (NOTA PARA DESENVOLVIMENTO: programe isso, ou seja, identifique quantos sucessos na sorte e informe exatamente quantos dardos atingiu)",
+      "codProximaSecao": "197"
+    }
+  ]
+}

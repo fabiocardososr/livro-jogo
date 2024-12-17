@@ -1,0 +1,10 @@
+{  	
+  "codSecaoLivro": "387",
+  "texto": "No chão, à sua frente, há uma única Peça de Ouro. Você a apanha e atira para o ar com o polegar. Em seguida, você a coloca no bolso.\nSome 1 ponto de SORTE",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vá para",
+      "codProximaSecao": "340"
+    }
+  ]
+}

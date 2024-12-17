@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "114",
+  "texto": "O Homem-Árvore avança lentamente na sua direção sobre suas raízes grandes e espalhadas.",  
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você possuir Cápsulas de Fogo?",
+      "codProximaSecao": "350"
+    },
+	{	  
+      "textoOpcao": "Não possui Cápsulas de Fogo, desembainhe sua espada",
+      "codProximaSecao": "123"
+    }
+  ]
+  }

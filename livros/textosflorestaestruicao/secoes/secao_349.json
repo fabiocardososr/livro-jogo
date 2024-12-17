@@ -1,0 +1,14 @@
+{  	
+  "codSecaoLivro": "349",
+  "texto": "Você chega de volta ao cruzamento. Ignorando o caminho para o sul, que volta para a floresta.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o norte?",
+      "codProximaSecao": "291"
+    },
+	{	  
+      "textoOpcao": "Continuar para o leste?",
+      "codProximaSecao": "102"
+    }
+  ]
+}

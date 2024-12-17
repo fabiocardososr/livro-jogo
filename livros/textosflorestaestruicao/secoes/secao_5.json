@@ -1,0 +1,32 @@
+{  
+  "codSecaoLivro":"5",
+  "texto":"Sentado no trono ornamentado, você se sente estranhamente desconfortável. Os Dois Guerreiros-Clones rastejam no chão à sua frente em completa subserviência. Será que eles esperam que você se torne o novo senhor deles?",
+  "enderecoImagem": "",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se você quiser colocar a coroa de ouro sobre sua cabeça",
+      "codProximaSecao":"333"
+    },
+    {
+      "textoOpcao":"Se preferir sair do nicho e subir o restante dos degraus até o teto da caverna",
+      "codProximaSecao":"249"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"2",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Coroa de ouro",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+ }
+

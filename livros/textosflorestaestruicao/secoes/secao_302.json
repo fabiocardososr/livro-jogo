@@ -1,0 +1,26 @@
+{  	
+  "codSecaoLivro": "302",
+  "texto": "Você coloca a pulseira em seu lugar no pulso. Uma sensação poderosa se espalha pelo seu braço e faz você saltar. Seu braço fica forte.\nVocê agora possui uma Pulseira da Habilidade, que permitirá que você acrescente 1 ponto a todos os seus lances de dados futuros, quando estiver calculando sua Força de Ataque durante os combates, enquanto você a usar.",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você desce pelo cipó e continua na direção norte pela trilha.",
+      "codProximaSecao": "109"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"38",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Pulseira de Habilidade (Pulseira de cobre)",
+	"valorCusto":"0",
+	"modificador":"1",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
+  ]
+  }

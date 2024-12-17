@@ -1,0 +1,15 @@
+
+{  	
+  "codSecaoLivro": "275",
+  "texto": "Você põe sua mão lentamente no buraco escuro. Ela entra em contato com alguma coisa fria e dura. Parece ser uma cumbuca de metal. Quando você começa a levantá-la para tirá-la do buraco, sente uma dor forte quando os dentes afiados de alguma criatura pequena repentinamente mordem seu braço. Você tira o braço rapidamente, sem largar sua descoberta. O sangue de seu ferimento pinga no chão.\nVocê perde 1 ponto de ENERGIA.\nLogo você vê que não encontrou uma cumbuca de metal afinal.\nTrata-se de um elmo de bronze e parece ser mais ou menos do seu tamanho",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Experimentará o elmo?",
+      "codProximaSecao": "179"
+    },
+	{	  
+      "textoOpcao": "Vai deixá-lo de lado e continuar para o norte?",
+      "codProximaSecao": "115"
+    }
+  ]
+  }
