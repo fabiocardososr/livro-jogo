@@ -14,11 +14,16 @@ public class Livro {
     private String regraEquipamentos;
     private String dicas;
     private String historia;
-    private String imagem; //Endereço de onde se encontra a imagem, se existir.
+    private String imagemCapa; //Endereço de onde se encontra a imagem da capa, se existir.
+    private String imagemMapa; //Endereço de onde se encontra a imagem do mapa, se existir.
     private final HashMap<Integer, Secao> mapSecao = new HashMap<Integer, Secao>();
 
     public HashMap<Integer, Secao> getMapSecao() {
         return mapSecao;
+    }
+
+    public String getImagemMapa() {
+        return imagemMapa;
     }
 
     public int getIdLivro() {
@@ -65,8 +70,8 @@ public class Livro {
         return historia;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getImagemCapa() {
+        return imagemCapa;
     }
 
     @Override
@@ -83,7 +88,8 @@ public class Livro {
                 ", regraEquipamentos='" + regraEquipamentos + '\'' +
                 ", dicas='" + dicas + '\'' +
                 ", historia='" + historia + '\'' +
-                ", imagem='" + imagem + '\'' +
+                ", imagemCapa='" + imagemCapa + '\'' +
+                ", imagemMapa='" + imagemMapa + '\'' +
                 '}';
     }
 }
