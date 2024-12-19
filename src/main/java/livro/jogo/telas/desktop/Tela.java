@@ -14,11 +14,5 @@ public class Tela extends JFrame {
         principal.setBackground(Color.BLACK);
         setSize(largura,altura);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-    private void setRedimensionarTela(){
-
-    }
-
 }

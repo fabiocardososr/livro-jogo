@@ -1,8 +1,5 @@
 package livro.jogo.telas.desktop;
 
-import livro.jogo.criarLivro.entidades.Livro;
-import livro.jogo.criarLivro.utils.ManipularDados;
-
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -10,45 +7,45 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 
 public class TelaRegras extends Tela {
+    private final String titulo;
+    private final String texto;
 
-    public TelaRegras(int largura, int altura) {
-        super(1200,790);
+    public TelaRegras(int largura, int altura, String titulo, String texto) {
+        super(largura,altura);
+        this.titulo = titulo;
+        this.texto = texto;
+
         carregarCompenentesTela();
     }
 
     private void carregarCompenentesTela(){
-        Livro livro = ManipularDados.getLivro();
 
-        //Regra para montar índices do Personagem
-        JLabel labelIndiceInical = new JLabel("Montar Índices do Personagem");
-        labelIndiceInical.setForeground(Color.WHITE);
-        labelIndiceInical.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        //Configurando label do título
+        JLabel labelTitulo = new JLabel(titulo);
+        labelTitulo.setForeground(Color.WHITE);
+        labelTitulo.setFont(new Font(Font.SERIF,Font.BOLD,35));
+        labelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // exibe um diálogo com uma mensagemÿ
-        //JOptionPane.showMessageDialog(null, livro.getRegraCalcularIndicesIniciais());
-
-        JTextPane textoRegraCriarIndicePersonagem = new JTextPane();
-        textoRegraCriarIndicePersonagem.setBackground(Color.BLACK);
-        StyledDocument textoCapaLivroStyle = textoRegraCriarIndicePersonagem.getStyledDocument();
+        //Criar campo que receberá o texto
+        JTextPane textoRegra = new JTextPane();
+        textoRegra.setBackground(Color.BLACK);
+        StyledDocument textoCapaLivroStyle = textoRegra.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
         StyleConstants.setFontSize(configTexto,20);
         StyleConstants.setForeground(configTexto,Color.WHITE);
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
-        textoRegraCriarIndicePersonagem.setEditable(false);
-        textoRegraCriarIndicePersonagem.setText(livro.getRegraCalcularIndicesIniciais());
-        JScrollPane scrollTextoRegraCriarIndicePersonagem = new JScrollPane(textoRegraCriarIndicePersonagem);
-        scrollTextoRegraCriarIndicePersonagem.setFocusable(true);
-        //Posicionamento
-        labelIndiceInical.setBounds(300,2,800,100);
-        scrollTextoRegraCriarIndicePersonagem.setBounds(10,100,1160,300);
+        textoRegra.setEditable(false);
+        textoRegra.setText(texto);
+        JScrollPane scrollTextoRegra = new JScrollPane(textoRegra);
+        scrollTextoRegra.setFocusable(true);
 
+        //Posicionamento
+        labelTitulo.setBounds(0,2,1200,100);
+        scrollTextoRegra.setBounds(10,80,1160,650);
 
         //Adicionar a tela
-        add(labelIndiceInical);
-        add(scrollTextoRegraCriarIndicePersonagem);
-
-
-
+        add(labelTitulo);
+        add(scrollTextoRegra);
     }
 }
