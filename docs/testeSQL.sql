@@ -23,6 +23,6 @@ left join livros.proximasecao pr on (pr.idSecao=s.idSecao)
 left join livros.secaoItens si on (si.idSecao=s.idSecao)
 left join livros.item i on (i.idItem=si.idItem)
 left join livros.tipoEfeito te on (te.idTipoEfeito=i.idTipoEfeito)
-where s.codSecaoLivro=4
+where s.codSecaoLivro=1
 
 

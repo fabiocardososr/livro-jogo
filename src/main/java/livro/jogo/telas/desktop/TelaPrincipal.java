@@ -1,6 +1,6 @@
 package livro.jogo.telas.desktop;
 
-import livro.jogo.criarLivro.entidades.Livro;
+import livro.jogo.entidades.Livro;
 import livro.jogo.utils.ManipularDados;
 
 import javax.imageio.ImageIO;
@@ -137,7 +137,8 @@ public class TelaPrincipal extends Tela {
             }
 
             if (e.getSource() == botaoCriarPersonagem){
-
+                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,600);
+                telaCriarPersonagem.setVisible(true);
             }
 
             if (e.getSource() == botaoCarregarPersonagem){

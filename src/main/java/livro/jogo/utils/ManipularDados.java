@@ -1,8 +1,8 @@
 //Classe responsável por manter os dados do livro após carregamento do Json via classe ManipularArquivos
 package livro.jogo.utils;
 
-import livro.jogo.criarLivro.entidades.Livro;
-import livro.jogo.criarLivro.entidades.Secao;
+import livro.jogo.entidades.Livro;
+import livro.jogo.entidades.Secao;
 
 import java.util.HashMap;
 

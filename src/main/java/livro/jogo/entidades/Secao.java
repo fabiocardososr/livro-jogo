@@ -1,6 +1,4 @@
-package livro.jogo.criarLivro.entidades;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package livro.jogo.entidades;
 
 import java.util.ArrayList;
 
@@ -9,9 +7,9 @@ public class Secao {
     private Integer codSecaoLivro;
     private String texto;
     private String enderecoImagem;
-    private ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
-    private ArrayList<Item> itens = new ArrayList<>();
-    private ArrayList<Inimigo> inimigos = new ArrayList<>();
+    private final ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
+    private final ArrayList<Item> itens = new ArrayList<>();
+    private final ArrayList<Inimigo> inimigos = new ArrayList<>();
 
     public Secao() {
     }

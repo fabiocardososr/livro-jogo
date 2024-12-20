@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.entidades;
+package livro.jogo.entidades;
 
 public enum TipoEfeito {
     HABILIDADE(1), ENERGIA(2), SORTE(3),NENHUM(4);

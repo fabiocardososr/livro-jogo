@@ -1,6 +1,6 @@
 package livro.jogo.telas.desktop;
 
-import livro.jogo.criarLivro.entidades.Livro;
+import livro.jogo.entidades.Livro;
 import livro.jogo.utils.ManipularDados;
 
 import javax.swing.*;

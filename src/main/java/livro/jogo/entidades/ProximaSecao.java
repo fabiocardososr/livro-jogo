@@ -1,4 +1,4 @@
-package livro.jogo.criarLivro.entidades;
+package livro.jogo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

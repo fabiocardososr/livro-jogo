@@ -2,7 +2,8 @@ package livro.jogo.criarLivro.cadastro;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import livro.jogo.criarLivro.entidades.*;
+import livro.jogo.entidades.Livro;
+import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularArquivos;
 import livro.jogo.utils.ManipularDados;
 
