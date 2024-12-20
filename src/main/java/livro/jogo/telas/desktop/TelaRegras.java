@@ -37,8 +37,10 @@ public class TelaRegras extends Tela {
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
         textoRegra.setEditable(false);
         textoRegra.setText(texto);
+        textoRegra.setCaretPosition(0); //para posicionar a a barra de rolagem no início.
         JScrollPane scrollTextoRegra = new JScrollPane(textoRegra);
         scrollTextoRegra.setFocusable(true);
+
 
         //Posicionamento
         labelTitulo.setBounds(0,2,1200,100);

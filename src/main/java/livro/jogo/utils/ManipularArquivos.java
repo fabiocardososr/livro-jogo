@@ -1,5 +1,5 @@
 //Classe responsável por ler os dados de uim arquivo
-package livro.jogo.criarLivro.utils;
+package livro.jogo.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
