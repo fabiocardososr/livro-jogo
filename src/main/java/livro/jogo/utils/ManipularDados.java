@@ -23,6 +23,7 @@ public class ManipularDados {
     }
 
     public static void imprimirInfoSecoes() {
+        Secao secao;
 
         //Dados do livro
         System.out.print("\n\nIdLivro: "+ livro.getIdLivro());
@@ -30,10 +31,11 @@ public class ManipularDados {
         System.out.println("Descrição: "+ livro.getDescricao());
         System.out.println("\n======================================\n\n");
 
+
         for (Integer key : livro.getMapSecao().keySet()) {
 
             //Capturamos o valor a partir da chave
-            Secao secao = (Secao) livro.getMapSecao()                                                                .get(key);
+            secao = (Secao) livro.getMapSecao()                                                                .get(key);
             System.out.println("\n\nCod. Seção: "+ secao.getCodSecaoLivro());
             System.out.println("Desc. Seção: "+ secao.getTexto());
             System.out.println("Imagem da Seção: "+ secao.getEnderecoImagem());
