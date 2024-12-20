@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static java.awt.Transparency.TRANSLUCENT;
+
 public class TelaPrincipal extends Tela {
     private final Livro livro;
     private JButton botaoRegras;
@@ -81,6 +83,7 @@ public class TelaPrincipal extends Tela {
         configurarBotaoCriarPersonagem(acao);
         configurarCarregarPersonagem(acao);
         configurarBotaoIniciarJogo(acao);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 

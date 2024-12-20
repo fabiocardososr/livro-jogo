@@ -15,6 +15,5 @@ public class CarregarLivros {
         TelaPrincipal tela = new TelaPrincipal(1430,800);
         tela.setVisible(true);
     }
-
 }
 

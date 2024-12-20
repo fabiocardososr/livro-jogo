@@ -1,11 +1,6 @@
 package livro.jogo.utils;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.LayoutManager;
-import java.awt.MediaTracker;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -48,6 +43,7 @@ public class ImagePanel extends JPanel {
 
     public ImagePanel() {
         super();
+        setBackground(Color.BLACK);
         //BufferedImage imagem;
         try {
             InputStream arquivo =  new FileInputStream("livros/florestaestruicao/imagens/pergaminho.png");
