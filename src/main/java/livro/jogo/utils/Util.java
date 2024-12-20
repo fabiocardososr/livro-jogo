@@ -16,4 +16,12 @@ public class Util {
         return somaValorDados;
     }
 
+    public static int obterIndiceHabilidadeOuSorteInicial(){
+        return (6 + rolarDados(6,1));
+    }
+
+    public static int obterIndiceEnergiaInicial(){
+        return (12 + rolarDados(6,2));
+    }
+
 }

@@ -2,13 +2,22 @@
 package livro.jogo.utils;
 
 import livro.jogo.entidades.Livro;
+import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 
 import java.util.HashMap;
 
 public class ManipularDados {
     private static Livro livro;
+    private static Personagem personagem;
 
+    public static Personagem getPersonagem() {
+        return personagem;
+    }
+
+    public static void setPersonagem(Personagem personagem) {
+        ManipularDados.personagem = personagem;
+    }
 
     public static Livro getLivro() {
         return livro;
