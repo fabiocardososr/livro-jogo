@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static java.awt.Transparency.TRANSLUCENT;
+/*System.exit(0) = Fecha aplicação toda*/
 
 public class TelaPrincipal extends Tela {
     private final Livro livro;
@@ -145,7 +145,7 @@ public class TelaPrincipal extends Tela {
             }
 
             if (e.getSource() == botaoCriarPersonagem){
-                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,600);
+                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,800);
                 telaCriarPersonagem.setVisible(true);
             }
 

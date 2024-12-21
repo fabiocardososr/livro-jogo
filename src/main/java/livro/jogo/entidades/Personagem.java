@@ -1,5 +1,7 @@
 package livro.jogo.entidades;
 
+import livro.jogo.Personagens.CondicaoEspecialPersonagem;
+
 import java.util.ArrayList;
 
 public class Personagem {
@@ -12,8 +14,8 @@ public class Personagem {
     private int energiaAtual;
     private int sorteAtual;
     private String anotacoes;
-    private final ArrayList<Item> bolsa = new ArrayList<>();
-    private final ArrayList<Item> ItensEquipados = new ArrayList<>();
+    private ArrayList<Item> bolsa;
+    private ArrayList<Item> itensEquipados;
 
     /*Preciso manter este objeto "CondicaoEspecialPersonagem" porque tem itens que são temporários e somem
       E para facilitar a organização e adminstração como por exemplo poções que dão 1 de habilidade por duas batalhas
@@ -21,16 +23,18 @@ public class Personagem {
       objeto até o efeito acabar*/
     private final ArrayList<CondicaoEspecialPersonagem> condicaoEspecial = new ArrayList<>();
 
-    public Personagem(String nome, int idLivro, int habilidadeMax, int energiaMax, int sorteMax, int habilidadeAtual, int energiaAtual, int sorteAtual, String anotacoes) {
+    public Personagem(String nome, int idLivro, int habilidadeMax, int energiaMax, int sorteMax,
+                      ArrayList<Item> bolsa,ArrayList<Item> itensEquipados) {
         this.nome = nome;
         this.idLivro = idLivro;
         this.habilidadeMax = habilidadeMax;
         this.energiaMax = energiaMax;
         this.sorteMax = sorteMax;
-        this.habilidadeAtual = habilidadeAtual;
-        this.energiaAtual = energiaAtual;
-        this.sorteAtual = sorteAtual;
-        this.anotacoes = anotacoes;
+        this.habilidadeAtual = habilidadeMax;
+        this.energiaAtual = energiaMax;
+        this.sorteAtual = sorteMax;
+        this.bolsa = bolsa;
+        this.itensEquipados = itensEquipados;
     }
 
     public String getNome() {
@@ -78,7 +82,7 @@ public class Personagem {
     }
 
     public ArrayList<Item> getItensEquipados() {
-        return ItensEquipados;
+        return itensEquipados;
     }
 
     public ArrayList<CondicaoEspecialPersonagem> getCondicaoEspecial() {
@@ -115,5 +119,23 @@ public class Personagem {
 
     public void setAnotacoes(String anotacoes) {
         this.anotacoes = anotacoes;
+    }
+
+    @Override
+    public String toString() {
+        return "Personagem{" +
+                "nome='" + nome + '\'' +
+                ", idLivro=" + idLivro +
+                ", habilidadeMax=" + habilidadeMax +
+                ", energiaMax=" + energiaMax +
+                ", sorteMax=" + sorteMax +
+                ", habilidadeAtual=" + habilidadeAtual +
+                ", energiaAtual=" + energiaAtual +
+                ", sorteAtual=" + sorteAtual +
+                ", anotacoes='" + anotacoes + '\'' +
+                ", bolsa=" + bolsa +
+                ", itensEquipados=" + itensEquipados +
+                ", condicaoEspecial=" + condicaoEspecial +
+                '}';
     }
 }

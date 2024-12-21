@@ -1,13 +1,17 @@
 package livro.jogo.telas.desktop;
 
+import livro.jogo.Personagens.CriacaoPersonagem;
+import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.utils.ImagePanel;
+import livro.jogo.utils.ManipularDados;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
-import javax.swing.text.Highlighter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-
+import java.util.ArrayList;
 
 
 public class TelaCriarPersonagem extends Tela {
@@ -24,6 +28,8 @@ public class TelaCriarPersonagem extends Tela {
     private int energiaInicial = 0;
     private int sorteInicial = 0;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+    private JList<String> listaPocoes;
+    private Item pocaoEscolhida;
 
     public TelaCriarPersonagem(int largura, int altura) {
         super(largura, altura);
@@ -37,6 +43,29 @@ public class TelaCriarPersonagem extends Tela {
         carregarPainelSorte();
         carregarBotoesGravarResetar();
         carregarTxtNome();
+        carregarListaDePocoes();
+    }
+
+    private void carregarListaDePocoes() {
+        String[] pocoes = {"Poção da Habilidade","Poção de Força", "Poção da Fortuna"};
+        int[] codPocoes = {45,46,47};
+        listaPocoes = new JList<String>(pocoes);
+        listaPocoes.setBackground(Color.RED);
+        listaPocoes.setForeground(Color.WHITE);
+        listaPocoes.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        listaPocoes.setBounds(350, 400,300,300);
+        listaPocoes.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                var pocao = codPocoes[listaPocoes.getSelectedIndex()];
+                JOptionPane.showMessageDialog(null, "pocao: "+pocao);
+            }
+        });
+        add(listaPocoes);
+
+
+        //Continuar depois que criar a lista de itens Json
+
     }
 
     private void carregarTxtNome() {
@@ -60,7 +89,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoGravar.setBackground(Color.BLACK);
         botaoGravar.setForeground(Color.WHITE);
         botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoGravar.setBounds(250, 500,300,50);
+        botaoGravar.setBounds(250, 700,300,50);
         botaoGravar.setFocusable(false);
         botaoGravar.setEnabled(false);
         botaoGravar.setCursor(cursor);
@@ -69,8 +98,7 @@ public class TelaCriarPersonagem extends Tela {
                 JOptionPane.showMessageDialog(null,"Por favor digite um nome com ao menos 3 caracteres.");
                 return;
             }
-
-            
+            carregarPersonagem();
         });
         add(botaoGravar);
 
@@ -78,7 +106,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoResetar.setBackground(Color.BLACK);
         botaoResetar.setForeground(Color.WHITE);
         botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoResetar.setBounds(650, 500,300,50);
+        botaoResetar.setBounds(650, 700,300,50);
         botaoResetar.setFocusable(false);
         botaoResetar.setCursor(cursor);
         botaoResetar.addActionListener(e -> {
@@ -257,10 +285,22 @@ public class TelaCriarPersonagem extends Tela {
     }
 
     private void habilitarBotaoGravar(){
-        if ( (habilidadeInicial != 0) && (energiaInicial != 0) && (sorteInicial != 0) )
+        if ( (habilidadeInicial != 0) && (energiaInicial != 0) && (sorteInicial != 0) ) {
             botaoGravar.setEnabled(true);
+            txtNome.setFocusable(true);
+        }
         else
             botaoGravar.setEnabled(false);
+    }
+
+    private void carregarPersonagem(){
+        var nome = txtNome.getText();
+        var idLivro = ManipularDados.getLivro().getIdLivro();
+        CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
+        Personagem personagem = criacaoPersonagem.criarPersonagem();
+
+        System.out.println(personagem);
+
     }
 
 }

@@ -14,7 +14,22 @@ public class Item {
     private  String flgAfetaNivelAtualPersonagem;   //Diz se o efeito do item afeta os níveis atuais de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
     private  String flgAfetaNivelMaxPersonagem;      //Diz se o efeito do item afeta os níveis MAX (aumentando o valor que foi definido na rolagem de dados na criação do personagem) de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
 
-    public Item() {
+
+    public Item() {}
+
+    public Item(int idItem, TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUsoTemporario, String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados, String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem) {
+        this.idItem = idItem;
+        this.tipoEfeito = tipoEfeito;
+        this.descricao = descricao;
+        this.valorCusto = valorCusto;
+        this.modificador = modificador;
+        this.quantidadeUsoTemporario = quantidadeUsoTemporario;
+        this.flgUsoTemporario = flgUsoTemporario;
+        this.flgUsoUnico = flgUsoUnico;
+        this.flgUsoPermanente = flgUsoPermanente;
+        this.flgAfetaRolagemDados = flgAfetaRolagemDados;
+        this.flgAfetaNivelAtualPersonagem = flgAfetaNivelAtualPersonagem;
+        this.flgAfetaNivelMaxPersonagem = flgAfetaNivelMaxPersonagem;
     }
 
     public int getIdItem() {
