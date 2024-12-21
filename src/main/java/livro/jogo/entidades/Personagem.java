@@ -3,7 +3,6 @@ package livro.jogo.entidades;
 import java.util.ArrayList;
 
 public class Personagem {
-    private int idPersonagem;
     private String nome;
     private int idLivro;
     private int habilidadeMax;
@@ -13,8 +12,13 @@ public class Personagem {
     private int energiaAtual;
     private int sorteAtual;
     private String anotacoes;
-    private final ArrayList<Bolsa> bolsa = new ArrayList<>();
-    private final ArrayList<ItensEquipado> ItensEquipados = new ArrayList<>();
+    private final ArrayList<Item> bolsa = new ArrayList<>();
+    private final ArrayList<Item> ItensEquipados = new ArrayList<>();
+
+    /*Preciso manter este objeto "CondicaoEspecialPersonagem" porque tem itens que são temporários e somem
+      E para facilitar a organização e adminstração como por exemplo poções que dão 1 de habilidade por duas batalhas
+      preciso excluir da bolsa já que não existe mais por ter sido consumido, mas o efeito continua e fica aqui neste
+      objeto até o efeito acabar*/
     private final ArrayList<CondicaoEspecialPersonagem> condicaoEspecial = new ArrayList<>();
 
     public Personagem(String nome, int idLivro, int habilidadeMax, int energiaMax, int sorteMax, int habilidadeAtual, int energiaAtual, int sorteAtual, String anotacoes) {
@@ -35,10 +39,6 @@ public class Personagem {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getIdPersonagem() {
-        return idPersonagem;
     }
 
     public int getIdLivro() {
@@ -73,20 +73,16 @@ public class Personagem {
         return anotacoes;
     }
 
-    public ArrayList<Bolsa> getBolsa() {
+    public ArrayList<Item> getBolsa() {
         return bolsa;
     }
 
-    public ArrayList<ItensEquipado> getItensEquipados() {
+    public ArrayList<Item> getItensEquipados() {
         return ItensEquipados;
     }
 
     public ArrayList<CondicaoEspecialPersonagem> getCondicaoEspecial() {
         return condicaoEspecial;
-    }
-
-    public void setIdPersonagem(int idPersonagem) {
-        this.idPersonagem = idPersonagem;
     }
 
     public void setIdLivro(int idLivro) {

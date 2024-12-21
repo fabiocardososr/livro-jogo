@@ -1,21 +1,29 @@
 package livro.jogo.telas.desktop;
 
+import livro.jogo.entidades.Personagem;
 import livro.jogo.utils.ImagePanel;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
+import javax.swing.text.Highlighter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 
 public class TelaCriarPersonagem extends Tela {
     private JButton botaoRolarDadoHabilidade;
     private JButton botaoRolarDadosEnergia;
     private JButton botaoRolarDadosSorte;
-    private int habilidadeInicial;
-    private int energiaInicial;
-    private int sorteInicial;
+    private JButton botaoGravar;
+    private JButton botaoResetar;
+    private JLabel labelIndiceHabilidade;
+    private JLabel labelIndiceEnergia;
+    private JLabel labelIndiceSorte;
+    private JTextField txtNome;
+    private int habilidadeInicial = 0;
+    private int energiaInicial = 0;
+    private int sorteInicial = 0;
+    private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 
     public TelaCriarPersonagem(int largura, int altura) {
         super(largura, altura);
@@ -24,17 +32,66 @@ public class TelaCriarPersonagem extends Tela {
     }
 
     private void carregarComponentesDaTela() {
-        carregarPainelHabilidade(10,10,370,300);
-        carregarPainelEnergia(390,10,370,300);
-        carregarPainelSorte(770,10,370,300);
-
+        carregarPainelHabilidade();
+        carregarPainelEnergia();
+        carregarPainelSorte();
+        carregarBotoesGravarResetar();
+        carregarTxtNome();
     }
 
-    private void carregarPainelHabilidade(int horizontal, int vertical, int largura, int altura) {
+    private void carregarTxtNome() {
+        JLabel labelNome = new JLabel("Nome:");
+        labelNome.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        labelNome.setBounds(30, 300,100,60);
+        labelNome.setForeground(Color.WHITE);
+
+        txtNome = new JTextField();
+        txtNome.setBounds(30, 350,250,60);
+        txtNome.setBackground(Color.darkGray);
+        txtNome.setForeground(Color.WHITE);
+        txtNome.setFont(new Font(Font.SERIF,Font.PLAIN,25));
+        txtNome.setCursor(cursor);
+        add(txtNome);
+        add(labelNome);
+    }
+
+    private void carregarBotoesGravarResetar() {
+        botaoGravar = new JButton("Gerar Personagem");
+        botaoGravar.setBackground(Color.BLACK);
+        botaoGravar.setForeground(Color.WHITE);
+        botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoGravar.setBounds(250, 500,300,50);
+        botaoGravar.setFocusable(false);
+        botaoGravar.setEnabled(false);
+        botaoGravar.setCursor(cursor);
+        botaoGravar.addActionListener(e -> {
+            if (txtNome.getText().length()<3){
+                JOptionPane.showMessageDialog(null,"Por favor digite um nome com ao menos 3 caracteres.");
+                return;
+            }
+
+            
+        });
+        add(botaoGravar);
+
+        botaoResetar = new JButton("Refazer Personagem");
+        botaoResetar.setBackground(Color.BLACK);
+        botaoResetar.setForeground(Color.WHITE);
+        botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoResetar.setBounds(650, 500,300,50);
+        botaoResetar.setFocusable(false);
+        botaoResetar.setCursor(cursor);
+        botaoResetar.addActionListener(e -> {
+            resetarCriacaoPersonagem();
+        });
+        add(botaoResetar);
+    }
+
+    private void carregarPainelHabilidade() {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeHabilidade = new ImagePanel();
-        painelDeHabilidade.setBounds(horizontal,vertical,largura,altura);
+        painelDeHabilidade.setBounds(10,10,370,300);
 
         //Título
         JLabel labelTituloHabilidade = new JLabel("Habilidade");
@@ -50,7 +107,7 @@ public class TelaCriarPersonagem extends Tela {
         labelInfoHabilidade.setBounds(20,50,370,100);
 
         //Índice de Habilidade
-        JLabel labelIndiceHabilidade = new JLabel("0");
+        labelIndiceHabilidade = new JLabel("0");
         labelIndiceHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,60));
         labelIndiceHabilidade.setForeground(new Color(160,82,45));
         labelIndiceHabilidade.setBounds(13,130,370,50);
@@ -58,20 +115,19 @@ public class TelaCriarPersonagem extends Tela {
         //labelIndiceHabilidade.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão rolar dado
-        botaoRolarDadoHabilidade = new JButton("Rolar");
+        botaoRolarDadoHabilidade = new JButton("Rolar Dado");
         botaoRolarDadoHabilidade.setBackground(new Color(210,180,140));
         botaoRolarDadoHabilidade.setForeground(new Color(139,69,19));
         botaoRolarDadoHabilidade.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoRolarDadoHabilidade.setBounds(138,200,120,40);
         botaoRolarDadoHabilidade.setFocusable(false);
+        botaoRolarDadoHabilidade.setCursor(cursor);
         botaoRolarDadoHabilidade.setBorder(BorderFactory.createLineBorder(new Color(210,105,30)));
-        botaoRolarDadoHabilidade.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
-                labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
-                desabilitarBotoes(botaoRolarDadoHabilidade);
-            }
+        botaoRolarDadoHabilidade.addActionListener(e -> {
+            habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
+            labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
+            desabilitarBotoes(botaoRolarDadoHabilidade);
+            habilitarBotaoGravar();
         });
 
         add(labelTituloHabilidade);
@@ -81,11 +137,11 @@ public class TelaCriarPersonagem extends Tela {
         add(painelDeHabilidade);
     }
 
-    private void carregarPainelEnergia(int horizontal, int vertical, int largura, int altura) {
+    private void carregarPainelEnergia() {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeEnergia = new ImagePanel();
-        painelDeEnergia.setBounds(horizontal,vertical,largura,altura);
+        painelDeEnergia.setBounds(390,10,370,300);
 
         //Título
         JLabel labelTituloEnergia = new JLabel("Energia");
@@ -101,7 +157,7 @@ public class TelaCriarPersonagem extends Tela {
         labelInfoEnergia.setBounds(390,50,370,100);
 
         //Índice de Habilidade
-        JLabel labelIndiceEnergia = new JLabel("0");
+        labelIndiceEnergia = new JLabel("0");
         labelIndiceEnergia.setFont(new Font(Font.SERIF,Font.BOLD,60));
         labelIndiceEnergia.setForeground(new Color(160,82,45));
         labelIndiceEnergia.setBounds(403,130,370,50);
@@ -109,20 +165,19 @@ public class TelaCriarPersonagem extends Tela {
         //labelIndiceHabilidade.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão rolar dado
-        botaoRolarDadosEnergia = new JButton("Rolar");
+        botaoRolarDadosEnergia = new JButton("Rolar Dados");
         botaoRolarDadosEnergia.setBackground(new Color(210,180,140));
         botaoRolarDadosEnergia.setForeground(new Color(139,69,19));
         botaoRolarDadosEnergia.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoRolarDadosEnergia.setBounds(530,200,120,40);
         botaoRolarDadosEnergia.setFocusable(false);
+        botaoRolarDadosEnergia.setCursor(cursor);
         botaoRolarDadosEnergia.setBorder(BorderFactory.createLineBorder(new Color(210,105,30)));
-        botaoRolarDadosEnergia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                energiaInicial = Util.obterIndiceEnergiaInicial();
-                labelIndiceEnergia.setText(String.valueOf(energiaInicial));
-                desabilitarBotoes(botaoRolarDadosEnergia);
-            }
+        botaoRolarDadosEnergia.addActionListener(e -> {
+            energiaInicial = Util.obterIndiceEnergiaInicial();
+            labelIndiceEnergia.setText(String.valueOf(energiaInicial));
+            desabilitarBotoes(botaoRolarDadosEnergia);
+            habilitarBotaoGravar();
         });
 
         add(labelTituloEnergia);
@@ -132,11 +187,11 @@ public class TelaCriarPersonagem extends Tela {
         add(painelDeEnergia);
     }
 
-    private void carregarPainelSorte(int horizontal, int vertical, int largura, int altura) {
+    private void carregarPainelSorte() {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeSorte = new ImagePanel();
-        painelDeSorte.setBounds(horizontal,vertical,largura,altura);
+        painelDeSorte.setBounds(770,10,370,300);
 
         //Título
         JLabel labelTituloSorte = new JLabel("Sorte");
@@ -152,7 +207,7 @@ public class TelaCriarPersonagem extends Tela {
         labelInfoSorte.setBounds(780,50,370,100);
 
         //Índice de Habilidade
-        JLabel labelIndiceSorte = new JLabel("0");
+        labelIndiceSorte = new JLabel("0");
         labelIndiceSorte.setFont(new Font(Font.SERIF,Font.BOLD,60));
         labelIndiceSorte.setForeground(new Color(160,82,45));
         labelIndiceSorte.setBounds(790,130,370,50);
@@ -160,20 +215,19 @@ public class TelaCriarPersonagem extends Tela {
         //labelIndiceHabilidade.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão rolar dado
-        botaoRolarDadosSorte = new JButton("Rolar");
+        botaoRolarDadosSorte = new JButton("Rolar Dado");
         botaoRolarDadosSorte.setBackground(new Color(210,180,140));
         botaoRolarDadosSorte.setForeground(new Color(139,69,19));
         botaoRolarDadosSorte.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoRolarDadosSorte.setBounds(915,200,120,40);
         botaoRolarDadosSorte.setFocusable(false);
+        botaoRolarDadosSorte.setCursor(cursor);
         botaoRolarDadosSorte.setBorder(BorderFactory.createLineBorder(new Color(210,105,30)));
-        botaoRolarDadosSorte.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
-                labelIndiceSorte.setText(String.valueOf(sorteInicial));
-                desabilitarBotoes(botaoRolarDadosSorte);
-            }
+        botaoRolarDadosSorte.addActionListener(e -> {
+            sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
+            labelIndiceSorte.setText(String.valueOf(sorteInicial));
+            desabilitarBotoes(botaoRolarDadosSorte);
+            habilitarBotaoGravar();
         });
 
         add(labelTituloSorte);
@@ -187,8 +241,26 @@ public class TelaCriarPersonagem extends Tela {
         botao.setEnabled(false);
     }
 
-    private void habilitarBotoes(){
+    private void resetarCriacaoPersonagem(){
+        habilidadeInicial = 0;
+        energiaInicial    = 0;
+        sorteInicial      = 0;
+        labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
+        labelIndiceEnergia.setText(String.valueOf(energiaInicial));
+        labelIndiceSorte.setText(String.valueOf(sorteInicial));
+        txtNome.setText("");
+
         botaoRolarDadoHabilidade.setEnabled(true);
+        botaoRolarDadosEnergia.setEnabled(true);
+        botaoRolarDadosSorte.setEnabled(true);
+        botaoGravar.setEnabled(false);
+    }
+
+    private void habilitarBotaoGravar(){
+        if ( (habilidadeInicial != 0) && (energiaInicial != 0) && (sorteInicial != 0) )
+            botaoGravar.setEnabled(true);
+        else
+            botaoGravar.setEnabled(false);
     }
 
 }

@@ -23,6 +23,7 @@ public class TelaPrincipal extends Tela {
     private JButton botaoCriarPersonagem;
     private JButton botaoCarregarPersonagem;
     private JButton botaoIniciarJogo;
+    private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
@@ -93,6 +94,7 @@ public class TelaPrincipal extends Tela {
         botaoIniciarJogo.setForeground(Color.WHITE);
         botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoIniciarJogo.setBounds(590, 660,720,50);
+        botaoIniciarJogo.setCursor(cursor);
         botaoIniciarJogo.addActionListener(acao);
         add(botaoIniciarJogo);
 
@@ -105,6 +107,7 @@ public class TelaPrincipal extends Tela {
         botaoCarregarPersonagem.setForeground(Color.WHITE);
         botaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoCarregarPersonagem.setBounds(1090, 600,220,50);
+        botaoCarregarPersonagem.setCursor(cursor);
         botaoCarregarPersonagem.addActionListener(acao);
         add(botaoCarregarPersonagem);
 
@@ -116,6 +119,7 @@ public class TelaPrincipal extends Tela {
         botaoCriarPersonagem.setForeground(Color.WHITE);
         botaoCriarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoCriarPersonagem.setBounds(840, 600,220,50);
+        botaoCriarPersonagem.setCursor(cursor);
         botaoCriarPersonagem.addActionListener(acao);
         add(botaoCriarPersonagem);
     }
@@ -126,6 +130,7 @@ public class TelaPrincipal extends Tela {
         botaoRegras.setForeground(Color.WHITE);
         botaoRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         botaoRegras.setBounds(590, 600,220,50);
+        botaoRegras.setCursor(cursor);
         botaoRegras.addActionListener(acao);
         add(botaoRegras);
     }
