@@ -53,7 +53,7 @@ public class TelaCriarPersonagem extends Tela {
         listaPocoes.setBackground(Color.RED);
         listaPocoes.setForeground(Color.WHITE);
         listaPocoes.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        listaPocoes.setBounds(350, 400,300,300);
+        listaPocoes.setBounds(30, 420,300,100);
         listaPocoes.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
