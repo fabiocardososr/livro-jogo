@@ -1,4 +1,4 @@
-package livro.jogo.utils;
+package livro.jogo.telas.desktop.personalizados;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
