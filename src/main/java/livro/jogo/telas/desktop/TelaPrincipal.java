@@ -145,7 +145,7 @@ public class TelaPrincipal extends Tela {
             }
 
             if (e.getSource() == botaoCriarPersonagem){
-                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,800);
+                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830);
                 telaCriarPersonagem.setVisible(true);
             }
 

@@ -41,12 +41,12 @@ public class ImagePanel extends JPanel {
 
     private BufferedImage image;
 
-    public ImagePanel() {
+    public ImagePanel(String enderecoImagem) {
         super();
         setBackground(Color.BLACK);
         //BufferedImage imagem;
         try {
-            InputStream arquivo =  new FileInputStream("livros/florestaestruicao/imagens/pergaminho.png");
+            InputStream arquivo =  new FileInputStream(enderecoImagem);
             setImage(ImageIO.read(arquivo));
         } catch (IOException e) {
             throw new RuntimeException(e);

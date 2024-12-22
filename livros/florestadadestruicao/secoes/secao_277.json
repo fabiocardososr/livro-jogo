@@ -1,0 +1,16 @@
+
+{  	
+  "codSecaoLivro": "277",
+  "texto": "A trilha continua para o leste por uma certa distância e depois faz uma curva abrupta para o norte, estreitando-se levemente. As árvores parecem invadir a trilha mais ainda do que o habitual, e um latejar que desce pela sua espinha diz que alguma coisa não está normal. Repentinamente, um galho de uma das árvores golpeia você, derrubando-o ao chão.\nVocê perde 1 ponto de ENERGIA.\nVocê se levanta cambaleando e vê que a árvore se deslocou para a trilha, bloqueando sua passagem. A árvore é velha, de casca grossa e sulcada. Você consegue com dificuldade visualizar os olhos e boca escondidos no meio do tronco e se dá conta de que foi atacado por um HOMEM ÁRVORE.",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_277.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Fugir correndo de volta para a encruzilhada?",
+      "codProximaSecao": "234"
+    },
+	{	  
+      "textoOpcao": "Lutar contra o Homem-Árvore?",
+      "codProximaSecao": "114"
+    }
+  ]
+  }

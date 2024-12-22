@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "378",
+  "texto": "À esquerda da trilha, você vê um homem pequeno com uma longa barba grisalha, sentado de pernas cruzadas em cima de um enorme cogumelo. Ele está usando um casaco vermelho vivo e um gorro da mesma cor, suas calças são pretas e terminam nos joelhos. Está dormindo e ronca alto.",
+    "enderecoImagem": "livros/florestadadestruicao/imagens/secao_378.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar-lhe um empurrão de leve para acordá-lo?",
+      "codProximaSecao": "307"
+    },
+	{	  
+      "textoOpcao": "Passar caminhando por ele silenciosamente para continuar sua jornada para o oeste?",
+      "codProximaSecao": "67"
+    }
+  ]
+}

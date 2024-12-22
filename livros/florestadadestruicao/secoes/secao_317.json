@@ -1,0 +1,29 @@
+{  	
+  "codSecaoLivro": "317",
+  "texto": "Você puxa sua espada e se prepara para encontrar os donos das vozes que discutiam. Duas criaturas altas e delgadas surgem, vestindo roupas esfarrapadas, sobre as quais estão usando cotas de malha.\nEles vêem você e instantaneamente param de discutir. São HOBGOBLINS e puxam suas espadas para atacar você.",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_317.png",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "301"
+    },
+	{	  
+      "textoOpcao": "Fugir da batalha?",
+      "codProximaSecao": "41"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"60",
+		"nome":"HOBGOBLIN",
+		"habilidade":"6",
+		"energia":"6"
+	},
+	{
+		"idInimigo":"61",
+		"nome":"HOBGOBLIN",
+		"habilidade":"5",
+		"energia":"6"
+	}
+  ]
+}

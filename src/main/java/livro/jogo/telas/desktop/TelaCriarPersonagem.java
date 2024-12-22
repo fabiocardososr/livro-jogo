@@ -7,10 +7,18 @@ import livro.jogo.utils.ImagePanel;
 import livro.jogo.utils.ManipularDados;
 import livro.jogo.utils.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.MouseInputListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -47,79 +55,105 @@ public class TelaCriarPersonagem extends Tela {
     }
 
     private void carregarListaDePocoes() {
-        String[] pocoes = {"Poção da Habilidade","Poção de Força", "Poção da Fortuna"};
-        int[] codPocoes = {45,46,47};
-        listaPocoes = new JList<String>(pocoes);
-        listaPocoes.setBackground(Color.RED);
-        listaPocoes.setForeground(Color.WHITE);
-        listaPocoes.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        listaPocoes.setBounds(30, 420,300,100);
-        listaPocoes.addListSelectionListener(new ListSelectionListener() {
+        //String[] pocoes = {"Poção da Habilidade","Poção de Força", "Poção da Fortuna"};
+        //int[] codPocoes = {45,46,47};
+
+        //ATENÇÃO: Continuar depois que criar a lista de itens Json
+
+        //JPanel panel
+        ImagePanel painelInferior = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho_panel_cadPersonagem.png");
+        painelInferior.setBounds(2,305,1130,470);
+        painelInferior.setBackground(Color.yellow);
+        //painelInferior.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        JLabel labelEscolhaPocao = new JLabel("<html><center>Pegue uma Poção<br>para levar com você<center></html>");
+        labelEscolhaPocao.setForeground(Color.WHITE);
+        labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        labelEscolhaPocao.setBounds(30, 420,250,50);
+        labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
+        labelEscolhaPocao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        add(labelEscolhaPocao);
+
+        JButton botaoPocaoHabilidade = new JButton("Poção de Habilidade");
+
+        //Poção de Habilidade
+        botaoPocaoHabilidade.setForeground(Color.WHITE);
+        botaoPocaoHabilidade.setBackground(Color.BLACK);
+        botaoPocaoHabilidade.setFont(new Font(Font.SERIF,Font.PLAIN,16));
+        botaoPocaoHabilidade.setBounds(30, 490,250,100);
+        botaoPocaoHabilidade.setIcon(dimensionarImagem(55,60));
+        botaoPocaoHabilidade.setCursor(cursor);
+        botaoPocaoHabilidade.addActionListener(new ActionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e) {
-                var pocao = codPocoes[listaPocoes.getSelectedIndex()];
-                JOptionPane.showMessageDialog(null, "pocao: "+pocao);
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"HABILIADE");
             }
         });
-        add(listaPocoes);
+
+        add(botaoPocaoHabilidade);
 
 
-        //Continuar depois que criar a lista de itens Json
+        //Energia
+        JLabel labelPocaoEnergia = new JLabel("Poção de Energia");
+        labelPocaoEnergia.setForeground(Color.WHITE);
+        labelPocaoEnergia.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        labelPocaoEnergia.setBounds(30, 590,250,100);
+        labelPocaoEnergia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        add(labelPocaoEnergia);
 
+        //Energia
+        JLabel labelPocaoSorte = new JLabel("Poção de Sorte");
+        labelPocaoSorte.setForeground(Color.WHITE);
+        labelPocaoSorte.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        labelPocaoSorte.setBounds(30, 690,250,100);
+        labelPocaoSorte.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        add(labelPocaoSorte);
+
+
+        //Último a ser adicionado o painel inferior, senão ele fica por cima e cobre os outros componentes
+        add(painelInferior);
+
+
+
+    }
+
+    //Caso a imagem seja maior que o label (por exemplo) redimensionar de modo caber no componente
+    private ImageIcon dimensionarImagem(int largura, int altura){
+        ImageIcon imageIcon;
+        try {
+            BufferedImage img = ImageIO.read(new File("livros/florestadadestruicao/imagens/pocao_de_habilidade.png"));
+            Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(imgDimensionada);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return imageIcon;
     }
 
     private void carregarTxtNome() {
-        JLabel labelNome = new JLabel("Nome:");
+        JLabel labelNome = new JLabel("Nome do Personagem");
         labelNome.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        labelNome.setBounds(30, 300,100,60);
+        labelNome.setBounds(0, 280,1150,60);
         labelNome.setForeground(Color.WHITE);
+        labelNome.setHorizontalAlignment(SwingConstants.CENTER);
 
         txtNome = new JTextField();
-        txtNome.setBounds(30, 350,250,60);
+        txtNome.setBounds(450, 330,250,40);
         txtNome.setBackground(Color.darkGray);
         txtNome.setForeground(Color.WHITE);
-        txtNome.setFont(new Font(Font.SERIF,Font.PLAIN,25));
+        txtNome.setFont(new Font(Font.SERIF,Font.BOLD,25));
         txtNome.setCursor(cursor);
+        txtNome.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         add(txtNome);
         add(labelNome);
-    }
-
-    private void carregarBotoesGravarResetar() {
-        botaoGravar = new JButton("Gerar Personagem");
-        botaoGravar.setBackground(Color.BLACK);
-        botaoGravar.setForeground(Color.WHITE);
-        botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoGravar.setBounds(250, 700,300,50);
-        botaoGravar.setFocusable(false);
-        botaoGravar.setEnabled(false);
-        botaoGravar.setCursor(cursor);
-        botaoGravar.addActionListener(e -> {
-            if (txtNome.getText().length()<3){
-                JOptionPane.showMessageDialog(null,"Por favor digite um nome com ao menos 3 caracteres.");
-                return;
-            }
-            carregarPersonagem();
-        });
-        add(botaoGravar);
-
-        botaoResetar = new JButton("Refazer Personagem");
-        botaoResetar.setBackground(Color.BLACK);
-        botaoResetar.setForeground(Color.WHITE);
-        botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoResetar.setBounds(650, 700,300,50);
-        botaoResetar.setFocusable(false);
-        botaoResetar.setCursor(cursor);
-        botaoResetar.addActionListener(e -> {
-            resetarCriacaoPersonagem();
-        });
-        add(botaoResetar);
     }
 
     private void carregarPainelHabilidade() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeHabilidade = new ImagePanel();
-        painelDeHabilidade.setBounds(10,10,370,300);
+        ImagePanel painelDeHabilidade = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        painelDeHabilidade.setBounds(10,10,370,290);
 
         //Título
         JLabel labelTituloHabilidade = new JLabel("Habilidade");
@@ -168,8 +202,8 @@ public class TelaCriarPersonagem extends Tela {
     private void carregarPainelEnergia() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeEnergia = new ImagePanel();
-        painelDeEnergia.setBounds(390,10,370,300);
+        ImagePanel painelDeEnergia = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        painelDeEnergia.setBounds(390,10,370,290);
 
         //Título
         JLabel labelTituloEnergia = new JLabel("Energia");
@@ -218,8 +252,8 @@ public class TelaCriarPersonagem extends Tela {
     private void carregarPainelSorte() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeSorte = new ImagePanel();
-        painelDeSorte.setBounds(770,10,370,300);
+        ImagePanel painelDeSorte = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        painelDeSorte.setBounds(770,10,370,290);
 
         //Título
         JLabel labelTituloSorte = new JLabel("Sorte");
@@ -263,6 +297,37 @@ public class TelaCriarPersonagem extends Tela {
         add(labelInfoSorte);
         add(botaoRolarDadosSorte);
         add(painelDeSorte);
+    }
+
+    private void carregarBotoesGravarResetar() {
+        botaoGravar = new JButton("Gerar Personagem");
+        botaoGravar.setBackground(Color.BLACK);
+        botaoGravar.setForeground(Color.WHITE);
+        botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoGravar.setBounds(250, 720,300,50);
+        botaoGravar.setFocusable(false);
+        botaoGravar.setEnabled(false);
+        botaoGravar.setCursor(cursor);
+        botaoGravar.addActionListener(e -> {
+            if (txtNome.getText().length()<3){
+                JOptionPane.showMessageDialog(null,"Por favor digite um nome com ao menos 3 caracteres.");
+                return;
+            }
+            carregarPersonagem();
+        });
+        add(botaoGravar);
+
+        botaoResetar = new JButton("Refazer Personagem");
+        botaoResetar.setBackground(Color.BLACK);
+        botaoResetar.setForeground(Color.WHITE);
+        botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoResetar.setBounds(650, 720,300,50);
+        botaoResetar.setFocusable(false);
+        botaoResetar.setCursor(cursor);
+        botaoResetar.addActionListener(e -> {
+            resetarCriacaoPersonagem();
+        });
+        add(botaoResetar);
     }
 
     private void desabilitarBotoes(JButton botao){

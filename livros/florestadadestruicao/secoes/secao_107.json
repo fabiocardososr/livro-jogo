@@ -1,0 +1,19 @@
+{  	
+  "codSecaoLivro": "107",
+  "texto": "No momento em que você chega nos últimos degraus antes do nicho seguinte, um jato de chamas se projeta para barrar seu caminho. Em seguida, um enorme vulto escuro sai do nicho, soltando fogo pelas narinas. Uma fumaça negra sobe pelo ar em anéis. A fera tem a forma de um homem, mas possui asas e carrega uma espada de fogo em uma das mãos e um chicote na outra. Traz uma coroa de ouro sobre a cabeça. Ela fica encarando você imóvel nos degraus acima. De repente, ela estala seu chicote e ergue a espada flamejante. A única saída dessa caverna está à sua frente no alto da escada. Para chegar lá, você terá que lutar contra o DEMÔNIO DE FOGO, senhor dos clones.\n\nAlém do seu ataque normal com a espada flamejante, jogue um dado a cada Série de Ataque para o chicote dele. Se o resultado for 1 ou 2, o chicote atinge você, que terá que subtrair 1 ponto de seu índice de ENERGIA. Os resultados de 3 a 6 significam que você não foi atingido pelo chicote. Você poderá usar sua SORTE contra o chicote.",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_107.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "152"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"27",
+		"nome":"DEMÔNIO DE FOGO",
+		"habilidade":"10",
+		"energia":"10"
+	}
+  ]
+  }

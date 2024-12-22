@@ -1,0 +1,41 @@
+{  	
+  "codSecaoLivro": "212",
+  "texto": "No interior do nicho, você vê mais quatro dos pequenos humanóides. Mas estes estão usando armaduras de couro e têm nas mãos lanças longas. Eles se mexem para atacar, e você é forçado a lutar contra os GUERREIROS-CLONES.\nEles avançam spbre você um de cada vez.",
+    "enderecoImagem": "livros/florestadadestruicao/imagens/secao_212.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "321"
+    },
+	{	  
+      "textoOpcao": "Fugir, correndo para fora do ninho subindo os degraus?",
+      "codProximaSecao": "107"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"39",
+		"nome":"GUERREIRO-CLONE",
+		"habilidade":"5",
+		"energia":"5"
+	},
+	{
+		"idInimigo":"40",
+		"nome":"GUERREIRO-CLONE",
+		"habilidade":"6",
+		"energia":"4"
+	},
+	{
+		"idInimigo":"41",
+		"nome":"GUERREIRO-CLONE",
+		"habilidade":"5",
+		"energia":"6"
+	},
+	{
+		"idInimigo":"42",
+		"nome":"GUERREIRO-CLONE",
+		"habilidade":"6",
+		"energia":"5"
+	}
+  ]
+  }
