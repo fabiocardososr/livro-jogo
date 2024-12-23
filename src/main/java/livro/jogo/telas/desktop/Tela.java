@@ -29,11 +29,9 @@ public class Tela extends JFrame {
         label.setBounds(2,2,200,200);
         //telaDadosRolando.setIconImage();
         telaDadosRolando.add(label);
-        Timer timer = new Timer(milisegundos, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                telaDadosRolando.setVisible(false);
-                telaDadosRolando.dispose();
-            }
+        Timer timer = new Timer(milisegundos, e -> {
+            telaDadosRolando.setVisible(false);
+            telaDadosRolando.dispose();
         });
         timer.setRepeats(false);
         timer.start();

@@ -137,15 +137,12 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoHabilidade.setBounds(130, 440,180,72);
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
 
-        botaoPocaoHabilidade.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pocaoEscolhida = 45;  //Corresponde ao código da poção de Habilidade
-                botaoPocaoEnergia.setEnabled(false);
-                botaoPocaoSorte.setEnabled(false);
-                botaoPocaoHabilidade.setEnabled(false);
-                habilitarBotaoGravar();
-            }
+        botaoPocaoHabilidade.addActionListener(e -> {
+            pocaoEscolhida = 45;  //Corresponde ao código da poção de Habilidade
+            botaoPocaoEnergia.setEnabled(false);
+            botaoPocaoSorte.setEnabled(false);
+            botaoPocaoHabilidade.setEnabled(false);
+            habilitarBotaoGravar();
         });
         add(botaoPocaoHabilidade);
 
@@ -154,16 +151,13 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoEnergia = new JButtonEscolhaPocao("Energia",
                 "livros/florestadadestruicao/imagens/pocao_de_energia.png");
         botaoPocaoEnergia.setBounds(130, 517,180,72);
-        botaoPocaoEnergia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
-                botaoPocaoEnergia.setEnabled(false);
-                botaoPocaoSorte.setEnabled(false);
-                botaoPocaoHabilidade.setEnabled(false);
-                //JOptionPane.showMessageDialog(null,"Energia: "+pocaoEscolhida);
-                habilitarBotaoGravar();
-            }
+        botaoPocaoEnergia.addActionListener(e -> {
+            pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
+            botaoPocaoEnergia.setEnabled(false);
+            botaoPocaoSorte.setEnabled(false);
+            botaoPocaoHabilidade.setEnabled(false);
+            //JOptionPane.showMessageDialog(null,"Energia: "+pocaoEscolhida);
+            habilitarBotaoGravar();
         });
         add(botaoPocaoEnergia);
 
@@ -171,16 +165,13 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoSorte = new JButtonEscolhaPocao("Sorte",
                 "livros/florestadadestruicao/imagens/pocao_de_sorte.png");
         botaoPocaoSorte.setBounds(130, 594,180,72);
-        botaoPocaoSorte.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
-                botaoPocaoEnergia.setEnabled(false);
-                botaoPocaoSorte.setEnabled(false);
-                botaoPocaoHabilidade.setEnabled(false);
-                //JOptionPane.showMessageDialog(null,"Sorte: "+pocaoEscolhida);
-                habilitarBotaoGravar();
-            }
+        botaoPocaoSorte.addActionListener(e -> {
+            pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
+            botaoPocaoEnergia.setEnabled(false);
+            botaoPocaoSorte.setEnabled(false);
+            botaoPocaoHabilidade.setEnabled(false);
+            //JOptionPane.showMessageDialog(null,"Sorte: "+pocaoEscolhida);
+            habilitarBotaoGravar();
         });
         add(botaoPocaoSorte);
     }
@@ -195,7 +186,7 @@ public class TelaCriarPersonagem extends Tela {
         txtNome = new JTextField();
         txtNome.setBounds(450, 330,250,40);
         txtNome.setBackground(new Color(210,180,140));
-        txtNome.setForeground(Color.WHITE);
+        txtNome.setForeground(new Color(139,0,0));
         txtNome.setFont(new Font(Font.SERIF,Font.BOLD,25));
         txtNome.setCursor(cursor);
         txtNome.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -380,13 +371,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoGravar.setFocusable(false);
         botaoGravar.setEnabled(false);
         botaoGravar.setCursor(cursor);
-        botaoGravar.addActionListener(e -> {
-            if (txtNome.getText().length()<3){
-                JOptionPane.showMessageDialog(null,"Por favor digite um nome com ao menos 3 caracteres.");
-                return;
-            }
-            carregarPersonagem();
-        });
+        botaoGravar.addActionListener(e -> { carregarPersonagem(); });
         add(botaoGravar);
 
         botaoResetar = new JButton("Refazer Personagem");
@@ -428,7 +413,7 @@ public class TelaCriarPersonagem extends Tela {
     private void habilitarBotaoGravar(){
         if ( (pocaoEscolhida > 0) && (habilidadeInicial != 0) &&
                 (energiaInicial != 0) && (sorteInicial != 0) &&
-                ( !txtNome.getText().equals("") )) {
+                (!txtNome.getText().isEmpty())) {
             botaoGravar.setEnabled(true);
             txtNome.setFocusable(true);
         }
@@ -439,11 +424,9 @@ public class TelaCriarPersonagem extends Tela {
     private void carregarPersonagem(){
         var nome = txtNome.getText();
         var idLivro = ManipularDadosLivro.getLivro().getIdLivro();
-        CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
 
-        Personagem personagem = ManipularDadosLivro.getPersonagem();
-        System.out.println(personagem);
-
+        //Cria o personagem e já joga na variável estática da classe ManipularDadosLivro
+        new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
     }
 
 }
