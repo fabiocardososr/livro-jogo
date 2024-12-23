@@ -1,0 +1,14 @@
+  {
+	"idItem":"50",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Espada",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }

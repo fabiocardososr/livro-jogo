@@ -1,5 +1,7 @@
 package livro.jogo.entidades;
 
+import livro.jogo.enums.TipoEfeito;
+
 public class Item {
     private int idItem;
     private TipoEfeito tipoEfeito;                  //indica onde o artefato vai atuar se na HABILIDADE, ENERGIA OU SORTE

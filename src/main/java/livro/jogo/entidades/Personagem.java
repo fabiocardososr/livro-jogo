@@ -14,6 +14,7 @@ public class Personagem {
     private int energiaAtual;
     private int sorteAtual;
     private String anotacoes;
+    private int quantidadeOuro;
     private ArrayList<Item> bolsa;
     private ArrayList<Item> itensEquipados;
 
@@ -35,6 +36,14 @@ public class Personagem {
         this.sorteAtual = sorteMax;
         this.bolsa = bolsa;
         this.itensEquipados = itensEquipados;
+    }
+
+    public int getQuantidadeOuro() {
+        return quantidadeOuro;
+    }
+
+    public void setQuantidadeOuro(int quantidadeOuro) {
+        this.quantidadeOuro = quantidadeOuro;
     }
 
     public String getNome() {
@@ -135,7 +144,8 @@ public class Personagem {
                 ", anotacoes='" + anotacoes + '\'' +
                 ", bolsa=" + bolsa +
                 ", itensEquipados=" + itensEquipados +
-                ", condicaoEspecial=" + condicaoEspecial +
+                ", condicaoEspecial= " + condicaoEspecial +
+                ", Ouro carregado= " + quantidadeOuro +
                 '}';
     }
 }

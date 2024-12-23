@@ -1,21 +1,15 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
-import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.utils.ManipularDados;
 import livro.jogo.utils.Util;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 
 public class TelaCriarPersonagem extends Tela {
@@ -24,6 +18,9 @@ public class TelaCriarPersonagem extends Tela {
     private JButton botaoRolarDadosSorte;
     private JButton botaoGravar;
     private JButton botaoResetar;
+    private JButtonEscolhaPocao botaoPocaoSorte;
+    private JButtonEscolhaPocao botaoPocaoEnergia;
+    private JButtonEscolhaPocao botaoPocaoHabilidade;
     private JLabel labelIndiceHabilidade;
     private JLabel labelIndiceEnergia;
     private JLabel labelIndiceSorte;
@@ -33,7 +30,7 @@ public class TelaCriarPersonagem extends Tela {
     private int sorteInicial = 0;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private JList<String> listaPocoes;
-    private Item pocaoEscolhida;
+    private int pocaoEscolhida; //Escolha da poção
 
     public TelaCriarPersonagem(int largura, int altura) {
         super(largura, altura);
@@ -57,20 +54,61 @@ public class TelaCriarPersonagem extends Tela {
         painelInferior.setBounds(2,305,1130,470);
 
         //Opção de escolha de poções inicial
-        carregaEScolhaPocao();
+        carregaEscolhaPocao();
+
+        //Visualiza escolha do personagem
+        carregaEscolhasPersonagem();
 
         //Último a ser adicionado o painel inferior, senão ele fica por cima e cobre os outros componentes
         add(painelInferior);
+
     }
 
-    private void carregaEScolhaPocao() {
+    private void carregaEscolhasPersonagem() {
+        JLabel labelEscolhaPersonagem = new JLabel("<html><center>Itens Iniciais<center></html>");
+        labelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelEscolhaPersonagem.setForeground(new Color(150,69,19));
+        labelEscolhaPersonagem.setBounds(380, 380,200,70);
+        labelEscolhaPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
 
-        //String[] pocoes = {"Poção da Habilidade","Poção de Força", "Poção da Fortuna"};
-        //int[] codPocoes = {45,46,47};
+        JPanel painelEscolhaPersonagem = new JPanel();
+        painelEscolhaPersonagem.setBackground(new Color(210,180,140));
+        painelEscolhaPersonagem.setForeground(new Color(139,0,0));
+        painelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        painelEscolhaPersonagem.setBounds(350,440,250,230);
 
-        //ATENÇÃO: Continuar depois que criar a lista de itens Json
+        JLabel labelFlecha = new JLabel("<html><center>==><center></html>");
+        labelFlecha.setFont(new Font(Font.SERIF,Font.BOLD,80));
+        labelFlecha.setForeground(new Color(139,0,0));
+        labelFlecha.setBounds(580, 500,200,70);
+        labelFlecha.setHorizontalAlignment(SwingConstants.CENTER);
 
-        /********    POCAO HABILIDADE    ********/
+        ImagePanel painelImgBolsa = new ImagePanel("livros/florestadadestruicao/imagens/bolsa.png");
+        painelImgBolsa.setBackground(new Color(210,180,140));
+        painelImgBolsa.setForeground(new Color(139,0,0));
+        painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        painelImgBolsa.setBounds(780,440,250,230);
+
+
+
+        JLabel labelHabilidadePersonagem = new JLabel("<html>- Espada<br><br>- Armadura de Couro<br><br>- 10 Provisões</html>");
+        labelHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelHabilidadePersonagem.setForeground(new Color(139,0,0));
+        labelHabilidadePersonagem.setBounds(360,450,250,200);
+        //labelHabilidadePersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+
+        add(labelEscolhaPersonagem);
+        add(labelHabilidadePersonagem);
+        add(labelFlecha);
+
+        add(painelEscolhaPersonagem);
+        add(painelImgBolsa);
+    }
+
+    private void carregaEscolhaPocao() {
+
+
         JLabel labelEscolhaPocao = new JLabel("<html><center>Escolha uma Poção<center></html>");
         labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,22));
         labelEscolhaPocao.setForeground(new Color(150,69,19));
@@ -79,47 +117,58 @@ public class TelaCriarPersonagem extends Tela {
         //labelEscolhaPocao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         add(labelEscolhaPocao);
 
-        //Poção de Habilidade
-        JButtonEscolhaPocao botaoPocaoHabilidade = new JButtonEscolhaPocao("Habilidade",
+
+        /********    POCAO HABILIDADE    ********/
+        botaoPocaoHabilidade = new JButtonEscolhaPocao("Habilidade",
                 "livros/florestadadestruicao/imagens/pocao_de_habilidade.png");
-        botaoPocaoHabilidade.setBounds(130, 460,180,72);
+        botaoPocaoHabilidade.setBounds(130, 440,180,72);
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
 
         botaoPocaoHabilidade.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"HABILIADE");
+                pocaoEscolhida = 45;  //Corresponde ao código da poção de Habilidade
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
             }
         });
         add(botaoPocaoHabilidade);
 
 
         /********    POCAO ENERGIA    ********/
-        JButtonEscolhaPocao botaoPocaoEnergia = new JButtonEscolhaPocao("Energia",
+        botaoPocaoEnergia = new JButtonEscolhaPocao("Energia",
                 "livros/florestadadestruicao/imagens/pocao_de_energia.png");
-        botaoPocaoEnergia.setBounds(130, 537,180,72);
+        botaoPocaoEnergia.setBounds(130, 517,180,72);
         botaoPocaoEnergia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"Energia");
+                pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
             }
         });
         add(botaoPocaoEnergia);
 
         /********    POCAO SORTE    ********/
-        JButtonEscolhaPocao botaoPocaoSorte = new JButtonEscolhaPocao("Sorte",
+        botaoPocaoSorte = new JButtonEscolhaPocao("Sorte",
                 "livros/florestadadestruicao/imagens/pocao_de_sorte.png");
-        botaoPocaoSorte.setBounds(130, 616,180,72);
+        botaoPocaoSorte.setBounds(130, 594,180,72);
         botaoPocaoSorte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Sorte");
+                //JOptionPane.showMessageDialog(null,"Sorte");
+                pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
             }
         });
         add(botaoPocaoSorte);
     }
-
-
 
     private void carregarTxtNome() {
         JLabel labelNome = new JLabel("Nome do Personagem");
@@ -328,6 +377,7 @@ public class TelaCriarPersonagem extends Tela {
         habilidadeInicial = 0;
         energiaInicial    = 0;
         sorteInicial      = 0;
+        pocaoEscolhida    = 0;
         labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
         labelIndiceEnergia.setText(String.valueOf(energiaInicial));
         labelIndiceSorte.setText(String.valueOf(sorteInicial));
@@ -337,6 +387,9 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadosEnergia.setEnabled(true);
         botaoRolarDadosSorte.setEnabled(true);
         botaoGravar.setEnabled(false);
+        botaoPocaoEnergia.setEnabled(true);
+        botaoPocaoSorte.setEnabled(true);
+        botaoPocaoHabilidade.setEnabled(true);
     }
 
     private void habilitarBotaoGravar(){
@@ -352,9 +405,6 @@ public class TelaCriarPersonagem extends Tela {
         var nome = txtNome.getText();
         var idLivro = ManipularDados.getLivro().getIdLivro();
         CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
-        Personagem personagem = criacaoPersonagem.criarPersonagem();
-
-        System.out.println(personagem);
 
     }
 

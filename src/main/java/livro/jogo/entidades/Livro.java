@@ -1,5 +1,6 @@
 package livro.jogo.entidades;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Livro {

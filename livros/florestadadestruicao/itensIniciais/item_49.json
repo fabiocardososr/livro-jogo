@@ -1,0 +1,14 @@
+  {
+	"idItem":"49",
+	"tipoEfeito":"ENERGIA",
+	"descricao":"Provisão(Refeição)",
+	"valorCusto":"0",
+	"modificador":"4",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"S",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }

@@ -1,0 +1,14 @@
+  {
+	"idItem":"47",
+	"tipoEfeito":"SORTE",
+	"descricao":"Poção de Sorte",
+	"valorCusto":"0",
+	"modificador":"25",   
+	"quantidadeUsoTemporario":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"S",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelMaxPersonagem":"N"
+  }
