@@ -2,11 +2,10 @@ package livro.jogo.criarLivro.cadastro;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Livro;
 import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularArquivos;
-import livro.jogo.utils.ManipularDados;
+import livro.jogo.utils.ManipularDadosLivro;
 
 import java.io.File;
 
@@ -16,7 +15,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         ObjectMapper objMapper = new ObjectMapper();
 
         //Guarda as informações do livro para usar quando necessário.
-        ManipularDados.setLivro( carregaLivro(objMapper) );
+        ManipularDadosLivro.setLivro( carregaLivro(objMapper) );
 
         //Carregar seções
         inserirSecoes(objMapper);
@@ -48,7 +47,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         }
 
         //Apenas para verificar se tudo ocorreu bem(depois pode remover)
-        ManipularDados.imprimirInfoSecoes();
+        //ManipularDadosLivro.imprimirInfoSecoes();
     }
 
 
@@ -59,7 +58,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
             var  secao = objMapper.readValue(json, Secao.class);
-            ManipularDados.getMapSecao().put(secao.getCodSecaoLivro(),secao);
+            ManipularDadosLivro.getMapSecao().put(secao.getCodSecaoLivro(),secao);
 
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);

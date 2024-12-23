@@ -3,7 +3,7 @@ package livro.jogo.Personagens;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.utils.ManipularDados;
+import livro.jogo.utils.ManipularDadosLivro;
 
 import java.util.ArrayList;
 
@@ -14,8 +14,8 @@ public class CriacaoPersonagem {
 
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = recuperaItensIniciaisNaBolsa(pocaoEscolhida);
-        Personagem personagem = new Personagem(nome,idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados);
-        ManipularDados.setPersonagem(personagem);
+        Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados);
+        ManipularDadosLivro.setPersonagem(personagem);
     }
 
     private ArrayList<Item> recuperaItensIniciaisNaBolsa(int pocaoEscolhida) {
@@ -24,10 +24,10 @@ public class CriacaoPersonagem {
 
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)
-            bolsa.add(ManipularDados.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+            bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                     "livros/florestadadestruicao/itensIniciais/item_49.json"));
 
-        bolsa.add(ManipularDados.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itensIniciais/item_"+pocaoEscolhida+".json"));
 
         return bolsa;
@@ -38,11 +38,11 @@ public class CriacaoPersonagem {
         var itensEquipados = new ArrayList<Item>();
 
         //Equipando uma espada(50)
-        itensEquipados.add(ManipularDados.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+        itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itensIniciais/item_50.json"));
 
         //Equipando uma armadura de couro(51)
-        itensEquipados.add(ManipularDados.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+        itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itensIniciais/item_51.json"));
 
         return itensEquipados;

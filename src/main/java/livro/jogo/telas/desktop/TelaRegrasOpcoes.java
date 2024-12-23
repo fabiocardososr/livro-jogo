@@ -1,7 +1,7 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
-import livro.jogo.utils.ManipularDados;
+import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.swing.*;
 import java.awt.*;
@@ -107,7 +107,7 @@ public class TelaRegrasOpcoes extends Tela{
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == botaoCriarPersonagem){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Criar Personagem";
 
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getRegraCalcularIndicesIniciais());
@@ -116,7 +116,7 @@ public class TelaRegrasOpcoes extends Tela{
             }
 
             if (e.getSource() == botaoRegraBatalha){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Batalha";
 
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getRegraBatalha());
@@ -125,7 +125,7 @@ public class TelaRegrasOpcoes extends Tela{
             }
 
             if (e.getSource() == botaoRegraSorte){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Sorte";
 
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getRegraUsoSorte());
@@ -134,7 +134,7 @@ public class TelaRegrasOpcoes extends Tela{
             }
 
             if (e.getSource() == botaoRegraReposicaoIndices){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Repor HABILIDADE, SORTE e  ENERGIA";
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getRegraReposicaoIndices());
                 telaRegras.setTitle("Regra - Repor HABILIDADE, SORTE e  ENERGIA");
@@ -142,7 +142,7 @@ public class TelaRegrasOpcoes extends Tela{
             }
 
             if (e.getSource() == botaoRegraEquipamentos){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Equipamentos e Poções";
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getRegraEquipamentos());
                 telaRegras.setTitle("Regra - Equipamentos e Poções");
@@ -150,7 +150,7 @@ public class TelaRegrasOpcoes extends Tela{
             }
 
             if (e.getSource() == botaoDicas){
-                Livro livro = ManipularDados.getLivro();
+                Livro livro = ManipularDadosLivro.getLivro();
                 String titulo = "Dicas";
                 TelaRegras telaRegras = new TelaRegras(1200,790,titulo,livro.getDicas());
                 telaRegras.setTitle("Dicas");

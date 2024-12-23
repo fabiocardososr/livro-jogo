@@ -1,15 +1,18 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
+import livro.jogo.entidades.Personagem;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
-import livro.jogo.utils.ManipularDados;
+import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 public class TelaCriarPersonagem extends Tela {
@@ -29,7 +32,6 @@ public class TelaCriarPersonagem extends Tela {
     private int energiaInicial = 0;
     private int sorteInicial = 0;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
-    private JList<String> listaPocoes;
     private int pocaoEscolhida; //Escolha da poção
 
     public TelaCriarPersonagem(int largura, int altura) {
@@ -66,43 +68,54 @@ public class TelaCriarPersonagem extends Tela {
 
     private void carregaEscolhasPersonagem() {
         JLabel labelEscolhaPersonagem = new JLabel("<html><center>Itens Iniciais<center></html>");
-        labelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,26));
         labelEscolhaPersonagem.setForeground(new Color(150,69,19));
-        labelEscolhaPersonagem.setBounds(380, 380,200,70);
+        labelEscolhaPersonagem.setBounds(315, 380,730,70);
         labelEscolhaPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
-
-        JPanel painelEscolhaPersonagem = new JPanel();
-        painelEscolhaPersonagem.setBackground(new Color(210,180,140));
-        painelEscolhaPersonagem.setForeground(new Color(139,0,0));
-        painelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        painelEscolhaPersonagem.setBounds(350,440,250,230);
+        //labelEscolhaPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         JLabel labelFlecha = new JLabel("<html><center>==><center></html>");
         labelFlecha.setFont(new Font(Font.SERIF,Font.BOLD,80));
         labelFlecha.setForeground(new Color(139,0,0));
-        labelFlecha.setBounds(580, 500,200,70);
+        labelFlecha.setBounds(560, 500,200,70);
         labelFlecha.setHorizontalAlignment(SwingConstants.CENTER);
 
         ImagePanel painelImgBolsa = new ImagePanel("livros/florestadadestruicao/imagens/bolsa.png");
         painelImgBolsa.setBackground(new Color(210,180,140));
         painelImgBolsa.setForeground(new Color(139,0,0));
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        painelImgBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        painelImgBolsa.setToolTipText("Carrega todos os itens que não estejam equipados");
         painelImgBolsa.setBounds(780,440,250,230);
 
+        //Itens iniciais
+        ImagePanel imgPanelEspada = new ImagePanel("livros/florestadadestruicao/imagens/espada_inicial.png");
+        imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        imgPanelEspada.setToolTipText("Espada simples usada nos combates.");
+        imgPanelEspada.setBounds(430,440,90,90);
+        //imgPanelEspada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        ImagePanel imgPanelArmadura = new ImagePanel("livros/florestadadestruicao/imagens/armadura_de_couro.png");
+        imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        imgPanelArmadura.setToolTipText("Armadura de couro que o(a) protegerá durante a aventura.");
+        imgPanelArmadura.setBounds(430,520,90,90);
 
-        JLabel labelHabilidadePersonagem = new JLabel("<html>- Espada<br><br>- Armadura de Couro<br><br>- 10 Provisões</html>");
-        labelHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,22));
-        labelHabilidadePersonagem.setForeground(new Color(139,0,0));
-        labelHabilidadePersonagem.setBounds(360,450,250,200);
-        //labelHabilidadePersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        //imgPanelArmadura.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        ImagePanel imgPanelProvisoes = new ImagePanel("livros/florestadadestruicao/imagens/provisao.png");
+        imgPanelProvisoes.setBounds(430,610,90,90);
+        imgPanelProvisoes.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        imgPanelProvisoes.setToolTipText("<html>10 Provisões(refeições). Recompõe sua ENERGIA em 4 pontos.<br>Pode ser consumida em qualquer momento, exceto em combate.</html>");
+        //imgPanelProvisões.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
         add(labelEscolhaPersonagem);
-        add(labelHabilidadePersonagem);
+        add(imgPanelEspada);
+        add(imgPanelArmadura);
+        add(imgPanelProvisoes);
         add(labelFlecha);
 
-        add(painelEscolhaPersonagem);
+        //add(painelEscolhaPersonagem);
         add(painelImgBolsa);
     }
 
@@ -110,7 +123,7 @@ public class TelaCriarPersonagem extends Tela {
 
 
         JLabel labelEscolhaPocao = new JLabel("<html><center>Escolha uma Poção<center></html>");
-        labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,23));
         labelEscolhaPocao.setForeground(new Color(150,69,19));
         labelEscolhaPocao.setBounds(120, 380,200,70);
         labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,11 +140,11 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoHabilidade.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"HABILIADE");
                 pocaoEscolhida = 45;  //Corresponde ao código da poção de Habilidade
                 botaoPocaoEnergia.setEnabled(false);
                 botaoPocaoSorte.setEnabled(false);
                 botaoPocaoHabilidade.setEnabled(false);
+                habilitarBotaoGravar();
             }
         });
         add(botaoPocaoHabilidade);
@@ -144,11 +157,12 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoEnergia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"Energia");
                 pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
                 botaoPocaoEnergia.setEnabled(false);
                 botaoPocaoSorte.setEnabled(false);
                 botaoPocaoHabilidade.setEnabled(false);
+                //JOptionPane.showMessageDialog(null,"Energia: "+pocaoEscolhida);
+                habilitarBotaoGravar();
             }
         });
         add(botaoPocaoEnergia);
@@ -160,11 +174,12 @@ public class TelaCriarPersonagem extends Tela {
         botaoPocaoSorte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(null,"Sorte");
                 pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
                 botaoPocaoEnergia.setEnabled(false);
                 botaoPocaoSorte.setEnabled(false);
                 botaoPocaoHabilidade.setEnabled(false);
+                //JOptionPane.showMessageDialog(null,"Sorte: "+pocaoEscolhida);
+                habilitarBotaoGravar();
             }
         });
         add(botaoPocaoSorte);
@@ -179,11 +194,26 @@ public class TelaCriarPersonagem extends Tela {
 
         txtNome = new JTextField();
         txtNome.setBounds(450, 330,250,40);
-        txtNome.setBackground(Color.darkGray);
+        txtNome.setBackground(new Color(210,180,140));
         txtNome.setForeground(Color.WHITE);
         txtNome.setFont(new Font(Font.SERIF,Font.BOLD,25));
         txtNome.setCursor(cursor);
-        txtNome.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        txtNome.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        txtNome.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                habilitarBotaoGravar();
+            }
+        });
         add(txtNome);
         add(labelNome);
     }
@@ -393,7 +423,9 @@ public class TelaCriarPersonagem extends Tela {
     }
 
     private void habilitarBotaoGravar(){
-        if ( (habilidadeInicial != 0) && (energiaInicial != 0) && (sorteInicial != 0) ) {
+        if ( (pocaoEscolhida > 0) && (habilidadeInicial != 0) &&
+                (energiaInicial != 0) && (sorteInicial != 0) &&
+                ( !txtNome.getText().equals("") )) {
             botaoGravar.setEnabled(true);
             txtNome.setFocusable(true);
         }
@@ -403,8 +435,11 @@ public class TelaCriarPersonagem extends Tela {
 
     private void carregarPersonagem(){
         var nome = txtNome.getText();
-        var idLivro = ManipularDados.getLivro().getIdLivro();
+        var idLivro = ManipularDadosLivro.getLivro().getIdLivro();
         CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
+
+        Personagem personagem = ManipularDadosLivro.getPersonagem();
+        System.out.println(personagem);
 
     }
 

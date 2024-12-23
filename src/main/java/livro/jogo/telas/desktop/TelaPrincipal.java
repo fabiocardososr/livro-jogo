@@ -1,7 +1,7 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
-import livro.jogo.utils.ManipularDados;
+import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -29,7 +29,7 @@ public class TelaPrincipal extends Tela {
         super(largura,altura); //indico aqui o tamanho da tela
 
         //Dados do livro
-        livro = ManipularDados.getLivro();
+        livro = ManipularDadosLivro.getLivro();
         setTitle(livro.getNome());
         carregarIconTela();
         configurandoTelaPrincipal();
@@ -81,7 +81,7 @@ public class TelaPrincipal extends Tela {
         /* Carregando botões Inferiores */
         TelaPrincipalAcaoDosBotoes acao = new TelaPrincipalAcaoDosBotoes();
         configurarBotaoRegras(acao);
-        configurarBotaoCriarPersonagem(acao);
+        //configurarBotaoCriarPersonagem(acao);
         configurarCarregarPersonagem(acao);
         configurarBotaoIniciarJogo(acao);
 
@@ -93,7 +93,7 @@ public class TelaPrincipal extends Tela {
         botaoIniciarJogo.setBackground(Color.BLACK);
         botaoIniciarJogo.setForeground(Color.WHITE);
         botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoIniciarJogo.setBounds(590, 660,720,50);
+        botaoIniciarJogo.setBounds(590, 600,720,50);
         botaoIniciarJogo.setCursor(cursor);
         botaoIniciarJogo.addActionListener(acao);
         add(botaoIniciarJogo);
@@ -106,30 +106,30 @@ public class TelaPrincipal extends Tela {
         botaoCarregarPersonagem.setBackground(Color.BLACK);
         botaoCarregarPersonagem.setForeground(Color.WHITE);
         botaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoCarregarPersonagem.setBounds(1090, 600,220,50);
+        botaoCarregarPersonagem.setBounds(960, 660,350,50);
         botaoCarregarPersonagem.setCursor(cursor);
         botaoCarregarPersonagem.addActionListener(acao);
         add(botaoCarregarPersonagem);
 
     }
 
-    private void configurarBotaoCriarPersonagem(TelaPrincipalAcaoDosBotoes acao) {
-        botaoCriarPersonagem = new JButton("Criar Personagem");
-        botaoCriarPersonagem.setBackground(Color.BLACK);
-        botaoCriarPersonagem.setForeground(Color.WHITE);
-        botaoCriarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoCriarPersonagem.setBounds(840, 600,220,50);
-        botaoCriarPersonagem.setCursor(cursor);
-        botaoCriarPersonagem.addActionListener(acao);
-        add(botaoCriarPersonagem);
-    }
+//    private void configurarBotaoCriarPersonagem(TelaPrincipalAcaoDosBotoes acao) {
+//        botaoCriarPersonagem = new JButton("Criar Personagem");
+//        botaoCriarPersonagem.setBackground(Color.BLACK);
+//        botaoCriarPersonagem.setForeground(Color.WHITE);
+//        botaoCriarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+//        botaoCriarPersonagem.setBounds(840, 600,220,50);
+//        botaoCriarPersonagem.setCursor(cursor);
+//        botaoCriarPersonagem.addActionListener(acao);
+//        add(botaoCriarPersonagem);
+//    }
 
     private void configurarBotaoRegras(TelaPrincipalAcaoDosBotoes acao){
         botaoRegras = new JButton("Regras");
         botaoRegras.setBackground(Color.BLACK);
         botaoRegras.setForeground(Color.WHITE);
         botaoRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoRegras.setBounds(590, 600,220,50);
+        botaoRegras.setBounds(590, 660,350,50);
         botaoRegras.setCursor(cursor);
         botaoRegras.addActionListener(acao);
         add(botaoRegras);
@@ -144,17 +144,17 @@ public class TelaPrincipal extends Tela {
                 telaRegrasOpcoes.setVisible(true);
             }
 
-            if (e.getSource() == botaoCriarPersonagem){
-                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830);
-                telaCriarPersonagem.setVisible(true);
-            }
+//            if (e.getSource() == botaoCriarPersonagem){
+//
+//            }
 
             if (e.getSource() == botaoCarregarPersonagem){
 
             }
 
             if (e.getSource() == botaoIniciarJogo){
-
+                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830);
+                telaCriarPersonagem.setVisible(true);
             }
         }
     } //FIM AcaoDosBotoes implements ActionListener
