@@ -255,6 +255,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadoHabilidade.setCursor(cursor);
         botaoRolarDadoHabilidade.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadoHabilidade.addActionListener(e -> {
+            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
             desabilitarBotoes(botaoRolarDadoHabilidade);
@@ -305,6 +306,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadosEnergia.setCursor(cursor);
         botaoRolarDadosEnergia.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosEnergia.addActionListener(e -> {
+            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             energiaInicial = Util.obterIndiceEnergiaInicial();
             labelIndiceEnergia.setText(String.valueOf(energiaInicial));
             desabilitarBotoes(botaoRolarDadosEnergia);
@@ -355,6 +357,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadosSorte.setCursor(cursor);
         botaoRolarDadosSorte.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosSorte.addActionListener(e -> {
+            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceSorte.setText(String.valueOf(sorteInicial));
             desabilitarBotoes(botaoRolarDadosSorte);
