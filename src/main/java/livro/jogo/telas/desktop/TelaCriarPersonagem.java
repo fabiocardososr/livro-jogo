@@ -1,21 +1,20 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 
 
-public class TelaCriarPersonagem extends Tela {
+public class TelaCriarPersonagem extends TelaBasica {
     private JButton botaoRolarDadoHabilidade;
     private JButton botaoRolarDadosEnergia;
     private JButton botaoRolarDadosSorte;
@@ -33,18 +32,24 @@ public class TelaCriarPersonagem extends Tela {
     private int sorteInicial = 0;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private int pocaoEscolhida; //Escolha da poção
+    private final TelaBasica telaMae; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
 
-    public TelaCriarPersonagem(int largura, int altura) {
+    public TelaCriarPersonagem(int largura, int altura, TelaBasica telaMae) {
         super(largura, altura);
-
+        this.telaMae = telaMae;
+        this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
         carregarComponentesDaTela();
+    }
+
+    public void windowClosed(WindowEvent e){
+
     }
 
     private void carregarComponentesDaTela() {
         carregarPainelHabilidade();
         carregarPainelEnergia();
         carregarPainelSorte();
-        carregarBotoesGravarResetar();
+        carregarBotoesGravarResetarFechar();
         carregarTxtNome();
         carregarPainelInferior();
     }
@@ -246,7 +251,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadoHabilidade.setCursor(cursor);
         botaoRolarDadoHabilidade.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadoHabilidade.addActionListener(e -> {
-            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
             desabilitarBotoes(botaoRolarDadoHabilidade);
@@ -297,7 +302,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadosEnergia.setCursor(cursor);
         botaoRolarDadosEnergia.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosEnergia.addActionListener(e -> {
-            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             energiaInicial = Util.obterIndiceEnergiaInicial();
             labelIndiceEnergia.setText(String.valueOf(energiaInicial));
             desabilitarBotoes(botaoRolarDadosEnergia);
@@ -348,7 +353,7 @@ public class TelaCriarPersonagem extends Tela {
         botaoRolarDadosSorte.setCursor(cursor);
         botaoRolarDadosSorte.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosSorte.addActionListener(e -> {
-            Tela.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
             sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceSorte.setText(String.valueOf(sorteInicial));
             desabilitarBotoes(botaoRolarDadosSorte);
@@ -362,12 +367,12 @@ public class TelaCriarPersonagem extends Tela {
         add(painelDeSorte);
     }
 
-    private void carregarBotoesGravarResetar() {
+    private void carregarBotoesGravarResetarFechar() {
         botaoGravar = new JButton("Gerar Personagem");
         botaoGravar.setBackground(Color.BLACK);
         botaoGravar.setForeground(Color.WHITE);
         botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoGravar.setBounds(250, 720,300,50);
+        botaoGravar.setBounds(130, 720,270,50);
         botaoGravar.setFocusable(false);
         botaoGravar.setEnabled(false);
         botaoGravar.setCursor(cursor);
@@ -378,13 +383,26 @@ public class TelaCriarPersonagem extends Tela {
         botaoResetar.setBackground(Color.BLACK);
         botaoResetar.setForeground(Color.WHITE);
         botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoResetar.setBounds(650, 720,300,50);
+        botaoResetar.setBounds(440, 720,270,50);
         botaoResetar.setFocusable(false);
         botaoResetar.setCursor(cursor);
         botaoResetar.addActionListener(e -> {
             resetarCriacaoPersonagem();
         });
         add(botaoResetar);
+
+        JButton botaoFechar = new JButton("Sair");
+        botaoFechar.setBackground(Color.BLACK);
+        botaoFechar.setForeground(Color.WHITE);
+        botaoFechar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoFechar.setBounds(750, 720,270,50);
+        botaoFechar.setFocusable(false);
+        botaoFechar.setCursor(cursor);
+        botaoFechar.addActionListener(e -> {
+            setVisible(false);
+            telaMae.setVisible(true);
+        });
+        add(botaoFechar);
     }
 
     private void desabilitarBotoes(JButton botao){

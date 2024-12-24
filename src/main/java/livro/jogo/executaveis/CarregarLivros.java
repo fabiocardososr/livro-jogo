@@ -2,6 +2,8 @@ package livro.jogo.executaveis;
 
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.TelaPrincipal;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
+import livro.jogo.telas.desktop.centralizacaotelas.TelasDisponiveisParaCarregamento;
 
 public class CarregarLivros {
 
@@ -12,8 +14,7 @@ public class CarregarLivros {
         livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
 
         //Carregar Tela Principal
-        TelaPrincipal tela = new TelaPrincipal(1430,800);
-        tela.setVisible(true);
+        new CarregarTelas().carregarTela(TelasDisponiveisParaCarregamento.TELA_PRINCIPAL,"","","");
     }
 }
 

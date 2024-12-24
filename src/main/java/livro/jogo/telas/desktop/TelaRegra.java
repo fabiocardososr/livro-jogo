@@ -1,16 +1,18 @@
 package livro.jogo.telas.desktop;
 
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
+
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 
-public class TelaRegras extends Tela {
+public class TelaRegra extends TelaBasica {
     private final String titulo;
     private final String texto;
 
-    public TelaRegras(int largura, int altura, String titulo, String texto) {
+    public TelaRegra(int largura, int altura, String titulo, String texto) {
         super(largura,altura);
         this.titulo = titulo;
         this.texto = texto;

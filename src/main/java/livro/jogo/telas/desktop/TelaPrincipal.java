@@ -1,6 +1,9 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
+import livro.jogo.telas.desktop.centralizacaotelas.TelasDisponiveisParaCarregamento;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.imageio.ImageIO;
@@ -17,13 +20,13 @@ import java.io.IOException;
 
 /*System.exit(0) = Fecha aplicação toda*/
 
-public class TelaPrincipal extends Tela {
+public class TelaPrincipal extends TelaBasica {
     private final Livro livro;
-    private JButton botaoRegras;
-    private JButton botaoCriarPersonagem;
+    private JButton botaoOpcoesRegras;
     private JButton botaoCarregarPersonagem;
     private JButton botaoIniciarJogo;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+    private final CarregarTelas carregarTelas = new CarregarTelas(this);
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
@@ -113,48 +116,31 @@ public class TelaPrincipal extends Tela {
 
     }
 
-//    private void configurarBotaoCriarPersonagem(TelaPrincipalAcaoDosBotoes acao) {
-//        botaoCriarPersonagem = new JButton("Criar Personagem");
-//        botaoCriarPersonagem.setBackground(Color.BLACK);
-//        botaoCriarPersonagem.setForeground(Color.WHITE);
-//        botaoCriarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-//        botaoCriarPersonagem.setBounds(840, 600,220,50);
-//        botaoCriarPersonagem.setCursor(cursor);
-//        botaoCriarPersonagem.addActionListener(acao);
-//        add(botaoCriarPersonagem);
-//    }
-
     private void configurarBotaoRegras(TelaPrincipalAcaoDosBotoes acao){
-        botaoRegras = new JButton("Regras");
-        botaoRegras.setBackground(Color.BLACK);
-        botaoRegras.setForeground(Color.WHITE);
-        botaoRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoRegras.setBounds(590, 660,350,50);
-        botaoRegras.setCursor(cursor);
-        botaoRegras.addActionListener(acao);
-        add(botaoRegras);
+        botaoOpcoesRegras = new JButton("Regras");
+        botaoOpcoesRegras.setBackground(Color.BLACK);
+        botaoOpcoesRegras.setForeground(Color.WHITE);
+        botaoOpcoesRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoOpcoesRegras.setBounds(590, 660,350,50);
+        botaoOpcoesRegras.setCursor(cursor);
+        botaoOpcoesRegras.addActionListener(acao);
+        add(botaoOpcoesRegras);
     }
 
     private class TelaPrincipalAcaoDosBotoes implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == botaoRegras){
-                TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(305,400, livro);
-                telaRegrasOpcoes.setVisible(true);
+            if (e.getSource() == botaoOpcoesRegras){
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
             }
 
-//            if (e.getSource() == botaoCriarPersonagem){
-//
-//            }
-
             if (e.getSource() == botaoCarregarPersonagem){
-
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
             }
 
             if (e.getSource() == botaoIniciarJogo){
-                TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830);
-                telaCriarPersonagem.setVisible(true);
+
             }
         }
     } //FIM AcaoDosBotoes implements ActionListener

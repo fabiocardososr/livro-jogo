@@ -1,15 +1,13 @@
-package livro.jogo.telas.desktop;
+package livro.jogo.telas.desktop.personalizados;
 
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
-public class Tela extends JFrame {
+public class TelaBasica extends JFrame {
 
-    public Tela(int largura, int altura)  {
+    public TelaBasica(int largura, int altura)  {
         Container principal = getContentPane();
         setLayout(null);
         setResizable(false);
@@ -19,7 +17,7 @@ public class Tela extends JFrame {
     }
 
 
-    public static void mostrarDadosRolando(Tela tela, int milisegundos, String enderecoImagem){
+    public static void mostrarDadosRolando(TelaBasica tela, int milisegundos, String enderecoImagem){
 
         JDialog telaDadosRolando = new JDialog(tela, "Rolando dados", true);
         telaDadosRolando.setBackground(Color.WHITE);
