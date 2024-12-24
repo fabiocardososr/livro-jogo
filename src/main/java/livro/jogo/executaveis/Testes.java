@@ -2,22 +2,27 @@ package livro.jogo.executaveis;
 
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.TelaPrincipal;
+import livro.jogo.telas.desktop.TelaRegra;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Testes {
     public static void main(String[] args) {
+        //Carrega o livro
+        CarregarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CarregarLivroFlorestaDaDestruicao();
+        livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
 
-        System.out.println("-----");
-        for (int i=0; i<20; i++)
-            System.out.print("Habilidade: "+ Util.obterIndiceHabilidadeOuSorteInicial()+", ");
+        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(2) );
+        telaSecoesBasica.setVisible(true);
 
-        System.out.println("-----");
-        for (int i=0; i<20; i++)
-            System.out.print("Energia: "+ Util.obterIndiceEnergiaInicial()+", ");
 
-        System.out.println("-----");
-        for (int i=0; i<20; i++)
-            System.out.print("Sorte: "+ Util.obterIndiceHabilidadeOuSorteInicial()+", ");
+
+        //Não copiar quando finalizar
+        telaSecoesBasica.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 }

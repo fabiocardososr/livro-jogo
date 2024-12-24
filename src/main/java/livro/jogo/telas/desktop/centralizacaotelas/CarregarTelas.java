@@ -65,13 +65,13 @@ public class CarregarTelas {
     private void telaCriacaoPersonagem(){
         TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830, telaPrincipal);
 
+        //Quando fechar este tela, deve voltar para a principal
         telaCriarPersonagem.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent event) {
                 telaPrincipal.setVisible(true);
                 //System.exit(0);
             }
         });
-
         telaCriarPersonagem.setVisible(true);
     }
 }

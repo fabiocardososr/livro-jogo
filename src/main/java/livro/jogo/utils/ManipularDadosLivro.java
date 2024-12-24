@@ -43,6 +43,31 @@ public class ManipularDadosLivro {
         return personagem.getItensEquipados();
     }
 
+    public static Item recuperaItemDoJsonEGuardaNaBolsa(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
+        Item item = null;
+
+        try {
+            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
+            item = objMapper.readValue(json, Item.class);
+        } catch (JsonProcessingException e) {
+            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
+            //throw new RuntimeException(e);
+        }
+
+        return item;
+    }
+
+    public static void recuperaItemDoJsonEEquipaItem(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
+        try {
+            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
+            var  item = objMapper.readValue(json, Item.class);
+            ManipularDadosLivro.getBolsa().add(item);
+        } catch (JsonProcessingException e) {
+            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
+            //throw new RuntimeException(e);
+        }
+    }
+
     public static void imprimirInfoSecoes() {
         Secao secao;
 
@@ -76,30 +101,5 @@ public class ManipularDadosLivro {
 
         bolsas.forEach(item -> System.out.println("\n\nITEM: "+ item));
 
-    }
-
-    public static Item recuperaItemDoJsonEGuardaNaBolsa(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
-        Item item = null;
-
-        try {
-            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
-            item = objMapper.readValue(json, Item.class);
-        } catch (JsonProcessingException e) {
-            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
-            //throw new RuntimeException(e);
-        }
-
-        return item;
-    }
-
-    public static void recuperaItemDoJsonEEquipaItem(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
-        try {
-            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
-            var  item = objMapper.readValue(json, Item.class);
-            ManipularDadosLivro.getBolsa().add(item);
-        } catch (JsonProcessingException e) {
-            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
-            //throw new RuntimeException(e);
-        }
     }
 }

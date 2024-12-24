@@ -136,11 +136,11 @@ public class TelaPrincipal extends TelaBasica {
             }
 
             if (e.getSource() == botaoCarregarPersonagem){
-                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
+                JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
             }
 
             if (e.getSource() == botaoIniciarJogo){
-
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
             }
         }
     } //FIM AcaoDosBotoes implements ActionListener
