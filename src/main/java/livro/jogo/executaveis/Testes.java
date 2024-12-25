@@ -19,8 +19,6 @@ public class Testes {
         TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(2) );
         telaSecoesBasica.setVisible(true);
 
-
-
         //Não copiar quando finalizar
         telaSecoesBasica.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

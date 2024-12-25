@@ -1,5 +1,7 @@
 package livro.jogo.telas.desktop.personalizados;
 
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +13,12 @@ public class JButtonEscolhaPocao extends JButton {
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 
 
-    public JButtonEscolhaPocao(String texto, String enderecoImagem) {
+    public JButtonEscolhaPocao(String texto, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);
         setForeground(Color.WHITE);
         setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,20));
-        setIcon(dimensionarImagem(40,45, enderecoImagem));
+        setIcon(dimensionarImagem(40,45, enderecoImagem.getEnderecoImagem()));
         setForeground(new Color(139,0,0));
         setBackground(new Color(210,180,140));
         setVerticalTextPosition(SwingConstants.CENTER);

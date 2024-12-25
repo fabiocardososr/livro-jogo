@@ -1,6 +1,8 @@
 package livro.jogo.telas.desktop.personalizados;
 
 
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,12 +19,12 @@ public class TelaBasica extends JFrame {
     }
 
 
-    public static void mostrarDadosRolando(TelaBasica tela, int milisegundos, String enderecoImagem){
+    public static void mostrarDadosRolando(TelaBasica tela, int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
 
         JDialog telaDadosRolando = new JDialog(tela, "Rolando dados", true);
         telaDadosRolando.setBackground(Color.WHITE);
 
-        ImageIcon imageIcon = new ImageIcon(enderecoImagem);
+        ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
         JLabel label = new JLabel(imageIcon);
         label.setBounds(2,2,200,200);
         //telaDadosRolando.setIconImage();

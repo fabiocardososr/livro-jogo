@@ -18,6 +18,11 @@ public class Livro {
     private String imagemCapa; //Endereço de onde se encontra a imagem da capa, se existir.
     private String imagemMapa; //Endereço de onde se encontra a imagem do mapa, se existir.
     private final HashMap<Integer, Secao> mapSecao = new HashMap<Integer, Secao>();
+    private String imagemComplementar;
+
+    public String getImagemComplementar() {
+        return imagemComplementar;
+    }
 
     public HashMap<Integer, Secao> getMapSecao() {
         return mapSecao;

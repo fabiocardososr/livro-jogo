@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
@@ -57,7 +58,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregarPainelInferior() {
 
         //Painel inferior (imagem de pergaminho maior)
-        ImagePanel painelInferior = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho_panel_cadPersonagem.png");
+        ImagePanel painelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FUNDO_CAD_PERSONAGEM);
         painelInferior.setBounds(2,305,1130,470);
 
         //Opção de escolha de poções inicial
@@ -85,7 +86,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         labelFlecha.setBounds(560, 500,200,70);
         labelFlecha.setHorizontalAlignment(SwingConstants.CENTER);
 
-        ImagePanel painelImgBolsa = new ImagePanel("livros/florestadadestruicao/imagens/bolsa.png");
+        ImagePanel painelImgBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.BOLSA);
         painelImgBolsa.setBackground(new Color(210,180,140));
         painelImgBolsa.setForeground(new Color(139,0,0));
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
@@ -94,20 +95,20 @@ public class TelaCriarPersonagem extends TelaBasica {
         painelImgBolsa.setBounds(780,440,250,230);
 
         //Itens iniciais
-        ImagePanel imgPanelEspada = new ImagePanel("livros/florestadadestruicao/imagens/espada_inicial.png");
+        ImagePanel imgPanelEspada = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ESPADA_INICIAL);
         imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelEspada.setToolTipText("Espada simples usada nos combates.");
         imgPanelEspada.setBounds(430,440,90,90);
         //imgPanelEspada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        ImagePanel imgPanelArmadura = new ImagePanel("livros/florestadadestruicao/imagens/armadura_de_couro.png");
+        ImagePanel imgPanelArmadura = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ARMADURA_DE_COURO_INICIAL);
         imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelArmadura.setToolTipText("Armadura de couro que o(a) protegerá durante a aventura.");
         imgPanelArmadura.setBounds(430,520,90,90);
 
         //imgPanelArmadura.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        ImagePanel imgPanelProvisoes = new ImagePanel("livros/florestadadestruicao/imagens/provisao.png");
+        ImagePanel imgPanelProvisoes = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         imgPanelProvisoes.setBounds(430,610,90,90);
         imgPanelProvisoes.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelProvisoes.setToolTipText("<html>10 Provisões(refeições). Recompõe sua ENERGIA em 4 pontos.<br>Pode ser consumida em qualquer momento, exceto em combate.</html>");
@@ -138,7 +139,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         /********    POCAO HABILIDADE    ********/
         botaoPocaoHabilidade = new JButtonEscolhaPocao("Habilidade",
-                "livros/florestadadestruicao/imagens/pocao_de_habilidade.png");
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
         botaoPocaoHabilidade.setBounds(130, 440,180,72);
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
 
@@ -154,7 +155,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         /********    POCAO ENERGIA    ********/
         botaoPocaoEnergia = new JButtonEscolhaPocao("Energia",
-                "livros/florestadadestruicao/imagens/pocao_de_energia.png");
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
         botaoPocaoEnergia.setBounds(130, 517,180,72);
         botaoPocaoEnergia.addActionListener(e -> {
             pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
@@ -168,7 +169,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         /********    POCAO SORTE    ********/
         botaoPocaoSorte = new JButtonEscolhaPocao("Sorte",
-                "livros/florestadadestruicao/imagens/pocao_de_sorte.png");
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
         botaoPocaoSorte.setBounds(130, 594,180,72);
         botaoPocaoSorte.addActionListener(e -> {
             pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
@@ -217,7 +218,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregarPainelHabilidade() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeHabilidade = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        ImagePanel painelDeHabilidade = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FUNDO_CAD_PERSONAGEM_INDICES);
         painelDeHabilidade.setBounds(10,10,370,290);
 
         //Título
@@ -251,7 +252,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadoHabilidade.setCursor(cursor);
         botaoRolarDadoHabilidade.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadoHabilidade.addActionListener(e -> {
-            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
             habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
             desabilitarBotoes(botaoRolarDadoHabilidade);
@@ -268,7 +269,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregarPainelEnergia() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeEnergia = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        ImagePanel painelDeEnergia = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FUNDO_CAD_PERSONAGEM_INDICES);
         painelDeEnergia.setBounds(390,10,370,290);
 
         //Título
@@ -302,7 +303,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosEnergia.setCursor(cursor);
         botaoRolarDadosEnergia.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosEnergia.addActionListener(e -> {
-            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
             energiaInicial = Util.obterIndiceEnergiaInicial();
             labelIndiceEnergia.setText(String.valueOf(energiaInicial));
             desabilitarBotoes(botaoRolarDadosEnergia);
@@ -319,7 +320,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregarPainelSorte() {
 
         //Criado um panel personalizado para incluir imagem de fundo
-        ImagePanel painelDeSorte = new ImagePanel("livros/florestadadestruicao/imagens/pergaminho.png");
+        ImagePanel painelDeSorte = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FUNDO_CAD_PERSONAGEM_INDICES);
         painelDeSorte.setBounds(770,10,370,290);
 
         //Título
@@ -353,7 +354,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosSorte.setCursor(cursor);
         botaoRolarDadosSorte.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoRolarDadosSorte.addActionListener(e -> {
-            TelaBasica.mostrarDadosRolando(this,4000,"livros/florestadadestruicao/imagens/rolando_dados.gif");
+            TelaBasica.mostrarDadosRolando(this,4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
             sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
             labelIndiceSorte.setText(String.valueOf(sorteInicial));
             desabilitarBotoes(botaoRolarDadosSorte);

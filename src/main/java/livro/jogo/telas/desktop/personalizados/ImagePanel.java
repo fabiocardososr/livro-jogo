@@ -1,5 +1,7 @@
 package livro.jogo.telas.desktop.personalizados;
 
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
@@ -40,6 +42,18 @@ public class ImagePanel extends JPanel {
     private boolean stretched = true;
 
     private BufferedImage image;
+
+    public ImagePanel(ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
+        super();
+        setBackground(Color.BLACK);
+        //BufferedImage imagem;
+        try {
+            InputStream arquivo =  new FileInputStream(enderecoImagem.getEnderecoImagem());
+            setImage(ImageIO.read(arquivo));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public ImagePanel(String enderecoImagem) {
         super();
