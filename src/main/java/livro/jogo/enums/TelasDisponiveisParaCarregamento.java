@@ -1,4 +1,4 @@
-package livro.jogo.telas.desktop.centralizacaotelas;
+package livro.jogo.enums;
 
 public enum TelasDisponiveisParaCarregamento {
     TELA_PRINCIPAL,

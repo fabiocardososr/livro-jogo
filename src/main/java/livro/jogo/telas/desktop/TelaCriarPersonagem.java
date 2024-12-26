@@ -2,6 +2,7 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.PocoesIniciais;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
@@ -147,7 +148,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
 
         botaoPocaoHabilidade.addActionListener(e -> {
-            pocaoEscolhida = 45;  //Corresponde ao código da poção de Habilidade
+            pocaoEscolhida = PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao();  //Corresponde ao código da poção de Habilidade
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
@@ -161,7 +162,7 @@ public class TelaCriarPersonagem extends TelaBasica {
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
         botaoPocaoEnergia.setBounds(130, 517,180,72);
         botaoPocaoEnergia.addActionListener(e -> {
-            pocaoEscolhida = 46;  //Corresponde ao código da poção de Energia
+            pocaoEscolhida = PocoesIniciais.POCAO_DE_FORCA.getIdItemPocao();  //Corresponde ao código da poção de Energia
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
@@ -175,7 +176,7 @@ public class TelaCriarPersonagem extends TelaBasica {
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
         botaoPocaoSorte.setBounds(130, 594,180,72);
         botaoPocaoSorte.addActionListener(e -> {
-            pocaoEscolhida = 47;  //Corresponde ao código da poção da sorte
+            pocaoEscolhida = PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao();  //Corresponde ao código da poção da sorte
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
@@ -187,7 +188,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
     private void carregarTxtNomeGenero() {
         JLabel labelNome = new JLabel("Nome");
-        labelNome.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        labelNome.setFont(new Font(Font.SERIF,Font.BOLD,20));
         labelNome.setBounds(0, 280,1150,60);
         labelNome.setForeground(new Color(139,0,0));
         labelNome.setHorizontalAlignment(SwingConstants.CENTER);

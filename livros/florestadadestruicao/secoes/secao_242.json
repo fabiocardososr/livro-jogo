@@ -15,7 +15,7 @@
 	"descricao":"Lingote de Ouro",
 	"valorCusto":"28",
 	"modificador":"0",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",

@@ -14,7 +14,7 @@
 	"descricao":"Poção de Força",
 	"valorCusto":"0",
 	"modificador":"5",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",

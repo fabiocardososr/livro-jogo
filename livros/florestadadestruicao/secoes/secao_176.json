@@ -14,7 +14,7 @@
 	"descricao":"Cabo do Martelo de Guerra dos Anões",
 	"valorCusto":"0",
 	"modificador":"0",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",

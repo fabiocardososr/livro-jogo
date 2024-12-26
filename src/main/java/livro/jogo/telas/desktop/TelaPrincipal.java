@@ -2,11 +2,10 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
-import livro.jogo.telas.desktop.centralizacaotelas.TelasDisponiveisParaCarregamento;
+import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.ManipularDadosLivro;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -14,9 +13,6 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /*System.exit(0) = Fecha aplicação toda*/
 

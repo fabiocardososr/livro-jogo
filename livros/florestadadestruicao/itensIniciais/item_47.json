@@ -4,7 +4,7 @@
 	"descricao":"Poção de Sorte",
 	"valorCusto":"0",
 	"modificador":"25",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",

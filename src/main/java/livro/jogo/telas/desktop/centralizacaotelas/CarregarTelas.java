@@ -1,12 +1,11 @@
 package livro.jogo.telas.desktop.centralizacaotelas;
 
-import livro.jogo.entidades.Livro;
+import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.TelaCriarPersonagem;
 import livro.jogo.telas.desktop.TelaPrincipal;
 import livro.jogo.telas.desktop.TelaRegra;
 import livro.jogo.telas.desktop.TelaRegrasOpcoes;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.utils.ManipularDadosLivro;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

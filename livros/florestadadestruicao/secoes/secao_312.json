@@ -14,7 +14,7 @@
 	"descricao":"Cabeça de martelo de bronze com a letra G",
 	"valorCusto":"0",
 	"modificador":"0",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",

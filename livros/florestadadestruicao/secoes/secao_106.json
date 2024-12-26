@@ -14,7 +14,7 @@
 	"descricao":"Anel de ouro com grande esmeralda",
 	"valorCusto":"15",
 	"modificador":"0",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",

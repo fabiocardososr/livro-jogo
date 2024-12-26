@@ -14,7 +14,7 @@
 	"descricao":"Espada magnífica",
 	"valorCusto":"0",
 	"modificador":"2",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"S",

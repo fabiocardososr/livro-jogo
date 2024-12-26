@@ -1,6 +1,11 @@
 /*Classe que disponibiliza vários métodos auxiliares*/
 package livro.jogo.utils;
 
+import livro.jogo.entidades.Item;
+import livro.jogo.entidades.Personagem;
+import livro.jogo.enums.PocoesIniciais;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -22,6 +27,24 @@ public class Util {
 
     public static int obterIndiceEnergiaInicial(){
         return (12 + rolarDados(6,2));
+    }
+
+    //Retorna a poção inicial escolhida e caso já usada, retorna 0.
+    //45 - Poção de Habilidade
+    //46 - Poção de Força (Poção da Força)
+    //47 - Poção da Fortuna
+    public static Item retornaPocaoInicialDaBolsa(){
+        Personagem personagem = ManipularDadosLivro.getPersonagem();
+        ArrayList<Item> itens = personagem.getBolsa();
+
+        for (Item item : itens){
+            if ( (item.getIdItem() == PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao()) ||
+                    (item.getIdItem() == PocoesIniciais.POCAO_DE_FORCA.getIdItemPocao()) ||
+                    (item.getIdItem() == PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao()) ){
+                    return item;
+            }
+        }
+       return null;
     }
 
 }

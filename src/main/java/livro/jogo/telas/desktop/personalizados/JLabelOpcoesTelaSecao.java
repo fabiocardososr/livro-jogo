@@ -25,6 +25,17 @@ public class JLabelOpcoesTelaSecao extends JLabel {
         setCursor(cursor);
     }
 
+    public JLabelOpcoesTelaSecao(String texto) {
+        super(texto);
+        setForeground(Color.WHITE);
+        //setBackground(Color.BLACK);
+        setFont(new Font(Font.SERIF,Font.BOLD,25));
+        setForeground(new Color(160,0,0));
+        setBackground(new Color(210,180,140));
+        setVerticalTextPosition(SwingConstants.CENTER);
+        setCursor(cursor);
+    }
+
     //Caso a imagem seja maior que o label (por exemplo) redimensionar de modo caber no componente
     private ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
         ImageIcon imageIcon;

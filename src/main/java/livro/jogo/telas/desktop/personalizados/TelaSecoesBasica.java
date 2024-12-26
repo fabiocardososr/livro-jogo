@@ -1,10 +1,13 @@
 package livro.jogo.telas.desktop.personalizados;
 
+import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
+import livro.jogo.enums.PocoesIniciais;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.Util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,6 +26,7 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private JLabelOpcoesTelaSecao labelMapa;
     private JLabelOpcoesTelaSecao labelBolsa;
+    private JLabelOpcoesTelaSecao labelPocaoInicial;
 
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
@@ -184,17 +188,40 @@ public class TelaSecoesBasica extends TelaBasica{
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
 
 
-        //Configura botaoMapa
+        //Configura labelMapa
         labelMapa = new JLabelOpcoesTelaSecao("Mapa",ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
         labelMapa.addMouseListener(acaoLabels);
-        labelMapa.setToolTipText("Acesso ao mapa.");
+        //labelMapa.setToolTipText("Acesso ao mapa.");
+
+
+
+        //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
+
+        //ATENÇÃO DESCOMENTAR QUANDO CHAMAR VIA O CAMINHO CORRETO
+        Item pocaoInicial = Util.retornaPocaoInicialDaBolsa();
+
+        labelPocaoInicial = new JLabelOpcoesTelaSecao("Poção",ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
+        labelPocaoInicial.addMouseListener(acaoLabels);
+
+        if ( (pocaoInicial.getFlgUsoUnico().equals("S")) && (pocaoInicial.getQuantidadeUso() == 0) ){
+            labelPocaoInicial.setEnabled(false);
+        }
+//        else{
+//
+//            labelPocaoInicial = new JLabelOpcoesTelaSecao("Poção",ImagensDoLivroFlorestaDaDestruicao);
+//            labelPocaoInicial.addMouseListener(acaoLabels);
+//            labelPocaoInicial.setIcon();
+//        }
+
 
         //Posicionamento
+        labelPocaoInicial.setBounds(1250,200,150,100);
+        labelMapa.setBounds(1250,100,150,100);
         imgPainelDireito.setBounds(1200,2,280,770);
-        labelMapa.setBounds(1250,50,150,100);
 
         //Adiciona a tela
         add(labelMapa);
+        add(labelPocaoInicial);
         add(imgPainelDireito);
     }
 
@@ -208,6 +235,10 @@ public class TelaSecoesBasica extends TelaBasica{
 
             if (e.getSource() == labelBolsa){
                 JOptionPane.showMessageDialog(null,"Clicado na Bolsa");
+            }
+
+            if (e.getSource() == labelPocaoInicial){
+                JOptionPane.showMessageDialog(null,"Clicado na Poção");
             }
         }
 

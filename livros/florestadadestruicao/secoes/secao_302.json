@@ -14,7 +14,7 @@
 	"descricao":"Pulseira de Habilidade (Pulseira de cobre)",
 	"valorCusto":"0",
 	"modificador":"1",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"S",

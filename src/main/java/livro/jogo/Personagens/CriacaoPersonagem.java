@@ -5,7 +5,6 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.utils.ManipularDadosLivro;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class CriacaoPersonagem {
@@ -13,13 +12,13 @@ public class CriacaoPersonagem {
     public CriacaoPersonagem(String nome, int idLivro, int habilidadeInicial, int energiaInicial,
                              int sorteInicial, int pocaoEscolhida, int genero) {
 
-        var itensEquipados = recuperaItensIniciaisEquipados();
-        var bolsa = recuperaItensIniciaisNaBolsa(pocaoEscolhida);
+        var itensEquipados = adicionaItensIniciaisEquipados();
+        var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         ManipularDadosLivro.setPersonagem(personagem);
     }
 
-    private ArrayList<Item> recuperaItensIniciaisNaBolsa(int pocaoEscolhida) {
+    private ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
@@ -34,7 +33,7 @@ public class CriacaoPersonagem {
         return bolsa;
     }
 
-    private ArrayList<Item> recuperaItensIniciaisEquipados() {
+    private ArrayList<Item> adicionaItensIniciaisEquipados() {
         ObjectMapper objMapper = new ObjectMapper();
         var itensEquipados = new ArrayList<Item>();
 

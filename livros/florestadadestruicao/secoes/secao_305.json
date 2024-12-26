@@ -22,7 +22,7 @@
 	"descricao":"Faca de Arremesso",
 	"valorCusto":"0",
 	"modificador":"0",   
-	"quantidadeUsoTemporario":"0",
+	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"N",
 	"flgUsoPermanente":"N",
