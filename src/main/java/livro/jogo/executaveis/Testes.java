@@ -1,6 +1,7 @@
 package livro.jogo.executaveis;
 
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
+import livro.jogo.entidades.Personagem;
 import livro.jogo.telas.desktop.TelaPrincipal;
 import livro.jogo.telas.desktop.TelaRegra;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -15,8 +16,9 @@ public class Testes {
         //Carrega o livro
         CarregarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CarregarLivroFlorestaDaDestruicao();
         livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
-
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(2) );
+        Personagem personagem = new Personagem("Fabio",1,10,20,10,
+                null,null,1);
+        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(1),personagem );
         telaSecoesBasica.setVisible(true);
 
         //Não copiar quando finalizar

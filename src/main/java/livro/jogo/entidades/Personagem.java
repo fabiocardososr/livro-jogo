@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Personagem {
     private String nome;
+
+    private int genero; // Gênero que corresponde ao sexo biológico que lhes foi atribuído no nascimento
     private int idLivro;
     private int habilidadeMax;
     private int energiaMax;
@@ -25,7 +27,7 @@ public class Personagem {
     private final ArrayList<CondicaoEspecialPersonagem> condicaoEspecial = new ArrayList<>();
 
     public Personagem(String nome, int idLivro, int habilidadeMax, int energiaMax, int sorteMax,
-                      ArrayList<Item> bolsa,ArrayList<Item> itensEquipados) {
+                      ArrayList<Item> bolsa,ArrayList<Item> itensEquipados, int genero) {
         this.nome = nome;
         this.idLivro = idLivro;
         this.habilidadeMax = habilidadeMax;
@@ -36,6 +38,11 @@ public class Personagem {
         this.sorteAtual = sorteMax;
         this.bolsa = bolsa;
         this.itensEquipados = itensEquipados;
+        this.genero = genero;
+    }
+
+    public int getGenero() {
+        return genero;
     }
 
     public int getQuantidadeOuro() {

@@ -10,9 +10,7 @@ import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 
 public class TelaCriarPersonagem extends TelaBasica {
@@ -28,22 +26,27 @@ public class TelaCriarPersonagem extends TelaBasica {
     private JLabel labelIndiceEnergia;
     private JLabel labelIndiceSorte;
     private JTextField txtNome;
+    private JRadioButton rbMasculino;
+    private JRadioButton rbFeminino;
+    private ButtonGroup radioGrupoGenero;
     private int habilidadeInicial = 0;
     private int energiaInicial = 0;
     private int sorteInicial = 0;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private int pocaoEscolhida; //Escolha da poção
+    private int generoPersonagem; //1 = Masculino; 2 = Feminino
     private final TelaBasica telaMae; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
+
 
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaMae) {
         super(largura, altura);
         this.telaMae = telaMae;
         this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
+
+        //Container tela = getContentPane();
+        //tela.setBackground(new Color(210,180,140));
+
         carregarComponentesDaTela();
-    }
-
-    public void windowClosed(WindowEvent e){
-
     }
 
     private void carregarComponentesDaTela() {
@@ -51,7 +54,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         carregarPainelEnergia();
         carregarPainelSorte();
         carregarBotoesGravarResetarFechar();
-        carregarTxtNome();
+        carregarTxtNomeGenero();
         carregarPainelInferior();
     }
 
@@ -182,7 +185,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoPocaoSorte);
     }
 
-    private void carregarTxtNome() {
+    private void carregarTxtNomeGenero() {
         JLabel labelNome = new JLabel("Nome do Personagem");
         labelNome.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         labelNome.setBounds(0, 280,1150,60);
@@ -211,6 +214,45 @@ public class TelaCriarPersonagem extends TelaBasica {
                 habilitarBotaoGravar();
             }
         });
+
+        //Gênero
+        radioGrupoGenero = new ButtonGroup();
+
+        rbMasculino = new JRadioButton("Masculino",false);
+        rbMasculino.setBounds(705,325, 120,20);
+        rbMasculino.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        rbMasculino.setCursor(cursor);
+        rbMasculino.setBackground(Color.BLACK);
+        rbMasculino.setForeground(Color.WHITE);
+        rbMasculino.setFocusable(false);
+        rbMasculino.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generoPersonagem = 1;
+                habilitarBotaoGravar();
+            }
+        });
+
+        rbFeminino = new JRadioButton("Feminino",false);
+        rbFeminino.setBounds(705,350, 120,20);
+        rbFeminino.setCursor(cursor);
+        rbFeminino.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        rbFeminino.setBackground(Color.BLACK);
+        rbFeminino.setForeground(Color.WHITE);
+        rbFeminino.setFocusable(false);
+        rbFeminino.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generoPersonagem = 2;
+                habilitarBotaoGravar();
+            }
+        });
+        radioGrupoGenero.add(rbMasculino);
+        radioGrupoGenero.add(rbFeminino);
+
+        //Adicionando a tela
+        add(rbMasculino);
+        add(rbFeminino);
         add(txtNome);
         add(labelNome);
     }
@@ -415,6 +457,8 @@ public class TelaCriarPersonagem extends TelaBasica {
         energiaInicial    = 0;
         sorteInicial      = 0;
         pocaoEscolhida    = 0;
+        generoPersonagem  = 0;
+
         labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
         labelIndiceEnergia.setText(String.valueOf(energiaInicial));
         labelIndiceSorte.setText(String.valueOf(sorteInicial));
@@ -427,12 +471,13 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoEnergia.setEnabled(true);
         botaoPocaoSorte.setEnabled(true);
         botaoPocaoHabilidade.setEnabled(true);
+        radioGrupoGenero.clearSelection();
     }
 
     private void habilitarBotaoGravar(){
         if ( (pocaoEscolhida > 0) && (habilidadeInicial != 0) &&
                 (energiaInicial != 0) && (sorteInicial != 0) &&
-                (!txtNome.getText().isEmpty())) {
+                (!txtNome.getText().isEmpty()) && energiaInicial != 0 && generoPersonagem != 0) {
             botaoGravar.setEnabled(true);
             txtNome.setFocusable(true);
         }
@@ -445,7 +490,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         var idLivro = ManipularDadosLivro.getLivro().getIdLivro();
 
         //Cria o personagem e já joga na variável estática da classe ManipularDadosLivro
-        new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida);
+        new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
     }
 
 }
