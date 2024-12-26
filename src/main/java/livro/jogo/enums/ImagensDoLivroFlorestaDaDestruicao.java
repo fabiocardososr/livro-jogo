@@ -17,7 +17,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     MAPA_DA_FLORESTA("livros/florestadadestruicao/imagens/mapainicial.png"),
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
     BARBARA("livros/florestadadestruicao/imagens/barbara.png"),
-    MOLDURA("livros/florestadadestruicao/imagens/moldura.png")
+    MOLDURA("livros/florestadadestruicao/imagens/moldura.png"),
+    BUSSOLA("livros/florestadadestruicao/imagens/bussola.png")
     ;
 
     private final String enderecoImagem;

@@ -7,13 +7,14 @@ import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +23,9 @@ public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
     private final Personagem personagem;
     private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
+
+    private JLabelOpcoesTelaSecao botaoMapa;
+
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
         super(1500,800); //Tamanho comum para todas as telas de seções
@@ -45,6 +49,33 @@ public class TelaSecoesBasica extends TelaBasica{
         carregaPainelPersonagem();
         carregarPainelDireito();
         carregaPainelInferior();
+    }
+
+    private void carregarTextoHistoria() {
+
+        //Texto do livro
+        JTextPane textoHistoria = new JTextPane();
+        textoHistoria.setBackground(Color.BLACK);
+        StyledDocument textoCapaLivroStyle = textoHistoria.getStyledDocument();
+        SimpleAttributeSet configTexto = new SimpleAttributeSet();
+        StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
+        StyleConstants.setFontSize(configTexto,20);
+        StyleConstants.setForeground(configTexto,Color.WHITE);
+        textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
+        textoHistoria.setEditable(false);
+        textoHistoria.setCaretPosition(0); //para posicionar a barra de rolagem no início.
+        JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
+        scrollTextoHistoria.setFocusable(true);
+        scrollTextoHistoria.setBorder(null);
+
+        //Carregando texto no componente
+        textoHistoria.setText( secao.getTexto() );
+
+        //posicionamento na tela
+        scrollTextoHistoria.setBounds(15, 15, 870, 450);
+
+        //Adicionando a tela
+        add(scrollTextoHistoria);
     }
 
     private void carregaPainelPersonagem() {
@@ -89,19 +120,18 @@ public class TelaSecoesBasica extends TelaBasica{
         lbSortePersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lbSortePersonagem.setToolTipText("<html>Seu índice SORTE indica o quanto você é, naturalmente, uma pessoa de sorte.<br>Índice: (Atual/Máximo)</html>");
 
-        //Imagem do personagem
+        //Aqui define a imagem do Bárbaro(ou Bárara) do personagem
         //1 = Homem; 2 = Mulher
         String enderecoImgPersonagem;
         if (personagem.getGenero() == 1)
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARO.getEnderecoImagem();
         else
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARA.getEnderecoImagem();
-
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
 
         //Bolsa
         JButton botaoBolsa = new JButton("bolsa");
-        botaoBolsa.setBounds(945,550,130,130);
+        botaoBolsa.setBounds(940,550,130,130);
         try { //Imagem da seção no label redimensionada, pois existem imagens maiores que a dimensão do label
             BufferedImage img = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem()));
             Image imgDimensionada = img.getScaledInstance(botaoBolsa.getWidth(), botaoBolsa.getHeight(), Image.SCALE_SMOOTH);
@@ -111,7 +141,7 @@ public class TelaSecoesBasica extends TelaBasica{
             botaoBolsa.setHorizontalAlignment(SwingConstants.CENTER);
             botaoBolsa.setBorder(null);
             botaoBolsa.setToolTipText("Acesse aqui sua mochila.");
-            //botaoBolsa.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+            //botaoBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
             botaoBolsa.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -121,8 +151,6 @@ public class TelaSecoesBasica extends TelaBasica{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
 
         //Posiciona
         //botaoBolsa.setBounds(920,550,120,120);
@@ -174,36 +202,51 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
+        TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
+
+        //Configura botaoMapa
+        botaoMapa = new JLabelOpcoesTelaSecao("Mapa",ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        //botaoMapa.addActionListener(acaoBotao);
+        botaoMapa.addMouseListener(acaoLabels);
+        botaoMapa.setBounds(1250,50,150,100);
+        botaoMapa.setToolTipText("Acesso ao mapa.");
+
+        //Posicionamento
         imgPainelDireito.setBounds(1200,2,280,770);
+
+        //Adiciona a tela
+        add(botaoMapa);
         add(imgPainelDireito);
     }
 
-    private void carregarTextoHistoria() {
+    private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
 
-        //Texto do livro
-        JTextPane textoHistoria = new JTextPane();
-        textoHistoria.setBackground(Color.BLACK);
-        StyledDocument textoCapaLivroStyle = textoHistoria.getStyledDocument();
-        SimpleAttributeSet configTexto = new SimpleAttributeSet();
-        StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
-        StyleConstants.setFontSize(configTexto,20);
-        StyleConstants.setForeground(configTexto,Color.WHITE);
-        textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
-        textoHistoria.setEditable(false);
-        textoHistoria.setCaretPosition(0); //para posicionar a barra de rolagem no início.
-        JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
-        scrollTextoHistoria.setFocusable(true);
-        scrollTextoHistoria.setBorder(null);
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == botaoMapa){
+                JOptionPane.showMessageDialog(null,"Clicado no Mapa");
+            }
+        }
 
-        //Carregando texto no componente
-        textoHistoria.setText( secao.getTexto() );
+        @Override
+        public void mousePressed(MouseEvent e) {
 
-        //posicionamento na tela
-        scrollTextoHistoria.setBounds(15, 15, 870, 450);
+        }
 
-        //Adicionando a tela
-        add(scrollTextoHistoria);
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
     }
-
 
 }
