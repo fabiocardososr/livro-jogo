@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.personalizados;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.imageio.ImageIO;
@@ -11,20 +12,17 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
     private final Personagem personagem;
+    private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
 
-    private JLabelOpcoesTelaSecao botaoMapa;
+    private JLabelOpcoesTelaSecao labelMapa;
+    private JLabelOpcoesTelaSecao labelBolsa;
 
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
@@ -128,33 +126,21 @@ public class TelaSecoesBasica extends TelaBasica{
         else
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARA.getEnderecoImagem();
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
+        //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
+
 
         //Bolsa
-        JButton botaoBolsa = new JButton("bolsa");
-        botaoBolsa.setBounds(940,550,130,130);
-        try { //Imagem da seção no label redimensionada, pois existem imagens maiores que a dimensão do label
-            BufferedImage img = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem()));
-            Image imgDimensionada = img.getScaledInstance(botaoBolsa.getWidth(), botaoBolsa.getHeight(), Image.SCALE_SMOOTH);
-            botaoBolsa.setIcon(new ImageIcon(imgDimensionada));
-            botaoBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            botaoBolsa.setBackground(new Color(210,180,140));
-            botaoBolsa.setHorizontalAlignment(SwingConstants.CENTER);
-            botaoBolsa.setBorder(null);
-            botaoBolsa.setToolTipText("Acesse aqui sua mochila.");
-            //botaoBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
-            botaoBolsa.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null,"BOLSA");
-                }
-            });
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        labelBolsa = new JLabelOpcoesTelaSecao(null,ImagensDoLivroFlorestaDaDestruicao.BOLSA);
+        labelBolsa.setToolTipText("Acesse aqui sua mochila.");
+        labelBolsa.addMouseListener(acaoLabels);
+        //labelBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelBolsa.setBounds(930,550,150,140);
+        labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem(),
+                labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
+
 
         //Posiciona
-        //botaoBolsa.setBounds(920,550,120,120);
-        imgPersonagem.setBounds(1050,500,200,250);
+        imgPersonagem.setBounds(1080,500,205,260);
         lbSortePersonagem.setBounds(920,510,300,50);
         lbEnergiaPersonagem.setBounds(920,480,300,50);
         lbHabilidadePersonagem.setBounds(920,450,300,50);
@@ -166,7 +152,7 @@ public class TelaSecoesBasica extends TelaBasica{
         add(lbEnergiaPersonagem);
         add(lbHabilidadePersonagem);
         add(lbNomePersonagem);
-        add(botaoBolsa);
+        add(labelBolsa);
         add(imgPersonagem);
         add(painelPersonagem);
     }
@@ -181,14 +167,8 @@ public class TelaSecoesBasica extends TelaBasica{
         //posicionamento
         imgMolduraParaImgSecao.setBounds(875,2,340,375);
         labelImagemSecao.setBounds(915, 45, 261, 289);
-        try { //Imagem da seção no label redimensionada, pois existem imagens maiores que a dimensão do label
-            BufferedImage img = ImageIO.read(new File(enderecoImagem));
-            Image imgDimensionada = img.getScaledInstance(labelImagemSecao.getWidth(), labelImagemSecao.getHeight(), Image.SCALE_SMOOTH);
-            ImageIcon imageSecao = new ImageIcon(imgDimensionada);
-            labelImagemSecao.setIcon(imageSecao);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        labelImagemSecao.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemSecao.getWidth(),
+                labelImagemSecao.getHeight()).getImageIcon());
 
         add(labelImagemSecao);
         add(imgMolduraParaImgSecao);
@@ -202,20 +182,19 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
-        TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
+
 
         //Configura botaoMapa
-        botaoMapa = new JLabelOpcoesTelaSecao("Mapa",ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        //botaoMapa.addActionListener(acaoBotao);
-        botaoMapa.addMouseListener(acaoLabels);
-        botaoMapa.setBounds(1250,50,150,100);
-        botaoMapa.setToolTipText("Acesso ao mapa.");
+        labelMapa = new JLabelOpcoesTelaSecao("Mapa",ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        labelMapa.addMouseListener(acaoLabels);
+        labelMapa.setToolTipText("Acesso ao mapa.");
 
         //Posicionamento
         imgPainelDireito.setBounds(1200,2,280,770);
+        labelMapa.setBounds(1250,50,150,100);
 
         //Adiciona a tela
-        add(botaoMapa);
+        add(labelMapa);
         add(imgPainelDireito);
     }
 
@@ -223,8 +202,12 @@ public class TelaSecoesBasica extends TelaBasica{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getSource() == botaoMapa){
+            if (e.getSource() == labelMapa){
                 JOptionPane.showMessageDialog(null,"Clicado no Mapa");
+            }
+
+            if (e.getSource() == labelBolsa){
+                JOptionPane.showMessageDialog(null,"Clicado na Bolsa");
             }
         }
 

@@ -34,18 +34,7 @@ public class TelaPrincipal extends TelaBasica {
         //Dados do livro
         livro = ManipularDadosLivro.getLivro();
         setTitle(livro.getNome());
-        carregarIconTela();
         configurandoTelaPrincipal();
-    }
-
-    private void carregarIconTela(){
-        BufferedImage img;
-        try {
-            img = ImageIO.read(new File(livro.getImagemCapa()));
-            setIconImage(img);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private void configurandoTelaPrincipal(){

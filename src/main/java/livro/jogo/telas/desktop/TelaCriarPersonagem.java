@@ -44,8 +44,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         this.telaMae = telaMae;
         this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
 
-        //Container tela = getContentPane();
-        //tela.setBackground(new Color(210,180,140));
+        getContentPane().setBackground(new Color(210,180,140));
 
         carregarComponentesDaTela();
     }
@@ -79,7 +78,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregaEscolhasPersonagem() {
         JLabel labelEscolhaPersonagem = new JLabel("<html><center>Itens Iniciais<center></html>");
         labelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,26));
-        labelEscolhaPersonagem.setForeground(new Color(150,69,19));
+        labelEscolhaPersonagem.setForeground(new Color(139,0,0));
         labelEscolhaPersonagem.setBounds(315, 380,730,70);
         labelEscolhaPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         //labelEscolhaPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -134,7 +133,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         JLabel labelEscolhaPocao = new JLabel("<html><center>Escolha uma Poção<center></html>");
         labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,23));
-        labelEscolhaPocao.setForeground(new Color(150,69,19));
+        labelEscolhaPocao.setForeground(new Color(139,0,0));
         labelEscolhaPocao.setBounds(120, 380,200,70);
         labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
         //labelEscolhaPocao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -187,10 +186,10 @@ public class TelaCriarPersonagem extends TelaBasica {
     }
 
     private void carregarTxtNomeGenero() {
-        JLabel labelNome = new JLabel("Nome do Personagem");
+        JLabel labelNome = new JLabel("Nome");
         labelNome.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         labelNome.setBounds(0, 280,1150,60);
-        labelNome.setForeground(Color.WHITE);
+        labelNome.setForeground(new Color(139,0,0));
         labelNome.setHorizontalAlignment(SwingConstants.CENTER);
 
         txtNome = new JTextField();
@@ -224,8 +223,8 @@ public class TelaCriarPersonagem extends TelaBasica {
         rbMasculino.setBounds(705,325, 120,20);
         rbMasculino.setFont(new Font(Font.SERIF,Font.BOLD,20));
         rbMasculino.setCursor(cursor);
-        rbMasculino.setBackground(Color.BLACK);
-        rbMasculino.setForeground(Color.WHITE);
+        rbMasculino.setBackground(new Color(210,180,140));
+        rbMasculino.setForeground(new Color(139,0,0));
         rbMasculino.setFocusable(false);
         rbMasculino.addActionListener(new ActionListener() {
             @Override
@@ -239,8 +238,8 @@ public class TelaCriarPersonagem extends TelaBasica {
         rbFeminino.setBounds(705,350, 120,20);
         rbFeminino.setCursor(cursor);
         rbFeminino.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        rbFeminino.setBackground(Color.BLACK);
-        rbFeminino.setForeground(Color.WHITE);
+        rbFeminino.setBackground(new Color(210,180,140));
+        rbFeminino.setForeground(new Color(139,0,0));
         rbFeminino.setFocusable(false);
         rbFeminino.addActionListener(new ActionListener() {
             @Override
@@ -290,7 +289,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadoHabilidade = new JButton("Rolar Dado");
         botaoRolarDadoHabilidade.setBackground(new Color(210,180,140));
         botaoRolarDadoHabilidade.setForeground(new Color(139,0,0));
-        botaoRolarDadoHabilidade.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoRolarDadoHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoRolarDadoHabilidade.setBounds(138,200,120,40);
         botaoRolarDadoHabilidade.setFocusable(false);
         botaoRolarDadoHabilidade.setCursor(cursor);
@@ -341,7 +340,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosEnergia = new JButton("Rolar Dados");
         botaoRolarDadosEnergia.setBackground(new Color(210,180,140));
         botaoRolarDadosEnergia.setForeground(new Color(139,0,0));
-        botaoRolarDadosEnergia.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoRolarDadosEnergia.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoRolarDadosEnergia.setBounds(530,200,120,40);
         botaoRolarDadosEnergia.setFocusable(false);
         botaoRolarDadosEnergia.setCursor(cursor);
@@ -392,7 +391,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosSorte = new JButton("Rolar Dado");
         botaoRolarDadosSorte.setBackground(new Color(210,180,140));
         botaoRolarDadosSorte.setForeground(new Color(139,0,0));
-        botaoRolarDadosSorte.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoRolarDadosSorte.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoRolarDadosSorte.setBounds(915,200,120,40);
         botaoRolarDadosSorte.setFocusable(false);
         botaoRolarDadosSorte.setCursor(cursor);
@@ -414,10 +413,11 @@ public class TelaCriarPersonagem extends TelaBasica {
 
     private void carregarBotoesGravarResetarFechar() {
         botaoGravar = new JButton("Gerar Personagem");
-        botaoGravar.setBackground(Color.BLACK);
-        botaoGravar.setForeground(Color.WHITE);
-        botaoGravar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoGravar.setForeground(new Color(139,0,0));
+        botaoGravar. setBackground(new Color(210,180,140));
+        botaoGravar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoGravar.setBounds(130, 720,270,50);
+        botaoGravar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoGravar.setFocusable(false);
         botaoGravar.setEnabled(false);
         botaoGravar.setCursor(cursor);
@@ -425,11 +425,12 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoGravar);
 
         botaoResetar = new JButton("Refazer Personagem");
-        botaoResetar.setBackground(Color.BLACK);
-        botaoResetar.setForeground(Color.WHITE);
-        botaoResetar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoResetar.setForeground(new Color(139,0,0));
+        botaoResetar. setBackground(new Color(210,180,140));
+        botaoResetar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoResetar.setBounds(440, 720,270,50);
         botaoResetar.setFocusable(false);
+        botaoResetar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoResetar.setCursor(cursor);
         botaoResetar.addActionListener(e -> {
             resetarCriacaoPersonagem();
@@ -437,11 +438,12 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoResetar);
 
         JButton botaoFechar = new JButton("Sair");
-        botaoFechar.setBackground(Color.BLACK);
-        botaoFechar.setForeground(Color.WHITE);
-        botaoFechar.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        botaoFechar.setForeground(new Color(139,0,0));
+        botaoFechar. setBackground(new Color(210,180,140));
+        botaoFechar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoFechar.setBounds(750, 720,270,50);
         botaoFechar.setFocusable(false);
+        botaoFechar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
         botaoFechar.setCursor(cursor);
         botaoFechar.addActionListener(e -> {
             setVisible(false);

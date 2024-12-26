@@ -2,9 +2,14 @@ package livro.jogo.telas.desktop.personalizados;
 
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.utils.ManipularDadosLivro;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class TelaBasica extends JFrame {
@@ -16,6 +21,18 @@ public class TelaBasica extends JFrame {
         principal.setBackground(Color.BLACK);
         setSize(largura,altura);
         setLocationRelativeTo(null);
+        carregarIconTela();
+
+    }
+
+    private void carregarIconTela(){
+        BufferedImage img;
+        try {
+            img = ImageIO.read(new File(ManipularDadosLivro.getLivro().getImagemCapa()));
+            setIconImage(img);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

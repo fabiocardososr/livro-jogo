@@ -18,7 +18,7 @@ public class Testes {
         livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
         Personagem personagem = new Personagem("Fábio",1,10,20,10,
                 null,null,2);
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(90),personagem );
+        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(2),personagem );
         telaSecoesBasica.setVisible(true);
 
         //Não copiar quando finalizar
