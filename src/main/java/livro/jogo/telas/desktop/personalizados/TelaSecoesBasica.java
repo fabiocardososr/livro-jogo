@@ -5,17 +5,23 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularDadosLivro;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
     private final Personagem personagem;
-    private String enderecoImagemDefault = ManipularDadosLivro.getLivro().getImagemComplementar();
+    private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
         super(1500,800); //Tamanho comum para todas as telas de seções
@@ -28,52 +34,136 @@ public class TelaSecoesBasica extends TelaBasica{
         this.personagem = personagem;
 
         if (secao.getEnderecoImagem() != null)
-            this.enderecoImagemDefault = secao.getEnderecoImagem();
+            this.enderecoImagem = secao.getEnderecoImagem();
 
         setTitle("Seção - "+secao.getCodSecaoLivro());
         setType(Window.Type.UTILITY);
 
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();
-        carregaImgSecaoEPersonagem();
+        carregaImgSecao();
+        carregaPainelPersonagem();
         carregarPainelDireito();
         carregaPainelInferior();
     }
 
-    private void carregaImgSecaoEPersonagem() {
-        //Carrega imagem
-        JLabel labelImagemSecao = new JLabel();
-        //ImageIcon img = new ImageIcon(new File(ImagensDoLivroFlorestaDaDestruicao.IMAGEM_DEFAULT_FLORESTA).toString());
-        //labelImgCapaLivro.setIcon( new ImageIcon(livro.getImagemCapa()));
-        //ImageIcon img = new//VEJA SE REDIMENSIONA A IMAGEM
-        labelImagemSecao.setIcon(new ImageIcon(enderecoImagemDefault));
-        labelImagemSecao.setHorizontalAlignment(SwingConstants.CENTER);
-
-        //labelImagemSecao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        ImagePanel imgMoldura = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
-
-
-
+    private void carregaPainelPersonagem() {
         //Dados do Personagem
         ImagePanel painelPersonagem;
-        //if (personagem.getGenero() == 1)
         painelPersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
-//        else
-//            painelPersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.BARBARA);
 
+        //Nome do personagem
+        JLabel lbNomePersonagem = new JLabel(personagem.getNome());
+        lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        lbNomePersonagem.setForeground(new Color(139,0,0));
+        lbNomePersonagem.setHorizontalAlignment(SwingConstants.CENTER);
+        //lbNomePersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Habilidade
+        JLabel lbHabilidadePersonagem = new JLabel("Habilidade: "+
+                String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                String.valueOf(personagem.getHabilidadeMax()));
+        lbHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbHabilidadePersonagem.setForeground(new Color(139,0,0));
+        lbHabilidadePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
+        lbHabilidadePersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lbHabilidadePersonagem.setToolTipText("<html>Reflete a sua capacidade como espadachim e domínio geral das técnicas de luta.<br>Índice: (Atual/Máximo)</html>");
+
+        //Energia
+        JLabel lbEnergiaPersonagem = new JLabel("Energia: "+
+                String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                String.valueOf(personagem.getEnergiaMax()));
+        lbEnergiaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbEnergiaPersonagem.setForeground(new Color(139,0,0));
+        lbEnergiaPersonagem.setHorizontalAlignment(SwingConstants.LEFT);
+        lbEnergiaPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lbEnergiaPersonagem.setToolTipText("<html>Reflete sua constituição física global, sua determinação de sobreviver, força de vontade e aptidão geral.<br>Índice: (Atual/Máximo)</html>");
+
+        //Sorte
+        JLabel lbSortePersonagem = new JLabel("Sorte: "+
+                String.valueOf(personagem.getSorteAtual())+ "/"+
+                String.valueOf(personagem.getSorteMax()));
+        lbSortePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbSortePersonagem.setForeground(new Color(139,0,0));
+        lbSortePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
+        lbSortePersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lbSortePersonagem.setToolTipText("<html>Seu índice SORTE indica o quanto você é, naturalmente, uma pessoa de sorte.<br>Índice: (Atual/Máximo)</html>");
+
+        //Imagem do personagem
+        //1 = Homem; 2 = Mulher
+        String enderecoImgPersonagem;
+        if (personagem.getGenero() == 1)
+            enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARO.getEnderecoImagem();
+        else
+            enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARA.getEnderecoImagem();
+
+        ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
+
+        //Bolsa
+        JButton botaoBolsa = new JButton("bolsa");
+        botaoBolsa.setBounds(945,550,130,130);
+        try { //Imagem da seção no label redimensionada, pois existem imagens maiores que a dimensão do label
+            BufferedImage img = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem()));
+            Image imgDimensionada = img.getScaledInstance(botaoBolsa.getWidth(), botaoBolsa.getHeight(), Image.SCALE_SMOOTH);
+            botaoBolsa.setIcon(new ImageIcon(imgDimensionada));
+            botaoBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            botaoBolsa.setBackground(new Color(210,180,140));
+            botaoBolsa.setHorizontalAlignment(SwingConstants.CENTER);
+            botaoBolsa.setBorder(null);
+            botaoBolsa.setToolTipText("Acesse aqui sua mochila.");
+            //botaoBolsa.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+            botaoBolsa.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null,"BOLSA");
+                }
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+        //Posiciona
+        //botaoBolsa.setBounds(920,550,120,120);
+        imgPersonagem.setBounds(1050,500,200,250);
+        lbSortePersonagem.setBounds(920,510,300,50);
+        lbEnergiaPersonagem.setBounds(920,480,300,50);
+        lbHabilidadePersonagem.setBounds(920,450,300,50);
+        lbNomePersonagem.setBounds(895,400,300,50);
+        painelPersonagem.setBounds(875, 367, 340, 375);
+
+        //Adiciona a tela
+        add(lbSortePersonagem);
+        add(lbEnergiaPersonagem);
+        add(lbHabilidadePersonagem);
+        add(lbNomePersonagem);
+        add(botaoBolsa);
+        add(imgPersonagem);
+        add(painelPersonagem);
+    }
+
+    private void carregaImgSecao() {
+
+        //Carrega imagem
+        JLabel labelImagemSecao = new JLabel();
+        labelImagemSecao.setHorizontalAlignment(SwingConstants.CENTER);
+        ImagePanel imgMolduraParaImgSecao = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
 
         //posicionamento
-        imgMoldura.setBounds(875,2,340,375);
-        labelImagemSecao.setBounds(915, 45, 262, 289);
-
-        //imagemSecao.setBounds(945, 85, 200, 200);
-        painelPersonagem.setBounds(887, 367, 310, 340);
+        imgMolduraParaImgSecao.setBounds(875,2,340,375);
+        labelImagemSecao.setBounds(915, 45, 261, 289);
+        try { //Imagem da seção no label redimensionada, pois existem imagens maiores que a dimensão do label
+            BufferedImage img = ImageIO.read(new File(enderecoImagem));
+            Image imgDimensionada = img.getScaledInstance(labelImagemSecao.getWidth(), labelImagemSecao.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon imageSecao = new ImageIcon(imgDimensionada);
+            labelImagemSecao.setIcon(imageSecao);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         add(labelImagemSecao);
-        add(imgMoldura);
-        add(painelPersonagem);
-       // add(imagemSecao);
+        add(imgMolduraParaImgSecao);
     }
 
     private void carregaPainelInferior() {
@@ -100,7 +190,7 @@ public class TelaSecoesBasica extends TelaBasica{
         StyleConstants.setForeground(configTexto,Color.WHITE);
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
         textoHistoria.setEditable(false);
-        textoHistoria.setCaretPosition(0); //para posicionar a a barra de rolagem no início.
+        textoHistoria.setCaretPosition(0); //para posicionar a barra de rolagem no início.
         JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
         scrollTextoHistoria.setFocusable(true);
         scrollTextoHistoria.setBorder(null);

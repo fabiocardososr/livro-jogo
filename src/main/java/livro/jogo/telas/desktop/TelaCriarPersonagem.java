@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.utils.LimitarCampoJTextField;
 import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
@@ -193,6 +194,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         labelNome.setHorizontalAlignment(SwingConstants.CENTER);
 
         txtNome = new JTextField();
+        txtNome.setDocument(new LimitarCampoJTextField(10));
         txtNome.setBounds(450, 330,250,40);
         txtNome.setBackground(new Color(210,180,140));
         txtNome.setForeground(new Color(139,0,0));
