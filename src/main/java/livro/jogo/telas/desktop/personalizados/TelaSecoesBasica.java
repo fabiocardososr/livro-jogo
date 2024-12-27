@@ -4,7 +4,7 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
-import livro.jogo.enums.PocoesIniciais;
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.AcoesComunsTelaSecao;
 import livro.jogo.utils.ManipularDadosLivro;
@@ -28,7 +28,11 @@ public class TelaSecoesBasica extends TelaBasica{
     private JLabelOpcoesTelaSecao labelMapa;
     private JLabelOpcoesTelaSecao labelBolsa;
     private JLabelOpcoesTelaSecao labelPocaoInicial;
-    private AcoesComunsTelaSecao acoesComunsTelaSecao;
+    private JLabelOpcoesTelaSecao labelProvisoes;
+    private JLabelOpcoesTelaSecao labelAnotacoes;
+    private JLabel labelOuro;
+    private JLabel labelSalvar;
+    private final AcoesComunsTelaSecao acoesComunsTelaSecao;
 
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
@@ -190,41 +194,116 @@ public class TelaSecoesBasica extends TelaBasica{
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
 
-
         //Configura labelMapa
-        labelMapa = new JLabelOpcoesTelaSecao("Mapa",80,85,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        labelMapa = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
         labelMapa.addMouseListener(acaoLabels);
-        //labelMapa.setToolTipText("Acesso ao mapa.");
-
-
+        labelMapa.setFont(new Font(Font.SERIF,Font.BOLD,19));
 
         //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
         pocaoInicial = Util.retornaPocaoInicialDaBolsa();
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de HABILIDADE");
+            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
+            labelPocaoInicial.setBounds(1285,265,150,100);
+        }
 
-        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao())
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
-
-        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao())
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Energia",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
-
-        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao())
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
+            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
+            labelPocaoInicial.setBounds(1290,265,150,100);
+        }
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
+            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
+            labelPocaoInicial.setBounds(1285,265,150,100);
+        }
 
         if ( pocaoInicial.getQuantidadeUso() == 0 ){
-            labelPocaoInicial.setIcon(Util.dimensionarImagem(70,75, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
-            labelPocaoInicial.setText("Vazia");
+            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+            labelPocaoInicial.setText("");
+            labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+            labelPocaoInicial.setBounds(1270,265,150,100);
+            //labelPocaoInicial.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         }
         labelPocaoInicial.addMouseListener(acaoLabels);
 
+        //Provisões
+        var textoProvisoes = "<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>";
+        labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
+                ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
+        labelProvisoes.addMouseListener(acaoLabels);
+        labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
+
+        //Anotações
+        labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",30,35,
+                ImagensDoLivroFlorestaDaDestruicao.ANOTACOES);
+        labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelAnotacoes.addMouseListener(acaoLabels);
+
+        //Ouro
+        labelOuro = new JLabel("Ouro: "+personagem.getQuantidadeOuro());
+        labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        labelOuro.setForeground(new Color(139,0,0));
+        //labelOuro.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,170,150,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //Salvar
+        labelSalvar = new JLabel("Salvar");
+        labelSalvar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelSalvar.setForeground(new Color(139,0,0));
+        labelSalvar.addMouseListener(acaoLabels);
+        labelSalvar.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSalvar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSalvar.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        JLabelOpcoesTelaSecao labelFundoMapa = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        JLabelOpcoesTelaSecao labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        JLabelOpcoesTelaSecao labelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        JLabelOpcoesTelaSecao labelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        JLabelOpcoesTelaSecao labelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,150,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
+
 
         //Posicionamento
-        labelPocaoInicial.setBounds(1263,200,250,100);
-        labelMapa.setBounds(1250,100,150,100);
+        labelOuro.setBounds(1300,60,85,55);
+        labelFundoOuro.setBounds(1238,40,200,100);
+        labelMapa.setBounds(1285,157,120,80);
+        labelFundoMapa.setBounds(1230,140,200,120);
+        labelFundoPocaoInicial.setBounds(1230,260,200,120);
+        labelProvisoes.setBounds(1260,375,250,100);
+        labelFundoProvisoes.setBounds(1230,380,250,100);
+        labelAnotacoes.setBounds(1280,495,250,100);
+        labelFundoAnotacoes.setBounds(1230,500,250,100);
+        labelSalvar.setBounds(1290,620,100,50);
+        labelFundoSalvar.setBounds(1238,600,200,100);
+
+
         imgPainelDireito.setBounds(1200,2,280,770);
 
         //Adiciona a tela
+        add(labelOuro);
+        add(labelFundoOuro);
+        add(labelAnotacoes);
+        add(labelFundoAnotacoes);
+        add(labelProvisoes);
+        add(labelFundoProvisoes);
         add(labelMapa);
+        add(labelFundoMapa);
         add(labelPocaoInicial);
+        add(labelFundoPocaoInicial);
+        add(labelSalvar);
+        add(labelFundoSalvar);
         add(imgPainelDireito);
     }
 
@@ -246,6 +325,29 @@ public class TelaSecoesBasica extends TelaBasica{
                 else
                     JOptionPane.showMessageDialog(null,"Clicado na Poção: "+ pocaoInicial.getDescricao());
             }
+
+            if (e.getSource() ==  labelProvisoes){
+
+                if (acoesComunsTelaSecao.quantidadeProvisoesRestantes() > 0) {
+                    acoesComunsTelaSecao.tratarQuandoPersonagemComeUmaProvisao();
+                    labelProvisoes.setText("<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>");
+                }
+                else
+                    JOptionPane.showMessageDialog(null,personagem.getNome()+", você não tem mais provisões para comer.");
+            }
+
+            if (e.getSource() ==  labelAnotacoes){
+                //Aqui deve ser chamado nova tela para anotações do personagem
+                 JOptionPane.showMessageDialog(null,"Anotações");
+            }
+
+            if (e.getSource() ==  labelSalvar){
+                //Aqui deve ser chamado nova tela para anotações do personagem
+                JOptionPane.showMessageDialog(null,"Salvar");
+            }
+
+
+
         }
 
         @Override

@@ -1,16 +1,19 @@
 package livro.jogo.enums;
 
-public enum PocoesIniciais {
+public enum ItensMapeamento {
     POCAO_DE_HABILIDADE(45),
     POCAO_DE_ENERGIA(46),
-    POCAO_DA_FORTUNA(47);
+    POCAO_DA_FORTUNA(47),
+    PROVISAO(49)
+    ;
+
 
     private final int idItem;
-    PocoesIniciais(int idItem) {
+    ItensMapeamento(int idItem) {
         this.idItem = idItem;
     }
 
-    public int getIdItemPocao() {
+    public int getIdItem() {
         return this.idItem;
     }
 }

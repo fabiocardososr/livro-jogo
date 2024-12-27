@@ -2,7 +2,7 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.enums.PocoesIniciais;
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
@@ -145,10 +145,11 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoHabilidade = new JButtonEscolhaPocao("Habilidade",
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
         botaoPocaoHabilidade.setBounds(130, 440,180,72);
+        botaoPocaoHabilidade.setToolTipText("Repõe os pontos de HABILIDADE.");
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
 
         botaoPocaoHabilidade.addActionListener(e -> {
-            pocaoEscolhida = PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao();  //Corresponde ao código da poção de Habilidade
+            pocaoEscolhida = ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem();  //Corresponde ao código da poção de Habilidade
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
@@ -158,11 +159,12 @@ public class TelaCriarPersonagem extends TelaBasica {
 
 
         /********    POCAO ENERGIA    ********/
-        botaoPocaoEnergia = new JButtonEscolhaPocao("Energia",
+        botaoPocaoEnergia = new JButtonEscolhaPocao("Força",
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
         botaoPocaoEnergia.setBounds(130, 517,180,72);
+        botaoPocaoEnergia.setToolTipText("Repõe os pontos de ENERGIA.");
         botaoPocaoEnergia.addActionListener(e -> {
-            pocaoEscolhida = PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao();  //Corresponde ao código da poção de Energia
+            pocaoEscolhida = ItensMapeamento.POCAO_DE_ENERGIA.getIdItem();  //Corresponde ao código da poção de Energia
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
@@ -172,11 +174,12 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoPocaoEnergia);
 
         /********    POCAO SORTE    ********/
-        botaoPocaoSorte = new JButtonEscolhaPocao("Sorte",
+        botaoPocaoSorte = new JButtonEscolhaPocao("Fortuna",
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
         botaoPocaoSorte.setBounds(130, 594,180,72);
+        botaoPocaoSorte.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial.");
         botaoPocaoSorte.addActionListener(e -> {
-            pocaoEscolhida = PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao();  //Corresponde ao código da poção da sorte
+            pocaoEscolhida = ItensMapeamento.POCAO_DA_FORTUNA.getIdItem();  //Corresponde ao código da poção da sorte
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);

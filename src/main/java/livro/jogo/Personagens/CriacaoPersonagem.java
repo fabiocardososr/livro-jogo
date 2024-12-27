@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensIniciaisJson;
-import livro.jogo.enums.PocoesIniciais;
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.ManipularDadosLivro;
 
 import javax.swing.*;
@@ -32,15 +32,15 @@ public class CriacaoPersonagem {
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                     ItensIniciaisJson.PROVISAO.getEnderecoJson()));
 
-        if (PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao() == pocaoEscolhida)
+        if (ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() == pocaoEscolhida)
            bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                    ItensIniciaisJson.POCAO_HABILIDADE.getEnderecoJson()));
 
-        if (PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao() == pocaoEscolhida)
+        if (ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() == pocaoEscolhida)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                     ItensIniciaisJson.POCAO_DE_FORCA.getEnderecoJson()));
 
-        if (PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao() == pocaoEscolhida)
+        if (ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() == pocaoEscolhida)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                     ItensIniciaisJson.POCAO_DA_FORTUNA.getEnderecoJson()));
 

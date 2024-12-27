@@ -3,7 +3,7 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.enums.PocoesIniciais;
+import livro.jogo.enums.ItensMapeamento;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -44,9 +44,9 @@ public class Util {
         ArrayList<Item> itens = personagem.getBolsa();
 
         for (Item item : itens){
-            if ( (item.getIdItem() == PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao()) ||
-                    (item.getIdItem() == PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao()) ||
-                    (item.getIdItem() == PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao()) ){
+            if ( (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ||
+                    (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ||
+                    (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ){
                     return item;
             }
         }
