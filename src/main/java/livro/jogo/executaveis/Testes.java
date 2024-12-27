@@ -22,7 +22,7 @@ public class Testes {
         livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
 
         var itensEquipados = recuperaItensIniciaisEquipados();
-        var bolsa = adicionaItensIniciaisNaBolsa(45);
+        var bolsa = adicionaItensIniciaisNaBolsa(46);
 
         Personagem personagem = new Personagem("Fábio",1,10,20,10,
                 bolsa,itensEquipados,2);

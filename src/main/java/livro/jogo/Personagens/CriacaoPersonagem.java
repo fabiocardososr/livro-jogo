@@ -3,8 +3,11 @@ package livro.jogo.Personagens;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.enums.ItensIniciaisJson;
+import livro.jogo.enums.PocoesIniciais;
 import livro.jogo.utils.ManipularDadosLivro;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class CriacaoPersonagem {
@@ -16,19 +19,30 @@ public class CriacaoPersonagem {
         var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         ManipularDadosLivro.setPersonagem(personagem);
+        JOptionPane.showMessageDialog(null,personagem.toString());
     }
 
     private ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
+
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    "livros/florestadadestruicao/itensIniciais/item_49.json"));
+                    ItensIniciaisJson.PROVISAO.getEnderecoJson()));
 
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_"+pocaoEscolhida+".json"));
+        if (PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao() == pocaoEscolhida)
+           bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                   ItensIniciaisJson.POCAO_HABILIDADE.getEnderecoJson()));
+
+        if (PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao() == pocaoEscolhida)
+            bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                    ItensIniciaisJson.POCAO_DE_FORCA.getEnderecoJson()));
+
+        if (PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao() == pocaoEscolhida)
+            bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                    ItensIniciaisJson.POCAO_DA_FORTUNA.getEnderecoJson()));
 
         return bolsa;
     }
@@ -39,11 +53,11 @@ public class CriacaoPersonagem {
 
         //Equipando uma espada(50)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_50.json"));
+                ItensIniciaisJson.ESPADA.getEnderecoJson()));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_51.json"));
+                ItensIniciaisJson.ARMADURA_DE_COURO.getEnderecoJson()));
 
         return itensEquipados;
 

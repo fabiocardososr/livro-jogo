@@ -6,10 +6,10 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.PocoesIniciais;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.AcoesComunsTelaSecao;
 import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -22,11 +22,13 @@ public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
+    private Item pocaoInicial;
     private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
 
     private JLabelOpcoesTelaSecao labelMapa;
     private JLabelOpcoesTelaSecao labelBolsa;
     private JLabelOpcoesTelaSecao labelPocaoInicial;
+    private AcoesComunsTelaSecao acoesComunsTelaSecao;
 
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
@@ -38,6 +40,7 @@ public class TelaSecoesBasica extends TelaBasica{
 
         this.secao = secao;
         this.personagem = personagem;
+        acoesComunsTelaSecao = new AcoesComunsTelaSecao(personagem);
 
         if (secao.getEnderecoImagem() != null)
             this.enderecoImagem = secao.getEnderecoImagem();
@@ -189,33 +192,33 @@ public class TelaSecoesBasica extends TelaBasica{
 
 
         //Configura labelMapa
-        labelMapa = new JLabelOpcoesTelaSecao("Mapa",ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        labelMapa = new JLabelOpcoesTelaSecao("Mapa",80,85,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
         labelMapa.addMouseListener(acaoLabels);
         //labelMapa.setToolTipText("Acesso ao mapa.");
 
 
 
         //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
+        pocaoInicial = Util.retornaPocaoInicialDaBolsa();
 
-        //ATENÇÃO DESCOMENTAR QUANDO CHAMAR VIA O CAMINHO CORRETO
-        Item pocaoInicial = Util.retornaPocaoInicialDaBolsa();
+        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao())
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
 
-        labelPocaoInicial = new JLabelOpcoesTelaSecao("Poção",ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
-        labelPocaoInicial.addMouseListener(acaoLabels);
+        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao())
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Energia",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
 
-        if ( (pocaoInicial.getFlgUsoUnico().equals("S")) && (pocaoInicial.getQuantidadeUso() == 0) ){
-            labelPocaoInicial.setEnabled(false);
+        if (pocaoInicial.getIdItem() == PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao())
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna",50,55,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+
+        if ( pocaoInicial.getQuantidadeUso() == 0 ){
+            labelPocaoInicial.setIcon(Util.dimensionarImagem(70,75, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+            labelPocaoInicial.setText("Vazia");
         }
-//        else{
-//
-//            labelPocaoInicial = new JLabelOpcoesTelaSecao("Poção",ImagensDoLivroFlorestaDaDestruicao);
-//            labelPocaoInicial.addMouseListener(acaoLabels);
-//            labelPocaoInicial.setIcon();
-//        }
+        labelPocaoInicial.addMouseListener(acaoLabels);
 
 
         //Posicionamento
-        labelPocaoInicial.setBounds(1250,200,150,100);
+        labelPocaoInicial.setBounds(1263,200,250,100);
         labelMapa.setBounds(1250,100,150,100);
         imgPainelDireito.setBounds(1200,2,280,770);
 
@@ -238,7 +241,10 @@ public class TelaSecoesBasica extends TelaBasica{
             }
 
             if (e.getSource() == labelPocaoInicial){
-                JOptionPane.showMessageDialog(null,"Clicado na Poção");
+                if (pocaoInicial.getQuantidadeUso() == 0)
+                    JOptionPane.showMessageDialog(null,"Você já tomou a "+ pocaoInicial.getDescricao());
+                else
+                    JOptionPane.showMessageDialog(null,"Clicado na Poção: "+ pocaoInicial.getDescricao());
             }
         }
 

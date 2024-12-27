@@ -14,6 +14,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     POCAO_DE_HABILIDADE("livros/florestadadestruicao/imagens/pocao_de_habilidade.png"),
     POCAO_DE_ENERGIA("livros/florestadadestruicao/imagens/pocao_de_energia.png"),
     POCAO_DE_SORTE("livros/florestadadestruicao/imagens/pocao_de_sorte.png"),
+    POCAO_DE_VAZIA("livros/florestadadestruicao/imagens/pocao_vazia.png"),
     MAPA_DA_FLORESTA("livros/florestadadestruicao/imagens/mapainicial.png"),
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
     BARBARA("livros/florestadadestruicao/imagens/barbara.png"),

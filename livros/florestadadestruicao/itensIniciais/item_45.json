@@ -4,7 +4,7 @@
 	"descricao":"Poção de Habilidade",
 	"valorCusto":"0",
 	"modificador":"25",   
-	"quantidadeUso":"0",
+	"quantidadeUso":"1",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",

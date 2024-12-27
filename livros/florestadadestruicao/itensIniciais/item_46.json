@@ -1,10 +1,10 @@
   {
 	"idItem":"46",
 	"tipoEfeito":"ENERGIA",
-	"descricao":"Poção de Força",
+	"descricao":"Poção de Energia",
 	"valorCusto":"0",
 	"modificador":"25",   
-	"quantidadeUso":"0",
+	"quantidadeUso":"1",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",

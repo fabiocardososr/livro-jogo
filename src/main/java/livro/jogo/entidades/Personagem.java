@@ -149,7 +149,7 @@ public class Personagem {
                 ", energiaAtual=" + energiaAtual +
                 ", sorteAtual=" + sorteAtual +
                 ", anotacoes='" + anotacoes + '\'' +
-                ", bolsa=" + bolsa +
+               // ", bolsa=" + bolsa +
                 ", itensEquipados=" + itensEquipados +
                 ", condicaoEspecial= " + condicaoEspecial +
                 ", Ouro carregado= " + quantidadeOuro +

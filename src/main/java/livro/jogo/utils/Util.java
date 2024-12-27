@@ -5,6 +5,12 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.PocoesIniciais;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -39,12 +45,26 @@ public class Util {
 
         for (Item item : itens){
             if ( (item.getIdItem() == PocoesIniciais.POCAO_DE_HABILIDADE.getIdItemPocao()) ||
-                    (item.getIdItem() == PocoesIniciais.POCAO_DE_FORCA.getIdItemPocao()) ||
+                    (item.getIdItem() == PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao()) ||
                     (item.getIdItem() == PocoesIniciais.POCAO_DA_FORTUNA.getIdItemPocao()) ){
                     return item;
             }
         }
        return null;
+    }
+
+    //Caso a imagem seja maior que o label (por exemplo) redimensionar de modo caber no componente
+    public static ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
+        ImageIcon imageIcon;
+        try {
+            BufferedImage img = ImageIO.read(new File(enderecoImagem));
+            Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(imgDimensionada);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return imageIcon;
     }
 
 }

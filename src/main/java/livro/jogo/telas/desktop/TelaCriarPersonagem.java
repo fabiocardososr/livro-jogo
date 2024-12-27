@@ -162,7 +162,7 @@ public class TelaCriarPersonagem extends TelaBasica {
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
         botaoPocaoEnergia.setBounds(130, 517,180,72);
         botaoPocaoEnergia.addActionListener(e -> {
-            pocaoEscolhida = PocoesIniciais.POCAO_DE_FORCA.getIdItemPocao();  //Corresponde ao código da poção de Energia
+            pocaoEscolhida = PocoesIniciais.POCAO_DE_ENERGIA.getIdItemPocao();  //Corresponde ao código da poção de Energia
             botaoPocaoEnergia.setEnabled(false);
             botaoPocaoSorte.setEnabled(false);
             botaoPocaoHabilidade.setEnabled(false);
