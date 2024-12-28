@@ -4,6 +4,8 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class AcoesComunsTelaSecao {

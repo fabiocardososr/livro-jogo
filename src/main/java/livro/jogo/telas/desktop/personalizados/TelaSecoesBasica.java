@@ -32,7 +32,10 @@ public class TelaSecoesBasica extends TelaBasica{
     private JLabelOpcoesTelaSecao labelAnotacoes;
     private JLabel labelOuro;
     private JLabel labelSalvar;
-    private JDialog dialogMapa;
+    private JDialog dialogImagemMapa;
+    private JDialog dialogImSecaoAmpliar;
+    private JLabel labelImagemTempoaria;
+    private JLabel labelImagemSecao;
     private final AcoesComunsTelaSecao acoesComunsTelaSecao;
 
 
@@ -172,7 +175,7 @@ public class TelaSecoesBasica extends TelaBasica{
     private void carregaImgSecao() {
 
         //Carrega imagem
-        JLabel labelImagemSecao = new JLabel();
+        labelImagemSecao = new JLabel();
         labelImagemSecao.setHorizontalAlignment(SwingConstants.CENTER);
         ImagePanel imgMolduraParaImgSecao = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
 
@@ -181,7 +184,23 @@ public class TelaSecoesBasica extends TelaBasica{
         labelImagemSecao.setBounds(915, 45, 261, 289);
         labelImagemSecao.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemSecao.getWidth(),
                 labelImagemSecao.getHeight()).getImageIcon());
+        labelImagemSecao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelImagemSecao.setToolTipText("Ampliar");
+        labelImagemSecao.addMouseListener(acaoLabels);
 
+        //Configura clique na imagem para ampliar em uma nova tela
+        labelImagemTempoaria = new JLabel();
+        labelImagemTempoaria.setBounds(0, 0, 590,715);
+        labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
+                labelImagemTempoaria.getHeight()).getImageIcon());
+        labelImagemTempoaria.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        dialogImSecaoAmpliar = carregaImagemEmUmaTela();
+        dialogImSecaoAmpliar.add(labelImagemTempoaria);
+        dialogImSecaoAmpliar.addMouseListener(acaoLabels);
+
+
+
+        //Adiciona componentes na tela atual
         add(labelImagemSecao);
         add(imgMolduraParaImgSecao);
     }
@@ -195,23 +214,15 @@ public class TelaSecoesBasica extends TelaBasica{
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
 
-        //Configurando tela do mapa quando clicando no botão mapa
-        dialogMapa = new JDialog(this,"Mapa da Floresta Darkwood",false);
-        dialogMapa.setSize(new Dimension(590,715));
-        dialogMapa.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
-        dialogMapa.setResizable(false);
-        dialogMapa.getContentPane().setBackground(new Color(210,180,140));
-        dialogMapa.setUndecorated(true); //retira a barra de ferramentas.
-        dialogMapa.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
         ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
         JLabel labelImgMapa = new JLabel(imageIcon);
         labelImgMapa.setBounds(2,2,200,200);
         labelImgMapa.setBackground(new Color(210,180,140));
-        dialogMapa.add(labelImgMapa);
-        dialogMapa.addMouseListener(new TelaSecoesBasicaAcaoDosLabels());
+        dialogImagemMapa = carregaImagemEmUmaTela();
+        dialogImagemMapa.add(labelImgMapa);
+        dialogImagemMapa.addMouseListener(new TelaSecoesBasicaAcaoDosLabels());
 
-        //Configura labelMapa
+        //Configura labelMapa(Botão)
         labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
         labelMapaBotao.addMouseListener(acaoLabels);
         labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
@@ -324,8 +335,17 @@ public class TelaSecoesBasica extends TelaBasica{
         add(imgPainelDireito);
     }
 
-    private void dialogMapa(){
+    //Carrega uma tela de diálogo com uma imagem
+    public JDialog carregaImagemEmUmaTela(){
+        JDialog dialogImagem = new JDialog(this,"",false);
+        dialogImagem.setSize(new Dimension(590,715));
+        dialogImagem.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
+        dialogImagem.setResizable(false);
+        dialogImagem.getContentPane().setBackground(new Color(210,180,140));
+        dialogImagem.setUndecorated(true); //retira a barra de ferramentas.
+        dialogImagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
+        return dialogImagem;
     }
 
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
@@ -333,7 +353,11 @@ public class TelaSecoesBasica extends TelaBasica{
         @Override
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == labelMapaBotao){
-                dialogMapa.setVisible(true);
+                dialogImagemMapa.setVisible(true);
+            }
+
+            if (e.getSource() ==  labelImagemSecao){
+                dialogImSecaoAmpliar.setVisible(true);
             }
 
             if (e.getSource() == labelBolsa){
@@ -367,12 +391,15 @@ public class TelaSecoesBasica extends TelaBasica{
                 JOptionPane.showMessageDialog(null,"Salvar");
             }
 
-            if (e.getSource() ==  dialogMapa){
-                dialogMapa.setVisible(false);
-                dialogMapa.dispose();
+            if (e.getSource() ==  dialogImagemMapa){
+                dialogImagemMapa.setVisible(false);
+                dialogImagemMapa.dispose();
             }
 
-
+            if (e.getSource() ==  dialogImSecaoAmpliar){
+                dialogImSecaoAmpliar.setVisible(false);
+                dialogImSecaoAmpliar.dispose();
+            }
 
         }
 
