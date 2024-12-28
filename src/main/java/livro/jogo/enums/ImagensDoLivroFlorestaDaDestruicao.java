@@ -18,7 +18,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     MAPA_DA_FLORESTA("livros/florestadadestruicao/imagens/mapainicial.png"),
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
     BARBARA("livros/florestadadestruicao/imagens/barbara.png"),
-    MOLDURA("livros/florestadadestruicao/imagens/moldura.png"),
+    MOLDURA("livros/florestadadestruicao/imagens/moldura1.png"),
+    MOLDURA_2("livros/florestadadestruicao/imagens/moldura_2.png"),
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),
     FAIXA("livros/florestadadestruicao/imagens/faixa.png");

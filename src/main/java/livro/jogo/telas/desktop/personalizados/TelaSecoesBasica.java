@@ -11,12 +11,11 @@ import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
+import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 
 public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
@@ -66,15 +65,25 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private void carregarTextoHistoria() {
 
+        JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,900,650,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_2);
+        //labelMolduraTexto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         //Texto do livro
         JTextPane textoHistoria = new JTextPane();
-        textoHistoria.setBackground(Color.BLACK);
-        StyledDocument textoCapaLivroStyle = textoHistoria.getStyledDocument();
+        textoHistoria.setBackground(new Color(210,180,140));
+
+        //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
+        textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,25));
+
+
+        StyledDocument textoLivroStyle = textoHistoria.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
-        StyleConstants.setFontSize(configTexto,20);
-        StyleConstants.setForeground(configTexto,Color.WHITE);
-        textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
+        //StyleConstants.setFontSize(configTexto,25);
+        StyleConstants.setForeground(configTexto,Color.BLACK);
+        //StyleConstants.setIcon(configTexto, new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem())); não dá parque ele substitui o texto por várias imagens
+        textoLivroStyle.setParagraphAttributes(0, textoLivroStyle.getLength(), configTexto, false);
         textoHistoria.setEditable(false);
         textoHistoria.setCaretPosition(0); //para posicionar a barra de rolagem no início.
         JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
@@ -85,10 +94,13 @@ public class TelaSecoesBasica extends TelaBasica{
         textoHistoria.setText( secao.getTexto() );
 
         //posicionamento na tela
-        scrollTextoHistoria.setBounds(15, 15, 870, 450);
+        scrollTextoHistoria.setBounds(120, 130, 640, 365);
+        labelMolduraTexto.setBounds(-10,-20,900,650);
 
         //Adicionando a tela
         add(scrollTextoHistoria);
+        add(labelMolduraTexto);
+
     }
 
     private void carregaPainelPersonagem() {

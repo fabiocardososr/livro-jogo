@@ -28,7 +28,7 @@ public class Testes {
                 bolsa,itensEquipados,2);
         personagem.setQuantidadeOuro(15);
         ManipularDadosLivro.setPersonagem(personagem);
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(38),personagem );
+        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(400),personagem );
         telaSecoesBasica.setVisible(true);
 
         //Não copiar quando finalizar
