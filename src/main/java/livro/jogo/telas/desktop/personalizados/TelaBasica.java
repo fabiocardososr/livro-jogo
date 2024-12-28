@@ -39,13 +39,16 @@ public class TelaBasica extends JFrame {
     public static void mostrarDadosRolando(TelaBasica tela, int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
 
         JDialog telaDadosRolando = new JDialog(tela, "Rolando dados", true);
+        telaDadosRolando.setUndecorated(true);  //Retirar barra de título
         telaDadosRolando.setBackground(Color.WHITE);
+        telaDadosRolando.getContentPane().setBackground(new Color(210,180,140));
 
         ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
         JLabel label = new JLabel(imageIcon);
         label.setBounds(2,2,200,200);
-        //telaDadosRolando.setIconImage();
         telaDadosRolando.add(label);
+
+        //Configura a tela para que feche automaticamente em alguns milisegundos
         Timer timer = new Timer(milisegundos, e -> {
             telaDadosRolando.setVisible(false);
             telaDadosRolando.dispose();

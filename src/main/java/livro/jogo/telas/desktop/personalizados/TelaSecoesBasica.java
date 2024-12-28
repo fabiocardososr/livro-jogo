@@ -25,13 +25,14 @@ public class TelaSecoesBasica extends TelaBasica{
     private Item pocaoInicial;
     private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
 
-    private JLabelOpcoesTelaSecao labelMapa;
+    private JLabelOpcoesTelaSecao labelMapaBotao;
     private JLabelOpcoesTelaSecao labelBolsa;
     private JLabelOpcoesTelaSecao labelPocaoInicial;
     private JLabelOpcoesTelaSecao labelProvisoes;
     private JLabelOpcoesTelaSecao labelAnotacoes;
     private JLabel labelOuro;
     private JLabel labelSalvar;
+    private JDialog dialogMapa;
     private final AcoesComunsTelaSecao acoesComunsTelaSecao;
 
 
@@ -194,10 +195,26 @@ public class TelaSecoesBasica extends TelaBasica{
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
 
+        //Configurando tela do mapa quando clicando no botão mapa
+        dialogMapa = new JDialog(this,"Mapa da Floresta Darkwood",false);
+        dialogMapa.setSize(new Dimension(590,715));
+        dialogMapa.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
+        dialogMapa.setResizable(false);
+        dialogMapa.getContentPane().setBackground(new Color(210,180,140));
+        dialogMapa.setUndecorated(true); //retira a barra de ferramentas.
+        dialogMapa.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
+        JLabel labelImgMapa = new JLabel(imageIcon);
+        labelImgMapa.setBounds(2,2,200,200);
+        labelImgMapa.setBackground(new Color(210,180,140));
+        dialogMapa.add(labelImgMapa);
+        dialogMapa.addMouseListener(new TelaSecoesBasicaAcaoDosLabels());
+
         //Configura labelMapa
-        labelMapa = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        labelMapa.addMouseListener(acaoLabels);
-        labelMapa.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        labelMapaBotao.addMouseListener(acaoLabels);
+        labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
 
         //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
         pocaoInicial = Util.retornaPocaoInicialDaBolsa();
@@ -278,7 +295,7 @@ public class TelaSecoesBasica extends TelaBasica{
         //Posicionamento
         labelOuro.setBounds(1300,60,85,55);
         labelFundoOuro.setBounds(1238,40,200,100);
-        labelMapa.setBounds(1285,157,120,80);
+        labelMapaBotao.setBounds(1285,157,120,80);
         labelFundoMapa.setBounds(1230,140,200,120);
         labelFundoPocaoInicial.setBounds(1230,260,200,120);
         labelProvisoes.setBounds(1260,375,250,100);
@@ -298,7 +315,7 @@ public class TelaSecoesBasica extends TelaBasica{
         add(labelFundoAnotacoes);
         add(labelProvisoes);
         add(labelFundoProvisoes);
-        add(labelMapa);
+        add(labelMapaBotao);
         add(labelFundoMapa);
         add(labelPocaoInicial);
         add(labelFundoPocaoInicial);
@@ -307,12 +324,16 @@ public class TelaSecoesBasica extends TelaBasica{
         add(imgPainelDireito);
     }
 
+    private void dialogMapa(){
+
+    }
+
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getSource() == labelMapa){
-                JOptionPane.showMessageDialog(null,"Clicado no Mapa");
+            if (e.getSource() == labelMapaBotao){
+                dialogMapa.setVisible(true);
             }
 
             if (e.getSource() == labelBolsa){
@@ -344,6 +365,11 @@ public class TelaSecoesBasica extends TelaBasica{
             if (e.getSource() ==  labelSalvar){
                 //Aqui deve ser chamado nova tela para anotações do personagem
                 JOptionPane.showMessageDialog(null,"Salvar");
+            }
+
+            if (e.getSource() ==  dialogMapa){
+                dialogMapa.setVisible(false);
+                dialogMapa.dispose();
             }
 
 

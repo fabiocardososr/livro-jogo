@@ -44,7 +44,6 @@ public class TelaCriarPersonagem extends TelaBasica {
         super(largura, altura);
         this.telaMae = telaMae;
         this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
-
         getContentPane().setBackground(new Color(210,180,140));
 
         carregarComponentesDaTela();

@@ -34,7 +34,6 @@ public class TelaPrincipal extends TelaBasica {
     }
 
     private void configurandoTelaPrincipal(){
-
         //Carregar capa do livro
         JLabel labelImgCapaLivro = new JLabel();
         labelImgCapaLivro.setIcon( new ImageIcon(livro.getImagemCapa()));
