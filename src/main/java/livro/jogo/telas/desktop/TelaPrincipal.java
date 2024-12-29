@@ -117,7 +117,7 @@ public class TelaPrincipal extends TelaBasica {
 //        botaoOpcoesRegras.addActionListener(acao);
 //        add(botaoOpcoesRegras);
 
-        ImagePanel imgPainelOpcoesRegras = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_BOTOES_TELA_PRINCIPAL);
+        ImagePanel imgPainelOpcoesRegras = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelOpcoesRegras = new JLabelOpcoesTelaSecao("Regras");
         labelOpcoesRegras.setForeground(new Color(139,0,0));
         labelOpcoesRegras.setFont(new Font(Font.SERIF,Font.BOLD,35));
