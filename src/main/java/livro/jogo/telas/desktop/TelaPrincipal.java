@@ -81,10 +81,6 @@ public class TelaPrincipal extends TelaBasica {
         textoCapaLivro.setEditable(false);
         textoCapaLivro.setFocusable(false);
         textoCapaLivro.setText(livro.getDescricao());
-//        JScrollPane scrolltextoCapaLivro = new JScrollPane(textoCapaLivro);
-//        scrolltextoCapaLivro.setFocusable(true);
-//        scrolltextoCapaLivro.setBorder(null);
-        //labelImgCapaLivro.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         //Fundo do texto (moldura)
         JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao(null,900,600,

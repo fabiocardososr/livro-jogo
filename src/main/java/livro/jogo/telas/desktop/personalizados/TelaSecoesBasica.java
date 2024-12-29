@@ -72,6 +72,7 @@ public class TelaSecoesBasica extends TelaBasica{
         //Texto do livro
         JTextPane textoHistoria = new JTextPane();
         textoHistoria.setBackground(new Color(210,180,140));
+        textoHistoria.setFocusable(false);
 
         //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
         textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,25));
