@@ -15,7 +15,6 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
 
 public class TelaSecoesBasica extends TelaBasica{
     private final Secao secao;
@@ -65,7 +64,8 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private void carregarTextoHistoria() {
 
-        JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,900,650,
+        //Moldura que engloba o texto da seção
+        JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,900,600,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_2);
         //labelMolduraTexto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -94,8 +94,8 @@ public class TelaSecoesBasica extends TelaBasica{
         textoHistoria.setText( secao.getTexto() );
 
         //posicionamento na tela
-        scrollTextoHistoria.setBounds(120, 130, 640, 365);
-        labelMolduraTexto.setBounds(-10,-20,900,650);
+        scrollTextoHistoria.setBounds(115, 118, 650, 350);
+        labelMolduraTexto.setBounds(-10,-40,950,650);
 
         //Adicionando a tela
         add(scrollTextoHistoria);
@@ -110,16 +110,24 @@ public class TelaSecoesBasica extends TelaBasica{
 
         //Nome do personagem
         JLabel lbNomePersonagem = new JLabel(personagem.getNome());
-        lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,25));
         lbNomePersonagem.setForeground(new Color(139,0,0));
         lbNomePersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         //lbNomePersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Faixa pergaminho no personagem
+        ImagePanel imgPainelNomePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_NOME_PERSONAGEM_TELA_SECAO);
+        ImagePanel imgPainelHabilidadePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        ImagePanel imgPainelEnergiaPersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        ImagePanel imgPainelSortePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        //imgPainelHabilidadePersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
+
 
         //Habilidade
         JLabel lbHabilidadePersonagem = new JLabel("Habilidade: "+
                 String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                 String.valueOf(personagem.getHabilidadeMax()));
-        lbHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbHabilidadePersonagem.setForeground(new Color(139,0,0));
         lbHabilidadePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
         lbHabilidadePersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -129,7 +137,7 @@ public class TelaSecoesBasica extends TelaBasica{
         JLabel lbEnergiaPersonagem = new JLabel("Energia: "+
                 String.valueOf(personagem.getEnergiaAtual())+ "/"+
                 String.valueOf(personagem.getEnergiaMax()));
-        lbEnergiaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbEnergiaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbEnergiaPersonagem.setForeground(new Color(139,0,0));
         lbEnergiaPersonagem.setHorizontalAlignment(SwingConstants.LEFT);
         lbEnergiaPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -139,7 +147,7 @@ public class TelaSecoesBasica extends TelaBasica{
         JLabel lbSortePersonagem = new JLabel("Sorte: "+
                 String.valueOf(personagem.getSorteAtual())+ "/"+
                 String.valueOf(personagem.getSorteMax()));
-        lbSortePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        lbSortePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbSortePersonagem.setForeground(new Color(139,0,0));
         lbSortePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
         lbSortePersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -161,17 +169,21 @@ public class TelaSecoesBasica extends TelaBasica{
         labelBolsa.setToolTipText("Acesse aqui sua mochila.");
         labelBolsa.addMouseListener(acaoLabels);
         //labelBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
-        labelBolsa.setBounds(930,550,150,140);
+        labelBolsa.setBounds(930,600,100,90);
         labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem(),
                 labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
 
 
         //Posiciona
         imgPersonagem.setBounds(1080,500,205,260);
-        lbSortePersonagem.setBounds(920,510,300,50);
-        lbEnergiaPersonagem.setBounds(920,480,300,50);
-        lbHabilidadePersonagem.setBounds(920,450,300,50);
-        lbNomePersonagem.setBounds(895,400,300,50);
+        lbSortePersonagem.setBounds(967,555,300,50);
+        lbEnergiaPersonagem.setBounds(960,520,300,50);
+        lbHabilidadePersonagem.setBounds(950,485,300,50);
+        imgPainelNomePersonagem.setBounds(890,370,300,150);
+        imgPainelHabilidadePersonagem.setBounds(910,490,200,40);
+        imgPainelEnergiaPersonagem.setBounds(910,525,200,40);
+        imgPainelSortePersonagem.setBounds(910,560,200,40);
+        lbNomePersonagem.setBounds(895,415,300,50);
         painelPersonagem.setBounds(875, 367, 340, 375);
 
         //Adiciona a tela
@@ -180,6 +192,10 @@ public class TelaSecoesBasica extends TelaBasica{
         add(lbHabilidadePersonagem);
         add(lbNomePersonagem);
         add(labelBolsa);
+        add(imgPainelNomePersonagem);
+        add(imgPainelSortePersonagem);
+        add(imgPainelEnergiaPersonagem);
+        add(imgPainelHabilidadePersonagem);
         add(imgPersonagem);
         add(painelPersonagem);
     }
@@ -219,7 +235,9 @@ public class TelaSecoesBasica extends TelaBasica{
 
     private void carregaPainelInferior() {
         ImagePanel imgPainelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO);
-        imgPainelInferior.setBounds(5,465,900,295);
+        imgPainelInferior.setBounds(1,470,900,290);
+        //imgPainelInferior.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         add(imgPainelInferior);
     }
 

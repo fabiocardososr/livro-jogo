@@ -5,12 +5,14 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     PROVISOES("livros/florestadadestruicao/imagens/provisao.png"),
     PERGAMINHO_FUNDO_CAD_PERSONAGEM("livros/florestadadestruicao/imagens/pergaminho_painel_cadPersonagem.png"),
     PERGAMINHO_FAIXA("livros/florestadadestruicao/imagens/pergaminho_inferior_secao.png"),
-    PERGAMINHO_ABERTO("livros/florestadadestruicao/imagens/pergaminho_aberto.png"),
+    PERGAMINHO_ABERTO("livros/florestadadestruicao/imagens/pergaminho_aberto7.png"),
+    FAIXA_INDICE_TELA_SECAO("livros/florestadadestruicao/imagens/faixa9.png"),
+    FAIXA_NOME_PERSONAGEM_TELA_SECAO("livros/florestadadestruicao/imagens/faixa2.png"),
     BOLSA("livros/florestadadestruicao/imagens/bolsa.png"),
     ESPADA_INICIAL("livros/florestadadestruicao/imagens/espada_inicial.png"),
     PERGAMINHO_FUNDO_CAD_PERSONAGEM_INDICES("livros/florestadadestruicao/imagens/pergaminho.png"),
     GIF_ROLANDO_DADOS("livros/florestadadestruicao/imagens/rolando_dados.gif"),
-    IMAGEM_DEFAULT_FLORESTA("livros/florestadadestruicao/imagens/floresta.jpg"),
+    //IMAGEM_DEFAULT_FLORESTA("livros/florestadadestruicao/imagens/floresta.jpg"),
     POCAO_DE_HABILIDADE("livros/florestadadestruicao/imagens/pocao_de_habilidade.png"),
     POCAO_DE_ENERGIA("livros/florestadadestruicao/imagens/pocao_de_energia.png"),
     POCAO_DE_SORTE("livros/florestadadestruicao/imagens/pocao_de_sorte.png"),
@@ -22,7 +24,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     MOLDURA_2("livros/florestadadestruicao/imagens/moldura_2.png"),
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),
-    FAIXA("livros/florestadadestruicao/imagens/faixa.png");
+    FAIXA("livros/florestadadestruicao/imagens/faixa.png"),
+    FAIXA_BOTOES_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/faixa.png");
     ;
 
     private final String enderecoImagem;

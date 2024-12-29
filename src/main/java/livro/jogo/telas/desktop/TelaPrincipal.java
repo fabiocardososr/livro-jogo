@@ -1,8 +1,11 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
+import livro.jogo.telas.desktop.personalizados.ImagePanel;
+import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.ManipularDadosLivro;
 
@@ -13,12 +16,15 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /*System.exit(0) = Fecha aplicação toda*/
 
 public class TelaPrincipal extends TelaBasica {
     private final Livro livro;
-    private JButton botaoOpcoesRegras;
+    //private JButton botaoOpcoesRegras;
+    private JLabel labelOpcoesRegras;
     private JButton botaoCarregarPersonagem;
     private JButton botaoIniciarJogo;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
@@ -67,7 +73,8 @@ public class TelaPrincipal extends TelaBasica {
 
         /* Carregando botões Inferiores */
         TelaPrincipalAcaoDosBotoes acao = new TelaPrincipalAcaoDosBotoes();
-        configurarBotaoRegras(acao);
+        TelaPrincipalAcaoDosLabelsBotoes acaoBotoes = new TelaPrincipalAcaoDosLabelsBotoes();
+        configurarBotaoRegras(acaoBotoes);
         //configurarBotaoCriarPersonagem(acao);
         configurarCarregarPersonagem(acao);
         configurarBotaoIniciarJogo(acao);
@@ -80,7 +87,7 @@ public class TelaPrincipal extends TelaBasica {
         botaoIniciarJogo.setBackground(Color.BLACK);
         botaoIniciarJogo.setForeground(Color.WHITE);
         botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoIniciarJogo.setBounds(590, 600,720,50);
+        botaoIniciarJogo.setBounds(590, 550,720,50);
         botaoIniciarJogo.setCursor(cursor);
         botaoIniciarJogo.addActionListener(acao);
         add(botaoIniciarJogo);
@@ -100,24 +107,34 @@ public class TelaPrincipal extends TelaBasica {
 
     }
 
-    private void configurarBotaoRegras(TelaPrincipalAcaoDosBotoes acao){
-        botaoOpcoesRegras = new JButton("Regras");
-        botaoOpcoesRegras.setBackground(Color.BLACK);
-        botaoOpcoesRegras.setForeground(Color.WHITE);
-        botaoOpcoesRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoOpcoesRegras.setBounds(590, 660,350,50);
-        botaoOpcoesRegras.setCursor(cursor);
-        botaoOpcoesRegras.addActionListener(acao);
-        add(botaoOpcoesRegras);
+    private void configurarBotaoRegras(TelaPrincipalAcaoDosLabelsBotoes acao){
+//        botaoOpcoesRegras = new JButton("Regras");
+//        botaoOpcoesRegras.setBackground(Color.BLACK);
+//        botaoOpcoesRegras.setForeground(Color.WHITE);
+//        botaoOpcoesRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+//        botaoOpcoesRegras.setBounds(590, 660,350,50);
+//        botaoOpcoesRegras.setCursor(cursor);
+//        botaoOpcoesRegras.addActionListener(acao);
+//        add(botaoOpcoesRegras);
+
+        ImagePanel imgPainelOpcoesRegras = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_BOTOES_TELA_PRINCIPAL);
+        labelOpcoesRegras = new JLabelOpcoesTelaSecao("Regras");
+        labelOpcoesRegras.setForeground(new Color(139,0,0));
+        labelOpcoesRegras.setFont(new Font(Font.SERIF,Font.BOLD,35));
+        imgPainelOpcoesRegras.setBounds(590, 570,250,200);
+        labelOpcoesRegras.setBounds(665, 637,350,50);
+        labelOpcoesRegras.addMouseListener(acao);
+        add(labelOpcoesRegras);
+        add(imgPainelOpcoesRegras);
     }
 
     private class TelaPrincipalAcaoDosBotoes implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == botaoOpcoesRegras){
-                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
-            }
+//            if (e.getSource() == botaoOpcoesRegras){
+//                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
+//            }
 
             if (e.getSource() == botaoCarregarPersonagem){
                 JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
@@ -126,6 +143,36 @@ public class TelaPrincipal extends TelaBasica {
             if (e.getSource() == botaoIniciarJogo){
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
             }
+        }
+    } //FIM AcaoDosBotoes implements ActionListener
+
+    private class TelaPrincipalAcaoDosLabelsBotoes implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == labelOpcoesRegras){
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
         }
     } //FIM AcaoDosBotoes implements ActionListener
 
