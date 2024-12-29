@@ -46,10 +46,27 @@ public class TelaPrincipal extends TelaBasica {
         JLabel labelImgCapaLivro = new JLabel();
         labelImgCapaLivro.setIcon( new ImageIcon(livro.getImagemCapa()));
 
-//        //Configurando o "tituloCapaLivro"
-//        JLabel tituloCapaLivro = new JLabel(livro.getNome());
-//        tituloCapaLivro.setForeground(Color.WHITE);
-//        tituloCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        //FAIXA SUPERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
+        labelFaixaSuperiorEsquerda.setBounds(-120,-100,300,250);
+
+        //FAIXA SUPERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
+        labelFaixaSuperiorDireita.setBounds(1255,-100,300,250);
+
+        //FAIXA INFERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
+        labelFaixaInferiorDireita.setBounds(1255,580,300,250);
+
+        //FAIXA INFERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
+        labelFaixaInferiorEsquerda.setBounds(-130,580,300,250);
+
+        //labelFaixaSuperiorEsquerda.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Configuração do estilo "textoCapaLivro"
         JTextPane textoCapaLivro = new JTextPane();
@@ -62,6 +79,7 @@ public class TelaPrincipal extends TelaBasica {
         StyleConstants.setForeground(configTexto,new Color(139,0,0));
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
         textoCapaLivro.setEditable(false);
+        textoCapaLivro.setFocusable(false);
         textoCapaLivro.setText(livro.getDescricao());
 //        JScrollPane scrolltextoCapaLivro = new JScrollPane(textoCapaLivro);
 //        scrolltextoCapaLivro.setFocusable(true);
@@ -74,13 +92,16 @@ public class TelaPrincipal extends TelaBasica {
 
         /* Posicionanado */
         labelImgCapaLivro.setBounds(-5,-10,490,730);
-        //tituloCapaLivro.setBounds(750,10,800,100);
         textoCapaLivro.setBounds(635,145,633,325);
         labelMolduraTextoTelaPrincipal.setBounds(500,-40,900,660);
         //labelMolduraTextoTelaPrincipal.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Adicionando a tela
         //add(tituloCapaLivro);
+        add(labelFaixaSuperiorEsquerda);
+        add(labelFaixaSuperiorDireita);
+        add(labelFaixaInferiorDireita);
+        add(labelFaixaInferiorEsquerda);
 
         add(textoCapaLivro);
         add(labelImgCapaLivro);
@@ -109,8 +130,8 @@ public class TelaPrincipal extends TelaBasica {
         //labelOpcoesRegras.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Posicionamento
-        imgPainelOpcoesRegras.setBounds(480, 550,250,200);
-        labelOpcoesRegras.setBounds(530, 620,150,50);
+        imgPainelOpcoesRegras.setBounds(480, 520,250,200);
+        labelOpcoesRegras.setBounds(530, 590,150,50);
         labelOpcoesRegras.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(labelOpcoesRegras);
@@ -128,8 +149,8 @@ public class TelaPrincipal extends TelaBasica {
         //labelBotaoIniciarJogo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //posicionamento
-        imgPainelIniciarJogo.setBounds(710, 550,250,200);
-        labelBotaoIniciarJogo.setBounds(763, 620,150,50);
+        imgPainelIniciarJogo.setBounds(710, 520,250,200);
+        labelBotaoIniciarJogo.setBounds(763, 590,150,50);
         labelBotaoIniciarJogo.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(labelBotaoIniciarJogo);
@@ -148,8 +169,8 @@ public class TelaPrincipal extends TelaBasica {
 
 
         //Posicionamento
-        imgPainelBotaoCarregarPersonagem.setBounds(940, 550,250,200);
-        labelBotaoCarregarPersonagem.setBounds(992, 620,150,50);
+        imgPainelBotaoCarregarPersonagem.setBounds(940, 520,250,200);
+        labelBotaoCarregarPersonagem.setBounds(992, 590,150,50);
         labelBotaoCarregarPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(labelBotaoCarregarPersonagem);
@@ -165,8 +186,8 @@ public class TelaPrincipal extends TelaBasica {
         labelBotaoFechar.addMouseListener(acao);
 
         //Posicionamento
-        imgPainelBotaoFechar.setBounds(1170, 550,250,200);
-        labelBotaoFechar.setBounds(1225, 620,150,50);
+        imgPainelBotaoFechar.setBounds(1170, 520,250,200);
+        labelBotaoFechar.setBounds(1225, 590,150,50);
         labelBotaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
 
         //serve apra ver a área do label que pode ser clicada com o mouse

@@ -25,7 +25,11 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),
     FAIXA("livros/florestadadestruicao/imagens/faixa.png"),
-    MOLDURA_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/moldura_tela_principal.png")
+    MOLDURA_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/moldura_tela_principal.png"),
+    FAIXA_SUPERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_superior_esquerda.png"),
+    FAIXA_SUPERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_superior_direita.png"),
+    FAIXA_INFERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_inferior_esquerda.png"),
+    FAIXA_INFERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_inferior_direita.png")
     ;
 
     private final String enderecoImagem;
