@@ -23,15 +23,17 @@ import java.awt.event.MouseListener;
 
 public class TelaPrincipal extends TelaBasica {
     private final Livro livro;
-    //private JButton botaoOpcoesRegras;
     private JLabel labelOpcoesRegras;
-    private JButton botaoCarregarPersonagem;
-    private JButton botaoIniciarJogo;
+    private JLabel labelBotaoCarregarPersonagem;
+    private JLabel labelBotaoIniciarJogo;
+    private JLabel labelBotaoFechar;
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private final CarregarTelas carregarTelas = new CarregarTelas(this);
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
+        getContentPane().setBackground(new Color(210,180,140));
+        setUndecorated(true);
 
         //Dados do livro
         livro = ManipularDadosLivro.getLivro();
@@ -44,107 +46,136 @@ public class TelaPrincipal extends TelaBasica {
         JLabel labelImgCapaLivro = new JLabel();
         labelImgCapaLivro.setIcon( new ImageIcon(livro.getImagemCapa()));
 
-        //Configurando o "tituloCapaLivro"
-        JLabel tituloCapaLivro = new JLabel(livro.getNome());
-        tituloCapaLivro.setForeground(Color.WHITE);
-        tituloCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,25));
+//        //Configurando o "tituloCapaLivro"
+//        JLabel tituloCapaLivro = new JLabel(livro.getNome());
+//        tituloCapaLivro.setForeground(Color.WHITE);
+//        tituloCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,25));
 
         //Configuração do estilo "textoCapaLivro"
         JTextPane textoCapaLivro = new JTextPane();
-        textoCapaLivro.setBackground(Color.BLACK);
+        textoCapaLivro.setBackground(new Color(210,180,140));
+        textoCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,17));
         StyledDocument textoCapaLivroStyle = textoCapaLivro.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
-        StyleConstants.setFontSize(configTexto,22);
-        StyleConstants.setForeground(configTexto,Color.WHITE);
+        //StyleConstants.setFontSize(configTexto,17);
+        StyleConstants.setForeground(configTexto,new Color(139,0,0));
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
         textoCapaLivro.setEditable(false);
         textoCapaLivro.setText(livro.getDescricao());
+//        JScrollPane scrolltextoCapaLivro = new JScrollPane(textoCapaLivro);
+//        scrolltextoCapaLivro.setFocusable(true);
+//        scrolltextoCapaLivro.setBorder(null);
+        //labelImgCapaLivro.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+        //Fundo do texto (moldura)
+        JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao(null,900,600,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
 
         /* Posicionanado */
-        labelImgCapaLivro.setBounds(0,0,490,760);
-        tituloCapaLivro.setBounds(750,10,800,100);
-        textoCapaLivro.setBounds(500,100,900,450);
+        labelImgCapaLivro.setBounds(-5,-10,490,730);
+        //tituloCapaLivro.setBounds(750,10,800,100);
+        textoCapaLivro.setBounds(635,145,633,325);
+        labelMolduraTextoTelaPrincipal.setBounds(500,-40,900,660);
+        //labelMolduraTextoTelaPrincipal.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Adicionando a tela
-        add(tituloCapaLivro);
+        //add(tituloCapaLivro);
+
         add(textoCapaLivro);
         add(labelImgCapaLivro);
+        add(labelMolduraTextoTelaPrincipal);
 
         /* Carregando botões Inferiores */
-        TelaPrincipalAcaoDosBotoes acao = new TelaPrincipalAcaoDosBotoes();
         TelaPrincipalAcaoDosLabelsBotoes acaoBotoes = new TelaPrincipalAcaoDosLabelsBotoes();
         configurarBotaoRegras(acaoBotoes);
-        //configurarBotaoCriarPersonagem(acao);
-        configurarCarregarPersonagem(acao);
-        configurarBotaoIniciarJogo(acao);
+        configurarBotaoIniciarJogo(acaoBotoes);
+        configurarBotaoCarregarPersonagem(acaoBotoes);
+        configurarBotaoFechar(acaoBotoes);
+
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private void configurarBotaoIniciarJogo(TelaPrincipalAcaoDosBotoes acao) {
-        botaoIniciarJogo = new JButton("Iniciar Jogo");
-        botaoIniciarJogo.setBackground(Color.BLACK);
-        botaoIniciarJogo.setForeground(Color.WHITE);
-        botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoIniciarJogo.setBounds(590, 550,720,50);
-        botaoIniciarJogo.setCursor(cursor);
-        botaoIniciarJogo.addActionListener(acao);
-        add(botaoIniciarJogo);
-
-
-    }
-
-    private void configurarCarregarPersonagem(TelaPrincipalAcaoDosBotoes acao) {
-        botaoCarregarPersonagem = new JButton("Carregar Personagem");
-        botaoCarregarPersonagem.setBackground(Color.BLACK);
-        botaoCarregarPersonagem.setForeground(Color.WHITE);
-        botaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        botaoCarregarPersonagem.setBounds(960, 660,350,50);
-        botaoCarregarPersonagem.setCursor(cursor);
-        botaoCarregarPersonagem.addActionListener(acao);
-        add(botaoCarregarPersonagem);
-
-    }
-
     private void configurarBotaoRegras(TelaPrincipalAcaoDosLabelsBotoes acao){
-//        botaoOpcoesRegras = new JButton("Regras");
-//        botaoOpcoesRegras.setBackground(Color.BLACK);
-//        botaoOpcoesRegras.setForeground(Color.WHITE);
-//        botaoOpcoesRegras.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-//        botaoOpcoesRegras.setBounds(590, 660,350,50);
-//        botaoOpcoesRegras.setCursor(cursor);
-//        botaoOpcoesRegras.addActionListener(acao);
-//        add(botaoOpcoesRegras);
 
         ImagePanel imgPainelOpcoesRegras = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelOpcoesRegras = new JLabelOpcoesTelaSecao("Regras");
         labelOpcoesRegras.setForeground(new Color(139,0,0));
-        labelOpcoesRegras.setFont(new Font(Font.SERIF,Font.BOLD,35));
-        imgPainelOpcoesRegras.setBounds(590, 570,250,200);
-        labelOpcoesRegras.setBounds(665, 637,350,50);
+        labelOpcoesRegras.setFont(new Font(Font.SERIF,Font.BOLD,30));
         labelOpcoesRegras.addMouseListener(acao);
+
+        //serve apra ver a área do label que pode ser clicada com o mouse
+        //labelOpcoesRegras.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Posicionamento
+        imgPainelOpcoesRegras.setBounds(480, 550,250,200);
+        labelOpcoesRegras.setBounds(530, 620,150,50);
+        labelOpcoesRegras.setHorizontalAlignment(SwingConstants.CENTER);
+
         add(labelOpcoesRegras);
         add(imgPainelOpcoesRegras);
     }
 
-    private class TelaPrincipalAcaoDosBotoes implements ActionListener{
+    private void configurarBotaoIniciarJogo(TelaPrincipalAcaoDosLabelsBotoes acao) {
+        ImagePanel imgPainelIniciarJogo= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoIniciarJogo = new JLabelOpcoesTelaSecao("Iniciar");
+        labelBotaoIniciarJogo.setForeground(new Color(139,0,0));
+        labelBotaoIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelBotaoIniciarJogo.addMouseListener(acao);
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-//            if (e.getSource() == botaoOpcoesRegras){
-//                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
-//            }
+        //serve apra ver a área do label que pode ser clicada com o mouse
+        //labelBotaoIniciarJogo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-            if (e.getSource() == botaoCarregarPersonagem){
-                JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
-            }
+        //posicionamento
+        imgPainelIniciarJogo.setBounds(710, 550,250,200);
+        labelBotaoIniciarJogo.setBounds(763, 620,150,50);
+        labelBotaoIniciarJogo.setHorizontalAlignment(SwingConstants.CENTER);
 
-            if (e.getSource() == botaoIniciarJogo){
-                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
-            }
-        }
-    } //FIM AcaoDosBotoes implements ActionListener
+        add(labelBotaoIniciarJogo);
+        add(imgPainelIniciarJogo);
+    }
+
+    private void configurarBotaoCarregarPersonagem(TelaPrincipalAcaoDosLabelsBotoes acao) {
+        ImagePanel imgPainelBotaoCarregarPersonagem= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoCarregarPersonagem = new JLabelOpcoesTelaSecao("Carregar");
+        labelBotaoCarregarPersonagem.setForeground(new Color(139,0,0));
+        labelBotaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelBotaoCarregarPersonagem.addMouseListener(acao);
+
+        //serve apra ver a área do label que pode ser clicada com o mouse
+        //labelBotaoCarregarPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+
+        //Posicionamento
+        imgPainelBotaoCarregarPersonagem.setBounds(940, 550,250,200);
+        labelBotaoCarregarPersonagem.setBounds(992, 620,150,50);
+        labelBotaoCarregarPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
+
+        add(labelBotaoCarregarPersonagem);
+        add(imgPainelBotaoCarregarPersonagem);
+
+    }
+
+    private void configurarBotaoFechar(TelaPrincipalAcaoDosLabelsBotoes acao) {
+        ImagePanel imgPainelBotaoFechar= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoFechar = new JLabelOpcoesTelaSecao("Sair");
+        labelBotaoFechar.setForeground(new Color(139,0,0));
+        labelBotaoFechar.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelBotaoFechar.addMouseListener(acao);
+
+        //Posicionamento
+        imgPainelBotaoFechar.setBounds(1170, 550,250,200);
+        labelBotaoFechar.setBounds(1225, 620,150,50);
+        labelBotaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //serve apra ver a área do label que pode ser clicada com o mouse
+        //labelBotaoFechar.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(labelBotaoFechar);
+        add(imgPainelBotaoFechar);
+
+    }
 
     private class TelaPrincipalAcaoDosLabelsBotoes implements MouseListener {
 
@@ -152,6 +183,18 @@ public class TelaPrincipal extends TelaBasica {
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == labelOpcoesRegras){
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
+            }
+
+            if (e.getSource() == labelBotaoCarregarPersonagem){
+                JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
+            }
+
+            if (e.getSource() == labelBotaoIniciarJogo){
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
+            }
+
+            if (e.getSource() == labelBotaoFechar){
+                System.exit(0);
             }
         }
 

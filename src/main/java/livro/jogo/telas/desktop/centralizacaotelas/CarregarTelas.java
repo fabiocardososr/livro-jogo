@@ -45,7 +45,7 @@ public class CarregarTelas {
     }
 
     private void telaPrincipal(){
-        TelaPrincipal tela = new TelaPrincipal(1430,800);
+        TelaPrincipal tela = new TelaPrincipal(1430,720);
         this.telaPrincipal = tela;
         tela.setVisible(true);
     }
