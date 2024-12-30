@@ -34,6 +34,7 @@ public class TelaSecoesBasica extends TelaBasica{
     private JDialog dialogImSecaoAmpliar;
     private JLabel labelImagemTempoaria;
     private JLabel labelImagemSecao;
+    private JLabelOpcoesTelaSecao labelSair;
     private final AcoesComunsTelaSecao acoesComunsTelaSecao;
 
 
@@ -60,7 +61,37 @@ public class TelaSecoesBasica extends TelaBasica{
         carregaPainelPersonagem();
         carregarPainelDireito();
         carregaPainelInferior();
+        carregarFaixasDasExtremidades();
     }
+
+    private void carregarFaixasDasExtremidades() {
+        //FAIXA SUPERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
+        labelFaixaSuperiorEsquerda.setBounds(-115,-100,300,250);
+
+        //FAIXA SUPERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
+        labelFaixaSuperiorDireita.setBounds(1310,-108,300,250);
+
+        //FAIXA INFERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
+        labelFaixaInferiorDireita.setBounds(1325,650,300,250);
+
+        //FAIXA INFERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
+        labelFaixaInferiorEsquerda.setBounds(-110,675,300,250);
+
+        add(labelFaixaInferiorEsquerda);
+        add(labelFaixaInferiorDireita);
+        add(labelFaixaSuperiorDireita);
+        add(labelFaixaSuperiorEsquerda);
+    }
+
+
 
     private void carregarTextoHistoria() {
 
@@ -157,11 +188,19 @@ public class TelaSecoesBasica extends TelaBasica{
         //Aqui define a imagem do Bárbaro(ou Bárara) do personagem
         //1 = Homem; 2 = Mulher
         String enderecoImgPersonagem;
-        if (personagem.getGenero() == 1)
+        String toolTip;
+        if (personagem.getGenero() == 1) {
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARO.getEnderecoImagem();
-        else
+            toolTip = "Este é você!";
+        }
+        else {
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARA.getEnderecoImagem();
+            toolTip = "Esta é você!";
+        }
+
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
+        imgPersonagem.setToolTipText(toolTip);
+        imgPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
@@ -177,9 +216,9 @@ public class TelaSecoesBasica extends TelaBasica{
 
         //Posiciona
         imgPersonagem.setBounds(1080,500,205,260);
-        lbSortePersonagem.setBounds(967,555,300,50);
-        lbEnergiaPersonagem.setBounds(960,520,300,50);
-        lbHabilidadePersonagem.setBounds(950,485,300,50);
+        lbSortePersonagem.setBounds(967,555,140,50);
+        lbEnergiaPersonagem.setBounds(960,520,140,50);
+        lbHabilidadePersonagem.setBounds(950,485,140,50);
         imgPainelNomePersonagem.setBounds(890,370,300,150);
         imgPainelHabilidadePersonagem.setBounds(910,490,200,40);
         imgPainelEnergiaPersonagem.setBounds(910,525,200,40);
@@ -333,6 +372,13 @@ public class TelaSecoesBasica extends TelaBasica{
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
 
+        labelSair = new JLabelOpcoesTelaSecao(null,130,110,
+                ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR);
+        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.addMouseListener(acaoLabels);
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+       // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
 
         //Posicionamento
         labelOuro.setBounds(1300,60,85,55);
@@ -346,6 +392,8 @@ public class TelaSecoesBasica extends TelaBasica{
         labelFundoAnotacoes.setBounds(1230,500,250,100);
         labelSalvar.setBounds(1290,620,100,50);
         labelFundoSalvar.setBounds(1238,600,200,100);
+        labelSair.setBounds(1285,700,100,100);
+        labelSair.setToolTipText("Sair");
 
 
         imgPainelDireito.setBounds(1200,2,280,770);
@@ -363,6 +411,7 @@ public class TelaSecoesBasica extends TelaBasica{
         add(labelFundoPocaoInicial);
         add(labelSalvar);
         add(labelFundoSalvar);
+        add(labelSair);
         add(imgPainelDireito);
     }
 
@@ -383,6 +432,10 @@ public class TelaSecoesBasica extends TelaBasica{
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == labelSair){
+                setVisible(false);
+            }
+
             if (e.getSource() == labelMapaBotao){
                 dialogImagemMapa.setVisible(true);
             }

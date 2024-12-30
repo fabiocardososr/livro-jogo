@@ -18,6 +18,7 @@ public class TelaBasica extends JFrame {
         Container principal = getContentPane();
         setLayout(null);
         setResizable(false);
+        setUndecorated(true);
         principal.setBackground(Color.BLACK);
         setSize(largura,altura);
         setLocationRelativeTo(null);

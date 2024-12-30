@@ -25,7 +25,7 @@ public class Testes {
         var bolsa = adicionaItensIniciaisNaBolsa(47);
 
         Personagem personagem = new Personagem("Fábio",1,10,20,10,
-                bolsa,itensEquipados,2);
+                bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
         ManipularDadosLivro.setPersonagem(personagem);
         TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(400),personagem );

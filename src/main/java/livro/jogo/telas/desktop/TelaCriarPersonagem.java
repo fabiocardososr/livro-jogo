@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
+import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.LimitarCampoJTextField;
 import livro.jogo.utils.ManipularDadosLivro;
@@ -42,6 +43,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaMae) {
         super(largura, altura);
+        setUndecorated(true);
         this.telaMae = telaMae;
         this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
         getContentPane().setBackground(new Color(210,180,140));
@@ -56,6 +58,34 @@ public class TelaCriarPersonagem extends TelaBasica {
         carregarBotoesGravarResetarFechar();
         carregarTxtNomeGenero();
         carregarPainelInferior();
+        carregarFaixasDasExtremidades(); //Faixas que ficam nas extremidades da janela
+    }
+
+    private void carregarFaixasDasExtremidades() {
+        //FAIXA SUPERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
+        labelFaixaSuperiorEsquerda.setBounds(-115,-100,300,250);
+
+        //FAIXA SUPERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
+        labelFaixaSuperiorDireita.setBounds(958,-108,300,250);
+
+        //FAIXA INFERIOR DIREITA
+        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
+        labelFaixaInferiorDireita.setBounds(970,682,300,250);
+
+        //FAIXA INFERIOR ESQUERDA
+        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
+                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
+        labelFaixaInferiorEsquerda.setBounds(-130,675,300,250);
+
+        add(labelFaixaInferiorEsquerda);
+        add(labelFaixaInferiorDireita);
+        add(labelFaixaSuperiorDireita);
+        add(labelFaixaSuperiorEsquerda);
     }
 
     private void carregarPainelInferior() {

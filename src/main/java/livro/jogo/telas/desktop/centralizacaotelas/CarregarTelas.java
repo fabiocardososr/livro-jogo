@@ -62,7 +62,7 @@ public class CarregarTelas {
     }
 
     private void telaCriacaoPersonagem(){
-        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1165,830, telaPrincipal);
+        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPrincipal);
 
         //Quando fechar este tela, deve voltar para a principal
         telaCriarPersonagem.addWindowListener(new WindowAdapter() {
