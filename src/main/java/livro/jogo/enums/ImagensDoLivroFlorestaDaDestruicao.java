@@ -30,7 +30,9 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_SUPERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_superior_direita.png"),
     FAIXA_INFERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_inferior_esquerda.png"),
     FAIXA_INFERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_inferior_direita.png"),
-    PORTA_SAIR("livros/florestadadestruicao/imagens/porta_sair.png")
+    PORTA_SAIR("livros/florestadadestruicao/imagens/porta_sair.png"),
+    SINAL_SOMA("livros/florestadadestruicao/imagens/sinal_soma.png"),
+    SINAL_MENOS("livros/florestadadestruicao/imagens/sinal_menos.png")
     ;
 
     private final String enderecoImagem;

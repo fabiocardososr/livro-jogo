@@ -11,15 +11,32 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class CriacaoPersonagem {
+    private String nome;
+    private int idLivro;
+    private int habilidadeInicial;
+    private int energiaInicial;
+    private int sorteInicial;
+    private int pocaoEscolhida;
+    private int genero;
 
-    public CriacaoPersonagem(String nome, int idLivro, int habilidadeInicial, int energiaInicial,
-                             int sorteInicial, int pocaoEscolhida, int genero) {
+    public CriacaoPersonagem(String nome, int idLivro, int habilidadeInicial, int energiaInicial, int sorteInicial, int pocaoEscolhida, int genero) {
+        this.nome = nome;
+        this.idLivro = idLivro;
+        this.habilidadeInicial = habilidadeInicial;
+        this.energiaInicial = energiaInicial;
+        this.sorteInicial = sorteInicial;
+        this.pocaoEscolhida = pocaoEscolhida;
+        this.genero = genero;
+    }
 
+    public Personagem criar(){
         var itensEquipados = adicionaItensIniciaisEquipados();
         var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         ManipularDadosLivro.setPersonagem(personagem);
         JOptionPane.showMessageDialog(null,personagem.toString());
+
+        return personagem;
     }
 
     private ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {

@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop;
 import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -454,7 +455,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoGravar.setFocusable(false);
         botaoGravar.setEnabled(false);
         botaoGravar.setCursor(cursor);
-        botaoGravar.addActionListener(e -> { carregarPersonagem(); });
+        botaoGravar.addActionListener(e -> { carregarPersonagemEAbreTelaSecao(); });
         add(botaoGravar);
 
         botaoResetar = new JButton("Refazer Personagem");
@@ -522,12 +523,14 @@ public class TelaCriarPersonagem extends TelaBasica {
             botaoGravar.setEnabled(false);
     }
 
-    private void carregarPersonagem(){
+    private void carregarPersonagemEAbreTelaSecao(){
         var nome = txtNome.getText();
-        var idLivro = ManipularDadosLivro.getLivro().getIdLivro();
 
         //Cria o personagem e já joga na variável estática da classe ManipularDadosLivro
-        new CriacaoPersonagem(nome, idLivro, habilidadeInicial,energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
+        CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, ManipularDadosLivro.getLivro().getIdLivro(),
+                habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
+
+        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar());
     }
 
 }

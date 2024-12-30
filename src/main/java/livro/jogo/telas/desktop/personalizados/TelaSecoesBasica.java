@@ -28,15 +28,16 @@ public class TelaSecoesBasica extends TelaBasica{
     private JLabelOpcoesTelaSecao labelPocaoInicial;
     private JLabelOpcoesTelaSecao labelProvisoes;
     private JLabelOpcoesTelaSecao labelAnotacoes;
-    private JLabel labelOuro;
     private JLabel labelSalvar;
     private JDialog dialogImagemMapa;
     private JDialog dialogImSecaoAmpliar;
-    private JLabel labelImagemTempoaria;
     private JLabel labelImagemSecao;
     private JLabelOpcoesTelaSecao labelSair;
+    private JLabelOpcoesTelaSecao labelAumentaTexto;
+    private JLabelOpcoesTelaSecao labelDiminuiTexto;
+    private JTextPane textoHistoria;
     private final AcoesComunsTelaSecao acoesComunsTelaSecao;
-
+    private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
     public TelaSecoesBasica(Secao secao, Personagem personagem) {
         super(1500,800); //Tamanho comum para todas as telas de seções
@@ -49,10 +50,14 @@ public class TelaSecoesBasica extends TelaBasica{
         this.personagem = personagem;
         acoesComunsTelaSecao = new AcoesComunsTelaSecao(personagem);
 
-        if (secao.getEnderecoImagem() != null)
+        //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
+        if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
             this.enderecoImagem = secao.getEnderecoImagem();
-
-        setTitle("Seção - "+secao.getCodSecaoLivro());
+            setTitle("Seção - " + secao.getCodSecaoLivro());
+        }
+        else{
+            setTitle("Livro - " + ManipularDadosLivro.getLivro().getNome());
+        }
         setType(Window.Type.UTILITY);
 
         //Carregar campo que receberá o texto da história
@@ -91,8 +96,6 @@ public class TelaSecoesBasica extends TelaBasica{
         add(labelFaixaSuperiorEsquerda);
     }
 
-
-
     private void carregarTextoHistoria() {
 
         //Moldura que engloba o texto da seção
@@ -101,35 +104,60 @@ public class TelaSecoesBasica extends TelaBasica{
         //labelMolduraTexto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Texto do livro
-        JTextPane textoHistoria = new JTextPane();
+        textoHistoria = new JTextPane();
         textoHistoria.setBackground(new Color(210,180,140));
         textoHistoria.setFocusable(false);
 
         //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
-        textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,25));
+        textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,tamanhoTexto));
 
 
         StyledDocument textoLivroStyle = textoHistoria.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
-        //StyleConstants.setFontSize(configTexto,25);
         StyleConstants.setForeground(configTexto,Color.BLACK);
-        //StyleConstants.setIcon(configTexto, new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem())); não dá parque ele substitui o texto por várias imagens
         textoLivroStyle.setParagraphAttributes(0, textoLivroStyle.getLength(), configTexto, false);
         textoHistoria.setEditable(false);
-        textoHistoria.setCaretPosition(0); //para posicionar a barra de rolagem no início.
         JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
         scrollTextoHistoria.setFocusable(true);
         scrollTextoHistoria.setBorder(null);
 
         //Carregando texto no componente
-        textoHistoria.setText( secao.getTexto() );
+        if (secao != null)
+            textoHistoria.setText( secao.getTexto() );
+        else
+            textoHistoria.setText( ManipularDadosLivro.getLivro().getHistoria() );
+
+        //para posicionar a barra de rolagem no início.
+        textoHistoria.setCaretPosition(0);
+
+        //Aumenta texto
+        labelAumentaTexto = new JLabelOpcoesTelaSecao(null, 40,40,
+                ImagensDoLivroFlorestaDaDestruicao.SINAL_SOMA);
+        labelAumentaTexto.setHorizontalAlignment(SwingConstants.CENTER);
+        labelAumentaTexto.setToolTipText("Aumentar texto");
+        labelAumentaTexto.addMouseListener(acaoLabels);
+        //labelAumentaTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        //Diminuir texto
+        labelDiminuiTexto = new JLabelOpcoesTelaSecao(null, 30,30,
+                ImagensDoLivroFlorestaDaDestruicao.SINAL_MENOS);
+        labelDiminuiTexto.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDiminuiTexto.setToolTipText("Diminuir texto");
+        labelDiminuiTexto.addMouseListener(acaoLabels);
+        //labelDiminuiTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+
 
         //posicionamento na tela
         scrollTextoHistoria.setBounds(115, 118, 650, 350);
         labelMolduraTexto.setBounds(-10,-40,950,650);
+        labelAumentaTexto.setBounds(80,260,30,30);
+        labelDiminuiTexto.setBounds(772,260,30,30);
 
         //Adicionando a tela
+        add(labelAumentaTexto);
+        add(labelDiminuiTexto);
         add(scrollTextoHistoria);
         add(labelMolduraTexto);
 
@@ -257,7 +285,7 @@ public class TelaSecoesBasica extends TelaBasica{
         labelImagemSecao.addMouseListener(acaoLabels);
 
         //Configura clique na imagem para ampliar em uma nova tela
-        labelImagemTempoaria = new JLabel();
+        JLabel labelImagemTempoaria = new JLabel();
         labelImagemTempoaria.setBounds(0, 0, 590,715);
         labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
                 labelImagemTempoaria.getHeight()).getImageIcon());
@@ -343,7 +371,7 @@ public class TelaSecoesBasica extends TelaBasica{
         labelAnotacoes.addMouseListener(acaoLabels);
 
         //Ouro
-        labelOuro = new JLabel("Ouro: "+personagem.getQuantidadeOuro());
+        JLabel labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,19));
         labelOuro.setForeground(new Color(139,0,0));
         //labelOuro.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -432,6 +460,17 @@ public class TelaSecoesBasica extends TelaBasica{
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == labelAumentaTexto){
+                ++tamanhoTexto;
+                textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,tamanhoTexto));
+            }
+
+            if (e.getSource() == labelDiminuiTexto){
+                --tamanhoTexto;
+                textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,tamanhoTexto));
+            }
+
             if (e.getSource() == labelSair){
                 setVisible(false);
             }

@@ -1,11 +1,14 @@
 package livro.jogo.telas.desktop.centralizacaotelas;
 
+import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.TelaCriarPersonagem;
 import livro.jogo.telas.desktop.TelaPrincipal;
 import livro.jogo.telas.desktop.TelaRegra;
 import livro.jogo.telas.desktop.TelaRegrasOpcoes;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -72,5 +75,10 @@ public class CarregarTelas {
             }
         });
         telaCriarPersonagem.setVisible(true);
+    }
+
+    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem){
+        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica(secao, personagem);
+        telaSecoesBasica.setVisible(true);
     }
 }

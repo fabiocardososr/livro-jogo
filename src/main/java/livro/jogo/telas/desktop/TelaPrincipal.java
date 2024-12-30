@@ -4,6 +4,7 @@ import livro.jogo.entidades.Livro;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
+import livro.jogo.telas.desktop.personalizados.BotaoFaixa;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
@@ -14,8 +15,6 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -115,83 +114,34 @@ public class TelaPrincipal extends TelaBasica {
     }
 
     private void configurarBotaoRegras(TelaPrincipalAcaoDosLabelsBotoes acao){
-
-        ImagePanel imgPainelOpcoesRegras = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelOpcoesRegras = new JLabelOpcoesTelaSecao("Regras");
-        labelOpcoesRegras.setForeground(new Color(139,0,0));
-        labelOpcoesRegras.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        BotaoFaixa botaoFaixa = new BotaoFaixa("Regras",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelOpcoesRegras = botaoFaixa.criarBotao(getContentPane(), 480, 520,250,200,
+                                                530, 590,150,50);
         labelOpcoesRegras.addMouseListener(acao);
-
-        //serve apra ver a área do label que pode ser clicada com o mouse
-        //labelOpcoesRegras.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        //Posicionamento
-        imgPainelOpcoesRegras.setBounds(480, 520,250,200);
-        labelOpcoesRegras.setBounds(530, 590,150,50);
-        labelOpcoesRegras.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(labelOpcoesRegras);
-        add(imgPainelOpcoesRegras);
     }
 
     private void configurarBotaoIniciarJogo(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        ImagePanel imgPainelIniciarJogo= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoIniciarJogo = new JLabelOpcoesTelaSecao("Iniciar");
-        labelBotaoIniciarJogo.setForeground(new Color(139,0,0));
-        labelBotaoIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        BotaoFaixa botaoFaixa = new BotaoFaixa("Iniciar",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoIniciarJogo = botaoFaixa.criarBotao(getContentPane(),
+                710, 520,250,200,
+                763, 590,150,50);
         labelBotaoIniciarJogo.addMouseListener(acao);
-
-        //serve apra ver a área do label que pode ser clicada com o mouse
-        //labelBotaoIniciarJogo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        //posicionamento
-        imgPainelIniciarJogo.setBounds(710, 520,250,200);
-        labelBotaoIniciarJogo.setBounds(763, 590,150,50);
-        labelBotaoIniciarJogo.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(labelBotaoIniciarJogo);
-        add(imgPainelIniciarJogo);
     }
 
     private void configurarBotaoCarregarPersonagem(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        ImagePanel imgPainelBotaoCarregarPersonagem= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoCarregarPersonagem = new JLabelOpcoesTelaSecao("Carregar");
-        labelBotaoCarregarPersonagem.setForeground(new Color(139,0,0));
-        labelBotaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        BotaoFaixa botaoFaixa = new BotaoFaixa("Carregar",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoCarregarPersonagem = botaoFaixa.criarBotao(getContentPane(),
+                940, 520,250,200,
+                992, 590,150,50);
         labelBotaoCarregarPersonagem.addMouseListener(acao);
-
-        //serve apra ver a área do label que pode ser clicada com o mouse
-        //labelBotaoCarregarPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-
-        //Posicionamento
-        imgPainelBotaoCarregarPersonagem.setBounds(940, 520,250,200);
-        labelBotaoCarregarPersonagem.setBounds(992, 590,150,50);
-        labelBotaoCarregarPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(labelBotaoCarregarPersonagem);
-        add(imgPainelBotaoCarregarPersonagem);
-
     }
 
     private void configurarBotaoFechar(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        ImagePanel imgPainelBotaoFechar= new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoFechar = new JLabelOpcoesTelaSecao("Sair");
-        labelBotaoFechar.setForeground(new Color(139,0,0));
-        labelBotaoFechar.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        BotaoFaixa botaoFaixa = new BotaoFaixa("Sair",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoFechar = botaoFaixa.criarBotao(getContentPane(),
+                1170, 520,250,200,
+                1225, 590,150,50);
         labelBotaoFechar.addMouseListener(acao);
-
-        //Posicionamento
-        imgPainelBotaoFechar.setBounds(1170, 520,250,200);
-        labelBotaoFechar.setBounds(1225, 590,150,50);
-        labelBotaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
-
-        //serve apra ver a área do label que pode ser clicada com o mouse
-        //labelBotaoFechar.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        add(labelBotaoFechar);
-        add(imgPainelBotaoFechar);
-
     }
 
     private class TelaPrincipalAcaoDosLabelsBotoes implements MouseListener {
