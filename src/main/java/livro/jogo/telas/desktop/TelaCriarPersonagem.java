@@ -39,16 +39,15 @@ public class TelaCriarPersonagem extends TelaBasica {
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private int pocaoEscolhida; //Escolha da poção
     private int generoPersonagem; //1 = Masculino; 2 = Feminino
-    private final TelaBasica telaMae; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
+    private final TelaBasica telaPrincipal; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
 
 
-    public TelaCriarPersonagem(int largura, int altura, TelaBasica telaMae) {
+    public TelaCriarPersonagem(int largura, int altura, TelaBasica telaPrincipal) {
         super(largura, altura);
         setUndecorated(true);
-        this.telaMae = telaMae;
-        this.telaMae.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
+        this.telaPrincipal = telaPrincipal;
+        this.telaPrincipal.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
         getContentPane().setBackground(new Color(210,180,140));
-
         carregarComponentesDaTela();
     }
 
@@ -481,7 +480,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoFechar.setCursor(cursor);
         botaoFechar.addActionListener(e -> {
             setVisible(false);
-            telaMae.setVisible(true);
+            telaPrincipal.setVisible(true);
         });
         add(botaoFechar);
     }
@@ -530,7 +529,8 @@ public class TelaCriarPersonagem extends TelaBasica {
         CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, ManipularDadosLivro.getLivro().getIdLivro(),
                 habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
 
-        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar());
+        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);
+        setVisible(false);
     }
 
 }

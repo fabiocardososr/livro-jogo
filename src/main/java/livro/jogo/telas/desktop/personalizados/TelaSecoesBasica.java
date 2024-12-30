@@ -22,6 +22,7 @@ public class TelaSecoesBasica extends TelaBasica{
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial;
     private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
+    private JFrame referenciaTelaPrincipal;
 
     private JLabelOpcoesTelaSecao labelMapaBotao;
     private JLabelOpcoesTelaSecao labelBolsa;
@@ -39,7 +40,7 @@ public class TelaSecoesBasica extends TelaBasica{
     private final AcoesComunsTelaSecao acoesComunsTelaSecao;
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
-    public TelaSecoesBasica(Secao secao, Personagem personagem) {
+    public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
         super(1500,800); //Tamanho comum para todas as telas de seções
 
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
@@ -48,6 +49,7 @@ public class TelaSecoesBasica extends TelaBasica{
 
         this.secao = secao;
         this.personagem = personagem;
+        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
         acoesComunsTelaSecao = new AcoesComunsTelaSecao(personagem);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
@@ -472,7 +474,13 @@ public class TelaSecoesBasica extends TelaBasica{
             }
 
             if (e.getSource() == labelSair){
-                setVisible(false);
+
+                //FAZER NOVA TELA MAIS ESTILIZADA
+                var resposta = JOptionPane.showConfirmDialog(null,"Deseja fechar o jogo?");
+                if (resposta == JOptionPane.YES_OPTION) {
+                    referenciaTelaPrincipal.setVisible(true);
+                    setVisible(false);
+                }
             }
 
             if (e.getSource() == labelMapaBotao){

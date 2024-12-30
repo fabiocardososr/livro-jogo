@@ -25,6 +25,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),
     FAIXA("livros/florestadadestruicao/imagens/faixa.png"),
+    FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     MOLDURA_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/moldura_tela_principal.png"),
     FAIXA_SUPERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_superior_esquerda.png"),
     FAIXA_SUPERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_superior_direita.png"),
@@ -32,7 +33,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_INFERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_inferior_direita.png"),
     PORTA_SAIR("livros/florestadadestruicao/imagens/porta_sair.png"),
     SINAL_SOMA("livros/florestadadestruicao/imagens/sinal_soma.png"),
-    SINAL_MENOS("livros/florestadadestruicao/imagens/sinal_menos.png")
+    SINAL_MENOS("livros/florestadadestruicao/imagens/sinal_menos.png"),
+    FUNDO_REGRAS_OPCOES("livros/florestadadestruicao/imagens/fundo_regra_opcoes.png")
     ;
 
     private final String enderecoImagem;

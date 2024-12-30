@@ -8,8 +8,10 @@ import livro.jogo.telas.desktop.TelaPrincipal;
 import livro.jogo.telas.desktop.TelaRegra;
 import livro.jogo.telas.desktop.TelaRegrasOpcoes;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -54,7 +56,7 @@ public class CarregarTelas {
     }
 
     private void telaRegrasOpcoes(){
-        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(305,400);
+        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(350,740);
         telaRegrasOpcoes.setVisible(true);
     }
 
@@ -77,8 +79,8 @@ public class CarregarTelas {
         telaCriarPersonagem.setVisible(true);
     }
 
-    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem){
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica(secao, personagem);
+    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem, JFrame telaPrincipal){
+        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, telaPrincipal);
         telaSecoesBasica.setVisible(true);
     }
 }
