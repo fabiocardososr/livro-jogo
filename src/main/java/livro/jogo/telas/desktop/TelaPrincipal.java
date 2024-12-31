@@ -49,6 +49,7 @@ public class TelaPrincipal extends TelaBasica {
         JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
         labelFaixaSuperiorEsquerda.setBounds(-120,-100,300,250);
+        labelFaixaSuperiorEsquerda.setCursor(null);
 
         //FAIXA SUPERIOR DIREITA
         JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
@@ -64,6 +65,7 @@ public class TelaPrincipal extends TelaBasica {
         JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
         labelFaixaInferiorEsquerda.setBounds(-130,580,300,250);
+        labelFaixaInferiorEsquerda.setCursor(null);
 
         //labelFaixaSuperiorEsquerda.setBorder(BorderFactory.createLineBorder(Color.RED));
 
@@ -84,6 +86,7 @@ public class TelaPrincipal extends TelaBasica {
         //Fundo do texto (moldura)
         JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao(null,900,600,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
+        labelMolduraTextoTelaPrincipal.setCursor(null);
 
         /* Posicionanado */
         labelImgCapaLivro.setBounds(-5,-10,490,730);
@@ -116,7 +119,7 @@ public class TelaPrincipal extends TelaBasica {
     private void configurarBotaoRegras(TelaPrincipalAcaoDosLabelsBotoes acao){
         BotaoFaixa botaoFaixa = new BotaoFaixa("Regras",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelOpcoesRegras = botaoFaixa.criarBotao(getContentPane(), 480, 520,250,200,
-                                                530, 590,150,50);
+                530, 590,150,50);
         labelOpcoesRegras.addMouseListener(acao);
     }
 

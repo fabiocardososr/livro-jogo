@@ -16,7 +16,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecoesBasica extends TelaBasica{
+public class TelaSecoesBasica extends JDialog{
     private final Secao secao;
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
@@ -41,8 +41,8 @@ public class TelaSecoesBasica extends TelaBasica{
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
     public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
-        super(1500,800); //Tamanho comum para todas as telas de seções
 
+        setSize(1500,800);
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));
@@ -61,6 +61,10 @@ public class TelaSecoesBasica extends TelaBasica{
             setTitle("Livro - " + ManipularDadosLivro.getLivro().getNome());
         }
         setType(Window.Type.UTILITY);
+
+        setLocationRelativeTo(null);
+        setModal(true);
+        setUndecorated(true);
 
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();

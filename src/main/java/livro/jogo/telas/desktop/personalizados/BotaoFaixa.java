@@ -21,6 +21,10 @@ public class BotaoFaixa{
         label.setForeground(new Color(139,0,0));
         label.setFont(new Font(Font.SERIF,Font.BOLD,30));
         label.setHorizontalAlignment(SwingConstants.CENTER);
+        //label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //imgPainel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //imgPainel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        //label.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         imgPainel.setBounds(imgPanelX, imgPanelY, imgPanelWidth, imgPanelHeight);
         label.setBounds(labelBotaoX, labelBotaoY,labelBotaoWidth, labelBotaoHeight);

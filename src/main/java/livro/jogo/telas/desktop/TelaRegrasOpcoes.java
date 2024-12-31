@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaRegrasOpcoes extends TelaBasica {
+public class TelaRegrasOpcoes extends JDialog {
     private JLabelOpcoesTelaSecao botaoCriarPersonagem;
     private JLabelOpcoesTelaSecao botaoRegraBatalha;
     private JLabelOpcoesTelaSecao botaoRegraSorte;
@@ -23,7 +23,10 @@ public class TelaRegrasOpcoes extends TelaBasica {
 
 
     public TelaRegrasOpcoes(int largura, int altura) {
-        super(largura, altura);
+        setSize(largura,altura);
+        setModal(true);
+        setUndecorated(true);
+        setLocationRelativeTo(null);
         setTitle("Regras");
         getContentPane().setBackground(new Color(210,180,140));
 
@@ -210,13 +213,13 @@ public class TelaRegrasOpcoes extends TelaBasica {
         add(botaoCriarPersonagem);
     }
 
-        private class TelaRegrasOpcoesAcaoDosBotoes implements MouseListener {
+    private class TelaRegrasOpcoesAcaoDosBotoes implements MouseListener {
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoCriarPersonagem){
                 Livro livro = ManipularDadosLivro.getLivro();
-                String titulo = "Criar Personagem";
+                String titulo = "Personagem";
 
                 TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraCalcularIndicesIniciais());
                 telaRegras.setTitle("Regra - Criar Personagem");
@@ -247,7 +250,7 @@ public class TelaRegrasOpcoes extends TelaBasica {
 
             if (e.getSource() == botaoRegraReposicaoIndices){
                 Livro livro = ManipularDadosLivro.getLivro();
-                String titulo = "Repor HABILIDADE, SORTE e  ENERGIA";
+                String titulo = "Índices";
                 TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraReposicaoIndices());
                 telaRegra.setTitle("Regra - Repor HABILIDADE, SORTE e  ENERGIA");
                 telaRegra.setVisible(true);
@@ -255,7 +258,7 @@ public class TelaRegrasOpcoes extends TelaBasica {
 
             if (e.getSource() == botaoRegraEquipamentos){
                 Livro livro = ManipularDadosLivro.getLivro();
-                String titulo = "Equipamentos e Poções";
+                String titulo = "Equipamentos";
                 TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraEquipamentos());
                 telaRegras.setTitle("Regra - Equipamentos e Poções");
                 telaRegras.setVisible(true);
@@ -290,64 +293,5 @@ public class TelaRegrasOpcoes extends TelaBasica {
 
             }
         } //FIM AcaoDosBotoes implements ActionListener
-
-//    private class TelaRegrasOpcoesAcaoDosBotoes implements ActionListener {
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            if (e.getSource() == botaoCriarPersonagem){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Criar Personagem";
-//
-//                TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraCalcularIndicesIniciais());
-//                telaRegras.setTitle("Regra - Criar Personagem");
-//                telaRegras.setVisible(true);
-//            }
-//
-//            if (e.getSource() == botaoRegraBatalha){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Batalha";
-//
-//                TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraBatalha());
-//                telaRegra.setTitle("Regra - Batalha");
-//                telaRegra.setVisible(true);
-//            }
-//
-//            if (e.getSource() == botaoRegraSorte){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Sorte";
-//
-//                TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraUsoSorte());
-//                telaRegra.setTitle("Regra - Sorte");
-//                telaRegra.setVisible(true);
-//            }
-//
-//            if (e.getSource() == botaoRegraReposicaoIndices){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Repor HABILIDADE, SORTE e  ENERGIA";
-//                TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraReposicaoIndices());
-//                telaRegra.setTitle("Regra - Repor HABILIDADE, SORTE e  ENERGIA");
-//                telaRegra.setVisible(true);
-//            }
-//
-//            if (e.getSource() == botaoRegraEquipamentos){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Equipamentos e Poções";
-//                TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraEquipamentos());
-//                telaRegras.setTitle("Regra - Equipamentos e Poções");
-//                telaRegras.setVisible(true);
-//            }
-//
-//            if (e.getSource() == botaoDicas){
-//                Livro livro = ManipularDadosLivro.getLivro();
-//                String titulo = "Dicas";
-//                TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getDicas());
-//                telaRegras.setTitle("Dicas");
-//                telaRegras.setVisible(true);
-//            }
-//
-//        }
-//    } //FIM AcaoDosBotoes implements ActionListener
-
 
 }
