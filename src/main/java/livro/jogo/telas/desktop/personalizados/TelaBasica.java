@@ -37,11 +37,14 @@ public class TelaBasica extends JFrame {
     }
 
 
-    public static void mostrarDadosRolando(TelaBasica tela, int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
+    public static void mostrarDadosRolando(int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
 
-        JDialog telaDadosRolando = new JDialog(tela, "Rolando dados", true);
+        JDialog telaDadosRolando = new JDialog();
+        telaDadosRolando.setTitle("Rolando Dados");
+        telaDadosRolando.setModal(true);
         telaDadosRolando.setUndecorated(true);  //Retirar barra de título
         telaDadosRolando.setBackground(Color.WHITE);
+        telaDadosRolando.setLocationRelativeTo(null);
         telaDadosRolando.getContentPane().setBackground(new Color(210,180,140));
 
         ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
@@ -58,7 +61,7 @@ public class TelaBasica extends JFrame {
         timer.start();
         telaDadosRolando.setSize(400,350);
         telaDadosRolando.setResizable(false);
-        telaDadosRolando.setLocationRelativeTo(tela);
+        telaDadosRolando.setLocationRelativeTo(null);
         //telaDadosRolando.setType(Type.UTILITY); //Muda os botões da barra de tarefas superior, só deixa o "x"
         telaDadosRolando.setVisible(true);
 

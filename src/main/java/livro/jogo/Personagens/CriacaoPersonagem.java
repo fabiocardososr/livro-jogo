@@ -34,7 +34,7 @@ public class CriacaoPersonagem {
         var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         ManipularDadosLivro.setPersonagem(personagem);
-        JOptionPane.showMessageDialog(null,personagem.toString());
+        //JOptionPane.showMessageDialog(null,personagem.toString());
 
         return personagem;
     }
