@@ -37,7 +37,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     SINAL_SOMA("livros/florestadadestruicao/imagens/sinal_soma.png"),
     SINAL_MENOS("livros/florestadadestruicao/imagens/sinal_menos.png"),
     FUNDO_REGRAS_OPCOES("livros/florestadadestruicao/imagens/fundo_regra_opcoes.png"),
-    SETA_APONTA_DIREITA("livros/florestadadestruicao/imagens/seta.png")
+    SETA_APONTA_DIREITA("livros/florestadadestruicao/imagens/dedo_apontando_direita.png")
     ;
 
     private final String enderecoImagem;

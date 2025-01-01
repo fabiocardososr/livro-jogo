@@ -76,7 +76,7 @@ public class TelaRegra extends JDialog {
         scrollTextoRegra.setFocusable(true);
 
         //Aumenta texto
-        labelAumentaTexto = new JLabelOpcoesTelaSecao(null, 40,40,
+        labelAumentaTexto = new JLabelOpcoesTelaSecao(null, 40,35,
                 ImagensDoLivroFlorestaDaDestruicao.SINAL_SOMA);
         labelAumentaTexto.setHorizontalAlignment(SwingConstants.CENTER);
         labelAumentaTexto.setToolTipText("Aumentar texto");

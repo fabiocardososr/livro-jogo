@@ -114,21 +114,14 @@ public class TelaCriarPersonagem extends TelaBasica {
         //labelEscolhaPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //JLabel labelFlecha = new JLabel("<html><center>==><center></html>");
-        JLabelOpcoesTelaSecao labelFlecha = new JLabelOpcoesTelaSecao(null,150,40,
+        JLabelOpcoesTelaSecao labelFlecha = new JLabelOpcoesTelaSecao(null,150,100,
                 ImagensDoLivroFlorestaDaDestruicao.SETA_APONTA_DIREITA);
         labelFlecha.setFont(new Font(Font.SERIF,Font.BOLD,80));
         labelFlecha.setForeground(new Color(139,0,0));
-        labelFlecha.setBounds(595, 530,150,30);
+        labelFlecha.setBounds(595, 530,150,100);
         labelFlecha.setHorizontalAlignment(SwingConstants.CENTER);
         //labelFlecha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        JLabelOpcoesTelaSecao labelFlecha1 = new JLabelOpcoesTelaSecao(null,150,40,
-                ImagensDoLivroFlorestaDaDestruicao.SETA_APONTA_DIREITA);
-        labelFlecha1.setFont(new Font(Font.SERIF,Font.BOLD,80));
-        labelFlecha1.setForeground(new Color(139,0,0));
-        labelFlecha1.setBounds(595, 560,150,30);
-        labelFlecha1.setHorizontalAlignment(SwingConstants.CENTER);
-        //labelFlecha1.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         ImagePanel painelImgBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.BOLSA);
         painelImgBolsa.setBackground(new Color(210,180,140));
@@ -164,7 +157,6 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(imgPanelArmadura);
         add(imgPanelProvisoes);
         add(labelFlecha);
-        add(labelFlecha1);
 
         //add(painelEscolhaPersonagem);
         add(painelImgBolsa);
