@@ -5,7 +5,6 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
-import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.LimitarCampoJTextField;
@@ -21,14 +20,16 @@ public class TelaCriarPersonagem extends TelaBasica {
     private JButton botaoRolarDadoHabilidade;
     private JButton botaoRolarDadosEnergia;
     private JButton botaoRolarDadosSorte;
-    private JButton botaoGravar;
-    private JButton botaoResetar;
-    private JButtonEscolhaPocao botaoPocaoSorte;
-    private JButtonEscolhaPocao botaoPocaoEnergia;
-    private JButtonEscolhaPocao botaoPocaoHabilidade;
+    private JLabelOpcoesTelaSecao botaoGravar;
+    private JLabelOpcoesTelaSecao botaoResetar;
+    private JLabelOpcoesTelaSecao botaoFechar;
+    private JLabelOpcoesTelaSecao botaoPocaoSorte;
+    private JLabelOpcoesTelaSecao botaoPocaoEnergia;
+    private JLabelOpcoesTelaSecao botaoPocaoHabilidade;
     private JLabel labelIndiceHabilidade;
     private JLabel labelIndiceEnergia;
     private JLabel labelIndiceSorte;
+    private JLabel labelGravar;
     private JTextField txtNome;
     private JRadioButton rbMasculino;
     private JRadioButton rbFeminino;
@@ -40,6 +41,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     private int pocaoEscolhida; //Escolha da poção
     private int generoPersonagem; //1 = Masculino; 2 = Feminino
     private final TelaBasica telaPrincipal; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
+    private final TelaAcaoDosLabels acao = new TelaAcaoDosLabels();
 
 
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaPrincipal) {
@@ -97,128 +99,156 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Opção de escolha de poções inicial
         carregaEscolhaPocao();
 
-        //Visualiza escolha do personagem
-        carregaEscolhasPersonagem();
+        //Mostra os itens iniciais que o personagem possui
+        carregaItensIniciaisPersonagem();
 
         //Último a ser adicionado o painel inferior, senão ele fica por cima e cobre os outros componentes
         add(painelInferior);
-
     }
 
-    private void carregaEscolhasPersonagem() {
-        JLabel labelEscolhaPersonagem = new JLabel("<html><center>Itens Iniciais<center></html>");
-        labelEscolhaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,26));
-        labelEscolhaPersonagem.setForeground(new Color(139,0,0));
-        labelEscolhaPersonagem.setBounds(315, 380,730,70);
-        labelEscolhaPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
-        //labelEscolhaPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+    private void carregaItensIniciaisPersonagem() {
 
-        //JLabel labelFlecha = new JLabel("<html><center>==><center></html>");
-        JLabelOpcoesTelaSecao labelFlecha = new JLabelOpcoesTelaSecao(null,150,100,
+        //Mão apontando
+        JLabelOpcoesTelaSecao labelMao = new JLabelOpcoesTelaSecao(null,150,100,
                 ImagensDoLivroFlorestaDaDestruicao.SETA_APONTA_DIREITA);
-        labelFlecha.setFont(new Font(Font.SERIF,Font.BOLD,80));
-        labelFlecha.setForeground(new Color(139,0,0));
-        labelFlecha.setBounds(595, 530,150,100);
-        labelFlecha.setHorizontalAlignment(SwingConstants.CENTER);
+        labelMao.setFont(new Font(Font.SERIF,Font.BOLD,80));
+        labelMao.setForeground(new Color(139,0,0));
+        labelMao.setBounds(630, 530,120,50);
+        labelMao.setHorizontalAlignment(SwingConstants.CENTER);
         //labelFlecha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-
+        //Imagem da Bolsa
         ImagePanel painelImgBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.BOLSA);
         painelImgBolsa.setBackground(new Color(210,180,140));
         painelImgBolsa.setForeground(new Color(139,0,0));
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelImgBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
         painelImgBolsa.setToolTipText("Carrega todos os itens que não estejam equipados");
-        painelImgBolsa.setBounds(780,440,250,230);
+        painelImgBolsa.setBounds(755,480,120,120);
 
-        //Itens iniciais
+        /*** Itens iniciais ***/
+
+        //Fundo
+        JLabelOpcoesTelaSecao labelFundoItensItensIniciais = new JLabelOpcoesTelaSecao(null,800,380,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_4);
+        labelFundoItensItensIniciais.setBounds(270, 340, 800,390);
+        labelFundoItensItensIniciais.setCursor(null);
+        labelFundoItensItensIniciais.setHorizontalAlignment(SwingConstants.CENTER);
+//        labelFundoItensItensIniciais.setToolTipText("Itens iniciais que estarão na sua bolsa ou equipados com você.");
+//        labelFundoItensItensIniciais.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelFundoItensItensIniciais.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        //Espada
         ImagePanel imgPanelEspada = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ESPADA_INICIAL);
-        imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelEspada.setToolTipText("Espada simples usada nos combates.");
-        imgPanelEspada.setBounds(430,440,90,90);
+        imgPanelEspada.setBounds(510,460,75,75);
+        imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //imgPanelEspada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        //Armadura
         ImagePanel imgPanelArmadura = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ARMADURA_DE_COURO_INICIAL);
-        imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelArmadura.setToolTipText("Armadura de couro que o(a) protegerá durante a aventura.");
-        imgPanelArmadura.setBounds(430,520,90,90);
+        imgPanelArmadura.setBounds(460,530,75,75);
+        imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        //imgPanelArmadura.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        //Provisões (refeições)
         ImagePanel imgPanelProvisoes = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
-        imgPanelProvisoes.setBounds(430,610,90,90);
+        imgPanelProvisoes.setBounds(530,530,75,75);
         imgPanelProvisoes.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelProvisoes.setToolTipText("<html>10 Provisões(refeições). Recompõe sua ENERGIA em 4 pontos.<br>Pode ser consumida em qualquer momento, exceto em combate.</html>");
         //imgPanelProvisões.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-
-        add(labelEscolhaPersonagem);
         add(imgPanelEspada);
         add(imgPanelArmadura);
         add(imgPanelProvisoes);
-        add(labelFlecha);
-
-        //add(painelEscolhaPersonagem);
+        add(labelMao);
         add(painelImgBolsa);
+        add(labelFundoItensItensIniciais);
     }
 
     private void carregaEscolhaPocao() {
-
-
-        JLabel labelEscolhaPocao = new JLabel("<html><center>Escolha uma Poção<center></html>");
-        labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,23));
-        labelEscolhaPocao.setForeground(new Color(139,0,0));
-        labelEscolhaPocao.setBounds(120, 380,200,70);
-        labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
+        JLabelOpcoesTelaSecao labelImgEscolhaPocao = new JLabelOpcoesTelaSecao(null,240,120,ImagensDoLivroFlorestaDaDestruicao.FAIXA_2);
+        labelImgEscolhaPocao.setBounds(100, 340,240,120);
+        labelImgEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
         //labelEscolhaPocao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        JLabel labelEscolhaPocao = new JLabel("Escolha");
+        labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelEscolhaPocao.setForeground(new Color(139,0,0));
+        labelEscolhaPocao.setBounds(120, 360,200,70);
+        labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
+
         add(labelEscolhaPocao);
+        add(labelImgEscolhaPocao);
 
 
-        /********    POCAO HABILIDADE    ********/
-        botaoPocaoHabilidade = new JButtonEscolhaPocao("Habilidade",
-                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
-        botaoPocaoHabilidade.setBounds(130, 440,180,72);
+        /********    POÇÃO HABILIDADE    ********/
+        JLabelOpcoesTelaSecao labelImgHabilidade = new JLabelOpcoesTelaSecao("",30,
+                35,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+        labelImgHabilidade.setCursor(cursor);
+        labelImgHabilidade.setBounds(160,460,30,35);
+        JLabel labelRotuloHabilidade = new JLabel("Habilidade");
+        labelRotuloHabilidade.setBounds(190,450,150,50);
+        labelRotuloHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        labelRotuloHabilidade.setVerticalTextPosition(SwingConstants.CENTER);
+        labelRotuloHabilidade.setCursor(cursor);
+        labelRotuloHabilidade.setForeground(new Color(139,0,0));
+        botaoPocaoHabilidade = new JLabelOpcoesTelaSecao("Habilidade",200,100,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoPocaoHabilidade.setBounds(120, 430,200,100);
         botaoPocaoHabilidade.setToolTipText("Repõe os pontos de HABILIDADE.");
         botaoPocaoHabilidade.setVerticalTextPosition(SwingConstants.NORTH);
-
-        botaoPocaoHabilidade.addActionListener(e -> {
-            pocaoEscolhida = ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem();  //Corresponde ao código da poção de Habilidade
-            botaoPocaoEnergia.setEnabled(false);
-            botaoPocaoSorte.setEnabled(false);
-            botaoPocaoHabilidade.setEnabled(false);
-            habilitarBotaoGravar();
-        });
+        botaoPocaoHabilidade.addMouseListener(acao);
+        botaoPocaoHabilidade.setCursor(cursor);
+        botaoPocaoHabilidade.addMouseListener(acao);
+        add(labelRotuloHabilidade);
+        add(labelImgHabilidade);
         add(botaoPocaoHabilidade);
+        //botaoPocaoHabilidade.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
         /********    POCAO ENERGIA    ********/
-        botaoPocaoEnergia = new JButtonEscolhaPocao("Força",
-                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
-        botaoPocaoEnergia.setBounds(130, 517,180,72);
+        JLabelOpcoesTelaSecao labelImgEnergia = new JLabelOpcoesTelaSecao("",30,35,ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+        labelImgEnergia.setCursor(cursor);
+        labelImgEnergia.setBounds(160,550,30,35);
+        JLabel labelRotuloEnergia = new JLabel("Energia");
+        labelRotuloEnergia.setBounds(190,540,150,50);
+        labelRotuloEnergia.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        labelRotuloEnergia.setVerticalTextPosition(SwingConstants.CENTER);
+        labelRotuloEnergia.setCursor(cursor);
+        labelRotuloEnergia.setForeground(new Color(139,0,0));
+        botaoPocaoEnergia = new JLabelOpcoesTelaSecao("Energia",200,100,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoPocaoEnergia.setBounds(120, 520,200,100);
         botaoPocaoEnergia.setToolTipText("Repõe os pontos de ENERGIA.");
-        botaoPocaoEnergia.addActionListener(e -> {
-            pocaoEscolhida = ItensMapeamento.POCAO_DE_ENERGIA.getIdItem();  //Corresponde ao código da poção de Energia
-            botaoPocaoEnergia.setEnabled(false);
-            botaoPocaoSorte.setEnabled(false);
-            botaoPocaoHabilidade.setEnabled(false);
-            //JOptionPane.showMessageDialog(null,"Energia: "+pocaoEscolhida);
-            habilitarBotaoGravar();
-        });
+        botaoPocaoEnergia.setVerticalTextPosition(SwingConstants.NORTH);
+        botaoPocaoEnergia.addMouseListener(acao);
+        botaoPocaoEnergia.setCursor(cursor);
+        add(labelRotuloEnergia);
+        add(labelImgEnergia);
         add(botaoPocaoEnergia);
 
         /********    POCAO SORTE    ********/
-        botaoPocaoSorte = new JButtonEscolhaPocao("Fortuna",
+        JLabelOpcoesTelaSecao labelImgSorte = new JLabelOpcoesTelaSecao("",30,35,
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
-        botaoPocaoSorte.setBounds(130, 594,180,72);
+        labelImgSorte.setCursor(cursor);
+        labelImgSorte.setBounds(160,640,30,35);
+        JLabel labelRotuloSorte = new JLabel("Fortuna");
+        labelRotuloSorte.setBounds(190,630,150,50);
+        labelRotuloSorte.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        labelRotuloSorte.setVerticalTextPosition(SwingConstants.CENTER);
+        labelRotuloSorte.setCursor(cursor);
+        labelRotuloSorte.setForeground(new Color(139,0,0));
+        botaoPocaoSorte = new JLabelOpcoesTelaSecao("Fortuna",200,100,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoPocaoSorte.setBounds(120, 610,200,100);
         botaoPocaoSorte.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial.");
-        botaoPocaoSorte.addActionListener(e -> {
-            pocaoEscolhida = ItensMapeamento.POCAO_DA_FORTUNA.getIdItem();  //Corresponde ao código da poção da sorte
-            botaoPocaoEnergia.setEnabled(false);
-            botaoPocaoSorte.setEnabled(false);
-            botaoPocaoHabilidade.setEnabled(false);
-            //JOptionPane.showMessageDialog(null,"Sorte: "+pocaoEscolhida);
-            habilitarBotaoGravar();
-        });
+        botaoPocaoSorte.setVerticalTextPosition(SwingConstants.NORTH);
+        botaoPocaoSorte.addMouseListener(acao);
+        botaoPocaoSorte.setCursor(cursor);
+        add(labelImgSorte);
+        add(labelRotuloSorte);
         add(botaoPocaoSorte);
     }
 
@@ -449,43 +479,60 @@ public class TelaCriarPersonagem extends TelaBasica {
     }
 
     private void carregarBotoesGravarResetarFechar() {
-        botaoGravar = new JButton("Gerar Personagem");
-        botaoGravar.setForeground(new Color(139,0,0));
-        botaoGravar. setBackground(new Color(210,180,140));
-        botaoGravar.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoGravar.setBounds(130, 720,270,50);
-        botaoGravar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
-        botaoGravar.setFocusable(false);
-        botaoGravar.setEnabled(false);
+
+        //Botao Gravar
+        labelGravar = new JLabel("Gravar");
+        labelGravar.setBounds(245, 705,100,100);
+        labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelGravar.setVerticalTextPosition(SwingConstants.CENTER);
+        labelGravar.setCursor(cursor);
+        labelGravar.setForeground(new Color(139,0,0));
+        botaoGravar = new JLabelOpcoesTelaSecao(null,280,170,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoGravar.setBounds(150, 710,280,100);
+        botaoGravar.addMouseListener(acao);
         botaoGravar.setCursor(cursor);
-        botaoGravar.addActionListener(e -> { carregarPersonagemEAbreTelaSecao(); });
+        botaoGravar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoGravar.setEnabled(false);
+        labelGravar.setEnabled(false);
+        //botaoGravar.setBorder(BorderFactory.createLineBorder(Color.RED));
+        add(labelGravar);
         add(botaoGravar);
 
-        botaoResetar = new JButton("Refazer Personagem");
-        botaoResetar.setForeground(new Color(139,0,0));
-        botaoResetar. setBackground(new Color(210,180,140));
-        botaoResetar.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoResetar.setBounds(440, 720,270,50);
-        botaoResetar.setFocusable(false);
-        botaoResetar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
+
+        //Botao resetar
+        botaoResetar = new JLabelOpcoesTelaSecao("",280,170,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoResetar.setBounds(440, 710,280,100);
+        botaoResetar.addMouseListener(acao);
         botaoResetar.setCursor(cursor);
-        botaoResetar.addActionListener(e -> {
-            resetarCriacaoPersonagem();
-        });
+        botaoResetar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoResetar.addMouseListener(acao);
         add(botaoResetar);
 
-        JButton botaoFechar = new JButton("Sair");
-        botaoFechar.setForeground(new Color(139,0,0));
-        botaoFechar. setBackground(new Color(210,180,140));
-        botaoFechar.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoFechar.setBounds(750, 720,270,50);
-        botaoFechar.setFocusable(false);
-        botaoFechar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
+        //Fechar janela
+        botaoFechar = new JLabelOpcoesTelaSecao("",280,170,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoFechar.setBounds(730, 710,280,100);
+        botaoFechar.addMouseListener(acao);
         botaoFechar.setCursor(cursor);
-        botaoFechar.addActionListener(e -> {
-            setVisible(false);
-            telaPrincipal.setVisible(true);
-        });
+        botaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoFechar.addMouseListener(acao);
+
+
+
+//        JButton botaoFechar = new JButton("Sair");
+//        botaoFechar.setForeground(new Color(139,0,0));
+//        botaoFechar. setBackground(new Color(210,180,140));
+//        botaoFechar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+//        botaoFechar.setBounds(750, 720,270,50);
+//        botaoFechar.setFocusable(false);
+//        botaoFechar.setBorder(BorderFactory.createLineBorder(new Color(128,0,0)));
+//        botaoFechar.setCursor(cursor);
+//        botaoFechar.addActionListener(e -> {
+//            setVisible(false);
+//            telaPrincipal.setVisible(true);
+//        });
         add(botaoFechar);
     }
 
@@ -509,6 +556,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosEnergia.setEnabled(true);
         botaoRolarDadosSorte.setEnabled(true);
         botaoGravar.setEnabled(false);
+        labelGravar.setEnabled(false);
         botaoPocaoEnergia.setEnabled(true);
         botaoPocaoSorte.setEnabled(true);
         botaoPocaoHabilidade.setEnabled(true);
@@ -520,10 +568,13 @@ public class TelaCriarPersonagem extends TelaBasica {
                 (energiaInicial != 0) && (sorteInicial != 0) &&
                 (!txtNome.getText().isEmpty()) && energiaInicial != 0 && generoPersonagem != 0) {
             botaoGravar.setEnabled(true);
+            labelGravar.setEnabled(true);
             txtNome.setFocusable(true);
         }
-        else
+        else {
             botaoGravar.setEnabled(false);
+            labelGravar.setEnabled(false);
+        }
     }
 
     private void carregarPersonagemEAbreTelaSecao(){
@@ -535,6 +586,72 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);
         setVisible(false);
+    }
+
+    private class TelaAcaoDosLabels implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == botaoFechar){
+                setVisible(false);
+            }
+
+            if (e.getSource() == botaoResetar){
+                resetarCriacaoPersonagem();
+            }
+
+            if (e.getSource() == botaoGravar){
+                carregarPersonagemEAbreTelaSecao();
+            }
+
+            if (e.getSource() == botaoPocaoHabilidade){
+                pocaoEscolhida = ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem();  //Corresponde ao código da poção de Habilidade
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
+                habilitarBotaoGravar();
+            }
+
+            if (e.getSource() == botaoPocaoEnergia){
+                pocaoEscolhida = ItensMapeamento.POCAO_DE_ENERGIA.getIdItem();  //Corresponde ao código da poção de Energia
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
+                //JOptionPane.showMessageDialog(null,"Energia: "+pocaoEscolhida);
+                habilitarBotaoGravar();
+            }
+
+            if (e.getSource() == botaoPocaoSorte){
+                pocaoEscolhida = ItensMapeamento.POCAO_DA_FORTUNA.getIdItem();  //Corresponde ao código da poção da sorte
+                botaoPocaoEnergia.setEnabled(false);
+                botaoPocaoSorte.setEnabled(false);
+                botaoPocaoHabilidade.setEnabled(false);
+            //JOptionPane.showMessageDialog(null,"Sorte: "+pocaoEscolhida);
+                habilitarBotaoGravar();
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
     }
 
 }
