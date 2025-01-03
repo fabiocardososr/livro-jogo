@@ -67,6 +67,17 @@ public class ImagePanel extends JPanel {
         }
     }
 
+    public void setImagePanel(ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
+        setBackground(Color.BLACK);
+        //BufferedImage imagem;
+        try {
+            InputStream arquivo =  new FileInputStream(enderecoImagem.getEnderecoImagem());
+            setImage(ImageIO.read(arquivo));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public ImagePanel(boolean isDoubleBuffered) {
         super(isDoubleBuffered);
     }

@@ -12,10 +12,14 @@ import java.io.IOException;
 
 public class JLabelOpcoesTelaSecao extends JLabel {
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+    private int largura;
+    private int altura;
 
 
     public JLabelOpcoesTelaSecao(String texto, int largura, int altura, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);
+        this.largura = largura;
+        this.altura = altura;
         setForeground(Color.WHITE);
         //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
@@ -24,6 +28,10 @@ public class JLabelOpcoesTelaSecao extends JLabel {
         setBackground(new Color(210,180,140));
         setVerticalTextPosition(SwingConstants.CENTER);
         setCursor(cursor);
+    }
+
+    public void setImagem(ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
+        setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem.getEnderecoImagem()));
     }
 
     public JLabelOpcoesTelaSecao(String texto, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
