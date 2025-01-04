@@ -35,9 +35,23 @@ public enum ItensJson {
     BRINCOS_DE_OURO("livros/florestadadestruicao/itens/item_26.json"),
     POCAO_CURATIVA("livros/florestadadestruicao/itens/item_27.json"),
     ESCUDO_DE_FERRO("livros/florestadadestruicao/itens/item_28.json"),
-
-
-
+    DARDO_FEITO_DE_PRATA("livros/florestadadestruicao/itens/item_29.json"),
+    LINGOTE_DE_OURO("livros/florestadadestruicao/itens/item_30.json"),
+    BOTAS_SALTADORAS("livros/florestadadestruicao/itens/item_31.json"),
+    REDE_DE_APRISIONAMENTO("livros/florestadadestruicao/itens/item_32.json"),
+    POCAO_DA_FORCA("livros/florestadadestruicao/itens/item_33.json"),
+    VARA_DE_ENCONTRAR_AGUA("livros/florestadadestruicao/itens/item_34.json"),
+    CABECA_DE_ALHO("livros/florestadadestruicao/itens/item_35.json"),
+    MEDALHAO_DE_OURO("livros/florestadadestruicao/itens/item_36.json"),
+    OURO("livros/florestadadestruicao/itens/item_37.json"),
+    PULSEIRA_DE_COBRE("livros/florestadadestruicao/itens/item_38.json"),
+    MANOPLA_DE_FERRO("livros/florestadadestruicao/itens/item_39.json"),
+    FACA_DE_ARREMESSO("livros/florestadadestruicao/itens/item_40.json"),
+    ANEL_DE_OURO("livros/florestadadestruicao/itens/item_41.json"),
+    MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA("livros/florestadadestruicao/itens/item_42.json"),
+    CAIXA_DE_PRATA("livros/florestadadestruicao/itens/item_43.json"),
+    DENTE_DE_DRAGAO("livros/florestadadestruicao/itens/item_44.json"),
+    APITO_DE_MADEIRA("livros/florestadadestruicao/itens/item_48.json")
     ;
     private String enderecoJson;
     ItensJson(String enderecoJson) {
