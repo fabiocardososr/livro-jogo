@@ -15,11 +15,12 @@ public class Item {
     private  String flgAfetaRolagemDados;           //Indica que o efeito deste item afeta a rolagem de dados tanto para o bem(flgEfeitoPositivo) ou para o mal(flgEfeitoNegativo) decrementando/somando o que consta no campo modificador.
     private  String flgAfetaNivelAtualPersonagem;   //Diz se o efeito do item afeta os níveis atuais de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
     private  String flgAfetaNivelMaxPersonagem;      //Diz se o efeito do item afeta os níveis MAX (aumentando o valor que foi definido na rolagem de dados na criação do personagem) de HABILIDADE, ENERGIA ou SORTE. A depender do campo "idEfeito".
+    private String enderecoImagem;
 
 
     public Item() {}
 
-    public Item(int idItem, TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUso, String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados, String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem) {
+    public Item(int idItem, TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUso, String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados, String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem,String enderecoImagem) {
         this.idItem = idItem;
         this.tipoEfeito = tipoEfeito;
         this.descricao = descricao;
@@ -32,6 +33,11 @@ public class Item {
         this.flgAfetaRolagemDados = flgAfetaRolagemDados;
         this.flgAfetaNivelAtualPersonagem = flgAfetaNivelAtualPersonagem;
         this.flgAfetaNivelMaxPersonagem = flgAfetaNivelMaxPersonagem;
+        this.enderecoImagem = enderecoImagem;
+    }
+
+    public String getEnderecoImagem() {
+        return enderecoImagem;
     }
 
     public int getIdItem() {

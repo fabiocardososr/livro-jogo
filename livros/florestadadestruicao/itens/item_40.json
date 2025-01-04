@@ -1,0 +1,15 @@
+ {
+	"idItem":"40",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Faca de Arremesso",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

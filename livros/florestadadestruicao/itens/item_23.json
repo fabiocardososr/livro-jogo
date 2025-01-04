@@ -1,0 +1,15 @@
+ {
+	"idItem":"23",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Fita de Cabeça da Concentração",
+	"valorCusto":"3",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

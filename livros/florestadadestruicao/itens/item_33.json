@@ -1,14 +1,15 @@
   {
-	"idItem":"46",
+	"idItem":"33",
 	"tipoEfeito":"ENERGIA",
 	"descricao":"Poção de Energia",
 	"valorCusto":"0",
-	"modificador":"25",   
+	"modificador":"5",   
 	"quantidadeUso":"1",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"S",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/pocao_de_energia.png"
   }

@@ -1,0 +1,15 @@
+  {
+	"idItem":"51",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Armadura de Couro",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/armadura_de_couro.png"
+  }

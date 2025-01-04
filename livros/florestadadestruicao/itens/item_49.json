@@ -10,5 +10,6 @@
 	"flgUsoPermanente":"N",
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"S",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/provisao.png"
   }

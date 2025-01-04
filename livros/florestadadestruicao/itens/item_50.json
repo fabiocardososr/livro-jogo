@@ -1,7 +1,7 @@
   {
-	"idItem":"51",
+	"idItem":"50",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Armadura de Couro",
+	"descricao":"Espada",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",
@@ -10,5 +10,6 @@
 	"flgUsoPermanente":"N",
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/espada_inicial.png"
   }

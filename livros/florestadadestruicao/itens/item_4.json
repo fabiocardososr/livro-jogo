@@ -1,0 +1,15 @@
+ {
+	"idItem":"4",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Filtros Nasais",
+	"valorCusto":"3",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

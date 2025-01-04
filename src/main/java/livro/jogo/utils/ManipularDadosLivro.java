@@ -50,7 +50,7 @@ public class ManipularDadosLivro {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
             item = objMapper.readValue(json, Item.class);
         } catch (JsonProcessingException e) {
-            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
+            System.out.println("Ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
             //throw new RuntimeException(e);
         }
 

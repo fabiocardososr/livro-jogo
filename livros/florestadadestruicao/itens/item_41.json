@@ -1,0 +1,15 @@
+ {
+	"idItem":"41",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Anel de ouro",
+	"valorCusto":"0",
+	"modificador":"-2",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

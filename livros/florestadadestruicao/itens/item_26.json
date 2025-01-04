@@ -1,0 +1,15 @@
+ {
+	"idItem":"26",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Brincos de ouro",
+	"valorCusto":"10",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

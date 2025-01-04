@@ -141,21 +141,13 @@ public class TelaCriarPersonagem extends TelaBasica {
         labelFundoItensItensIniciais.setBounds(270, 340, 800,390);
         labelFundoItensItensIniciais.setCursor(null);
         labelFundoItensItensIniciais.setHorizontalAlignment(SwingConstants.CENTER);
-//        labelFundoItensItensIniciais.setToolTipText("Itens iniciais que estarão na sua bolsa ou equipados com você.");
-//        labelFundoItensItensIniciais.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //labelFundoItensItensIniciais.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        //Interrogação, mas quando escolher poção, a imagem vai ser trocada pela poção
-//        imgPanelInterrogacao = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO);
-//        imgPanelInterrogacao.setToolTipText("Escolha a poção ao lado.");
-//        imgPanelInterrogacao.setBounds(570,470,65,65);
-//        imgPanelInterrogacao.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         imgInterrogacao = new JLabelOpcoesTelaSecao(null,55, 55,
                 ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO);
         imgInterrogacao.setBounds(570,470,55,55);
         imgInterrogacao.setHorizontalAlignment(SwingConstants.CENTER);
         imgInterrogacao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        imgInterrogacao.setToolTipText("Aqui ficará a poção inicial escolhida.");
 
         //Espada
         ImagePanel imgPanelEspada = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ESPADA_INICIAL);
@@ -275,19 +267,26 @@ public class TelaCriarPersonagem extends TelaBasica {
 
     private void carregarTxtNomeGenero() {
         JLabel labelNome = new JLabel("Nome");
-        labelNome.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        labelNome.setBounds(0, 280,1150,60);
+        labelNome.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        labelNome.setBounds(0, 287,1150,60);
         labelNome.setForeground(new Color(139,0,0));
         labelNome.setHorizontalAlignment(SwingConstants.CENTER);
 
+        JLabelOpcoesTelaSecao labelImgFaixaTitulo = new JLabelOpcoesTelaSecao(null,120,
+                120,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
+        labelImgFaixaTitulo.setBounds(515, 295,120,50);
+        labelImgFaixaTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelImgFaixaTitulo.setCursor(null);
+        //labelImgFaixaTitulo.setBorder(BorderFactory.createLineBorder(Color.RED));
+
         txtNome = new JTextField();
         txtNome.setDocument(new LimitarCampoJTextField(10));
-        txtNome.setBounds(450, 330,250,40);
+        txtNome.setBounds(486, 345,180,25);
         txtNome.setBackground(new Color(210,180,140));
         txtNome.setForeground(new Color(139,0,0));
         txtNome.setFont(new Font(Font.SERIF,Font.BOLD,25));
         txtNome.setCursor(cursor);
-        txtNome.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        txtNome.setBorder(BorderFactory.createLineBorder(new Color(139,0,0)));
         txtNome.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -308,8 +307,8 @@ public class TelaCriarPersonagem extends TelaBasica {
         radioGrupoGenero = new ButtonGroup();
 
         rbMasculino = new JRadioButton("Masculino",false);
-        rbMasculino.setBounds(705,325, 120,20);
-        rbMasculino.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        rbMasculino.setBounds(670,340, 120,20);
+        rbMasculino.setFont(new Font(Font.SERIF,Font.BOLD,17));
         rbMasculino.setCursor(cursor);
         rbMasculino.setBackground(new Color(210,180,140));
         rbMasculino.setForeground(new Color(139,0,0));
@@ -323,9 +322,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         });
 
         rbFeminino = new JRadioButton("Feminino",false);
-        rbFeminino.setBounds(705,350, 120,20);
+        rbFeminino.setBounds(670,356, 120,20);
         rbFeminino.setCursor(cursor);
-        rbFeminino.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        rbFeminino.setFont(new Font(Font.SERIF,Font.BOLD,17));
         rbFeminino.setBackground(new Color(210,180,140));
         rbFeminino.setForeground(new Color(139,0,0));
         rbFeminino.setFocusable(false);
@@ -344,6 +343,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(rbFeminino);
         add(txtNome);
         add(labelNome);
+        add(labelImgFaixaTitulo);
     }
 
     private void carregarPainelHabilidade() {
@@ -597,6 +597,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoGravar.setEnabled(false);
         labelGravar.setEnabled(false);
         imgInterrogacao.setImagem(ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO);
+        imgInterrogacao.setToolTipText("Aqui ficará a poção inicial escolhida");
         radioGrupoGenero.clearSelection();
     }
 
@@ -671,18 +672,21 @@ public class TelaCriarPersonagem extends TelaBasica {
             if ( e.getSource() == botaoPocaoHabilidade ){
                 pocaoEscolhida = ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem();  //Corresponde ao código da poção de Habilidade
                 imgInterrogacao.setImagem(ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+                imgInterrogacao.setToolTipText("Poção de Habilidade escolhida. Recupera sua habilidade.");
                 habilitarBotaoGravar();
             }
 
             if (e.getSource() == botaoPocaoEnergia ){
                 pocaoEscolhida = ItensMapeamento.POCAO_DE_ENERGIA.getIdItem();  //Corresponde ao código da poção de Energia
                 imgInterrogacao.setImagem(ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
+                imgInterrogacao.setToolTipText("Poção de Força escolhida. Recupera a energia.");
                 habilitarBotaoGravar();
             }
 
             if (e.getSource() == botaoPocaoSorte ){
                 pocaoEscolhida = ItensMapeamento.POCAO_DA_FORTUNA.getIdItem();  //Corresponde ao código da poção da sorte
                 imgInterrogacao.setImagem(ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+                imgInterrogacao.setToolTipText("Poção de Fortuna escolhida. Recupera sua sorte e acrescenta +1 no valor máximo.");
                 habilitarBotaoGravar();
             }
 

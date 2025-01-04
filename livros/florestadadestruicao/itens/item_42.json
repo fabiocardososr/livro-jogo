@@ -1,0 +1,15 @@
+ {
+	"idItem":"42",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Medalhão de Ouro (pendente de uma fita de seda)",
+	"valorCusto":"5",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

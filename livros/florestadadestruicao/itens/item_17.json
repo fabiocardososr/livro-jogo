@@ -1,0 +1,15 @@
+ {
+	"idItem":"17",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Corda de Escalada",
+	"valorCusto":"3",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

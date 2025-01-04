@@ -1,0 +1,15 @@
+ {
+	"idItem":"16",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Poção Controle dos Insetos",
+	"valorCusto":"2",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

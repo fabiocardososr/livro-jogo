@@ -1,0 +1,15 @@
+ {
+	"idItem":"39",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Manopla de Ferro (Manopla de Habilidade com Arma)",
+	"valorCusto":"0",
+	"modificador":"1",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

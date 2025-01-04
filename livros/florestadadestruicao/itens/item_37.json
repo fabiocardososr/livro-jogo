@@ -1,7 +1,7 @@
-  {
-	"idItem":"50",
+ {
+	"idItem":"37",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Espada",
+	"descricao":"Ouro",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",
@@ -10,5 +10,6 @@
 	"flgUsoPermanente":"N",
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
   }

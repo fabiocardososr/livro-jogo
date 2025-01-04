@@ -1,0 +1,15 @@
+ {
+	"idItem":"10",
+	"tipoEfeito":"HABILIDADE",
+	"descricao":"Espada Magnífica",
+	"valorCusto":"0",
+	"modificador":"2",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

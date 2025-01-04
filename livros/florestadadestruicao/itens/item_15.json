@@ -1,0 +1,15 @@
+ {
+	"idItem":"15",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Colar Olho de Âmbar",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

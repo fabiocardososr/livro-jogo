@@ -1,0 +1,15 @@
+ {
+	"idItem":"28",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Escudo de ferro (de um imperador)",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

@@ -1,0 +1,15 @@
+ {
+	"idItem":"43",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Caixa de Prata",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

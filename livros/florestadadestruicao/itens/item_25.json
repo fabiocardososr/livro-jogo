@@ -1,0 +1,15 @@
+ {
+	"idItem":"25",
+	"tipoEfeito":"NENHUM",
+	"descricao":"Cabo do Martelo de Guerra dos Anões (com a letra G gravada)",
+	"valorCusto":"10",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }
