@@ -45,7 +45,9 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     SETA_APONTA_DIREITA("livros/florestadadestruicao/imagens/dedo_apontando_direita.png"),
     DOIS_DADOS("livros/florestadadestruicao/imagens/dois_dados.png"),
     UM_DADOS("livros/florestadadestruicao/imagens/um_dado.png"),
-    INTERROGACAO("livros/florestadadestruicao/imagens/interrogacao.png")
+    INTERROGACAO("livros/florestadadestruicao/imagens/interrogacao.png"),
+    FUNDO_BOLSA("livros/florestadadestruicao/imagens/fundo_bolsa.png"),
+    FUNDO_BOLSA_LISTA("livros/florestadadestruicao/imagens/fundo_bolsa_lista.png")
     ;
 
     private final String enderecoImagem;

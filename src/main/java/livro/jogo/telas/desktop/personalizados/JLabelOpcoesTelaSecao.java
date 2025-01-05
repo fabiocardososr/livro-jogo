@@ -15,6 +15,19 @@ public class JLabelOpcoesTelaSecao extends JLabel {
     private int largura;
     private int altura;
 
+    public JLabelOpcoesTelaSecao(String texto, int largura, int altura, String enderecoImagem) {
+        super(texto);
+        this.largura = largura;
+        this.altura = altura;
+        setForeground(Color.WHITE);
+        //setBackground(Color.BLACK);
+        setFont(new Font(Font.SERIF,Font.BOLD,23));
+        setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem));
+        setForeground(new Color(139,0,0));
+        setBackground(new Color(210,180,140));
+        setVerticalTextPosition(SwingConstants.CENTER);
+        setCursor(cursor);
+    }
 
     public JLabelOpcoesTelaSecao(String texto, int largura, int altura, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);

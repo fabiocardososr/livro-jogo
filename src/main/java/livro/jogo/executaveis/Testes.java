@@ -1,15 +1,13 @@
 package livro.jogo.executaveis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.telas.desktop.TelaPrincipal;
-import livro.jogo.telas.desktop.TelaRegra;
+import livro.jogo.telas.desktop.TelaBolsa;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.ManipularDadosLivro;
-import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,11 +26,17 @@ public class Testes {
                 bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
         ManipularDadosLivro.setPersonagem(personagem);
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(400),personagem, null );
-        telaSecoesBasica.setVisible(true);
+//        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( ManipularDadosLivro.getMapSecao().get(400),personagem, null );
+//        telaSecoesBasica.setVisible(true);
 
-        //Não copiar quando finalizar
-        telaSecoesBasica.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        TelaBolsa tela = new TelaBolsa();
+//        tela.setVisible(true);
+//        tela.setSize(200,100);
+       //tela.setBackground(new Color(0,0,0,0));
+//        tela.setLocationRelativeTo(null);
+//        tela.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        CarregarTelas.telaBolsa(1000,800);
 
     }
 
@@ -42,11 +46,11 @@ public class Testes {
 
         //Equipando uma espada(50)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_50.json"));
+                "livros/florestadadestruicao/itens/item_50.json"));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_51.json"));
+                "livros/florestadadestruicao/itens/item_51.json"));
 
         return itensEquipados;
 
@@ -59,10 +63,10 @@ public class Testes {
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    "livros/florestadadestruicao/itensIniciais/item_49.json"));
+                    "livros/florestadadestruicao/itens/item_49.json"));
 
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itensIniciais/item_"+pocaoEscolhida+".json"));
+                "livros/florestadadestruicao/itens/item_"+pocaoEscolhida+".json"));
 
         return bolsa;
     }

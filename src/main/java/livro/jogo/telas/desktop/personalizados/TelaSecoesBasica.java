@@ -5,8 +5,9 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.AcoesComunsTelaSecao;
+import livro.jogo.utils.AcoesDasSecaoEEfeitoDeItens;
 import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
@@ -37,7 +38,7 @@ public class TelaSecoesBasica extends JDialog{
     private JLabelOpcoesTelaSecao labelAumentaTexto;
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
     private JTextPane textoHistoria;
-    private final AcoesComunsTelaSecao acoesComunsTelaSecao;
+    private final AcoesDasSecaoEEfeitoDeItens acoesComunsTelaSecao;
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
     public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
@@ -50,7 +51,7 @@ public class TelaSecoesBasica extends JDialog{
         this.secao = secao;
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        acoesComunsTelaSecao = new AcoesComunsTelaSecao(personagem);
+        acoesComunsTelaSecao = new AcoesDasSecaoEEfeitoDeItens();
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -496,7 +497,7 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() == labelBolsa){
-                JOptionPane.showMessageDialog(null,"Clicado na Bolsa");
+                CarregarTelas.telaBolsa(1000,800);
             }
 
             if (e.getSource() == labelPocaoInicial){

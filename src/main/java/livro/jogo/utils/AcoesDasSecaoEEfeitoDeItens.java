@@ -6,16 +6,29 @@ import livro.jogo.enums.ItensMapeamento;
 
 import java.util.ArrayList;
 
-public class AcoesComunsTelaSecao {
-    private Personagem personagem;
+public class AcoesDasSecaoEEfeitoDeItens {
+    private Personagem personagem = ManipularDadosLivro.getPersonagem();
 
-    public AcoesComunsTelaSecao(Personagem personagem) {
-        this.personagem = personagem;
+    //Aqui são codificados todos os efeitos dos itens
+    public static void acoesDosItens(Item item){
+
+        switch(item.getIdItem()) {
+            case 45: efeitoItem45(item); //Poção de Habilidade
+                break;
+            case 49: efeitoItem49(item); //Poção de Habilidade
+                break;
+            default: //Não faça nada
+        }
     }
 
-    public void tomarPocao(Item item){
-        //Coloque aqui todo o código de tomar a poção
+    //Poção de Habilidade inicial
+    private static void efeitoItem45(Item item){
+        System.out.println(item);
+    }
 
+    //Provisão
+    private static void efeitoItem49(Item item){
+        System.out.println(item);
     }
 
     //Retorna a quantidade de provisões que estão na bolsa
@@ -49,4 +62,11 @@ public class AcoesComunsTelaSecao {
         //tratar aumento da energia REGRA: 4 PONTOS DE ENERGIA RECUPERADA
         //Caso cheio informar jogador?
     }
+
+    public static ArrayList<Item> retornaItensDaBolsa(){
+        return ManipularDadosLivro.getBolsa();
+    }
+
+
+
 }
