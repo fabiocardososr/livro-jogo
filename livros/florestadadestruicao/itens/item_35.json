@@ -1,7 +1,8 @@
  {
 	"idItem":"35",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Cabeças de Alho",
+	"nome":"Cabeças de Alho",
+	"descricao":"",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

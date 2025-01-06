@@ -1,7 +1,8 @@
   {
 	"idItem":"46",
 	"tipoEfeito":"ENERGIA",
-	"descricao":"Poção de Energia",
+	"nome":"Poção de Energia",
+	"descricao":" repõe os pontos de ENERGIA",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"1",

@@ -5,7 +5,8 @@ import livro.jogo.enums.TipoEfeito;
 public class Item {
     private int idItem;
     private TipoEfeito tipoEfeito;                  //indica onde o artefato vai atuar se na HABILIDADE, ENERGIA OU SORTE
-    private  String descricao;
+    private  String nome;
+    private String descricao;                       //Descreve o efeito do item
     private  int valorCusto;                         //Como se trata de moedas de ouro pode ficar com tipo inteiro
     private  int modificador;                        //Altera o valor dos efeitos. Seja ele bom ou ruim, temporário ou permanente (ver os flags). Portanto pode ser um valor negativo também (se efeito ruim)
     private  int quantidadeUso;                      //Este campo é setado caso o flgUsoTemporario = "S". Pois este campo indica que o efeito tem limitação de uso, já que é temporário.
@@ -20,9 +21,10 @@ public class Item {
 
     public Item() {}
 
-    public Item(int idItem, TipoEfeito tipoEfeito, String descricao, int valorCusto, int modificador, int quantidadeUso, String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados, String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem,String enderecoImagem) {
+    public Item(int idItem, TipoEfeito tipoEfeito, String nome,String descricao, int valorCusto, int modificador, int quantidadeUso, String flgUsoTemporario, String flgUsoUnico, String flgUsoPermanente, String flgAfetaRolagemDados, String flgAfetaNivelAtualPersonagem, String flgAfetaNivelMaxPersonagem,String enderecoImagem) {
         this.idItem = idItem;
         this.tipoEfeito = tipoEfeito;
+        this.nome = nome;
         this.descricao = descricao;
         this.valorCusto = valorCusto;
         this.modificador = modificador;
@@ -34,6 +36,10 @@ public class Item {
         this.flgAfetaNivelAtualPersonagem = flgAfetaNivelAtualPersonagem;
         this.flgAfetaNivelMaxPersonagem = flgAfetaNivelMaxPersonagem;
         this.enderecoImagem = enderecoImagem;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public String getEnderecoImagem() {

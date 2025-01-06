@@ -1,7 +1,8 @@
  {
 	"idItem":"43",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Caixa de Prata",
+	"nome":"Caixa de Prata",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

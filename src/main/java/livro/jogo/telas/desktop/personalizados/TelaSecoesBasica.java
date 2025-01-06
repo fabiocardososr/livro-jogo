@@ -502,9 +502,9 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() == labelPocaoInicial){
                 if (pocaoInicial.getQuantidadeUso() == 0)
-                    JOptionPane.showMessageDialog(null,"Você já tomou a "+ pocaoInicial.getDescricao());
+                    JOptionPane.showMessageDialog(null,"Você já tomou a "+ pocaoInicial.getNome());
                 else
-                    JOptionPane.showMessageDialog(null,"Clicado na Poção: "+ pocaoInicial.getDescricao());
+                    JOptionPane.showMessageDialog(null,"Clicado na Poção: "+ pocaoInicial.getNome());
             }
 
             if (e.getSource() ==  labelProvisoes){

@@ -11,7 +11,8 @@
   {
 	"idItem":"10",
 	"tipoEfeito":"HABILIDADE",
-	"descricao":"Espada magnífica",
+	"nome":"Espada magnífica",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"2",   
 	"quantidadeUso":"0",

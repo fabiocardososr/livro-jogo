@@ -1,7 +1,8 @@
  {
 	"idItem":"3",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Poção Antiveneno",
+	"nome":"Poção Antiveneno",
+	"descricao":"",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

@@ -11,7 +11,8 @@
   {
 	"idItem":"27",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Poção Curativa",
+	"nome":"Poção Curativa",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

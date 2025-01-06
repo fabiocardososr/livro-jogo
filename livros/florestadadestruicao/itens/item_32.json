@@ -1,7 +1,8 @@
  {
 	"idItem":"32",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Rede de Aprisionamento",
+	"nome":"Rede de Aprisionamento",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

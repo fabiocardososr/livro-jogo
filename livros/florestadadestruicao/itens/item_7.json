@@ -1,7 +1,8 @@
  {
 	"idItem":"7",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Água Benta",
+	"nome":"Água Benta",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

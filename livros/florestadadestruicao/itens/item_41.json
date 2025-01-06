@@ -1,7 +1,8 @@
  {
 	"idItem":"41",
 	"tipoEfeito":"HABILIDADE",
-	"descricao":"Anel de ouro",
+	"nome":"Anel de ouro",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"-2",   
 	"quantidadeUso":"0",

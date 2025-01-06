@@ -1,7 +1,8 @@
  {
 	"idItem":"17",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Corda de Escalada",
+	"nome":"Corda de Escalada",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

@@ -1,7 +1,8 @@
   {
 	"idItem":"45",
 	"tipoEfeito":"HABILIDADE",
-	"descricao":"Poção de Habilidade",
+	"nome":"Poção de Habilidade",
+	"descricao":" repõe os pontos de HABILIDADE",
 	"valorCusto":"0",
 	"modificador":"25",   
 	"quantidadeUso":"1",

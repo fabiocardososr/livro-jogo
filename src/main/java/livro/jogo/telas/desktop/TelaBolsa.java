@@ -48,7 +48,7 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setBackground(new Color(210,180,140));
         painelListaItens.setForeground(new Color(139,0,0));
         painelListaItens.setFont(new Font(Font.SERIF,Font.PLAIN,20));
-        painelListaItens.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
 
 
@@ -59,9 +59,45 @@ public class TelaBolsa extends JDialog {
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_49.json"));
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_45.json"));
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_49.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_49.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_45.json"));
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
@@ -75,20 +111,36 @@ public class TelaBolsa extends JDialog {
         bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_45.json"));
 
-        var x = 100;
-        var y = 10;
-        var largura = 40;
-        var altura = 100;
+
+
+        var x = 90; //Posição da esquerda para a direita
+        var y = 30;  //Posição de cima para baixo
+        var largura = 50;
+        var altura = 50;
+        var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 5 itens por linha
         for (Item item: bolsa) {
-            JLabelOpcoesTelaSecao imgInterrogacao = new JLabelOpcoesTelaSecao(null, 40, 40,
+
+            if (contNumerodeItensPorLinha == 5){
+                contNumerodeItensPorLinha = 0;
+                y = y + 60; //Posiciona os próximos itens logo abaixo
+                x = 90; //Volta para o início da (esquerda para a direita)
+            }
+
+            //Criando a imagem com os
+            JLabelOpcoesTelaSecao imgInterrogacao = new JLabelOpcoesTelaSecao("", largura, altura,
                     item.getEnderecoImagem());
             imgInterrogacao.setBounds(x,y,largura,altura);
-            mapItens.put(imgInterrogacao, item);
+            imgInterrogacao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            imgInterrogacao.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
             imgInterrogacao.addMouseListener(acao);
+            mapItens.put(imgInterrogacao, item);
             painelListaItens.add(imgInterrogacao);
+            ++contNumerodeItensPorLinha;
+            //imgInterrogacao.setBorder(BorderFactory.createLineBorder(Color.RED));
+
 
             //Caminhando da esquerda para a direita
-            x = x + 80;
+            x = x + 100;
 
             //aqui vai ter que contar 6 itens e após isso incrementa "y" de modo a ir para a próxima
             //linha
@@ -113,7 +165,8 @@ public class TelaBolsa extends JDialog {
             Item item = mapItens.get(imgLabel);
 
             //Executa o efeito do item quando clicado na imagem do item que consta na bolsa
-            AcoesDasSecaoEEfeitoDeItens.acoesDosItens(item);
+            AcoesDasSecaoEEfeitoDeItens acaoItem = new AcoesDasSecaoEEfeitoDeItens();
+            acaoItem.acoesDosItens(item);
         }
 
         @Override

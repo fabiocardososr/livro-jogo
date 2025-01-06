@@ -1,7 +1,8 @@
  {
 	"idItem":"31",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Botas Saltadoras",
+	"nome":"Botas Saltadoras",
+	"descricao":"",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

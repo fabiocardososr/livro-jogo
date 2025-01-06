@@ -1,7 +1,8 @@
  {
 	"idItem":"40",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Faca de Arremesso",
+	"nome":"Faca de Arremesso",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

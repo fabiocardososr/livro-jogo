@@ -1,7 +1,8 @@
  {
 	"idItem":"28",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Escudo de ferro (de um imperador)",
+	"nome":"Escudo de ferro (de um imperador)",
+	"descricao":"O escudo servirá como uma defesa melhor em todas as batalhas futuras.\nSe uma criatura lhe causar um ferimento, jogue um dado.\nSe o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

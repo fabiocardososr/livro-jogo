@@ -15,7 +15,8 @@
   {
 	"idItem":"28",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Escudo de ferro (de um imperador)",
+	"nome":"Escudo de ferro (de um imperador)",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

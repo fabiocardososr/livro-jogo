@@ -11,7 +11,8 @@
   {
 	"idItem":"20",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Coleira de couro com aplicações em ouro",
+	"nome":"Coleira de couro com aplicações em ouro",
+	"descricao":"",
 	"valorCusto":"15",
 	"modificador":"0",   
 	"quantidadeUso":"0",

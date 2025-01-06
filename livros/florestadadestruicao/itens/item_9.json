@@ -1,7 +1,8 @@
  {
 	"idItem":"9",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Sino de Metal",
+	"nome":"Sino de Metal",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

@@ -15,7 +15,8 @@
   {
 	"idItem":"41",
 	"tipoEfeito":"HABILIDADE",
-	"descricao":"Anel de Ouro (Anel da Lentidão)",
+	"nome":"Anel de Ouro (Anel da Lentidão)",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"-2",   
 	"quantidadeUso":"0",

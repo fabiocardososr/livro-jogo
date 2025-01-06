@@ -10,25 +10,35 @@ public class AcoesDasSecaoEEfeitoDeItens {
     private Personagem personagem = ManipularDadosLivro.getPersonagem();
 
     //Aqui são codificados todos os efeitos dos itens
-    public static void acoesDosItens(Item item){
+    public void acoesDosItens(Item item){
 
         switch(item.getIdItem()) {
-            case 45: efeitoItem45(item); //Poção de Habilidade
+            case 45: efeitoItem45(); //Poção de Habilidade
                 break;
-            case 49: efeitoItem49(item); //Poção de Habilidade
+            case 49: efeitoItem49(); //Poção de Habilidade
                 break;
             default: //Não faça nada
         }
     }
 
     //Poção de Habilidade inicial
-    private static void efeitoItem45(Item item){
-        System.out.println(item);
+    private static void efeitoItem45(){
+        System.out.println("Poção de Habilidade!");
     }
 
     //Provisão
-    private static void efeitoItem49(Item item){
-        System.out.println(item);
+    private void efeitoItem49(){
+        ArrayList<Item> itens = personagem.getBolsa();
+
+        //Remover provisão da bolsa
+        for (Item item : itens)
+            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() ) {
+                System.out.println(item.getNome());
+                itens.remove(item);
+                break;
+            }
+        //tratar aumento da energia REGRA: 4 PONTOS DE ENERGIA RECUPERADA
+        //Caso cheio informar jogador?
     }
 
     //Retorna a quantidade de provisões que estão na bolsa
@@ -46,21 +56,6 @@ public class AcoesDasSecaoEEfeitoDeItens {
     //Retorna a quantidade de provisões que estão na bolsa
     private void removerProvisaoDaBolsa(){
 
-    }
-
-    public void tratarQuandoPersonagemComeUmaProvisao(){
-        ArrayList<Item> itens = personagem.getBolsa();
-
-        //Remover provisdão da bolsa
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() ) {
-                System.out.println(item.getDescricao());
-                itens.remove(item);
-                break;
-            }
-
-        //tratar aumento da energia REGRA: 4 PONTOS DE ENERGIA RECUPERADA
-        //Caso cheio informar jogador?
     }
 
     public static ArrayList<Item> retornaItensDaBolsa(){

@@ -1,7 +1,8 @@
  {
 	"idItem":"48",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Apito de Madeira",
+	"nome":"Apito de Madeira",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

@@ -1,7 +1,8 @@
   {
 	"idItem":"47",
 	"tipoEfeito":"SORTE",
-	"descricao":"Poção da Fortuna",
+	"nome":"Poção da Fortuna",
+	"descricao":"repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial",
 	"valorCusto":"0",
 	"modificador":"25",   
 	"quantidadeUso":"1",

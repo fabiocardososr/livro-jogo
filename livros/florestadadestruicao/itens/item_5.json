@@ -1,7 +1,8 @@
  {
 	"idItem":"5",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Chave de Prata",
+	"nome":"Chave de Prata",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

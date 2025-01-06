@@ -1,7 +1,8 @@
  {
 	"idItem":"44",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Dente de Dragão",
+	"nome":"Dente de Dragão",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

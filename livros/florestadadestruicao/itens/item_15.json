@@ -1,7 +1,8 @@
  {
 	"idItem":"15",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Colar Olho de Âmbar",
+	"nome":"Colar Olho de Âmbar",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

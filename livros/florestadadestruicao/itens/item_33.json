@@ -1,7 +1,8 @@
   {
 	"idItem":"33",
 	"tipoEfeito":"ENERGIA",
-	"descricao":"Poção de Energia",
+	"nome":"Poção de Energia",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"5",   
 	"quantidadeUso":"1",

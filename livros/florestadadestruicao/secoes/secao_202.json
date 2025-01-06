@@ -9,9 +9,10 @@
   ],
   "itens":[
   {
-	"idItem":"202",
+	"idItem":"26",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Brincos de ouro - 1 par",
+	"nome":"Brincos de ouro - 1 par",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

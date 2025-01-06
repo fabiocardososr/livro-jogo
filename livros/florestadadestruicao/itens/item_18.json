@@ -1,7 +1,8 @@
  {
 	"idItem":"18",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Anel de ouro com grande esmeralda",
+	"nome":"Anel de ouro com grande esmeralda",
+	"descricao":"",
 	"valorCusto":"15",
 	"modificador":"0",   
 	"quantidadeUso":"0",

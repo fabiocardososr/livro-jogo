@@ -16,7 +16,8 @@
   {
 	"idItem":"2",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Coroa de ouro",
+	"nome":"Coroa de ouro",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

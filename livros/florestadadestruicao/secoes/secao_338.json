@@ -15,7 +15,8 @@
   {
 	"idItem":"43",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Caixa de Prata (tinha Gás Venenoso)",
+	"nome":"Caixa de Prata (tinha Gás Venenoso)",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

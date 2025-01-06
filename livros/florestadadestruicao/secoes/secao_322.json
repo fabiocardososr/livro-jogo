@@ -15,7 +15,8 @@
   {
 	"idItem":"42",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Medalhão de Ouro\n(pendente de uma fita de seda)",
+	"nome":"Medalhão de Ouro\n(pendente de uma fita de seda)",
+	"descricao":"",
 	"valorCusto":"5",
 	"modificador":"0",   
 	"quantidadeUso":"0",

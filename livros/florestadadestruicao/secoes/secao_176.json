@@ -11,7 +11,8 @@
   {
 	"idItem":"25",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Cabo do Martelo de Guerra dos Anões",
+	"nome":"Cabo do Martelo de Guerra dos Anões",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

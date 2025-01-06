@@ -1,7 +1,8 @@
  {
 	"idItem":"24",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Grande Anel de ouro",
+	"nome":"Grande Anel de ouro",
+	"descricao":"",
 	"valorCusto":"10",
 	"modificador":"0",   
 	"quantidadeUso":"0",

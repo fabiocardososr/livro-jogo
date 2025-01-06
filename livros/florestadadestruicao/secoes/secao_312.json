@@ -11,7 +11,8 @@
   {
 	"idItem":"6",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Cabeça de martelo de bronze com a letra G",
+	"nome":"Cabeça de martelo de bronze com a letra G",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

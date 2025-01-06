@@ -1,7 +1,8 @@
  {
 	"idItem":"19",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Cápsulas de fogo",
+	"nome":"Cápsulas de fogo",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

@@ -1,7 +1,8 @@
  {
 	"idItem":"13",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Poção da Imobilidade",
+	"nome":"Poção da Imobilidade",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

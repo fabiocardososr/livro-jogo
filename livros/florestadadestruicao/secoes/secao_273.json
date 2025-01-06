@@ -11,7 +11,8 @@
   {
 	"idItem":"36",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Medalhão de ouro",
+	"nome":"Medalhão de ouro",
+	"descricao":"",
 	"valorCusto":"9",
 	"modificador":"0",   
 	"quantidadeUso":"0",

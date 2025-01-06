@@ -1,7 +1,8 @@
  {
 	"idItem":"11",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Poeira da Levitação",
+	"nome":"Poeira da Levitação",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

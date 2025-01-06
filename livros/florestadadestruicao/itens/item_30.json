@@ -1,7 +1,8 @@
  {
 	"idItem":"30",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Lingote de ouro",
+	"nome":"Lingote de ouro",
+	"descricao":"",
 	"valorCusto":"28",
 	"modificador":"0",   
 	"quantidadeUso":"0",

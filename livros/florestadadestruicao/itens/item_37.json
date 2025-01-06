@@ -1,7 +1,8 @@
  {
 	"idItem":"37",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Ouro",
+	"nome":"Ouro",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

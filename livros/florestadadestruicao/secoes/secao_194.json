@@ -11,7 +11,8 @@
   {
 	"idItem":"14",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Beladona",
+	"nome":"Beladona",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

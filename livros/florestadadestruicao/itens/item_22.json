@@ -1,7 +1,8 @@
  {
 	"idItem":"22",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Luva de Destreza de Arremesso (Luva roxa)",
+	"nome":"Luva de Destreza de Arremesso (Luva roxa)",
+	"descricao":"",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

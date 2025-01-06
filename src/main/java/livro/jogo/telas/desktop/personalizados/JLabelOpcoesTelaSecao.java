@@ -17,9 +17,10 @@ public class JLabelOpcoesTelaSecao extends JLabel {
 
     public JLabelOpcoesTelaSecao(String texto, int largura, int altura, String enderecoImagem) {
         super(texto);
+        setText(texto);
         this.largura = largura;
         this.altura = altura;
-        setForeground(Color.WHITE);
+        //setForeground(Color.WHITE);
         //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
         setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem));
@@ -31,9 +32,10 @@ public class JLabelOpcoesTelaSecao extends JLabel {
 
     public JLabelOpcoesTelaSecao(String texto, int largura, int altura, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);
+        setText(texto);
         this.largura = largura;
         this.altura = altura;
-        setForeground(Color.WHITE);
+        //setForeground(Color.WHITE);
         //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
         setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem.getEnderecoImagem()));
@@ -49,7 +51,7 @@ public class JLabelOpcoesTelaSecao extends JLabel {
 
     public JLabelOpcoesTelaSecao(String texto, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);
-        setForeground(Color.WHITE);
+        //setForeground(Color.WHITE);
         //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,22));
         setIcon(Util.dimensionarImagem(80,85, enderecoImagem.getEnderecoImagem()));

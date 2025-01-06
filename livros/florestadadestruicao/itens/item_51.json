@@ -1,7 +1,8 @@
   {
 	"idItem":"51",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Armadura de Couro",
+	"nome":"Armadura de Couro",
+	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",

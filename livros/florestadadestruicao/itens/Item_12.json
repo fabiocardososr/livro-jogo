@@ -1,7 +1,8 @@
  {
 	"idItem":"12",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Braçadeira da Força",
+	"nome":"Braçadeira da Força",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

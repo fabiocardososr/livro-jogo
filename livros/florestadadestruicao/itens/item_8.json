@@ -1,7 +1,8 @@
  {
 	"idItem":"8",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Poção Controle das Plantas",
+	"nome":"Poção Controle das Plantas",
+	"descricao":"",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

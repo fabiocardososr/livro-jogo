@@ -1,7 +1,8 @@
  {
 	"idItem":"10",
 	"tipoEfeito":"HABILIDADE",
-	"descricao":"Espada Magnífica",
+	"nome":"Espada Magnífica",
+	"descricao":"Aumenta em 2 pontos a seu índice de HABILIDADE atual.",
 	"valorCusto":"0",
 	"modificador":"2",   
 	"quantidadeUso":"0",

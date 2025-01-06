@@ -1,7 +1,8 @@
  {
 	"idItem":"26",
 	"tipoEfeito":"NENHUM",
-	"descricao":"Brincos de ouro",
+	"nome":"Brincos de ouro",
+	"descricao":"",
 	"valorCusto":"10",
 	"modificador":"0",   
 	"quantidadeUso":"0",
