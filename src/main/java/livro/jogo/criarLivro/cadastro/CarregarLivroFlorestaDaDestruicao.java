@@ -2,6 +2,7 @@ package livro.jogo.criarLivro.cadastro;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Livro;
 import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularArquivos;
@@ -19,6 +20,9 @@ public class CarregarLivroFlorestaDaDestruicao {
 
         //Carregar seções
         inserirSecoes(objMapper);
+
+        //Carregar itens
+        inserirItens(objMapper);
     }
 
     /********************** CARREGAR LIVROS ***************************/
@@ -33,6 +37,9 @@ public class CarregarLivroFlorestaDaDestruicao {
         }
     }
 
+
+    /* ********************** MÉTODOS DE CARREGAMENTO DAS SEÇÕES ************************ */
+
     private void inserirSecoes(ObjectMapper objMapper) {
 
         //São exatas 400 seções
@@ -41,7 +48,7 @@ public class CarregarLivroFlorestaDaDestruicao {
             var existe = (new File(endereco)).exists();
 
             if (existe)
-                secao(objMapper, endereco);
+                lerSecao(objMapper, endereco);
             else
                 System.out.println("INEXISTENTE o Arquivo: "+endereco);
         }
@@ -50,10 +57,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         //ManipularDadosLivro.imprimirInfoSecoes();
     }
 
-
-    /* ********************** MÉTODOS DAS SEÇÕES ************************ */
-
-    private void secao(ObjectMapper objMapper, String enderecoDoArquivoDaSecao){
+    private void lerSecao(ObjectMapper objMapper, String enderecoDoArquivoDaSecao){
 
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
@@ -62,6 +66,39 @@ public class CarregarLivroFlorestaDaDestruicao {
 
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);
+            //throw new RuntimeException(e);
+        }
+    }
+
+
+    /* ********************** MÉTODOS DE CARREGAMENTO DOS ITENS ************************ */
+
+    private void inserirItens(ObjectMapper objMapper) {
+
+        //São 51 itens
+        for (int i=1; i<=51; i++) {
+            var endereco = "livros/florestadadestruicao/itens/item_"+i+".json";
+            var existe = (new File(endereco)).exists();
+
+            if (existe)
+                lerItem(objMapper, endereco);
+            else
+                System.out.println("INEXISTENTE o Arquivo: "+endereco);
+        }
+
+        //Apenas para verificar se tudo ocorreu bem(depois pode remover)
+        //ManipularDadosLivro.imprimirInfoItens();
+    }
+
+    private void lerItem(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
+
+        try {
+            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
+            var  item = objMapper.readValue(json, Item.class);
+            ManipularDadosLivro.getMapItem().put(item.getIdItem(),item);
+
+        } catch (JsonProcessingException e) {
+            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
             //throw new RuntimeException(e);
         }
     }

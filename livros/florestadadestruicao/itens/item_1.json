@@ -1,7 +1,7 @@
  {
 	"idItem":"1",
 	"tipoEfeito":"NENHUM",
-	"nome":"Anel da Luz"
+	"nome":"Anel da Luz",
 	"descricao":"Ilumina ambientes escuros",
 	"valorCusto":"3",
 	"modificador":"0",   

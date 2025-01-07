@@ -45,7 +45,7 @@ public class Util {
 
         for (Item item : itens){
             if ( (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ||
-                    (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ||
+                    (item.getIdItem() == ItensMapeamento.POCAO_DE_FORCA.getIdItem()) ||
                     (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ){
                     return item;
             }

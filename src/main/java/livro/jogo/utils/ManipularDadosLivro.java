@@ -35,6 +35,10 @@ public class ManipularDadosLivro {
         return livro.getMapSecao();
     }
 
+    public static HashMap<Integer, Item> getMapItem(){
+        return livro.getMapItens();
+    }
+
     public static ArrayList<Item> getBolsa(){
         return personagem.getBolsa();
     }
@@ -94,12 +98,8 @@ public class ManipularDadosLivro {
 
     public static void imprimirInfoItens() {
 
-        //Dados do livro
-        System.out.print("\n\nItens: "+ livro.getIdLivro());
-
-        ArrayList<Item> bolsas = personagem.getBolsa();
-
-        bolsas.forEach(item -> System.out.println("\n\nITEM: "+ item));
+        for (int i=1; i<=51; i++)
+          System.out.println("\n\nItens: "+ livro.getMapItens().get(i));
 
     }
 }

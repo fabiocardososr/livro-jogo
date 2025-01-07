@@ -1,7 +1,8 @@
  {
 	"idItem":"4",
 	"tipoEfeito":"NENHUM",
-	"nome":"Filtros Nasais"
+	"nome":"Filtros Nasais",
+	"descricao":"",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",

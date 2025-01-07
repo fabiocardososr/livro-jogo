@@ -7,7 +7,7 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.AcoesDasSecaoEEfeitoDeItens;
+import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.ManipularDadosLivro;
 import livro.jogo.utils.Util;
 
@@ -38,11 +38,46 @@ public class TelaSecoesBasica extends JDialog{
     private JLabelOpcoesTelaSecao labelAumentaTexto;
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
     private JTextPane textoHistoria;
-    private final AcoesDasSecaoEEfeitoDeItens acoesComunsTelaSecao;
+    private final EfeitoDeItens acoesComunsTelaSecao;
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
-    public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
+    public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
 
+        setSize(largura, altura);
+        //setSize(1500,800);
+        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
+        Container tela = getContentPane();
+        tela.setBackground(new Color(210,180,140));
+
+        this.secao = secao;
+        this.personagem = personagem;
+        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
+        acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
+
+        //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
+        if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
+            this.enderecoImagem = secao.getEnderecoImagem();
+            setTitle("Seção - " + secao.getCodSecaoLivro());
+        }
+        else{
+            setTitle("Livro - " + ManipularDadosLivro.getLivro().getNome());
+        }
+        setType(Window.Type.UTILITY);
+
+        setLocationRelativeTo(null);
+        setModal(true);
+        setUndecorated(true);
+
+        //Carregar campo que receberá o texto da história
+        carregarTextoHistoria();
+        carregaImgSecao();
+        carregaPainelPersonagem();
+        carregarPainelDireito();
+        carregaPainelInferior();
+        carregarFaixasDasExtremidades();
+    }
+
+    public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
@@ -51,7 +86,7 @@ public class TelaSecoesBasica extends JDialog{
         this.secao = secao;
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        acoesComunsTelaSecao = new AcoesDasSecaoEEfeitoDeItens();
+        acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -341,7 +376,7 @@ public class TelaSecoesBasica extends JDialog{
             labelPocaoInicial.setBounds(1285,265,150,100);
         }
 
-        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_FORCA.getIdItem()) {
             labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
             labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
@@ -510,7 +545,7 @@ public class TelaSecoesBasica extends JDialog{
             if (e.getSource() ==  labelProvisoes){
 
                 if (acoesComunsTelaSecao.quantidadeProvisoesRestantes() > 0) {
-                    acoesComunsTelaSecao.tratarQuandoPersonagemComeUmaProvisao();
+                    acoesComunsTelaSecao.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()); //Item provisão
                     labelProvisoes.setText("<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>");
                 }
                 else

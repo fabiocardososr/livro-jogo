@@ -36,11 +36,67 @@ public class Testes {
 //        tela.setLocationRelativeTo(null);
 //        tela.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        CarregarTelas.telaBolsa(1000,800);
+       // CarregarTelas.telaBolsa(1000,800);
+        CarregarTelas.telaMensagem(900,600,"Certo!");
 
     }
 
-    private static ArrayList<Item> recuperaItensIniciaisEquipados() {
+    public static ArrayList<Item> simularPreenchimentoBolsa(){
+        ObjectMapper objMapper = new ObjectMapper();
+        ArrayList<Item> bolsa = new ArrayList<>();
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_46.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_47.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_45.json"));
+
+        return bolsa;
+    }
+
+    public static ArrayList<Item> recuperaItensIniciaisEquipados() {
         ObjectMapper objMapper = new ObjectMapper();
         var itensEquipados = new ArrayList<Item>();
 
@@ -51,6 +107,9 @@ public class Testes {
         //Equipando uma armadura de couro(51)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_51.json"));
+
+        itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                "livros/florestadadestruicao/itens/item_49.json"));
 
         return itensEquipados;
 

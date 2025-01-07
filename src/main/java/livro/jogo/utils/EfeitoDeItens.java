@@ -6,16 +6,20 @@ import livro.jogo.enums.ItensMapeamento;
 
 import java.util.ArrayList;
 
-public class AcoesDasSecaoEEfeitoDeItens {
-    private Personagem personagem = ManipularDadosLivro.getPersonagem();
+public class EfeitoDeItens {
+    private final Personagem personagem;
+
+    public EfeitoDeItens(Personagem personagem) {
+        this.personagem = personagem;
+    }
 
     //Aqui são codificados todos os efeitos dos itens
-    public void acoesDosItens(Item item){
+    public void acoesDosItens(int idItem){
 
-        switch(item.getIdItem()) {
+        switch(idItem) {
             case 45: efeitoItem45(); //Poção de Habilidade
                 break;
-            case 49: efeitoItem49(); //Poção de Habilidade
+            case 49: efeitoItem49Provisao(); //Provisões (comida)
                 break;
             default: //Não faça nada
         }
@@ -27,7 +31,7 @@ public class AcoesDasSecaoEEfeitoDeItens {
     }
 
     //Provisão
-    private void efeitoItem49(){
+    private void efeitoItem49Provisao(){
         ArrayList<Item> itens = personagem.getBolsa();
 
         //Remover provisão da bolsa

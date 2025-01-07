@@ -1,13 +1,12 @@
 package livro.jogo.telas.desktop;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.executaveis.Testes;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.utils.AcoesDasSecaoEEfeitoDeItens;
+import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.ManipularDadosLivro;
-import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +17,7 @@ import java.util.HashMap;
 
 public class TelaBolsa extends JDialog {
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
+    private JLabelOpcoesTelaSecao botaoSair;
 
     public TelaBolsa(int largura, int altura) {
         setUndecorated(true);
@@ -32,7 +32,6 @@ public class TelaBolsa extends JDialog {
     public void carregarTela(){
 
         TelaBolsaListener acao = new TelaBolsaListener();
-
 
         //fundo
         ImagePanel painelImgFundoBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA);
@@ -51,73 +50,18 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
 
-
-        //Simulo a bolsa acrescentando itens
-        //DEPOIS APAGUE
-        ObjectMapper objMapper = new ObjectMapper();
-        ArrayList<Item> bolsa = new ArrayList<>();
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_46.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_47.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_46.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_47.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_46.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_47.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-        bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
-
-
+        /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
+        ArrayList<Item> bolsa = Testes.simularPreenchimentoBolsa();
+        var itensEquipados = Testes.recuperaItensIniciaisEquipados();
+        /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
 
         var x = 90; //Posição da esquerda para a direita
         var y = 30;  //Posição de cima para baixo
         var largura = 50;
         var altura = 50;
         var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 5 itens por linha
+
+        //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
             if (contNumerodeItensPorLinha == 5){
@@ -126,30 +70,88 @@ public class TelaBolsa extends JDialog {
                 x = 90; //Volta para o início da (esquerda para a direita)
             }
 
-            //Criando a imagem com os
-            JLabelOpcoesTelaSecao imgInterrogacao = new JLabelOpcoesTelaSecao("", largura, altura,
+            //Inserindo os itens na tela
+            JLabelOpcoesTelaSecao imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
                     item.getEnderecoImagem());
-            imgInterrogacao.setBounds(x,y,largura,altura);
-            imgInterrogacao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            imgInterrogacao.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
-            imgInterrogacao.addMouseListener(acao);
-            mapItens.put(imgInterrogacao, item);
-            painelListaItens.add(imgInterrogacao);
+            imgItem.setBounds(x,y,largura,altura);
+            imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
+            imgItem.addMouseListener(acao);
+            mapItens.put(imgItem, item);
+            painelListaItens.add(imgItem);
             ++contNumerodeItensPorLinha;
             //imgInterrogacao.setBorder(BorderFactory.createLineBorder(Color.RED));
 
+            //Caminhando da esquerda para a direita
+            x = x + 100;
+        }
+
+        for (Item item: itensEquipados) {
+
+            if (contNumerodeItensPorLinha == 5){
+                contNumerodeItensPorLinha = 0;
+                y = y + 60; //Posiciona os próximos itens logo abaixo
+                x = 90; //Volta para o início da (esquerda para a direita)
+            }
+
+            //Criando a imagem
+            JLabelOpcoesTelaSecao imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
+                    item.getEnderecoImagem());
+            imgItem.setBounds(x,y,largura,altura);
+            imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+            if (item.getDescricao().isEmpty())
+                imgItem.setToolTipText(item.getNome().toUpperCase());
+            else
+               imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
+
+            imgItem.addMouseListener(acao);
+
+            //Rótulo indicando que este item está equipado
+            JLabel rotuloEquipado = new JLabel("Equipado");
+            rotuloEquipado.setForeground(new Color(220,220,220));
+            rotuloEquipado.setFont(new Font(Font.SERIF,Font.PLAIN,18));
+            //rotuloEquipado.setOpaque(true); //sem chamar este método não pinta o fundo
+            //rotuloEquipado.setBackground(Color.black);
+            rotuloEquipado.setBounds(x+5,y+40,75,18);
+
+            //Incluir item no hashmap para que possa ser identificado quando clicado na imagem
+            mapItens.put(imgItem, item);
+
+            //Incluir no panel
+            painelListaItens.add(rotuloEquipado);
+            painelListaItens.add(imgItem);
+
+            //Incrementado contador de modo a que só fiquem 5 itens por linha
+            ++contNumerodeItensPorLinha;
 
             //Caminhando da esquerda para a direita
             x = x + 100;
-
-            //aqui vai ter que contar 6 itens e após isso incrementa "y" de modo a ir para a próxima
-            //linha
         }
 
         painelListaItens.setBounds(185,115,625, 570);
         painelImgFundoBolsa.setBounds(0,0,1000,800);
-        painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
         painelImgFundoBolsa.add(painelListaItens);
+        //painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+
+        //Botão sair
+        JLabel labelSair = new JLabel("Sair");
+        labelSair.setBounds(465,700,100,50);
+        labelSair.setForeground(new Color(139,0,0));
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoSair = new JLabelOpcoesTelaSecao(null,
+                220, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoSair.setBounds(405,685,220,90);
+        botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        botaoSair.addMouseListener(acao);
+        add(labelSair);
+        add(botaoSair);
 
         add(painelListaItens);
         add(painelImgFundoBolsa);
@@ -161,12 +163,18 @@ public class TelaBolsa extends JDialog {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == botaoSair){
+                setVisible(false);
+                return;
+            }
+
             JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
             Item item = mapItens.get(imgLabel);
 
             //Executa o efeito do item quando clicado na imagem do item que consta na bolsa
-            AcoesDasSecaoEEfeitoDeItens acaoItem = new AcoesDasSecaoEEfeitoDeItens();
-            acaoItem.acoesDosItens(item);
+            EfeitoDeItens acaoItem = new EfeitoDeItens(ManipularDadosLivro.getPersonagem());
+            acaoItem.acoesDosItens(item.getIdItem());
         }
 
         @Override

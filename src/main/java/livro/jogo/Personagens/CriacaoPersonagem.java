@@ -3,7 +3,6 @@ package livro.jogo.Personagens;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.enums.ItensJson;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.ManipularDadosLivro;
 
@@ -46,19 +45,19 @@ public class CriacaoPersonagem {
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    ItensJson.PROVISAO.getEnderecoJson()));
+                    ItensMapeamento.PROVISAO.getEnderecoJson()));
 
         if (ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() == pocaoEscolhida)
            bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                   ItensJson.POCAO_HABILIDADE.getEnderecoJson()));
+                   ItensMapeamento.POCAO_DE_HABILIDADE.getEnderecoJson()));
 
-        if (ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() == pocaoEscolhida)
+        if (ItensMapeamento.POCAO_DE_FORCA.getIdItem() == pocaoEscolhida)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    ItensJson.POCAO_DE_FORCA.getEnderecoJson()));
+                    ItensMapeamento.POCAO_DE_FORCA.getEnderecoJson()));
 
         if (ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() == pocaoEscolhida)
             bolsa.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    ItensJson.POCAO_DA_FORTUNA.getEnderecoJson()));
+                    ItensMapeamento.POCAO_DA_FORTUNA.getEnderecoJson()));
 
         return bolsa;
     }
@@ -69,11 +68,11 @@ public class CriacaoPersonagem {
 
         //Equipando uma espada(50)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                ItensJson.ESPADA.getEnderecoJson()));
+                ItensMapeamento.ESPADA.getEnderecoJson()));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(ManipularDadosLivro.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                ItensJson.ARMADURA_DE_COURO.getEnderecoJson()));
+                ItensMapeamento.ARMADURA_DE_COURO.getEnderecoJson()));
 
         return itensEquipados;
 

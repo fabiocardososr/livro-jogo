@@ -5,6 +5,7 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.*;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 
 import javax.swing.*;
@@ -76,6 +77,11 @@ public class CarregarTelas {
         telaCriarPersonagem.setVisible(true);
     }
 
+//    public static void telaSecaoHistoriaInicial(int largura,int altura, Secao secao, Personagem personagem, JFrame telaPrincipal){
+//        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(largura,altura,secao, personagem, telaPrincipal);
+//        telaSecoesBasica.setVisible(true);
+//    }
+
     public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem, JFrame telaPrincipal){
         SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, telaPrincipal);
         telaSecoesBasica.setVisible(true);
@@ -85,5 +91,20 @@ public class CarregarTelas {
         TelaBolsa telaBolsa = new TelaBolsa(largura,altura);
 
         telaBolsa.setVisible(true);
+    }
+
+    public static void telaMensagem(int largura, int altura, String texto){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(largura,altura, texto);
+        tela.setVisible(true);
+
+    }
+
+    public static void telaMensagem(int largura, int altura,Personagem personagem, String texto){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(largura,altura,personagem, texto);
+        tela.setLocationRelativeTo(null);
+        tela.setResizable(false);
+        tela.setUndecorated(true);
+        tela.setModal(true);
+        tela.setVisible(true);
     }
 }

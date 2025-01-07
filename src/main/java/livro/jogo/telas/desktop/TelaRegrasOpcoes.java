@@ -199,7 +199,7 @@ public class TelaRegrasOpcoes extends JDialog {
         JLabel label= new JLabel("Personagem");
         label.setBounds(113,130,130,50);
         label.setForeground(new Color(139,0,0));
-        label.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        label.setFont(new Font(Font.SERIF,Font.BOLD,22));
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
