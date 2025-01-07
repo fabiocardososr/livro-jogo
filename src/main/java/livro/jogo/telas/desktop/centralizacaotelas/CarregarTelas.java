@@ -93,14 +93,14 @@ public class CarregarTelas {
         telaBolsa.setVisible(true);
     }
 
-    public static void telaMensagem(int largura, int altura, String texto){
-        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(largura,altura, texto);
+    public static void telaMensagem( String texto){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto);
         tela.setVisible(true);
 
     }
 
-    public static void telaMensagem(int largura, int altura,Personagem personagem, String texto){
-        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(largura,altura,personagem, texto);
+    public static void telaMensagem(Personagem personagem, String texto){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);
         tela.setUndecorated(true);

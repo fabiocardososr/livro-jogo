@@ -44,7 +44,6 @@ public class TelaSecoesBasica extends JDialog{
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
 
         setSize(largura, altura);
-        //setSize(1500,800);
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Personagem {
     private String nome;
-
     private int genero; // Gênero que corresponde ao sexo biológico que lhes foi atribuído no nascimento
     private int idLivro;
     private int habilidadeMax;
