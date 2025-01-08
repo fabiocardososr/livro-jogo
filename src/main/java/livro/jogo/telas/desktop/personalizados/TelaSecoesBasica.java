@@ -548,7 +548,7 @@ public class TelaSecoesBasica extends JDialog{
                     labelProvisoes.setText("<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>");
                 }
                 else
-                    JOptionPane.showMessageDialog(null,personagem.getNome()+", você não tem mais provisões para comer.");
+                    CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");
             }
 
             if (e.getSource() ==  labelAnotacoes){

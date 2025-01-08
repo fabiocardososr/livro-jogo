@@ -10,6 +10,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_INDICE_TELA_SECAO("livros/florestadadestruicao/imagens/faixa9.png"),
     FAIXA_NOME_PERSONAGEM_TELA_SECAO("livros/florestadadestruicao/imagens/faixa2.png"),
     FAIXA_8("livros/florestadadestruicao/imagens/faixa_8.png"),
+    FAIXA_10("livros/florestadadestruicao/imagens/faixa_10.png"),
     FAIXA_2("livros/florestadadestruicao/imagens/faixa2.png"),
     FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     FAIXA_VERTICAL_1("livros/florestadadestruicao/imagens/faixa_vertical_1.png"),

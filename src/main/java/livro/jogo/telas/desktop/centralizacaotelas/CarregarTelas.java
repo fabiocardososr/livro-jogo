@@ -5,16 +5,20 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.*;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.personalizados.TelaDeMensagensAoJogador;
+import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class CarregarTelas {
     private TelaBasica telaPrincipal; //Guardar a referência da tela principal
+    private static boolean resultadoTelaDeConfirmacao = false;
+
+    public static boolean isResultadoTelaDeConfirmacao() {
+        return resultadoTelaDeConfirmacao;
+    }
 
     public CarregarTelas(TelaBasica telaPrincipal) {
         this.telaPrincipal = telaPrincipal;
@@ -77,11 +81,6 @@ public class CarregarTelas {
         telaCriarPersonagem.setVisible(true);
     }
 
-//    public static void telaSecaoHistoriaInicial(int largura,int altura, Secao secao, Personagem personagem, JFrame telaPrincipal){
-//        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(largura,altura,secao, personagem, telaPrincipal);
-//        telaSecoesBasica.setVisible(true);
-//    }
-
     public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem, JFrame telaPrincipal){
         SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, telaPrincipal);
         telaSecoesBasica.setVisible(true);
@@ -93,13 +92,13 @@ public class CarregarTelas {
         telaBolsa.setVisible(true);
     }
 
-    public static void telaMensagem( String texto){
+    public static void telaMensagem(String texto){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto);
+        //tela.carregarBotaoOk();
         tela.setVisible(true);
-
     }
 
-    public static void telaMensagem(Personagem personagem, String texto){
+    public static void telaMensagem(Personagem personagem, String texto, boolean telaDeConfirmacao){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);

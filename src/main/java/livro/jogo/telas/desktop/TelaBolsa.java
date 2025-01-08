@@ -31,7 +31,12 @@ public class TelaBolsa extends JDialog {
 
     public void carregarTela(){
 
+        //Configurar ouvinte do click do mouse quando clicar nos itens
         TelaBolsaListener acao = new TelaBolsaListener();
+
+        //Carregar itens da bolsa e os equipados
+        ArrayList<Item> bolsa = ManipularDadosLivro.getBolsa();
+        ArrayList<Item> itensEquipados = ManipularDadosLivro.getItensEquipados();
 
         //fundo
         ImagePanel painelImgFundoBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA);
@@ -39,9 +44,6 @@ public class TelaBolsa extends JDialog {
         painelImgFundoBolsa.setForeground(new Color(139,0,0));
         painelImgFundoBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelImgFundoBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //painelImgBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
-        //painelImgBolsa.setToolTipText("Carrega todos os itens que não estejam equipados");
-
 
         ImagePanel painelListaItens = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA_LISTA);
         painelListaItens.setBackground(new Color(210,180,140));
@@ -51,8 +53,8 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setLayout(null);
 
         /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
-        ArrayList<Item> bolsa = Testes.simularPreenchimentoBolsa();
-        var itensEquipados = Testes.recuperaItensIniciaisEquipados();
+//        ArrayList<Item> bolsa = Testes.simularPreenchimentoBolsa();
+//        var itensEquipados = Testes.recuperaItensIniciaisEquipados();
         /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
 
         var x = 90; //Posição da esquerda para a direita
