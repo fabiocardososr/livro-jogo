@@ -41,7 +41,7 @@ public class EfeitoDeItens {
                 itens.remove(item);
                 break;
             }
-        //tratar aumento da energia REGRA: 4 PONTOS DE ENERGIA RECUPERADA
+        //tratar aumento da energia REGRA:: 4 PONTOS DE ENERGIA RECUPERADA
         //Caso jogador com energia cheia (nível máximo), não faça nada e informe ao usuario
         //Faça uma maneira de não chamar a tela de mensagem aqui, passe alguma informação que seja tratada
         //na tela de secao de modo a não misturar back end com as telas (lembre-se que poderá ser feito para web)
