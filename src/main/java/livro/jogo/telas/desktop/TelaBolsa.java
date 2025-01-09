@@ -2,11 +2,10 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.executaveis.Testes;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.utils.EfeitoDeItens;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,8 +34,8 @@ public class TelaBolsa extends JDialog {
         TelaBolsaListener acao = new TelaBolsaListener();
 
         //Carregar itens da bolsa e os equipados
-        ArrayList<Item> bolsa = ManipularDadosLivro.getBolsa();
-        ArrayList<Item> itensEquipados = ManipularDadosLivro.getItensEquipados();
+        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+        ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
         //fundo
         ImagePanel painelImgFundoBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA);
@@ -175,8 +174,7 @@ public class TelaBolsa extends JDialog {
             Item item = mapItens.get(imgLabel);
 
             //Executa o efeito do item quando clicado na imagem do item que consta na bolsa
-            EfeitoDeItens acaoItem = new EfeitoDeItens(ManipularDadosLivro.getPersonagem());
-            acaoItem.acoesDosItens(item.getIdItem());
+            EfeitoDeItens.acoesDosItens(item.getIdItem());
         }
 
         @Override

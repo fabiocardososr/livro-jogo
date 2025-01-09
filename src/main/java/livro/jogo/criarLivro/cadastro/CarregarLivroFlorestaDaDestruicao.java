@@ -6,7 +6,7 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Livro;
 import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularArquivos;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import java.io.File;
 
@@ -16,7 +16,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         ObjectMapper objMapper = new ObjectMapper();
 
         //Guarda as informações do livro para usar quando necessário.
-        ManipularDadosLivro.setLivro( carregaLivro(objMapper) );
+        DadosLivroCarregado.setLivro( carregaLivro(objMapper) );
 
         //Carregar seções
         inserirSecoes(objMapper);
@@ -62,7 +62,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
             var  secao = objMapper.readValue(json, Secao.class);
-            ManipularDadosLivro.getMapSecao().put(secao.getCodSecaoLivro(),secao);
+            DadosLivroCarregado.getMapSecao().put(secao.getCodSecaoLivro(),secao);
 
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);
@@ -95,7 +95,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
             var  item = objMapper.readValue(json, Item.class);
-            ManipularDadosLivro.getMapItem().put(item.getIdItem(),item);
+            DadosLivroCarregado.getMapItem().put(item.getIdItem(),item);
 
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);

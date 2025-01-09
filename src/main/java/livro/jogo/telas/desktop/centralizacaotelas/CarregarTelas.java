@@ -98,7 +98,7 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    public static void telaMensagem(Personagem personagem, String texto, boolean telaDeConfirmacao){
+    public static void telaMensagem(Personagem personagem, String texto){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);

@@ -40,7 +40,7 @@ public class Util {
     //46 - Poção de Força (Poção da Força)
     //47 - Poção da Fortuna
     public static Item retornaPocaoInicialDaBolsa(){
-        Personagem personagem = ManipularDadosLivro.getPersonagem();
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
         ArrayList<Item> itens = personagem.getBolsa();
 
         for (Item item : itens){
@@ -65,6 +65,28 @@ public class Util {
         }
 
         return imageIcon;
+    }
+
+    //Retorna diferença entre o valor máximo e o atual de ENERGIA do personagem
+    public static int retornaDiferencaEntreEnergiaMaxEAtual(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        var indiceEnergiaAtual = personagem.getEnergiaAtual();
+        var indiceEnergiaMax   = personagem.getEnergiaMax();
+
+        return indiceEnergiaMax - indiceEnergiaAtual;
+    }
+
+    //    //Retorna a quantidade de provisões que estão na bolsa
+    public static int quantidadeProvisoesRestantes(){
+        int quantidadeProvisoes = 0;
+        ArrayList<Item> itens = DadosLivroCarregado.getPersonagem().getBolsa();
+
+        for (Item item : itens)
+            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() )
+                ++quantidadeProvisoes;
+
+        return quantidadeProvisoes;
     }
 
 }

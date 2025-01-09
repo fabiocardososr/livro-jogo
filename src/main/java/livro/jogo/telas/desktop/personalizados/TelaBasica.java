@@ -2,7 +2,7 @@ package livro.jogo.telas.desktop.personalizados;
 
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -29,7 +29,7 @@ public class TelaBasica extends JFrame {
     private void carregarIconTela(){
         BufferedImage img;
         try {
-            img = ImageIO.read(new File(ManipularDadosLivro.getLivro().getImagemCapa()));
+            img = ImageIO.read(new File(DadosLivroCarregado.getLivro().getImagemCapa()));
             setIconImage(img);
         } catch (IOException e) {
             throw new RuntimeException(e);

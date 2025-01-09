@@ -5,10 +5,9 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.personalizados.BotaoFaixa;
-import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -35,7 +34,7 @@ public class TelaPrincipal extends TelaBasica {
         setUndecorated(true);
 
         //Dados do livro
-        livro = ManipularDadosLivro.getLivro();
+        livro = DadosLivroCarregado.getLivro();
         setTitle(livro.getNome());
         configurandoTelaPrincipal();
     }

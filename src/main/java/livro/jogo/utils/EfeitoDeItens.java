@@ -3,18 +3,18 @@ package livro.jogo.utils;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 
 import java.util.ArrayList;
 
 public class EfeitoDeItens {
-    private final Personagem personagem;
 
-    public EfeitoDeItens(Personagem personagem) {
-        this.personagem = personagem;
-    }
+//    public EfeitoDeItens(Personagem personagem) {
+//        this.personagem = personagem;
+//    }
 
     //Aqui são codificados todos os efeitos dos itens
-    public void acoesDosItens(int idItem){
+    public static void acoesDosItens(int idItem){
 
         switch(idItem) {
             case 45: efeitoItem45(); //Poção de Habilidade
@@ -31,32 +31,31 @@ public class EfeitoDeItens {
     }
 
     //Provisão
-    private void efeitoItem49Provisao(){
+    private static void efeitoItem49Provisao(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
         ArrayList<Item> itens = personagem.getBolsa();
 
-        //Remover provisão da bolsa
+
+        //Achar um item do tipo provisão e removê-lo da bolsa
         for (Item item : itens)
             if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() ) {
-                System.out.println(item.getNome());
                 itens.remove(item);
                 break;
             }
-        //tratar aumento da energia REGRA:: 4 PONTOS DE ENERGIA RECUPERADA
-        //Caso jogador com energia cheia (nível máximo), não faça nada e informe ao usuario
-        //Faça uma maneira de não chamar a tela de mensagem aqui, passe alguma informação que seja tratada
-        //na tela de secao de modo a não misturar back end com as telas (lembre-se que poderá ser feito para web)
-    }
 
-    //Retorna a quantidade de provisões que estão na bolsa
-    public int quantidadeProvisoesRestantes(){
-        int quantidadeProvisoes = 0;
-        ArrayList<Item> itens = personagem.getBolsa();
+        //Recuperando o índice atual e o índice máximo em que o personagem pode chegar
+        var indiceAtual   = personagem.getEnergiaAtual();
+        var indiceMaximo  = personagem.getEnergiaMax();
 
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() )
-                ++quantidadeProvisoes;
+        //reposição de 4 pontos de energia do personagem
+        var indiceAtualComReposicao = indiceAtual + 4;
 
-        return quantidadeProvisoes;
+        //Com a reposição ultrapassando o índice máximo, o índice atual recebe máximo
+        if (indiceAtualComReposicao > indiceMaximo)
+            indiceAtualComReposicao = indiceMaximo;
+
+        //Atualizando índice
+        personagem.setEnergiaAtual(indiceAtualComReposicao);
     }
 
     //Retorna a quantidade de provisões que estão na bolsa
@@ -65,7 +64,7 @@ public class EfeitoDeItens {
     }
 
     public static ArrayList<Item> retornaItensDaBolsa(){
-        return ManipularDadosLivro.getBolsa();
+        return DadosLivroCarregado.getBolsa();
     }
 
 

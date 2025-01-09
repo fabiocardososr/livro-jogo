@@ -57,10 +57,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
         carregarTexto();
     }
 
-    public void carregarBotaoConfirmacao() {
-
-    }
-
     public void carregarBotaoOk() {
 
         JLabel labelSair = new JLabel("OK");
@@ -92,7 +88,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
         textoHistoria.setFocusable(false);
 
         //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
-        textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,16));
+        textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,20));
 
 
         StyledDocument textoLivroStyle = textoHistoria.getStyledDocument();

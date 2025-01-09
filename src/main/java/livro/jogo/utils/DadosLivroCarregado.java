@@ -11,7 +11,7 @@ import livro.jogo.entidades.Secao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ManipularDadosLivro {
+public class DadosLivroCarregado {
     private static Livro livro;
     private static Personagem personagem;
 
@@ -20,7 +20,7 @@ public class ManipularDadosLivro {
     }
 
     public static void setPersonagem(Personagem personagem) {
-        ManipularDadosLivro.personagem = personagem;
+        DadosLivroCarregado.personagem = personagem;
     }
 
     public static Livro getLivro() {
@@ -28,7 +28,7 @@ public class ManipularDadosLivro {
     }
 
     public static void setLivro(Livro livro) {
-        ManipularDadosLivro.livro = livro;
+        DadosLivroCarregado.livro = livro;
     }
 
     public static HashMap<Integer, Secao> getMapSecao(){
@@ -65,7 +65,7 @@ public class ManipularDadosLivro {
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
             var  item = objMapper.readValue(json, Item.class);
-            ManipularDadosLivro.getBolsa().add(item);
+            DadosLivroCarregado.getBolsa().add(item);
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
             //throw new RuntimeException(e);

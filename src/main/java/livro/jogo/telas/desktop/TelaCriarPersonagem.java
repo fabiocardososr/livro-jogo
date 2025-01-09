@@ -8,7 +8,7 @@ import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.LimitarCampoJTextField;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
@@ -619,7 +619,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         var nome = txtNome.getText();
 
         //Cria o personagem e já joga na variável estática da classe ManipularDadosLivro
-        CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, ManipularDadosLivro.getLivro().getIdLivro(),
+        CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, DadosLivroCarregado.getLivro().getIdLivro(),
                 habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
 
         CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);

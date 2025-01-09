@@ -3,8 +3,7 @@ package livro.jogo.telas.desktop;
 import livro.jogo.entidades.Livro;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import java.awt.*;
@@ -218,7 +217,7 @@ public class TelaRegrasOpcoes extends JDialog {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoCriarPersonagem){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Personagem";
 
                 TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraCalcularIndicesIniciais());
@@ -231,7 +230,7 @@ public class TelaRegrasOpcoes extends JDialog {
                 }
 
             if (e.getSource() == botaoRegraBatalha){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Batalha";
 
                 TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraBatalha());
@@ -240,7 +239,7 @@ public class TelaRegrasOpcoes extends JDialog {
             }
 
             if (e.getSource() == botaoRegraSorte){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Sorte";
 
                 TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraUsoSorte());
@@ -249,7 +248,7 @@ public class TelaRegrasOpcoes extends JDialog {
             }
 
             if (e.getSource() == botaoRegraReposicaoIndices){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Índices";
                 TelaRegra telaRegra = new TelaRegra(1200,790,titulo,livro.getRegraReposicaoIndices());
                 telaRegra.setTitle("Regra - Repor HABILIDADE, SORTE e  ENERGIA");
@@ -257,7 +256,7 @@ public class TelaRegrasOpcoes extends JDialog {
             }
 
             if (e.getSource() == botaoRegraEquipamentos){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Equipamentos";
                 TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getRegraEquipamentos());
                 telaRegras.setTitle("Regra - Equipamentos e Poções");
@@ -265,7 +264,7 @@ public class TelaRegrasOpcoes extends JDialog {
             }
 
             if (e.getSource() == botaoDicas){
-                Livro livro = ManipularDadosLivro.getLivro();
+                Livro livro = DadosLivroCarregado.getLivro();
                 String titulo = "Dicas";
                 TelaRegra telaRegras = new TelaRegra(1200,790,titulo,livro.getDicas());
                 telaRegras.setTitle("Dicas");

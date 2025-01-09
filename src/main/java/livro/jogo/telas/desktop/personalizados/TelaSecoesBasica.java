@@ -8,7 +8,7 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.EfeitoDeItens;
-import livro.jogo.utils.ManipularDadosLivro;
+import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class TelaSecoesBasica extends JDialog{
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial;
-    private String enderecoImagem = ManipularDadosLivro.getLivro().getImagemComplementar();
+    private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
     private JFrame referenciaTelaPrincipal;
 
     private JLabelOpcoesTelaSecao labelMapaBotao;
@@ -38,7 +38,10 @@ public class TelaSecoesBasica extends JDialog{
     private JLabelOpcoesTelaSecao labelAumentaTexto;
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
     private JTextPane textoHistoria;
-    private final EfeitoDeItens acoesComunsTelaSecao;
+    private JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
+    private JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
+    private JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
+    //private final EfeitoDeItens acoesComunsTelaSecao;
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
@@ -51,7 +54,7 @@ public class TelaSecoesBasica extends JDialog{
         this.secao = secao;
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
+        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -59,7 +62,7 @@ public class TelaSecoesBasica extends JDialog{
             setTitle("Seção - " + secao.getCodSecaoLivro());
         }
         else{
-            setTitle("Livro - " + ManipularDadosLivro.getLivro().getNome());
+            setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
         }
         setType(Window.Type.UTILITY);
 
@@ -81,11 +84,12 @@ public class TelaSecoesBasica extends JDialog{
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));
+        tela.setLayout(null);
 
         this.secao = secao;
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
+        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -93,7 +97,7 @@ public class TelaSecoesBasica extends JDialog{
             setTitle("Seção - " + secao.getCodSecaoLivro());
         }
         else{
-            setTitle("Livro - " + ManipularDadosLivro.getLivro().getNome());
+            setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
         }
         setType(Window.Type.UTILITY);
 
@@ -131,10 +135,11 @@ public class TelaSecoesBasica extends JDialog{
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
         labelFaixaInferiorEsquerda.setBounds(-110,675,300,250);
 
-        add(labelFaixaInferiorEsquerda);
+
         add(labelFaixaInferiorDireita);
         add(labelFaixaSuperiorDireita);
         add(labelFaixaSuperiorEsquerda);
+        add(labelFaixaInferiorEsquerda);
     }
 
     private void carregarTextoHistoria() {
@@ -167,7 +172,7 @@ public class TelaSecoesBasica extends JDialog{
         if (secao != null)
             textoHistoria.setText( secao.getTexto() );
         else
-            textoHistoria.setText( ManipularDadosLivro.getLivro().getHistoria() );
+            textoHistoria.setText( DadosLivroCarregado.getLivro().getHistoria() );
 
         //para posicionar a barra de rolagem no início.
         textoHistoria.setCaretPosition(0);
@@ -225,7 +230,7 @@ public class TelaSecoesBasica extends JDialog{
 
 
         //Habilidade
-        JLabel lbHabilidadePersonagem = new JLabel("Habilidade: "+
+        lbHabilidadePersonagem = new JLabel("Habilidade: "+
                 String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                 String.valueOf(personagem.getHabilidadeMax()));
         lbHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -235,7 +240,7 @@ public class TelaSecoesBasica extends JDialog{
         lbHabilidadePersonagem.setToolTipText("<html>Reflete a sua capacidade como espadachim e domínio geral das técnicas de luta.<br>Índice: (Atual/Máximo)</html>");
 
         //Energia
-        JLabel lbEnergiaPersonagem = new JLabel("Energia: "+
+        lbEnergiaPersonagem = new JLabel("Energia: "+
                 String.valueOf(personagem.getEnergiaAtual())+ "/"+
                 String.valueOf(personagem.getEnergiaMax()));
         lbEnergiaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -245,7 +250,7 @@ public class TelaSecoesBasica extends JDialog{
         lbEnergiaPersonagem.setToolTipText("<html>Reflete sua constituição física global, sua determinação de sobreviver, força de vontade e aptidão geral.<br>Índice: (Atual/Máximo)</html>");
 
         //Sorte
-        JLabel lbSortePersonagem = new JLabel("Sorte: "+
+        lbSortePersonagem = new JLabel("Sorte: "+
                 String.valueOf(personagem.getSorteAtual())+ "/"+
                 String.valueOf(personagem.getSorteMax()));
         lbSortePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -399,7 +404,7 @@ public class TelaSecoesBasica extends JDialog{
         labelPocaoInicial.addMouseListener(acaoLabels);
 
         //Provisões
-        var textoProvisoes = "<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>";
+        var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
         labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
                 ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         labelProvisoes.addMouseListener(acaoLabels);
@@ -446,7 +451,7 @@ public class TelaSecoesBasica extends JDialog{
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
         labelSair.addMouseListener(acaoLabels);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
-       // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+        // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
         //Posicionamento
@@ -543,9 +548,23 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() ==  labelProvisoes){
 
-                if (acoesComunsTelaSecao.quantidadeProvisoesRestantes() > 0) {
-                    acoesComunsTelaSecao.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()); //Item provisão
-                    labelProvisoes.setText("<html>Provisões:" + acoesComunsTelaSecao.quantidadeProvisoesRestantes() + "</html>");
+                //Testa se personagem encontra-se com energia cheia e o avisa.
+                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+", sua energia está completa."+
+                            "\n\nNão existe necessidade de se alimentar.");
+                    return;
+                }
+
+                //Testa se ainda existem provisões para comer
+                if (Util.quantidadeProvisoesRestantes() > 0) {
+
+                    //Aqui trata a ação de comer a provisão
+                    EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()); //Item provisão
+                    lbEnergiaPersonagem.setText("Energia: "+
+                            String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                            String.valueOf(personagem.getEnergiaMax()));
+                    labelProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+                    CarregarTelas.telaMensagem("Fábio, você recuperou 4 pontos de energia ao comer uma refeição.");
                 }
                 else
                     CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");
@@ -553,7 +572,7 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() ==  labelAnotacoes){
                 //Aqui deve ser chamado nova tela para anotações do personagem
-                 JOptionPane.showMessageDialog(null,"Anotações");
+                JOptionPane.showMessageDialog(null,"Anotações");
             }
 
             if (e.getSource() ==  labelSalvar){
