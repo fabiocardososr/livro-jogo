@@ -571,7 +571,7 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() == labelBolsa){
                 CarregarTelas.telaBolsa(1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
-                        lbSortePersonagem, labelProvisoes);
+                        lbSortePersonagem, labelProvisoes, labelPocaoInicial);
             }
 
             if (e.getSource() == labelPocaoInicial){

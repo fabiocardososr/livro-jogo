@@ -25,13 +25,15 @@ public class TelaBolsa extends JDialog {
     private JLabel lbHabilidadePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabel lbSortePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
+    private JLabelOpcoesTelaSecao labelPocaoInicial; //Poção inicial
     private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
 
     public TelaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
                      JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
-                     JLabelOpcoesTelaSecao botaoProvisoes) {
+                     JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial) {
         this.lbEnergiaPersonagem = lbEnergiaPersonagem;
         this.botaoProvisoes = botaoProvisoes;
+        this.labelPocaoInicial = labelPocaoInicial;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
