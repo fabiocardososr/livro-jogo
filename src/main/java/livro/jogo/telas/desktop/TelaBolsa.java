@@ -2,10 +2,14 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.enums.TelasDisponiveisParaCarregamento;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,8 +21,16 @@ import java.util.HashMap;
 public class TelaBolsa extends JDialog {
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
     private JLabelOpcoesTelaSecao botaoSair;
+    private JLabel lbEnergiaPersonagem;
+    private JLabel lbHabilidadePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
+    private JLabel lbSortePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
+    private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
 
-    public TelaBolsa(int largura, int altura) {
+    public TelaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
+                     JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
+                     JLabelOpcoesTelaSecao botaoProvisoes) {
+        this.lbEnergiaPersonagem = lbEnergiaPersonagem;
+        this.botaoProvisoes = botaoProvisoes;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
@@ -160,6 +172,19 @@ public class TelaBolsa extends JDialog {
 
     }
 
+    private void atualizarCamposTelaSecao(Item item) {
+
+        //Se comeu provisão, atualiza os campos da tela de seção
+        if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
+
+            lbEnergiaPersonagem.setText("Energia: " +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
+
+            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+        }
+    }
+
     private class TelaBolsaListener implements MouseListener {
 
         @Override
@@ -173,9 +198,28 @@ public class TelaBolsa extends JDialog {
             JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
             Item item = mapItens.get(imgLabel);
 
-            //Executa o efeito do item quando clicado na imagem do item que consta na bolsa
-            EfeitoDeItens.acoesDosItens(item.getIdItem());
+            //Executa o efeito e remove da bolsa
+            boolean consumiuItem = EfeitoDeItens.acoesDosItens(item.getIdItem());
+
+            //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
+            atualizarCamposTelaSecao(item);
+
+            if ( consumiuItem ) {
+
+                //Destrói o objeto
+                imgLabel.setVisible(false);
+            }
+            else
+                //Testa se personagem encontra-se com energia cheia e o avisa.
+                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                            .toUpperCase()+", sua energia está completa."+
+                            "\n\nNão existe necessidade de se alimentar.");
+                    return;
+                }
         }
+
+
 
         @Override
         public void mousePressed(MouseEvent e) {

@@ -107,8 +107,6 @@ public class Testes {
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                 "livros/florestadadestruicao/itens/item_51.json"));
 
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
 
         return itensEquipados;
 

@@ -536,7 +536,8 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() == labelBolsa){
-                CarregarTelas.telaBolsa(1000,800);
+                CarregarTelas.telaBolsa(1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
+                        lbSortePersonagem, labelProvisoes);
             }
 
             if (e.getSource() == labelPocaoInicial){
@@ -559,12 +560,14 @@ public class TelaSecoesBasica extends JDialog{
                 if (Util.quantidadeProvisoesRestantes() > 0) {
 
                     //Aqui trata a ação de comer a provisão
-                    EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()); //Item provisão
-                    lbEnergiaPersonagem.setText("Energia: "+
-                            String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                            String.valueOf(personagem.getEnergiaMax()));
-                    labelProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
-                    CarregarTelas.telaMensagem("Fábio, você recuperou 4 pontos de energia ao comer uma refeição.");
+                     //Item provisão
+                    if  (EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+                        lbEnergiaPersonagem.setText("Energia: " +
+                                String.valueOf(personagem.getEnergiaAtual()) + "/" +
+                                String.valueOf(personagem.getEnergiaMax()));
+                        labelProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+                        CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma refeição.");
+                    }
                 }
                 else
                     CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");

@@ -14,27 +14,30 @@ public class EfeitoDeItens {
 //    }
 
     //Aqui são codificados todos os efeitos dos itens
-    public static void acoesDosItens(int idItem){
+    public static boolean acoesDosItens(int idItem){
 
         switch(idItem) {
-            case 45: efeitoItem45(); //Poção de Habilidade
-                break;
-            case 49: efeitoItem49Provisao(); //Provisões (comida)
-                break;
-            default: //Não faça nada
+            case 45: return efeitoItem45(); //Poção de Habilidade
+            case 49: return efeitoItem49Provisao(); //Provisões (comida)
+            default: return false;
         }
     }
 
     //Poção de Habilidade inicial
-    private static void efeitoItem45(){
+    private static boolean efeitoItem45(){
         System.out.println("Poção de Habilidade!");
+        return true;
     }
 
     //Provisão
-    private static void efeitoItem49Provisao(){
+    private static boolean efeitoItem49Provisao(){
         Personagem personagem = DadosLivroCarregado.getPersonagem();
         ArrayList<Item> itens = personagem.getBolsa();
 
+        //Se personagem com energia máxima, não fazer nada
+        if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+            return false;
+        }
 
         //Achar um item do tipo provisão e removê-lo da bolsa
         for (Item item : itens)
@@ -56,6 +59,8 @@ public class EfeitoDeItens {
 
         //Atualizando índice
         personagem.setEnergiaAtual(indiceAtualComReposicao);
+
+        return true;
     }
 
     //Retorna a quantidade de provisões que estão na bolsa

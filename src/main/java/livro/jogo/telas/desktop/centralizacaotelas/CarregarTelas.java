@@ -4,31 +4,33 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.*;
+import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class CarregarTelas {
-    private TelaBasica telaPrincipal; //Guardar a referência da tela principal
+    private TelaBasica telaPai; //Guardar a referência da tela principal
     private static boolean resultadoTelaDeConfirmacao = false;
 
     public static boolean isResultadoTelaDeConfirmacao() {
         return resultadoTelaDeConfirmacao;
     }
 
-    public CarregarTelas(TelaBasica telaPrincipal) {
-        this.telaPrincipal = telaPrincipal;
+    public CarregarTelas(TelaBasica telaPai) {
+        this.telaPai = telaPai;
     }
 
     public CarregarTelas() {
     }
 
-    public TelaBasica getTelaPrincipal() {
-        return telaPrincipal;
+    public TelaBasica getTelaPai() {
+        return telaPai;
     }
 
     public void carregarTela(TelasDisponiveisParaCarregamento tela, String titulo, String tituloTela, String texto){
@@ -53,7 +55,7 @@ public class CarregarTelas {
 
     private void telaPrincipal(){
         TelaPrincipal tela = new TelaPrincipal(1430,720);
-        this.telaPrincipal = tela;
+        this.telaPai = tela;
         tela.setVisible(true);
     }
 
@@ -69,12 +71,12 @@ public class CarregarTelas {
     }
 
     private void telaCriacaoPersonagem(){
-        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPrincipal);
+        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPai);
 
         //Quando fechar este tela, deve voltar para a principal
         telaCriarPersonagem.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent event) {
-                telaPrincipal.setVisible(true);
+                telaPai.setVisible(true);
                 //System.exit(0);
             }
         });
@@ -86,8 +88,11 @@ public class CarregarTelas {
         telaSecoesBasica.setVisible(true);
     }
 
-    public static void telaBolsa(int largura, int altura){
-        TelaBolsa telaBolsa = new TelaBolsa(largura,altura);
+    public static void telaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
+                                 JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
+                                 JLabelOpcoesTelaSecao botaoProvisoes){
+        TelaBolsa telaBolsa = new TelaBolsa(largura,altura, lbEnergiaPersonagem,lbHabilidadePersonagem,
+                lbSortePersonagem,botaoProvisoes);
 
         telaBolsa.setVisible(true);
     }
