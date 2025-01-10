@@ -51,9 +51,9 @@ public class CriacaoPersonagem {
            bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
                    ItensMapeamento.POCAO_DE_HABILIDADE.getEnderecoJson()));
 
-        if (ItensMapeamento.POCAO_DE_FORCA.getIdItem() == pocaoEscolhida)
+        if (ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() == pocaoEscolhida)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    ItensMapeamento.POCAO_DE_FORCA.getEnderecoJson()));
+                    ItensMapeamento.POCAO_DE_ENERGIA.getEnderecoJson()));
 
         if (ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() == pocaoEscolhida)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,

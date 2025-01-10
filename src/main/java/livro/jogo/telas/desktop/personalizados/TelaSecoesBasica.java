@@ -21,7 +21,7 @@ public class TelaSecoesBasica extends JDialog{
     private final Secao secao;
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
-    private Item pocaoInicial;
+    private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
     private JFrame referenciaTelaPrincipal;
 
@@ -41,7 +41,7 @@ public class TelaSecoesBasica extends JDialog{
     private JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     private JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     private JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
-    //private final EfeitoDeItens acoesComunsTelaSecao;
+    private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
 
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
@@ -293,11 +293,11 @@ public class TelaSecoesBasica extends JDialog{
         lbSortePersonagem.setBounds(967,555,140,50);
         lbEnergiaPersonagem.setBounds(960,520,140,50);
         lbHabilidadePersonagem.setBounds(950,485,140,50);
-        imgPainelNomePersonagem.setBounds(890,370,300,150);
+        imgPainelNomePersonagem.setBounds(895,370,300,150);
         imgPainelHabilidadePersonagem.setBounds(910,490,200,40);
         imgPainelEnergiaPersonagem.setBounds(910,525,200,40);
         imgPainelSortePersonagem.setBounds(910,560,200,40);
-        lbNomePersonagem.setBounds(895,415,300,50);
+        lbNomePersonagem.setBounds(900,415,300,50);
         painelPersonagem.setBounds(875, 367, 340, 375);
 
         //Adiciona a tela
@@ -380,26 +380,19 @@ public class TelaSecoesBasica extends JDialog{
             labelPocaoInicial.setBounds(1285,265,150,100);
         }
 
-        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_FORCA.getIdItem()) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
             labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
             labelPocaoInicial.setBounds(1290,265,150,100);
         }
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
             labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
             labelPocaoInicial.setBounds(1285,265,150,100);
-        }
-
-        if ( pocaoInicial.getQuantidadeUso() == 0 ){
-            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
-            labelPocaoInicial.setText("");
-            labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-            labelPocaoInicial.setBounds(1270,265,150,100);
-            //labelPocaoInicial.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
         }
         labelPocaoInicial.addMouseListener(acaoLabels);
 
@@ -489,6 +482,47 @@ public class TelaSecoesBasica extends JDialog{
         add(imgPainelDireito);
     }
 
+    //Substitui a imagem da poção inicial por um recipiente vazio
+    private void configuraPocaoVaziaQuandoPocaoInicialConsumida(){
+        String complementoTexto = ""; //Complemento do texto quando escolhida a poção da fortuna (sorte)
+
+        labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+        labelPocaoInicial.setText("");
+        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+        labelPocaoInicial.setBounds(1270,265,150,100);
+        labelPocaoInicial.addMouseListener(null);
+        labelPocaoInicial.setToolTipText("Poção consumida");
+
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()){
+            lbSortePersonagem.setText("Sorte: "+
+                                        String.valueOf(personagem.getSorteAtual())+ "/"+
+                                        String.valueOf(personagem.getSorteMax()));
+            complementoTexto = " Além do incremento de 1 ponto no seu nível.";
+        }
+
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()){
+
+            lbEnergiaPersonagem.setText("Energia: "+
+                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                    String.valueOf(personagem.getEnergiaMax()));
+        }
+
+        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()){
+
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+
+
+        CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                ", você toma a poção e se sente bem.\n\nSeu índice de " +
+                pocaoInicial.getTipoEfeito().name().toLowerCase()
+                + " encontra-se no nível máximo."+complementoTexto);
+    }
+
     //Carrega uma tela de diálogo com uma imagem
     public JDialog carregaImagemEmUmaTela(){
         JDialog dialogImagem = new JDialog(this,"",false);
@@ -541,10 +575,24 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() == labelPocaoInicial){
-                if (pocaoInicial.getQuantidadeUso() == 0)
-                    JOptionPane.showMessageDialog(null,"Você já tomou a "+ pocaoInicial.getNome());
-                else
-                    JOptionPane.showMessageDialog(null,"Clicado na Poção: "+ pocaoInicial.getNome());
+
+                if ( pocaoInicial == null ) {
+                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                            ", você já tomou a poção especial.");
+                    return;
+                }
+
+               var foiConsumido = efeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
+
+               if ( foiConsumido ) {
+                   configuraPocaoVaziaQuandoPocaoInicialConsumida();
+                   pocaoInicial = null;
+               }
+               else
+                   CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+
+                           ", seu índice de "+pocaoInicial.getTipoEfeito().name().toLowerCase()+
+                           " encontra-se no nível máximo."+
+                           "\n\nNão existe necessidade de tomar a poção.");
             }
 
             if (e.getSource() ==  labelProvisoes){
@@ -561,7 +609,7 @@ public class TelaSecoesBasica extends JDialog{
 
                     //Aqui trata a ação de comer a provisão
                      //Item provisão
-                    if  (EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+                    if  (efeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));

@@ -2,7 +2,7 @@ package livro.jogo.enums;
 
 public enum ItensMapeamento {
     POCAO_DE_HABILIDADE("livros/florestadadestruicao/itens/item_45.json", 45),
-    POCAO_DE_FORCA("livros/florestadadestruicao/itens/item_46.json",46),
+    POCAO_DE_ENERGIA("livros/florestadadestruicao/itens/item_46.json",46),
     POCAO_DA_FORTUNA("livros/florestadadestruicao/itens/item_47.json",47),
     PROVISAO("livros/florestadadestruicao/itens/item_49.json",49),
     ESPADA("livros/florestadadestruicao/itens/item_50.json",50),

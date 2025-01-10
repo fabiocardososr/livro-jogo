@@ -677,7 +677,7 @@ public class TelaCriarPersonagem extends TelaBasica {
             }
 
             if (e.getSource() == botaoPocaoEnergia ){
-                pocaoEscolhida = ItensMapeamento.POCAO_DE_FORCA.getIdItem();  //Corresponde ao código da poção de Energia
+                pocaoEscolhida = ItensMapeamento.POCAO_DE_ENERGIA.getIdItem();  //Corresponde ao código da poção de Energia
                 imgInterrogacao.setImagem(ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
                 imgInterrogacao.setToolTipText("Poção de Força escolhida. Recupera a energia.");
                 habilitarBotaoGravar();

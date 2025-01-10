@@ -22,6 +22,8 @@ public class Testes {
                 bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
         personagem.setEnergiaAtual(10);
+        personagem.setSorteAtual(5);
+        personagem.setHabilidadeAtual(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //LEMBRE-SE QUE ESTÁ DANDO PAU NA HORA DE FECHAR PORQUE NAO TEM REFERENCIA PARA A TELA PRINCIPAL

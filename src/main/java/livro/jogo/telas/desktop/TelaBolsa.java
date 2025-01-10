@@ -25,6 +25,7 @@ public class TelaBolsa extends JDialog {
     private JLabel lbHabilidadePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabel lbSortePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
+    private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
 
     public TelaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
                      JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
@@ -199,7 +200,7 @@ public class TelaBolsa extends JDialog {
             Item item = mapItens.get(imgLabel);
 
             //Executa o efeito e remove da bolsa
-            boolean consumiuItem = EfeitoDeItens.acoesDosItens(item.getIdItem());
+            boolean consumiuItem = efeitoDeItens.acoesDosItens(item.getIdItem());
 
             //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
             atualizarCamposTelaSecao(item);

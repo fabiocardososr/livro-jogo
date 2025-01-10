@@ -45,7 +45,7 @@ public class Util {
 
         for (Item item : itens){
             if ( (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ||
-                    (item.getIdItem() == ItensMapeamento.POCAO_DE_FORCA.getIdItem()) ||
+                    (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ||
                     (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ){
                     return item;
             }
@@ -75,6 +75,26 @@ public class Util {
         var indiceEnergiaMax   = personagem.getEnergiaMax();
 
         return indiceEnergiaMax - indiceEnergiaAtual;
+    }
+
+    //Retorna diferença entre o valor máximo e o atual de HABILIDADE do personagem
+    public static int retornaDiferencaEntreHabilidadeMaxEAtual(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        var indiceAtual = personagem.getHabilidadeAtual();
+        var indiceMax   = personagem.getHabilidadeMax();
+
+        return indiceMax - indiceAtual;
+    }
+
+    //Retorna diferença entre o valor máximo e o atual de SORTE do personagem
+    public static int retornaDiferencaEntreSorteMaxEAtual(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        var indiceAtual = personagem.getSorteAtual();
+        var indiceMax   = personagem.getSorteMax();
+
+        return indiceMax - indiceAtual;
     }
 
     //    //Retorna a quantidade de provisões que estão na bolsa

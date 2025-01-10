@@ -8,31 +8,89 @@ import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import java.util.ArrayList;
 
 public class EfeitoDeItens {
-
-//    public EfeitoDeItens(Personagem personagem) {
-//        this.personagem = personagem;
-//    }
+    private Personagem personagem = DadosLivroCarregado.getPersonagem();
+    private ArrayList<Item> itens = personagem.getBolsa();
 
     //Aqui são codificados todos os efeitos dos itens
-    public static boolean acoesDosItens(int idItem){
+    public boolean acoesDosItens(int idItem){
 
         switch(idItem) {
-            case 45: return efeitoItem45(); //Poção de Habilidade
-            case 49: return efeitoItem49Provisao(); //Provisões (comida)
+            case 45: return efeitoItem45();             //Poção de Habilidade
+            case 46: return efeitoItem46();             //Poção de força
+            case 47: return efeitoItem47();             //Poção de Fortuna
+            case 49: return efeitoItem49Provisao();     //Provisões (comida)
             default: return false;
         }
     }
 
+    //Poção da fortuna(sorte)
+    private boolean efeitoItem47() {
+
+        //Se personagem com índice no máximo, não fazer nada
+        if (Util.retornaDiferencaEntreSorteMaxEAtual() == 0){
+            return false;
+        }
+
+        //Achar o item e removê-lo da bolsa
+        for (Item item : itens)
+            if ( item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() ) {
+                itens.remove(item);
+                break;
+            }
+
+        //Aumenta em 1 o nível inicial(máximo) de sorte
+        personagem.setSorteMax( personagem.getSorteMax() + 1 );
+
+        //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
+        personagem.setSorteAtual( personagem.getSorteMax() );
+
+        return true;
+    }
+
+    //Poção de força(energia)
+    private boolean efeitoItem46() {
+
+        //Se personagem com índice no máximo, não fazer nada
+        if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+            return false;
+        }
+
+        //Achar o item e removê-lo da bolsa
+        for (Item item : itens)
+            if ( item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() ) {
+                itens.remove(item);
+                break;
+            }
+
+        //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
+        personagem.setEnergiaAtual( personagem.getEnergiaMax() );
+
+        return true;
+    }
+
     //Poção de Habilidade inicial
-    private static boolean efeitoItem45(){
-        System.out.println("Poção de Habilidade!");
+    private boolean efeitoItem45(){
+
+        //Se personagem com índice no máximo, não fazer nada
+        if (Util.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
+            return false;
+        }
+
+        //Achar o item e removê-lo da bolsa
+        for (Item item : itens)
+            if ( item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() ) {
+                itens.remove(item);
+                break;
+            }
+
+        //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
+        personagem.setHabilidadeAtual( personagem.getHabilidadeMax() );
+
         return true;
     }
 
     //Provisão
-    private static boolean efeitoItem49Provisao(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-        ArrayList<Item> itens = personagem.getBolsa();
+    private boolean efeitoItem49Provisao(){
 
         //Se personagem com energia máxima, não fazer nada
         if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
@@ -63,14 +121,6 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Retorna a quantidade de provisões que estão na bolsa
-    private void removerProvisaoDaBolsa(){
-
-    }
-
-    public static ArrayList<Item> retornaItensDaBolsa(){
-        return DadosLivroCarregado.getBolsa();
-    }
 
 
 
