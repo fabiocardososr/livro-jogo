@@ -3,7 +3,6 @@ package livro.jogo.telas.desktop;
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -93,7 +92,10 @@ public class TelaBolsa extends JDialog {
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
             imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
             imgItem.addMouseListener(acao);
+
+            //Coloco o objeto no map para posterior consulta ao clicar nele
             mapItens.put(imgItem, item);
+
             painelListaItens.add(imgItem);
             ++contNumerodeItensPorLinha;
             //imgInterrogacao.setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -175,9 +177,9 @@ public class TelaBolsa extends JDialog {
 
     }
 
-    private void atualizarCamposTelaSecao(Item item) {
+    private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item, boolean consumiuItem) {
 
-        //Se comeu provisão, atualiza os campos da tela de seção
+        /* PROVISÃO(49) */
         if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
 
             lbEnergiaPersonagem.setText("Energia: " +
@@ -185,32 +187,14 @@ public class TelaBolsa extends JDialog {
                     String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
 
             botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
-        }
-    }
-
-    private class TelaBolsaListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-            if (e.getSource() == botaoSair){
-                setVisible(false);
-                return;
-            }
-
-            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
-            Item item = mapItens.get(imgLabel);
-
-            //Executa o efeito e remove da bolsa
-            boolean consumiuItem = efeitoDeItens.acoesDosItens(item.getIdItem());
-
-            //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
-            atualizarCamposTelaSecao(item);
 
             if ( consumiuItem ) {
-
                 //Destrói o objeto
                 imgLabel.setVisible(false);
+
+                //Mensagem
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
+                        ", você recuperou 4 pontos de energia ao comer uma Provisão(refeição).");
             }
             else
                 //Testa se personagem encontra-se com energia cheia e o avisa.
@@ -220,6 +204,29 @@ public class TelaBolsa extends JDialog {
                             "\n\nNão existe necessidade de se alimentar.");
                     return;
                 }
+        }
+    }
+
+    private class TelaBolsaListener implements MouseListener {
+        private boolean consumiuItem;
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == botaoSair){
+                setVisible(false);
+                return;
+            }
+
+            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
+            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
+            Item item = mapItens.get(imgLabel);
+
+            //executa o efeito e remove da bolsa.
+            consumiuItem = efeitoDeItens.acoesDosItens(item.getIdItem());
+
+            //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
+            atualizarCamposTelaSecao(imgLabel, item, consumiuItem);
         }
 
 

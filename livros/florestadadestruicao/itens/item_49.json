@@ -5,7 +5,7 @@
 	"descricao":"Você pode descansar e comer a qualquer momento, exceto quando estiver empenhado numa batalha. Comer uma refeição repõe 4 pontos de ENERGIA.",
 	"valorCusto":"0",
 	"modificador":"4",   
-	"quantidadeUso":"0",
+	"quantidadeUso":"1",
 	"flgUsoTemporario":"N",
 	"flgUsoUnico":"S",
 	"flgUsoPermanente":"N",
