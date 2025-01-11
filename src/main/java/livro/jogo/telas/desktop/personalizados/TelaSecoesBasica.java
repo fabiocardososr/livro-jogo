@@ -524,7 +524,7 @@ public class TelaSecoesBasica extends JDialog{
     }
 
     //Carrega uma tela de diálogo com uma imagem
-    public JDialog carregaImagemEmUmaTela(){
+    private JDialog carregaImagemEmUmaTela(){
         JDialog dialogImagem = new JDialog(this,"",false);
         dialogImagem.setSize(new Dimension(590,715));
         dialogImagem.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama

@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Item;
+import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
@@ -33,6 +34,8 @@ public class TelaBolsa extends JDialog {
         this.lbEnergiaPersonagem = lbEnergiaPersonagem;
         this.botaoProvisoes = botaoProvisoes;
         this.labelPocaoInicial = labelPocaoInicial;
+        this.lbSortePersonagem = lbSortePersonagem;
+        this.lbHabilidadePersonagem = lbHabilidadePersonagem;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
@@ -177,36 +180,6 @@ public class TelaBolsa extends JDialog {
 
     }
 
-    private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item, boolean consumiuItem) {
-
-        /* PROVISÃO(49) */
-        if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
-
-            lbEnergiaPersonagem.setText("Energia: " +
-                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
-                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
-
-            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
-
-            if ( consumiuItem ) {
-                //Destrói o objeto
-                imgLabel.setVisible(false);
-
-                //Mensagem
-                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
-                        ", você recuperou 4 pontos de energia ao comer uma Provisão(refeição).");
-            }
-            else
-                //Testa se personagem encontra-se com energia cheia e o avisa.
-                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-                            .toUpperCase()+", sua energia está completa."+
-                            "\n\nNão existe necessidade de se alimentar.");
-                    return;
-                }
-        }
-    }
-
     private class TelaBolsaListener implements MouseListener {
         private boolean consumiuItem;
 
@@ -249,6 +222,56 @@ public class TelaBolsa extends JDialog {
         @Override
         public void mouseExited(MouseEvent e) {
 
+        }
+    }
+
+    private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item,
+                                          boolean consumiuItem) {
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        /* PROVISÃO(49) */
+        if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
+
+            lbEnergiaPersonagem.setText("Energia: " +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
+
+            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+
+            if ( consumiuItem ) {
+                //Destrói o objeto
+                imgLabel.setVisible(false);
+
+                //Mensagem
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
+                        ", você recuperou 4 pontos de energia ao comer uma Provisão(refeição).");
+            }
+            else
+                //Testa se personagem encontra-se com energia cheia e o avisa.
+                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                            .toUpperCase()+", sua energia está completa."+
+                            "\n\nNão existe necessidade de se alimentar.");
+                    return;
+                }
+        }
+
+        /* Poção da Fortuna(47)  */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
+
+            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+            labelPocaoInicial.setText("");
+            labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+            labelPocaoInicial.setBounds(1270,265,150,100);
+            labelPocaoInicial.addMouseListener(null);
+            labelPocaoInicial.setToolTipText("Poção consumida");
+            lbSortePersonagem.setText("Sorte: "+
+                    String.valueOf(personagem.getSorteAtual())+ "/"+
+                    String.valueOf(personagem.getSorteMax()));
+            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                    ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
+                    " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
         }
     }
 }

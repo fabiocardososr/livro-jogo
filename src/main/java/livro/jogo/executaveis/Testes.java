@@ -16,7 +16,7 @@ public class Testes {
         livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
 
         var itensEquipados = recuperaItensIniciaisEquipados();
-        var bolsa = adicionaItensIniciaisNaBolsa(47);
+        var bolsa = adicionaItensNaBolsaParaTeste();
 
         Personagem personagem = new Personagem("Fábio",1,10,20,10,
                 bolsa,itensEquipados,1);
@@ -114,17 +114,30 @@ public class Testes {
 
     }
 
-    private static ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {
+    private static ArrayList<Item> adicionaItensNaBolsaParaTeste() {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=0; i<10; i++)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    "livros/florestadadestruicao/itens/item_49.json"));
+//        for (int i=0; i<10; i++)
+//            bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+//                    "livros/florestadadestruicao/itens/item_49.json"));
+
+//        for (int i=1; i<=50; i++)
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+//                "livros/florestadadestruicao/itens/item_"+i+".json"));
 
         bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_"+pocaoEscolhida+".json"));
+                "livros/florestadadestruicao/itens/item_45.json"));
+
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+//                "livros/florestadadestruicao/itens/item_46.json"));
+//
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+//                "livros/florestadadestruicao/itens/item_47.json"));
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                    "livros/florestadadestruicao/itens/item_49.json"));
 
         return bolsa;
     }
