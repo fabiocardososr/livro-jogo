@@ -225,6 +225,17 @@ public class TelaBolsa extends JDialog {
         }
     }
 
+    //Quando clicado no botão de poção inicial, muda a imagem para uma garrafa vazia
+    private void mudarBotaoPocaoInicialParaVazio(){
+        labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+        labelPocaoInicial.setText("");
+        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+        labelPocaoInicial.setBounds(1270,265,150,100);
+        labelPocaoInicial.addMouseListener(null);
+        labelPocaoInicial.setToolTipText("Poção consumida");
+    }
+
     private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item,
                                           boolean consumiuItem) {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
@@ -259,19 +270,84 @@ public class TelaBolsa extends JDialog {
         /* Poção da Fortuna(47)  */
         if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
 
-            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
-                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
-            labelPocaoInicial.setText("");
-            labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-            labelPocaoInicial.setBounds(1270,265,150,100);
-            labelPocaoInicial.addMouseListener(null);
-            labelPocaoInicial.setToolTipText("Poção consumida");
+            //Retornando falso o personagem está com índice completo e portanto não consume o item
+            if ( !consumiuItem ){
+               CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                  .toUpperCase()+", seu índice de sorte está completo.\n\nNão existe necessidade de tomar a poção.");
+               return;
+            }
+
+            //Muda garrafa para vazia
+            mudarBotaoPocaoInicialParaVazio();
+
+            //Atualiza informação do índice do personagem
             lbSortePersonagem.setText("Sorte: "+
                     String.valueOf(personagem.getSorteAtual())+ "/"+
                     String.valueOf(personagem.getSorteMax()));
+
+           //Destrói o objeto
+           imgLabel.setVisible(false);
+
+           //Mensagem
+           CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                        ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
+                        " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
+        }
+
+        /* Poção da Força(energia - 46)  */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+
+            //Retornando falso o personagem está com índice completo e portanto não consume o item
+            if ( !consumiuItem ){
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                   .toUpperCase()+", seu índice de energia está completo.\n\nNão existe necessidade de tomar a poção.");
+                return;
+            }
+
+            //Muda garrafa para vazia
+            mudarBotaoPocaoInicialParaVazio();
+
+            //Muda informação do índice do personagem
+            lbEnergiaPersonagem.setText("Energia: "+
+                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                    String.valueOf(personagem.getEnergiaMax()));
+
+            //Destrói o objeto
+            imgLabel.setVisible(false);
+
+            //Mensagem
             CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                    ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
-                    " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
+                        ", você toma a poção e se sente bem.\n\nSeu índice de energia" +
+                        " encontra-se no nível máximo.");
+        }
+
+        /* Poção de Habilidade(45)  */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) {
+
+            //Retornando falso o personagem está com índice completo e portanto não consume o item
+            if ( !consumiuItem ){
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                        .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
+                return;
+            }
+
+            //Muda garrafa para vazia
+            mudarBotaoPocaoInicialParaVazio();
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+
+            //Destrói o objeto
+            imgLabel.setVisible(false);
+
+            //Mensagem
+            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                    ", você toma a poção e se sente bem.\n\nSeu índice de habilidade" +
+                    " encontra-se no nível máximo.");
         }
     }
+
+
 }

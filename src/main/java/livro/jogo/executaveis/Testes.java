@@ -21,8 +21,8 @@ public class Testes {
         Personagem personagem = new Personagem("Fábio",1,10,20,10,
                 bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
-        personagem.setEnergiaAtual(10);
-        personagem.setSorteAtual(5);
+        //personagem.setEnergiaAtual(10);
+       // personagem.setSorteAtual(5);
         personagem.setHabilidadeAtual(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
@@ -119,16 +119,16 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-//        for (int i=0; i<10; i++)
-//            bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-//                    "livros/florestadadestruicao/itens/item_49.json"));
+        for (int i=0; i<10; i++)
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
+                    "livros/florestadadestruicao/itens/item_49.json"));
 
 //        for (int i=1; i<=50; i++)
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
 //                "livros/florestadadestruicao/itens/item_"+i+".json"));
 
         bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                "livros/florestadadestruicao/itens/item_45.json"));
+                "livros/florestadadestruicao/itens/item_46.json"));
 
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
 //                "livros/florestadadestruicao/itens/item_46.json"));
@@ -136,8 +136,7 @@ public class Testes {
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
 //                "livros/florestadadestruicao/itens/item_47.json"));
 
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-                    "livros/florestadadestruicao/itens/item_49.json"));
+
 
         return bolsa;
     }

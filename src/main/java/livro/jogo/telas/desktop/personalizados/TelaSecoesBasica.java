@@ -576,6 +576,9 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() == labelPocaoInicial){
 
+                //Caso consumida via bolsa essa variável fica ativa no botão. Então verifica se ainda contém na bolsa.
+                pocaoInicial = Util.retornaPocaoInicialDaBolsa();
+
                 if ( pocaoInicial == null ) {
                     CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
                             ", você já tomou a poção especial.");
