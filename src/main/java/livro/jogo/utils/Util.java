@@ -6,6 +6,7 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -16,6 +17,7 @@ import java.util.Random;
 
 
 public class Util {
+    private static Clip clip; //Para reproduzir áudio
 
     //Simula a rolagem de dados, passando o tipo de dado(numeroDeFaces) e a quantidade de dados que serão rolados.
     public static int rolarDados(int numeroDeFaces, int quantidadeDeDados){
@@ -107,6 +109,29 @@ public class Util {
                 ++quantidadeProvisoes;
 
         return quantidadeProvisoes;
+    }
+
+    public static void reproduzirAudio(String caminho){
+        try {
+
+            clip = AudioSystem.getClip();
+
+            // Carrega o arquivo de áudio (não funciona com .mp3, só .wav)
+            File diretorio = new File(caminho);
+
+            //URL oUrl = new URL("http://www.soundjay.com/button/beep-02.wav");
+            clip = AudioSystem.getClip();
+            AudioInputStream oStream = AudioSystem.getAudioInputStream(diretorio);
+            clip.open(oStream);
+            clip.loop(0); // Toca uma vez
+
+        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void pararAudio(){
+             clip.stop();
     }
 
 }
