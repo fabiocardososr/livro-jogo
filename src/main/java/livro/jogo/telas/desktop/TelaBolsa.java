@@ -82,6 +82,10 @@ public class TelaBolsa extends JDialog {
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
+            //caso nao tenha imagem (até eu achar todas as imagens)
+            if (item.getEnderecoImagem().isEmpty())
+                continue;
+
             if (contNumerodeItensPorLinha == 5){
                 contNumerodeItensPorLinha = 0;
                 y = y + 60; //Posiciona os próximos itens logo abaixo
@@ -108,6 +112,9 @@ public class TelaBolsa extends JDialog {
         }
 
         for (Item item: itensEquipados) {
+
+            if (item.getEnderecoImagem().isEmpty())
+                continue;
 
             if (contNumerodeItensPorLinha == 5){
                 contNumerodeItensPorLinha = 0;

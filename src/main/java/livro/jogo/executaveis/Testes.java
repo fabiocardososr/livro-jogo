@@ -4,10 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.telas.desktop.TelaBolsa;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.sound.sampled.*;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,27 +36,15 @@ public class Testes {
 
 
 
-
-
-
         //LEMBRE-SE QUE ESTÁ DANDO PAU NA HORA DE FECHAR PORQUE NAO TEM REFERENCIA PARA A TELA PRINCIPAL
-        TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( DadosLivroCarregado.getMapSecao().get(400),personagem, null );
-        telaSecoesBasica.setVisible(true);
+        //TelaSecoesBasica telaSecoesBasica = new TelaSecoesBasica( DadosLivroCarregado.getMapSecao().get(400),personagem, null );
+        //telaSecoesBasica.setVisible(true);
 
 
 
 
-
-
-//        TelaBolsa tela = new TelaBolsa();
-//        tela.setVisible(true);
-//        tela.setSize(200,100);
-       //tela.setBackground(new Color(0,0,0,0));
-        //tela.setLocationRelativeTo(null);
-        //tela.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
-       // CarregarTelas.telaBolsa(1000,800);
-       // CarregarTelas.telaMensagem("Sua caminhada até a casa de Yaztromo leva um pouco mais da metade de um dia");
+      // CarregarTelas.telaBolsa(1000,800);
+       //CarregarTelas.telaMensagem("Sua caminhada até a casa de Yaztromo leva um pouco mais da metade de um dia");
 
     }
 
