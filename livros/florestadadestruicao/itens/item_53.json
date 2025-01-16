@@ -1,7 +1,7 @@
   {
-	"idItem":"50",
+	"idItem":"53",
 	"tipoEfeito":"NENHUM",
-	"nome":"Espada",
+	"nome":"Colar de crânio de camundongos",
 	"descricao":"",
 	"valorCusto":"0",
 	"modificador":"0",   
@@ -12,5 +12,5 @@
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"N",
 	"flgAfetaNivelMaxPersonagem":"N",
-	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_50.png"
+	"enderecoImagem":""
   }

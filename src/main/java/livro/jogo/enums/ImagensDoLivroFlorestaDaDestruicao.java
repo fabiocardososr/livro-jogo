@@ -1,12 +1,21 @@
 package livro.jogo.enums;
 
 public enum ImagensDoLivroFlorestaDaDestruicao {
-    ARMADURA_DE_COURO_INICIAL("livros/florestadadestruicao/imagens/itens/armadura_de_couro.png"),
-    PROVISOES("livros/florestadadestruicao/imagens/itens/provisao.png"),
+
+    /*** IMAGENS DE ITENS ***/
+    FILTROS_NASAIS("livros/florestadadestruicao/imagens/itens/item_4.png"),
+    POCAO_DE_HABILIDADE("livros/florestadadestruicao/imagens/itens/item_45.png"),
+    POCAO_DE_ENERGIA("livros/florestadadestruicao/imagens/itens/item_46.png"),
+    POCAO_DE_SORTE("livros/florestadadestruicao/imagens/itens/item_47.png"),
+    PROVISOES("livros/florestadadestruicao/imagens/itens/item_49.png"),
+    ESPADA_INICIAL("livros/florestadadestruicao/imagens/itens/item_50.png"),
+    ARMADURA_DE_COURO_INICIAL("livros/florestadadestruicao/imagens/itens/item_51.png"),
+
+
+    /***DEMAIS IMAGENS***/
     PERGAMINHO_FUNDO_CAD_PERSONAGEM("livros/florestadadestruicao/imagens/pergaminho_painel_cadPersonagem.png"),
     PERGAMINHO_FAIXA("livros/florestadadestruicao/imagens/pergaminho_inferior_secao.png"),
     PERGAMINHO_ABERTO("livros/florestadadestruicao/imagens/pergaminho_aberto7.png"),
-    PERGAMINHO_ABERTO_1("livros/florestadadestruicao/imagens/pergaminho_aberto_8.png"),
     FAIXA_INDICE_TELA_SECAO("livros/florestadadestruicao/imagens/faixa9.png"),
     FAIXA_NOME_PERSONAGEM_TELA_SECAO("livros/florestadadestruicao/imagens/faixa2.png"),
     FAIXA_8("livros/florestadadestruicao/imagens/faixa_8.png"),
@@ -15,13 +24,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     FAIXA_VERTICAL_1("livros/florestadadestruicao/imagens/faixa_vertical_1.png"),
     BOLSA("livros/florestadadestruicao/imagens/bolsa.png"),
-    ESPADA_INICIAL("livros/florestadadestruicao/imagens/itens/espada_inicial.png"),
-    PERGAMINHO_FUNDO_CAD_PERSONAGEM_INDICES("livros/florestadadestruicao/imagens/pergaminho.png"),
     GIF_ROLANDO_DADOS("livros/florestadadestruicao/imagens/rolando_dados.gif"),
-    //IMAGEM_DEFAULT_FLORESTA("livros/florestadadestruicao/imagens/floresta.jpg"),
-    POCAO_DE_HABILIDADE("livros/florestadadestruicao/imagens/itens/pocao_de_habilidade.png"),
-    POCAO_DE_ENERGIA("livros/florestadadestruicao/imagens/itens/pocao_de_energia.png"),
-    POCAO_DE_SORTE("livros/florestadadestruicao/imagens/itens/pocao_de_sorte.png"),
     POCAO_DE_VAZIA("livros/florestadadestruicao/imagens/itens/pocao_vazia.png"),
     MAPA_DA_FLORESTA("livros/florestadadestruicao/imagens/mapainicial.png"),
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
