@@ -7,11 +7,17 @@ public class Secao {
     private Integer codSecaoLivro;
     private String texto;
     private String enderecoImagem;
+    private String enderecoAudio;
     private final ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
     private final ArrayList<Item> itens = new ArrayList<>();
     private final ArrayList<Inimigo> inimigos = new ArrayList<>();
 
+
     public Secao() {
+    }
+
+    public String getEnderecoAudio() {
+        return enderecoAudio;
     }
 
     public Integer getCodSecaoLivro() {

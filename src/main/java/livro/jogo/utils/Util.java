@@ -1,6 +1,8 @@
 /*Classe que disponibiliza vários métodos auxiliares*/
 package livro.jogo.utils;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
@@ -10,14 +12,15 @@ import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 
 public class Util {
-    private static Clip clip; //Para reproduzir áudio
+    //private static Clip clip; //Para reproduzir áudio
+    private static Player player; //Reproduzir mp3
+    private Audio audio; //Thread que executa o áudio sem travar a tela (mp3)
 
     //Simula a rolagem de dados, passando o tipo de dado(numeroDeFaces) e a quantidade de dados que serão rolados.
     public static int rolarDados(int numeroDeFaces, int quantidadeDeDados){
@@ -111,27 +114,65 @@ public class Util {
         return quantidadeProvisoes;
     }
 
-    public static void reproduzirAudio(String caminho){
-        try {
+//    public static void reproduzirAudio(String caminho){
+//        try {
+//
+//            clip = AudioSystem.getClip();
+//
+//            // Carrega o arquivo de áudio (não funciona com .mp3, só .wav)
+//            File diretorio = new File(caminho);
+//
+//            //URL oUrl = new URL("http://www.soundjay.com/button/beep-02.wav");
+//            clip = AudioSystem.getClip();
+//            AudioInputStream oStream = AudioSystem.getAudioInputStream(diretorio);
+//            clip.open(oStream);
+//            clip.loop(0); // Toca uma vez
+//
+//        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
-            clip = AudioSystem.getClip();
-
-            // Carrega o arquivo de áudio (não funciona com .mp3, só .wav)
-            File diretorio = new File(caminho);
-
-            //URL oUrl = new URL("http://www.soundjay.com/button/beep-02.wav");
-            clip = AudioSystem.getClip();
-            AudioInputStream oStream = AudioSystem.getAudioInputStream(diretorio);
-            clip.open(oStream);
-            clip.loop(0); // Toca uma vez
-
-        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        }
+    public void reproduzirAudioMp3(String nomeAudio){
+        audio = new Audio(nomeAudio);
+        audio.start();
     }
 
-    public static void pararAudio(){
-             clip.stop();
+    public void pararAudioMp3(){
+         player.close();
+        audio.interrupt();
+    }
+
+//    public static void pararAudio(){
+//             clip.stop();
+//    }
+
+
+    //Para tratar a execução do áudio sem travar a tela
+    private class Audio extends Thread {
+        private String audio;
+        // private Player player;
+
+        public Audio(String audio) {
+
+            this.audio = audio;
+        }
+
+        public void run() {
+            try {
+                InputStream inputstream = new FileInputStream(audio);
+                player = new Player(inputstream);
+                player.play();
+
+
+            } catch (FileNotFoundException | JavaLayerException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public void parar() {
+            player.close();
+        }
     }
 
 }

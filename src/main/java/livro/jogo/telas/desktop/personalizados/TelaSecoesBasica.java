@@ -37,12 +37,16 @@ public class TelaSecoesBasica extends JDialog{
     private JLabelOpcoesTelaSecao labelSair;
     private JLabelOpcoesTelaSecao labelAumentaTexto;
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
+    private JLabelOpcoesTelaSecao labelVoz;
+    private JLabelOpcoesTelaSecao labelVozParar;
     private JTextPane textoHistoria;
     private JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     private JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     private JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
     private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
+    private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
+    private final Util util = new Util(); //Usado para a a narração (play /stop)
 
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
 
@@ -89,7 +93,6 @@ public class TelaSecoesBasica extends JDialog{
         this.secao = secao;
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -98,6 +101,7 @@ public class TelaSecoesBasica extends JDialog{
         }
         else{
             setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
+            enderecoAudioHistoriaInicial = DadosLivroCarregado.getLivro().getEnderecoAudio();
         }
         setType(Window.Type.UTILITY);
 
@@ -147,6 +151,7 @@ public class TelaSecoesBasica extends JDialog{
         //Moldura que engloba o texto da seção
         JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,900,600,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_2);
+        labelMolduraTexto.setCursor(null);
         //labelMolduraTexto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Texto do livro
@@ -193,15 +198,30 @@ public class TelaSecoesBasica extends JDialog{
         labelDiminuiTexto.addMouseListener(acaoLabels);
         //labelDiminuiTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
+        //Botão para narrar
+        labelVoz = new JLabelOpcoesTelaSecao(null,45,45,
+                ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ);
+        labelVoz.addMouseListener(acaoLabels);
+        labelVoz.setToolTipText("Narrador");
 
+        //Botão para parar a narração
+        labelVozParar = new JLabelOpcoesTelaSecao(null,45,45,
+                ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_PARAR);
+        labelVozParar.addMouseListener(acaoLabels);
+        labelVozParar.setToolTipText("Parar a narração");
 
         //posicionamento na tela
         scrollTextoHistoria.setBounds(115, 118, 650, 350);
         labelMolduraTexto.setBounds(-10,-40,950,650);
         labelAumentaTexto.setBounds(80,260,30,30);
-        labelDiminuiTexto.setBounds(772,260,30,30);
+        labelDiminuiTexto.setBounds(777,260,20,30);
+
+        labelVoz.setBounds(315,510,45,45);
+        labelVozParar.setBounds(520,510,45,45);
 
         //Adicionando a tela
+        add(labelVoz);
+        add(labelVozParar);
         add(labelAumentaTexto);
         add(labelDiminuiTexto);
         add(scrollTextoHistoria);
@@ -349,7 +369,7 @@ public class TelaSecoesBasica extends JDialog{
 
     private void carregaPainelInferior() {
         ImagePanel imgPainelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO);
-        imgPainelInferior.setBounds(1,470,900,290);
+        imgPainelInferior.setBounds(1,505,900,290);
         //imgPainelInferior.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         add(imgPainelInferior);
@@ -540,6 +560,17 @@ public class TelaSecoesBasica extends JDialog{
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == labelVoz){
+                if ( enderecoAudioHistoriaInicial.isEmpty() )
+                  util.reproduzirAudioMp3(secao.getEnderecoAudio());
+                else
+                    util.reproduzirAudioMp3(enderecoAudioHistoriaInicial);
+            }
+
+            if (e.getSource() == labelVozParar){
+                util.pararAudioMp3();
+            }
 
             if (e.getSource() == labelAumentaTexto){
                 ++tamanhoTexto;

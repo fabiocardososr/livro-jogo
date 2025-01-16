@@ -6,5 +6,55 @@
       "textoOpcao": "Vá para",
       "codProximaSecao": "157"
     }
+  ],
+  "itens":[
+  {
+	"idItem":"21",
+	"tipoEfeito":"NENHUM",
+	"nome":"Flauta de metal",
+	"descricao":"",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  },
+  {
+	"idItem":"52",
+	"tipoEfeito":"NENHUM",
+	"nome":"Biscoitos cheio de bichos",
+	"descricao":"",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  },
+  {
+	"idItem":"53",
+	"tipoEfeito":"NENHUM",
+	"nome":"Colar de crânio de camundongos",
+	"descricao":"",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoUnico":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }
   ]
   }

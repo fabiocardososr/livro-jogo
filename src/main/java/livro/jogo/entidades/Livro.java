@@ -1,6 +1,5 @@
 package livro.jogo.entidades;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Livro {
@@ -20,7 +19,11 @@ public class Livro {
     private final HashMap<Integer, Secao> mapSecao = new HashMap<Integer, Secao>();
     private final HashMap<Integer, Item> mapItens = new HashMap<Integer, Item>();
     private String imagemComplementar;
+    private String enderecoAudio;
 
+    public String getEnderecoAudio() {
+        return enderecoAudio;
+    }
 
     public HashMap<Integer, Item> getMapItens() {
         return mapItens;
