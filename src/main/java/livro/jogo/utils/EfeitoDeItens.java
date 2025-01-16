@@ -12,15 +12,16 @@ public class EfeitoDeItens {
     private ArrayList<Item> itens = personagem.getBolsa();
 
     //Aqui são codificados todos os efeitos dos itens
+    //O retorno indica se consumiu/equipou
     public boolean acoesDosItens(int idItem){
 
-        switch(idItem) {
-            case 45: return efeitoItem45();             //Poção de Habilidade
-            case 46: return efeitoItem46();             //Poção de força
-            case 47: return efeitoItem47();             //Poção de Fortuna
-            case 49: return efeitoItem49Provisao();     //Provisões (comida)
-            default: return false;
-        }
+        return switch(idItem) {
+            case 45 -> efeitoItem45();             //Poção de Habilidade
+            case 46 -> efeitoItem46();             //Poção de força
+            case 47 -> efeitoItem47();             //Poção de Fortuna
+            case 49 -> efeitoItem49Provisao();     //Provisões (comida)
+            default -> false;
+        };
     }
 
     //Poção da fortuna(sorte)
