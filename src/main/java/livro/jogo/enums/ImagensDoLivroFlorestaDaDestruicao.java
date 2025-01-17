@@ -3,7 +3,9 @@ package livro.jogo.enums;
 public enum ImagensDoLivroFlorestaDaDestruicao {
 
     /*** IMAGENS DE ITENS ***/
+    COROA_DE_OURO("livros/florestadadestruicao/imagens/itens/item_2.png"),
     FILTROS_NASAIS("livros/florestadadestruicao/imagens/itens/item_4.png"),
+    CHAVE_DE_PRATA("livros/florestadadestruicao/imagens/itens/item_5.png"),
     POCAO_DE_HABILIDADE("livros/florestadadestruicao/imagens/itens/item_45.png"),
     POCAO_DE_ENERGIA("livros/florestadadestruicao/imagens/itens/item_46.png"),
     POCAO_DE_SORTE("livros/florestadadestruicao/imagens/itens/item_47.png"),

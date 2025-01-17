@@ -9,7 +9,7 @@ public class Secao {
     private String enderecoImagem;
     private String enderecoAudio;
     private final ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
-    private final ArrayList<Item> itens = new ArrayList<>();
+    private final ArrayList<SecaoItem> itens = new ArrayList<>();
     private final ArrayList<Inimigo> inimigos = new ArrayList<>();
 
 
@@ -36,7 +36,7 @@ public class Secao {
         return proximasSecoes;
     }
 
-    public ArrayList<Item> getItens() {
+    public ArrayList<SecaoItem> getItens() {
         return itens;
     }
 

@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"43",
-	"tipoEfeito":"NENHUM",
-	"nome":"Caixa de Prata (tinha Gás Venenoso)",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"43"
   }
   ]
 }

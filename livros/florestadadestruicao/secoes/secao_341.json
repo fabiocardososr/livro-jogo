@@ -9,33 +9,10 @@
   ],
   "itens":[
   {
-	"idItem":"46",
-	"tipoEfeito":"ENERGIA",
-	"nome":"Poção de Força",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"5",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"S",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"S",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"46"
   },
   {
-	"idItem":"44",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Dente de Dragão",
-	"valorCusto":"0",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"44"
   }
   ]
 }

@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"20",
-	"tipoEfeito":"NENHUM",
-	"nome":"Coleira de couro com aplicações em ouro",
-	"descricao":"",
-	"valorCusto":"15",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"20"
   }
   ]
   }

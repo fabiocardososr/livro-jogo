@@ -577,11 +577,6 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoFechar);
     }
 
-    private void desabilitarBotoes(JLabelOpcoesTelaSecao botao, JLabelOpcoesTelaSecao botao2){
-        botao.setEnabled(false);
-        botao2.setEnabled(false);
-    }
-
     private void resetarCriacaoPersonagem(){
         habilidadeInicial = 0;
         energiaInicial    = 0;
@@ -635,7 +630,6 @@ public class TelaCriarPersonagem extends TelaBasica {
                 TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceSorte.setText(String.valueOf(sorteInicial));
-                //desabilitarBotoes(botaoRolarDadosSorte, umDadoSorte);
                 habilitarBotaoGravar();
             }
 
@@ -643,7 +637,6 @@ public class TelaCriarPersonagem extends TelaBasica {
                 TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 energiaInicial = Util.obterIndiceEnergiaInicial();
                 labelIndiceEnergia.setText(String.valueOf(energiaInicial));
-                //desabilitarBotoes(botaoRolarDadosEnergia,doisDadosEnergia);
                 habilitarBotaoGravar();
             }
 
@@ -651,7 +644,6 @@ public class TelaCriarPersonagem extends TelaBasica {
                 TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
-                //desabilitarBotoes(botaoRolarDadoHabilidade, umDadoHabilidade);
                 habilitarBotaoGravar();
 
             }

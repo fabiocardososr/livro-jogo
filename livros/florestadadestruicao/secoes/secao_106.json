@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"18",
-	"tipoEfeito":"NENHUM",
-	"nome":"Anel de ouro com grande esmeralda",
-	"descricao":"",
-	"valorCusto":"15",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"18"
   }
   ]
  }

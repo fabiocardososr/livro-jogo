@@ -9,257 +9,55 @@
   ],
   "itens":[
   {
-	"idItem":"27",
-	"tipoEfeito":"NENHUM",
-	"nome":"Poção Curativa",
-	"descricao":"",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"27"
   },
   {
-	"idItem":"8",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Poção Controle das Plantas",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"8"
   },
   {
-	"idItem":"13",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Poção da Imobilidade",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"13"
   },
   {
-	"idItem":"16",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Poção de Controle dos Insetos",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"16"
   },
   {
-	"idItem":"3",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Poção Antiveneno",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"3"
   },
   {
-	"idItem":"7",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Água Benta",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"7"
   },
   {
-	"idItem":"1",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Anel da Luz",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"1"
   },
   {
-	"idItem":"31",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Botas Saltadoras",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"31"
   },
   {
-	"idItem":"17",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Corda de Escalada",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"17"
   },
   {
-	"idItem":"17",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Corda de Escalada",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"32"
   },
   {
-	"idItem":"32",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Rede de Aprisionamento",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"12"
   },
   {
-	"idItem":"12",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Braçadeira da Força",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"22"
   },
   {
-	"idItem":"22",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Luva de Destreza de Arremesso",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"34"
   },
   {
-	"idItem":"34",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Vara de Encontrar Água",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"35"
   },
   {
-	"idItem":"35",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Cabeças de Alho",
-	"valorCusto":"2",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"23"
   },
   {
-	"idItem":"23",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Fita de Cabeça da Concentração",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"19"
   },
   {
-	"idItem":"19",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Cápsulas de Fogo",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
-  },
-  {
-	"idItem":"4",
-	"tipoEfeito":"NENHUM",
-	"descricao":"Filtros Nasais",
-	"valorCusto":"3",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"4"
   }
   ]
 }

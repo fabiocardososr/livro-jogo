@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"9",
-	"tipoEfeito":"NENHUM",
-	"nome":"Sino de metal",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"9"
   }
   ]
 }

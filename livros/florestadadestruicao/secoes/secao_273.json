@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"36",
-	"tipoEfeito":"NENHUM",
-	"nome":"Medalhão de ouro",
-	"descricao":"",
-	"valorCusto":"9",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"36"
   }
   ]
 }

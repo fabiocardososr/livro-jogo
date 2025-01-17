@@ -10,19 +10,7 @@
   ],
   "itens":[
   {
-	"idItem":"30",
-	"tipoEfeito":"NENHUM",
-	"nome":"Lingote de Ouro",
-	"descricao":"",
-	"valorCusto":"28",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"30"
   }
   ]
   }

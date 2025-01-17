@@ -13,19 +13,7 @@
   ],
   "itens":[
   {
-	"idItem":"42",
-	"tipoEfeito":"NENHUM",
-	"nome":"Medalhão de Ouro\n(pendente de uma fita de seda)",
-	"descricao":"",
-	"valorCusto":"5",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"42"
   }
   ]
 }

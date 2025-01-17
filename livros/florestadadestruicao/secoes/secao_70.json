@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"10",
-	"tipoEfeito":"HABILIDADE",
-	"nome":"Espada magnífica",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"2",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"S",
-    "flgAfetaRolagemDados":"S",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"10"
   }
   ]
 }

@@ -52,9 +52,6 @@ public class CarregarLivroFlorestaDaDestruicao {
             else
                 System.out.println("INEXISTENTE o Arquivo: "+endereco);
         }
-
-        //Apenas para verificar se tudo ocorreu bem(depois pode remover)
-        //ManipularDadosLivro.imprimirInfoSecoes();
     }
 
     private void lerSecao(ObjectMapper objMapper, String enderecoDoArquivoDaSecao){
@@ -63,10 +60,10 @@ public class CarregarLivroFlorestaDaDestruicao {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
             var  secao = objMapper.readValue(json, Secao.class);
             DadosLivroCarregado.getMapSecao().put(secao.getCodSecaoLivro(),secao);
-
+            System.out.println(secao);
+            System.out.println();
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);
-            //throw new RuntimeException(e);
         }
     }
 
@@ -75,8 +72,8 @@ public class CarregarLivroFlorestaDaDestruicao {
 
     private void inserirItens(ObjectMapper objMapper) {
 
-        //São 51 itens
-        for (int i=1; i<=51; i++) {
+        //São 53 itens
+        for (int i=1; i<=53; i++) {
             var endereco = "livros/florestadadestruicao/itens/item_"+i+".json";
             var existe = (new File(endereco)).exists();
 

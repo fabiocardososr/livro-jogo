@@ -1,12 +1,6 @@
 package livro.jogo.enums;
 
 public enum ItensMapeamento {
-    POCAO_DE_HABILIDADE("livros/florestadadestruicao/itens/item_45.json", 45),
-    POCAO_DE_ENERGIA("livros/florestadadestruicao/itens/item_46.json",46),
-    POCAO_DA_FORTUNA("livros/florestadadestruicao/itens/item_47.json",47),
-    PROVISAO("livros/florestadadestruicao/itens/item_49.json",49),
-    ESPADA("livros/florestadadestruicao/itens/item_50.json",50),
-    ARMADURA_DE_COURO("livros/florestadadestruicao/itens/item_51.json",51),
     ANEL_DA_LUZ("livros/florestadadestruicao/itens/item_1.json",1),
     COROA_DE_OURO("livros/florestadadestruicao/itens/item_2.json",2),
     POCAO_ANTIVENENO("livros/florestadadestruicao/itens/item_3.json",3),
@@ -51,7 +45,16 @@ public enum ItensMapeamento {
     MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA("livros/florestadadestruicao/itens/item_42.json",42),
     CAIXA_DE_PRATA("livros/florestadadestruicao/itens/item_43.json",43),
     DENTE_DE_DRAGAO("livros/florestadadestruicao/itens/item_44.json",44),
-    APITO_DE_MADEIRA("livros/florestadadestruicao/itens/item_48.json",48)
+    POCAO_DE_HABILIDADE("livros/florestadadestruicao/itens/item_45.json", 45),
+    POCAO_DE_ENERGIA("livros/florestadadestruicao/itens/item_46.json",46),
+    POCAO_DA_FORTUNA("livros/florestadadestruicao/itens/item_47.json",47),
+    APITO_DE_MADEIRA("livros/florestadadestruicao/itens/item_48.json",48),
+    PROVISAO("livros/florestadadestruicao/itens/item_49.json",49),
+    ESPADA("livros/florestadadestruicao/itens/item_50.json",50),
+    ARMADURA_DE_COURO("livros/florestadadestruicao/itens/item_51.json",51),
+    BISCOITO_CHEIO_DE_BICHOS("livros/florestadadestruicao/itens/item_52.json",52),
+    COLAR_DE_CRANIO_DE_CAMUNDONGOS("livros/florestadadestruicao/itens/item_52.json",53)
+
     ;
     private String enderecoJson;
     private int idItem;

@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"24",
-	"tipoEfeito":"NENHUM",
-	"nome":"Grande Anel de Ouro",
-	"descricao":"",
-	"valorCusto":"10",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"24"
   }
   ]
 }

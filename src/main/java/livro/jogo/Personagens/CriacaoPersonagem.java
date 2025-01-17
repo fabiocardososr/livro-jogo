@@ -32,7 +32,6 @@ public class CriacaoPersonagem {
         var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         DadosLivroCarregado.setPersonagem(personagem);
-        //JOptionPane.showMessageDialog(null,personagem.toString());
 
         return personagem;
     }
@@ -40,7 +39,6 @@ public class CriacaoPersonagem {
     private ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
-
 
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)

@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"38",
-	"tipoEfeito":"HABILIDADE",
-	"nome":"Pulseira de Habilidade (Pulseira de cobre)",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"1",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"S",
-    "flgAfetaRolagemDados":"S",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"38"
   }
   ]
   }

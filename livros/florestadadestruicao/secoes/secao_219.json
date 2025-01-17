@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"29",
-	"tipoEfeito":"NENHUM",
-	"nome":"Dardo de Prata",
-	"descricao":"",
-	"valorCusto":"5",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"29"
   }
   ]
   }

@@ -9,19 +9,7 @@
   ],
   "itens":[
   {
-	"idItem":"26",
-	"tipoEfeito":"NENHUM",
-	"nome":"Brincos de ouro - 1 par",
-	"descricao":"",
-	"valorCusto":"0",
-	"modificador":"0",   
-	"quantidadeUso":"0",
-	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
-	"flgUsoPermanente":"N",
-    "flgAfetaRolagemDados":"N",
-	"flgAfetaNivelAtualPersonagem":"N",
-	"flgAfetaNivelMaxPersonagem":"N"
+	"idItem":"26"
   }
   ]
 }
