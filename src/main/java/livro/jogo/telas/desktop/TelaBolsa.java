@@ -68,11 +68,6 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
 
-        /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
-//        ArrayList<Item> bolsa = Testes.simularPreenchimentoBolsa();
-//        var itensEquipados = Testes.recuperaItensIniciaisEquipados();
-        /**** DEPOIS APAGUE CARREGANDO ITENS NA BOLSA E EQUIPADOS PARA SIMULAR ****/
-
         var x = 90; //Posição da esquerda para a direita
         var y = 30;  //Posição de cima para baixo
         var largura = 50;

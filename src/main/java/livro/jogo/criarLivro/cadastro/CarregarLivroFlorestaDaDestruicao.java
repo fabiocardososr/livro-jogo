@@ -60,8 +60,6 @@ public class CarregarLivroFlorestaDaDestruicao {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDaSecao).toString();
             var  secao = objMapper.readValue(json, Secao.class);
             DadosLivroCarregado.getMapSecao().put(secao.getCodSecaoLivro(),secao);
-            System.out.println(secao);
-            System.out.println();
         } catch (JsonProcessingException e) {
             System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDaSecao);
         }
