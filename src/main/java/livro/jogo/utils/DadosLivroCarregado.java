@@ -47,7 +47,7 @@ public class DadosLivroCarregado {
         return personagem.getItensEquipados();
     }
 
-    public static Item recuperaItemDoJsonEGuardaNaBolsa(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
+    public static Item recuperaItemDoJson(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
         Item item = null;
 
         try {
@@ -61,45 +61,14 @@ public class DadosLivroCarregado {
         return item;
     }
 
-    public static void recuperaItemDoJsonEEquipaItem(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
-        try {
-            var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
-            var  item = objMapper.readValue(json, Item.class);
-            DadosLivroCarregado.getBolsa().add(item);
-        } catch (JsonProcessingException e) {
-            System.out.println("Acabou o carregamento ou ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
-            //throw new RuntimeException(e);
+    public static void removeItemEquipado(Item item){
+        var itens = getItensEquipados();
+
+        for (int i=0; i < getItensEquipados().size(); i++){
+
+            if (itens.get(i).getIdItem() == item.getIdItem())
+                itens.remove(item);
         }
     }
 
-    public static void imprimirInfoSecoes() {
-        Secao secao;
-
-        //Dados do livro
-        System.out.print("\n\nIdLivro: "+ livro.getIdLivro());
-        System.out.println("\nNome: "+ livro.getNome());
-        System.out.println("Descrição: "+ livro.getDescricao());
-        System.out.println("\n======================================\n\n");
-
-
-        for (Integer key : livro.getMapSecao().keySet()) {
-
-            //Capturamos o valor a partir da chave
-            secao = (Secao) livro.getMapSecao()                                                                .get(key);
-            System.out.println("\n\nCod. Seção: "+ secao.getCodSecaoLivro());
-            System.out.println("Desc. Seção: "+ secao.getTexto());
-            System.out.println("Imagem da Seção: "+ secao.getEnderecoImagem());
-            System.out.println("Proximas seções: "+ secao.getProximasSecoes().size());
-            System.out.println("Proximas seções: "+ secao.getProximasSecoes());
-            System.out.println("Itens: "+ secao.getItens().toString());
-            System.out.println("Inimigos: "+ secao.getInimigos().toString());
-        }
-    }
-
-    public static void imprimirInfoItens() {
-
-        for (int i=1; i<=51; i++)
-          System.out.println("\n\nItens: "+ livro.getMapItens().get(i));
-
-    }
 }

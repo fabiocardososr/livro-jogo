@@ -54,6 +54,7 @@ public class TelaCriarPersonagem extends TelaBasica {
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaPrincipal) {
         super(largura, altura);
         setUndecorated(true);
+        setLayout(null);
         this.telaPrincipal = telaPrincipal;
         this.telaPrincipal.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
         getContentPane().setBackground(new Color(210,180,140));
@@ -101,6 +102,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Painel inferior (imagem de pergaminho maior)
         ImagePanel painelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FUNDO_CAD_PERSONAGEM);
+        painelInferior.setLayout(null);
         painelInferior.setBounds(2,305,1130,470);
 
         //Opção de escolha de poções inicial
@@ -126,6 +128,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Imagem da Bolsa
         ImagePanel painelImgBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.BOLSA);
+        painelImgBolsa.setLayout(null);
         painelImgBolsa.setBackground(new Color(210,180,140));
         painelImgBolsa.setForeground(new Color(139,0,0));
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
@@ -151,6 +154,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Espada
         ImagePanel imgPanelEspada = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ESPADA_INICIAL);
+        imgPanelEspada.setLayout(null);
         imgPanelEspada.setToolTipText("Espada simples usada nos combates.");
         imgPanelEspada.setBounds(510,460,75,75);
         imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -158,12 +162,14 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Armadura
         ImagePanel imgPanelArmadura = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ARMADURA_DE_COURO_INICIAL);
+        imgPanelArmadura.setLayout(null);
         imgPanelArmadura.setToolTipText("Armadura de couro que o(a) protegerá durante a aventura.");
         imgPanelArmadura.setBounds(460,530,75,75);
         imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //Provisões (refeições)
         ImagePanel imgPanelProvisoes = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
+        imgPanelProvisoes.setLayout(null);
         imgPanelProvisoes.setBounds(530,530,75,75);
         imgPanelProvisoes.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelProvisoes.setToolTipText("<html>10 Provisões(refeições). Recompõe sua ENERGIA em 4 pontos.<br>Pode ser consumida em qualquer momento, exceto em combate.</html>");
@@ -350,6 +356,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeHabilidade = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
+        painelDeHabilidade.setLayout(null);
         painelDeHabilidade.setBounds(10,10,370,290);
         painelDeHabilidade.setToolTipText("O resultado da rolagem do dado vai ser somado a 6. Este resultado será sua habilidade.");
 
@@ -409,6 +416,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeEnergia = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
+        painelDeEnergia.setLayout(null);
         painelDeEnergia.setBounds(392,10,370,290);
         painelDeEnergia.setToolTipText("O resultado da rolagem de dois dados será somado a 12. Este resultado será seu índice de energia.");
 
@@ -467,6 +475,7 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeSorte = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
+        painelDeSorte.setLayout(null);
         painelDeSorte.setBounds(770,10,370,290);
         painelDeSorte.setToolTipText("O resultado da rolagem de um dado será somado a 6. Este resultado será seu índice de sorte.");
 
@@ -617,8 +626,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, DadosLivroCarregado.getLivro().getIdLivro(),
                 habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
 
-        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);
         setVisible(false);
+        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);
+
     }
 
     private class TelaAcaoDosLabels implements MouseListener {

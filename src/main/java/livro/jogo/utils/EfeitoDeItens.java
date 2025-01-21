@@ -3,7 +3,6 @@ package livro.jogo.utils;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 
 import java.util.ArrayList;
 
@@ -16,12 +15,34 @@ public class EfeitoDeItens {
     public boolean acoesDosItens(int idItem){
 
         return switch(idItem) {
+            case 10 -> efeitoItem10();              //Espada magnífica
             case 45 -> efeitoItem45();             //Poção de Habilidade
             case 46 -> efeitoItem46();             //Poção de força
             case 47 -> efeitoItem47();             //Poção de Fortuna
             case 49 -> efeitoItem49Provisao();     //Provisões (comida)
             default -> false;
         };
+    }
+
+    //Espada magnífica deve ser equipada (seção 70)
+    private boolean efeitoItem10() {
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        //Recupera o item (este método getMapItem() guarda todos os itens existentes no livro)
+        Item item = DadosLivroCarregado.getMapItem().get(10);
+
+        //desequipar a espada incial e incluir na bolsa
+        Item espadaInicial = DadosLivroCarregado.getMapItem().get(50);
+        DadosLivroCarregado.removeItemEquipado(espadaInicial);
+        personagem.getBolsa().add(espadaInicial);
+
+        //Equipa a espada magnífica(idItem 10)
+        personagem.getItensEquipados().add(item);
+
+        //Efeito mágico da espada(idItem=10): aumenta a habilidade atual do personagem em 2 pontos(seção 70)
+        personagem.setHabilidadeAtual(personagem.getHabilidadeAtual() + 2);
+
+        return true;
     }
 
     //Poção da fortuna(sorte)

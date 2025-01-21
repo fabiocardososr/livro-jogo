@@ -77,10 +77,6 @@ public class TelaBolsa extends JDialog {
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
-            //caso nao tenha imagem (até eu achar todas as imagens)
-            if (item.getEnderecoImagem().isEmpty())
-                continue;
-
             if (contNumerodeItensPorLinha == 5){
                 contNumerodeItensPorLinha = 0;
                 y = y + 60; //Posiciona os próximos itens logo abaixo
@@ -88,9 +84,20 @@ public class TelaBolsa extends JDialog {
             }
 
             //Inserindo os itens na tela
-            JLabelOpcoesTelaSecao imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
-                    item.getEnderecoImagem());
-            imgItem.setBounds(x,y,largura,altura);
+            JLabelOpcoesTelaSecao imgItem;
+
+            //Se cabeça ou cabo do machado do anões, aumentar a altura e largura
+            if ( item.getIdItem() == 25 ) {
+                imgItem = new JLabelOpcoesTelaSecao("", largura, altura + 15,
+                        item.getEnderecoImagem());
+                imgItem.setBounds(x,y,largura,altura+15);
+            }
+            else {
+                imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
+                        item.getEnderecoImagem());
+                imgItem.setBounds(x,y,largura,altura);
+            }
+
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
             imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
             imgItem.addMouseListener(acao);
@@ -348,6 +355,24 @@ public class TelaBolsa extends JDialog {
             CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
                     ", você toma a poção e se sente bem.\n\nSeu índice de habilidade" +
                     " encontra-se no nível máximo.");
+        }
+
+        /* Espada magnífica(10) */
+        if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                    .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
         }
     }
 

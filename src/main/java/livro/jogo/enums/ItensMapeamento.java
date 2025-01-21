@@ -53,7 +53,7 @@ public enum ItensMapeamento {
     ESPADA("livros/florestadadestruicao/itens/item_50.json",50),
     ARMADURA_DE_COURO("livros/florestadadestruicao/itens/item_51.json",51),
     BISCOITO_CHEIO_DE_BICHOS("livros/florestadadestruicao/itens/item_52.json",52),
-    COLAR_DE_CRANIO_DE_CAMUNDONGOS("livros/florestadadestruicao/itens/item_52.json",53)
+    COLAR_DE_CRANIO_DE_CAMUNDONGOS("livros/florestadadestruicao/itens/item_53.json",53)
 
     ;
     private String enderecoJson;

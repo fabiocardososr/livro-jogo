@@ -8,7 +8,6 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -114,25 +113,6 @@ public class Util {
         return quantidadeProvisoes;
     }
 
-//    public static void reproduzirAudio(String caminho){
-//        try {
-//
-//            clip = AudioSystem.getClip();
-//
-//            // Carrega o arquivo de áudio (não funciona com .mp3, só .wav)
-//            File diretorio = new File(caminho);
-//
-//            //URL oUrl = new URL("http://www.soundjay.com/button/beep-02.wav");
-//            clip = AudioSystem.getClip();
-//            AudioInputStream oStream = AudioSystem.getAudioInputStream(diretorio);
-//            clip.open(oStream);
-//            clip.loop(0); // Toca uma vez
-//
-//        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public void reproduzirAudioMp3(String nomeAudio){
         audio = new Audio(nomeAudio);
         audio.start();
@@ -142,11 +122,6 @@ public class Util {
          player.close();
         audio.interrupt();
     }
-
-//    public static void pararAudio(){
-//             clip.stop();
-//    }
-
 
     //Para tratar a execução do áudio sem travar a tela
     private class Audio extends Thread {
