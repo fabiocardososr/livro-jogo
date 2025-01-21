@@ -59,6 +59,7 @@ public class TelaSecoesBasica extends JDialog{
         this.personagem = personagem;
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
         //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
+        setLayout(null);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
@@ -88,7 +89,8 @@ public class TelaSecoesBasica extends JDialog{
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));
-        tela.setLayout(null);
+        //tela.setLayout(null);
+        setLayout(null);
 
         this.secao = secao;
         this.personagem = personagem;
@@ -233,6 +235,7 @@ public class TelaSecoesBasica extends JDialog{
         //Dados do Personagem
         ImagePanel painelPersonagem;
         painelPersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
+        painelPersonagem.setLayout(null);
 
         //Nome do personagem
         JLabel lbNomePersonagem = new JLabel(personagem.getNome());
@@ -243,9 +246,13 @@ public class TelaSecoesBasica extends JDialog{
 
         //Faixa pergaminho no personagem
         ImagePanel imgPainelNomePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_NOME_PERSONAGEM_TELA_SECAO);
+        imgPainelNomePersonagem.setLayout(null);
         ImagePanel imgPainelHabilidadePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        imgPainelHabilidadePersonagem.setLayout(null);
         ImagePanel imgPainelEnergiaPersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        imgPainelEnergiaPersonagem.setLayout(null);
         ImagePanel imgPainelSortePersonagem = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        imgPainelSortePersonagem.setLayout(null);
         //imgPainelHabilidadePersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
@@ -293,6 +300,7 @@ public class TelaSecoesBasica extends JDialog{
         }
 
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
+        imgPersonagem.setLayout(null);
         imgPersonagem.setToolTipText(toolTip);
         imgPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -340,6 +348,7 @@ public class TelaSecoesBasica extends JDialog{
         labelImagemSecao = new JLabel();
         labelImagemSecao.setHorizontalAlignment(SwingConstants.CENTER);
         ImagePanel imgMolduraParaImgSecao = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA);
+        imgMolduraParaImgSecao.setLayout(null);
 
         //posicionamento
         imgMolduraParaImgSecao.setBounds(875,2,340,375);
@@ -369,6 +378,7 @@ public class TelaSecoesBasica extends JDialog{
 
     private void carregaPainelInferior() {
         ImagePanel imgPainelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO);
+        imgPainelInferior.setLayout(null);
         imgPainelInferior.setBounds(1,505,900,290);
         //imgPainelInferior.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -377,6 +387,7 @@ public class TelaSecoesBasica extends JDialog{
 
     private void carregarPainelDireito() {
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
+        imgPainelDireito.setLayout(null);
 
         ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
         JLabel labelImgMapa = new JLabel(imageIcon);
@@ -601,7 +612,7 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() == labelBolsa){
-                CarregarTelas.telaBolsa(1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
+                CarregarTelas.telaBolsa(getContentPane(),1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
                         lbSortePersonagem, labelProvisoes, labelPocaoInicial);
             }
 

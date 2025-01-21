@@ -88,10 +88,10 @@ public class CarregarTelas {
         telaSecoesBasica.setVisible(true);
     }
 
-    public static void telaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
+    public static void telaBolsa(Container container, int largura, int altura, JLabel lbEnergiaPersonagem,
                                  JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
                                  JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial){
-        TelaBolsa telaBolsa = new TelaBolsa(largura,altura, lbEnergiaPersonagem,lbHabilidadePersonagem,
+        TelaBolsa telaBolsa = new TelaBolsa(container,largura,altura, lbEnergiaPersonagem,lbHabilidadePersonagem,
                 lbSortePersonagem,botaoProvisoes, labelPocaoInicial);
 
         telaBolsa.setVisible(true);

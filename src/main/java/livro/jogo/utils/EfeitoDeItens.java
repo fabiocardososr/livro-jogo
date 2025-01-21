@@ -15,11 +15,11 @@ public class EfeitoDeItens {
     public boolean acoesDosItens(int idItem){
 
         return switch(idItem) {
-            case 10 -> efeitoItem10();              //Espada magnífica
-            case 45 -> efeitoItem45();             //Poção de Habilidade
-            case 46 -> efeitoItem46();             //Poção de força
-            case 47 -> efeitoItem47();             //Poção de Fortuna
-            case 49 -> efeitoItem49Provisao();     //Provisões (comida)
+            case 10 -> efeitoItem10();     //Espada magnífica
+            case 45 -> efeitoItem45();     //Poção de Habilidade
+            case 46 -> efeitoItem46();     //Poção de força
+            case 47 -> efeitoItem47();     //Poção de Fortuna
+            case 49 -> efeitoItem49();     //Provisões (comida)
             default -> false;
         };
     }
@@ -28,7 +28,7 @@ public class EfeitoDeItens {
     private boolean efeitoItem10() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
-        //Recupera o item (este método getMapItem() guarda todos os itens existentes no livro)
+        //Recupera o item
         Item item = DadosLivroCarregado.getMapItem().get(10);
 
         //desequipar a espada incial e incluir na bolsa
@@ -112,7 +112,7 @@ public class EfeitoDeItens {
     }
 
     //Provisão
-    private boolean efeitoItem49Provisao(){
+    private boolean efeitoItem49(){
 
         //Se personagem com energia máxima, não fazer nada
         if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){

@@ -27,8 +27,9 @@ public class TelaBolsa extends JDialog {
     private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao labelPocaoInicial; //Poção inicial
     private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
+    private Container container;
 
-    public TelaBolsa(int largura, int altura, JLabel lbEnergiaPersonagem,
+    public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
                      JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
                      JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial) {
         this.lbEnergiaPersonagem = lbEnergiaPersonagem;
@@ -36,6 +37,7 @@ public class TelaBolsa extends JDialog {
         this.labelPocaoInicial = labelPocaoInicial;
         this.lbSortePersonagem = lbSortePersonagem;
         this.lbHabilidadePersonagem = lbHabilidadePersonagem;
+        this.container = container;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
@@ -371,8 +373,10 @@ public class TelaBolsa extends JDialog {
                     String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                     String.valueOf(personagem.getHabilidadeMax()));
 
-            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-                    .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
+            container.repaint();
+
+//            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+//                    .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
         }
     }
 
