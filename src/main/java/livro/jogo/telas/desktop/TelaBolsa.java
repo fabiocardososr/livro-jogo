@@ -373,11 +373,13 @@ public class TelaBolsa extends JDialog {
                     String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                     String.valueOf(personagem.getHabilidadeMax()));
 
-            container.repaint();
-
 //            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
 //                    .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
         }
+
+        //atualiza a tela de secao que chama este tela
+        //estava ficando estranha a tela em alguns pontos ao clicar nos itens. fundo com imagens sem sentido
+        container.repaint();
     }
 
 
