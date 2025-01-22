@@ -47,6 +47,7 @@ public class TelaSecoesBasica extends JDialog{
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     private final Util util = new Util(); //Usado para a a narração (play /stop)
+    private final JDialog thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
 
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
 
@@ -160,10 +161,7 @@ public class TelaSecoesBasica extends JDialog{
         textoHistoria = new JTextPane();
         textoHistoria.setBackground(new Color(210,180,140));
         textoHistoria.setFocusable(false);
-
-        //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
         textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,tamanhoTexto));
-
 
         StyledDocument textoLivroStyle = textoHistoria.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
@@ -595,12 +593,10 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() == labelSair){
 
-                //FAZER NOVA TELA MAIS ESTILIZADA
-                var resposta = JOptionPane.showConfirmDialog(null,"Deseja fechar o jogo?");
-                if (resposta == JOptionPane.YES_OPTION) {
-                    referenciaTelaPrincipal.setVisible(true);
-                    setVisible(false);
-                }
+                referenciaTelaPrincipal.setVisible(true);
+                CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog);
+
+
             }
 
             if (e.getSource() == labelMapaBotao){
@@ -667,8 +663,7 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() ==  labelAnotacoes){
-                //Aqui deve ser chamado nova tela para anotações do personagem
-                JOptionPane.showMessageDialog(null,"Anotações");
+                CarregarTelas.telaAnotacoes(personagem);
             }
 
             if (e.getSource() ==  labelSalvar){

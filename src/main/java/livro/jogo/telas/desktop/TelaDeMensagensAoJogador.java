@@ -16,10 +16,12 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private Personagem personagem;
     private String texto;
     private JLabelOpcoesTelaSecao botaoSair;
+    private JLabelOpcoesTelaSecao botaoConfirmarESair;
     private TelaRegrasOpcoesAcaoDosBotoes acao = new TelaRegrasOpcoesAcaoDosBotoes();
     private JLabelOpcoesTelaSecao botaoSim;
     private JLabelOpcoesTelaSecao botaoNao;
     private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
+    private JDialog telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
 
     public TelaDeMensagensAoJogador(Personagem personagem, String texto) {
         this.personagem = personagem;
@@ -57,6 +59,30 @@ public class TelaDeMensagensAoJogador extends JDialog {
         carregarTexto();
     }
 
+    //Usado para tela de confirmação, no caso de precisar confirmar a saída da tela
+    public TelaDeMensagensAoJogador(String texto, JDialog dialog) {
+        this.texto = texto;
+        this.telaQueChamouEsta = dialog;
+        int largura = 900;
+        int altura = 700;
+
+        setSize(largura,altura);
+        setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setUndecorated(true);
+        setModal(true);
+        setBackground(new Color(0,0,0,0));
+
+        //Carrega botões de confirmação
+        carregarBotoesConfirmacao();
+
+        carregarfundo(largura, altura);
+        carregarTexto();
+    }
+
+
+
     public void carregarBotaoOk() {
 
         JLabel labelSair = new JLabel("OK");
@@ -76,6 +102,48 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
         add(labelSair);
         add(botaoSair);
+
+
+    }
+
+    public void carregarBotoesConfirmacao() {
+
+        JLabel labelConfirmarESair = new JLabel("Sim");
+        labelConfirmarESair.setBounds(308,445,100,50);
+        labelConfirmarESair.setForeground(new Color(139,0,0));
+        labelConfirmarESair.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelConfirmarESair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelConfirmarESair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoConfirmarESair = new JLabelOpcoesTelaSecao(null,
+                150, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoConfirmarESair.setBounds(246,430,220,90);
+        botaoConfirmarESair.setHorizontalAlignment(SwingConstants.CENTER);
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        botaoConfirmarESair.addMouseListener(acao);
+
+        JLabel labelSair = new JLabel("Não");
+        labelSair.setBounds(508,445,100,50);
+        labelSair.setForeground(new Color(139,0,0));
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoSair = new JLabelOpcoesTelaSecao(null,
+                150, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoSair.setBounds(446,430,220,90);
+        botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        botaoSair.addMouseListener(acao);
+
+
+
+        add(labelSair);
+        add(botaoSair);
+        add(labelConfirmarESair);
+        add(botaoConfirmarESair);
 
 
     }
@@ -134,7 +202,12 @@ public class TelaDeMensagensAoJogador extends JDialog {
         public void mouseClicked(MouseEvent e) {
 
             if (e.getSource() == botaoSair){
-                setVisible(false);
+               dispose();
+            }
+
+            if (e.getSource() == botaoConfirmarESair){
+                telaQueChamouEsta.dispose();
+                dispose();
             }
         }
 

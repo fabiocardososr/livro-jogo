@@ -198,7 +198,7 @@ public class TelaBolsa extends JDialog {
         public void mouseClicked(MouseEvent e) {
 
             if (e.getSource() == botaoSair){
-                setVisible(false);
+                dispose();
                 return;
             }
 

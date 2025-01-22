@@ -226,7 +226,7 @@ public class TelaRegrasOpcoes extends JDialog {
             }
 
                 if (e.getSource() == botaoSair){
-                    setVisible(false);
+                    dispose();
                 }
 
             if (e.getSource() == botaoRegraBatalha){

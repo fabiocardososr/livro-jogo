@@ -106,7 +106,7 @@ public class TelaRegra extends JDialog {
         labelSair.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                setVisible(false);
+               dispose();
             }
 
             @Override
