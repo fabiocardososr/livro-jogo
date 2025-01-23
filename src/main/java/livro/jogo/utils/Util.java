@@ -163,6 +163,7 @@ public class Util {
         }
     }
 
+    //Carrega dados do jogo salvo
     public static SaveJogo carregarJogoEmArquivo(String nomeArq){
         ObjectInputStream objectIn = null;
         SaveJogo carregaSave = null;
@@ -175,6 +176,19 @@ public class Util {
             throw new RuntimeException(e);
         }
         return carregaSave;
+    }
+
+    //lista todos os nomes arquivos dos jogos salvos
+    public static ArrayList<String> listarJogosSalvos(){
+        File file = new File("save/");
+        File arquivos[] = file.listFiles();
+        ArrayList<String> listaNomesArquivos = new ArrayList<>();
+
+        for (int i=0; i < arquivos.length; i++){
+            listaNomesArquivos.add(arquivos[i].getName());
+        }
+
+        return listaNomesArquivos;
     }
 
 }
