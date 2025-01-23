@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.SaveJogo;
 import livro.jogo.telas.desktop.TelaBolsa;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -33,8 +35,15 @@ public class Testes {
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         DadosLivroCarregado.setPersonagem(personagem);
 
-        personagem.setHabilidadeAtual(5);
-        CarregarTelas.telaSecaoHistoriaInicial(null,personagem,null);
+        //Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,null));
+
+        SaveJogo save = Util.carregarJogoEmArquivo("Fábio.sav");
+
+        Personagem personagem1 = save.getPersonagem();
+        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
+
+//        personagem.setHabilidadeAtual(5);
+//        CarregarTelas.telaSecaoHistoriaInicial(null,personagem,null);
 
       // CarregarTelas.telaBolsa(1000,800,null,
          //      null,null,null,null);

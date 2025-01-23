@@ -5,6 +5,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ItensMapeamento;
 
 import javax.imageio.ImageIO;
@@ -124,8 +125,8 @@ public class Util {
     }
 
     //Para tratar a execução do áudio sem travar a tela
-    private class Audio extends Thread {
-        private String audio;
+    private static class Audio extends Thread {
+        private final String audio;
         // private Player player;
 
         public Audio(String audio) {
@@ -148,6 +149,32 @@ public class Util {
         public void parar() {
             player.close();
         }
+    }
+
+    //Salvar o jogo em arquivo
+    public static void salvarJogoEmArquivo(String nomeArq, SaveJogo save){
+        ObjectOutputStream objectOutputStream = null;
+        try {
+            objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("save/"+nomeArq+".sav")));
+            objectOutputStream.writeObject(save);
+            objectOutputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static SaveJogo carregarJogoEmArquivo(String nomeArq){
+        ObjectInputStream objectIn = null;
+        SaveJogo carregaSave = null;
+
+        try {
+            objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("save/"+nomeArq)));
+            carregaSave = (SaveJogo) objectIn.readObject();
+            objectIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return carregaSave;
     }
 
 }

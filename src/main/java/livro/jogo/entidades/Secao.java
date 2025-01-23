@@ -1,9 +1,10 @@
 package livro.jogo.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Secao {
+public class Secao implements Serializable {
     private Integer codSecaoLivro;
     private String texto;
     private String enderecoImagem;

@@ -2,7 +2,9 @@ package livro.jogo.entidades;
 
 import livro.jogo.enums.TipoEfeito;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private int idItem;
     private TipoEfeito tipoEfeito;                  //indica onde o artefato vai atuar se na HABILIDADE, ENERGIA OU SORTE
     private  String nome;

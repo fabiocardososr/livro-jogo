@@ -2,9 +2,10 @@ package livro.jogo.entidades;
 
 import livro.jogo.Personagens.CondicaoEspecialPersonagem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Personagem {
+public class Personagem implements Serializable {
     private String nome;
     private int genero; // Gênero que corresponde ao sexo biológico que lhes foi atribuído no nascimento
     private int idLivro;
