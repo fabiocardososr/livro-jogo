@@ -38,6 +38,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
+/save/*
+
 /livros/florestadadestruicao/audio/historia_inicial.mp3
 /livros/florestadadestruicao/audio/secao_1.mp3
 /livros/florestadadestruicao/audio/secao_2.mp3
