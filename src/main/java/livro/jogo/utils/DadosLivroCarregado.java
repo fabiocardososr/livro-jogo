@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class DadosLivroCarregado {
     private static Livro livro;
     private static Personagem personagem;
+    private static int secaoAtual;
 
     public static Personagem getPersonagem() {
         return personagem;
@@ -71,4 +72,11 @@ public class DadosLivroCarregado {
         }
     }
 
+    public static int getSecaoAtual() {
+        return secaoAtual;
+    }
+
+    public static void setSecaoAtual(int secaoAtual) {
+        DadosLivroCarregado.secaoAtual = secaoAtual;
+    }
 }

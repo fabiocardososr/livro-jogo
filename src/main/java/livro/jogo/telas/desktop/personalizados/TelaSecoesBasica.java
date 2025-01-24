@@ -403,28 +403,34 @@ public class TelaSecoesBasica extends JDialog{
 
         //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
         pocaoInicial = Util.retornaPocaoInicialDaBolsa();
-        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) {
+
+        if (pocaoInicial == null)
+            configuraPocaoVaziaQuandoPocaoInicialConsumida();
+
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ) {
             labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
             labelPocaoInicial.setToolTipText("Repõe os pontos de HABILIDADE");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
             labelPocaoInicial.setBounds(1285,265,150,100);
         }
 
-        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ) {
             labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
             labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
             labelPocaoInicial.setBounds(1290,265,150,100);
         }
-        if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ) {
             labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
             labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
             labelPocaoInicial.setBounds(1285,265,150,100);
         }
-        labelPocaoInicial.addMouseListener(acaoLabels);
+
+        if (pocaoInicial != null)
+           labelPocaoInicial.addMouseListener(acaoLabels);
 
         //Provisões
         var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
@@ -504,7 +510,10 @@ public class TelaSecoesBasica extends JDialog{
         add(labelFundoProvisoes);
         add(labelMapaBotao);
         add(labelFundoMapa);
-        add(labelPocaoInicial);
+
+        if (pocaoInicial != null)
+           add(labelPocaoInicial);
+
         add(labelFundoPocaoInicial);
         add(labelSalvar);
         add(labelFundoSalvar);
@@ -515,20 +524,29 @@ public class TelaSecoesBasica extends JDialog{
     //Substitui a imagem da poção inicial por um recipiente vazio
     private void configuraPocaoVaziaQuandoPocaoInicialConsumida(){
         String complementoTexto = ""; //Complemento do texto quando escolhida a poção da fortuna (sorte)
+        boolean consumido = false;
 
-        labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
-                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
-        labelPocaoInicial.setText("");
-        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPocaoInicial.setBounds(1270,265,150,100);
-        labelPocaoInicial.addMouseListener(null);
-        labelPocaoInicial.setToolTipText("Poção consumida");
+        if (pocaoInicial == null) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("", 50, 55,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA);
+//            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
+//                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+            labelPocaoInicial.setText("");
+            labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+            labelPocaoInicial.setBounds(1270,265,150,100);
+            labelPocaoInicial.addMouseListener(null);
+            labelPocaoInicial.setToolTipText("Poção consumida");
+            add(labelPocaoInicial);
+            return;
+        }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()){
             lbSortePersonagem.setText("Sorte: "+
                                         String.valueOf(personagem.getSorteAtual())+ "/"+
                                         String.valueOf(personagem.getSorteMax()));
             complementoTexto = " Além do incremento de 1 ponto no seu nível.";
+            consumido = true;
+
         }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()){
@@ -536,6 +554,7 @@ public class TelaSecoesBasica extends JDialog{
             lbEnergiaPersonagem.setText("Energia: "+
                     String.valueOf(personagem.getEnergiaAtual())+ "/"+
                     String.valueOf(personagem.getEnergiaMax()));
+            consumido = true;
         }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()){
@@ -543,8 +562,17 @@ public class TelaSecoesBasica extends JDialog{
             lbHabilidadePersonagem.setText("Habilidade: "+
                     String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                     String.valueOf(personagem.getHabilidadeMax()));
+            consumido = true;
         }
 
+        //Muda para recipiente vazio
+        labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+        labelPocaoInicial.setText("");
+        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+        labelPocaoInicial.setBounds(1270,265,150,100);
+        labelPocaoInicial.addMouseListener(null);
+        labelPocaoInicial.setToolTipText("Poção consumida");
 
 
         CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
@@ -572,14 +600,22 @@ public class TelaSecoesBasica extends JDialog{
         public void mouseClicked(MouseEvent e) {
 
             if (e.getSource() == labelVoz){
+
+                //Não deixar ativar o som mais de uma vez
+                if ( !labelVoz.isEnabled() )
+                    return;
+
                 if ( enderecoAudioHistoriaInicial.isEmpty() )
-                  util.reproduzirAudioMp3(secao.getEnderecoAudio());
+                    util.reproduzirAudioMp3(secao.getEnderecoAudio());
                 else
                     util.reproduzirAudioMp3(enderecoAudioHistoriaInicial);
+
+                labelVoz.setEnabled(false);
             }
 
             if (e.getSource() == labelVozParar){
                 util.pararAudioMp3();
+                labelVoz.setEnabled(true);
             }
 
             if (e.getSource() == labelAumentaTexto){

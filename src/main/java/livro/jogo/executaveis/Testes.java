@@ -28,22 +28,22 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio",1,10,20,10,
+        Personagem personagem = new Personagem("Fábio",1,10,200,10,
                 bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
         personagem.setHabilidadeAtual(5);
+        personagem.setEnergiaAtual(10);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         DadosLivroCarregado.setPersonagem(personagem);
 
         //Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,null));
 
-        SaveJogo save = Util.carregarJogoEmArquivo("Fábio.sav");
-
-        Personagem personagem1 = save.getPersonagem();
-        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
+//        SaveJogo save = Util.carregarJogoEmArquivo("Fábio.sav");
+//        Personagem personagem1 = save.getPersonagem();
+//        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
 
 //        personagem.setHabilidadeAtual(5);
-//        CarregarTelas.telaSecaoHistoriaInicial(null,personagem,null);
+        CarregarTelas.telaSecaoHistoriaInicial(null,personagem);
 
       // CarregarTelas.telaBolsa(1000,800,null,
          //      null,null,null,null);
@@ -77,9 +77,9 @@ public class Testes {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
                     "livros/florestadadestruicao/itens/item_"+i+".json"));
 
-//        for (int i=1; i<=50; i++)
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJsonEGuardaNaBolsa(objMapper,
-//                "livros/florestadadestruicao/itens/item_"+i+".json"));
+        for (int i=1; i<=5; i++)
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+                "livros/florestadadestruicao/itens/item_49.json"));
 
 
 

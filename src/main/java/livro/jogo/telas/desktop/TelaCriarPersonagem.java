@@ -627,7 +627,7 @@ public class TelaCriarPersonagem extends TelaBasica {
                 habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
 
         setVisible(false);
-        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar(), telaPrincipal);
+        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar());
 
     }
 

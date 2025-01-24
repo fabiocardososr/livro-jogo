@@ -15,7 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class CarregarTelas {
-    private TelaBasica telaPai; //Guardar a referência da tela principal
+    private static TelaBasica telaPai; //Guardar a referência da tela principal
     private static boolean resultadoTelaDeConfirmacao = false;
 
     public static boolean isResultadoTelaDeConfirmacao() {
@@ -29,7 +29,7 @@ public class CarregarTelas {
     public CarregarTelas() {
     }
 
-    public TelaBasica getTelaPai() {
+    public static TelaBasica getTelaPai() {
         return telaPai;
     }
 
@@ -91,8 +91,8 @@ public class CarregarTelas {
         telaCriarPersonagem.setVisible(true);
     }
 
-    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem, JFrame telaPrincipal){
-        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, telaPrincipal);
+    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem){
+        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, getTelaPai());
         telaSecoesBasica.setVisible(true);
     }
 
@@ -133,5 +133,19 @@ public class CarregarTelas {
         TelaAnotacoes tela = new TelaAnotacoes(personagem);
         tela.setVisible(true);
 
+    }
+
+    public static void carregarSecaoSalva(Secao secao, Personagem personagem){
+
+        //No caso é a introdução da história
+        if (secao == null){
+            CarregarTelas.telaSecaoHistoriaInicial(null,personagem);
+            return;
+        }
+
+        //Aqui vai ser chamado as seções
+        switch (secao.getCodSecaoLivro()){
+            case 1 -> JOptionPane.showMessageDialog(null, "chamar aqui Seção 1");
+        }
     }
 }

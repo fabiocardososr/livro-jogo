@@ -41,7 +41,9 @@ public class TelaCarregarJogoSalvo extends JDialog {
         jListNomesArqs.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+                setVisible(false);
                 new CarregarJogoSalvo(jListNomesArqs.getSelectedValue());
+                dispose();
                 //JOptionPane.showMessageDialog(null, jListNomesArqs.getSelectedValue());
 
             }
