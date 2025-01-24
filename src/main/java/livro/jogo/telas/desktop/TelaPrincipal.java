@@ -155,7 +155,8 @@ public class TelaPrincipal extends TelaBasica {
             }
 
             if (e.getSource() == labelBotaoCarregarPersonagem){
-                JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
+                //JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
+                carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
             }
 
             if (e.getSource() == labelBotaoIniciarJogo){

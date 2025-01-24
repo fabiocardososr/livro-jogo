@@ -47,10 +47,18 @@ public class CarregarTelas {
             case TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM:
                 telaCriacaoPersonagem();
                 break;
+            case TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO:
+                telaCarregarJogo();
+                break;
             default:
                 break;
         }
 
+    }
+
+    private void telaCarregarJogo() {
+        TelaCarregarJogoSalvo tela = new TelaCarregarJogoSalvo();
+        tela.setVisible(true);
     }
 
     private void telaPrincipal(){

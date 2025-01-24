@@ -100,6 +100,7 @@ public class Item implements Serializable {
     public String toString() {
         return "Item{" +
                 "idItem=" + idItem +
+                ", Nome=" +nome +
                 ", tipoEfeito=" + tipoEfeito +
                 ", descricao='" + descricao + '\'' +
                 ", valorCusto=" + valorCusto +

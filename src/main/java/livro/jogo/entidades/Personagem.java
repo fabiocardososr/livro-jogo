@@ -140,18 +140,18 @@ public class Personagem implements Serializable {
     @Override
     public String toString() {
         return "Personagem{" +
-                "nome='" + nome + '\'' +
-                ", idLivro=" + idLivro +
-                ", habilidadeMax=" + habilidadeMax +
-                ", energiaMax=" + energiaMax +
-                ", sorteMax=" + sorteMax +
-                ", habilidadeAtual=" + habilidadeAtual +
-                ", energiaAtual=" + energiaAtual +
-                ", sorteAtual=" + sorteAtual +
-                ", anotacoes='" + anotacoes + '\'' +
-                ", bolsa=" + bolsa +"\n"+
-                ", itensEquipados=" + itensEquipados +"\n"+
-                ", condicaoEspecial= " + condicaoEspecial +
+                "nome='" + nome + '\'' +"\n\n"+
+                ", idLivro=" + idLivro +"\n\n"+
+                ", habilidadeMax=" + habilidadeMax +"\n\n"+
+                ", energiaMax=" + energiaMax +"\n\n"+
+                ", sorteMax=" + sorteMax +"\n\n"+
+                ", habilidadeAtual=" + habilidadeAtual +"\n\n"+
+                ", energiaAtual=" + energiaAtual +"\n\n"+
+                ", sorteAtual=" + sorteAtual +"\n\n"+
+                ", anotacoes='" + anotacoes + '\'' +"\n\n"+
+                ", bolsa=" + bolsa +"\n"+"\n\n"+
+                ", itensEquipados=" + itensEquipados +"\n"+"\n\n"+
+                ", condicaoEspecial= " + condicaoEspecial +"\n\n"+
                 ", Ouro carregado= " + quantidadeOuro +
                 '}';
     }

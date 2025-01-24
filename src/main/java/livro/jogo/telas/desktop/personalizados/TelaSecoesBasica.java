@@ -2,6 +2,7 @@ package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
@@ -668,7 +669,8 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() ==  labelSalvar){
                 //Aqui deve ser chamado nova tela para anotações do personagem
-                JOptionPane.showMessageDialog(null,"Salvar");
+                //JOptionPane.showMessageDialog(null,"Salvar");
+                Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
             }
 
             if (e.getSource() ==  dialogImagemMapa){

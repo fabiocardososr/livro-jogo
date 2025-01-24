@@ -12,6 +12,8 @@ public class CarregarJogoSalvo {
     public CarregarJogoSalvo(String nomeArquivo) {
         this.save = Util.carregarJogoEmArquivo(nomeArquivo);
 
+        System.out.println(this.save.getPersonagem());
+
         //Tem que carregar todos os dados. Veja DadosLivroCarregado
         //CarregarTelas.carregarSecaoSalva(save.getSecao(), save.getPersonagem());
     }
