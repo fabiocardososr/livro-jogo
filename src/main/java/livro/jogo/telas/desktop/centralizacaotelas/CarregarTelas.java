@@ -7,6 +7,7 @@ import livro.jogo.telas.desktop.*;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 
 import javax.swing.*;
@@ -107,7 +108,6 @@ public class CarregarTelas {
 
     public static void telaMensagem(String texto){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto);
-        //tela.carregarBotaoOk();
         tela.setVisible(true);
     }
 
@@ -120,8 +120,9 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    public static void telaMensagem(String texto, JDialog dialog){
-        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog);
+    //Esta tela é a de confirmação para FECHAR TELA. Parâmetro "true" significa que é tela de confirmação se quer fechar a tela
+    public static void telaMensagem(String texto, TelaSecoesBasica dialog, boolean fecharTela){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog, fecharTela);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);
         tela.setUndecorated(true);

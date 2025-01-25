@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -21,7 +22,8 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private JLabelOpcoesTelaSecao botaoSim;
     private JLabelOpcoesTelaSecao botaoNao;
     private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
-    private JDialog telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
+    private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
+    private boolean fecharTela = false; //sendo true, indica se a chamada é para confirmar o fechamento da tela. False é só confirmação
 
     public TelaDeMensagensAoJogador(Personagem personagem, String texto) {
         this.personagem = personagem;
@@ -59,10 +61,11 @@ public class TelaDeMensagensAoJogador extends JDialog {
         carregarTexto();
     }
 
-    //Usado para tela de confirmação, no caso de precisar confirmar a saída da tela
-    public TelaDeMensagensAoJogador(String texto, JDialog dialog) {
+    //Usado para tela de confirmação PARA FECHAR TELA
+    public TelaDeMensagensAoJogador(String texto, TelaSecoesBasica dialog, boolean fecharTela) {
         this.texto = texto;
         this.telaQueChamouEsta = dialog;
+        this.fecharTela = fecharTela;
         int largura = 900;
         int altura = 700;
 
@@ -80,8 +83,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
         carregarfundo(largura, altura);
         carregarTexto();
     }
-
-
 
     public void carregarBotaoOk() {
 
@@ -202,11 +203,18 @@ public class TelaDeMensagensAoJogador extends JDialog {
         public void mouseClicked(MouseEvent e) {
 
             if (e.getSource() == botaoSair){
-               dispose();
+                telaQueChamouEsta.setRespostaTelaMensagem(false);
+                dispose();
             }
 
-            if (e.getSource() == botaoConfirmarESair){
+            //Confirma o fechamento da tela
+            if ( (e.getSource() == botaoConfirmarESair) && (fecharTela)){
                 telaQueChamouEsta.dispose();
+                dispose();
+            }
+
+            if ( (e.getSource() == botaoConfirmarESair) && (!fecharTela)){
+                telaQueChamouEsta.setRespostaTelaMensagem(true);
                 dispose();
             }
         }

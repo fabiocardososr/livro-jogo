@@ -48,7 +48,8 @@ public class TelaSecoesBasica extends JDialog{
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     private final Util util = new Util(); //Usado para a a narração (play /stop)
-    private final JDialog thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
+    private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
+    private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
 
     public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
 
@@ -594,6 +595,14 @@ public class TelaSecoesBasica extends JDialog{
         return dialogImagem;
     }
 
+    public boolean isRespostaTelaMensagem() {
+        return respostaTelaMensagem;
+    }
+
+    public void setRespostaTelaMensagem(boolean respostaTelaMensagem) {
+        this.respostaTelaMensagem = respostaTelaMensagem;
+    }
+
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
 
         @Override
@@ -631,9 +640,7 @@ public class TelaSecoesBasica extends JDialog{
             if (e.getSource() == labelSair){
 
                 referenciaTelaPrincipal.setVisible(true);
-                CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog);
-
-
+                CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog, true);
             }
 
             if (e.getSource() == labelMapaBotao){
@@ -704,9 +711,12 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() ==  labelSalvar){
-                //Aqui deve ser chamado nova tela para anotações do personagem
-                //JOptionPane.showMessageDialog(null,"Salvar");
-                Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
+                CarregarTelas.telaMensagem("Deseja salvar o andamento do jogo?",thisDialog, false);
+
+                //telaMensagem seta a resposta através da chamada ao
+                // método RespostaTelaMensagem() da referência a tela "thisDialog"
+                if (isRespostaTelaMensagem())
+                   Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
             }
 
             if (e.getSource() ==  dialogImagemMapa){
