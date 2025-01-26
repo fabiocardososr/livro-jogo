@@ -3,20 +3,17 @@ package livro.jogo.telas.desktop;
 import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarJogoSalvo;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
-import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.Util;
-
-import javax.accessibility.AccessibleAction;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
 import java.util.ArrayList;
 
 public class TelaCarregarJogoSalvo extends JDialog {
 
-    public TelaCarregarJogoSalvo() {
-        setSize(600,500);
+    public TelaCarregarJogoSalvo(int largura, int altura) {
+        setSize(largura,altura);
         setLayout(null);
 //        setLocationRelativeTo(null);
 //        setResizable(false);
@@ -41,6 +38,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
         jListNomesArqs.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+                CarregarTelas.telaMensagem("Jogo carregado!");
                 setVisible(false);
                 new CarregarJogoSalvo(jListNomesArqs.getSelectedValue());
                 dispose();

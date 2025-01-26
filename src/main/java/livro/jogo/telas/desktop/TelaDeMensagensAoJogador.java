@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 
 import javax.swing.*;
@@ -21,27 +22,28 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private TelaRegrasOpcoesAcaoDosBotoes acao = new TelaRegrasOpcoesAcaoDosBotoes();
     private JLabelOpcoesTelaSecao botaoSim;
     private JLabelOpcoesTelaSecao botaoNao;
-    private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
+    //private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
     private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
-    private boolean fecharTela = false; //sendo true, indica se a chamada é para confirmar o fechamento da tela. False é só confirmação
+    private TelaBasica telaBasicaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
+    //private boolean fecharTela = false; //sendo true, indica se a chamada é para confirmar o fechamento da tela. False é só confirmação
 
-    public TelaDeMensagensAoJogador(Personagem personagem, String texto) {
-        this.personagem = personagem;
-        this.texto = texto;
-        int largura = 900;
-        int altura = 700;
-
-        setSize(largura,altura);
-        setLayout(null);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setUndecorated(true);
-        setModal(true);
-        setBackground(new Color(0,0,0,0));
-        carregarBotaoOk();
-        carregarfundo(largura, altura);
-        carregarTexto();
-    }
+//    public TelaDeMensagensAoJogador(Personagem personagem, String texto) {
+//        this.personagem = personagem;
+//        this.texto = texto;
+//        int largura = 900;
+//        int altura = 700;
+//
+//        setSize(largura,altura);
+//        setLayout(null);
+//        setLocationRelativeTo(null);
+//        setResizable(false);
+//        setUndecorated(true);
+//        setModal(true);
+//        setBackground(new Color(0,0,0,0));
+//        carregarBotaoOk();
+//        carregarfundo(largura, altura);
+//        carregarTexto();
+//    }
 
 
     public TelaDeMensagensAoJogador( String texto) {
@@ -62,10 +64,32 @@ public class TelaDeMensagensAoJogador extends JDialog {
     }
 
     //Usado para tela de confirmação PARA FECHAR TELA
-    public TelaDeMensagensAoJogador(String texto, TelaSecoesBasica dialog, boolean fecharTela) {
+    public TelaDeMensagensAoJogador(String texto, TelaSecoesBasica dialog) {
         this.texto = texto;
         this.telaQueChamouEsta = dialog;
-        this.fecharTela = fecharTela;
+        //this.fecharTela = fecharTela; //Vai informar a tela "telaQueChamouEsta" o resultado da escolha
+        int largura = 900;
+        int altura = 700;
+
+        setSize(largura,altura);
+        setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setUndecorated(true);
+        setModal(true);
+        setBackground(new Color(0,0,0,0));
+
+        //Carrega botões de confirmação
+        carregarBotoesConfirmacao();
+
+        carregarfundo(largura, altura);
+        carregarTexto();
+    }
+
+    public TelaDeMensagensAoJogador(String texto, TelaBasica dialog) {
+        this.texto = texto;
+        this.telaBasicaQueChamouEsta = dialog;
+        //this.fecharTela = fecharTela; //Vai informar a tela "telaQueChamouEsta" o resultado da escolha
         int largura = 900;
         int altura = 700;
 
@@ -203,18 +227,28 @@ public class TelaDeMensagensAoJogador extends JDialog {
         public void mouseClicked(MouseEvent e) {
 
             if (e.getSource() == botaoSair){
-                telaQueChamouEsta.setRespostaTelaMensagem(false);
+                if (telaQueChamouEsta != null)
+                    telaQueChamouEsta.setRespostaTelaMensagem(false);
+
+                if (telaBasicaQueChamouEsta != null)
+                    telaBasicaQueChamouEsta.setRespostaTelaMensagem(false);
+
                 dispose();
             }
 
             //Confirma o fechamento da tela
-            if ( (e.getSource() == botaoConfirmarESair) && (fecharTela)){
-                telaQueChamouEsta.dispose();
-                dispose();
-            }
+//            if ( (e.getSource() == botaoConfirmarESair) && (fecharTela)){
+//                telaQueChamouEsta.dispose();
+//                dispose();
+//            }
 
-            if ( (e.getSource() == botaoConfirmarESair) && (!fecharTela)){
-                telaQueChamouEsta.setRespostaTelaMensagem(true);
+            //Caso não se
+            if ( e.getSource() == botaoConfirmarESair){
+                if (telaQueChamouEsta != null)
+                    telaQueChamouEsta.setRespostaTelaMensagem(true);
+
+                if (telaBasicaQueChamouEsta != null)
+                    telaBasicaQueChamouEsta.setRespostaTelaMensagem(true);
                 dispose();
             }
         }

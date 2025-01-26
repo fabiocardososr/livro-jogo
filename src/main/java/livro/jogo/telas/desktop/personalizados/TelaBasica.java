@@ -13,6 +13,7 @@ import java.io.IOException;
 
 
 public class TelaBasica extends JFrame {
+    private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
 
     public TelaBasica(int largura, int altura)  {
         Container principal = getContentPane();
@@ -24,6 +25,14 @@ public class TelaBasica extends JFrame {
         setLocationRelativeTo(null);
         carregarIconTela();
 
+    }
+
+    public boolean isRespostaTelaMensagem() {
+        return respostaTelaMensagem;
+    }
+
+    public void setRespostaTelaMensagem(boolean respostaTelaMensagem) {
+        TelaBasica.respostaTelaMensagem = respostaTelaMensagem;
     }
 
     private void carregarIconTela(){

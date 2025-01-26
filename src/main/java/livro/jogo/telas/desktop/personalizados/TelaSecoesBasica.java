@@ -639,8 +639,12 @@ public class TelaSecoesBasica extends JDialog{
 
             if (e.getSource() == labelSair){
 
-                referenciaTelaPrincipal.setVisible(true);
-                CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog, true);
+                CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog);
+                if (isRespostaTelaMensagem()) {
+                    referenciaTelaPrincipal.setVisible(true);
+                    dispose();
+                }
+
             }
 
             if (e.getSource() == labelMapaBotao){
@@ -711,7 +715,7 @@ public class TelaSecoesBasica extends JDialog{
             }
 
             if (e.getSource() ==  labelSalvar){
-                CarregarTelas.telaMensagem("Deseja salvar o andamento do jogo?",thisDialog, false);
+                CarregarTelas.telaMensagem("Deseja salvar o andamento do jogo?",thisDialog);
 
                 //telaMensagem seta a resposta através da chamada ao
                 // método RespostaTelaMensagem() da referência a tela "thisDialog"

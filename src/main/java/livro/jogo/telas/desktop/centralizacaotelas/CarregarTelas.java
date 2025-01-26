@@ -58,7 +58,7 @@ public class CarregarTelas {
     }
 
     private void telaCarregarJogo() {
-        TelaCarregarJogoSalvo tela = new TelaCarregarJogoSalvo();
+        TelaCarregarJogoSalvo tela = new TelaCarregarJogoSalvo(600,500);
         tela.setVisible(true);
     }
 
@@ -111,18 +111,18 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    public static void telaMensagem(Personagem personagem, String texto){
-        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
-        tela.setLocationRelativeTo(null);
-        tela.setResizable(false);
-        tela.setUndecorated(true);
-        tela.setModal(true);
-        tela.setVisible(true);
-    }
+//    public static void telaMensagem(Personagem personagem, String texto){
+//        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
+//        tela.setLocationRelativeTo(null);
+//        tela.setResizable(false);
+//        tela.setUndecorated(true);
+//        tela.setModal(true);
+//        tela.setVisible(true);
+//    }
 
     //Esta tela é a de confirmação para FECHAR TELA. Parâmetro "true" significa que é tela de confirmação se quer fechar a tela
-    public static void telaMensagem(String texto, TelaSecoesBasica dialog, boolean fecharTela){
-        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog, fecharTela);
+    public static void telaMensagem(String texto, TelaSecoesBasica dialog){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog);
         tela.setLocationRelativeTo(null);
         tela.setResizable(false);
         tela.setUndecorated(true);
