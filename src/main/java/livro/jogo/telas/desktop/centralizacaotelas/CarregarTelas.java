@@ -58,7 +58,7 @@ public class CarregarTelas {
     }
 
     private void telaCarregarJogo() {
-        TelaCarregarJogoSalvo tela = new TelaCarregarJogoSalvo(600,500);
+        TelaCarregarJogoSalvo tela = new TelaCarregarJogoSalvo(250,300);
         tela.setVisible(true);
     }
 
