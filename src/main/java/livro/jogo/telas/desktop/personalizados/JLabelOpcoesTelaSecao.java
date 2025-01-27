@@ -20,8 +20,6 @@ public class JLabelOpcoesTelaSecao extends JLabel {
         setText(texto);
         this.largura = largura;
         this.altura = altura;
-        //setForeground(Color.WHITE);
-        //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
         setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem));
         setForeground(new Color(139,0,0));
@@ -35,8 +33,6 @@ public class JLabelOpcoesTelaSecao extends JLabel {
         setText(texto);
         this.largura = largura;
         this.altura = altura;
-        //setForeground(Color.WHITE);
-        //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
         setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem.getEnderecoImagem()));
         setForeground(new Color(139,0,0));
@@ -51,8 +47,6 @@ public class JLabelOpcoesTelaSecao extends JLabel {
 
     public JLabelOpcoesTelaSecao(String texto, ImagensDoLivroFlorestaDaDestruicao enderecoImagem) {
         super(texto);
-        //setForeground(Color.WHITE);
-        //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,22));
         setIcon(Util.dimensionarImagem(80,85, enderecoImagem.getEnderecoImagem()));
         setForeground(new Color(160,0,0));
@@ -64,7 +58,6 @@ public class JLabelOpcoesTelaSecao extends JLabel {
     public JLabelOpcoesTelaSecao(String texto) {
         super(texto);
         setForeground(Color.WHITE);
-        //setBackground(Color.BLACK);
         setFont(new Font(Font.SERIF,Font.BOLD,25));
         setForeground(new Color(160,0,0));
         setBackground(new Color(210,180,140));

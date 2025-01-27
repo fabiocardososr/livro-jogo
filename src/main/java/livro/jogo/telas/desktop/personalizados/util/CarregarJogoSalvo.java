@@ -19,6 +19,6 @@ public class CarregarJogoSalvo {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //Carregar tela
-        CarregarTelas.carregarSecaoSalva(secao, personagem);
+        CarregarTelas.carregarSecao(secao);
     }
 }

@@ -2,7 +2,9 @@ package livro.jogo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class ProximaSecao {
+import java.io.Serializable;
+
+public class ProximaSecao implements Serializable {
     private int codProximaSecao;
     private String textoOpcao; //Aqui descreve a opção para ir a outra página
 

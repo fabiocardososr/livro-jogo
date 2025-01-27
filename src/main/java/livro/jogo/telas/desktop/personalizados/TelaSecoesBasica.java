@@ -6,6 +6,7 @@ import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.interfaces.SecaoInterface;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.EfeitoDeItens;
@@ -18,7 +19,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecoesBasica extends JDialog{
+public class TelaSecoesBasica extends JDialog {
     private final Secao secao;
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
@@ -40,7 +41,7 @@ public class TelaSecoesBasica extends JDialog{
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
     private JLabelOpcoesTelaSecao labelVoz;
     private JLabelOpcoesTelaSecao labelVozParar;
-    private JTextPane textoHistoria;
+    protected JTextPane textoHistoria;
     private JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     private JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     private JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
@@ -51,43 +52,43 @@ public class TelaSecoesBasica extends JDialog{
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
 
-    public TelaSecoesBasica(int largura, int altura, Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
+//    public TelaSecoesBasica(int largura, int altura, Secao secao, JFrame referenciaTelaPrincipal) {
+//
+//        setSize(largura, altura);
+//        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
+//        Container tela = getContentPane();
+//        tela.setBackground(new Color(210,180,140));
+//
+//        this.secao = secao;
+//        this.personagem = DadosLivroCarregado.getPersonagem();
+//        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
+//        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
+//        setLayout(null);
+//
+//        //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
+//        if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
+//            this.enderecoImagem = secao.getEnderecoImagem();
+//            setTitle("Seção - " + secao.getCodSecaoLivro());
+//        }
+//        else{
+//            setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
+//        }
+//        setType(Window.Type.UTILITY);
+//
+//        setLocationRelativeTo(null);
+//        setModal(true);
+//        setUndecorated(true);
+//
+//        //Carregar campo que receberá o texto da história
+//        carregarTextoHistoria();
+//        carregaImgSecao();
+//        carregaPainelPersonagem();
+//        carregarPainelDireito();
+//        carregaPainelInferior();
+//        carregarFaixasDasExtremidades();
+//    }
 
-        setSize(largura, altura);
-        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
-        Container tela = getContentPane();
-        tela.setBackground(new Color(210,180,140));
-
-        this.secao = secao;
-        this.personagem = personagem;
-        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
-        setLayout(null);
-
-        //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
-        if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
-            this.enderecoImagem = secao.getEnderecoImagem();
-            setTitle("Seção - " + secao.getCodSecaoLivro());
-        }
-        else{
-            setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
-        }
-        setType(Window.Type.UTILITY);
-
-        setLocationRelativeTo(null);
-        setModal(true);
-        setUndecorated(true);
-
-        //Carregar campo que receberá o texto da história
-        carregarTextoHistoria();
-        carregaImgSecao();
-        carregaPainelPersonagem();
-        carregarPainelDireito();
-        carregaPainelInferior();
-        carregarFaixasDasExtremidades();
-    }
-
-    public TelaSecoesBasica(Secao secao, Personagem personagem, JFrame referenciaTelaPrincipal) {
+    public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
@@ -96,7 +97,7 @@ public class TelaSecoesBasica extends JDialog{
         setLayout(null);
 
         this.secao = secao;
-        this.personagem = personagem;
+        this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
@@ -119,7 +120,6 @@ public class TelaSecoesBasica extends JDialog{
         carregaImgSecao();
         carregaPainelPersonagem();
         carregarPainelDireito();
-        carregaPainelInferior();
         carregarFaixasDasExtremidades();
     }
 
@@ -376,7 +376,7 @@ public class TelaSecoesBasica extends JDialog{
         add(imgMolduraParaImgSecao);
     }
 
-    private void carregaPainelInferior() {
+    protected void carregaPainelInferior() {
         ImagePanel imgPainelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO);
         imgPainelInferior.setLayout(null);
         imgPainelInferior.setBounds(1,505,900,290);
@@ -614,7 +614,8 @@ public class TelaSecoesBasica extends JDialog{
                 if ( !labelVoz.isEnabled() )
                     return;
 
-                if ( enderecoAudioHistoriaInicial.isEmpty() )
+                if ( ( (enderecoAudioHistoriaInicial == null) ||
+                        (enderecoAudioHistoriaInicial.isEmpty()) ) && (secao != null) )
                     util.reproduzirAudioMp3(secao.getEnderecoAudio());
                 else
                     util.reproduzirAudioMp3(enderecoAudioHistoriaInicial);
@@ -641,7 +642,10 @@ public class TelaSecoesBasica extends JDialog{
 
                 CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog);
                 if (isRespostaTelaMensagem()) {
-                    referenciaTelaPrincipal.setVisible(true);
+
+                    if (referenciaTelaPrincipal != null)
+                        referenciaTelaPrincipal.setVisible(true);
+
                     dispose();
                 }
 

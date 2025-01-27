@@ -5,6 +5,7 @@ import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
+import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.TelaBolsa;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -43,7 +44,9 @@ public class Testes {
 //        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
 
 //        personagem.setHabilidadeAtual(5);
-        CarregarTelas.telaSecaoHistoriaInicial(null,personagem);
+        CarregarTelas.telaSecaoHistoriaInicial(null);
+
+        //new CarregarTelas().carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
 
       // CarregarTelas.telaBolsa(1000,800,null,
          //      null,null,null,null);

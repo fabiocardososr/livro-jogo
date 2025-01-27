@@ -626,8 +626,11 @@ public class TelaCriarPersonagem extends TelaBasica {
         CriacaoPersonagem criacaoPersonagem = new CriacaoPersonagem(nome, DadosLivroCarregado.getLivro().getIdLivro(),
                 habilidadeInicial, energiaInicial,sorteInicial,pocaoEscolhida,generoPersonagem);
 
+        //Cria o personagem setando a informação em DadosLivroCarregado
+        criacaoPersonagem.criar();
+
         setVisible(false);
-        CarregarTelas.telaSecaoHistoriaInicial(null,criacaoPersonagem.criar());
+        CarregarTelas.telaSecaoHistoriaInicial(null);
 
     }
 

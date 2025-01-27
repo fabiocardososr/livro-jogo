@@ -20,44 +20,57 @@ public class TelaCarregarJogoSalvo extends JDialog {
     private String nomeArquivo;
 
     public TelaCarregarJogoSalvo(int largura, int altura) {
-        setSize(largura,altura);
+        setSize(largura+160,altura+50);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
         setModal(true);
-        //setUndecorated(true);
-        //setBackground(new Color(0,0,0,0));
+
+        setUndecorated(true);
+        setBackground(new Color(0,0,0,0));
 
         carregaListaDeArquivos();
         carregarBotoes();
+        carregarFundo(largura, altura);
+    }
+
+    private void carregarFundo(int largura, int altura) {
+        JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao(null,largura+150,altura,
+                ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA);
+
+        labelMolduraTextoTelaPrincipal.setHorizontalAlignment(SwingConstants.CENTER);
+        labelMolduraTextoTelaPrincipal.setBounds(0,0, largura+150, altura);
+        add(labelMolduraTextoTelaPrincipal);
     }
 
     private void carregarBotoes() {
         JLabel labelCarregar = new JLabel("Carregar");
-        labelCarregar.setBounds(30, 162, 80,60);
+        labelCarregar.setBounds(103, 252, 80,60);
         labelCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelCarregar.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        labelCarregar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelCarregar.setVerticalTextPosition(SwingConstants.CENTER);
         labelCarregar.setForeground(new Color(139,0,0));
 
+        botaoCarregar = new JLabelOpcoesTelaSecao(null,
+                100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoCarregar.setBounds(80,260,100,50);
+        botaoCarregar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        botaoCarregar.addMouseListener(acao);
+
         JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(158, 162, 80,60);
+        labelSair.setBounds(270, 252, 80,60);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelSair.setVerticalTextPosition(SwingConstants.CENTER);
         labelSair.setForeground(new Color(139,0,0));
 
-        botaoCarregar = new JLabelOpcoesTelaSecao(null,
-                100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoCarregar.setBounds(10,170,100,50);
-        botaoCarregar.setHorizontalAlignment(SwingConstants.CENTER);
-        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        botaoCarregar.addMouseListener(acao);
-
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(120,170,100,50);
+        botaoSair.setBounds(230,260,100,50);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(acao);
 
         add(labelSair);
@@ -72,8 +85,10 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         JList<String> jListNomesArqs = new JList<String>(listaNomesArquivos);
         jListNomesArqs.setVisibleRowCount(5);
+        jListNomesArqs.setBackground(new Color(210,180,140));
         JScrollPane scroll = new JScrollPane(jListNomesArqs);
-        scroll.setBounds(10,10,223,150);
+        scroll.setBounds(78,45,240,210);
+
         add(scroll);
 
         jListNomesArqs.addListSelectionListener(new ListSelectionListener() {

@@ -27,13 +27,11 @@ public class CriacaoPersonagem {
         this.genero = genero;
     }
 
-    public Personagem criar(){
+    public void criar(){
         var itensEquipados = adicionaItensIniciaisEquipados();
         var bolsa = adicionaItensIniciaisNaBolsa(pocaoEscolhida);
         Personagem personagem = new Personagem(nome.toUpperCase(),idLivro,habilidadeInicial,energiaInicial,sorteInicial, bolsa, itensEquipados,genero);
         DadosLivroCarregado.setPersonagem(personagem);
-
-        return personagem;
     }
 
     private ArrayList<Item> adicionaItensIniciaisNaBolsa(int pocaoEscolhida) {

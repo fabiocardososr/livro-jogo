@@ -8,7 +8,9 @@ import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.secoes.Secao1;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,8 +94,8 @@ public class CarregarTelas {
         telaCriarPersonagem.setVisible(true);
     }
 
-    public static void telaSecaoHistoriaInicial(Secao secao, Personagem personagem){
-        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, personagem, getTelaPai());
+    public static void telaSecaoHistoriaInicial(Secao secao){
+        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, getTelaPai());
         telaSecoesBasica.setVisible(true);
     }
 
@@ -111,15 +113,6 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-//    public static void telaMensagem(Personagem personagem, String texto){
-//        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(personagem, texto);
-//        tela.setLocationRelativeTo(null);
-//        tela.setResizable(false);
-//        tela.setUndecorated(true);
-//        tela.setModal(true);
-//        tela.setVisible(true);
-//    }
-
     //Esta tela é a de confirmação para FECHAR TELA. Parâmetro "true" significa que é tela de confirmação se quer fechar a tela
     public static void telaMensagem(String texto, TelaSecoesBasica dialog){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog);
@@ -136,17 +129,25 @@ public class CarregarTelas {
 
     }
 
-    public static void carregarSecaoSalva(Secao secao, Personagem personagem){
+    public static void carregarSecao(Secao secao){
 
         //No caso é a introdução da história
         if (secao == null){
-            CarregarTelas.telaSecaoHistoriaInicial(null,personagem);
+            telaSecaoHistoriaInicial(null);
             return;
         }
 
         //Aqui vai ser chamado as seções
         switch (secao.getCodSecaoLivro()){
-            case 1 -> JOptionPane.showMessageDialog(null, "chamar aqui Seção 1");
+            case 1 -> secao1();
         }
+    }
+
+
+    /*** Inicializar seções ***/
+
+    private static void secao1(){
+        new Secao1(DadosLivroCarregado.getLivro().getMapSecao().get(1),getTelaPai()).setVisible(true);
+
     }
 }
