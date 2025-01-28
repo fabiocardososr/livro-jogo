@@ -6,7 +6,6 @@ import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.interfaces.SecaoInterface;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.EfeitoDeItens;
@@ -19,7 +18,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecoesBasica extends JDialog {
+public abstract class TelaSecoesBasica extends JDialog {
     private final Secao secao;
     private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
@@ -51,42 +50,6 @@ public class TelaSecoesBasica extends JDialog {
     private final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
-
-//    public TelaSecoesBasica(int largura, int altura, Secao secao, JFrame referenciaTelaPrincipal) {
-//
-//        setSize(largura, altura);
-//        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
-//        Container tela = getContentPane();
-//        tela.setBackground(new Color(210,180,140));
-//
-//        this.secao = secao;
-//        this.personagem = DadosLivroCarregado.getPersonagem();
-//        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
-//        //acoesComunsTelaSecao = new EfeitoDeItens(this.personagem);
-//        setLayout(null);
-//
-//        //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
-//        if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
-//            this.enderecoImagem = secao.getEnderecoImagem();
-//            setTitle("Seção - " + secao.getCodSecaoLivro());
-//        }
-//        else{
-//            setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
-//        }
-//        setType(Window.Type.UTILITY);
-//
-//        setLocationRelativeTo(null);
-//        setModal(true);
-//        setUndecorated(true);
-//
-//        //Carregar campo que receberá o texto da história
-//        carregarTextoHistoria();
-//        carregaImgSecao();
-//        carregaPainelPersonagem();
-//        carregarPainelDireito();
-//        carregaPainelInferior();
-//        carregarFaixasDasExtremidades();
-//    }
 
     public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
@@ -121,6 +84,8 @@ public class TelaSecoesBasica extends JDialog {
         carregaPainelPersonagem();
         carregarPainelDireito();
         carregarFaixasDasExtremidades();
+        carregarComponentesEspecificos();
+        carregaPainelInferior();
     }
 
     private void carregarFaixasDasExtremidades() {
@@ -150,6 +115,8 @@ public class TelaSecoesBasica extends JDialog {
         add(labelFaixaSuperiorEsquerda);
         add(labelFaixaInferiorEsquerda);
     }
+
+    protected abstract void carregarComponentesEspecificos();
 
     private void carregarTextoHistoria() {
 

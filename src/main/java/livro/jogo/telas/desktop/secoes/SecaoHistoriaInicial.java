@@ -3,7 +3,6 @@ package livro.jogo.telas.desktop.secoes;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.interfaces.SecaoInterface;
 import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -14,9 +13,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class SecaoHistoriaInicial extends TelaSecoesBasica implements SecaoInterface {
-    private Secao secao;
-    private Personagem personagem = DadosLivroCarregado.getPersonagem();
+public class SecaoHistoriaInicial extends TelaSecoesBasica {
 
     //Componentes
     private JLabel texto;
@@ -24,16 +21,12 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica implements SecaoInter
 
     public SecaoHistoriaInicial(Secao secao, JFrame referenciaTelaPrincipal) {
         super(secao, referenciaTelaPrincipal);
-        this.secao = secao;
         carregarComponentesEspecificos();
     }
 
-    @Override
+   // @Override
     public void carregarComponentesEspecificos() {
         carregaBotaoOpcao();
-
-        //Necessário chamar depois porque o botão acima ficaria por baixo e com isso não aparecendo.
-        carregaPainelInferior();
     }
 
 
