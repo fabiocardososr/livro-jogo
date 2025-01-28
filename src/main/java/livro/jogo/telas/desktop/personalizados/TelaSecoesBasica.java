@@ -19,8 +19,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public abstract class TelaSecoesBasica extends JDialog {
-    private final Secao secao;
-    private final Personagem personagem;
+    private Secao secao;
+    private Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
@@ -50,6 +50,10 @@ public abstract class TelaSecoesBasica extends JDialog {
     private final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
+    protected JLabelOpcoesTelaSecao botaoOpcao1; //Uma das opções da seção
+    //protected JLabelOpcoesTelaSecao botaoOpcao2; //Uma das opções da seção
+
+    //public TelaSecoesBasica(){}
 
     public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
@@ -80,11 +84,12 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();
+
         carregaImgSecao();
         carregaPainelPersonagem();
         carregarPainelDireito();
         carregarFaixasDasExtremidades();
-        carregarComponentesEspecificos();
+        carregarComponentesEspecificos(secao);
         carregaPainelInferior();
     }
 
@@ -116,7 +121,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(labelFaixaInferiorEsquerda);
     }
 
-    protected abstract void carregarComponentesEspecificos();
+    protected abstract void carregarComponentesEspecificos(Secao secao);
 
     private void carregarTextoHistoria() {
 
@@ -398,7 +403,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         }
 
         if (pocaoInicial != null)
-           labelPocaoInicial.addMouseListener(acaoLabels);
+            labelPocaoInicial.addMouseListener(acaoLabels);
 
         //Provisões
         var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
@@ -480,7 +485,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(labelFundoMapa);
 
         if (pocaoInicial != null)
-           add(labelPocaoInicial);
+            add(labelPocaoInicial);
 
         add(labelFundoPocaoInicial);
         add(labelSalvar);
@@ -510,8 +515,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()){
             lbSortePersonagem.setText("Sorte: "+
-                                        String.valueOf(personagem.getSorteAtual())+ "/"+
-                                        String.valueOf(personagem.getSorteMax()));
+                    String.valueOf(personagem.getSorteAtual())+ "/"+
+                    String.valueOf(personagem.getSorteMax()));
             complementoTexto = " Além do incremento de 1 ponto no seu nível.";
             consumido = true;
 
@@ -535,7 +540,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Muda para recipiente vazio
         labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
-                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
         labelPocaoInicial.setText("");
         labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
         labelPocaoInicial.setBounds(1270,265,150,100);
@@ -642,17 +647,17 @@ public abstract class TelaSecoesBasica extends JDialog {
                     return;
                 }
 
-               var foiConsumido = efeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
+                var foiConsumido = efeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
 
-               if ( foiConsumido ) {
-                   configuraPocaoVaziaQuandoPocaoInicialConsumida();
-                   pocaoInicial = null;
-               }
-               else
-                   CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+
-                           ", seu índice de "+pocaoInicial.getTipoEfeito().name().toLowerCase()+
-                           " encontra-se no nível máximo."+
-                           "\n\nNão existe necessidade de tomar a poção.");
+                if ( foiConsumido ) {
+                    configuraPocaoVaziaQuandoPocaoInicialConsumida();
+                    pocaoInicial = null;
+                }
+                else
+                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+
+                            ", seu índice de "+pocaoInicial.getTipoEfeito().name().toLowerCase()+
+                            " encontra-se no nível máximo."+
+                            "\n\nNão existe necessidade de tomar a poção.");
             }
 
             if (e.getSource() ==  labelProvisoes){
@@ -668,7 +673,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if (Util.quantidadeProvisoesRestantes() > 0) {
 
                     //Aqui trata a ação de comer a provisão
-                     //Item provisão
+                    //Item provisão
                     if  (efeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
@@ -691,7 +696,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 //telaMensagem seta a resposta através da chamada ao
                 // método RespostaTelaMensagem() da referência a tela "thisDialog"
                 if (isRespostaTelaMensagem())
-                   Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
+                    Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
             }
 
             if (e.getSource() ==  dialogImagemMapa){

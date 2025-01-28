@@ -8,7 +8,7 @@ import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
-import livro.jogo.telas.desktop.secoes.Secao1;
+import livro.jogo.telas.desktop.secoes.TelaSecao1;
 import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
 import livro.jogo.utils.DadosLivroCarregado;
 
@@ -139,15 +139,14 @@ public class CarregarTelas {
 
         //Aqui vai ser chamado as seções
         switch (secao.getCodSecaoLivro()){
-            case 1 -> secao1();
+            case 1 -> secao1(secao);
         }
     }
 
 
     /*** Inicializar seções ***/
 
-    private static void secao1(){
-        new Secao1(DadosLivroCarregado.getLivro().getMapSecao().get(1),getTelaPai()).setVisible(true);
-
+    private static void secao1(Secao secao){
+        new TelaSecao1(secao, getTelaPai()).setVisible(true);
     }
 }
