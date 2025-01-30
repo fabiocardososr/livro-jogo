@@ -67,6 +67,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
 
+
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
             this.enderecoImagem = secao.getEnderecoImagem();

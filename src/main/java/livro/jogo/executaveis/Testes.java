@@ -47,9 +47,9 @@ public class Testes {
 //        personagem.setHabilidadeAtual(5);
 
         /* TESTAR SEÇÕES INDIVIDUAIS */
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(1);
+        //Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(1);
         //CarregarTelas.carregarSecao(secao);
-        CarregarTelas.telaSecaoHistoriaInicial(secao);
+        CarregarTelas.telaSecaoHistoriaInicial(null);
 
         //new CarregarTelas().carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
 
