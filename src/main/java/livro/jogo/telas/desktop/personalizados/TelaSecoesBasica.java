@@ -50,8 +50,6 @@ public abstract class TelaSecoesBasica extends JDialog {
     private final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
-    protected JLabelOpcoesTelaSecao botaoOpcao1; //Uma das opções da seção
-    //protected JLabelOpcoesTelaSecao botaoOpcao2; //Uma das opções da seção
 
     //public TelaSecoesBasica(){}
 

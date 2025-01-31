@@ -629,9 +629,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Cria o personagem setando a informação em DadosLivroCarregado
         criacaoPersonagem.criar();
 
-        setVisible(false);
-        CarregarTelas.telaSecaoHistoriaInicial(null);
-
+        //Carrega tela seção inicial
+        CarregarTelas.carregarSecao(null);
+        dispose();
     }
 
     private class TelaAcaoDosLabels implements MouseListener {
@@ -662,8 +662,8 @@ public class TelaCriarPersonagem extends TelaBasica {
             }
 
             if (e.getSource() == botaoFechar){
-                setVisible(false);
                 telaPrincipal.setVisible(true);
+                dispose();
             }
 
             if (e.getSource() == botaoResetar){

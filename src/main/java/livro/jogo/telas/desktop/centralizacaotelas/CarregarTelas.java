@@ -8,17 +8,16 @@ import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
-import livro.jogo.telas.desktop.secoes.TelaSecao1;
-import livro.jogo.telas.desktop.secoes.SecaoHistoriaInicial;
-import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.telas.desktop.secoes.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.Console;
 
 public class CarregarTelas {
-    private static TelaBasica telaPai; //Guardar a referência da tela principal
+    private static TelaBasica telaPrincipal; //Guardar a referência da tela principal
     private static boolean resultadoTelaDeConfirmacao = false;
 
     public static boolean isResultadoTelaDeConfirmacao() {
@@ -26,14 +25,14 @@ public class CarregarTelas {
     }
 
     public CarregarTelas(TelaBasica telaPai) {
-        this.telaPai = telaPai;
+        this.telaPrincipal = telaPai;
     }
 
     public CarregarTelas() {
     }
 
-    public static TelaBasica getTelaPai() {
-        return telaPai;
+    public static TelaBasica getReferenciaTelaPrincipal() {
+        return telaPrincipal;
     }
 
     public void carregarTela(TelasDisponiveisParaCarregamento tela, String titulo, String tituloTela, String texto){
@@ -64,9 +63,9 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    private void telaPrincipal(){
+    private static void telaPrincipal(){
         TelaPrincipal tela = new TelaPrincipal(1430,720);
-        this.telaPai = tela;
+        telaPrincipal = tela;
         tela.setVisible(true);
     }
 
@@ -82,12 +81,12 @@ public class CarregarTelas {
     }
 
     private void telaCriacaoPersonagem(){
-        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPai);
+        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPrincipal);
 
         //Quando fechar este tela, deve voltar para a principal
         telaCriarPersonagem.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent event) {
-                telaPai.setVisible(true);
+                telaPrincipal.setVisible(true);
                 //System.exit(0);
             }
         });
@@ -95,7 +94,7 @@ public class CarregarTelas {
     }
 
     public static void telaSecaoHistoriaInicial(Secao secao){
-        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, getTelaPai());
+        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, getReferenciaTelaPrincipal());
         telaSecoesBasica.setVisible(true);
     }
 
@@ -131,22 +130,32 @@ public class CarregarTelas {
 
     public static void carregarSecao(Secao secao){
 
-        //No caso é a introdução da história
-        if (secao == null){
+        if (secao == null) {
             telaSecaoHistoriaInicial(null);
             return;
         }
 
         //Aqui vai ser chamado as seções
-        switch (secao.getCodSecaoLivro()){
-            case 1 -> secao1(secao);
+        switch ( secao.getCodSecaoLivro() ){
+            case 1   -> secao_1(secao);
+            case 54  -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
+            case 261 -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
         }
     }
 
 
-    /*** Inicializar seções ***/
+    /*************** MÉTODOS DE INICIALIZAÇÃO DAS SEÇÕES ***************/
 
-    private static void secao1(Secao secao){
-        new TelaSecao1(secao, getTelaPai()).setVisible(true);
+    private static void secao_1(Secao secao){
+        new TelaSecao_1(secao).setVisible(true);
     }
+
+    private static void secao_54(Secao secao) {
+        new TelaSecao_54(secao).setVisible(true);
+    }
+
+    private static void secao_261(Secao secao) {
+        new TelaSecao_261(secao).setVisible(true);
+    }
+
 }
