@@ -21,6 +21,8 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
     public SecaoHistoriaInicial(Secao secao, JFrame referenciaTelaPrincipal) {
         super(secao, referenciaTelaPrincipal);
         carregarComponentesEspecificos(secao);
+
+
     }
 
     @Override
@@ -44,8 +46,7 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(1));
-                dispose();
+                abrirProximaSecao(1);
             }
 
             @Override

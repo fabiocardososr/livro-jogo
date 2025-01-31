@@ -38,7 +38,7 @@ public class TelaSecao_1 extends TelaSecoesBasica {
     private void opcao1(Secao secao){
         String texto = "1";
         int indiceOpcao = 0; //Para recuperar o texto da opção da seção
-        int indiceProximaSecao = 261;
+        int indiceProximaSecao = 261; //Próxima seção escolhida
 
 
         JLabel label = new JLabel(texto);
@@ -61,10 +61,9 @@ public class TelaSecao_1 extends TelaSecoesBasica {
                     acoesSecao1.opcao_1();
 
                     //Seção que esta opção vai direcionar
-                    Secao proximaSecao = DadosLivroCarregado.getMapSecao().get(indiceProximaSecao);
+                    abrirProximaSecao(indiceProximaSecao);
 
-                    CarregarTelas.carregarSecao(proximaSecao);
-                    dispose();
+                    //dispose();
                 }
             }
 

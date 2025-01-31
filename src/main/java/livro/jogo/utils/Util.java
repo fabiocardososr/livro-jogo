@@ -7,6 +7,7 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -114,24 +115,30 @@ public class Util {
         return quantidadeProvisoes;
     }
 
-    public void reproduzirAudioMp3(String nomeAudio){
-        audio = new Audio(nomeAudio);
+    public void reproduzirAudioMp3(String nomeAudio, JLabelOpcoesTelaSecao label){
+        audio = new Audio(nomeAudio, label);
         audio.start();
     }
 
     public void pararAudioMp3(){
-         player.close();
-        audio.interrupt();
+        if (player != null)
+            player.close();
+
+        if (audio != null)
+            audio.interrupt();
     }
 
     //Para tratar a execução do áudio sem travar a tela
     private static class Audio extends Thread {
         private final String audio;
-        // private Player player;
 
-        public Audio(String audio) {
+        //Não encontrei outro jeito para habilitar o botão novamente quando acabar o áudio
+        //Por isso tive que passar a referência do componente para este método.
+        private JLabelOpcoesTelaSecao label;
 
+        public Audio(String audio, JLabelOpcoesTelaSecao label) {
             this.audio = audio;
+            this.label = label;
         }
 
         public void run() {
@@ -139,6 +146,11 @@ public class Util {
                 InputStream inputstream = new FileInputStream(audio);
                 player = new Player(inputstream);
                 player.play();
+
+                if (player.isComplete()){
+                    label.setEnabled(true);
+                    player.close();
+                }
 
 
             } catch (FileNotFoundException | JavaLayerException e) {

@@ -17,6 +17,8 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public abstract class TelaSecoesBasica extends JDialog {
     private Secao secao;
@@ -47,7 +49,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
-    private final Util util = new Util(); //Usado para a a narração (play /stop)
+    protected final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
 
@@ -71,10 +73,13 @@ public abstract class TelaSecoesBasica extends JDialog {
             this.enderecoImagem = secao.getEnderecoImagem();
             setTitle("Seção - " + secao.getCodSecaoLivro());
         }
-        else{
+
+        //Seta o endereço da narração da história inicial
+        if (secao == null){
             setTitle("Livro - " + DadosLivroCarregado.getLivro().getNome());
             enderecoAudioHistoriaInicial = DadosLivroCarregado.getLivro().getEnderecoAudio();
         }
+
         setType(Window.Type.UTILITY);
 
         setLocationRelativeTo(null);
@@ -90,6 +95,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregarFaixasDasExtremidades();
         carregarComponentesEspecificos(secao);
         carregaPainelInferior();
+
+        //para o áudio caso esteja sendo reproduzido
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                util.pararAudioMp3();
+            }
+        });
     }
 
     private void carregarFaixasDasExtremidades() {
@@ -574,6 +586,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         this.respostaTelaMensagem = respostaTelaMensagem;
     }
 
+    //Chamado para abrir a próxima seção que foi escolhida como opção
+    protected void abrirProximaSecao(int codSecao){
+        util.pararAudioMp3();
+        CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+        this.dispose();
+    }
+
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
 
         @Override
@@ -587,9 +606,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                 if ( ( (enderecoAudioHistoriaInicial == null) ||
                         (enderecoAudioHistoriaInicial.isEmpty()) ) && (secao != null) )
-                    util.reproduzirAudioMp3(secao.getEnderecoAudio());
+                    util.reproduzirAudioMp3(secao.getEnderecoAudio(), labelVoz);
                 else
-                    util.reproduzirAudioMp3(enderecoAudioHistoriaInicial);
+                    util.reproduzirAudioMp3(enderecoAudioHistoriaInicial, labelVoz);
 
                 labelVoz.setEnabled(false);
             }
@@ -613,7 +632,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                 CarregarTelas.telaMensagem("Deseja realmente sair?", thisDialog);
                 if (isRespostaTelaMensagem()) {
-
+                    util.pararAudioMp3();
                     if (referenciaTelaPrincipal != null)
                         referenciaTelaPrincipal.setVisible(true);
 
@@ -730,5 +749,6 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         }
     }
+
 
 }

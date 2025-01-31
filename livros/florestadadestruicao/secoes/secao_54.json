@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"54",
-  "texto":"Quando você desembainha a espada, Yaztromo se volta para você e o aconselha sem se alterar a não ser tolo, pois a magia dele é poderosa",
+  "texto":"Quando você desembainha a espada, Yaztromo se volta para você e o aconselha sem se alterar a não ser tolo, pois a magia dele é poderosa.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_54.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Se você ainda desejar atacá-lo",
