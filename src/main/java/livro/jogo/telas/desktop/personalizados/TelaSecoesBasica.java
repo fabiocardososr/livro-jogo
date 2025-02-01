@@ -52,6 +52,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
+    protected JLabel labelOuro;
 
     //public TelaSecoesBasica(){}
 
@@ -430,7 +431,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelAnotacoes.addMouseListener(acaoLabels);
 
         //Ouro
-        JLabel labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
+        labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,19));
         labelOuro.setForeground(new Color(139,0,0));
         //labelOuro.setBorder(BorderFactory.createLineBorder(Color.BLUE));
