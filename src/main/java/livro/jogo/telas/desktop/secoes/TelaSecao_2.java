@@ -2,6 +2,7 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
@@ -11,35 +12,38 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class SecaoHistoriaInicial extends TelaSecoesBasica {
-
-    public SecaoHistoriaInicial(Secao secao, JFrame referenciaTelaPrincipal) {
-        super(secao, referenciaTelaPrincipal);
-        carregarComponentesEspecificos(secao);
+public class TelaSecao_2 extends TelaSecoesBasica {
+    public TelaSecao_2(Secao secao) {
+        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaBotaoOpcao();
+        carregaBotao();
     }
 
-    private void carregaBotaoOpcao() {
+    private void sair(){
+        util.pararAudioMp3();
+        if (referenciaTelaPrincipal != null)
+            referenciaTelaPrincipal.setVisible(true);
 
+        dispose();
+    }
+
+    private void carregaBotao() {
         //Texto
-        JLabel textoComecarJornada = new JLabel("<html><center>Pegue as 30 moedas e o mapa.<br>"+
-                "Comece sua jornada!</center></html>");
-        textoComecarJornada.setBounds(310,630,360,60);
+        JLabel textoComecarJornada = new JLabel("<html><center>Você foi devorado.<br>"+
+                "Sua aventura termina aqui!</center></html>");
+        textoComecarJornada.setBounds(305,645,360,60);
         textoComecarJornada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoComecarJornada.setHorizontalAlignment(SwingConstants.CENTER);
-        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,23));
+        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,25));
         textoComecarJornada.setForeground(new Color(128,0,0));
         textoComecarJornada.setToolTipText("Clique aqui para começar sua jornada.");
         textoComecarJornada.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                DadosLivroCarregado.getPersonagem().setQuantidadeOuro(30);
-                labelOuro.setText("Ouro: 30");
-                abrirProximaSecao(1);
+                sair();
             }
 
             @Override
@@ -65,17 +69,15 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
         //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botaoComecarJornada = new JLabelOpcoesTelaSecao("",800, 200,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 220,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoComecarJornada.setBounds(82,560,800,200);
+        botao.setBounds(82,560,800,230);
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        botaoComecarJornada.addMouseListener(new MouseListener() {
+        botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                DadosLivroCarregado.getPersonagem().setQuantidadeOuro(30);
-                labelOuro.setText("Ouro: 30");
-                abrirProximaSecao(1);
+               sair();
             }
 
             @Override
@@ -100,6 +102,8 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
         });
 
         add(textoComecarJornada);
-        add(botaoComecarJornada);
+        add(botao);
     }
+
+
 }

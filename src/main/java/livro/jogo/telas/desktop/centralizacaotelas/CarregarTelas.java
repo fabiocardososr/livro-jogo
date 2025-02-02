@@ -137,9 +137,10 @@ public class CarregarTelas {
 
         //Aqui vai ser chamado as seções
         switch ( secao.getCodSecaoLivro() ){
-            case 1   -> secao_1(secao);
-            case 54  -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
-            case 261 -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
+            case 1      -> secao_1(secao);
+            case 2      -> secao_2(secao);
+            case 54     -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
+            case 261    -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
         }
     }
 
@@ -148,6 +149,10 @@ public class CarregarTelas {
 
     private static void secao_1(Secao secao){
         new TelaSecao_1(secao).setVisible(true);
+    }
+
+    private static void secao_2(Secao secao){
+        new TelaSecao_2(secao).setVisible(true);
     }
 
     private static void secao_54(Secao secao) {

@@ -62,8 +62,6 @@ public class TelaSecao_1 extends TelaSecoesBasica {
 
                     //Seção que esta opção vai direcionar
                     abrirProximaSecao(indiceProximaSecao);
-
-                    //dispose();
                 }
             }
 

@@ -38,6 +38,14 @@ public class Testes {
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         DadosLivroCarregado.setPersonagem(personagem);
 
+        /* TESTAR SEÇÕES INDIVIDUAIS */
+
+        //TRABALHANDO NA SEÇÃO: 2
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(2);
+        CarregarTelas.carregarSecao(secao);
+
+        //CarregarTelas.telaSecaoHistoriaInicial(null);
+
         //Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,null));
 
 //        SaveJogo save = Util.carregarJogoEmArquivo("Fábio.sav");
@@ -45,18 +53,6 @@ public class Testes {
 //        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
 
 //        personagem.setHabilidadeAtual(5);
-
-        /* TESTAR SEÇÕES INDIVIDUAIS */
-        //Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(1);
-        //CarregarTelas.carregarSecao(secao);
-        CarregarTelas.telaSecaoHistoriaInicial(null);
-
-        //new CarregarTelas().carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
-
-      // CarregarTelas.telaBolsa(1000,800,null,
-         //      null,null,null,null);
-       //CarregarTelas.telaMensagem("Sua caminhada até a casa de Yaztromo leva um pouco mais da metade de um dia");
-
     }
 
     public static ArrayList<Item> recuperaItensIniciaisEquipados() {

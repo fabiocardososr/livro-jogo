@@ -26,7 +26,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
-    private JFrame referenciaTelaPrincipal;
+    protected JFrame referenciaTelaPrincipal;
 
     private JLabelOpcoesTelaSecao labelMapaBotao;
     private JLabelOpcoesTelaSecao labelBolsa;
@@ -61,7 +61,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));
-        //tela.setLayout(null);
         setLayout(null);
 
         this.secao = secao;
@@ -383,8 +382,13 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Configura labelMapa(Botão)
         labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        labelMapaBotao.addMouseListener(acaoLabels);
         labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
+
+        //Significa que é a tela inicial e o personagem ainda não adquiriu o mapa
+        if (secao == null)
+            labelMapaBotao.setEnabled(false);
+        else
+            labelMapaBotao.addMouseListener(acaoLabels);
 
         //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
         pocaoInicial = Util.retornaPocaoInicialDaBolsa();
