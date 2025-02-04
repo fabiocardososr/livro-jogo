@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"22",
   "texto":"O gás é tóxico, e seus olhos começam a lacrimejar. Você tosse e prende a respiração, correndo em volta da caverna para tentar escapar da nuvem de gás que envolve seu rosto. Seus pulmões parecem estar explodindo, e você é forçado a inspirar. Reduza sua HABILIDADE em 2 pontos e sua ENERGIA segundo o valor de um lance de dado. Se ainda estiver vivo, você fica aliviado ao ver a nuvem de gás ir se dissipando.\nVocê coloca a caixa de prata na sua mochila e sai da caverna imediatamente para continuar na direção do norte em sua missão",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_22.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Vá para",

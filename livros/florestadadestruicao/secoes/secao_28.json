@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"28",
   "texto":"Veja opções",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_28.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Se você possui uma Braçadeira da Força",

@@ -137,6 +137,7 @@ public class CarregarTelas {
             case 1      -> secao_1(secao);
             case 2      -> secao_2(secao);     //Termina o jogo
             case 3      -> secao_3(secao);
+            case 4      -> secao_4(secao);
             case 54     -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
             case 120    -> secao_120(secao);   //chamado pela seção 3 (INCOMPLETO)
             case 261    -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
@@ -159,13 +160,16 @@ public class CarregarTelas {
         new TelaSecao_3(secao).setVisible(true);
     }
 
+    private static void secao_4(Secao secao) {
+        new TelaSecao_4(secao).setVisible(true);
+    }
+
     private static void secao_54(Secao secao) {
         new TelaSecao_54(secao).setVisible(true);
     }
 
     private static void secao_120(Secao secao) {
         new TelaSecao_120(secao).setVisible(true);
-        JOptionPane.showMessageDialog(null, secao);
     }
 
     private static void secao_261(Secao secao) {
@@ -174,7 +178,6 @@ public class CarregarTelas {
 
     private static void secao_322(Secao secao) {
         new TelaSecao_322(secao).setVisible(true);
-        JOptionPane.showMessageDialog(null, secao);
     }
 
 }

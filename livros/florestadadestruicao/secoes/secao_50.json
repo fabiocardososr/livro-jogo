@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"50",
   "texto":"Em volta do pescoço de um dos Montanheses Selvagens, você encontra uma pequena chave de prata presa a um cordão de couro. Você desamarra o cordão e põe a chave na sua mochila. Em seguida, parte novamente para o norte",  
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_50.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Vá para",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "48",
   "texto": "Você ergue a arca acima de sua cabeça e a atira de encontro ao chão. Ela se espatifa e abre, expondo um grande ovo azul-claro, com quase um metro de circunferência, em meio à madeira despedaçada. Você toca o ovo com o dedo. É frio e duro, como se fosse mármore. Subitamente, aparece uma rachadura e, antes que você tenha tempo de se mexer, o ovo explode, espalhando fragmentos da casca, afiados como lâminas, em todas as direções. Jogue um dado para determinar quantos pedaços da casca atingem você, diminuindo 1 ponto de ENERGIA para cada. Se ainda estiver vivo, você cambaleia para fora do aposento e continua para o norte pela trilha",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_48.mp3",
   "proximasSecoes":[
     {	  
       "textoOpcao":"Vá para",

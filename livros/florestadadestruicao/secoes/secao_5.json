@@ -2,6 +2,7 @@
   "codSecaoLivro":"5",
   "texto":"Sentado no trono ornamentado, você se sente estranhamente desconfortável. Os Dois Guerreiros-Clones rastejam no chão à sua frente em completa subserviência. Será que eles esperam que você se torne o novo senhor deles?",
   "enderecoImagem": "",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_5.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Se você quiser colocar a coroa de ouro sobre sua cabeça",

@@ -247,4 +247,20 @@ public class Util {
         return false;
     }
 
+    //Verifica se personagem vivo. True se Energia maior que "0"
+    public static boolean retornaSePersonagemVivo(){
+
+        return DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0;
+
+    }
+
+    //Perda de energia. E retorna true se personagem continuar vivo
+    public static boolean perdeEnergia(int valorEnergiaAPerder){
+        var nivelDeEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
+
+        DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
+
+       return retornaSePersonagemVivo();
+    }
+
 }

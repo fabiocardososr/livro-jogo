@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "35",
   "texto": "O ferimento causado pela terrível queimadura faz com que você perca 4 pontos de ENERGIA.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_35.mp3",
   "proximasSecoes":[
     {	  
       "textoOpcao":"Se ainda estiver vivo, vá para",

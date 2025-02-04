@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"7",
   "texto":"Você puxa sua espada e se prepara para enfrentar os agressores de corpos listrados em preto e amarelo. São ABELHAS ASSASSINAS. Elas atacarão em enxames separados, cada enxame contando como uma única criatura.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_7.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Se vencer",
