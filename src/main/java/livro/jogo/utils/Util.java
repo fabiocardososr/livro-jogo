@@ -203,4 +203,48 @@ public class Util {
         return listaNomesArquivos;
     }
 
+    //Verifica se o personagem possui determinado item na bolsa ou equipado
+    public static boolean verificarExistenciaDeItemNaBolsaOuEquipado(int idItem){
+
+        //Estando na bolsa
+        for (Item item : DadosLivroCarregado.getBolsa()){
+            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
+                return true;
+            }
+        }
+
+        //Equipado
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
+            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //Verifica se o personagem possui determinado item na bolsa
+    public static boolean verificarExistenciaDeItemNaBolsa(int idItem){
+
+        //Estando na bolsa
+        for (Item item : DadosLivroCarregado.getBolsa()){
+            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //Verifica se o personagem possui determinado item equipado
+    public static boolean verificarExistenciaDeItemEquipado(int idItem){
+
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
+            if ( item.getIdItem() == idItem ){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

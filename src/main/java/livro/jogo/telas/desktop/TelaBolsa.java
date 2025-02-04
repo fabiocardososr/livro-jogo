@@ -4,7 +4,6 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.utils.EfeitoDeItens;
@@ -19,14 +18,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TelaBolsa extends JDialog {
+
+    //Objeto que guarda a imagem do item
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
+
+    //Vai guardar o label("Equipado") quando equipado vou precisar destacar como texto no objeto da imagem que represanta o item
+    //Futuramente, pense nisso. Agora equipa e fecha a tela sem precisar sair...
+    //private HashMap<JLabelOpcoesTelaSecao,JLabel> mapLabel = new HashMap<JLabelOpcoesTelaSecao,JLabel>();
+
     private JLabelOpcoesTelaSecao botaoSair;
     private JLabel lbEnergiaPersonagem;
     private JLabel lbHabilidadePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabel lbSortePersonagem; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao labelPocaoInicial; //Poção inicial
-    private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private Container container;
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
@@ -143,12 +148,11 @@ public class TelaBolsa extends JDialog {
             JLabel rotuloEquipado = new JLabel("Equipado");
             rotuloEquipado.setForeground(new Color(220,220,220));
             rotuloEquipado.setFont(new Font(Font.SERIF,Font.PLAIN,18));
-            //rotuloEquipado.setOpaque(true); //sem chamar este método não pinta o fundo
-            //rotuloEquipado.setBackground(Color.black);
             rotuloEquipado.setBounds(x+5,y+40,75,18);
 
             //Incluir item no hashmap para que possa ser identificado quando clicado na imagem
             mapItens.put(imgItem, item);
+           // mapLabel.put(imgItem, rotuloEquipado);
 
             //Incluir no panel
             painelListaItens.add(rotuloEquipado);
@@ -207,7 +211,7 @@ public class TelaBolsa extends JDialog {
             Item item = mapItens.get(imgLabel);
 
             //executa o efeito e remove da bolsa.
-            consumiuItem = efeitoDeItens.acoesDosItens(item.getIdItem());
+            consumiuItem = EfeitoDeItens.acoesDosItens(item.getIdItem());
 
             //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
             atualizarCamposTelaSecao(imgLabel, item, consumiuItem);
@@ -251,85 +255,30 @@ public class TelaBolsa extends JDialog {
                                           boolean consumiuItem) {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
-        /* PROVISÃO(49) */
-        if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
+        /* Anel da Luz(1) */
+        if (item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem()){
 
-            lbEnergiaPersonagem.setText("Energia: " +
-                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
-                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
-
-            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
-
-            if ( consumiuItem ) {
-                //Destrói o objeto
-                imgLabel.setVisible(false);
-
-                //Mensagem
-                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
-                        ", você recuperou 4 pontos de energia ao comer uma Provisão(refeição).");
-            }
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
             else
-                //Testa se personagem encontra-se com energia cheia e o avisa.
-                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-                            .toUpperCase()+", sua energia está completa."+
-                            "\n\nNão existe necessidade de se alimentar.");
-                    return;
-                }
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
         }
 
-        /* Poção da Fortuna(47)  */
-        if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
-
-            //Retornando falso o personagem está com índice completo e portanto não consume o item
-            if ( !consumiuItem ){
-               CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-                  .toUpperCase()+", seu índice de sorte está completo.\n\nNão existe necessidade de tomar a poção.");
-               return;
-            }
-
-            //Muda garrafa para vazia
-            mudarBotaoPocaoInicialParaVazio();
-
-            //Atualiza informação do índice do personagem
-            lbSortePersonagem.setText("Sorte: "+
-                    String.valueOf(personagem.getSorteAtual())+ "/"+
-                    String.valueOf(personagem.getSorteMax()));
-
-           //Destrói o objeto
-           imgLabel.setVisible(false);
-
-           //Mensagem
-           CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                        ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
-                        " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
-        }
-
-        /* Poção da Força(energia - 46)  */
-        if (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
-
-            //Retornando falso o personagem está com índice completo e portanto não consume o item
-            if ( !consumiuItem ){
-                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-                   .toUpperCase()+", seu índice de energia está completo.\n\nNão existe necessidade de tomar a poção.");
-                return;
-            }
-
-            //Muda garrafa para vazia
-            mudarBotaoPocaoInicialParaVazio();
+        /* Espada magnífica(10) */
+        if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
 
             //Muda informação do índice do personagem
-            lbEnergiaPersonagem.setText("Energia: "+
-                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                    String.valueOf(personagem.getEnergiaMax()));
-
-            //Destrói o objeto
-            imgLabel.setVisible(false);
-
-            //Mensagem
-            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                        ", você toma a poção e se sente bem.\n\nSeu índice de energia" +
-                        " encontra-se no nível máximo.");
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
         }
 
         /* Poção de Habilidade(45)  */
@@ -359,22 +308,85 @@ public class TelaBolsa extends JDialog {
                     " encontra-se no nível máximo.");
         }
 
-        /* Espada magnífica(10) */
-        if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
+        /* Poção da Força(energia - 46)  */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
+
+            //Retornando falso o personagem está com índice completo e portanto não consume o item
+            if ( !consumiuItem ){
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                        .toUpperCase()+", seu índice de energia está completo.\n\nNão existe necessidade de tomar a poção.");
+                return;
+            }
+
+            //Muda garrafa para vazia
+            mudarBotaoPocaoInicialParaVazio();
 
             //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
+            lbEnergiaPersonagem.setText("Energia: "+
+                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                    String.valueOf(personagem.getEnergiaMax()));
 
-//            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
-//                    .toUpperCase()+", seu índice de habilidade está completo.\n\nNão existe necessidade de tomar a poção.");
+            //Destrói o objeto
+            imgLabel.setVisible(false);
+
+            //Mensagem
+            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                    ", você toma a poção e se sente bem.\n\nSeu índice de energia" +
+                    " encontra-se no nível máximo.");
+        }
+
+        /* Poção da Fortuna(47)  */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
+
+            //Retornando falso o personagem está com índice completo e portanto não consume o item
+            if ( !consumiuItem ){
+               CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                  .toUpperCase()+", seu índice de sorte está completo.\n\nNão existe necessidade de tomar a poção.");
+               return;
+            }
+
+            //Muda garrafa para vazia
+            mudarBotaoPocaoInicialParaVazio();
+
+            //Atualiza informação do índice do personagem
+            lbSortePersonagem.setText("Sorte: "+
+                    String.valueOf(personagem.getSorteAtual())+ "/"+
+                    String.valueOf(personagem.getSorteMax()));
+
+           //Destrói o objeto
+           imgLabel.setVisible(false);
+
+           //Mensagem
+           CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                        ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
+                        " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
+        }
+
+        /* PROVISÃO(49) */
+        if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
+
+            lbEnergiaPersonagem.setText("Energia: " +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
+
+            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+
+            if ( consumiuItem ) {
+                //Destrói o objeto
+                imgLabel.setVisible(false);
+
+                //Mensagem
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
+                        ", você recuperou 4 pontos de energia ao comer uma Provisão(refeição).");
+            }
+            else
+                //Testa se personagem encontra-se com energia cheia e o avisa.
+                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
+                            .toUpperCase()+", sua energia está completa."+
+                            "\n\nNão existe necessidade de se alimentar.");
+                    return;
+                }
         }
 
         //atualiza a tela de secao que chama este tela

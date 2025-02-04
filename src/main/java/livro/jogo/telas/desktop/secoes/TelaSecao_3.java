@@ -1,30 +1,28 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_3;
+import livro.jogo.acaosecoes.*;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_1 extends TelaSecoesBasica {
+public class TelaSecao_3 extends TelaSecoesBasica {
+    private final AcoesSecao_3 acoesSecao;
     private JLabelOpcoesTelaSecao botaoOpcao1;
     private JLabelOpcoesTelaSecao botaoOpcao2;
 
-
-    public TelaSecao_1(Secao secao) {
+    public TelaSecao_3(Secao secao) {
         super(secao, CarregarTelas.getReferenciaTelaPrincipal());
-
-        textoHistoria.setText( secao.getTexto() );
-
-        //para posicionar a barra de rolagem no início.
-        textoHistoria.setCaretPosition(0);
-
+        acoesSecao = new AcoesSecao_3(secao);
     }
 
     @Override
@@ -34,9 +32,9 @@ public class TelaSecao_1 extends TelaSecoesBasica {
     }
 
     private void opcao1(Secao secao){
-        String texto = "1";            //Número da opção que aparecerá para o usuário (label)
-        int indiceOpcao = 0;           //Para recuperar o texto da opção da seção (índice no array das próximas seções)
-        int indiceProximaSecao = secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao();   //Próxima seção escolhida
+        String texto = "1"; //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 0; //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+        //int indiceProximaSecao = secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao();   //Próxima seção escolhida
 
 
         JLabel label = new JLabel(texto);
@@ -57,8 +55,8 @@ public class TelaSecao_1 extends TelaSecoesBasica {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao1){
 
-                    //Seção que esta opção vai direcionar
-                    abrirProximaSecao(indiceProximaSecao);
+                    if ( AcoesSecao_3.opcao_1() )
+                        abrirProximaSecao( secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao() );
                 }
             }
 
@@ -96,8 +94,8 @@ public class TelaSecao_1 extends TelaSecoesBasica {
     }
 
     private void opcao2(Secao secao){
-        String texto = "2";             //Número da opção que aparecerá para o usuário (label)
-        int indiceOpcao = 1;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+        String texto = "2";   //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 1; //Para recuperar o texto da opção da seção (índice no array das próximas seções)
         int indiceProximaSecao = secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao();   //Próxima seção escolhida
 
         JLabel label = new JLabel(texto);
@@ -154,6 +152,4 @@ public class TelaSecao_1 extends TelaSecoesBasica {
         add(label);
         add(botaoOpcao2);
     }
-
-
 }

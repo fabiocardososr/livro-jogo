@@ -68,7 +68,17 @@ public class DadosLivroCarregado {
         for (int i=0; i < getItensEquipados().size(); i++){
 
             if (itens.get(i).getIdItem() == item.getIdItem())
-                itens.remove(item);
+                itens.remove(i);
+        }
+    }
+
+    public static void removeItemBolsa(Item item){
+        var itens = getBolsa();
+
+        for (int i=0; i < getBolsa().size(); i++){
+
+            if (itens.get(i).getIdItem() == item.getIdItem())
+                itens.remove(i);
         }
     }
 

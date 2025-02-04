@@ -4,20 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.entidades.SaveJogo;
 import livro.jogo.entidades.Secao;
-import livro.jogo.enums.TelasDisponiveisParaCarregamento;
-import livro.jogo.telas.desktop.TelaBolsa;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
-import javax.sound.sampled.*;
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.Console;
 import java.util.ArrayList;
 
 public class Testes {
@@ -41,8 +33,12 @@ public class Testes {
         /* TESTAR SEÇÕES INDIVIDUAIS */
 
         //TRABALHANDO NA SEÇÃO: 2
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(2);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(3);
         CarregarTelas.carregarSecao(secao);
+
+
+       // System.out.println("Você tem o anel? "+ Util.verificarExistenciaDeItemNaBolsa(1));
+
 
         //CarregarTelas.telaSecaoHistoriaInicial(null);
 
@@ -77,13 +73,13 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=45; i++)
+        for (int i=1; i<=5; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
                     "livros/florestadadestruicao/itens/item_"+i+".json"));
 
-        for (int i=1; i<=5; i++)
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
+//        for (int i=1; i<=5; i++)
+       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+               "livros/florestadadestruicao/itens/item_45.json"));
 
 
 

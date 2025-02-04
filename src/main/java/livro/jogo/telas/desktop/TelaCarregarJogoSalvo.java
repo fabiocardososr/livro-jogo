@@ -3,7 +3,6 @@ package livro.jogo.telas.desktop;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.util.CarregarJogoSalvo;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.utils.Util;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;

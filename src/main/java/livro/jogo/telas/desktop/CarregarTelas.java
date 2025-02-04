@@ -1,12 +1,10 @@
-package livro.jogo.telas.desktop.centralizacaotelas;
+package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
-import livro.jogo.telas.desktop.*;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.TelaDeMensagensAoJogador;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.secoes.*;
 
@@ -14,7 +12,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.Console;
 
 public class CarregarTelas {
     private static TelaBasica telaPrincipal; //Guardar a referência da tela principal
@@ -138,12 +135,15 @@ public class CarregarTelas {
         //Aqui vai ser chamado as seções
         switch ( secao.getCodSecaoLivro() ){
             case 1      -> secao_1(secao);
-            case 2      -> secao_2(secao);
+            case 2      -> secao_2(secao);     //Termina o jogo
+            case 3      -> secao_3(secao);
             case 54     -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
+            case 120    -> secao_120(secao);   //chamado pela seção 3 (INCOMPLETO)
             case 261    -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
+            case 322    -> secao_322(secao);   //chamado pela seção 3 (INCOMPLETO)
+
         }
     }
-
 
     /*************** MÉTODOS DE INICIALIZAÇÃO DAS SEÇÕES ***************/
 
@@ -155,12 +155,26 @@ public class CarregarTelas {
         new TelaSecao_2(secao).setVisible(true);
     }
 
+    private static void secao_3(Secao secao) {
+        new TelaSecao_3(secao).setVisible(true);
+    }
+
     private static void secao_54(Secao secao) {
         new TelaSecao_54(secao).setVisible(true);
     }
 
+    private static void secao_120(Secao secao) {
+        new TelaSecao_120(secao).setVisible(true);
+        JOptionPane.showMessageDialog(null, secao);
+    }
+
     private static void secao_261(Secao secao) {
         new TelaSecao_261(secao).setVisible(true);
+    }
+
+    private static void secao_322(Secao secao) {
+        new TelaSecao_322(secao).setVisible(true);
+        JOptionPane.showMessageDialog(null, secao);
     }
 
 }

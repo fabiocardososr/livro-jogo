@@ -2,7 +2,6 @@ package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Livro;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.personalizados.BotaoFaixa;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;

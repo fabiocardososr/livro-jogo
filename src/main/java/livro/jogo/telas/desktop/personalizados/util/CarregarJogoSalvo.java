@@ -3,7 +3,7 @@ package livro.jogo.telas.desktop.personalizados.util;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
 import livro.jogo.entidades.Secao;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 

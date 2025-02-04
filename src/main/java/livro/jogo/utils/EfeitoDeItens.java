@@ -7,14 +7,13 @@ import livro.jogo.enums.ItensMapeamento;
 import java.util.ArrayList;
 
 public class EfeitoDeItens {
-    private Personagem personagem = DadosLivroCarregado.getPersonagem();
-    private ArrayList<Item> itens = personagem.getBolsa();
 
     //Aqui são codificados todos os efeitos dos itens
     //O retorno indica se consumiu/equipou
-    public boolean acoesDosItens(int idItem){
+    public static boolean acoesDosItens(int idItem){
 
         return switch(idItem) {
+            case 1  -> efeitoItem1();      //Anel de Luz(da luz)
             case 10 -> efeitoItem10();     //Espada magnífica
             case 45 -> efeitoItem45();     //Poção de Habilidade
             case 46 -> efeitoItem46();     //Poção de força
@@ -24,8 +23,27 @@ public class EfeitoDeItens {
         };
     }
 
+    //Equipar o Anel da Luz(colocar no dedo)
+    private static boolean efeitoItem1() {
+
+        //Se o anel já equipado, não faz nada e sai
+        if (Util.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
+            return false;
+
+        //Recupera o item anel da luz(código 1)
+        Item item = DadosLivroCarregado.getMapItem().get( ItensMapeamento.ANEL_DA_LUZ.getIdItem() );
+
+        //Adiciona aos equipados
+        DadosLivroCarregado.getItensEquipados().add(item);
+
+        //Remove da bolsa
+        DadosLivroCarregado.removeItemBolsa(item);
+
+        return true;
+    }
+
     //Espada magnífica deve ser equipada (seção 70)
-    private boolean efeitoItem10() {
+    private static boolean efeitoItem10() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Recupera o item
@@ -46,7 +64,9 @@ public class EfeitoDeItens {
     }
 
     //Poção da fortuna(sorte)
-    private boolean efeitoItem47() {
+    private static boolean efeitoItem47() {
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (Util.retornaDiferencaEntreSorteMaxEAtual() == 0){
@@ -70,7 +90,9 @@ public class EfeitoDeItens {
     }
 
     //Poção de força(energia)
-    private boolean efeitoItem46() {
+    private static boolean efeitoItem46() {
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
@@ -91,7 +113,9 @@ public class EfeitoDeItens {
     }
 
     //Poção de Habilidade inicial
-    private boolean efeitoItem45(){
+    private static boolean efeitoItem45(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (Util.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
@@ -112,7 +136,9 @@ public class EfeitoDeItens {
     }
 
     //Provisão
-    private boolean efeitoItem49(){
+    private static boolean efeitoItem49(){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com energia máxima, não fazer nada
         if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){

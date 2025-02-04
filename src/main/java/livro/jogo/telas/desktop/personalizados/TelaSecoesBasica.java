@@ -6,7 +6,7 @@ import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.telas.desktop.centralizacaotelas.CarregarTelas;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.DadosLivroCarregado;
@@ -18,7 +18,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public abstract class TelaSecoesBasica extends JDialog {
     private Secao secao;
@@ -70,6 +69,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
+            if ( !secao.getEnderecoImagem().isEmpty() )
             this.enderecoImagem = secao.getEnderecoImagem();
             setTitle("Seção - " + secao.getCodSecaoLivro());
         }
@@ -336,8 +336,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         //posicionamento
         imgMolduraParaImgSecao.setBounds(875,2,340,375);
         labelImagemSecao.setBounds(915, 45, 261, 289);
+
+
         labelImagemSecao.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemSecao.getWidth(),
                 labelImagemSecao.getHeight()).getImageIcon());
+
         labelImagemSecao.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelImagemSecao.setToolTipText("Ampliar");
         labelImagemSecao.addMouseListener(acaoLabels);
@@ -345,8 +348,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Configura clique na imagem para ampliar em uma nova tela
         JLabel labelImagemTempoaria = new JLabel();
         labelImagemTempoaria.setBounds(0, 0, 590,715);
+
+
         labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
-                labelImagemTempoaria.getHeight()).getImageIcon());
+                    labelImagemTempoaria.getHeight()).getImageIcon());
+
         labelImagemTempoaria.setCursor(new Cursor(Cursor.HAND_CURSOR));
         dialogImSecaoAmpliar = carregaImagemEmUmaTela();
         dialogImSecaoAmpliar.add(labelImagemTempoaria);

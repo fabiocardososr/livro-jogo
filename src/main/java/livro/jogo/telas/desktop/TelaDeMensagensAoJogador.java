@@ -25,25 +25,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
     //private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
     private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
     private TelaBasica telaBasicaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
-    //private boolean fecharTela = false; //sendo true, indica se a chamada é para confirmar o fechamento da tela. False é só confirmação
-
-//    public TelaDeMensagensAoJogador(Personagem personagem, String texto) {
-//        this.personagem = personagem;
-//        this.texto = texto;
-//        int largura = 900;
-//        int altura = 700;
-//
-//        setSize(largura,altura);
-//        setLayout(null);
-//        setLocationRelativeTo(null);
-//        setResizable(false);
-//        setUndecorated(true);
-//        setModal(true);
-//        setBackground(new Color(0,0,0,0));
-//        carregarBotaoOk();
-//        carregarfundo(largura, altura);
-//        carregarTexto();
-//    }
 
 
     public TelaDeMensagensAoJogador( String texto) {
@@ -86,28 +67,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
         carregarTexto();
     }
 
-    public TelaDeMensagensAoJogador(String texto, TelaBasica dialog) {
-        this.texto = texto;
-        this.telaBasicaQueChamouEsta = dialog;
-        //this.fecharTela = fecharTela; //Vai informar a tela "telaQueChamouEsta" o resultado da escolha
-        int largura = 900;
-        int altura = 700;
-
-        setSize(largura,altura);
-        setLayout(null);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setUndecorated(true);
-        setModal(true);
-        setBackground(new Color(0,0,0,0));
-
-        //Carrega botões de confirmação
-        carregarBotoesConfirmacao();
-
-        carregarfundo(largura, altura);
-        carregarTexto();
-    }
-
     public void carregarBotaoOk() {
 
         JLabel labelSair = new JLabel("OK");
@@ -127,8 +86,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
         add(labelSair);
         add(botaoSair);
-
-
     }
 
     public void carregarBotoesConfirmacao() {

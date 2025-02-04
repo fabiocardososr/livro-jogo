@@ -98,7 +98,7 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "\nItem{" +
                 "idItem=" + idItem +
                 ", Nome=" +nome +
                 ", tipoEfeito=" + tipoEfeito +
