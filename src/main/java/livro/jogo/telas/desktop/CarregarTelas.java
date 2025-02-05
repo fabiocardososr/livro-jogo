@@ -138,13 +138,18 @@ public class CarregarTelas {
             case 2      -> secao_2(secao);     //Termina o jogo
             case 3      -> secao_3(secao);
             case 4      -> secao_4(secao);
+            case 49     -> secao_49(secao);    //chamado pela seção 4 (INCOMPLETO)
             case 54     -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
+            case 93     -> secao_93(secao);    //chamado pela seção 4 (INCOMPLETO)
             case 120    -> secao_120(secao);   //chamado pela seção 3 (INCOMPLETO)
             case 261    -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
             case 322    -> secao_322(secao);   //chamado pela seção 3 (INCOMPLETO)
 
+
         }
     }
+
+
 
     /*************** MÉTODOS DE INICIALIZAÇÃO DAS SEÇÕES ***************/
 
@@ -164,8 +169,16 @@ public class CarregarTelas {
         new TelaSecao_4(secao).setVisible(true);
     }
 
+    private static void secao_49(Secao secao) {
+        new TelaSecao_49(secao).setVisible(true);
+    }
+
     private static void secao_54(Secao secao) {
         new TelaSecao_54(secao).setVisible(true);
+    }
+
+    private static void secao_93(Secao secao) {
+        new TelaSecao_49(secao).setVisible(true);
     }
 
     private static void secao_120(Secao secao) {

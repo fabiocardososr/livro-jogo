@@ -42,9 +42,9 @@ public abstract class TelaSecoesBasica extends JDialog {
     private JLabelOpcoesTelaSecao labelVoz;
     private JLabelOpcoesTelaSecao labelVozParar;
     protected JTextPane textoHistoria;
-    private JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
-    private JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
-    private JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
+    protected JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
+    protected JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
+    protected JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
     private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial

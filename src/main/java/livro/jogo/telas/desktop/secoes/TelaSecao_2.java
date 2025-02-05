@@ -31,15 +31,15 @@ public class TelaSecao_2 extends TelaSecoesBasica {
 
     private void carregaBotao() {
         //Texto
-        JLabel textoComecarJornada = new JLabel("<html><center>Você foi devorado.<br>"+
+        JLabel texto = new JLabel("<html><center>Você foi devorado.<br>"+
                 "Sua aventura termina aqui!</center></html>");
-        textoComecarJornada.setBounds(305,645,360,60);
-        textoComecarJornada.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        textoComecarJornada.setHorizontalAlignment(SwingConstants.CENTER);
-        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,25));
-        textoComecarJornada.setForeground(new Color(128,0,0));
-        textoComecarJornada.setToolTipText("Clique aqui para começar sua jornada.");
-        textoComecarJornada.addMouseListener(new MouseListener() {
+        texto.setBounds(305,645,360,60);
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        texto.setForeground(new Color(128,0,0));
+        texto.setToolTipText("Clique aqui para começar sua jornada.");
+        texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 sair();
@@ -65,7 +65,7 @@ public class TelaSecao_2 extends TelaSecoesBasica {
 
             }
         });
-        //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 220,
@@ -100,7 +100,7 @@ public class TelaSecao_2 extends TelaSecoesBasica {
             }
         });
 
-        add(textoComecarJornada);
+        add(texto);
         add(botao);
     }
 

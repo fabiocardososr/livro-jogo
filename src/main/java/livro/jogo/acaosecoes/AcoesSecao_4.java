@@ -1,6 +1,5 @@
 package livro.jogo.acaosecoes;
 
-import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 public class AcoesSecao_4 {

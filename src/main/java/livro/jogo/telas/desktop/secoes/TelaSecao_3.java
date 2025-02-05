@@ -30,8 +30,6 @@ public class TelaSecao_3 extends TelaSecoesBasica {
     private void opcao1(Secao secao){
         String texto = "1"; //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 0; //Para recuperar o texto da opção da seção (índice no array das próximas seções)
-        //int indiceProximaSecao = secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao();   //Próxima seção escolhida
-
 
         JLabel label = new JLabel(texto);
         label.setForeground(Color.WHITE);
@@ -92,7 +90,6 @@ public class TelaSecao_3 extends TelaSecoesBasica {
     private void opcao2(Secao secao){
         String texto = "2";   //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 1; //Para recuperar o texto da opção da seção (índice no array das próximas seções)
-        int indiceProximaSecao = secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao();   //Próxima seção escolhida
 
         JLabel label = new JLabel(texto);
         label.setForeground(Color.WHITE);
@@ -113,7 +110,7 @@ public class TelaSecao_3 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao2){
 
                     //Seção que esta opção vai direcionar
-                    abrirProximaSecao(indiceProximaSecao);
+                    abrirProximaSecao(secao.getProximasSecoes().get(indiceOpcao).getCodProximaSecao());
                 }
             }
 

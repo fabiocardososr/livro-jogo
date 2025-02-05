@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "93",
   "texto": "De volta à encruzilhada.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_93.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Ir para o leste?",
