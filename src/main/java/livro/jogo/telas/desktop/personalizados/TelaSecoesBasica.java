@@ -661,11 +661,15 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
 
             if (e.getSource() == labelBolsa){
-                CarregarTelas.telaBolsa(getContentPane(),1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
+                if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0)
+                    CarregarTelas.telaBolsa(getContentPane(),1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
                         lbSortePersonagem, labelProvisoes, labelPocaoInicial);
             }
 
             if (e.getSource() == labelPocaoInicial){
+
+                if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
+                    return;
 
                 //Caso consumida via bolsa essa variável fica ativa no botão. Então verifica se ainda contém na bolsa.
                 pocaoInicial = Util.retornaPocaoInicialDaBolsa();
@@ -690,6 +694,9 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
 
             if (e.getSource() ==  labelProvisoes){
+
+                if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
+                    return;
 
                 //Testa se personagem encontra-se com energia cheia e o avisa.
                 if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
