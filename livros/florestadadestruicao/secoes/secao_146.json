@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "146",
   "texto": "Você olha para a pilha de rochas partidas a seus pés e fica imaginando como um bicho desses algum dia chegou a existir - talvez a partir do poder mal utilizado de um alquimista cruel? Você nunca saberá. Se quiser levar um pedaço de pedra que fez parte do Bicho Rochedo para um exame posterior, anote na sua Lista de Equipamentos. Você agora retorna à trilha e ruma para o norte, descendo para o vale.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_146.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

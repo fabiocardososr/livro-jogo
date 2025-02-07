@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "132",
   "texto": "A criatura que está pousando à sua frente é um DRAGÃO ALADO. Ele olha para você e abre sua enorme boca para soltar mais um rugido abrasador. Tem uns dez metros de comprimento, e suas escamas grossas parecem difíceis de ser penetradas por sua espada.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_132.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Você possui uma flauta?",

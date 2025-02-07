@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "88",
   "texto": "Subindo os degraus, você logo atinge o segundo nicho. Você vê formas vagas no escuro e ouve o som de pés que se arrastam",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_88.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Deseja entrar no nicho?",

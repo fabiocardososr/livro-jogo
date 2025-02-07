@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "122",
   "texto": "No fundo dá rampa, você vê que o túnel se estende por uma certa distância para o norte. Você fica surpreso ao ver que ele é iluminado por tochas a espaços regulares por toda a sua extensão.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_122.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Se arrastar pelo túnel?",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "137",
   "texto": "Veja as opções",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_137.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Possui Luva da Destreza de Arremesso?",

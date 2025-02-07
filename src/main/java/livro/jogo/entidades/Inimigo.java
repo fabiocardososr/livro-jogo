@@ -1,6 +1,8 @@
 package livro.jogo.entidades;
 
-public class Inimigo {
+import java.io.Serializable;
+
+public class Inimigo implements Serializable {
     private int idInimigo;
     private String nome;
     private int habilidade;

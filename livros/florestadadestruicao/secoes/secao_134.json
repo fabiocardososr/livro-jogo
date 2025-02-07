@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "134",
   "texto": "Você enuncia um desejo, mas nada acontece.\nVocê perde 1 ponto de SORTE.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_134.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Esfregar lama quente nos seus ferimentos?",

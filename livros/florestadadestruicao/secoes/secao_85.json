@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "85",
   "texto": "Dentro da jaula, uma criatura pequena, mas vigorosa, de pele coberta de escamas marrons, está pulando para cima e para baixo. É um GOBLIN, e possui uma vara preta e brilhante que pende de um cordão de couro em volta de seu pescoço.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_85.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Destrancar a porta da jaula?",

@@ -1,6 +1,7 @@
 {  
   "codSecaoLivro":"56",
   "texto":"Caminhando pelo tranqüilo fundo do vale, você chega a uma encruzilhada na trilha. Você vê que o caminho para o sul leva de volta para as montanhas, por isso decide descartar esta opção.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_56.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao":"Continuar para o oeste?",

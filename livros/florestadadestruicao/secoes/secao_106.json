@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "106",
   "texto": "Há uma chaleira de cobre já escurecida pelo fogo em meio às cinzas, a qual você apanha para inspecionar. Você retira a tampa e encontra um anel de ouro com uma grande esmeralda incrustada nele. Vale 15 Peças de Ouro. Você tem uma ótima estrela e acrescenta 2 pontos à sua SORTE. Feliz com seu novo tesouro, você resolve ignorar a arca de madeira e sai do aposento para continuar para o norte",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_106.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "89",
   "texto": "A moeda cai na água com um ruído suave.\nVocê formula o desejo de mais Peças de Ouro, mas nada acontece – isso não é um poço dos desejos.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_89.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Descer a escada para olhar mais abaixo no túnel?",

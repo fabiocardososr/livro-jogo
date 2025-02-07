@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "74",
   "texto": "Você tira a bolsa de couro das costas da cadeira de pedra e sai da caverna na ponta dos pés. Do lado de fora, você para para examinar o conteúdo da bolsa. No interior, você acha 5 Peças de Ouro e um pequeno sino de metal. Você coloca essas coisas na sua mochila e caminha de volta à encruzilhada na trilha e prossegue para o norte",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_74.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

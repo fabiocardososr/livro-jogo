@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "123",
   "texto": "O HOMEM-ÁRVORE desfere um golpe contra você com dois de seus galhos principais, e você salta para atacar.\n\nVocê terá que derrotar o Homem-Árvore duas vezes, uma para um dos galhos principais, para que ele morra.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_123.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",

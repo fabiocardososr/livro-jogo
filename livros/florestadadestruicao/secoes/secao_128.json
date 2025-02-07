@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "128",
   "texto": "Você corta as cordas grossas que prendem o Bárbaro. Ele grunhe e senta, esfregando os pulsos e tornozelos. Olha para você e ri com desprezo. Está delirante ou é ingrato, pois ele arranca uma das estacas de madeira do chão e se volta para atacar você!",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_128.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",

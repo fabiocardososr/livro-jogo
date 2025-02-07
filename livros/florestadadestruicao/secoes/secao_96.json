@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "96",
   "texto": "Quando você ergue o braço para golpear o cão, ele rosna ferozmente e salta sobre você.\n\nSe você derrotar o Cão-de-Caça, terá então que lutar contra os outros três cães e seu dono em pares. Ambos os membros de cada par terão a chance de um ataque separado a você em cada Série de Ataque, mas você terá que escolher qual dos dois sofrerá sua investida. Ataque seu alvo eleito como numa batalha normal. Contra o outro, você fará lances para obter sua Força de Ataque da maneira normal, mas não poderá lhe causar ferimentos se sua Força de Ataque for maior - nesse caso, você deve considerar essa vitória como uma defesa bem-sucedida do golpe do outro. É claro que, se a Força de Ataque dele for maior, ele terá causado ferimentos em você do modo normal.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_96.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Se vencer",

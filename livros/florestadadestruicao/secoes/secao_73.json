@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "73",
   "texto": "Você recua e, em seguida, dá carga contra a porta. Precisará fazer um teste e será jogado dois dados.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_73.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Se o número obtido for igual ou menor do que tanto o seu índice de SORTE quanto o de HABILIDADE, a porta se abre",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "87",
   "texto": "A trilha conduz ao longo de um espinhaço da colina e chega a outra encruzilhada. Você vê que o caminho leva de volta ao rio, por isso, resolve se dirigir ao norte de novo.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_87.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

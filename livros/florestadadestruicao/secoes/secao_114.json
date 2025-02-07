@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "114",
   "texto": "O Homem-Árvore avança lentamente na sua direção sobre suas raízes grandes e espalhadas.",  
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_114.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Você possuir Cápsulas de Fogo?",

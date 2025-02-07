@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "70",
   "texto": "A espada é magnífica e foi, evidentemente, feita por um mestre artesão. Dá uma sensação de poder em suas mãos. Você soma 2 pontos a seu índice de HABILIDADE atual por causa da sua espada encantada. Desferindo golpes no ar com sua nova arma, você parte para o norte, descendo pela garganta",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_70.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

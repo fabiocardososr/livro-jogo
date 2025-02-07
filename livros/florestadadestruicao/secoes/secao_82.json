@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "82",
   "texto": "Você possui uma Poção da Imobilidade?",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_82.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Se possuir, vá para",

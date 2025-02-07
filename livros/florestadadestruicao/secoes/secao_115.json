@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "115",
   "texto": "A trilha logo chega a uma encruzilhada",  
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_115.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Ir para o oeste?",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "92",
   "texto": "À medida que a trilha prossegue para o norte, a vegetação vai ficando mais baixa, o terreno começa a subir suavemente. À frente você ouve o som de água corrente. Porém, muito mais assustador, você escuta outro som, acima de você, no céu - um ruído forte de zumbidos. Repentinamente, um enxame de abelhas grandes, cada uma com dez centímetros de comprimento, está pairando diretamente sobre você.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_92.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Tentar correr para a água à sua frente e mergulhar?",

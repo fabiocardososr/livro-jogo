@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "147",
   "texto": "A trilha segue para o norte, entrando na floresta espessa. Em uma das poucas clareiras entre as árvores, você vê fumaça que sobe de uma chaminé sobre uma cabana de madeira à sua direita.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_147.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Olhar pela janela da cabana?",

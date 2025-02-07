@@ -53,8 +53,6 @@ public abstract class TelaSecoesBasica extends JDialog {
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
     protected JLabel labelOuro;
 
-    //public TelaSecoesBasica(){}
-
     public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container

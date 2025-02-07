@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "76",
   "texto": "A trilha faz uma curva repentina para a direita e prossegue na direção norte, penetrando na vegetação baixa e densa.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_76.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

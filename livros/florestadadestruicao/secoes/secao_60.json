@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "60",
   "texto": "Você prende a respiração e remexe na sua mochila, procurando freneticamente por seus Filtros Nasais. Teste sua Sorte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_60.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Você teve sorte! Os encontra imediatamente e os coloca nas narinas",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "86",
   "texto": "Quando você se agacha no mato alto, ouve o som de cascos a galope em meio aos latidos. Depois, você vê as patas de quatro cães e de um cavalo passarem por você em disparada, em meio a uma nuvem de poeira. O som da caçada rapidamente desaparece na distância, e você retorna à trilha. Pensando na pobre e velha raposa, você parte para o oeste mais uma vez",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_86.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

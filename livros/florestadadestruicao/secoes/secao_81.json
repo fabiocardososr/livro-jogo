@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "81",
   "texto": "À frente, você ouve vozes de timbre agudo que chamam uma à outra freneticamente. O túnel termina na entrada de uma pequena caverna. De repente, uma flecha parte da caverna na sua direção. Teste a sua Sorte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_81.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Sorte! A flecha passa assobiando pela sua cabeça.",

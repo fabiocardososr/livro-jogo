@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "77",
   "texto": "Os Pigmeus rapidamente dão meia volta e correm para o mato.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_77.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Desembainhará sua espada e correrá para o mato para persegui-los?",
