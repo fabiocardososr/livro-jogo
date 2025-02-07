@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "296",
   "texto": "De volta à encruzilhada.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_296.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Engatinhar para o sul de volta para o poço?",

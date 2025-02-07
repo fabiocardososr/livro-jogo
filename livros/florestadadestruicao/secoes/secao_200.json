@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "200",
   "texto": "Você pega a pequena chave de prata na sua mochila e a coloca no buraco da fechadura. Serve perfeitamente, e você gira uma vez. A fechadura estala, e a porta de pedra se abre. Degraus de pedra conduzem da porta a profundezas de penumbra. Você não consegue nada lá embaixo.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_200.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Descer as escadas?",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "229",
   "texto": "Quando você toca a caixa de madeira, a tampa se abre sem que você tenha que levantá-la. Saindo da caixa, surge uma minúscula criatura de pele verde com uma cabeça enorme. Possui um nariz comprido e orelhas pontudas, e suas roupas são feitas de sacos de aninhagem.\n\nVocê é pego de surpresa, e o GREMLIN tenta esfaqueá-lo com sua adaga.\nTeste a sua Sorte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_229.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Sorte! Você se esquiva da lâmina agressora.",

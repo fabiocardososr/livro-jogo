@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "225",
   "texto": "Você xinga e sai caminhando da água na direção da entrada do túnel. Você fica surpreso a ver que ele é iluminado por tochas a intervalos regulares por toda a sua extensão.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_225.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Engatinhar pelo túnel?",

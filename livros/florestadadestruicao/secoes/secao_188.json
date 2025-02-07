@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "188",
   "texto": "Descendo a colina, você vê o vale que se estende à sua frente e, além dele, uma sinistra muralha de árvores - Darkwood! Do outro lado das árvores está Stonebridge, o fim de sua jornada. Ao chegar ao fundo do vale, você vê que a trilha atinge uma encruzilhada.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_188.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Seguir para o oeste?",

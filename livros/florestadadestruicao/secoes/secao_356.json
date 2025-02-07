@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "356",
   "texto": "Guardada dentro da roupa do Gigante da Floresta, você encontra uma lanterna de metal com um pavio verde. Não há combustível dentro dela para acendê-la. Talvez seja uma lanterna mágica.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_356.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Esfregar a lanterna e fazer um pedido?",

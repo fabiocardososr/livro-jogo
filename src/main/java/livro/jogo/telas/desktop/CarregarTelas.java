@@ -6,6 +6,7 @@ import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.principal.*;
 import livro.jogo.telas.desktop.secoes.*;
 
 import javax.swing.*;
@@ -134,77 +135,24 @@ public class CarregarTelas {
 
         //Aqui vai ser chamado as seções
         switch ( secao.getCodSecaoLivro() ){
-            case 1      -> secao_1(secao);
-            case 2      -> secao_2(secao);     //Termina o jogo
-            case 3      -> secao_3(secao);
-            case 4      -> secao_4(secao);
-            case 5      -> secao_5(secao);
-            case 49     -> secao_49(secao);    //chamado pela seção 4 (INCOMPLETO)
-            case 54     -> secao_54(secao);    //chamado pela seção 1 (INCOMPLETO)
-            case 93     -> secao_93(secao);    //chamado pela seção 4 (INCOMPLETO)
-            case 120    -> secao_120(secao);   //chamado pela seção 3 (INCOMPLETO)
-            case 249    -> secao_249(secao);   //chamado pela seção 5 (INCOMPLETO)
-            case 261    -> secao_261(secao);   //chamado pela seção 1 (INCOMPLETO)
-            case 322    -> secao_322(secao);   //chamado pela seção 3 (INCOMPLETO)
-            case 333    -> secao_333(secao);   //chamado pela seção 5 (INCOMPLETO)
+            case 1   -> new TelaSecao_1(secao).setVisible(true);
+            case 2   -> new TelaSecao_2(secao).setVisible(true);  //Termina o jogo
+            case 3   -> new TelaSecao_3(secao).setVisible(true);
+            case 4   -> new TelaSecao_4(secao).setVisible(true);
+            case 5   -> new TelaSecao_5(secao).setVisible(true);
+            case 6   -> new TelaSecao_6(secao).setVisible(true);
+            case 7   -> new TelaSecao_7(secao).setVisible(true);
+            case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4 (INCOMPLETO)
+            case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1 (INCOMPLETO)
+            case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4 (INCOMPLETO)
+            case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3 (INCOMPLETO)
+            case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6 (INCOMPLETO)
+            case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5 (INCOMPLETO)
+            case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1 (INCOMPLETO)
+            case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3 (INCOMPLETO)
+            case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 (INCOMPLETO) Termina o jogo
 
 
         }
     }
-
-
-    /*************** MÉTODOS DE INICIALIZAÇÃO DAS SEÇÕES ***************/
-
-    private static void secao_1(Secao secao){
-        new TelaSecao_1(secao).setVisible(true);
-    }
-
-    private static void secao_2(Secao secao){
-        new TelaSecao_2(secao).setVisible(true);
-    }
-
-    private static void secao_3(Secao secao) {
-        new TelaSecao_3(secao).setVisible(true);
-    }
-
-    private static void secao_4(Secao secao) {
-        new TelaSecao_4(secao).setVisible(true);
-    }
-
-    private static void secao_5(Secao secao) {
-        new TelaSecao_5(secao).setVisible(true);
-    }
-
-    private static void secao_49(Secao secao) {
-        new TelaSecao_49(secao).setVisible(true);
-    }
-
-    private static void secao_54(Secao secao) {
-        new TelaSecao_54(secao).setVisible(true);
-    }
-
-    private static void secao_93(Secao secao) {
-        new TelaSecao_93(secao).setVisible(true);
-    }
-
-    private static void secao_120(Secao secao) {
-        new TelaSecao_120(secao).setVisible(true);
-    }
-
-    private static void secao_249(Secao secao) {
-        new TelaSecao_249(secao).setVisible(true);
-    }
-
-    private static void secao_261(Secao secao) {
-        new TelaSecao_261(secao).setVisible(true);
-    }
-
-    private static void secao_322(Secao secao) {
-        new TelaSecao_322(secao).setVisible(true);
-    }
-
-    private static void secao_333(Secao secao) {
-        new TelaSecao_333(secao).setVisible(true);
-    }
-
 }

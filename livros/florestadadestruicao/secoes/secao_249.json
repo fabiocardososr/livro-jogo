@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "249",
   "texto": "Você olha de novo para a estranha caverna e vê os trabalhadores clones humanóides continuando seus trabalhos na plantação de fungos. Você sacode a cabeça sem acreditar e sobe rapidamente os últimos degraus até o buraco no teto da caverna.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_249.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

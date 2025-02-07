@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "376",
   "texto": "Teste sua Sorte!",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_376.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Sorte! Ele não acorda.",

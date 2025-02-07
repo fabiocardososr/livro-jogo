@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "363",
   "texto": "Você revista a mochila do Anão e encontra uma garrafa arrolhada que contém um líquido claro.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_363.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Beber o conteúdo da garrafa?",

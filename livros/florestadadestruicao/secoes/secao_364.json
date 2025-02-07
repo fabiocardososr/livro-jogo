@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "364",
   "texto": "Você acena com a cabeça para o cavaleiro mascarado e diz bom dia a ele. Ele acena de volta, mas não diz nada. Você conta a ele sobre sua missão de ajudar os anões de Stonebridge. Ele então pula de sua montaria, joga sua capa para trás e estende o braço direito para apertar sua mão. Você vê que cada um de seus dedos está ornamentado por um grande anel de ouro.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_364.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Atacará o cavaleiro para obter o ouro?",

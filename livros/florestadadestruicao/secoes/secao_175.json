@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "175",
   "texto": "A fechadura de ferro da arca está velha e enferrujada, por isso não abre.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_175.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Tentar erguer a arca e atirá-la ao chão?",

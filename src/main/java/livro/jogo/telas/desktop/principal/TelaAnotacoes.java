@@ -1,9 +1,8 @@
-package livro.jogo.telas.desktop;
+package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;

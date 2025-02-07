@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "289",
   "texto": "A trilha estreita e coberta de mato continua a serpentear em meio à densa floresta. Estranhos gritos de animais ecoam pelas árvores. Não demora muito para que você chegue a uma outra encruzilhada na trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_289.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Continuar na direção do oeste?",

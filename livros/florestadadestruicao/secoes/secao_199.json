@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "199",
   "texto": "À esquerda da trilha, você nota que há uma grande poça de lama que borbulha com um som alto. Sobe um vapor das bolhas que estouram na superfície da lama.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_199.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Jogar uma Peça de Ouro na lama e formular um desejo?",

@@ -2,6 +2,7 @@
   "codSecaoLivro": "340",
   "texto": "Caminhando pela trilha, você vê um homem pequeno, usando um elmo de ferro e uma cota de malha, sentado em um tronco ao lado da trilha. É um ANÃO, e ele não parece muito contente em vê-lo.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao_340.png",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_340.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Tentará iniciar uma conversa com ele?",

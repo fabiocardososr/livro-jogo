@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "257",
   "texto": "Dentro da mochila, você acha uns pães elfos que reporão 4 pontos de ENERGIA se você os comer.\nSerá somado 1 ponto ao seu índice de SORTE..",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_257.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

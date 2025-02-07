@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "295",
   "texto": "Você bate com a cabeça violentamente no lado do poço ao cair.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_295.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Você está usando um elmo?",

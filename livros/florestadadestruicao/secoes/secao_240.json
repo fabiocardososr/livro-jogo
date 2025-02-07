@@ -2,6 +2,7 @@
 {  	
   "codSecaoLivro": "240",
   "texto": "Você pressiona suavemente para soltar a tampa da caixa, mas, ao fazê-lo, um gás amarelo escapa envolve seu rosto.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_240.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Possui Filtros Nasais?",

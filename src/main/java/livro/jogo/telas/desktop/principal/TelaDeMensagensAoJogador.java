@@ -1,4 +1,4 @@
-package livro.jogo.telas.desktop;
+package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -22,7 +22,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private TelaRegrasOpcoesAcaoDosBotoes acao = new TelaRegrasOpcoesAcaoDosBotoes();
     private JLabelOpcoesTelaSecao botaoSim;
     private JLabelOpcoesTelaSecao botaoNao;
-    //private boolean resposta = false; //Recebe o resultado quando a tela for de questionamento
     private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
     private TelaBasica telaBasicaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
 
@@ -48,7 +47,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
     public TelaDeMensagensAoJogador(String texto, TelaSecoesBasica dialog) {
         this.texto = texto;
         this.telaQueChamouEsta = dialog;
-        //this.fecharTela = fecharTela; //Vai informar a tela "telaQueChamouEsta" o resultado da escolha
         int largura = 900;
         int altura = 700;
 
@@ -192,12 +190,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
                 dispose();
             }
-
-            //Confirma o fechamento da tela
-//            if ( (e.getSource() == botaoConfirmarESair) && (fecharTela)){
-//                telaQueChamouEsta.dispose();
-//                dispose();
-//            }
 
             //Caso não se
             if ( e.getSource() == botaoConfirmarESair){

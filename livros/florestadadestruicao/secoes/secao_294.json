@@ -2,6 +2,7 @@
   "codSecaoLivro": "294",
   "texto": "A cabana consiste em um aposento, contendo uma lareira, uma cama de madeira, uma mesa com duas cadeiras, uma bacia, uma arca de madeira e prateleiras atulhadas de ponta a ponta, com ovos de aves. Há muita poeira no chão, e a impressão que se tem é que ninguém mora ali há meses.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao_294.png",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_294.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Remexerá na lareira?",

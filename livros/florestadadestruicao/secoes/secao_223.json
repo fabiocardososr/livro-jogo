@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "223",
   "texto": "A jóia que pende de seu pescoço começa a reluzir. Talvez Arragon não seja tudo que ele diz que é. Você desembainha sua espada e o desafia. A expressão do rosto de Arragon se transforma de confiança em medo. Ele então se desculpa por ter sido tão agressivo, mas explica que estas terras estão infestadas de bandidos e assassinos, e ele tem que se proteger fingindo que é um mago de poderes supremos. Ele implora perdão e oferece a você 5 Peças de Ouro para que você o deixe em paz e não diga a ninguém sobre o disfarce dele. Você aceita a oferta e sai da casa. Caminha de volta para a encruzilhada na passagem e prossegue para o norte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_223.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

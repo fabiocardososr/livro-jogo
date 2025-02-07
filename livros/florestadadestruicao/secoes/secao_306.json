@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "306",
   "texto": "Em meio às árvores à esquerda da trilha, você vê uma pequena construção de pedra, coberta de musgo e trepadeiras.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_306.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Examinar o local?",

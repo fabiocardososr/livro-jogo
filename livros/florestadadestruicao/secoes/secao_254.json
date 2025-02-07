@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "254",
   "texto": "Mais adiante, na estreita trilha, você ouve um rosnado profundo ti sua esquerda nas árvores.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_254.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Quer ver que criatura está rosnando?",

@@ -20,8 +20,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 
 public abstract class TelaSecoesBasica extends JDialog {
-    private Secao secao;
-    private Personagem personagem;
+    private final Secao secao;
+    private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
@@ -45,13 +45,20 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     protected JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     protected JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
-    private final EfeitoDeItens efeitoDeItens = new EfeitoDeItens();
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
     protected JLabel labelOuro;
+    protected JLabelOpcoesTelaSecao botaoOpcao1; //Primeira Opção da seção
+    protected JLabelOpcoesTelaSecao botaoOpcao2; //Segunda Opção da seção
+    protected JLabelOpcoesTelaSecao botaoOpcao3; //Terceira Opção da seção
+    protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
+    private boolean respostaBatalha;    //Ela é preenchda na tela de batalha. Se ganhou=true;
+    protected JLabel lbTextoOpcao1; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
+    protected JLabel labelNumOpcao; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
+
 
     public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
@@ -68,7 +75,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {
             if ( !secao.getEnderecoImagem().isEmpty() )
-            this.enderecoImagem = secao.getEnderecoImagem();
+                this.enderecoImagem = secao.getEnderecoImagem();
+
             setTitle("Seção - " + secao.getCodSecaoLivro());
         }
 
@@ -102,6 +110,14 @@ public abstract class TelaSecoesBasica extends JDialog {
         });
     }
 
+    public boolean isRespostaBatalha() {
+        return respostaBatalha;
+    }
+
+    public void setRespostaBatalha(boolean respostaBatalha) {
+        this.respostaBatalha = respostaBatalha;
+    }
+
     private void carregarFaixasDasExtremidades() {
         //FAIXA SUPERIOR ESQUERDA
         JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
@@ -131,6 +147,8 @@ public abstract class TelaSecoesBasica extends JDialog {
     }
 
     protected abstract void carregarComponentesEspecificos(Secao secao);
+
+    protected abstract void acaoBotoes(Secao secao);
 
     private void carregarTextoHistoria() {
 
@@ -602,6 +620,66 @@ public abstract class TelaSecoesBasica extends JDialog {
         this.dispose();
     }
 
+    protected void opcao1(Secao secao){
+        String texto = "1";            //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 0;           //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+
+        labelNumOpcao = new JLabel(texto);
+        labelNumOpcao.setForeground(Color.WHITE);
+        labelNumOpcao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelNumOpcao.setHorizontalAlignment(SwingConstants.CENTER);
+        labelNumOpcao.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelNumOpcao.setBounds(116,592, 50,50);
+        //label.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoOpcao1 = new JLabelOpcoesTelaSecao("",40,50,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        botaoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoOpcao1.setBounds(120,600,40,50);
+        botaoOpcao1.setToolTipText("Clique para escolher esta Opção.");
+        //botaoOpcao1.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        //Texto da opção
+        lbTextoOpcao1 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
+        lbTextoOpcao1.setBounds(170,587,700,60);
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao1.setForeground(new Color(139,0,0));
+
+        add(lbTextoOpcao1);
+        add(labelNumOpcao);
+        add(botaoOpcao1);
+    }
+
+    protected void opcao2(Secao secao){
+        String texto = "2";             //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 1;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+
+        JLabel label = new JLabel(texto);
+        label.setForeground(Color.WHITE);
+        label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        label.setBounds(116,652, 50,50);
+        //label.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoOpcao2 = new JLabelOpcoesTelaSecao("",40,50,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        botaoOpcao2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoOpcao2.setBounds(120,660,40,50);
+        botaoOpcao2.setToolTipText("Clique para escolher esta Opção.");
+
+        //Texto da opção
+        JLabel lbTexto = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
+        lbTexto.setBounds(170,647,700,60);
+        lbTexto.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTexto.setForeground(new Color(139,0,0));
+        //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        add(lbTexto);
+        add(label);
+        add(botaoOpcao2);
+    }
+
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {
 
         @Override
@@ -678,7 +756,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                     return;
                 }
 
-                var foiConsumido = efeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
+                var foiConsumido = EfeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
 
                 if ( foiConsumido ) {
                     configuraPocaoVaziaQuandoPocaoInicialConsumida();
@@ -708,7 +786,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                     //Aqui trata a ação de comer a provisão
                     //Item provisão
-                    if  (efeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+                    if  (EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));
@@ -727,8 +805,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             if (e.getSource() ==  labelSalvar){
                 CarregarTelas.telaMensagem("Deseja salvar o andamento do jogo?",thisDialog);
 
-                //telaMensagem seta a resposta através da chamada ao
-                // método RespostaTelaMensagem() da referência a tela "thisDialog"
+                //Se resposta da tela telaMensagem positiva, salva o jogo
                 if (isRespostaTelaMensagem())
                     Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
             }

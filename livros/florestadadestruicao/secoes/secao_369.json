@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "369",
   "texto": "O vale é verde e agradável, e você fica imaginando porque um lugar tão tranquilo teria se tornado a moradia de tantas criaturas repulsivas. Caminhando ao longo da trilha, você vê na distância a forma altiva de um homem já meio calvo, vestindo longas vestes marrons, que vem na sua direção. Quando ele chega mais perto, você vê que se trata de um frade.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_369.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Começará a conversar com ele?",

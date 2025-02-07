@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "109",
   "texto": "Logo a trilha conduz para fora das árvores a uma planície ampla com mato alto. Além dela, você vê que o terreno se eleva, e, mais adiante, há umas colinas baixas. A trilha se divide em três caminhos diferentes.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_109.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Ir para o oeste?",

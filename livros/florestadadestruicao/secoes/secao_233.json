@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "233",
   "texto": "À direita da trilha, você vê um poço de pedra com um balde e uma manivela.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_233.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Dar uma olhada mais de perto no poço?",

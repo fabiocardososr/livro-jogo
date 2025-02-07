@@ -2,6 +2,7 @@
 {  	
   "codSecaoLivro": "246",
   "texto": "A mulher BANDIDA pega seus artigos e recua para deixá-lo passar. Você ruma para o norte de novo e logo nota que as árvores estão ficando mais esparsas em ambos os lados da trilha. A trilha acaba por conduzir para fora das árvores a um campo arado. Você está fora da Floresta de Darkwood!",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_246.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

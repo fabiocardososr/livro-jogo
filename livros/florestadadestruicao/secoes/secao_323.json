@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "323",
   "texto": "Caminhando para o norte, você logo chega a uma encruzilhada na trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_323.mp3",
   "proximasSecoes": [    
 	{	  
       "textoOpcao": "Continuar para o norte?",

@@ -2,6 +2,7 @@
 {  	
   "codSecaoLivro": "279",
   "texto": "Considere todos os artigos que estão na sua mochila como objetos isolados, inclusive cada Peça de Ouro. Serão feitas as deduções necessárias na sua Bolsa de Equipamentos.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_279.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "vá para",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "215",
   "texto": "No interior do barril, você encontra um pesado escudo de ferro.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_215.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Levá-lo com você?",

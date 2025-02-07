@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "153",
   "texto": "A Mulher-Gato rosna e ruge antes de saltar da árvore para atacá-lo. Você recua e se prepara para lutar.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_153.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",

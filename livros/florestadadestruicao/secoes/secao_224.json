@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "224",
   "texto": "Um dos Gaviões da Morte tem uma fita de metal em torno de uma de suas pernas. Nela, há uma inscrição que diz: A MORTE TE ESPERA",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_224.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Você resolve deixar a fita de prata de lado e parte rapidamente para o oeste.",

@@ -2,6 +2,7 @@
   "codSecaoLivro": "351",
   "texto": "Você desce cuidadosamente pelos degraus de pedra, tateando para sentir por onde ir. Vagarosamente, seus olhos ficam habituados à escuridão, e você principia a distinguir umas formas no pé da escada. Você está de pé num aposento pequeno e quadrado, com um teto baixo. O chão está coberto por uma grossa camada de poeira, e há teias de aranha em toda parte. No meio do aposento, há alguma coisa que parece ser uma grande caixa de pedra, medindo aproximadamente dois metros por um metro. Está fechado por uma pesada tampa de pedra. Ao longo de uma das ásperas paredes de pedra, você encontra um pequeno nicho com uma vela lá dentro.",
     "enderecoImagem": "livros/florestadadestruicao/imagens/secao_351.png",
+	"enderecoAudio":"livros/florestadadestruicao/audio/secao_351.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Acender a vela?",

@@ -2,6 +2,7 @@
   "codSecaoLivro": "195",
   "texto": "Você chega ao topo do cipó e dele sobe numa plataforma de madeira. Uma cortina feita de folhas e avencas cobre a entrada de uma pequena área de moradia coberta. Quando você se aproxima, a cortina se abre, e de trás dela sai uma criatura grande e peluda semelhante a um macaco, usando apenas uma tanga de pele de animal. Ele tem um osso grande na sua mão direita e grunhe na sua direção.\nÉ um HOMEM-MACACO.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao_195.png",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_195.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Desembainhar sua espada e atacá-lo?",

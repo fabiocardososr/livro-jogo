@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "341",
   "texto": "A dor na sua mão se torna quase insuportável, mas você ainda consegue aguentar e tateia lá dentro. No fundo do vaso, sua mão entra em contato com diversos objetos. Você os agarra e tira sua mão do vaso velozmente. Fica surpreso ao não ver nenhuma marca ou sinal de ferimento na sua mão.\nVocê examina seu tesouro e acha 5 Peças de Ouro, um dente de dragão e um frasco de vidro, contendo uma Poção da Força que reporá 5 pontos de ENERGIA no momento em que você decidir bebê-la.\nVocê soma 1 ponto de SORTE e retorna à trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_341.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

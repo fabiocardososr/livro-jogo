@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "381",
   "texto": "Você fracassou na sua missão de ajudar os anões. Sendo incapaz de enfrentar o rei deles, Gillibran.\n\nVocê resolve rumar para o leste e encontrar um lugar para descansar depois de sua perigosa aventura. Talvez você possa tentar de novo? Se puder, terá que contornar a Floresta de Darkwood de volta para a torre de Yastromo, a fim de adquirir mais artigos mágicos dele.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_381.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

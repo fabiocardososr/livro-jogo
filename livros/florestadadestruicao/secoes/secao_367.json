@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "367",
   "texto": "No momento em que a cabeça do fungo se abre, ouve-se um som como um estalo suave, seguido pelo silvo de gás que escapa. Você fica envolvido por uma nuvem de gás venenoso.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_367.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Possui Filtros Nasais?",

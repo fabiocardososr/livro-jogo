@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "222",
   "texto": "Não há como escapar da nuvem de gás venenoso que o cerca por toda parte. Seus pulmões parecem estar explodindo, e você é forçado a inspirar.\n\nSeu índice de ENERGIA será reduzido conforme o número obtido em um lance com um dado.\n\nSe você ainda estiver vivo, verá a nuvem de gás se afastar finalmente, e poderá respirar livremente de novo. Não parece haver muito motivo para ficar aqui mais tempo, e você caminha até os degraus na parede do outro lado.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_222.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

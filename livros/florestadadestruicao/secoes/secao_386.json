@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "386",
   "texto": "Você se instala para dormir mais uma vez, mas passa uma noite inquieta. De manhã, você acorda cedo. Você recolhe seus pertences e parte para o norte pela trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_386.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "193",
   "texto": "Um pequeno GREMLIN, de pele verde, sai da escada para entrar no túnel. Não chega a ter mais do que um metro e está surpreso por ver você agachado no túnel. Ele tira um punhal do bolso de sua jaqueta.\nVocê terá que lutar contra ele.\nDurante cada Série de Ataque, você terá que reduzir sua Força de Ataque em 3, por causa de sua posição sem jeito para a luta",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_193.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Vencendo",

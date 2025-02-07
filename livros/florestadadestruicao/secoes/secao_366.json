@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "366",
   "texto": "Você diz adeus ao Centauro, ao que ele responde de maneira semelhante. É agradável encontrar alguém que não ataca você logo de saída! Você pergunta ao Centauro se ele tem alguma informação que poderia levar você à sua meta, mas ele não sabe nada. Ele diz que não perambula muito ultimamente, pois está ficando velho. Só quer possuir um pouco de ouro para a sua velhice. Ele se oferece para carregá-lo para o outro lado do rio por 3 Peças de Ouro.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_366.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Aceitará a oferta dele?",

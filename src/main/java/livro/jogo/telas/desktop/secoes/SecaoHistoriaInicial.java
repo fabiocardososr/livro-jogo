@@ -23,6 +23,11 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
         carregaBotaoOpcao();
     }
 
+    @Override
+    protected void acaoBotoes(Secao secao) {
+
+    }
+
     private void carregaBotaoOpcao() {
 
         //Texto

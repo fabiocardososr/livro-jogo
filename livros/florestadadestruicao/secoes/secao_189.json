@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "189",
   "texto": "Os fungos de topo verde estão sendo regados por dois humanóides.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_189.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Quer comer um pouco de fungo?",

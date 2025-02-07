@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "287",
   "texto": "Do lado de fora da caverna, você para e dar uma olhada rápida no interior da bolsa de couro. Você encontra 5 Peças de Ouro e um pequeno sino de metal. Você os coloca na sua mochila e corre de volta para a encruzilhada na trilha, depois ruma para o norte",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_287.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

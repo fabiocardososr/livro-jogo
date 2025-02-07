@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "382",
   "texto": "Indo para o oeste, a trilha logo conduz você a uma outra encruzilhada. Você resolve ignorar o caminho para o sul e segue para o norte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_382.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "321",
   "texto": "À medida em que cada GUERRREIRO-CLONE morre, vai se dissolvendo numa poça de líquido colorido no chão rochoso. Não querendo mais permanecer nesse nicho úmido e sombrio, você sai e sobe adiante pelos degraus.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_321.mp3",
   "proximasSecoes": [    
 	{	  
       "textoOpcao": "Vá para",

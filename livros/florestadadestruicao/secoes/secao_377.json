@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "377",
   "texto": "Você rapidamente alcança os dois Pigmeus de pele parda. Estão usando camisas feitas de folhas, e, quando param e se voltam, você repara que cada um deles tem um pequeno osso enfiado no nariz. Eles puxam seus punhais e ambos atacam você ao mesmo tempo.\n\nOs dois terão a oportunidade de um ataque separado contra você, em cada Série de Ataque, mas você terá que escolher qual dos dois você enfrentará. Ataque o Pigmeu escolhido como numa batalha normal. Contra o outro, você fará o lance para determinar sua Força de Ataque do modo normal, mas não vai causar-lhe ferimentos se sua Força de Ataque for maior; você terá que contar isso como apenas uma defesa bem-sucedida contra um golpe dele. E claro que, se a Força de Ataque dele for maior, você será ferido da maneira habitual.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_377.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",

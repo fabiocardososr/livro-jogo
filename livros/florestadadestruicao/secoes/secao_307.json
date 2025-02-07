@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "307",
   "texto": "O homenzinho acorda sobressaltado, perde o equilíbrio e cai do cogumelo. Ele solta um palavrão ao bater no chão, mas pula de volta para o cogumelo, gritando:\n- Quem fez isso? Quem fez isso?\n- Ele olha para você de rosto carregado.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_307.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Atacar o GNOMO?",

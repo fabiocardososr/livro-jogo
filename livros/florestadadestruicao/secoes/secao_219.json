@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "219",
   "texto": "Você nota que o pequeno dardo que está cravado no peito do Urso é feito de prata. Vale 5 Peças de Ouro, e você pode pô-lo na sua mochila.\nVocê ganha 1 ponto de SORTE pela sua descoberta.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_219.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

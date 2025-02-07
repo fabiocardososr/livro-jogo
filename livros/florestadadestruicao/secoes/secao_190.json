@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "190",
   "texto": "Á sua frente, você ouve o baque de passadas e o ruído de galhos se partindo. Parece que alguma criatura de grande porte está descendo pela trilha na sua direção!",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_190.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Enfrentar o animal que se aproxima?",

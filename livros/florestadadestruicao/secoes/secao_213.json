@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "213",
   "texto": "A trilha descreve curvas e sinuosidades entre as árvores e moitas, e depois chega a uma outra encruzilhada. Você se dá conta de que o caminho para o sul conduz de volta ao vale, e por isso resolve ignorá-lo e se dirigir ao norte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_213.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

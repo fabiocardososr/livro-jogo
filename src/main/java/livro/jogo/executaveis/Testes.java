@@ -30,28 +30,19 @@ public class Testes {
 
         /* TESTAR SEÇÕES INDIVIDUAIS */
 
-        //TRABALHANDO NA SEÇÃO: 2
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(4);
+        //TRABALHANDO NA SEÇÃO:
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 7 );
         CarregarTelas.carregarSecao(secao);
 
-
-       // System.out.println("Você tem o anel? "+ Util.verificarExistenciaDeItemNaBolsa(1));
-
-
-        //CarregarTelas.telaSecaoHistoriaInicial(null);
-
-        //Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,null));
-
-//        SaveJogo save = Util.carregarJogoEmArquivo("Fábio.sav");
-//        Personagem personagem1 = save.getPersonagem();
-//        System.out.println("\n\nDEU CERTO: "+personagem1.getNome()+"\n\n");
-
-//        personagem.setHabilidadeAtual(5);
     }
 
     public static ArrayList<Item> recuperaItensIniciaisEquipados() {
         ObjectMapper objMapper = new ObjectMapper();
         var itensEquipados = new ArrayList<Item>();
+
+        //Anel de ouro
+//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_1.json"));
 
         //Equipando uma espada(50)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,

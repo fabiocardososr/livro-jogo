@@ -2,6 +2,7 @@
 {  	
   "codSecaoLivro": "237",
   "texto": "Você aterrisa pesadamente no chão e ouve um estalo sonoro e assustador. A dor se espalha pela sua perna, e você compreende que ela está quebrada.\nVocê perde 2 pontos de SORTE.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_237.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Possui Poção Curativa?",

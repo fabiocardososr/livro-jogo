@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "255",
   "texto": "Continuando pela garganta abaixo, você vê o cabo de uma espada projetando-se de uma pedra grande ao lado da trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_255.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Quer tentar arrancar a espada da rocha?",

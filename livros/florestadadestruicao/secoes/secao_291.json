@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "291",
   "texto": "À medida em que você vai caminhando na direção do norte, atravessando a planície, o mato vai se tornando gradualmente mais baixo, e o terreno começa a se elevar suavemente. Você ouve o ruído de uma queda d'água adiante. Logo, você chega à margem de um rio largo que se divide em dois níveis. À sua direita, a água é calma e se movimenta lentamente, mas à sua frente ela despenca ruidosamente numa grande cachoeira até uma garganta lá embaixo, onde o rio se estreita e corre velozmente para o oeste por sobre rochas e penedos. Há degraus que conduzem para o fundo da garganta pelo lado da cachoeira, embora seja difícil ver onde eles terminam devido à nuvem de vapor d'água que sobe lá debaixo. Do outro lado do rio, você vê a trilha rumando para o norte na distância. Um pequeno bote de madeira está amarrado a uma estaca à sua direita, onde o rio é calmo.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_291.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Descer os degraus até a base da cachoeira?",

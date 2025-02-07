@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "269",
   "texto": "Você grita com os dois humanóides que estão tomando conta de um roçado de fungos de topo verde. Eles ignoram você, continuando com o trabalho deles. Você pega um dos fungos, parte um pedaço do topo, e começa a comer. O gosto é bom e o alimento dá força a seu corpo.\nVocê ganha 4 pontos de ENERGIA.\nNão parece haver muito motivo para ficar aqui mais tempo, e você caminha na direção dos degraus na parede do outro lado.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_269.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

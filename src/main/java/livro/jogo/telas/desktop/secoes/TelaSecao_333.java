@@ -14,4 +14,9 @@ public class TelaSecao_333 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
 
     }
+
+    @Override
+    protected void acaoBotoes(Secao secao) {
+
+    }
 }

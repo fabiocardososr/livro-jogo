@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "207",
   "texto": "Você passa por cima do corpo do Homem-Macaco e entra na moradia dele. O chão está coberto de ossos de animais e frutas apodrecidas. A cama do Homem-Macaco é feita de musgo e líquens, e parece estar infestada de percevejos. Você tem um arrepio e retorna à plataforma lá fora. Você, então, repara numa pulseira de cobre em volta do pulso do Homem-Macaco.",  
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_207.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Quer colocar a pulseira de cobre no seu próprio pulso?",

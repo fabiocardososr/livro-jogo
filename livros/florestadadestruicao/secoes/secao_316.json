@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "316",
   "texto": "Finalmente, você consegue voltar a dormir, mas passa a noite inquieto. De manhã, você recolhe seus pertences e ruma para o norte pela trilha para as colinas.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_316.mp3",
   "proximasSecoes": [    
 	{	  
       "textoOpcao": "Vá para",

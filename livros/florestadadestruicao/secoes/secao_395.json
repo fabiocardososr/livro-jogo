@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "395",
   "texto": "Ao invés de o pavio se acender, um clarão ofuscante sai da lanterna, tão forte que o deixa incapaz de ver qualquer coisa. Você cambaleia e cai no chão.\nTeste a sua Sorte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_395.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Sorte! Você não sofre nada com a queda",

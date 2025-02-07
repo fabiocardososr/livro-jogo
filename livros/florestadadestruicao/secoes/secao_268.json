@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "268",
   "texto": "Você procura rapidamente na sua mochila e retira as Cabeças de Alho. Os Morcegos Vampiros se aproximam de você, mas se desviam no último minuto, guinchando alto. Eles circulam sobre você, ansiosos para beber seu sangue, mas o alho os mantém à distância. Depois de algum tempo, eles acabam voando para longe em busca de uma outra presa. Deixando o alho a seu lado, você se instala para dormir de novo. De manhã, você recolhe seus pertences e ruma para o norte ao longo da trilha.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_268.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vá para",

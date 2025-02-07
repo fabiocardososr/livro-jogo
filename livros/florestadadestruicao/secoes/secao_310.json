@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "310",
   "texto": "O Troll da Caverna se levanta e grunhe alto. Ele está muito aborrecido por ver um intruso na sua caverna e caminha na sua direção, brandindo a clava.\nVocê terá que lutar contra ele.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_310.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",

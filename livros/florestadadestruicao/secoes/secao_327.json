@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "327",
   "texto": "No interior, você vê degraus de pedra que conduzem para baixo a partir da porta, penetrando em profundezas de penumbra.\nVocê não consegue ver nada lá embaixo.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_327.mp3",
   "proximasSecoes": [    
 	{	  
       "textoOpcao": "Descer as escadas?",

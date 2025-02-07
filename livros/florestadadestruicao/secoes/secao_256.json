@@ -1,6 +1,7 @@
 {  	
   "codSecaoLivro": "256",
   "texto": "Descendo pela escada, você não repara que há um degrau faltando. Você escorrega e perde o apoio do pé.\nTeste a sua Sorte.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_256.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Sorte! Você consegue agarrar-se à escada com as mãos.",

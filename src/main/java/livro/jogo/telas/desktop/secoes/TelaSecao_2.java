@@ -21,6 +21,11 @@ public class TelaSecao_2 extends TelaSecoesBasica {
         carregaBotao();
     }
 
+    @Override
+    protected void acaoBotoes(Secao secao) {
+
+    }
+
     private void sair(){
         util.pararAudioMp3();
         if (referenciaTelaPrincipal != null)

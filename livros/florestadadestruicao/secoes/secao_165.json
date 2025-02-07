@@ -1,6 +1,7 @@
 {
   "codSecaoLivro": "165",
   "texto": "O pequeno Gremlin é ágil, sendo capaz de correr à sua volta, enquanto você tem dificuldades para se movimentar de gatinhas. Você se encosta numa parede e desembainha sua espada.\n\nDurante cada Série de Ataque, você terá que reduzir sua Força de Ataque em 3 por causa da sua posição prejudicial à luta.",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_165.mp3",
   "proximasSecoes": [
     {
       "textoOpcao": "Vencendo",
