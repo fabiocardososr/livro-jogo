@@ -1,7 +1,7 @@
 {  	
   "codSecaoLivro": "253",
   "texto": "Saltando por sobre as raízes retorcidas das velhas árvores, você ruma na direção dos gritos. Depois de poucos minutos, você vê um homem usando vestes longas e escuras com o pé preso por uma armadilha de coelho enferrujada. Seu rosto está encoberto pelos panos e apenas seus olhos, de um marrom escuro, são visíveis.",
-    "enderecoImagem": "livros/florestadadestruicao/imagens/secao_253.png",
+    "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_253.png",
 	"enderecoAudio":"livros/florestadadestruicao/audio/secao_253.mp3",
   "proximasSecoes": [
     {	  

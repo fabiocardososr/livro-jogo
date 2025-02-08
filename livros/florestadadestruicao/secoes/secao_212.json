@@ -1,7 +1,7 @@
 {  	
   "codSecaoLivro": "212",
   "texto": "No interior do nicho, você vê mais quatro dos pequenos humanóides. Mas estes estão usando armaduras de couro e têm nas mãos lanças longas. Eles se mexem para atacar, e você é forçado a lutar contra os GUERREIROS-CLONES.\nEles avançam spbre você um de cada vez.",
-    "enderecoImagem": "livros/florestadadestruicao/imagens/secao_212.png",
+    "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_212.png",
 	"enderecoAudio":"livros/florestadadestruicao/audio/secao_212.mp3",
   "proximasSecoes": [
     {	  

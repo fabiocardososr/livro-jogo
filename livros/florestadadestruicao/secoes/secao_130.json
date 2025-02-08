@@ -1,7 +1,7 @@
 {  	
   "codSecaoLivro": "130",
   "texto": "A trilha se insinua por entre árvores retorcidas e moitas de espinhos. Você ouve um rosnado acima de você e olha para o alto, vendo uma criatura que parece ser meio-gato e meio-mulher em um galho sobre a trilha. Tem um pêlo curto, preto e reluzente como o de uma pantera, possui patas na extremidade de seus braços e pernas com garras afiadas. O rosto tem feições humanas, com olhos repuxados e dentes compridos. Parece estar pronta para dar o bote",
-  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_130.png",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_130.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_130.mp3",
   "proximasSecoes": [
     {	  

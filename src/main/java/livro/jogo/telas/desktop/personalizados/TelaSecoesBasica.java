@@ -62,15 +62,14 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
         setSize(1500,800);
-        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
-        Container tela = getContentPane();
-        tela.setBackground(new Color(210,180,140));
-        setLayout(null);
-
         this.secao = secao;
         this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = referenciaTelaPrincipal;
 
+        //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
+        Container tela = getContentPane();
+        tela.setBackground(new Color(210,180,140));
+        setLayout(null);
 
         //sendo secao = null significa que é a tela de história inicial do jogo ainda não é uma seção
         if ( (secao != null) && (secao.getEnderecoImagem() != null) ) {

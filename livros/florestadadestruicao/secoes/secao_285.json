@@ -1,7 +1,7 @@
 {  	
   "codSecaoLivro": "285",
   "texto": "Você já está dormindo há mais ou menos uma hora, quando o ruído de rosnados profundos faz com que você acorde. Você se levanta sem fazer barulho e pega sua espada. Fica esperando e escutando. Há uma lua cheia no céu, e o lugar projeta sombras fantasmagóricas por toda parte. Você ouve passos macios e o som de um animal que fareja, seguidos por outro rosnado grave. Então, uma forma que se assemelha a de um homem surge das sombras à sua direita; quando ele se aproxima, você vê que seus braços, peito e rosto são cobertos de pêlos marrons e grossos, e que dentes compridos emergem de sua boca. É um LOBISOMEM, e você terá que lutar contra ele.",
-  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_285.png",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_285.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_285.mp3",
   "proximasSecoes": [
     {	  

@@ -1,18 +1,11 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Secao;
-import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
-import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
-import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
-import livro.jogo.telas.desktop.principal.TelaDeMensagensAoJogador;
 import livro.jogo.utils.DadosLivroCarregado;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

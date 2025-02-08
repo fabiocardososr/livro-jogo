@@ -1,7 +1,7 @@
 {  	
   "codSecaoLivro": "230",
   "texto": "Lentamente, você dá uma olhada na caverna e vê a imensa forma de um OGRO caminhando vagarosamente até uma jaula de bambu, com uma terrina de água na sua enorme mão. Está vestido com peles de animais e traz consigo uma clava de pedra no cinto. Parece haver uma pequena criatura pulando de um lado para o outro dentro da jaula.",
-   "enderecoImagem": "livros/florestadadestruicao/imagens/secao_230.png",
+   "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_230.png",
    "enderecoAudio":"livros/florestadadestruicao/audio/secao_230.mp3",
   "proximasSecoes": [
     {	  

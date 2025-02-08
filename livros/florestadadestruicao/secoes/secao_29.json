@@ -1,7 +1,7 @@
 {  
   "codSecaoLivro":"29",
   "texto":"Numa pequena clareira em meio às árvores, você vê duas pequenas criaturas de pele cheia de verrugas, vestindo armaduras de couro. Eles parecem estar discutindo sobre quem deveria se encarregar do coelho que está sendo assando ao fogo num espeto. Ao verem você, eles interrompem a discussão e puxam suas espadas curtas. Você terá que lutar contra os ORCS que avançam na sua direção.",
-  "enderecoImagem": "livros/florestadadestruicao/imagens/secao_29.png",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_29.mp3",
   "proximasSecoes": [
     {	  
