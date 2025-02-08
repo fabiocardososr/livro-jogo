@@ -1,8 +1,11 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
+import livro.jogo.telas.desktop.personalizados.JButtonEscolhaPocao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.principal.TelaDeMensagensAoJogador;
@@ -23,12 +26,26 @@ public class TelaSecao_7 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         //Redimensionando o botão da opção 1 (direcionando para a próxima seção)
-        labelNumOpcao.setBounds(116,712, 50,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
-        botaoOpcao1.setBounds(120,720,40,50);
+        labelNumOpcao.setBounds(116,732, 50,50);
+        lbTextoOpcao1.setBounds(170,727,700,60);
+        botaoOpcao1.setBounds(120,740,40,50);
 
+        //Configurando botões
         acaoBotoes(secao);
-        carregarBotoesBatalha();
+
+        //Inclusao dos botões que representam os inimigos a serem atacados
+        configurandoBotoesBatalha(secao);
+    }
+
+    private void configurandoBotoesBatalha(Secao secao) {
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
+                150,570,150,165);
+
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
+                400,570,150,165);
+
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
+                650,570,150,165);
     }
 
     @Override
@@ -67,25 +84,5 @@ public class TelaSecao_7 extends TelaSecoesBasica {
         });
     }
 
-    private void carregarBotoesBatalha(){
 
-        /*** Inimigo 1: ABELHAS ASSASSINAS: Habilidade 7; Energia: 3 ***/
-        JLabelOpcoesTelaSecao btInimigo1 = new JLabelOpcoesTelaSecao("",120,110,
-                ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA);
-        btInimigo1.setBounds(100,560,120,110);
-        btInimigo1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btInimigo1 .setToolTipText("Clique para escolher esta Opção.");
-        btInimigo1.setToolTipText("Enxame de abelha 1 - Habilidade: 7 e Energia: 3");
-        btInimigo1.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        //Texto da opção
-        JLabel lbTextoInimigo1 = new JLabel("Enxame 1 -> H: 7 - E: 3 ");
-        lbTextoInimigo1.setBounds(110,600,700,60);
-        lbTextoInimigo1.setFont(new Font(Font.SERIF,Font.BOLD,22));
-        lbTextoInimigo1.setForeground(new Color(139,0,0));
-
-        add(btInimigo1);
-        add(lbTextoInimigo1);
-
-    }
 }

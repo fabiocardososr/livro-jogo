@@ -1,5 +1,6 @@
 package livro.jogo.telas.desktop;
 
+import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
@@ -108,6 +109,11 @@ public class CarregarTelas {
     public static void telaMensagem(String texto){
         TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto);
         tela.setVisible(true);
+    }
+
+    public static void telaBatalha(Inimigo inimigo){
+        TelaBatalha telaBatalha = new TelaBatalha(inimigo);
+        telaBatalha.setVisible(true);
     }
 
     //Esta tela é a de confirmação para FECHAR TELA. Parâmetro "true" significa que é tela de confirmação se quer fechar a tela

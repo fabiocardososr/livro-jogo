@@ -11,19 +11,19 @@
   "inimigos":[
 	{
 		"idInimigo":"1",
-		"nome":"ABELHAS ASSASSINAS",
+		"nome":"Enxame 1",
 		"habilidade":"7",
 		"energia":"3"
 	},
 	{
 		"idInimigo":"2",
-		"nome":"ABELHAS ASSASSINAS",
+		"nome":"Enxame 2",
 		"habilidade":"8",
 		"energia":"4"
 	},
 	{
 		"idInimigo":"3",
-		"nome":"ABELHAS ASSASSINAS",
+		"nome":"Enxame 3",
 		"habilidade":"7",
 		"energia":"4"
 	}
