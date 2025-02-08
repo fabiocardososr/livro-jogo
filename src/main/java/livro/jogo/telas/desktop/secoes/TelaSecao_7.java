@@ -54,7 +54,7 @@ public class TelaSecao_7 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao1){
-                    if ( isRespostaBatalha() )
+                    if ( isVenceuBatalha() )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
