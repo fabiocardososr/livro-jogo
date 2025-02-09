@@ -24,6 +24,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private JLabelOpcoesTelaSecao botaoNao;
     private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
     private TelaBasica telaBasicaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
+    private TelaBatalha telaDialog; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
 
 
     public TelaDeMensagensAoJogador( String texto) {
@@ -47,6 +48,27 @@ public class TelaDeMensagensAoJogador extends JDialog {
     public TelaDeMensagensAoJogador(String texto, TelaSecoesBasica dialog) {
         this.texto = texto;
         this.telaQueChamouEsta = dialog;
+        int largura = 900;
+        int altura = 700;
+
+        setSize(largura,altura);
+        setLayout(null);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setUndecorated(true);
+        setModal(true);
+        setBackground(new Color(0,0,0,0));
+
+        //Carrega botões de confirmação
+        carregarBotoesConfirmacao();
+
+        carregarfundo(largura, altura);
+        carregarTexto();
+    }
+
+    public TelaDeMensagensAoJogador(String texto, TelaBatalha dialog) {
+        this.texto = texto;
+        this.telaDialog = dialog;
         int largura = 900;
         int altura = 700;
 
@@ -188,6 +210,9 @@ public class TelaDeMensagensAoJogador extends JDialog {
                 if (telaBasicaQueChamouEsta != null)
                     telaBasicaQueChamouEsta.setRespostaTelaMensagem(false);
 
+                if (telaDialog != null)
+                    telaDialog.setRespostaTelaConfirmacao(false);
+
                 dispose();
             }
 
@@ -198,6 +223,10 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
                 if (telaBasicaQueChamouEsta != null)
                     telaBasicaQueChamouEsta.setRespostaTelaMensagem(true);
+
+                if (telaDialog != null)
+                    telaDialog.setRespostaTelaConfirmacao(true);
+
                 dispose();
             }
         }

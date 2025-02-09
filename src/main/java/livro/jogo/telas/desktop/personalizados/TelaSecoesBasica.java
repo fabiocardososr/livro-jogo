@@ -490,6 +490,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
         labelSair.addMouseListener(acaoLabels);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelSair.setToolTipText("Sair");
         // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
@@ -506,7 +507,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelSalvar.setBounds(1290,620,100,50);
         labelFundoSalvar.setBounds(1238,600,200,100);
         labelSair.setBounds(1285,700,100,100);
-        labelSair.setToolTipText("Sair");
+
 
 
         imgPainelDireito.setBounds(1200,2,280,770);
@@ -724,7 +725,6 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                     dispose();
                 }
-
             }
 
             if (e.getSource() == labelMapaBotao){

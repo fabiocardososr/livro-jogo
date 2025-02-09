@@ -13,19 +13,22 @@
 		"idInimigo":"1",
 		"nome":"Enxame 1",
 		"habilidade":"7",
-		"energia":"3"
+		"energia":"3",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/enxame.png"
 	},
 	{
 		"idInimigo":"2",
 		"nome":"Enxame 2",
 		"habilidade":"8",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/enxame.png"
 	},
 	{
 		"idInimigo":"3",
 		"nome":"Enxame 3",
 		"habilidade":"7",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/enxame.png"
 	}
   ]
  }

@@ -7,8 +7,13 @@ public class Inimigo implements Serializable {
     private String nome;
     private int habilidade;
     private int energia;
+    private String enderecoImagem;
 
     public Inimigo() {
+    }
+
+    public String getEnderecoImagem() {
+        return enderecoImagem;
     }
 
     public int getIdInimigo() {
@@ -34,6 +39,7 @@ public class Inimigo implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", habilidade=" + habilidade +
                 ", energia=" + energia +
+                " enderecoImagem="+enderecoImagem +
                 '}';
     }
 }

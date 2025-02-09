@@ -25,7 +25,6 @@ public class TelaPrincipal extends TelaBasica {
     private JLabel labelBotaoCarregarPersonagem;
     private JLabel labelBotaoIniciarJogo;
     private JLabel labelBotaoFechar;
-    private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
     private final CarregarTelas carregarTelas = new CarregarTelas(this);
 
     public TelaPrincipal(int largura, int altura) {

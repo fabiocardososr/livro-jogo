@@ -126,6 +126,15 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
+    public static void telaMensagem(String texto, TelaBatalha dialog){
+        TelaDeMensagensAoJogador tela = new TelaDeMensagensAoJogador(texto, dialog);
+        tela.setLocationRelativeTo(null);
+        tela.setResizable(false);
+        tela.setUndecorated(true);
+        tela.setModal(true);
+        tela.setVisible(true);
+    }
+
     public static void telaAnotacoes(Personagem personagem){
         TelaAnotacoes tela = new TelaAnotacoes(personagem);
         tela.setVisible(true);
