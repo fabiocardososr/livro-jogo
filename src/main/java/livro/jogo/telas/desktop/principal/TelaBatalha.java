@@ -25,8 +25,8 @@ public class TelaBatalha extends JDialog {
     public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai) {
         this.inimigo = inimigo;
         this.telaPai = telaPai;
-        var largura = 950;
-        var altura = 800;
+        var largura = 1050;
+        var altura = 850;
         setSize(largura,altura);
         setLayout(null);
         setModal(true);
@@ -34,6 +34,7 @@ public class TelaBatalha extends JDialog {
         setLocationRelativeTo(null);
         setCursor(null);
         setBackground(new Color(0,0,0,0));
+        carregaPainelResultadoBatalha();
 
         carregaImagemMostraResultRolagemDado();
         carregarPainelEsquerdo();
@@ -43,6 +44,16 @@ public class TelaBatalha extends JDialog {
         carregarFundoTela(largura,altura);
 
         System.out.println(this.inimigo);
+    }
+
+    private void carregaPainelResultadoBatalha() {
+        JLabelOpcoesTelaSecao painelResultado = new JLabelOpcoesTelaSecao(null,
+                300,200,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_14);
+        painelResultado.setHorizontalAlignment(SwingConstants.CENTER);
+        painelResultado.setCursor(null);
+        painelResultado.setBounds(450,460, 300,200);
+        add(painelResultado);
     }
 
     private void carregarFundoTela(int largura, int altura) {
@@ -80,10 +91,10 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_LUTA);
         mostradorDireito.setHorizontalAlignment(SwingConstants.CENTER);
         mostradorDireito.setCursor(null);
-        mostradorDireito.setBounds(515,360, 90,90);
+        mostradorDireito.setBounds(615,360, 90,90);
 
         labelDireito = new JLabel("0");
-        labelDireito.setBounds(535,375, 50,50);
+        labelDireito.setBounds(635,375, 50,50);
         labelDireito.setForeground(new Color(139,0,0));
         labelDireito.setHorizontalAlignment(SwingConstants.CENTER);
         labelDireito.setFont(new Font(Font.SERIF,Font.BOLD,35));
@@ -110,10 +121,10 @@ public class TelaBatalha extends JDialog {
         //Faixa onde ficará o nome do personagem
         JLabelOpcoesTelaSecao faixaNomePeronsagem = new JLabelOpcoesTelaSecao("",150,170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        faixaNomePeronsagem.setBounds(222,265,150,80);
+        faixaNomePeronsagem.setBounds(252,270,150,80);
 
         JLabel labelPersonagem = new JLabel(personagem.getNome());
-        labelPersonagem.setBounds(240,280,110,40);
+        labelPersonagem.setBounds(270,285,110,40);
         labelPersonagem.setForeground(new Color(139,0,0));
         labelPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         labelPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -121,7 +132,7 @@ public class TelaBatalha extends JDialog {
 
         JPanel panelEsquerdo = new JPanel();
         panelEsquerdo.setLayout(null);
-        panelEsquerdo.setBounds(230,320,140,180);
+        panelEsquerdo.setBounds(257,328,140,180);
         panelEsquerdo.setBackground(new Color(0,0,0,0));
         //panelEsquerdo.setBorder(BorderFactory.createLineBorder(Color.RED));
 
@@ -162,7 +173,7 @@ public class TelaBatalha extends JDialog {
         //Faixa onde ficará o nome do personagem
         JLabelOpcoesTelaSecao faixaNomeInimigo = new JLabelOpcoesTelaSecao("",150,170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        faixaNomeInimigo.setBounds(582,265,150,80);
+        faixaNomeInimigo.setBounds(582,270,150,80);
 
         JLabel labelInimigo = new JLabel(inimigo.getNome());
         labelInimigo.setBounds(600,280,110,40);
@@ -173,7 +184,7 @@ public class TelaBatalha extends JDialog {
 
         JPanel panelDireito = new JPanel();
         panelDireito.setLayout(null);
-        panelDireito.setBounds(590,320,140,180);
+        panelDireito.setBounds(657,328,140,180);
         panelDireito.setBackground(new Color(0,0,0,0));
 
         //Moldura
