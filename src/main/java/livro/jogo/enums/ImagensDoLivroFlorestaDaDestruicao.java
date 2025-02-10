@@ -15,6 +15,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
 
 
     /***DEMAIS IMAGENS***/
+    TEXTURA_DOURADA("livros/florestadadestruicao/imagens/textura_1.png"),
     PERGAMINHO_FUNDO_CAD_PERSONAGEM("livros/florestadadestruicao/imagens/pergaminho_painel_cadPersonagem.png"),
     PERGAMINHO_FAIXA("livros/florestadadestruicao/imagens/pergaminho_inferior_secao.png"),
     PERGAMINHO_ABERTO("livros/florestadadestruicao/imagens/pergaminho_aberto7.png"),
@@ -35,6 +36,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
     BARBARA("livros/florestadadestruicao/imagens/barbara.png"),
     MOLDURA("livros/florestadadestruicao/imagens/moldura1.png"),
+    MOLDURA_13("livros/florestadadestruicao/imagens/moldura_13.png"),
     MOLDURA_ANOTACOES("livros/florestadadestruicao/imagens/moldura_anotacoes.png"),
     MOLDURA_2("livros/florestadadestruicao/imagens/moldura_2.png"),
     MOLDURA_4("livros/florestadadestruicao/imagens/moldura_4.png"),

@@ -26,7 +26,7 @@ public class JButtonAbrirBatalha {
         btInimigo.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CarregarTelas.telaBatalha(inimigo);
+                CarregarTelas.telaBatalha(inimigo, tela);
             }
 
             @Override

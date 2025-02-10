@@ -111,8 +111,9 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    public static void telaBatalha(Inimigo inimigo){
-        TelaBatalha telaBatalha = new TelaBatalha(inimigo);
+    public static void telaBatalha(Inimigo inimigo, TelaSecoesBasica tela){
+        tela.setVisible(false);
+        TelaBatalha telaBatalha = new TelaBatalha(inimigo, tela);
         telaBatalha.setVisible(true);
     }
 
