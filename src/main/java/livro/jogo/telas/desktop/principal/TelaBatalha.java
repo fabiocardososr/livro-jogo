@@ -19,7 +19,9 @@ public class TelaBatalha extends JDialog {
     private final TelaBatalha tela = this;
     private final Personagem personagem = DadosLivroCarregado.getPersonagem();
     private final TelaSecoesBasica telaPai; //Tela que chama esta tela. Usada para voltar a aparecer a tela da seção
-    private JLabel labelInfoQuemResultadoBatalha; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
+    private JLabel labelInfoQuemGanhouResultadoBatalha; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
+    private JLabel labelInfoRodada; //Informação da rodada que deve ser incrementada a cada rodada de luta
+    private int quantidadeRodadas = 1; //Vai preencher o labelInfoRodada
 
     public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai) {
         this.inimigo = inimigo;
@@ -35,6 +37,8 @@ public class TelaBatalha extends JDialog {
         setBackground(new Color(0,0,0,0));
         carregaPainelResultadoBatalha();
 
+
+        carregaBotaoLuta();
         carregaImagemMostraResultRolagemDado();
         carregarPainelEsquerdo();
         carregarPainelDireito();
@@ -43,6 +47,76 @@ public class TelaBatalha extends JDialog {
         carregarFundoTela(largura,altura);
 
         System.out.println(this.inimigo);
+    }
+
+    private void carregaBotaoLuta() {
+        int largura = 220;
+        int altura = 200;
+
+        JLabelOpcoesTelaSecao botaoEscudoBatalaha = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA);
+        botaoEscudoBatalaha.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoEscudoBatalaha.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoEscudoBatalaha.setBounds(415,450, largura,altura);
+
+        //Label que informará qual a rodada de combate
+        labelInfoRodada = new JLabel("<html><center>Rodada<br>"+ quantidadeRodadas+"</center></html>");
+        labelInfoRodada.setBounds(480,497,90,70);
+        labelInfoRodada.setForeground(new Color(139,0,0));
+        labelInfoRodada.setHorizontalAlignment(SwingConstants.CENTER);
+        labelInfoRodada.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelInfoRodada.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelInfoRodada.setToolTipText("Clique aqui para iniciar a rodada de combate jogando os dados.");
+        labelInfoRodada.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                executarAcaoLuta();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //labelInfoRodada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+//        JLabel labelTituloBotao = new JLabel("Lute");
+//        labelTituloBotao.setBounds(480,560,90,70);
+//        labelTituloBotao.setForeground(new Color(139,0,0));
+//        //labelTituloBotao.setForeground(Color.WHITE);
+//        labelTituloBotao.setHorizontalAlignment(SwingConstants.CENTER);
+//        labelTituloBotao.setFont(new Font(Font.SERIF,Font.BOLD,18));
+//        labelTituloBotao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        //add(labelTituloBotao);
+        add(labelInfoRodada);
+        add(botaoEscudoBatalaha);
+    }
+
+    private void executarAcaoLuta() {
+
+        //Atualiza quantidade de rodadas
+        quantidadeRodadas += 1;
+        labelInfoRodada.setText("<html><center>Rodada<br>"+ quantidadeRodadas+"</center></html>");
+
+        //Atualiza a tela
+        repaint();
     }
 
     private void carregaPainelResultadoBatalha() {
@@ -54,14 +128,14 @@ public class TelaBatalha extends JDialog {
         painelResultado.setBounds(378,220, 300,200);
 
         //Informação do resultado da batalha(rodada de rolagem de dados)
-        labelInfoQuemResultadoBatalha = new JLabel("<html><center>Inimigo venceu<br>esta rodada</center></html>");
-        labelInfoQuemResultadoBatalha.setBounds(448,285,155,70);
-        labelInfoQuemResultadoBatalha.setForeground(new Color(139,0,0));
-        labelInfoQuemResultadoBatalha.setHorizontalAlignment(SwingConstants.CENTER);
-        labelInfoQuemResultadoBatalha.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelInfoQuemGanhouResultadoBatalha = new JLabel("<html><center>Inimigo venceu<br>esta rodada</center></html>");
+        labelInfoQuemGanhouResultadoBatalha.setBounds(448,285,155,70);
+        labelInfoQuemGanhouResultadoBatalha.setForeground(new Color(139,0,0));
+        labelInfoQuemGanhouResultadoBatalha.setHorizontalAlignment(SwingConstants.CENTER);
+        labelInfoQuemGanhouResultadoBatalha.setFont(new Font(Font.SERIF,Font.BOLD,20));
         //labelInfoQuemResultadoBatalha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        add(labelInfoQuemResultadoBatalha);
+        add(labelInfoQuemGanhouResultadoBatalha);
         add(painelResultado);
     }
 
