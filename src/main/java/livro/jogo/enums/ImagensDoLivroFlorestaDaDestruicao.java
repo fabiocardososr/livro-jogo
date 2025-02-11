@@ -36,6 +36,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BARBARO("livros/florestadadestruicao/imagens/barbaro.png"),
     BARBARA("livros/florestadadestruicao/imagens/barbara.png"),
     MOLDURA("livros/florestadadestruicao/imagens/moldura1.png"),
+    X("livros/florestadadestruicao/imagens/x.png"),
     MOLDURA_13("livros/florestadadestruicao/imagens/moldura_13.png"),
     MOLDURA_14("livros/florestadadestruicao/imagens/moldura_14.png"),
     MOLDURA_ANOTACOES("livros/florestadadestruicao/imagens/moldura_anotacoes.png"),
