@@ -5,8 +5,10 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +24,12 @@ public class TelaBatalha extends JDialog {
     private JLabel labelInfoQuemGanhouResultadoBatalha; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
     private JLabel labelInfoRodada; //Informação da rodada que deve ser incrementada a cada rodada de luta
     private int quantidadeRodadas = 1; //Vai preencher o labelInfoRodada
+    private boolean podeFugir; //Indica se existe a opção de fuga
 
-    public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai) {
+    public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai, boolean podeFugir) {
         this.inimigo = inimigo;
         this.telaPai = telaPai;
+        this.podeFugir = podeFugir;
         var largura = 1050;
         var altura = 850;
         setSize(largura,altura);
@@ -35,9 +39,16 @@ public class TelaBatalha extends JDialog {
         setLocationRelativeTo(null);
         setCursor(null);
         setBackground(new Color(0,0,0,0));
+
+
+
+        //Se na seção existir a opção de fuga
+        //if ( podeFugir )
+            carregaBotaoFuga();
+
         carregaPainelResultadoBatalha();
-
-
+        carregaEnergiaPersonagem();
+        carregaEnergiaInimigo();
         carregaBotaoLuta();
         carregaImagemMostraResultRolagemDado();
         carregarPainelEsquerdo();
@@ -49,6 +60,100 @@ public class TelaBatalha extends JDialog {
         System.out.println(this.inimigo);
     }
 
+    private void carregaBotaoFuga() {
+        int largura = 90;
+        int altura  = 90;
+
+        JLabelOpcoesTelaSecao botaoFuga = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.HOMEM_CORRENDO);
+        botaoFuga.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoFuga.setBounds(600,570, largura,altura);
+        botaoFuga.setToolTipText("Abandonar a luta? Perde 2 de energia. Esse é o preço da covardia.");
+        botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoFuga.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //AQUI Vai ficar a ação de FUGA
+                JOptionPane.showMessageDialog(null,"FUGA!");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        //botaoFuga.setBorder(BorderFactory.createLineBorder(Color.RED));
+        add(botaoFuga);
+    }
+
+    private void carregaEnergiaInimigo() {
+        int largura = 95;
+        int altura = 60;
+        String texto = "<html><center>Energia<br>"+ inimigo.getEnergia()+"</center></html>";
+
+        JLabelOpcoesTelaSecao placaDireita = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+        placaDireita.setHorizontalAlignment(SwingConstants.CENTER);
+        placaDireita.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        placaDireita.setBounds(677,505, largura,altura);
+        placaDireita.setCursor(null);
+
+        JLabel labelDireito = new JLabel(texto);
+        labelDireito.setForeground(new Color(139,0,0));
+        labelDireito.setHorizontalAlignment(SwingConstants.CENTER);
+        labelDireito.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        labelDireito.setBounds(687,510, largura-20,altura-10);
+        labelDireito.setCursor(null);
+        //labelEsquerdo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(labelDireito);
+        add(placaDireita);
+    }
+
+    private void carregaEnergiaPersonagem() {
+        int largura = 95;
+        int altura = 60;
+        String texto = "<html><center>Energia<br>"+personagem.getEnergiaAtual()+"</center></html>";
+
+        JLabelOpcoesTelaSecao placaEsquerda = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+        placaEsquerda.setHorizontalAlignment(SwingConstants.CENTER);
+        placaEsquerda.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        placaEsquerda.setBounds(286,505, largura,altura);
+        placaEsquerda.setCursor(null);
+
+        JLabel labelEsquerdo = new JLabel(texto);
+        labelEsquerdo.setForeground(new Color(139,0,0));
+        labelEsquerdo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelEsquerdo.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        labelEsquerdo.setBounds(296,510, largura-20,altura-10);
+        labelEsquerdo.setCursor(null);
+        //labelEsquerdo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(labelEsquerdo);
+        add(placaEsquerda);
+    }
+
     private void carregaBotaoLuta() {
         int largura = 220;
         int altura = 200;
@@ -58,14 +163,14 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA);
         botaoEscudoBatalaha.setHorizontalAlignment(SwingConstants.CENTER);
         botaoEscudoBatalaha.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoEscudoBatalaha.setBounds(415,450, largura,altura);
+        botaoEscudoBatalaha.setBounds(415,435, largura,altura);
 
         //Label que informará qual a rodada de combate
-        labelInfoRodada = new JLabel("<html><center>Rodada<br>"+ quantidadeRodadas+"</center></html>");
-        labelInfoRodada.setBounds(480,497,90,70);
+        labelInfoRodada = new JLabel("<html><center>Turno<br><b>"+ quantidadeRodadas+"</b></center></html>");
+        labelInfoRodada.setBounds(480,495,90,70);
         labelInfoRodada.setForeground(new Color(139,0,0));
         labelInfoRodada.setHorizontalAlignment(SwingConstants.CENTER);
-        labelInfoRodada.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelInfoRodada.setFont(new Font(Font.SERIF,Font.BOLD,30));
         labelInfoRodada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelInfoRodada.setToolTipText("Clique aqui para iniciar a rodada de combate jogando os dados.");
         labelInfoRodada.addMouseListener(new MouseListener() {
@@ -94,26 +199,27 @@ public class TelaBatalha extends JDialog {
 
             }
         });
-        //labelInfoRodada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-//        JLabel labelTituloBotao = new JLabel("Lute");
-//        labelTituloBotao.setBounds(480,560,90,70);
-//        labelTituloBotao.setForeground(new Color(139,0,0));
-//        //labelTituloBotao.setForeground(Color.WHITE);
-//        labelTituloBotao.setHorizontalAlignment(SwingConstants.CENTER);
-//        labelTituloBotao.setFont(new Font(Font.SERIF,Font.BOLD,18));
-//        labelTituloBotao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        //add(labelTituloBotao);
         add(labelInfoRodada);
         add(botaoEscudoBatalaha);
     }
 
     private void executarAcaoLuta() {
 
+
+        //Configura a tela para que feche automaticamente em alguns milisegundos
+//        Timer timer = new Timer(milisegundos, e -> {
+//
+//        });
+//        timer.setRepeats(false);
+//        timer.start();
+        //Joga dados para o inimigo
+//        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+//                300,300);
+
         //Atualiza quantidade de rodadas
         quantidadeRodadas += 1;
-        labelInfoRodada.setText("<html><center>Rodada<br>"+ quantidadeRodadas+"</center></html>");
+        labelInfoRodada.setText("<html><center>Turno<br>"+ quantidadeRodadas+"</center></html>");
 
         //Atualiza a tela
         repaint();
@@ -157,12 +263,12 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_LUTA);
         mostradorEsquerdo.setHorizontalAlignment(SwingConstants.CENTER);
         mostradorEsquerdo.setCursor(null);
-        mostradorEsquerdo.setBounds(375,380, 90,90);
+        mostradorEsquerdo.setBounds(390,380, 90,90);
         //mostradorEsquerdo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Label esquerdo
         JLabel labelEsquerdo = new JLabel("0");
-        labelEsquerdo.setBounds(395,395, 50,50);
+        labelEsquerdo.setBounds(410,395, 50,50);
         labelEsquerdo.setForeground(new Color(139,0,0));
         labelEsquerdo.setHorizontalAlignment(SwingConstants.CENTER);
         labelEsquerdo.setFont(new Font(Font.SERIF,Font.BOLD,35));
@@ -174,14 +280,13 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_LUTA);
         mostradorDireito.setHorizontalAlignment(SwingConstants.CENTER);
         mostradorDireito.setCursor(null);
-        mostradorDireito.setBounds(580,380, 90,90);
+        mostradorDireito.setBounds(570,380, 90,90);
 
         JLabel labelDireito = new JLabel("0");
-        labelDireito.setBounds(600,395, 50,50);
+        labelDireito.setBounds(590,395, 50,50);
         labelDireito.setForeground(new Color(139,0,0));
         labelDireito.setHorizontalAlignment(SwingConstants.CENTER);
         labelDireito.setFont(new Font(Font.SERIF,Font.BOLD,35));
-
 
         //X
         JLabelOpcoesTelaSecao mostraVersus = new JLabelOpcoesTelaSecao(null,
@@ -214,10 +319,10 @@ public class TelaBatalha extends JDialog {
         //Faixa onde ficará o nome do personagem
         JLabelOpcoesTelaSecao faixaNomePeronsagem = new JLabelOpcoesTelaSecao("",150,170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        faixaNomePeronsagem.setBounds(252,290,150,80);
+        faixaNomePeronsagem.setBounds(258,290,150,80);
 
         JLabel labelPersonagem = new JLabel(personagem.getNome());
-        labelPersonagem.setBounds(270,305,110,40);
+        labelPersonagem.setBounds(280,305,110,40);
         labelPersonagem.setForeground(new Color(139,0,0));
         labelPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         labelPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -225,7 +330,7 @@ public class TelaBatalha extends JDialog {
 
         JPanel panelEsquerdo = new JPanel();
         panelEsquerdo.setLayout(null);
-        panelEsquerdo.setBounds(257,348,140,180);
+        panelEsquerdo.setBounds(267,348,140,180);
         panelEsquerdo.setBackground(new Color(0,0,0,0));
         //panelEsquerdo.setBorder(BorderFactory.createLineBorder(Color.RED));
 

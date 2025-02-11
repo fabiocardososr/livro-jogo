@@ -46,7 +46,8 @@ public class TelaBasica extends JFrame {
     }
 
 
-    public static void mostrarDadosRolando(int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
+    public static void mostrarDadosRolando(int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem,
+                                           int largura, int altura){
 
         JDialog telaDadosRolando = new JDialog();
         telaDadosRolando.setTitle("Rolando Dados");
@@ -58,7 +59,8 @@ public class TelaBasica extends JFrame {
 
         ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
         JLabel label = new JLabel(imageIcon);
-        label.setBounds(2,2,200,200);
+
+        label.setBounds(2,2,largura,altura);
         telaDadosRolando.add(label);
 
         //Configura a tela para que feche automaticamente em alguns milisegundos
@@ -68,7 +70,7 @@ public class TelaBasica extends JFrame {
         });
         timer.setRepeats(false);
         timer.start();
-        telaDadosRolando.setSize(400,350);
+        telaDadosRolando.setSize(largura,largura);
         telaDadosRolando.setResizable(false);
         telaDadosRolando.setLocationRelativeTo(null);
         //telaDadosRolando.setType(Type.UTILITY); //Muda os botões da barra de tarefas superior, só deixa o "x"

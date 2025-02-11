@@ -54,8 +54,6 @@ public class JButtonAbrirBatalha {
         JLabelOpcoesTelaSecao faixaNomeInimigo = new JLabelOpcoesTelaSecao("",150,150,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
         faixaNomeInimigo.setBounds(0,-15,150,80);
-        //faixaNomeInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //faixaNomeInimigo.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Nome do monstro ou tipo
         JLabel label = new JLabel(inimigo.getNome());
@@ -66,9 +64,9 @@ public class JButtonAbrirBatalha {
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Faixa onde fica as informações de habilidade
-        JLabelOpcoesTelaSecao faixaHabilidadeInimigo = new JLabelOpcoesTelaSecao("",140,30,
+        JLabelOpcoesTelaSecao faixaHabilidadeInimigo = new JLabelOpcoesTelaSecao("",150,30,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
-        faixaHabilidadeInimigo.setBounds(5,105,140,30);
+        faixaHabilidadeInimigo.setBounds(5,105,150,30);
         //faixaHabilidadeInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         faixaHabilidadeInimigo.setHorizontalAlignment(SwingConstants.CENTER);
         //faixaIndicesInimigo.setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -83,9 +81,9 @@ public class JButtonAbrirBatalha {
         //labelInfoHabilidade.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Faixa onde fica as informações de Energia(força)
-        JLabelOpcoesTelaSecao faixaEnergiaInimigo = new JLabelOpcoesTelaSecao("",140,30,
+        JLabelOpcoesTelaSecao faixaEnergiaInimigo = new JLabelOpcoesTelaSecao("",150,30,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
-        faixaEnergiaInimigo.setBounds(5,130,140,30);
+        faixaEnergiaInimigo.setBounds(5,130,150,30);
         //faixaEnergiaInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         faixaEnergiaInimigo.setHorizontalAlignment(SwingConstants.CENTER);
         //faixaIndicesInimigo.setBorder(BorderFactory.createLineBorder(Color.RED));

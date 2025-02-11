@@ -638,23 +638,28 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            int largura = 300;
+            int altura = 330;
 
             if ( (e.getSource() == botaoRolarDadosSorte) && (sorteInicial == 0)){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+                        largura,altura);
                 sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceSorte.setText(String.valueOf(sorteInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadosEnergia) && (energiaInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+                        largura,altura);
                 energiaInicial = Util.obterIndiceEnergiaInicial();
                 labelIndiceEnergia.setText(String.valueOf(energiaInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadoHabilidade) && (habilidadeInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+                        largura,altura);
                 habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
                 habilitarBotaoGravar();
