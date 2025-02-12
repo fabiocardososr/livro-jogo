@@ -19,7 +19,6 @@ import java.util.Random;
 
 
 public class Util {
-    //private static Clip clip; //Para reproduzir áudio
     private static Player player; //Reproduzir mp3
     private Audio audio; //Thread que executa o áudio sem travar a tela (mp3)
 
@@ -134,7 +133,7 @@ public class Util {
 
         //Não encontrei outro jeito para habilitar o botão novamente quando acabar o áudio
         //Por isso tive que passar a referência do componente para este método.
-        private JLabelOpcoesTelaSecao label;
+        private final JLabelOpcoesTelaSecao label;
 
         public Audio(String audio, JLabelOpcoesTelaSecao label) {
             this.audio = audio;
@@ -261,6 +260,27 @@ public class Util {
         DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
 
        return retornaSePersonagemVivo();
+    }
+
+
+    /*REGRA: Jogue dois dados. Se o número obtido for igual ou menor do que o seu índice de SORTE atual,
+             você teve sorte, e o resultado lhe será favorável. Se o número obtido for maior do que o seu
+             índice de SORTE atual, você não teve sorte.
+    Na função: Retornando TRUE significa que foi bem sucedido no teste*/
+    public static boolean testarSorte(){
+        var personagem          = DadosLivroCarregado.getPersonagem();
+        int indiceAtualSorte    = personagem.getSorteAtual();
+        var resultadoDoisDados  = rolarDados(6,2);
+
+        System.out.println("Rolagem dos dados: "+ resultadoDoisDados);
+
+        //Independentemente de qualquer resultado a sorte é diminuida em 1.
+        personagem.setSorteAtual(indiceAtualSorte - 1);
+
+        if (resultadoDoisDados <= indiceAtualSorte)
+            return true;
+        else
+            return false;
     }
 
 }

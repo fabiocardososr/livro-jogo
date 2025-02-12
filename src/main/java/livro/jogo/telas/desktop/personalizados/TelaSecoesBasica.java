@@ -540,8 +540,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         if (pocaoInicial == null) {
             labelPocaoInicial = new JLabelOpcoesTelaSecao("", 50, 55,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA);
-//            labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
-//                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
             labelPocaoInicial.setText("");
             labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
             labelPocaoInicial.setBounds(1270,265,150,100);
@@ -552,27 +550,20 @@ public abstract class TelaSecoesBasica extends JDialog {
         }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()){
-            lbSortePersonagem.setText("Sorte: "+
-                    String.valueOf(personagem.getSorteAtual())+ "/"+
-                    String.valueOf(personagem.getSorteMax()));
+
             complementoTexto = " Além do incremento de 1 ponto no seu nível.";
+            atualizaIndicesNaTelaDoPersonagem();
             consumido = true;
 
         }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()){
-
-            lbEnergiaPersonagem.setText("Energia: "+
-                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                    String.valueOf(personagem.getEnergiaMax()));
+            atualizaIndicesNaTelaDoPersonagem();
             consumido = true;
         }
 
         if (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()){
-
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
+            atualizaIndicesNaTelaDoPersonagem();
             consumido = true;
         }
 
@@ -590,6 +581,36 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ", você toma a poção e se sente bem.\n\nSeu índice de " +
                 pocaoInicial.getTipoEfeito().name().toLowerCase()
                 + " encontra-se no nível máximo."+complementoTexto);
+    }
+
+    public void atualizaIndicesNaTelaDoPersonagem(){
+
+        //Se personagem morto fechar a tela e informar ao jogador
+//        if ( !Util.retornaSePersonagemVivo() ){
+//            CarregarTelas.telaMensagem("Você foi ferido gravimente, sua energia chegou a zero.\n\n"+
+//                    "Sua aventura acaba aqui.");
+//
+//            if (referenciaTelaPrincipal != null)
+//                referenciaTelaPrincipal.setVisible(true);
+//
+//            dispose();
+//        }
+
+        lbSortePersonagem.setText("Sorte: "+
+                String.valueOf(personagem.getSorteAtual())+ "/"+
+                String.valueOf(personagem.getSorteMax()));
+
+        lbEnergiaPersonagem.setText("Energia: "+
+                String.valueOf(personagem.getEnergiaAtual())+ "/"+
+                String.valueOf(personagem.getEnergiaMax()));
+
+        lbHabilidadePersonagem.setText("Habilidade: "+
+                String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                String.valueOf(personagem.getHabilidadeMax()));
+
+
+
+        repaint();
     }
 
     //Carrega uma tela de diálogo com uma imagem

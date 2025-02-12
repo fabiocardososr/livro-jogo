@@ -68,6 +68,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FUNDO_BOLSA_LISTA("livros/florestadadestruicao/imagens/fundo_bolsa_lista.png"),
     SIMBOLO_VOZ("livros/florestadadestruicao/imagens/voz.png"),
     BRASAO_BATALHA("livros/florestadadestruicao/imagens/brasao_batalha.png"),
+    TREVO("livros/florestadadestruicao/imagens/trevo.png"),
     SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png")
     ;
 
