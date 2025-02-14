@@ -12,10 +12,13 @@ import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.TimerTask;
 
 
 public class Util {
@@ -272,8 +275,6 @@ public class Util {
         int indiceAtualSorte    = personagem.getSorteAtual();
         var resultadoDoisDados  = rolarDados(6,2);
 
-        System.out.println("Rolagem dos dados: "+ resultadoDoisDados);
-
         //Independentemente de qualquer resultado a sorte é diminuida em 1.
         personagem.setSorteAtual(indiceAtualSorte - 1);
 
@@ -281,6 +282,15 @@ public class Util {
             return true;
         else
             return false;
+    }
+
+    // Adiciona um delay (pausa a execução)
+    public static void delayNaExecucao(int milisegundos){
+        try {
+            Thread.sleep(milisegundos); // Pausa a thread pelo tempo especificado
+        } catch (InterruptedException e) {
+            System.out.println("A thread foi interrompida!");
+        }
     }
 
 }

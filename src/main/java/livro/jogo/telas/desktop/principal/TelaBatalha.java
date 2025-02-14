@@ -22,19 +22,22 @@ public class TelaBatalha extends JDialog {
     private final TelaBatalha tela = this;
     private final Personagem personagem = DadosLivroCarregado.getPersonagem();
     private final TelaSecoesBasica telaPai; //Tela que chama esta tela. Usada para voltar a aparecer a tela da seção
-    private JLabel labelInfoQuemGanhouResultadoBatalha; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
+
+    public JLabel getPainelMensagens() {
+        return labelPainelMensagens;
+    }
+
+    private JLabel labelPainelMensagens; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
     private JLabel labelInfoRodada; //Informação da rodada que deve ser incrementada a cada rodada de luta
     private int quantidadeRodadas = 1; //Vai preencher o labelInfoRodada
-    private boolean podeFugir; //Indica se existe a opção de fuga
     private final AcoesBatalha acoesBatalha;
 
     public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai, boolean podeFugir) {
-        this.inimigo = inimigo;
-        this.telaPai = telaPai;
-        this.podeFugir = podeFugir;
-        acoesBatalha = new AcoesBatalha(this.inimigo);
-        var largura = 1050;
-        var altura = 850;
+        this.inimigo    = inimigo;
+        this.telaPai    = telaPai;
+        acoesBatalha    = new AcoesBatalha(this.inimigo, this);
+        var largura     = 1050;
+        var altura      = 850;
         setSize(largura,altura);
         setLayout(null);
         setModal(true);
@@ -46,7 +49,7 @@ public class TelaBatalha extends JDialog {
 
 
         //Se na seção existir a opção de fuga
-        if ( podeFugir )
+        //if ( podeFugir )
             carregaBotaoFuga();
 
         carregaBotaoSorte();
@@ -123,27 +126,39 @@ public class TelaBatalha extends JDialog {
         botaoFuga.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                boolean vaiTestarSorte = false; //Informa se na fuga o jogador escolheu fazer teste de sorte
+
                 CarregarTelas.telaMensagem("Deseja abandonar a luta?"+
                         "\n\n"+personagem.getNome() +", você perderá 2 pontos de energia.\nEsse é o preço de sua covardia.", tela);
 
-                //AQUI VAI FICAR O DECREMENTO DA ENERGIA
-                //dEVE-SE VERIFICAR SE O PERSONAGEM MORREU COM ESSA PERDA DE ENERGIA
-
-
                 if (respostaTelaConfirmacao) {
-
-                    //Sorte
-                    var usarSorte = false;
+                    boolean resultadoSorte = false;
+                    //Perguntar se o jogador quer Testar a Sorte para diminuir o dano
                     CarregarTelas.telaMensagem("Deseja tentar a sorte para diminuir o dano na fuga?\n\n"+
                             "Obs.: Todo teste de sorte decrementa em 1 seu índice de Sorte independentemente de sucesso ou não.", tela);
-                    if (respostaTelaConfirmacao)
-                       usarSorte = true;
+                    if (respostaTelaConfirmacao) {
+                        vaiTestarSorte = true;
+                        resultadoSorte = Util.testarSorte();
+                        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+                                300,300);
+                    }
 
-                    var estaVivo = acoesBatalha.fuga(usarSorte);
+                    if ( resultadoSorte )
+                        CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
+                    else
+                        CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
+
+                    //Passando resultadoSorte TRUE diminui 1 ponto de dano
+                    var estaVivo = acoesBatalha.fuga(vaiTestarSorte, resultadoSorte);
 
                     if ( estaVivo ) {
+                        if (telaPai != null){
                         telaPai.atualizaIndicesNaTelaDoPersonagem();
+
+
                         telaPai.setVisible(true);
+                        telaPai.repaint();
+                        }
                     }
                     else{
                         CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
@@ -349,14 +364,14 @@ public class TelaBatalha extends JDialog {
         painelResultado.setBounds(378,220, 300,200);
 
         //Informação do resultado da batalha(rodada de rolagem de dados)
-        labelInfoQuemGanhouResultadoBatalha = new JLabel("<html><center>Inimigo venceu<br>esta rodada</center></html>");
-        labelInfoQuemGanhouResultadoBatalha.setBounds(448,285,155,70);
-        labelInfoQuemGanhouResultadoBatalha.setForeground(new Color(139,0,0));
-        labelInfoQuemGanhouResultadoBatalha.setHorizontalAlignment(SwingConstants.CENTER);
-        labelInfoQuemGanhouResultadoBatalha.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelPainelMensagens = new JLabel("<html><center>Inimigo venceu<br>esta rodada</center></html>");
+        labelPainelMensagens.setBounds(448,285,155,70);
+        labelPainelMensagens.setForeground(new Color(139,0,0));
+        labelPainelMensagens.setHorizontalAlignment(SwingConstants.CENTER);
+        labelPainelMensagens.setFont(new Font(Font.SERIF,Font.BOLD,20));
         //labelInfoQuemResultadoBatalha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        add(labelInfoQuemGanhouResultadoBatalha);
+        add(labelPainelMensagens);
         add(painelResultado);
     }
 
@@ -543,7 +558,10 @@ public class TelaBatalha extends JDialog {
                 CarregarTelas.telaMensagem("Deseja abandonar a luta?\n\n A criatura será regenerada, mas você não.", tela);
 
                 if (respostaTelaConfirmacao) {
-                    telaPai.setVisible(true);
+
+                    if (telaPai != null)
+                        telaPai.setVisible(true);
+
                     dispose();
                 }
             }

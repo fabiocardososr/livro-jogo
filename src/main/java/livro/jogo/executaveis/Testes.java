@@ -2,10 +2,12 @@ package livro.jogo.executaveis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
+import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.principal.TelaBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
@@ -21,11 +23,13 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio",1,10,200,10,
+        Personagem personagem = new Personagem("Fábio",1,10,200,
+                10,
                 bolsa,itensEquipados,1);
         personagem.setQuantidadeOuro(15);
         personagem.setHabilidadeAtual(5);
         personagem.setEnergiaAtual(22);
+        personagem.setSorteAtual(10);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         DadosLivroCarregado.setPersonagem(personagem);
 
@@ -33,9 +37,17 @@ public class Testes {
 //        System.out.println("Resultado teste sorte: "+ Util.testarSorte());
 //        System.out.println("ìndice personagem APÓS TESTE: "+ personagem.getSorteAtual());
 
+        //Util.testarSorte();
+
         //TRABALHANDO NA SEÇÃO:
         Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 7 );
         CarregarTelas.carregarSecao(secao);
+
+        //Tela batalha
+//        Inimigo inimigo = new Inimigo(1,"Enxame 1",7,3,
+//                "livros/florestadadestruicao/imagens/inimigos/enxame.png");
+//        TelaBatalha telaBatalha = new TelaBatalha(inimigo, null, true);
+//        telaBatalha.setVisible(true);
 
     }
 

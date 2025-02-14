@@ -12,6 +12,14 @@ public class Inimigo implements Serializable {
     public Inimigo() {
     }
 
+    public Inimigo(int idInimigo, String nome, int habilidade, int energia, String enderecoImagem) {
+        this.idInimigo = idInimigo;
+        this.nome = nome;
+        this.habilidade = habilidade;
+        this.energia = energia;
+        this.enderecoImagem = enderecoImagem;
+    }
+
     public String getEnderecoImagem() {
         return enderecoImagem;
     }

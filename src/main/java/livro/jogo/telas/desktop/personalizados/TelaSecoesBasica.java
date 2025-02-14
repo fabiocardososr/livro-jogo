@@ -585,17 +585,6 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     public void atualizaIndicesNaTelaDoPersonagem(){
 
-        //Se personagem morto fechar a tela e informar ao jogador
-//        if ( !Util.retornaSePersonagemVivo() ){
-//            CarregarTelas.telaMensagem("Você foi ferido gravimente, sua energia chegou a zero.\n\n"+
-//                    "Sua aventura acaba aqui.");
-//
-//            if (referenciaTelaPrincipal != null)
-//                referenciaTelaPrincipal.setVisible(true);
-//
-//            dispose();
-//        }
-
         lbSortePersonagem.setText("Sorte: "+
                 String.valueOf(personagem.getSorteAtual())+ "/"+
                 String.valueOf(personagem.getSorteMax()));
@@ -607,8 +596,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbHabilidadePersonagem.setText("Habilidade: "+
                 String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                 String.valueOf(personagem.getHabilidadeMax()));
-
-
 
         repaint();
     }
