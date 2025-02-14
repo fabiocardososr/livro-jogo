@@ -2,6 +2,11 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.ResultadoTurnoBatalha;
+import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.principal.TelaBatalha;
 
 import javax.swing.*;
@@ -34,5 +39,96 @@ public class AcoesBatalha {
 
         //A função retorna se personagem ainda está vivo
         return Util.perdeEnergia( quantidadeEnergiaPerdida );
+    }
+
+    //Quando clica no botão da fuga
+    public void acaoAoClicarNoBotaoFuga(TelaSecoesBasica telaPai){
+        boolean vaiTestarSorte = false; //Se na fuga foi feito o teste de sorte. O default é não fazer
+        boolean resultadoSorte = false; //Resultado do teste da sorte, caso feito.
+
+        CarregarTelas.telaMensagem("Deseja abandonar a luta?"+
+                "\n\n"+personagem.getNome() +", você perderá 2 pontos de energia."+
+                "\nEsse é o preço de sua covardia.", telaBatalha);
+
+        if ( telaBatalha.isRespostaTelaConfirmacao() ) {
+
+            //Se tiver índice de sorte para usar
+            if (personagem.getSorteAtual() > 0) {
+
+                //Perguntar se o jogador quer Testar a Sorte para diminuir o dano
+                CarregarTelas.telaMensagem("Deseja tentar a sorte para diminuir o " +
+                        "dano na fuga?\n\nObs.: Todo teste de sorte decrementa em 1 seu " +
+                        "índice de Sorte independentemente de sucesso ou não.", telaBatalha);
+
+                if (telaBatalha.isRespostaTelaConfirmacao()) {
+                    vaiTestarSorte = true;
+                    resultadoSorte = Util.testarSorte();
+                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+                            300, 300);
+
+                    if (resultadoSorte)
+                        CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
+                    else
+                        CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
+                }
+            }
+
+            //Passando resultadoSorte TRUE diminui 1 ponto de dano
+            var estaVivo = fuga(vaiTestarSorte, resultadoSorte);
+
+            //Após o decremento da energia se estiver vivo, atualiza os índices da tela de seção
+            if ( estaVivo ) {
+                if (telaPai != null){
+                    telaPai.atualizaIndicesNaTelaDoPersonagem();
+                    telaPai.setVisible(true);
+                    telaPai.repaint();
+                }
+            }
+            else{
+                CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
+                        "Sua aventura acaba aqui.");
+                telaPai.dispose();
+            }
+            telaBatalha.dispose();
+        }
+    }
+
+    //Rodada de luta entre o personagem e o inimigo
+    public ResultadoTurnoBatalha turnoDeBatalha(){
+
+        //Info do que está acontecendo. Aparecerá na tela para o jogador
+        JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
+        ResultadoTurnoBatalha resultadoTurnoBatalha;
+
+        /// Colocar delay na execução
+        //Util.delayNaExecucao(4000);
+
+        //Ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
+        var resultadoDadosInimigo = Util.rolarDados(6,2);
+        var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
+
+        //Ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
+        var resultadoDadosPersonagem = Util.rolarDados(6,2);
+        var forcaDeAtaquePersonagem  = resultadoDadosPersonagem + personagem.getHabilidadeAtual();
+
+        //Comparando forças de ataque
+        if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
+            ///aqui deve ser colocado o decremento da eneriga
+            resultadoTurnoBatalha = ResultadoTurnoBatalha.PERSONAGEM_GANHOU;
+        } else if (forcaDeAtaqueInimigo > forcaDeAtaquePersonagem) {
+            ///aqui deve ser colocado o decremento da eneriga
+            resultadoTurnoBatalha = ResultadoTurnoBatalha.PERSONAGEM_PERDEU;
+        } else {
+            resultadoTurnoBatalha = ResultadoTurnoBatalha.EMPATE;
+        }
+
+        //liberar uso da sorte
+        telaBatalha.podeUsarASorte();
+
+        //Atualiza os índices na tela de batalha
+        telaBatalha.atualizarIndicesPersonagemInimigo();
+
+        System.out.println("resultadoTurnoBatalha: "+resultadoTurnoBatalha);
+        return resultadoTurnoBatalha;
     }
 }

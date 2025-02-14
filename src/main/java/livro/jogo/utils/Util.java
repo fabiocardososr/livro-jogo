@@ -273,6 +273,11 @@ public class Util {
     public static boolean testarSorte(){
         var personagem          = DadosLivroCarregado.getPersonagem();
         int indiceAtualSorte    = personagem.getSorteAtual();
+
+        if (indiceAtualSorte <= 0)
+            return false;
+
+        //Simulando rolamento do(s) dado(s)
         var resultadoDoisDados  = rolarDados(6,2);
 
         //Independentemente de qualquer resultado a sorte é diminuida em 1.
