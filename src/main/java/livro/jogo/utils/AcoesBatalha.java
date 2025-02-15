@@ -50,7 +50,7 @@ public class AcoesBatalha {
                 "\n\n"+personagem.getNome() +", você perderá 2 pontos de energia."+
                 "\nEsse é o preço de sua covardia.", telaBatalha);
 
-        if ( telaBatalha.isRespostaTelaConfirmacao() ) {
+        if ( TelaBatalha.isRespostaTelaConfirmacao() ) {
 
             //Se tiver índice de sorte para usar
             if (personagem.getSorteAtual() > 0) {
@@ -60,7 +60,7 @@ public class AcoesBatalha {
                         "dano na fuga?\n\nObs.: Todo teste de sorte decrementa em 1 seu " +
                         "índice de Sorte independentemente de sucesso ou não.", telaBatalha);
 
-                if (telaBatalha.isRespostaTelaConfirmacao()) {
+                if (TelaBatalha.isRespostaTelaConfirmacao()) {
                     vaiTestarSorte = true;
                     resultadoSorte = Util.testarSorte();
                     TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
@@ -94,7 +94,7 @@ public class AcoesBatalha {
     }
 
     //Rodada de luta entre o personagem e o inimigo
-    public ResultadoBatalha turnoDeBatalha(){
+    public ResultadoBatalha turnoDeBatalha() {
         boolean inimigoVivo = true;
         boolean personagemVivo = true;
 
@@ -102,21 +102,24 @@ public class AcoesBatalha {
         //JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
         ResultadoBatalha resultadoTurnoBatalha;
 
-        /// Colocar delay na execução
-        //Util.delayNaExecucao(4000);
-
         //Ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
+        mensagemComDelay(4000,"<html><center>Calculando força de\n ataque do inimigo...</center></html>");
+
+        telaBatalha.getLabelMostradorResultDadosInimigo().setText(Integer.toString(forcaDeAtaqueInimigo));
+        mensagemComDelay(4000,"<html><center>Força de ataque do inimigo calculada!</center></html>");
 
         //Ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
         var resultadoDadosPersonagem = Util.rolarDados(6,2);
         var forcaDeAtaquePersonagem  = resultadoDadosPersonagem + personagem.getHabilidadeAtual();
 
+        telaBatalha.getLabelMostradorResultDadosPersonagem().setText(Integer.toString(forcaDeAtaquePersonagem));
+
         //Comparando forças de ataque
         if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
             inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
-
+            mensagemComDelay(4000,"<html><center>Você vence o<br> turno de ataque!</center></html>");
             if (inimigoVivo)
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
             else
@@ -142,10 +145,16 @@ public class AcoesBatalha {
         //Atualiza os índices na tela de batalha
         telaBatalha.atualizarIndicesPersonagemInimigo();
 
-
-
-
-
         return resultadoTurnoBatalha;
     }
+
+    private void mensagemComDelay(int milisegundos, String msg) {
+        telaBatalha.getLabelPainelMensagens().setText(msg);
+        try {
+            Thread.sleep(milisegundos);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
