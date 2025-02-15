@@ -3,6 +3,7 @@ package livro.jogo.utils;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
+import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
@@ -256,13 +257,29 @@ public class Util {
 
     }
 
-    //Perda de energia. E retorna true se personagem continuar vivo
-    public static boolean perdeEnergia(int valorEnergiaAPerder){
+    //Verifica se inimigo vivo. True se Energia maior que "0"
+    public static boolean retornaSeInimigoVivo(Inimigo inimigo){
+
+        return inimigo.getEnergia() > 0;
+
+    }
+
+    //Personagem perda de energia. E retorna true se personagem continuar vivo
+    public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){
         var nivelDeEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
 
         DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
 
        return retornaSePersonagemVivo();
+    }
+
+    //Inimigo perda de energia. E retorna true se inimigo continuar vivo
+    public static boolean inimigoPerdeEnergia(int valorEnergiaAPerder, Inimigo inimigo){
+        var nivelDeEnergiaAtual = inimigo.getEnergia();
+
+        inimigo.setEnergia(nivelDeEnergiaAtual - valorEnergiaAPerder);
+
+        return retornaSeInimigoVivo(inimigo);
     }
 
 

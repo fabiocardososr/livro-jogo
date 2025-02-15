@@ -40,6 +40,10 @@ public class Inimigo implements Serializable {
         return energia;
     }
 
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
+
     @Override
     public String toString() {
         return "\nInimigo{" +

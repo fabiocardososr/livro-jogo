@@ -3,7 +3,7 @@ package livro.jogo.utils;
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.enums.ResultadoTurnoBatalha;
+import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -38,7 +38,7 @@ public class AcoesBatalha {
         }
 
         //A função retorna se personagem ainda está vivo
-        return Util.perdeEnergia( quantidadeEnergiaPerdida );
+        return Util.personagemPerdeEnergia( quantidadeEnergiaPerdida );
     }
 
     //Quando clica no botão da fuga
@@ -94,11 +94,13 @@ public class AcoesBatalha {
     }
 
     //Rodada de luta entre o personagem e o inimigo
-    public ResultadoTurnoBatalha turnoDeBatalha(){
+    public ResultadoBatalha turnoDeBatalha(){
+        boolean inimigoVivo = true;
+        boolean personagemVivo = true;
 
         //Info do que está acontecendo. Aparecerá na tela para o jogador
-        JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
-        ResultadoTurnoBatalha resultadoTurnoBatalha;
+        //JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
+        ResultadoBatalha resultadoTurnoBatalha;
 
         /// Colocar delay na execução
         //Util.delayNaExecucao(4000);
@@ -113,22 +115,37 @@ public class AcoesBatalha {
 
         //Comparando forças de ataque
         if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
-            ///aqui deve ser colocado o decremento da eneriga
-            resultadoTurnoBatalha = ResultadoTurnoBatalha.PERSONAGEM_GANHOU;
+            inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
+
+            if (inimigoVivo)
+                resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
+            else
+                resultadoTurnoBatalha = ResultadoBatalha.INIMIGO_MORTO;
+
         } else if (forcaDeAtaqueInimigo > forcaDeAtaquePersonagem) {
-            ///aqui deve ser colocado o decremento da eneriga
-            resultadoTurnoBatalha = ResultadoTurnoBatalha.PERSONAGEM_PERDEU;
+            personagemVivo = Util.personagemPerdeEnergia(2);
+
+            if ( personagemVivo )
+                resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_PERDEU_TURNO;
+            else
+                resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_MORTO;
+
         } else {
-            resultadoTurnoBatalha = ResultadoTurnoBatalha.EMPATE;
+            //No empate ambos escapam do ataque um do outro
+            resultadoTurnoBatalha = ResultadoBatalha.EMPATE_TURNO;
         }
 
         //liberar uso da sorte
-        telaBatalha.podeUsarASorte();
+        if (  (inimigoVivo) && (personagemVivo) )
+            telaBatalha.podeUsarASorte();
 
         //Atualiza os índices na tela de batalha
         telaBatalha.atualizarIndicesPersonagemInimigo();
 
-        System.out.println("resultadoTurnoBatalha: "+resultadoTurnoBatalha);
+
+
+
+
         return resultadoTurnoBatalha;
     }
 }

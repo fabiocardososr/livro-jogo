@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.principal;
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -29,6 +30,7 @@ public class TelaBatalha extends JDialog {
     private JLabel labelSortePersonagem;
     private JLabel labelHabilidadeInimigo;
     private JLabel labelEnergiaInimigo;
+    private ResultadoBatalha resultadoBatalha = ResultadoBatalha.INICIO; //Recebe o resultado de cada turno
 
     /* Vai ser setada pela função turnoDeBatalha (classe AcoesBatalha)
            que terminou o turno de combate e tem a opção de usar a sorte.*/
@@ -321,14 +323,29 @@ public class TelaBatalha extends JDialog {
     private void executarAcaoLuta() {
 
         //Lógica de um turno de batalha
-        acoesBatalha.turnoDeBatalha();
+        resultadoBatalha = acoesBatalha.turnoDeBatalha();
 
         //Atualiza quantidade de rodadas
         quantidadeRodadas += 1;
         labelInfoRodada.setText("<html><center>Turno<br>"+ quantidadeRodadas+"</center></html>");
-
         //Atualiza a tela
         repaint();
+
+        //Se o personagem morreu
+        if (resultadoBatalha == ResultadoBatalha.PERSONAGEM_MORTO) {
+            CarregarTelas.telaMensagem("Você foi derrotado.\n\nVocê está morto. Sua aventura acaba aqui.");
+            telaPai.dispose();
+            dispose();
+        }
+
+        if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
+            CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
+                    "\n\nVocê venceu a batalha!");
+            dispose();
+        }
+
+
+
     }
 
     private void carregaPainelResultadoBatalha() {

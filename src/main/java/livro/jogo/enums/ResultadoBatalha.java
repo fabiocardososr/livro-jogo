@@ -1,0 +1,10 @@
+package livro.jogo.enums;
+
+public enum ResultadoBatalha {
+    INICIO,
+    PERSONAGEM_GANHOU_TURNO,
+    PERSONAGEM_PERDEU_TURNO,
+    EMPATE_TURNO,
+    PERSONAGEM_MORTO,
+    INIMIGO_MORTO
+}
