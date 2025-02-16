@@ -36,7 +36,7 @@ public class TelaBatalha extends JDialog {
     private JPanel panelBotao; //Ao derrotar o inimigo, pego compontente que está no panel e mudo a imagem
     private final Inimigo inimigoTemporario; //Toda a perda de energia será neste. Em caso de morte seto no da seção
 
-    /* Setado pela função turnoDeBatalha (classe AcoesBatalha)
+    /* Setado pela função turnoDeBatalha() (classe AcoesBatalha)
        informa que terminou o turno de combate e tem a opção de usar a sorte.*/
     private boolean podeUsarASorte = false;
 
@@ -44,8 +44,11 @@ public class TelaBatalha extends JDialog {
         this.inimigoSecao    = inimigoSecao;
         this.telaPai    = telaPai;
         this.panelBotao = panelBotao;
+
+        //Cria nova instância do inimigo, pois se o jogador fugir e voltar o inimigo estará regenerado
         this.inimigoTemporario = new Inimigo(inimigoSecao.getIdInimigo(),inimigoSecao.getNome(),
                                 inimigoSecao.getHabilidade(),inimigoSecao.getEnergia(),inimigoSecao.getEnderecoImagem());
+
         acoesBatalha    = new AcoesBatalha(this.inimigoTemporario, this, telaPai);
         var largura     = 1050;
         var altura      = 850;
@@ -129,8 +132,8 @@ public class TelaBatalha extends JDialog {
         botaoSorte.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if ( podeUsarASorte ) {
-                    JOptionPane.showMessageDialog(null, "TENTAR SORTE!");
+                if ( (podeUsarASorte) && (personagem.getSorteAtual() > 0) ) {
+                    testarSorte();
 
                     //Só pode usar uma vez
                     podeUsarASorte = false;
@@ -314,8 +317,10 @@ public class TelaBatalha extends JDialog {
         labelInfoRodada.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if ( labelInfoRodada.isEnabled() )
+                if ( labelInfoRodada.isEnabled() ) {
+                    podeUsarASorte = false;
                     executarAcaoLuta();
+                }
             }
 
             @Override
@@ -341,6 +346,37 @@ public class TelaBatalha extends JDialog {
 
         add(labelInfoRodada);
         add(botaoEscudoBatalha);
+    }
+
+    private void testarSorte(){
+        Thread novaThread = new Thread(() -> {
+
+            //Desabilita o botão para não ser clicando enquanto não finalizar
+            labelInfoRodada.setEnabled(false);
+
+            //Testar a sorte (resultadoBatalha vem da função executarAcaoLuta() que é chamada antes)
+            resultadoBatalha = acoesBatalha.testarSorte( resultadoBatalha );
+
+            //Se o personagem morreu
+            if (resultadoBatalha == ResultadoBatalha.PERSONAGEM_MORTO) {
+                CarregarTelas.telaMensagem("Você foi derrotado.\n\nVocê está morto. Sua aventura acaba aqui.");
+                telaPai.dispose();
+                dispose();
+            }
+
+            //Se o inimigo morreu
+            if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
+                CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
+                        "\n\nVocê venceu a batalha!");
+                inimigoSecao.setEnergia(0);
+                dispose();
+            }
+
+            //Habilita
+            labelInfoRodada.setEnabled(true);
+        });
+        // Iniciando a Thread
+        novaThread.start();
     }
 
     private void executarAcaoLuta() {

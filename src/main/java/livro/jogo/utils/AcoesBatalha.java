@@ -127,10 +127,6 @@ public class AcoesBatalha {
         telaBatalha.getLabelMostradorResultDadosPersonagem().setText(Integer.toString(forcaDeAtaquePersonagem));
         mensagemComDelay(4000,"<html><center>Seu ataque foi calculado!</center></html>");
 
-        //Para testes
-//        forcaDeAtaquePersonagem=11;
-//        forcaDeAtaqueInimigo = 12;
-
         //Comparando forças de ataque
         if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
             inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
@@ -161,14 +157,75 @@ public class AcoesBatalha {
             resultadoTurnoBatalha = ResultadoBatalha.EMPATE_TURNO;
         }
 
+        //Atualiza os índices na tela de batalha
+        telaBatalha.atualizarIndicesPersonagemInimigo();
+
         //liberar uso da sorte
         if (  (inimigoVivo) && (personagemVivo) )
             telaBatalha.podeUsarASorte();
 
+        return resultadoTurnoBatalha;
+    }
+
+    public ResultadoBatalha testarSorte(ResultadoBatalha resultadoBatalha){
+        ResultadoBatalha resultadoTesteSorte = null;
+
+        //TESTE: DEPOIS APAGUE
+//        resultadoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
+//        System.out.println("ANTES: "+inimigo);
+
+
+        /**** QUANDO O PERSONAGEM GANHAR O TURNO DE BATALHA ****/
+
+        //Regra: sucesso -> Causa 2 a mais de dano; Fracasso -> Devolve 1 de energia para a criatura
+        if ( resultadoBatalha == ResultadoBatalha.PERSONAGEM_GANHOU_TURNO ){
+            mensagemComDelay(4000, "<html><center>Teste de sorte...<center><html>");
+            var teveSorte = Util.testarSorte();
+            mensagemComDelay(4000, "<html><center>Teste realizado!<center><html>");
+
+            if ( teveSorte ){
+                mensagemComDelay(4000, "<html><center>SORTE!<br>O inimigo sofre<br>+2 de dano<center><html>");
+                var inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
+                if ( inimigoVivo )
+                    resultadoTesteSorte = ResultadoBatalha.INIMIGO_VIVO;
+                else {
+                    removerComponentesPanelETrocarImagem( telaSecao, telaBatalha.getPanelBotao() );
+                    resultadoTesteSorte = ResultadoBatalha.INIMIGO_MORTO;
+                }
+            }
+            else{
+                //Se falhar no teste de sorte, devolve 1 ponto de energia para a criatura
+                mensagemComDelay(4000, "<html><center>AZAR!<br>inimigo recupera<br>1 ponto<center><html>");
+                inimigo.setEnergia(inimigo.getEnergia() + 1);
+            }
+        }
+
+
+        /**** QUANDO O PERSONAGEM PERDER O TURNO DE BATALHA ****/
+
+        /* REGRA: Se a criatura acabou de ferir você
+            - SORTE -> reponha 1 ponto de ENERGIA.
+            - AZAR  -> Subtraia 1 ponto a mais de ENERGIA.*/
+        if ( resultadoBatalha == ResultadoBatalha.PERSONAGEM_PERDEU_TURNO ){
+            mensagemComDelay(4000, "<html><center>Teste de sorte...<center><html>");
+            var teveSorte = Util.testarSorte();
+            mensagemComDelay(4000, "<html><center>Teste realizado!<center><html>");
+
+            if ( teveSorte ){
+                mensagemComDelay(4000, "<html><center><center><html>");
+
+                ///CONTINUAR DAQUI. FAZER A LÓGICA QUANDO O PERSONAGEM PERDER O TURNO DE BATALHA
+
+            }
+            else{
+
+            }
+        }
+
+
         //Atualiza os índices na tela de batalha
         telaBatalha.atualizarIndicesPersonagemInimigo();
-
-        return resultadoTurnoBatalha;
+        return resultadoTesteSorte;
     }
 
     private void removerComponentesPanelETrocarImagem(TelaSecoesBasica telaSecao, JPanel panel) {
@@ -192,5 +249,4 @@ public class AcoesBatalha {
             throw new RuntimeException(e);
         }
     }
-
 }
