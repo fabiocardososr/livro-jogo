@@ -11,13 +11,12 @@ import java.awt.event.MouseListener;
 
 public class JButtonAbrirBatalha {
 
-    public static void carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura, int altura){
+    public static JPanel carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura, int altura){
 
         JPanel panel = new JPanel(null);
         panel.setBounds(x,y,largura,altura);
         panel.setBackground(new Color(0,0,0,0));
 
-        /*** Inimigo 1: ABELHAS ASSASSINAS: Habilidade 7; Energia: 3 ***/
         JLabelOpcoesTelaSecao btInimigo = new JLabelOpcoesTelaSecao("",100,80,
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA);
         btInimigo.setBounds(27,30,100,80);
@@ -26,7 +25,8 @@ public class JButtonAbrirBatalha {
         btInimigo.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                CarregarTelas.telaBatalha(inimigo, tela);
+                if (inimigo.getEnergia() > 0)
+                    CarregarTelas.telaBatalha(inimigo, tela, panel);
             }
 
             @Override
@@ -97,6 +97,8 @@ public class JButtonAbrirBatalha {
         labelInfoEnergia.setBounds(2,129,150,30);
         //labelInfoHabilidade.setBorder(BorderFactory.createLineBorder(Color.RED));
 
+        //Lembre que alterar a ordem ou remover algum pode dar problema na função
+        //removerComponentesPanelETrocarImagem da classe AcoesBatalha
         panel.add(labelInfoEnergia);
         panel.add(faixaEnergiaInimigo);
         panel.add(labelInfoHabilidade);
@@ -106,5 +108,9 @@ public class JButtonAbrirBatalha {
         panel.add(btInimigo);
 
         tela.add(panel);
+
+        //Retorna o painel onde se encontra o botão do inimigo.
+        //Caso ele morra vou precisar alterar a imagem
+        return panel;
     }
 }

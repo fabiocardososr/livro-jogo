@@ -33,15 +33,17 @@ public class TelaBatalha extends JDialog {
     private ResultadoBatalha resultadoBatalha = ResultadoBatalha.INICIO; //Recebe o resultado de cada turno
     private JLabel labelMostradorResultDadosPersonagem;
     private JLabel labelMostradorResultDadosInimigo;
+    private JPanel panelBotao; //Ao derrotar o inimigo, pego compontente que está no panel e mudo a imagem
 
     /* Setado pela função turnoDeBatalha (classe AcoesBatalha)
        informa que terminou o turno de combate e tem a opção de usar a sorte.*/
     private boolean podeUsarASorte = false;
 
-    public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai) {
+    public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai, JPanel panelBotao) {
         this.inimigo    = inimigo;
         this.telaPai    = telaPai;
-        acoesBatalha    = new AcoesBatalha(this.inimigo, this);
+        this.panelBotao = panelBotao;
+        acoesBatalha    = new AcoesBatalha(this.inimigo, this, telaPai);
         var largura     = 1050;
         var altura      = 850;
         setSize(largura,altura);
@@ -66,8 +68,14 @@ public class TelaBatalha extends JDialog {
         //carregarBotaoSair();
         carregarFaixaTitulo();
         carregarFundoTela(largura,altura);
+    }
 
-        System.out.println(this.inimigo);
+    public JPanel getPanelBotao() {
+        return panelBotao;
+    }
+
+    public int getQuantidadeRodadas() {
+        return quantidadeRodadas;
     }
 
     public JLabel getLabelMostradorResultDadosPersonagem() {
@@ -152,15 +160,15 @@ public class TelaBatalha extends JDialog {
     }
 
     private void carregaBotaoFuga() {
-        int largura = 80;
-        int altura  = 80;
+        int largura = 90;
+        int altura  = 90;
 
         JLabelOpcoesTelaSecao botaoFuga = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
                 ImagensDoLivroFlorestaDaDestruicao.HOMEM_CORRENDO);
         botaoFuga.setHorizontalAlignment(SwingConstants.CENTER);
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoFuga.setBounds(480,630, largura,altura);
+        botaoFuga.setBounds(480,635, largura,altura);
         botaoFuga.setToolTipText("Abandonar a luta? Perde 2 de energia. Esse é o preço da covardia.");
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoFuga.addMouseListener(new MouseListener() {
@@ -281,7 +289,7 @@ public class TelaBatalha extends JDialog {
     }
 
     private void carregaBotaoLuta() {
-        int largura = 220;
+        int largura = 225;
         int altura = 200;
 
         JLabelOpcoesTelaSecao botaoEscudoBatalha = new JLabelOpcoesTelaSecao(null,
@@ -289,24 +297,22 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA);
         botaoEscudoBatalha.setHorizontalAlignment(SwingConstants.CENTER);
         botaoEscudoBatalha.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoEscudoBatalha.setBounds(415,455, largura,altura);
+        botaoEscudoBatalha.setBounds(416,450, largura,altura);
 
         //Label que informará qual a rodada de combate
         labelInfoRodada = new JLabel("<html><center>Turno<br><b>"+ quantidadeRodadas+"</b></center></html>");
-        labelInfoRodada.setBounds(480,515,90,70);
+        labelInfoRodada.setBounds(477,500,95,100);
         labelInfoRodada.setForeground(new Color(139,0,0));
         labelInfoRodada.setHorizontalAlignment(SwingConstants.CENTER);
-        labelInfoRodada.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelInfoRodada.setFont(new Font(Font.SERIF,Font.BOLD,35));
         labelInfoRodada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelInfoRodada.setToolTipText("Clique aqui para iniciar a rodada de combate jogando os dados.");
+        //labelInfoRodada.setBorder(BorderFactory.createLineBorder(Color.RED));
         labelInfoRodada.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                labelInfoRodada.setEnabled(false);
-                botaoEscudoBatalha.setEnabled(false);
-                executarAcaoLuta();
-                labelInfoRodada.setEnabled(true);
-                botaoEscudoBatalha.setEnabled(true);
+                if ( labelInfoRodada.isEnabled() )
+                    executarAcaoLuta();
             }
 
             @Override
@@ -336,51 +342,58 @@ public class TelaBatalha extends JDialog {
 
     private void executarAcaoLuta() {
 
-        // Criando uma nova Thread para executar uma função
+        /*Thread que executa um turno de batalha
+          Foi necessário colocar em uma Thread porque preciso atualizar o painel de mensagens
+          Com todos os passos de modo que o jogador possa acompanhar*/
         Thread novaThread = new Thread(() -> {
+
+            //Desabilita o botão para não ser clicando enquanto não finalizar
+            labelInfoRodada.setEnabled(false);
+
             //Lógica de um turno de batalha
             resultadoBatalha = acoesBatalha.turnoDeBatalha();
+
+            //Se o personagem morreu
+            if (resultadoBatalha == ResultadoBatalha.PERSONAGEM_MORTO) {
+                CarregarTelas.telaMensagem("Você foi derrotado.\n\nVocê está morto. Sua aventura acaba aqui.");
+                telaPai.dispose();
+                dispose();
+            }
+
+            //Se o inimigo morreu
+            if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
+                CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
+                        "\n\nVocê venceu a batalha!");
+                dispose();
+            }
+
+            //Atualiza quantidade de rodadas
+            quantidadeRodadas += 1;
+            labelInfoRodada.setText("<html><center>Turno<br>"+ quantidadeRodadas+"</center></html>");
+            repaint();
+
+            //Habilita
+            labelInfoRodada.setEnabled(true);
         });
         // Iniciando a Thread
         novaThread.start();
-
-
-
-
-        //Atualiza quantidade de rodadas
-        quantidadeRodadas += 1;
-        labelInfoRodada.setText("<html><center>Turno<br>"+ quantidadeRodadas+"</center></html>");
-        repaint();
-
-        //Se o personagem morreu
-        if (resultadoBatalha == ResultadoBatalha.PERSONAGEM_MORTO) {
-            CarregarTelas.telaMensagem("Você foi derrotado.\n\nVocê está morto. Sua aventura acaba aqui.");
-            telaPai.dispose();
-            dispose();
-        }
-
-        if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
-            CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
-                    "\n\nVocê venceu a batalha!");
-            dispose();
-        }
     }
 
     private void carregaPainelResultadoBatalha() {
         JLabelOpcoesTelaSecao painelResultado = new JLabelOpcoesTelaSecao(null,
-                250,150,
+                250,160,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_14);
         painelResultado.setHorizontalAlignment(SwingConstants.CENTER);
         painelResultado.setCursor(null);
-        painelResultado.setBounds(378,220, 300,200);
+        painelResultado.setBounds(378,220, 300,210);
 
         //Informação do resultado da batalha(rodada de rolagem de dados)
         labelPainelMensagens = new JLabel("Início da batalha!");
-        labelPainelMensagens.setBounds(448,285,155,70);
+        labelPainelMensagens.setBounds(448,285,155,80);
         labelPainelMensagens.setForeground(new Color(139,0,0));
         labelPainelMensagens.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPainelMensagens.setFont(new Font(Font.SERIF,Font.BOLD,16));
-        //labelInfoQuemResultadoBatalha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        labelPainelMensagens.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        //labelPainelMensagens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         add(labelPainelMensagens);
         add(painelResultado);

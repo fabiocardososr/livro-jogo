@@ -26,6 +26,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_10("livros/florestadadestruicao/imagens/faixa_10.png"),
     FAIXA_11("livros/florestadadestruicao/imagens/faixa_11.png"),
     FAIXA_2("livros/florestadadestruicao/imagens/faixa2.png"),
+    CAVEIRA("livros/florestadadestruicao/imagens/caveira.png"),
     FAIXA_OPCOES("livros/florestadadestruicao/imagens/faixa_opcoes.png"),
     FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     FAIXA_VERTICAL_1("livros/florestadadestruicao/imagens/faixa_vertical_1.png"),

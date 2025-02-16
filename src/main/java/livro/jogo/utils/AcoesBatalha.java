@@ -5,6 +5,7 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.principal.TelaBatalha;
@@ -15,10 +16,12 @@ public class AcoesBatalha {
     private final Personagem personagem = DadosLivroCarregado.getPersonagem();
     private final Inimigo inimigo;
     private final TelaBatalha telaBatalha; //Necessário para interagir enviando mensagens para o painel (label)
+    private final TelaSecoesBasica telaSecao;
 
-    public AcoesBatalha(Inimigo inimigo, TelaBatalha telaBatalha) {
+    public AcoesBatalha(Inimigo inimigo, TelaBatalha telaBatalha, TelaSecoesBasica telaSecao) {
         this.inimigo = inimigo;
         this.telaBatalha = telaBatalha;
+        this.telaSecao = telaSecao;
     }
 
     //Retornando TRUE significa que mesmo perdendo energia ainda está VIVO
@@ -95,45 +98,65 @@ public class AcoesBatalha {
 
     //Rodada de luta entre o personagem e o inimigo
     public ResultadoBatalha turnoDeBatalha() {
-        boolean inimigoVivo = true;
-        boolean personagemVivo = true;
+        boolean inimigoVivo     = true;
+        boolean personagemVivo  = true;
+        telaBatalha.getLabelMostradorResultDadosInimigo().setText("0");
+        telaBatalha.getLabelMostradorResultDadosPersonagem().setText("0");
+        mensagemComDelay(5000,"<html><center>Iniciando turno <br>"+telaBatalha.getQuantidadeRodadas()
+                +"</center></html>");
 
         //Info do que está acontecendo. Aparecerá na tela para o jogador
         //JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
         ResultadoBatalha resultadoTurnoBatalha;
 
-        //Ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
+        //Calculando ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
+        mensagemComDelay(4000,"<html><center>Calculando ataque do inimigo...</center></html>");
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
-        mensagemComDelay(4000,"<html><center>Calculando força de\n ataque do inimigo...</center></html>");
 
+        //Mostrar resultado no painel (escudo) do lado direito (inimigo)
         telaBatalha.getLabelMostradorResultDadosInimigo().setText(Integer.toString(forcaDeAtaqueInimigo));
-        mensagemComDelay(4000,"<html><center>Força de ataque do inimigo calculada!</center></html>");
+        mensagemComDelay(4000,"<html><center>Ataque do inimigo calculado!</center></html>");
 
-        //Ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
+
+        //Calculando ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
+        mensagemComDelay(4000,"<html><center>Calculando seu ataque...</center></html>");
         var resultadoDadosPersonagem = Util.rolarDados(6,2);
         var forcaDeAtaquePersonagem  = resultadoDadosPersonagem + personagem.getHabilidadeAtual();
 
         telaBatalha.getLabelMostradorResultDadosPersonagem().setText(Integer.toString(forcaDeAtaquePersonagem));
+        mensagemComDelay(4000,"<html><center>Seu ataque foi calculado!</center></html>");
+
+        //Para testes
+//        forcaDeAtaquePersonagem=11;
+//        forcaDeAtaqueInimigo = 12;
 
         //Comparando forças de ataque
         if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
             inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
-            mensagemComDelay(4000,"<html><center>Você vence o<br> turno de ataque!</center></html>");
+            mensagemComDelay(4000,"<html><center>"+ personagem.getNome()+"<br>acerta o inimigo</center></html>");
             if (inimigoVivo)
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
-            else
+            else {
                 resultadoTurnoBatalha = ResultadoBatalha.INIMIGO_MORTO;
+                mensagemComDelay(4000,"<html><center>Inimigo derrotado!</center></html>");
+                removerComponentesPanelETrocarImagem( telaSecao, telaBatalha.getPanelBotao() );
+
+            }
 
         } else if (forcaDeAtaqueInimigo > forcaDeAtaquePersonagem) {
+            mensagemComDelay(4000,"<html><center>Inimigo o atinge</center></html>");
             personagemVivo = Util.personagemPerdeEnergia(2);
 
             if ( personagemVivo )
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_PERDEU_TURNO;
-            else
+            else {
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_MORTO;
+                mensagemComDelay(4000,"<html><center>"+personagem.getNome()+",<br>sua energia<br>chegou a 0.</center></html>");
+            }
 
         } else {
+            mensagemComDelay(4000,"<html><center>Empate!<br>Ambos desviam do ataque</center></html>");
             //No empate ambos escapam do ataque um do outro
             resultadoTurnoBatalha = ResultadoBatalha.EMPATE_TURNO;
         }
@@ -148,10 +171,28 @@ public class AcoesBatalha {
         return resultadoTurnoBatalha;
     }
 
+    private void removerComponentesPanelETrocarImagem(TelaSecoesBasica telaSecao, JPanel panel) {
+//        panel.add(labelInfoEnergia);
+//        panel.add(faixaEnergiaInimigo);
+//        panel.add(labelInfoHabilidade);
+//        panel.add(faixaHabilidadeInimigo);
+//        panel.add(label);
+//        panel.add(faixaNomeInimigo);
+//        panel.add(btInimigo);
+
+        JLabelOpcoesTelaSecao btInimigo = (JLabelOpcoesTelaSecao) panel.getComponent(6);
+        btInimigo.setIcon(Util.dimensionarImagem(btInimigo.getWidth(), btInimigo.getHeight(),
+                ImagensDoLivroFlorestaDaDestruicao.CAVEIRA.getEnderecoImagem()));
+
+        panel.removeAll();
+        panel.add(btInimigo);
+        telaSecao.repaint();
+    }
+
     private void mensagemComDelay(int milisegundos, String msg) {
         telaBatalha.getLabelPainelMensagens().setText(msg);
         try {
-            Thread.sleep(milisegundos);
+            Thread.sleep(0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

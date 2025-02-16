@@ -6,10 +6,15 @@ import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_7 extends TelaSecoesBasica {
+    private JPanel panelInimigo1;
+    private JPanel panelInimigo2;
+    private JPanel panelInimigo3;
+
 
     public TelaSecao_7(Secao secao) {
         super(secao, CarregarTelas.getReferenciaTelaPrincipal());
@@ -32,13 +37,14 @@ public class TelaSecao_7 extends TelaSecoesBasica {
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
+
+        panelInimigo1 = JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
                 100,570,150,165);
 
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
+        panelInimigo2 = JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
                 365,570,150,165);
 
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
+        panelInimigo3 = JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
                 630,570,150,165);
     }
 
