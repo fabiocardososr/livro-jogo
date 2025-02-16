@@ -172,17 +172,12 @@ public class AcoesBatalha {
     }
 
     private void removerComponentesPanelETrocarImagem(TelaSecoesBasica telaSecao, JPanel panel) {
-//        panel.add(labelInfoEnergia);
-//        panel.add(faixaEnergiaInimigo);
-//        panel.add(labelInfoHabilidade);
-//        panel.add(faixaHabilidadeInimigo);
-//        panel.add(label);
-//        panel.add(faixaNomeInimigo);
-//        panel.add(btInimigo);
 
         JLabelOpcoesTelaSecao btInimigo = (JLabelOpcoesTelaSecao) panel.getComponent(6);
         btInimigo.setIcon(Util.dimensionarImagem(btInimigo.getWidth(), btInimigo.getHeight(),
                 ImagensDoLivroFlorestaDaDestruicao.CAVEIRA.getEnderecoImagem()));
+        btInimigo.setCursor(null);
+        btInimigo.setToolTipText("Inimigo morto");
 
         panel.removeAll();
         panel.add(btInimigo);
@@ -192,7 +187,7 @@ public class AcoesBatalha {
     private void mensagemComDelay(int milisegundos, String msg) {
         telaBatalha.getLabelPainelMensagens().setText(msg);
         try {
-            Thread.sleep(0);
+            Thread.sleep(milisegundos);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

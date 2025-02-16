@@ -16,8 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaBatalha extends JDialog {
-    private final Inimigo inimigo;
-
+    //É a referência ao inimigo da seção que não quero alterar, pois, caso o jogador fuja, o inimigo deverá está completo na volta
+    private final Inimigo inimigoSecao;
     private static boolean respostaTelaConfirmacao;
     private final TelaBatalha tela = this;
     private final Personagem personagem = DadosLivroCarregado.getPersonagem();
@@ -34,16 +34,19 @@ public class TelaBatalha extends JDialog {
     private JLabel labelMostradorResultDadosPersonagem;
     private JLabel labelMostradorResultDadosInimigo;
     private JPanel panelBotao; //Ao derrotar o inimigo, pego compontente que está no panel e mudo a imagem
+    private final Inimigo inimigoTemporario; //Toda a perda de energia será neste. Em caso de morte seto no da seção
 
     /* Setado pela função turnoDeBatalha (classe AcoesBatalha)
        informa que terminou o turno de combate e tem a opção de usar a sorte.*/
     private boolean podeUsarASorte = false;
 
-    public TelaBatalha(Inimigo inimigo, TelaSecoesBasica telaPai, JPanel panelBotao) {
-        this.inimigo    = inimigo;
+    public TelaBatalha(Inimigo inimigoSecao, TelaSecoesBasica telaPai, JPanel panelBotao) {
+        this.inimigoSecao    = inimigoSecao;
         this.telaPai    = telaPai;
         this.panelBotao = panelBotao;
-        acoesBatalha    = new AcoesBatalha(this.inimigo, this, telaPai);
+        this.inimigoTemporario = new Inimigo(inimigoSecao.getIdInimigo(),inimigoSecao.getNome(),
+                                inimigoSecao.getHabilidade(),inimigoSecao.getEnergia(),inimigoSecao.getEnderecoImagem());
+        acoesBatalha    = new AcoesBatalha(this.inimigoTemporario, this, telaPai);
         var largura     = 1050;
         var altura      = 850;
         setSize(largura,altura);
@@ -92,8 +95,8 @@ public class TelaBatalha extends JDialog {
     }
 
     public void atualizarIndicesPersonagemInimigo(){
-        String textoHabilidadeInimigo = "<html><center>Habilidade: "+ inimigo.getHabilidade()+"</center></html>";
-        String textoEnergiaInimigo = "<html><center>Energia: "+ inimigo.getEnergia()+"</center></html>";
+        String textoHabilidadeInimigo = "<html><center>Habilidade: "+ inimigoTemporario.getHabilidade()+"</center></html>";
+        String textoEnergiaInimigo = "<html><center>Energia: "+ inimigoTemporario.getEnergia()+"</center></html>";
         String textoEnergiaPersonagem = "<html><center>Energia: "+personagem.getEnergiaAtual()+"</center></html>";
         String textoSortePersonagem = "<html><center>Sorte: "+personagem.getSorteAtual()+"</center></html>";
 
@@ -364,6 +367,7 @@ public class TelaBatalha extends JDialog {
             if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
                 CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
                         "\n\nVocê venceu a batalha!");
+                inimigoSecao.setEnergia(0);
                 dispose();
             }
 
@@ -523,7 +527,7 @@ public class TelaBatalha extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
         faixaNomeInimigo.setBounds(645,290,150,80);
 
-        JLabel labelInimigo = new JLabel(inimigo.getNome());
+        JLabel labelInimigo = new JLabel(inimigoTemporario.getNome());
         labelInimigo.setBounds(665,305,110,40);
         labelInimigo.setForeground(new Color(139,0,0));
         labelInimigo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -545,7 +549,7 @@ public class TelaBatalha extends JDialog {
 
         //Imagem do inimigo
         JLabelOpcoesTelaSecao imgPersonagem = new JLabelOpcoesTelaSecao(null, 75,90,
-                    inimigo.getEnderecoImagem());
+                    inimigoTemporario.getEnderecoImagem());
         imgPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         imgPersonagem.setBounds(30,35,75,90);
         imgPersonagem.setCursor(null);

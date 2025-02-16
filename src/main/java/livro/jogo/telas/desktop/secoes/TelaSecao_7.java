@@ -5,6 +5,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -53,8 +54,9 @@ public class TelaSecao_7 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 if (e.getSource() == botaoOpcao1){
-                    if ( isVenceuBatalha() )
+                    if ( Util.isVenceuTodosInimigos(secao) )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+

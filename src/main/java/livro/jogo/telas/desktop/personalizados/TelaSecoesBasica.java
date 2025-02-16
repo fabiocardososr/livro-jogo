@@ -55,7 +55,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabelOpcoesTelaSecao botaoOpcao2; //Segunda Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao3; //Terceira Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
-    private boolean venceuBatalha;  //Ela é preenchda na tela de batalha. Se ganhou=true;
+    private boolean venceuTodosInimigos;  //Ela é preenchda na tela de batalha. Se ganhou=true;
     protected JLabel lbTextoOpcao1; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
     protected JLabel labelNumOpcao; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
 
@@ -109,13 +109,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         });
     }
 
-    public boolean isVenceuBatalha() {
-        return venceuBatalha;
-    }
 
-    public void setVenceuBatalha(boolean venceuBatalha) {
-        this.venceuBatalha = venceuBatalha;
-    }
 
     private void carregarFaixasDasExtremidades() {
         //FAIXA SUPERIOR ESQUERDA

@@ -3,10 +3,7 @@ package livro.jogo.utils;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import livro.jogo.entidades.Inimigo;
-import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
-import livro.jogo.entidades.SaveJogo;
+import livro.jogo.entidades.*;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 
@@ -280,6 +277,17 @@ public class Util {
         inimigo.setEnergia(nivelDeEnergiaAtual - valorEnergiaAPerder);
 
         return retornaSeInimigoVivo(inimigo);
+    }
+
+    //Usado na tela de seção para verificar se todos os inimigos foram derrotados.
+    //Geralmente esta função vai ser usada para liberar próxima seção
+    public static boolean isVenceuTodosInimigos(Secao secao) {
+
+        for (int i=0; i<secao.getInimigos().size(); i++) {
+            if (secao.getInimigos().get(i).getEnergia() > 0)
+                return false;
+        }
+        return true;
     }
 
 
