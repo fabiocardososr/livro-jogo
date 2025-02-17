@@ -132,7 +132,7 @@ public class TelaBatalha extends JDialog {
         botaoSorte.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if ( (podeUsarASorte) && (personagem.getSorteAtual() > 0) ) {
+                if ( (podeUsarASorte) && (personagem.getSorteAtual() > 0) && (labelInfoRodada.isEnabled()) ) {
                     testarSorte();
 
                     //Só pode usar uma vez
@@ -180,7 +180,8 @@ public class TelaBatalha extends JDialog {
         botaoFuga.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                acoesBatalha.acaoAoClicarNoBotaoFuga(telaPai);
+                if ( labelInfoRodada.isEnabled() )
+                    acoesBatalha.acaoAoClicarNoBotaoFuga(telaPai);
             }
 
             @Override

@@ -148,7 +148,9 @@ public class Util {
                 player.play();
 
                 if (player.isComplete()){
-                    label.setEnabled(true);
+                    if (label != null)
+                       label.setEnabled(true);
+
                     player.close();
                 }
 
