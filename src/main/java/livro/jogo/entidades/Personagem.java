@@ -122,15 +122,30 @@ public class Personagem implements Serializable {
     }
 
     public void setHabilidadeAtual(int habilidadeAtual) {
-        this.habilidadeAtual = habilidadeAtual;
+
+        //Regra: Personagem não pode ter índice maior que a calculada na sua criação
+        if (habilidadeAtual >= habilidadeMax)
+            this.habilidadeAtual = habilidadeMax;
+        else
+            this.habilidadeAtual = habilidadeAtual;
     }
 
     public void setEnergiaAtual(int energiaAtual) {
-        this.energiaAtual = energiaAtual;
+
+        //Regra: Personagem não pode ter índice maior que a calculada na sua criação
+        if (energiaAtual >= energiaMax)
+            this.energiaAtual = energiaMax;
+        else
+            this.energiaAtual = energiaAtual;
     }
 
     public void setSorteAtual(int sorteAtual) {
-        this.sorteAtual = sorteAtual;
+
+        //Regra: Personagem não pode ter índice maior que a calculada na sua criação
+        if (sorteAtual >= sorteMax )
+            this.sorteAtual = sorteMax;
+        else
+            this.sorteAtual = sorteAtual;
     }
 
     public void setAnotacoes(String anotacoes) {

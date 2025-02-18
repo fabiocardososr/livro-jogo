@@ -127,7 +127,10 @@ public class TelaBatalha extends JDialog {
         botaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         botaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSorte.setBounds(360,570, largura,altura);
-        botaoSorte.setToolTipText("Tente a sorte para ampliar o dano no ataque ou diminuir o seu dano ao se defender.");
+        botaoSorte.setToolTipText("<html>TESTANDO A SORTE<br>SUCESSO:<br>- QUANDO VENCER O TURNO: +2 no dano causado.<br>- PERDEU O TURNO: -1 de dano.<br>"+
+                "FRACASSO:<br>- QUANDO VENCER O TURNO: -1 no dano infligido.<br>- QUANDO PERDER O TURNO: +1 de dano."+
+                "<br><br>REGRA: Serão rolados 2 dados.<br>- SUCESSO: Resultado IGUAL ou MENOR do que seu índice de sorte<br>"+
+                "- FRACASSO: Resultado MAIOR do que seu índice de sorte</html>");
         botaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSorte.addMouseListener(new MouseListener() {
             @Override

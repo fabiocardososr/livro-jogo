@@ -316,13 +316,4 @@ public class Util {
             return false;
     }
 
-    // Adiciona um delay (pausa a execução)
-    public static void delayNaExecucao(int milisegundos){
-        try {
-            Thread.sleep(milisegundos); // Pausa a thread pelo tempo especificado
-        } catch (InterruptedException e) {
-            System.out.println("A thread foi interrompida!");
-        }
-    }
-
 }
