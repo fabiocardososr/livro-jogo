@@ -35,6 +35,7 @@ public class TelaBatalha extends JDialog {
     private JLabel labelMostradorResultDadosInimigo;
     private JPanel panelBotao; //Ao derrotar o inimigo, pego compontente que está no panel e mudo a imagem
     private final Inimigo inimigoTemporario; //Toda a perda de energia será neste. Em caso de morte seto no da seção
+    private JPanel telaPanelRegrasSorte;
 
     /* Setado pela função turnoDeBatalha() (classe AcoesBatalha)
        informa que terminou o turno de combate e tem a opção de usar a sorte.*/
@@ -61,8 +62,10 @@ public class TelaBatalha extends JDialog {
         setBackground(new Color(0,0,0,0));
 
         /* Carregar componentes da tela */
-        carregaBotaoFuga();
+
+
         carregaBotaoSorte();
+        carregaBotaoFuga();
         carregaPainelResultadoBatalha();
         carregaEnergiaSortePersonagem();
         carregaEnergiaInimigo();
@@ -117,23 +120,74 @@ public class TelaBatalha extends JDialog {
         return respostaTelaConfirmacao;
     }
 
+    //Mensagem suspensa para o botão de sorte (explicando regras)
+    //posicaoX e posicaoY é a posição do componente ao qual a tela vai mostrar a regra
+    private void telaMensagemSuspensaBotaoSorte(int posicaoX, int posicaoY, String texto){
+        var largura = 680;
+        var altura = 500;
+
+        telaPanelRegrasSorte = new JPanel();
+        telaPanelRegrasSorte.setLayout(null);
+        telaPanelRegrasSorte.setBounds(posicaoX+60,posicaoY-250,largura,altura);
+        telaPanelRegrasSorte.setBackground(new Color(0,0,0,0));
+        //telaPanelRegrasSorte.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        JLabel labelTexto = new JLabel(texto);
+        labelTexto.setBounds(120,130,largura-250,altura-250);
+        labelTexto.setForeground(new Color(139,0,0));
+        labelTexto.setHorizontalAlignment(SwingConstants.CENTER);
+        labelTexto.setFont(new Font(Font.SERIF,Font.BOLD,17));
+        labelTexto.setCursor(null);
+        //labelTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        telaPanelRegrasSorte.add(labelTexto);
+
+        JLabelOpcoesTelaSecao fundo = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_14);
+        fundo.setHorizontalAlignment(SwingConstants.CENTER);
+        fundo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        fundo.setBounds(0,0, largura,altura);
+        fundo.setHorizontalAlignment(SwingConstants.CENTER);
+
+        telaPanelRegrasSorte.add(fundo);
+
+        add(telaPanelRegrasSorte);
+
+        //Esconde a tela de regras(panel).
+        //Somente irá aparecer quando posicionar o mouse em cima do botão
+        telaPanelRegrasSorte.setVisible(false);
+    }
+
     private void carregaBotaoSorte() {
         int largura = 90;
         int altura  = 90;
+        int posicaoX = 360;
+        int posicaoY = 570;
+
+        //Texto da regra que vai aparecer quando posicionar o mouse em cima do botão
+        var texto = "<html>REGRA: Rola-se 2 dados e compara-se com sua sorte.<br>"+
+                                 "Resultado IGUAL ou MENOR a sua sorte: SUCESSO.<br>" +
+                                     "SEMPRE se perde 1 ponto de sorte ao realizar teste.<br>"+
+                                 "Sucesso no teste de sorte<br>"+
+                                 "- Personagem venceu: Causa +2 de dano.<br>"+
+                                 "- Personagem perdeu: personagem recupera +1.<br>"+
+                                 "Fracasso no teste de sorte<br>"+
+                                 "- Personagem venceu: inimigo recupera +1.<br>"+
+                                 "- Personagem perdeu: você toma +1 de dano."+
+                    "</html>";
+                ;
+        telaMensagemSuspensaBotaoSorte(posicaoX,posicaoY, texto);
+
 
         JLabelOpcoesTelaSecao botaoSorte = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
                 ImagensDoLivroFlorestaDaDestruicao.TREVO);
         botaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         botaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoSorte.setBounds(360,570, largura,altura);
-//        botaoSorte.setToolTipText("<html>TESTANDO A SORTE<br>SUCESSO:<br>- QUANDO VENCER O TURNO: +2 no dano causado.<br>- PERDEU O TURNO: -1 de dano.<br>"+
-//                "FRACASSO:<br>- QUANDO VENCER O TURNO: -1 no dano infligido.<br>- QUANDO PERDER O TURNO: +1 de dano."+
-//                "<br><br>REGRA: Serão rolados 2 dados.<br>- SUCESSO: Resultado IGUAL ou MENOR do que seu índice de sorte<br>"+
-//                "- FRACASSO: Resultado MAIOR do que seu índice de sorte</html>");
+        botaoSorte.setBounds(posicaoX,posicaoY, largura,altura);
         botaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSorte.addMouseListener(new MouseListener() {
-            private TelaMensagemSuspensa telaMensagemSuspensa;
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -152,36 +206,19 @@ public class TelaBatalha extends JDialog {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                //telaMensagemSuspensa.dispose();
+
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                telaMensagemSuspensaBotaoSorte();
+                telaPanelRegrasSorte.setVisible(true);
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                telaMensagemSuspensa.dispose();
-            }
-
-            private void telaMensagemSuspensaBotaoSorte(){
-                String texto = "<html>TESTANDO A SORTE<br>SUCESSO:<br>- QUANDO VENCER O TURNO: +2 no dano causado.<br>- PERDEU O TURNO: -1 de dano.<br>"+
-                        "FRACASSO:<br>- QUANDO VENCER O TURNO: -1 no dano infligido.<br>- QUANDO PERDER O TURNO: +1 de dano."+
-                        "<br><br>REGRA: Serão rolados 2 dados.<br>- SUCESSO: Resultado IGUAL ou MENOR do que seu índice de sorte<br>"+
-                        "- FRACASSO: Resultado MAIOR do que seu índice de sorte</html>";
-                telaMensagemSuspensa = new TelaMensagemSuspensa("Teste de Sorte",texto);
-
-
-                telaMensagemSuspensa.setLocationRelativeTo(botaoSorte);
-                telaMensagemSuspensa.setBounds(botaoSorte.getX()+50, botaoSorte.getY(), 200,300);
-                //telaMensagemSuspensa.setSize(200, 200);
-                telaMensagemSuspensa.setVisible(true);
-                telaMensagemSuspensa.setAlwaysOnTop(true); //Garantir que fique sempre no topo
-                telaMensagemSuspensa.toFront(); // Trazer para frente
-                //botaoSorte.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-                // telaMensagemSuspensa.setBounds(botaoSorte.getX()+100, botaoSorte.getY(), 100,100);
+                telaPanelRegrasSorte.setVisible(false);
+                repaint();
             }
         });
 
