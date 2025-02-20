@@ -135,7 +135,7 @@ public class TelaBatalha extends JDialog {
         //telaPanelRegrasSorte.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         labelTextoTelaSuspensa = new JLabel(texto);
-        labelTextoTelaSuspensa.setBounds(120,130,largura-250,altura-250);
+        labelTextoTelaSuspensa.setBounds(125,130,largura-250,altura-250);
         labelTextoTelaSuspensa.setForeground(new Color(139,0,0));
         labelTextoTelaSuspensa.setHorizontalAlignment(SwingConstants.CENTER);
         labelTextoTelaSuspensa.setFont(new Font(Font.SERIF,Font.BOLD,17));
@@ -161,20 +161,14 @@ public class TelaBatalha extends JDialog {
         telaPanelRegrasSorte.setVisible(false);
     }
 
-    private void carregaBotaoSorte() {
-        int largura = 90;
-        int altura  = 90;
-        int posicaoX = 360;
-        int posicaoY = 570;
-
-
+    private void botaoMostraRegras(int posicaoX, int posicaoY, String texto){
         //Interrogação
         JLabelOpcoesTelaSecao botaoInterrogacaoSorte = new JLabelOpcoesTelaSecao(null,
-                12,18,
+                15,20,
                 ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO_2);
         botaoInterrogacaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         botaoInterrogacaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoInterrogacaoSorte.setBounds(posicaoX+50,posicaoY+70, 12,18);
+        botaoInterrogacaoSorte.setBounds(posicaoX,posicaoY, 15,20);
         botaoInterrogacaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoInterrogacaoSorte.addMouseListener(new MouseListener() {
 
@@ -196,16 +190,6 @@ public class TelaBatalha extends JDialog {
             @Override
             public void mouseEntered(MouseEvent e) {
                 //Texto da regra que vai aparecer quando posicionar o mouse em cima do botão
-                var texto = "<html>REGRA: Rola-se 2 dados e compara-se com sua sorte.<br>"+
-                        "Resultado IGUAL ou MENOR a sua sorte: SUCESSO.<br>" +
-                        "SEMPRE se perde 1 ponto de sorte ao realizar teste.<br>"+
-                        "Sucesso no teste de sorte<br>"+
-                        "- Personagem venceu: Causa +2 de dano.<br>"+
-                        "- Personagem perdeu: personagem recupera +1.<br>"+
-                        "Fracasso no teste de sorte<br>"+
-                        "- Personagem venceu: inimigo recupera +1.<br>"+
-                        "- Personagem perdeu: você toma +1 de dano."+
-                        "</html>";
                 labelTextoTelaSuspensa.setText(texto);
                 telaPanelRegrasSorte.setVisible(true);
                 repaint();
@@ -218,6 +202,28 @@ public class TelaBatalha extends JDialog {
             }
         });
         //botaoInterrogacaoSorte.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(botaoInterrogacaoSorte);
+    }
+
+    private void carregaBotaoSorte() {
+        int largura = 90;
+        int altura  = 90;
+        int posicaoX = 360;
+        int posicaoY = 570;
+
+
+        //Botao que exibe a regra da sorte
+        var texto = "<html>Rola 2 dados compara com a sorte.<br>"+
+                        "- IGUAL ou MENOR a sorte: SUCESSO.<br>" +
+                        "Sucesso no teste de sorte<br>"+
+                        "- Venceu batalha: causa +2 de dano.<br>"+
+                        "- Perdeu batalha: recupera +1.<br>"+
+                        "Fracasso no teste de sorte<br>"+
+                        "- Venceu batalha: inimigo recupera +1.<br>"+
+                        "- Perdeu batalha: você toma +1 de dano.<br>"+
+                        "</html>";
+        botaoMostraRegras(posicaoX-5,posicaoY+30, texto);
 
         //Botão sorte
         JLabelOpcoesTelaSecao botaoSorte = new JLabelOpcoesTelaSecao(null,
@@ -260,21 +266,30 @@ public class TelaBatalha extends JDialog {
             }
         });
 
-
-        add(botaoInterrogacaoSorte);
         add(botaoSorte);
     }
 
     private void carregaBotaoFuga() {
+        int posicaoX = 480;
+        int posicaoY = 635;
         int largura = 90;
         int altura  = 90;
+
+        //Botão que exibe regra da fuga
+        var texto = "<html>REGRA: Você pode fugir da batalha<br>"+
+                    "- A Criatura causa ferimento(+2 dano).<br><br>"+
+                    "Opção: Testar a Sorte<br>"+
+                    "- Sucesso: toma apenas 1 de dano<br>"+
+                    "- Falha: +1 de dano (total: +3 dano)"+
+                "</html>";
+        botaoMostraRegras(posicaoX-10, posicaoY+45, texto);
 
         JLabelOpcoesTelaSecao botaoFuga = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
                 ImagensDoLivroFlorestaDaDestruicao.HOMEM_CORRENDO);
         botaoFuga.setHorizontalAlignment(SwingConstants.CENTER);
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoFuga.setBounds(480,635, largura,altura);
+        botaoFuga.setBounds(posicaoX,posicaoY, largura,altura);
         botaoFuga.setToolTipText("Abandonar a luta? Perde 2 de energia. Esse é o preço da covardia.");
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoFuga.addMouseListener(new MouseListener() {
