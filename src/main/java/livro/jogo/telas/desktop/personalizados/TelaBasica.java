@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -46,21 +47,34 @@ public class TelaBasica extends JFrame {
     }
 
 
-    public static void mostrarDadosRolando(int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem,
-                                           int largura, int altura){
+    public static void mostrarDadosRolando(int milisegundos, ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
 
+        var largura = 600;
+        var altura = 500;
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
         JDialog telaDadosRolando = new JDialog();
         telaDadosRolando.setTitle("Rolando Dados");
         telaDadosRolando.setModal(true);
         telaDadosRolando.setUndecorated(true);  //Retirar barra de título
-        telaDadosRolando.setBackground(Color.WHITE);
+        telaDadosRolando.setBackground(new Color(0,0,0,0));
         telaDadosRolando.setLocationRelativeTo(null);
         telaDadosRolando.getContentPane().setBackground(new Color(210,180,140));
+        telaDadosRolando.setSize(largura,largura);
+        telaDadosRolando.setResizable(false);
+        telaDadosRolando.setLocationRelativeTo(null);
+        telaDadosRolando.setLayout(null);
+
+
+        JLabelOpcoesTelaSecao moldura = new JLabelOpcoesTelaSecao("",largura,altura+25,
+                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_15);
+        moldura.setBounds(0,0,largura,altura+25);
+        telaDadosRolando.add(moldura);
 
         ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
+        //ImageIcon imageIcon = Util.dimensionarImagem(largura,altura,enderecoImagem.getEnderecoImagem());
         JLabel label = new JLabel(imageIcon);
 
-        label.setBounds(2,2,largura,altura);
+        label.setBounds(110,90,largura-215,altura-150);
         telaDadosRolando.add(label);
 
         //Configura a tela para que feche automaticamente em alguns milisegundos
@@ -70,11 +84,6 @@ public class TelaBasica extends JFrame {
         });
         timer.setRepeats(false);
         timer.start();
-        telaDadosRolando.setSize(largura,largura);
-        telaDadosRolando.setResizable(false);
-        telaDadosRolando.setLocationRelativeTo(null);
-        //telaDadosRolando.setType(Type.UTILITY); //Muda os botões da barra de tarefas superior, só deixa o "x"
         telaDadosRolando.setVisible(true);
-
     }
 }

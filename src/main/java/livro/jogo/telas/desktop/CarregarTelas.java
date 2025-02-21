@@ -158,6 +158,7 @@ public class CarregarTelas {
             case 5   -> new TelaSecao_5(secao).setVisible(true);
             case 6   -> new TelaSecao_6(secao).setVisible(true);
             case 7   -> new TelaSecao_7(secao).setVisible(true);
+            case 23  -> new TelaSecao_23(secao).setVisible(true); //chamado pela seção 7 (INCOMPLETO)
             case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4 (INCOMPLETO)
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1 (INCOMPLETO)
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4 (INCOMPLETO)

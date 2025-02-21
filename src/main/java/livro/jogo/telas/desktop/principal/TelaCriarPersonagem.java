@@ -49,6 +49,7 @@ public class TelaCriarPersonagem extends TelaBasica {
      //1 = Masculino; 2 = Feminino
     private final TelaBasica telaPrincipal; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
     private final TelaAcaoDosLabels acao = new TelaAcaoDosLabels();
+    private Util util = new Util();
 
 
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaPrincipal) {
@@ -642,24 +643,21 @@ public class TelaCriarPersonagem extends TelaBasica {
             int altura = 330;
 
             if ( (e.getSource() == botaoRolarDadosSorte) && (sorteInicial == 0)){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
-                        largura,altura);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceSorte.setText(String.valueOf(sorteInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadosEnergia) && (energiaInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
-                        largura,altura);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 energiaInicial = Util.obterIndiceEnergiaInicial();
                 labelIndiceEnergia.setText(String.valueOf(energiaInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadoHabilidade) && (habilidadeInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
-                        largura,altura);
+                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
                 habilitarBotaoGravar();

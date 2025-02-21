@@ -6,7 +6,9 @@ import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.principal.TelaBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
@@ -23,8 +25,8 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio",1,2,2,
-                20,
+        Personagem personagem = new Personagem("Fábio",1,12,22,
+                10,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         DadosLivroCarregado.setPersonagem(personagem);
@@ -36,8 +38,10 @@ public class Testes {
         //Util.testarSorte();
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 7 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 23 );
         CarregarTelas.carregarSecao(secao);
+
+        //TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
 
         //Tela batalha
 //        Inimigo inimigo = new Inimigo(1,"Enxame 1",7,3,
