@@ -67,13 +67,18 @@ public class AcoesBatalha {
                 if (TelaBatalha.isRespostaTelaConfirmacao()) {
                     vaiTestarSorte = true;
                     resultadoSorte = Util.testarSorte();
-                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
-                            300, 300);
+//                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+//                            300, 300);
 
-                    if (resultadoSorte)
+
+                    if (resultadoSorte) {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
-                    else
+                    }
+                    else {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
+                    }
                 }
             }
 
@@ -185,17 +190,19 @@ public class AcoesBatalha {
                 if (TelaBatalha.isRespostaTelaConfirmacao()) {
                     boolean resultadoSorte = Util.testarSorte();
                     sorteJaUsada = true;
-
-                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
-                            300, 300);
+/// kkkk
+//                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS,
+//                            300, 300);
 
                     if (resultadoSorte) {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
                         personagem.setEnergiaAtual(personagem.getEnergiaAtual() + 1);
                         if (personagem.getEnergiaAtual() > 0)
                             personagemVivo = true;
                     }
                     else {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nSeu dano será aumentado em mais 1 ponto.");
                         personagemVivo = Util.personagemPerdeEnergia(1);
                     }
