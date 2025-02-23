@@ -1,14 +1,14 @@
 {  
   "codSecaoLivro":"8",
-  "texto":"\t\t\t\tSeguindo ao longo da trilha, você ouve passos e vozes que discutem adiante",
+  "texto":"\t\t\t\tSeguindo ao longo da trilha, você ouve passos e vozes que discutem adiante.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_8.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se quiser ir de encontro aos donos das vozes",
+      "textoOpcao":"Você quer ir de encontro aos donos das vozes?",
       "codProximaSecao":"317"
     },
 	{	  
-      "textoOpcao":"Se preferir se esconder no mato para deixar que eles passem",
+      "textoOpcao":"Prefere se esconder no mato para deixar que eles passem?",
       "codProximaSecao":"392"
     }
   ]

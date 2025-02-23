@@ -38,7 +38,7 @@ public class Testes {
         //Util.testarSorte();
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 23 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 10 );
         CarregarTelas.carregarSecao(secao);
 
         //TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);

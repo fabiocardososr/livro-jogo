@@ -66,7 +66,7 @@ public class TelaBatalha extends JDialog {
 
 
         //Carrega a tela de mensagem suspensa, mas invisível
-        telaMensagemSuspensaBotaoSorte("");
+        telaMensagemSuspensaBotaoSorte();
         carregaBotaoSorte();
         carregaBotaoFuga();
         carregaPainelResultadoBatalha();
@@ -125,7 +125,7 @@ public class TelaBatalha extends JDialog {
 
     //Mensagem suspensa para o botão de sorte (explicando regras)
     //posicaoX e posicaoY é a posição do componente ao qual a tela vai mostrar a regra
-    private void telaMensagemSuspensaBotaoSorte(String texto){
+    private void telaMensagemSuspensaBotaoSorte(){
         var largura = 680;
         var altura = 500;
 
@@ -135,11 +135,11 @@ public class TelaBatalha extends JDialog {
         telaPanelRegrasSorte.setBackground(new Color(0,0,0,0));
         //telaPanelRegrasSorte.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        labelTextoTelaSuspensa = new JLabel(texto);
+        labelTextoTelaSuspensa = new JLabel("");
         labelTextoTelaSuspensa.setBounds(125,130,largura-250,altura-250);
         labelTextoTelaSuspensa.setForeground(new Color(139,0,0));
         labelTextoTelaSuspensa.setHorizontalAlignment(SwingConstants.CENTER);
-        labelTextoTelaSuspensa.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelTextoTelaSuspensa.setFont(new Font(Font.SERIF,Font.BOLD,19));
         labelTextoTelaSuspensa.setCursor(null);
         //labelTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
@@ -215,8 +215,9 @@ public class TelaBatalha extends JDialog {
 
 
         //Botao que exibe a regra da sorte
-        var texto = "<html>Rola 2 dados compara com sua sorte.<br>"+
-                        "- IGUAL ou MENOR sorte: SUCESSO.<br>" +
+        var texto = "<html><center>Testar Sorte</center>" +
+                "Rola 2 dados compara com sua sorte.<br>"+
+                        "- IGUAL ou MENOR a seu índice: SUCESSO.<br>" +
                         "Sucesso no teste de sorte<br>"+
                         "- Venceu batalha: causa +2 de dano.<br>"+
                         "- Perdeu batalha: recupera +1.<br>"+
@@ -277,7 +278,7 @@ public class TelaBatalha extends JDialog {
         int altura  = 90;
 
         //Botão que exibe regra da fuga
-        var texto = "<html><center>Fugir da batalha</center><br>"+
+        var texto = "<html><center>Fugir da Batalha</center>"+
                     "- A Criatura causa ferimento(+2 dano).<br><br>"+
                     "Opção: Testar a Sorte<br>"+
                     "- Sucesso: toma apenas 1 de dano<br>"+
@@ -416,8 +417,9 @@ public class TelaBatalha extends JDialog {
         int altura = 200;
 
         //Botão mostrar regras
-        var texto = "<html>Rola 2 dados para cada lutador.<br>"+
-                "Habilidade + dados = Força de Ataque(FA)<br>" +
+        var texto = "<html><center>Turno de Batalha</center>" +
+                "Rola 2 dados para cada lutador.<br>"+
+                "Habilidade + dados = Força de Ataque<br>" +
                 "- Força de Ataque maior vence<br>"+
                 "- Testar Sorte (ver regra de sorte)"+
                 "</html>";
@@ -709,10 +711,10 @@ public class TelaBatalha extends JDialog {
         moldura.setBounds(0,0, 130,160);
 
         //Imagem do inimigo
-        JLabelOpcoesTelaSecao imgPersonagem = new JLabelOpcoesTelaSecao(null, 75,90,
+        JLabelOpcoesTelaSecao imgPersonagem = new JLabelOpcoesTelaSecao(null, 75,110,
                     inimigoTemporario.getEnderecoImagem());
         imgPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
-        imgPersonagem.setBounds(30,35,75,90);
+        imgPersonagem.setBounds(30,25,75,110);
         imgPersonagem.setCursor(null);
         //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
