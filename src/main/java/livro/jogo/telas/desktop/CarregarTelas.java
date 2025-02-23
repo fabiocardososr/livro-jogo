@@ -161,9 +161,10 @@ public class CarregarTelas {
             case 8   -> new TelaSecao_8(secao).setVisible(true);
             case 9   -> new TelaSecao_9(secao).setVisible(true);  //Tem inimigos
             case 10  -> new TelaSecao_10(secao).setVisible(true);
+            case 11  -> new TelaSecao_11(secao).setVisible(true);
 
 
-            /************* TELAS INCOMPLETAS **************/
+            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
             case 23  -> new TelaSecao_23(secao).setVisible(true); //chamado pela seção 7
             case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1
@@ -177,6 +178,7 @@ public class CarregarTelas {
             case 317 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 8
             case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 Termina o jogo
+            case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11 Termina o jogo
             case 392 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 8
 
 
