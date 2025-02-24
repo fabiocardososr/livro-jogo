@@ -93,7 +93,7 @@ public class CarregarTelas {
     }
 
     public static void telaSecaoHistoriaInicial(Secao secao){
-        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao, getReferenciaTelaPrincipal());
+        SecaoHistoriaInicial telaSecoesBasica = new SecaoHistoriaInicial(secao);
         telaSecoesBasica.setVisible(true);
     }
 
@@ -162,6 +162,7 @@ public class CarregarTelas {
             case 9   -> new TelaSecao_9(secao).setVisible(true);  //Tem inimigos
             case 10  -> new TelaSecao_10(secao).setVisible(true);
             case 11  -> new TelaSecao_11(secao).setVisible(true);
+            case 12  -> new TelaSecao_12(secao).setVisible(true);
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/

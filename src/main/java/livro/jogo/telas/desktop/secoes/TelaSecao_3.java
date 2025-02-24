@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 public class TelaSecao_3 extends TelaSecoesBasica {
 
     public TelaSecao_3(Secao secao) {
-        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
+        super(secao);
 
     }
 

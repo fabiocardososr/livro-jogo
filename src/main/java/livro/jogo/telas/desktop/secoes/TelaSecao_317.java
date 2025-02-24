@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class TelaSecao_317 extends TelaSecoesBasica {
     public TelaSecao_317(Secao secao) {
-        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
+        super(secao);
     }
 
     @Override

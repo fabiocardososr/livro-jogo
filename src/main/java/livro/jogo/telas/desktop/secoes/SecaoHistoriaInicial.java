@@ -13,8 +13,8 @@ import java.awt.event.MouseListener;
 
 public class SecaoHistoriaInicial extends TelaSecoesBasica {
 
-    public SecaoHistoriaInicial(Secao secao, JFrame referenciaTelaPrincipal) {
-        super(secao, referenciaTelaPrincipal);
+    public SecaoHistoriaInicial(Secao secao) {
+        super(secao);
         carregarComponentesEspecificos(secao);
     }
 

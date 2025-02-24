@@ -7,7 +7,7 @@ import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 public class TelaSecao_261 extends TelaSecoesBasica {
 
     public TelaSecao_261(Secao secao) {
-        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
+        super(secao);
     }
 
     @Override

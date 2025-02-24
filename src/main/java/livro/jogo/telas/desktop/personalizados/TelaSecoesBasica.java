@@ -56,15 +56,17 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabelOpcoesTelaSecao botaoOpcao3; //Terceira Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
     private boolean venceuTodosInimigos;  //Ela é preenchda na tela de batalha. Se ganhou=true;
-    protected JLabel lbTextoOpcao1; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
-    protected JLabel labelNumOpcao; //Foi necessário para redimensionar a seção 7 (TelaSecao_7)
+    protected JLabel lbTextoOpcao1;
+    protected JLabel lbTextoOpcao2;
+    protected JLabel labelNumOpcao1;
+    protected JLabel labelNumOpcao2;
 
 
-    public TelaSecoesBasica(Secao secao, JFrame referenciaTelaPrincipal) {
+    public TelaSecoesBasica(Secao secao) {
         setSize(1500,800);
         this.secao = secao;
         this.personagem = DadosLivroCarregado.getPersonagem();
-        this.referenciaTelaPrincipal = referenciaTelaPrincipal;
+        this.referenciaTelaPrincipal = CarregarTelas.getReferenciaTelaPrincipal();
 
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
@@ -626,12 +628,12 @@ public abstract class TelaSecoesBasica extends JDialog {
         String texto = "1";            //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 0;           //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
-        labelNumOpcao = new JLabel(texto);
-        labelNumOpcao.setForeground(Color.WHITE);
-        labelNumOpcao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelNumOpcao.setHorizontalAlignment(SwingConstants.CENTER);
-        labelNumOpcao.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        labelNumOpcao.setBounds(116,592, 50,50);
+        labelNumOpcao1 = new JLabel(texto);
+        labelNumOpcao1.setForeground(Color.WHITE);
+        labelNumOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelNumOpcao1.setHorizontalAlignment(SwingConstants.CENTER);
+        labelNumOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelNumOpcao1.setBounds(116,592, 50,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botaoOpcao1 = new JLabelOpcoesTelaSecao("",40,50,
@@ -648,7 +650,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao1.setForeground(new Color(139,0,0));
 
         add(lbTextoOpcao1);
-        add(labelNumOpcao);
+        add(labelNumOpcao1);
         add(botaoOpcao1);
     }
 
@@ -656,12 +658,12 @@ public abstract class TelaSecoesBasica extends JDialog {
         String texto = "2";             //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 1;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
-        JLabel label = new JLabel(texto);
-        label.setForeground(Color.WHITE);
-        label.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        label.setBounds(116,652, 50,50);
+        labelNumOpcao2 = new JLabel(texto);
+        labelNumOpcao2.setForeground(Color.WHITE);
+        labelNumOpcao2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelNumOpcao2.setHorizontalAlignment(SwingConstants.CENTER);
+        labelNumOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelNumOpcao2.setBounds(116,652, 50,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botaoOpcao2 = new JLabelOpcoesTelaSecao("",40,50,
@@ -671,14 +673,14 @@ public abstract class TelaSecoesBasica extends JDialog {
         botaoOpcao2.setToolTipText("Clique para escolher esta Opção.");
 
         //Texto da opção
-        JLabel lbTexto = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTexto.setBounds(170,647,700,60);
-        lbTexto.setFont(new Font(Font.SERIF,Font.BOLD,22));
-        lbTexto.setForeground(new Color(139,0,0));
+        lbTextoOpcao2 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
+        lbTextoOpcao2.setBounds(170,647,700,60);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao2.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        add(lbTexto);
-        add(label);
+        add(lbTextoOpcao2);
+        add(labelNumOpcao2);
         add(botaoOpcao2);
     }
 

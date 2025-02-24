@@ -11,7 +11,7 @@ public class TelaSecao_5 extends TelaSecoesBasica {
 
 
     public TelaSecao_5(Secao secao) {
-        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
+        super(secao);
     }
 
     @Override

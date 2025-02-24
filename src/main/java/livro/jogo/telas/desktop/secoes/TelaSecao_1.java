@@ -11,7 +11,7 @@ public class TelaSecao_1 extends TelaSecoesBasica {
 
 
     public TelaSecao_1(Secao secao) {
-        super(secao, CarregarTelas.getReferenciaTelaPrincipal());
+        super(secao);
 
         textoHistoria.setText( secao.getTexto() );
 
