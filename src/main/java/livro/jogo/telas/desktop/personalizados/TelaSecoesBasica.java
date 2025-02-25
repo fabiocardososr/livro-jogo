@@ -69,6 +69,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel labelNumOpcao2;
     protected JLabel labelNumOpcao3;
     protected final HashMap<String, Integer> listaNomeEIdDosItens = Util.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
+    protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -122,9 +123,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     protected void carregaListaDeItensNaBolsaQuePodemSerEntregues(int posicaoX, int posicaoY,
                                                                   int largura, int altura) {
+        //Recupera os itens da bolsa
         ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
         ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
-
         Item item;
         for (int i=0; i<bolsa.size(); i++) {
             item = bolsa.get(i);
@@ -134,9 +135,18 @@ public abstract class TelaSecoesBasica extends JDialog {
             ListItem itemDaLista = new ListItem(item.getIdItem(), item.getNome(), imagem.getImageIcon());
             listaDeItensNaBolsa.add(itemDaLista);
         }
-
         //Transformando o ARrayList em um simples Array
         ListItem[] listaBolsa = listaDeItensNaBolsa.toArray(new ListItem[0]);
+
+
+        /* CRIAÇÃO DOS COMPONENTES VISUAIS */
+
+        //Painel que incorporará todos os componentes
+        panelListaSuspensaItens = new JPanel();
+        panelListaSuspensaItens.setLayout(null);
+        panelListaSuspensaItens.setBounds(posicaoX,posicaoY,largura,altura);
+        panelListaSuspensaItens.setBackground(new Color(0,0,0,0));
+
 
         //Criando o JList
         JList<ListItem> jListItem = new JList<>(listaBolsa);
@@ -144,17 +154,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.setVisibleRowCount(5);
         jListItem.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jListItem.setBackground(new Color(210,180,140));
-        JScrollPane scroll = new JScrollPane(jListItem);
-        scroll.setBounds(posicaoX,posicaoY,largura,altura);
-//        jListItem.addListSelectionListener(new ListSelectionListener() {
-//            @Override
-//            public void valueChanged(ListSelectionEvent e) {
-//                JOptionPane.showMessageDialog(null,
-//                        "Nome: "+jListItem.getSelectedValue().getNomeItem()+
-//                                " - IdItem: "+jListItem.getSelectedValue().getIdItem() );
-//            }
-//        });
-
+        //jListItem.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        jListItem.setForeground(new Color(139,0,0));
+        JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
+        scrollListaSuspensaDeItens.setBounds(0,0,largura,altura-50);
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -184,7 +187,13 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
-        add(scroll);
+
+        panelListaSuspensaItens.add(scrollListaSuspensaDeItens);
+        add(panelListaSuspensaItens);
+
+        //Carrega, mas deixa invisível, pois nos testes demorou a ser carregada quando clicado no botão
+        //Preferi carregá-la e deixar invisível
+        panelListaSuspensaItens.setVisible(false);
     }
 
     private void carregarFaixasDasExtremidades() {

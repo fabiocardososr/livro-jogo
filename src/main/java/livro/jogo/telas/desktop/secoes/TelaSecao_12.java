@@ -23,7 +23,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(78,600,240,100);
+        carregaListaDeItensNaBolsaQuePodemSerEntregues(600,620,290,100);
 
         opcao1(secao);
         opcao2(secao);
@@ -42,21 +42,99 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         labelNumOpcao3.setBounds(116,722, 50,50);
         lbTextoOpcao3.setBounds(170,717,700,60);
 
-
-
         //Ação ao clicar
         acaoBotoes(secao);
 
-        //opção da punição
+        //Escolher moedas para dar a oGnomo
         carregaBotaoOpcaoMoedas();
+
+        //Escolher 2 itens para dar ao Gnomo
+        carregarListaItensParaDarAoGnomo();
+    }
+
+    private void carregarListaItensParaDarAoGnomo() {
+
+        //Botão
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botao.setBounds(450,560,340,80);
+        botao.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                panelListaSuspensaItens.setVisible(true);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        //Texto
+        JLabel texto= new JLabel("<html><center>Escolha 2 itens</center></html>");
+        texto.setBounds(440,570,360,60);
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        texto.setForeground(new Color(128,0,0));
+        texto.setToolTipText("Escolha 2 itens para dar ao Gnomo.");
+        texto.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                panelListaSuspensaItens.setVisible(true);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+
+        add(texto);
+        add(botao);
     }
 
     private void carregaBotaoOpcaoMoedas() {
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",400, 80,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(100,560,400,80);
+        botao.setBounds(90,560,340,80);
+        botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
         botao.addMouseListener(new MouseListener() {
             @Override
@@ -98,14 +176,14 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         });
 
         //Texto
-        JLabel textoComecarJornada = new JLabel("<html><center>Pagar 10 moedas</center></html>");
-        textoComecarJornada.setBounds(120,570,360,60);
-        textoComecarJornada.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        textoComecarJornada.setHorizontalAlignment(SwingConstants.CENTER);
-        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        textoComecarJornada.setForeground(new Color(128,0,0));
-        textoComecarJornada.setToolTipText("Clique aqui para começar sua jornada.");
-        textoComecarJornada.addMouseListener(new MouseListener() {
+        JLabel texto = new JLabel("<html><center>Pagar 10 moedas</center></html>");
+        texto.setBounds(80,570,360,60);
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        texto.setForeground(new Color(128,0,0));
+        texto.setToolTipText("Você entrega 10 moedas ao Gnomo.");
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
@@ -145,7 +223,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
-        add(textoComecarJornada);
+        add(texto);
         add(botao);
     }
 
@@ -224,6 +302,13 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao3){
+
+                    if ( (DadosLivroCarregado.getBolsa().size() > 1) ||
+                            (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 9) ){
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ", existem recursos para serem dados ao Gnomo.\n\nVocê precisa recuperar sua espada para continuar a jornada.");
+                        return;
+                    }
 
                     if ( (!entregou10Moedas) && (!entregar2Itens) ) {
                         CarregarTelas.telaMensagem("Você não recupera sua espada.\n\nAndar na"+

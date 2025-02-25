@@ -25,11 +25,11 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio",1,12,22,
+        Personagem personagem = new Personagem("Fábio cardoso",1,12,22,
                 10,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        personagem.setQuantidadeOuro(20);
+        personagem.setQuantidadeOuro(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
 //        System.out.println("ìndice personagem: "+ personagem.getSorteAtual());
@@ -86,6 +86,10 @@ public class Testes {
         //Poção de força(energia)
        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
                "livros/florestadadestruicao/itens/item_46.json"));
+
+       //Cabeça de martelo
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+                "livros/florestadadestruicao/itens/item_6.json"));
 
        //Provisão
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
