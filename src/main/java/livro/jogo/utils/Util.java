@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -203,6 +204,17 @@ public class Util {
         }
 
         return listaNomesArquivos;
+    }
+
+    //Serve para popular uma lista dos itens para algum tipo de escolha (por exemplo, secao 12 pede para escolher 2 itens e dar para o Gnomo)
+    public static HashMap<String, Integer> listarNomesItensNaBolsa(){
+        HashMap<String, Integer> listaNomesDeItens = new HashMap<>();
+
+        for (Item item : DadosLivroCarregado.getBolsa()){
+                listaNomesDeItens.put(item.getNome(),item.getIdItem());
+        }
+
+        return listaNomesDeItens;
     }
 
     //Verifica se o personagem possui determinado item na bolsa ou equipado

@@ -23,6 +23,8 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
+        carregaListaDeItensNaBolsaQuePodemSerEntregues(78,600,240,100);
+
         opcao1(secao);
         opcao2(secao);
         opcao3(secao);
@@ -39,6 +41,8 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         botaoOpcao3.setBounds(120,730,40,50);
         labelNumOpcao3.setBounds(116,722, 50,50);
         lbTextoOpcao3.setBounds(170,717,700,60);
+
+
 
         //Ação ao clicar
         acaoBotoes(secao);
@@ -251,4 +255,5 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             }
         });
     }
+
 }

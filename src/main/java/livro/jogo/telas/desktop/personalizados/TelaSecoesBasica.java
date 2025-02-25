@@ -7,17 +7,23 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.util.ListItem;
+import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class TelaSecoesBasica extends JDialog {
     private final Secao secao;
@@ -62,6 +68,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel labelNumOpcao1;
     protected JLabel labelNumOpcao2;
     protected JLabel labelNumOpcao3;
+    protected final HashMap<String, Integer> listaNomeEIdDosItens = Util.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -113,7 +120,72 @@ public abstract class TelaSecoesBasica extends JDialog {
         });
     }
 
+    protected void carregaListaDeItensNaBolsaQuePodemSerEntregues(int posicaoX, int posicaoY,
+                                                                  int largura, int altura) {
+        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+        ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
 
+        Item item;
+        for (int i=0; i<bolsa.size(); i++) {
+            item = bolsa.get(i);
+
+            //Não crio o objeto Icon diretamente, mas pela classe que redimensiona colocando n otalamnho que quero
+            RedimensionarImagem imagem = new RedimensionarImagem(item.getEnderecoImagem(), 20, 20);
+            ListItem itemDaLista = new ListItem(item.getIdItem(), item.getNome(), imagem.getImageIcon());
+            listaDeItensNaBolsa.add(itemDaLista);
+        }
+
+        //Transformando o ARrayList em um simples Array
+        ListItem[] listaBolsa = listaDeItensNaBolsa.toArray(new ListItem[0]);
+
+        //Criando o JList
+        JList<ListItem> jListItem = new JList<>(listaBolsa);
+        jListItem.setCellRenderer(new ListaDeItensComImagem());
+        jListItem.setVisibleRowCount(5);
+        jListItem.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jListItem.setBackground(new Color(210,180,140));
+        JScrollPane scroll = new JScrollPane(jListItem);
+        scroll.setBounds(posicaoX,posicaoY,largura,altura);
+//        jListItem.addListSelectionListener(new ListSelectionListener() {
+//            @Override
+//            public void valueChanged(ListSelectionEvent e) {
+//                JOptionPane.showMessageDialog(null,
+//                        "Nome: "+jListItem.getSelectedValue().getNomeItem()+
+//                                " - IdItem: "+jListItem.getSelectedValue().getIdItem() );
+//            }
+//        });
+
+        jListItem.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(null,
+                        "Nome: "+jListItem.getSelectedValue().getNomeItem()+
+                                " - IdItem: "+jListItem.getSelectedValue().getIdItem() );
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        add(scroll);
+    }
 
     private void carregarFaixasDasExtremidades() {
         //FAIXA SUPERIOR ESQUERDA
