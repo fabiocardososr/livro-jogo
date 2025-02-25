@@ -267,6 +267,105 @@ public class TelaBolsa extends JDialog {
             dispose();
         }
 
+        /*Coroa de ouro(2)*/
+        if (item.getIdItem() == ItensMapeamento.COROA_DE_OURO.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Poção Antiveneno(3)*/
+        if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Filtros Nasais(4)*/
+        if (item.getIdItem() == ItensMapeamento.FILTROS_NASAIS.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(5)*/
+        if (item.getIdItem() == ItensMapeamento.CHAVE_DE_PRATA.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(5)*/
+        if (item.getIdItem() == ItensMapeamento.CHAVE_DE_PRATA.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(6)*/
+        if (item.getIdItem() == ItensMapeamento.CABECA_DE_MARTELO_DOS_ANOES.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(7)*/
+        if (item.getIdItem() == ItensMapeamento.AGUA_BENTA.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(8)*/
+        if (item.getIdItem() == ItensMapeamento.POCAO_CONTROLE_DAS_PLANTAS.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
+        /*Chave de prata(9)*/
+        if (item.getIdItem() == ItensMapeamento.SINO_DE_METAL.getIdItem()){
+
+            if ( consumiuItem )
+                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+            else
+                CarregarTelas.telaMensagem("Item já equipado!");
+
+            dispose();
+        }
+
         /* Espada magnífica(10) */
         if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()){
             /*
@@ -281,6 +380,86 @@ public class TelaBolsa extends JDialog {
                     String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                     String.valueOf(personagem.getHabilidadeMax()));
         }
+
+        /* Poeira da Levitação(11) */
+        if (item.getIdItem() == ItensMapeamento.POEIRA_DA_LEVITACAO.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+        /* Poeira da Levitação(12) */
+        if (item.getIdItem() == ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+        /* Poção da Imobilidade(13) */
+        if (item.getIdItem() == ItensMapeamento.POCAO_DA_IMOBILIDADE.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+        /* Poção da Imobilidade(14) */
+        if (item.getIdItem() == ItensMapeamento.BELADONA.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+        /* Colar Olho de Âmbar(15) */
+        if (item.getIdItem() == ItensMapeamento.BELADONA.getIdItem()){
+            /*
+            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
+            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
+            dentro da bolsa. Na bolsa já mostrará "Equipado'.
+            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
+            * */
+
+            //Muda informação do índice do personagem
+            lbHabilidadePersonagem.setText("Habilidade: "+
+                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
+                    String.valueOf(personagem.getHabilidadeMax()));
+        }
+
+
+
+
+
 
         /* Poção de Habilidade(45)  */
         if (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) {

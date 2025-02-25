@@ -54,12 +54,14 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabelOpcoesTelaSecao botaoOpcao1; //Primeira Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao2; //Segunda Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao3; //Terceira Opção da seção
-    protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
+    //protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
     private boolean venceuTodosInimigos;  //Ela é preenchda na tela de batalha. Se ganhou=true;
     protected JLabel lbTextoOpcao1;
     protected JLabel lbTextoOpcao2;
+    protected JLabel lbTextoOpcao3;
     protected JLabel labelNumOpcao1;
     protected JLabel labelNumOpcao2;
+    protected JLabel labelNumOpcao3;
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -682,6 +684,36 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(lbTextoOpcao2);
         add(labelNumOpcao2);
         add(botaoOpcao2);
+    }
+
+    protected void opcao3(Secao secao){
+        String texto = "3";             //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 2;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+
+        labelNumOpcao3 = new JLabel(texto);
+        labelNumOpcao3.setForeground(Color.WHITE);
+        labelNumOpcao3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelNumOpcao3.setHorizontalAlignment(SwingConstants.CENTER);
+        labelNumOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelNumOpcao3.setBounds(116,712, 50,50);
+        //label.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoOpcao3 = new JLabelOpcoesTelaSecao("",40,50,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        botaoOpcao3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoOpcao3.setBounds(120,720,40,50);
+        botaoOpcao3.setToolTipText("Clique para escolher esta Opção.");
+
+        //Texto da opção
+        lbTextoOpcao3 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
+        lbTextoOpcao3.setBounds(170,707,700,60);
+        lbTextoOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao3.setForeground(new Color(139,0,0));
+        //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        add(lbTextoOpcao3);
+        add(labelNumOpcao3);
+        add(botaoOpcao3);
     }
 
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {

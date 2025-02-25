@@ -10,6 +10,10 @@
 	{	  
       "textoOpcao":"Basta de Gnomo, prefere seguir pela trilha para o oeste?",
       "codProximaSecao":"67"
+    },
+	{	  
+      "textoOpcao":"Não possui ouro ou itens suficientes para entregar ao Gnomo?",
+      "codProximaSecao":""
     }
   ]
  }
