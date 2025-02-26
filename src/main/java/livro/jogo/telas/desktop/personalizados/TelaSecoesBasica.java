@@ -70,6 +70,14 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel labelNumOpcao3;
     protected final HashMap<String, Integer> listaNomeEIdDosItens = Util.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
     protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
+    protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
+    //Objeto que guarda a imagem do item
+    private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
+
+    //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
+    private JLabelOpcoesTelaSecao botaoItemEscolhido1; //
+    private JLabelOpcoesTelaSecao botaoItemEscolhido2; //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
+
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -123,21 +131,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     protected void carregaListaDeItensNaBolsaQuePodemSerEntregues(int posicaoX, int posicaoY,
                                                                   int largura, int altura) {
-        //Recupera os itens da bolsa
-        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-        ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
-        Item item;
-        for (int i=0; i<bolsa.size(); i++) {
-            item = bolsa.get(i);
 
-            //Não crio o objeto Icon diretamente, mas pela classe que redimensiona colocando n otalamnho que quero
-            RedimensionarImagem imagem = new RedimensionarImagem(item.getEnderecoImagem(), 20, 20);
-            ListItem itemDaLista = new ListItem(item.getIdItem(), item.getNome(), imagem.getImageIcon());
-            listaDeItensNaBolsa.add(itemDaLista);
-        }
-        //Transformando o ARrayList em um simples Array
-        ListItem[] listaBolsa = listaDeItensNaBolsa.toArray(new ListItem[0]);
-
+        //Array simples de itens na bolsa
+        ListItem[] listaBolsa = Util.retornaListaDeBensNaBolsa();
 
         /* CRIAÇÃO DOS COMPONENTES VISUAIS */
 
@@ -147,23 +143,44 @@ public abstract class TelaSecoesBasica extends JDialog {
         panelListaSuspensaItens.setBounds(posicaoX,posicaoY,largura,altura);
         panelListaSuspensaItens.setBackground(new Color(0,0,0,0));
 
+        //Painel que mostrará os itens escolhidos
+        panelListaItensEscolhidos = new JPanel();
+        panelListaItensEscolhidos.setLayout(null);
+        panelListaItensEscolhidos.setBounds(posicaoX+400,posicaoY+100,150,70);
+        //panelListaItensEscolhidos.setBackground(new Color(0,0,0,0));
+        panelListaItensEscolhidos.setBackground(Color.WHITE);
 
-        //Criando o JList
+        //Fundo painel
+        JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
+                largura, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
+        fundoPanel.setBounds(0,0,largura,altura);
+
+        //Criando o JList de itens na bolsa
         JList<ListItem> jListItem = new JList<>(listaBolsa);
         jListItem.setCellRenderer(new ListaDeItensComImagem());
         jListItem.setVisibleRowCount(5);
-        jListItem.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jListItem.setBackground(new Color(210,180,140));
         //jListItem.setFont(new Font(Font.SERIF,Font.BOLD,18));
         jListItem.setForeground(new Color(139,0,0));
         JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
-        scrollListaSuspensaDeItens.setBounds(0,0,largura,altura-50);
+        scrollListaSuspensaDeItens.setBounds(50,35,290,altura-120);
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                JOptionPane.showMessageDialog(null,
-                        "Nome: "+jListItem.getSelectedValue().getNomeItem()+
-                                " - IdItem: "+jListItem.getSelectedValue().getIdItem() );
+
+                if (mapItens.size() >= 2){
+                    CarregarTelas.telaMensagem("Os dois itens já foram escolhidos.\n\n"+
+                            "Se precisar clique em um dos itens escolhidos para removê-lo.");
+                    return;
+                }
+
+                if ( mapItens.isEmpty() ){
+                    incluirItemEscolhido(botaoItemEscolhido1, jListItem,0);
+                }else {
+                    incluirItemEscolhido(botaoItemEscolhido2, jListItem,70);
+                }
+
             }
 
             @Override
@@ -187,13 +204,39 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
+        JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
+                100,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoConfirmar.setBounds(50,100,100,200);
 
+        //Adicionando componentes no panel que mostra os itens a serem escolhidos
+        panelListaSuspensaItens.add(botaoConfirmar);
         panelListaSuspensaItens.add(scrollListaSuspensaDeItens);
+        panelListaSuspensaItens.add(fundoPanel);
+
+        add(panelListaItensEscolhidos);
         add(panelListaSuspensaItens);
+
 
         //Carrega, mas deixa invisível, pois nos testes demorou a ser carregada quando clicado no botão
         //Preferi carregá-la e deixar invisível
         panelListaSuspensaItens.setVisible(false);
+    }
+
+    private void incluirItemEscolhido(JLabelOpcoesTelaSecao botao, JList<ListItem> jListItem, int espacoItem) {
+        int posicaoX = +espacoItem;
+
+        //Recupera as informações do item
+        Item item = Util.retornaItem(jListItem.getSelectedValue().getIdItem());
+
+        //Cria o componente e incluir no panel
+        botao = new JLabelOpcoesTelaSecao(null,
+                60,60,item.getEnderecoImagem());
+        botao.setBounds(posicaoX,0,60,60);
+        panelListaItensEscolhidos.add(botao);
+
+        //Guarda a referência do botão(item) para ser usado em seguida
+        mapItens.put(botao,item);
+        repaint();
     }
 
     private void carregarFaixasDasExtremidades() {

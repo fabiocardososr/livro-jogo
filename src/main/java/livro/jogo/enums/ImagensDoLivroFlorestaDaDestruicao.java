@@ -51,6 +51,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     MOLDURA_6("livros/florestadadestruicao/imagens/moldura_6.png"),
     MOLDURA_12("livros/florestadadestruicao/imagens/moldura_12.png"),
     MOLDURA_15("livros/florestadadestruicao/imagens/moldura_15.png"),
+    MOLDURA_16("livros/florestadadestruicao/imagens/moldura_16.png"),
     MOLDURA_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/moldura_tela_principal.png"),
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),

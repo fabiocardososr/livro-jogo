@@ -6,6 +6,8 @@ import javazoom.jl.player.Player;
 import livro.jogo.entidades.*;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.util.ListItem;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -326,6 +328,32 @@ public class Util {
             return true;
         else
             return false;
+    }
+
+    /// Usado, por exemplo, para montar a lista de itens(combo).
+    /// Exemplo seção 12 que pede uma lista e deve ser escolhido
+    /// 2 itens para descartar
+    public static ListItem[]  retornaListaDeBensNaBolsa(){
+        //Recupera os itens da bolsa
+        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+        ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
+        Item item;
+        for (int i=0; i<bolsa.size(); i++) {
+            item = bolsa.get(i);
+
+            //Não crio o objeto Icon diretamente, mas pela classe que redimensiona colocando n otalamnho que quero
+            RedimensionarImagem imagem = new RedimensionarImagem(item.getEnderecoImagem(), 20, 20);
+            ListItem itemDaLista = new ListItem(item.getIdItem(), item.getNome(), imagem.getImageIcon());
+            listaDeItensNaBolsa.add(itemDaLista);
+        }
+        //Transformando o ARrayList em um simples Array
+        return listaDeItensNaBolsa.toArray(new ListItem[0]);
+    }
+
+    public static Item retornaItem(int idItem){
+
+        return DadosLivroCarregado.getMapItem().get( idItem );
+
     }
 
 }
