@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -95,12 +96,16 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botaoComecarJornada.setIcon(Util.dimensionarImagem(botaoComecarJornada.getWidth(),
+                        botaoComecarJornada.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botaoComecarJornada.setIcon(Util.dimensionarImagem(botaoComecarJornada.getWidth(),
+                        botaoComecarJornada.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
             }
         });
 

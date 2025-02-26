@@ -4,9 +4,11 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.BotaoFaixaOpcoes;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +18,7 @@ import java.awt.event.MouseListener;
 public class TelaSecao_12 extends TelaSecoesBasica {
     private boolean entregou10Moedas = false;  //Informa se o personagem entregou 10 moedas
     private boolean entregar2Itens = false;    //Informa se escolheu entregar 2 itens ao Gnomo
+    private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
 
     public TelaSecao_12(Secao secao) {
         super(secao);
@@ -55,9 +58,9 @@ public class TelaSecao_12 extends TelaSecoesBasica {
     private void carregarListaItensParaDarAoGnomo() {
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(450,560,340,80);
+
+        JLabelOpcoesTelaSecao botao = new BotaoFaixaOpcoes(450,560,340,80)
+                .criarBotao();
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -76,27 +79,34 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                //tela.repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                //tela.repaint();
             }
         });
-        botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 2 itens</center></html>");
-        texto.setBounds(440,570,360,60);
+        texto.setBounds(555,585,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Escolha 2 itens para dar ao Gnomo.");
+        //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                if ( entregar2Itens ) {
+                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.");
+                    return;
+                }
+
                 panelListaSuspensaItens.setVisible(true);
             }
 
@@ -112,12 +122,14 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
             }
         });
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -135,10 +147,16 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
         botao.setBounds(90,560,340,80);
         botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
+     //   botao.setBorder(BorderFactory.createLineBorder(Color.RED));
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                if (entregou10Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
+                    return;
+                }
+
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
@@ -177,15 +195,21 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Pagar 10 moedas</center></html>");
-        texto.setBounds(80,570,360,60);
+        texto.setBounds(185,587,150,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Você entrega 10 moedas ao Gnomo.");
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (entregou10Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
+                    return;
+                }
+
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
@@ -212,12 +236,14 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
             }
         });
         //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));

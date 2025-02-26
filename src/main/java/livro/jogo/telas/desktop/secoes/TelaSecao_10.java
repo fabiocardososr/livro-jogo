@@ -1,12 +1,7 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
-
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
