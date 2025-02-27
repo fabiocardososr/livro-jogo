@@ -78,9 +78,11 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=53; i++)
+        for (int i=1; i<=53; i++) {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                    "livros/florestadadestruicao/itens/item_"+i+".json"));
+                    "livros/florestadadestruicao/itens/item_" + i + ".json"));
+            System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
+        }
 
 ////        for (int i=1; i<=5; i++)
 //        //Poção de força(energia)

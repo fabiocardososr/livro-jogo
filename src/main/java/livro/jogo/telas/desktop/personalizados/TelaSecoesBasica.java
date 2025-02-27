@@ -152,8 +152,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Painel que mostrará os itens escolhidos
         panelListaItensEscolhidos = new JPanel();
         panelListaItensEscolhidos.setLayout(null);
-        panelListaItensEscolhidos.setBounds(posicaoX+400,posicaoY+80,130,70);
-        panelListaItensEscolhidos.setBackground(new Color(0,0,0,30));
+        panelListaItensEscolhidos.setBounds(posicaoX+410,posicaoY+85,130,70);
+        panelListaItensEscolhidos.setBackground(new Color(0,0,0,60));
        // panelListaItensEscolhidos.setBackground(Color.WHITE);
 
         //Fundo painel
@@ -166,20 +166,19 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.setCellRenderer(new ListaDeItensComImagem());
         jListItem.setVisibleRowCount(5);
         jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jListItem.setBackground(new Color(210,180,140));
-        //jListItem.setFont(new Font(Font.SERIF,Font.BOLD,18));
-        jListItem.setForeground(new Color(139,0,0));
+        jListItem.setForeground(Color.WHITE);
+        jListItem.setBackground(new Color(0,0,0,0));
+        jListItem.setOpaque(false);
         JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
-        scrollListaSuspensaDeItens.setBounds(50,35,290,altura-120);
+        scrollListaSuspensaDeItens.setBounds(68,47,292,altura-95);
+        scrollListaSuspensaDeItens.setOpaque(false);
+        scrollListaSuspensaDeItens.getViewport().setOpaque(false);
+        //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 if (mapItens.size() >= 2){
-
-                    //ATENÇÃO: ESTA FUNÇÃO DEVE SER COLOCADA EM UM NOVO BOTAO QUE IRAR RESETAR AS ESCOLHAS
-                    limparPanelEscolhaItensASeremDescartados();
-
                     CarregarTelas.telaMensagem("Os dois itens já foram escolhidos.\n\n"+
                             "Se precisar, remova-os e faça novas escolhas.");
                     return;
@@ -216,9 +215,41 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
                 100,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoConfirmar.setBounds(50,100,100,200);
+        botaoConfirmar.setBounds(50,130,100,200);
+
+        //Botão limpar (resetar) escolhar
+        JLabelOpcoesTelaSecao botaoResetar = new JLabelOpcoesTelaSecao(null,
+                100,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoResetar.setBounds(160,130,100,200);
+        botaoResetar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                limparPanelEscolhaItensASeremDescartados();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         //Adicionando componentes no panel que mostra os itens a serem escolhidos
+        panelListaSuspensaItens.add(botaoResetar);
         panelListaSuspensaItens.add(botaoConfirmar);
         panelListaSuspensaItens.add(scrollListaSuspensaDeItens);
         panelListaSuspensaItens.add(fundoPanel);
