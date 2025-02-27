@@ -32,7 +32,6 @@ public abstract class TelaSecoesBasica extends JDialog {
     private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
     protected JFrame referenciaTelaPrincipal;
-
     private JLabelOpcoesTelaSecao labelMapaBotao;
     private JLabelOpcoesTelaSecao labelBolsa;
     private JLabelOpcoesTelaSecao labelPocaoInicial;
@@ -129,6 +128,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         });
     }
 
+    //Limpa a lista de itens selecionados
+    private void limparPanelEscolhaItensASeremDescartados(){
+        mapItens.clear();
+        panelListaItensEscolhidos.removeAll();
+        repaint();
+    }
+
     protected void carregaListaDeItensNaBolsaQuePodemSerEntregues(int posicaoX, int posicaoY,
                                                                   int largura, int altura) {
 
@@ -146,9 +152,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Painel que mostrará os itens escolhidos
         panelListaItensEscolhidos = new JPanel();
         panelListaItensEscolhidos.setLayout(null);
-        panelListaItensEscolhidos.setBounds(posicaoX+400,posicaoY+100,150,70);
-        //panelListaItensEscolhidos.setBackground(new Color(0,0,0,0));
-        panelListaItensEscolhidos.setBackground(Color.WHITE);
+        panelListaItensEscolhidos.setBounds(posicaoX+400,posicaoY+80,130,70);
+        panelListaItensEscolhidos.setBackground(new Color(0,0,0,30));
+       // panelListaItensEscolhidos.setBackground(Color.WHITE);
 
         //Fundo painel
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
@@ -170,13 +176,17 @@ public abstract class TelaSecoesBasica extends JDialog {
             public void mouseClicked(MouseEvent e) {
 
                 if (mapItens.size() >= 2){
+
+                    //ATENÇÃO: ESTA FUNÇÃO DEVE SER COLOCADA EM UM NOVO BOTAO QUE IRAR RESETAR AS ESCOLHAS
+                    limparPanelEscolhaItensASeremDescartados();
+
                     CarregarTelas.telaMensagem("Os dois itens já foram escolhidos.\n\n"+
-                            "Se precisar clique em um dos itens escolhidos para removê-lo.");
+                            "Se precisar, remova-os e faça novas escolhas.");
                     return;
                 }
 
                 if ( mapItens.isEmpty() ){
-                    incluirItemEscolhido(botaoItemEscolhido1, jListItem,0);
+                    incluirItemEscolhido(botaoItemEscolhido1, jListItem,10);
                 }else {
                     incluirItemEscolhido(botaoItemEscolhido2, jListItem,70);
                 }
@@ -228,15 +238,43 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Recupera as informações do item
         Item item = Util.retornaItem(jListItem.getSelectedValue().getIdItem());
 
+        //Se item já incluído não faça nada
+        for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
+           if (mapItens.get(key).getIdItem() == item.getIdItem())
+               return;
+        }
+
+        //Para ajustar largura da imagem. Vai ser necessário para alguns itens (padrão é 60)
+        int largura = ajusteLargura(jListItem.getSelectedValue().getIdItem());
+
+
+
         //Cria o componente e incluir no panel
         botao = new JLabelOpcoesTelaSecao(null,
-                60,60,item.getEnderecoImagem());
-        botao.setBounds(posicaoX,0,60,60);
+                largura,50,item.getEnderecoImagem());
+        botao.setBounds(posicaoX,10,50,50);
+
+        botao.setHorizontalAlignment(SwingConstants.CENTER);
         panelListaItensEscolhidos.add(botao);
+        //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Guarda a referência do botão(item) para ser usado em seguida
         mapItens.put(botao,item);
         repaint();
+    }
+
+    private int ajusteLargura(int idItem) {
+        int larguraPadrao = 50;
+
+        switch (idItem){
+            case 25: return larguraPadrao - 20; //Cabo do Martelo de Guerra dos Anões
+            case  5: return larguraPadrao - 10; //Chave de prata
+            case 16: return larguraPadrao - 10; //Poção Controle dos Insetos
+
+
+        }
+
+        return larguraPadrao;
     }
 
     private void carregarFaixasDasExtremidades() {

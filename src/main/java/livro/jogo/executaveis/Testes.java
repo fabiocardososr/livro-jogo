@@ -78,25 +78,28 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=5; i++)
+        for (int i=1; i<=53; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
                     "livros/florestadadestruicao/itens/item_"+i+".json"));
 
-//        for (int i=1; i<=5; i++)
-        //Poção de força(energia)
-       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-               "livros/florestadadestruicao/itens/item_46.json"));
-
-       //Cabeça de martelo
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_6.json"));
-
-       //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
+////        for (int i=1; i<=5; i++)
+//        //Poção de força(energia)
+//       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//               "livros/florestadadestruicao/itens/item_46.json"));
+//
+//       //Cabeça de martelo
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_6.json"));
+//
+//       //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_25.json"));
 
 
 
