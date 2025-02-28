@@ -74,8 +74,8 @@ public abstract class TelaSecoesBasica extends JDialog {
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
 
     //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
-    private JLabelOpcoesTelaSecao botaoItemEscolhido1; //
-    private JLabelOpcoesTelaSecao botaoItemEscolhido2; //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
+    private JLabelOpcoesTelaSecao imagemItemEscolhido1; //
+    private JLabelOpcoesTelaSecao imagemItemEscolhido2; //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
 
 
 
@@ -130,8 +130,25 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     //Limpa a lista de itens selecionados
     private void limparPanelEscolhaItensASeremDescartados(){
+
+        if ( mapItens.size() < 2)
+            return;
+
+        //Limpar o hashmap coim os itens selecionados
         mapItens.clear();
-        panelListaItensEscolhidos.removeAll();
+
+        //Removendo todos os componentes menos o fundo (imagem) circular
+        Component[] components = panelListaItensEscolhidos.getComponents();
+        for (Component component : components) {
+
+            if (component.getName() == null)
+                continue;
+
+            if ( component.getName().equals("REMOVER") ) {
+                panelListaItensEscolhidos.remove(component);
+                System.out.println("Componente: "+ component.getName());
+            }
+        }
         repaint();
     }
 
@@ -150,13 +167,23 @@ public abstract class TelaSecoesBasica extends JDialog {
         panelListaSuspensaItens.setBackground(new Color(0,0,0,0));
 
         //Painel que mostrará os itens escolhidos
-        panelListaItensEscolhidos = new JPanel();
+        panelListaItensEscolhidos = new PanelCircular();
         panelListaItensEscolhidos.setLayout(null);
-        panelListaItensEscolhidos.setBounds(posicaoX+410,posicaoY+85,130,70);
-        panelListaItensEscolhidos.setBackground(new Color(0,0,0,60));
-       // panelListaItensEscolhidos.setBackground(Color.WHITE);
+        panelListaItensEscolhidos.setBounds(posicaoX+410,posicaoY+7,250,230);
+        //panelListaItensEscolhidos.setBackground(new Color(0,0,0,60));
+        panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
 
-        //Fundo painel
+        //Fundo painel suspenso escolha (panelListaItensEscolhidos)
+        JLabelOpcoesTelaSecao fundoPanelEscolha = new JLabelOpcoesTelaSecao(null,
+                273, 243,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_CIRCULAR);
+        fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
+        fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
+        fundoPanelEscolha.setBounds(0,-2,250,230);
+        //fundoPanelEscolha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        panelListaItensEscolhidos.add(fundoPanelEscolha);
+
+
+        //Fundo painel suspenso principal (panelListaSuspensaItens)
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
                 largura, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
         fundoPanel.setBounds(0,0,largura,altura);
@@ -179,15 +206,16 @@ public abstract class TelaSecoesBasica extends JDialog {
             public void mouseClicked(MouseEvent e) {
 
                 if (mapItens.size() >= 2){
+
                     CarregarTelas.telaMensagem("Os dois itens já foram escolhidos.\n\n"+
                             "Se precisar, remova-os e faça novas escolhas.");
                     return;
                 }
 
                 if ( mapItens.isEmpty() ){
-                    incluirItemEscolhido(botaoItemEscolhido1, jListItem,10);
+                    incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
                 }else {
-                    incluirItemEscolhido(botaoItemEscolhido2, jListItem,70);
+                    incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
                 }
 
             }
@@ -263,8 +291,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         panelListaSuspensaItens.setVisible(false);
     }
 
-    private void incluirItemEscolhido(JLabelOpcoesTelaSecao botao, JList<ListItem> jListItem, int espacoItem) {
-        int posicaoX = +espacoItem;
+    //Inclui a imagem no panel de escolha suspensa e guarda em um hashmap
+    private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem, JList<ListItem> jListItem,
+                                      int espacoEntreItens) {
+        int posicaoX = 25 + espacoEntreItens;
+        int posicaoY = 80;
 
         //Recupera as informações do item
         Item item = Util.retornaItem(jListItem.getSelectedValue().getIdItem());
@@ -279,28 +310,29 @@ public abstract class TelaSecoesBasica extends JDialog {
         int largura = ajusteLargura(jListItem.getSelectedValue().getIdItem());
 
 
-
         //Cria o componente e incluir no panel
-        botao = new JLabelOpcoesTelaSecao(null,
-                largura,50,item.getEnderecoImagem());
-        botao.setBounds(posicaoX,10,50,50);
-
-        botao.setHorizontalAlignment(SwingConstants.CENTER);
-        panelListaItensEscolhidos.add(botao);
-        //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        imagemItem = new JLabelOpcoesTelaSecao(null,
+                largura,70,item.getEnderecoImagem());
+        imagemItem.setBounds(posicaoX+espacoEntreItens,posicaoY,largura,70);
+        imagemItem.setName("REMOVER"); //caso precise resetar a escolha. Entrão esse marcador indica que pode remover do panel
+        imagemItem.setHorizontalAlignment(SwingConstants.CENTER);
+        panelListaItensEscolhidos.add(imagemItem);
+        //imagemItem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Guarda a referência do botão(item) para ser usado em seguida
-        mapItens.put(botao,item);
+        mapItens.put(imagemItem,item);
         repaint();
     }
 
     private int ajusteLargura(int idItem) {
-        int larguraPadrao = 50;
+        int larguraPadrao = 70;
 
         switch (idItem){
-            case 25: return larguraPadrao - 20; //Cabo do Martelo de Guerra dos Anões
             case  5: return larguraPadrao - 10; //Chave de prata
+            case 10: return larguraPadrao + 10; //Espada Magnífica
             case 16: return larguraPadrao - 10; //Poção Controle dos Insetos
+            case 25: return larguraPadrao - 20; //Cabo do Martelo de Guerra dos Anões
+
 
 
         }
