@@ -64,9 +64,13 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                JOptionPane.showMessageDialog(null, entregou10Moedas);
-                if ( entregou10Moedas ) {
-                    CarregarTelas.telaMensagem("Você já pagou o Gnome com 10 moedas.");
+                if (entregou10Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
+                    return;
+                }
+
+                if ( escolheuItensDaListaSuspensa ) {
+                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.");
                     return;
                 }
 
@@ -190,8 +194,6 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
-                    //desabilito a ação de chamar a telade escolha de itens já que pagou com moeda
-                    botaoEscolhaItens.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar ao Gnomo.");
@@ -232,6 +234,13 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                if ( escolheuItensDaListaSuspensa ){
+                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.\nNão existe necessidade de entregar 10 moedas.");
+                    return;
+                }
+
+
                 if (entregou10Moedas) {
                     CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
                     return;
