@@ -10,6 +10,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.Bolsa;
 import livro.jogo.utils.EfeitoDeItens;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
@@ -59,15 +60,14 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabelOpcoesTelaSecao botaoOpcao1; //Primeira Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao2; //Segunda Opção da seção
     protected JLabelOpcoesTelaSecao botaoOpcao3; //Terceira Opção da seção
-    //protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
-    private boolean venceuTodosInimigos;  //Ela é preenchda na tela de batalha. Se ganhou=true;
+    protected JLabelOpcoesTelaSecao botaoOpcao4; //Quarta Opção da seção
     protected JLabel lbTextoOpcao1;
     protected JLabel lbTextoOpcao2;
     protected JLabel lbTextoOpcao3;
     protected JLabel labelNumOpcao1;
     protected JLabel labelNumOpcao2;
     protected JLabel labelNumOpcao3;
-    protected final HashMap<String, Integer> listaNomeEIdDosItens = Util.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
+    protected final HashMap<String, Integer> listaNomeEIdDosItens = Bolsa.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
     protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
     protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
     //Objeto que guarda a imagem do item
@@ -76,6 +76,9 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
     private JLabelOpcoesTelaSecao imagemItemEscolhido1; //
     private JLabelOpcoesTelaSecao imagemItemEscolhido2; //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
+    private int limiteDeEscolhaDeItens; //Limite de seleções no módulo de itens (usado, por exemplo, seção 12)
+    private DefaultListModel<ListItem> listaItensParaEscolha; //Vai servir para a tela de escolha de itens
+    protected boolean escolheuItensDaListaSuspensa;    //Informa se escolheu entregar 2 itens ao Gnomo
 
 
 
@@ -131,9 +134,6 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Limpa a lista de itens selecionados
     private void limparPanelEscolhaItensASeremDescartados(){
 
-        if ( mapItens.size() < 2)
-            return;
-
         //Limpar o hashmap coim os itens selecionados
         mapItens.clear();
 
@@ -146,21 +146,22 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             if ( component.getName().equals("REMOVER") ) {
                 panelListaItensEscolhidos.remove(component);
-                System.out.println("Componente: "+ component.getName());
             }
         }
         repaint();
     }
 
+    //variável limiteDeEscolhaDeItens indica o limite de seleções que podem ser feitas
+    //Exemplo é a seção 12 que podem ser escolhidos 2 itens para entregar ao Gnomo
     protected void carregaListaDeItensNaBolsaQuePodemSerEntregues(int posicaoX, int posicaoY,
-                                                                  int largura, int altura) {
-
-        //Array simples de itens na bolsa
-        ListItem[] listaBolsa = Util.retornaListaDeBensNaBolsa();
+                                                                  int largura, int altura,
+                                                                  int limiteDeEscolhaDeItens) {
+        //Pode limitar o número de itens selecionados
+        this.limiteDeEscolhaDeItens = limiteDeEscolhaDeItens;
 
         /* CRIAÇÃO DOS COMPONENTES VISUAIS */
 
-        //Painel que incorporará todos os componentes
+        //Painel que incorporará a lista de itens da bolsa
         panelListaSuspensaItens = new JPanel();
         panelListaSuspensaItens.setLayout(null);
         panelListaSuspensaItens.setBounds(posicaoX,posicaoY,largura,altura);
@@ -170,8 +171,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         panelListaItensEscolhidos = new PanelCircular();
         panelListaItensEscolhidos.setLayout(null);
         panelListaItensEscolhidos.setBounds(posicaoX+410,posicaoY+7,250,230);
-        //panelListaItensEscolhidos.setBackground(new Color(0,0,0,60));
-        panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
+        panelListaItensEscolhidos.setBackground(new Color(0,0,0, 210));
+        //panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
+
 
         //Fundo painel suspenso escolha (panelListaItensEscolhidos)
         JLabelOpcoesTelaSecao fundoPanelEscolha = new JLabelOpcoesTelaSecao(null,
@@ -180,7 +182,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
         fundoPanelEscolha.setBounds(0,-2,250,230);
         //fundoPanelEscolha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        panelListaItensEscolhidos.add(fundoPanelEscolha);
 
 
         //Fundo painel suspenso principal (panelListaSuspensaItens)
@@ -188,8 +189,16 @@ public abstract class TelaSecoesBasica extends JDialog {
                 largura, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
         fundoPanel.setBounds(0,0,largura,altura);
 
+
+
+        //Cria um listModel para que possa iterar diretamente com o JList.
+        //Atualizando ele, automaticamente o JList muda
+        listaItensParaEscolha = new DefaultListModel<>();
+        for (ListItem listItem : Bolsa.retornaListaDeBensNaBolsa())
+            listaItensParaEscolha.addElement(listItem);
+
         //Criando o JList de itens na bolsa
-        JList<ListItem> jListItem = new JList<>(listaBolsa);
+        JList<ListItem> jListItem = new JList<>(listaItensParaEscolha);
         jListItem.setCellRenderer(new ListaDeItensComImagem());
         jListItem.setVisibleRowCount(5);
         jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -204,20 +213,22 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if (mapItens.size() >= 2){
-
-                    CarregarTelas.telaMensagem("Os dois itens já foram escolhidos.\n\n"+
+                //Se já escolhidos 2 itens
+                if (mapItens.size() == limiteDeEscolhaDeItens){
+                    CarregarTelas.telaMensagem("Os "+limiteDeEscolhaDeItens+
+                            " itens já foram escolhidos.\n\n"+
                             "Se precisar, remova-os e faça novas escolhas.");
                     return;
                 }
 
+                //Incluir itens escolhidos
+                //ATENÇÃO AQUI pois está preparado apenas para atender a
+                // tela de seção 12 que a escolha é apenas 2 itens
                 if ( mapItens.isEmpty() ){
                     incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
                 }else {
                     incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
                 }
-
             }
 
             @Override
@@ -241,14 +252,86 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
+        //Botão de confirmação
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
-                100,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoConfirmar.setBounds(50,130,100,200);
+                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoConfirmar.setBounds(50,195,100,60);
+        botaoConfirmar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                confirmarEscolhaItens();
+            }
 
-        //Botão limpar (resetar) escolhar
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoConfirmar.setIcon(Util.dimensionarImagem(botaoConfirmar.getWidth(),
+                        botaoConfirmar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoConfirmar.setIcon(Util.dimensionarImagem(botaoConfirmar.getWidth(),
+                        botaoConfirmar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        //Botão sair sem fazer nada
+        JLabelOpcoesTelaSecao botaoSair = new JLabelOpcoesTelaSecao(null,
+                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoSair.setBounds(160,195,100,60);
+        botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoSair.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                limparPanelEscolhaItensASeremDescartados();
+                panelListaSuspensaItens.setVisible(false);
+                panelListaItensEscolhidos.setVisible(false);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoSair.setIcon(Util.dimensionarImagem(botaoSair.getWidth(),botaoSair.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoSair.setIcon(Util.dimensionarImagem(botaoSair.getWidth(),botaoSair.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem()));
+                repaint();
+            }
+        });
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Botão limpar (resetar)
         JLabelOpcoesTelaSecao botaoResetar = new JLabelOpcoesTelaSecao(null,
-                100,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(160,130,100,200);
+                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoResetar.setBounds(270,195,100,60);
         botaoResetar.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -267,18 +350,55 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
+                        botaoResetar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem()));
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
+                        botaoResetar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem()));
+                repaint();
             }
         });
 
+        //label do botãoSair
+        JLabel lbBotaoSair = new JLabel("Sair");
+        lbBotaoSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        lbBotaoSair.setForeground(new Color(139,0,0));
+        lbBotaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoSair.setBounds(185,212,50,20);
+        lbBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //lbBotaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+
+        //label do botaoConfirmar
+        JLabel lbBotaoConfirmar = new JLabel("OK");
+        lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
+        lbBotaoConfirmar.setForeground(new Color(139,0,0));
+        lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoConfirmar.setBounds(75,212,50,20);
+        lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        //label do resetar
+        JLabel lbBotaoLimpar = new JLabel("Limpar");
+        lbBotaoLimpar.setFont(new Font(Font.SERIF,Font.BOLD,14));
+        lbBotaoLimpar.setForeground(new Color(139,0,0));
+        lbBotaoLimpar.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoLimpar.setBounds(295,212,50,20);
+        lbBotaoLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         //Adicionando componentes no panel que mostra os itens a serem escolhidos
+        panelListaSuspensaItens.add(lbBotaoLimpar);
         panelListaSuspensaItens.add(botaoResetar);
+        panelListaSuspensaItens.add(lbBotaoConfirmar);
         panelListaSuspensaItens.add(botaoConfirmar);
+        panelListaSuspensaItens.add(lbBotaoSair);
+        panelListaSuspensaItens.add(botaoSair);
+        panelListaItensEscolhidos.add(fundoPanelEscolha);
         panelListaSuspensaItens.add(scrollListaSuspensaDeItens);
         panelListaSuspensaItens.add(fundoPanel);
 
@@ -287,8 +407,40 @@ public abstract class TelaSecoesBasica extends JDialog {
 
 
         //Carrega, mas deixa invisível, pois nos testes demorou a ser carregada quando clicado no botão
-        //Preferi carregá-la e deixar invisível
         panelListaSuspensaItens.setVisible(false);
+        panelListaItensEscolhidos.setVisible(false);
+    }
+
+    private void confirmarEscolhaItens() {
+
+        if ( escolheuItensDaListaSuspensa )
+            return;
+
+        if (mapItens.size() < limiteDeEscolhaDeItens) {
+            CarregarTelas.telaMensagem(personagem.getNome()+
+                    ",\nVocê precisa escolher "+limiteDeEscolhaDeItens+" itens.");
+            return;
+        }
+
+        CarregarTelas.telaMensagem(personagem.getNome()+
+                ",\nDeseja confirmar sua escolha?", this);
+
+        if ( respostaTelaMensagem  ) {
+            for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
+                Bolsa.removerItem(mapItens.get(key).getIdItem());
+                escolheuItensDaListaSuspensa = true;
+                panelListaSuspensaItens.setVisible(false);
+                panelListaItensEscolhidos.setVisible(false);
+            }
+
+            //Recria a lista de modo a não aparecer mais os itens excluídos
+            //Deixe aqui como exemplo caso precise iterar com algum jlist
+//            listaItensParaEscolha.clear();
+//            for (ListItem listItem : Bolsa.retornaListaDeBensNaBolsa())
+//                listaItensParaEscolha.addElement(listItem);
+
+
+        }
     }
 
     //Inclui a imagem no panel de escolha suspensa e guarda em um hashmap
@@ -1094,12 +1246,20 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-
+            if (e.getSource() == labelBolsa){
+                labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA_SELECIONADA.getEnderecoImagem(),
+                        labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
+                repaint();
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-
+            if (e.getSource() == labelBolsa){
+                labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem(),
+                        labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
+                repaint();
+            }
         }
     }
 

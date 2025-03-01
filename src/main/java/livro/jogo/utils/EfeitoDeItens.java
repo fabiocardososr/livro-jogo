@@ -27,7 +27,7 @@ public class EfeitoDeItens {
     private static boolean efeitoItem1() {
 
         //Se o anel já equipado, não faz nada e sai
-        if (Util.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
+        if (Bolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
             return false;
 
         //Recupera o item anel da luz(código 1)

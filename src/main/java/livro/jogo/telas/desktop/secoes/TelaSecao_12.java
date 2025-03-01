@@ -17,8 +17,8 @@ import java.awt.event.MouseListener;
 
 public class TelaSecao_12 extends TelaSecoesBasica {
     private boolean entregou10Moedas = false;  //Informa se o personagem entregou 10 moedas
-    private boolean entregar2Itens = false;    //Informa se escolheu entregar 2 itens ao Gnomo
     private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
+    private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopó global para que seja desabilitado caso escolha a opção de pagar com moedas
 
     public TelaSecao_12(Secao secao) {
         super(secao);
@@ -26,7 +26,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250);
+        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
 
         opcao1(secao);
         opcao2(secao);
@@ -48,7 +48,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         //Ação ao clicar
         acaoBotoes(secao);
 
-        //Escolher moedas para dar a oGnomo
+        //Escolher moedas para dar ao Gnomo
         carregaBotaoOpcaoMoedas();
 
         //Escolher 2 itens para dar ao Gnomo
@@ -59,12 +59,19 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
         //Botão
 
-        JLabelOpcoesTelaSecao botao = new BotaoFaixaOpcoes(450,560,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
                 .criarBotao();
-        botao.addMouseListener(new MouseListener() {
+        botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, entregou10Moedas);
+                if ( entregou10Moedas ) {
+                    CarregarTelas.telaMensagem("Você já pagou o Gnome com 10 moedas.");
+                    return;
+                }
+
                 panelListaSuspensaItens.setVisible(true);
+                panelListaItensEscolhidos.setVisible(true);
             }
 
             @Override
@@ -79,14 +86,17 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
-                //tela.repaint();
+                botaoEscolhaItens.setIcon(Util.dimensionarImagem(botaoEscolhaItens.getWidth(),
+                        botaoEscolhaItens.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
-                //tela.repaint();
+                botaoEscolhaItens.setIcon(Util.dimensionarImagem(botaoEscolhaItens.getWidth(),
+                        botaoEscolhaItens.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
             }
         });
 
@@ -102,12 +112,18 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if ( entregar2Itens ) {
+                if (entregou10Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
+                    return;
+                }
+
+                if ( escolheuItensDaListaSuspensa ) {
                     CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.");
                     return;
                 }
 
                 panelListaSuspensaItens.setVisible(true);
+                panelListaItensEscolhidos.setVisible(true);
             }
 
             @Override
@@ -122,22 +138,25 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                botaoEscolhaItens.setIcon(Util.dimensionarImagem(botaoEscolhaItens.getWidth(),
+                        botaoEscolhaItens.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
                 repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                botao.setIcon(Util.dimensionarImagem(botao.getWidth(),botao.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                botaoEscolhaItens.setIcon(Util.dimensionarImagem(botaoEscolhaItens.getWidth(),
+                        botaoEscolhaItens.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
                 repaint();
             }
         });
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-
         add(texto);
-        add(botao);
+        add(botaoEscolhaItens);
     }
 
     private void carregaBotaoOpcaoMoedas() {
@@ -152,6 +171,12 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
+                if ( escolheuItensDaListaSuspensa ){
+                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.\nNão existe necessidade de entregar 10 moedas.");
+                    return;
+                }
+
+
                 if (entregou10Moedas) {
                     CarregarTelas.telaMensagem("Você já pagou o Gnomo.");
                     return;
@@ -165,6 +190,8 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
+                    //desabilito a ação de chamar a telade escolha de itens já que pagou com moeda
+                    botaoEscolhaItens.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar ao Gnomo.");
@@ -261,7 +288,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
                 if (e.getSource() == botaoOpcao1){
 
-                    if ( (entregou10Moedas) || (entregar2Itens) )
+                    if ( (entregou10Moedas) || (escolheuItensDaListaSuspensa) )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem("Pague ao Gnomo 10 peças de ouro ou entregue 2 itens a sua escolha"+
@@ -295,7 +322,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             public void mouseClicked(MouseEvent e) {
 
                 if (e.getSource() == botaoOpcao2){
-                    if ( (entregou10Moedas) || (entregar2Itens) )
+                    if ( (entregou10Moedas) || (escolheuItensDaListaSuspensa) )
                         abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem("Pague ao Gnomo 10 peças de ouro ou entregue 2 itens a sua escolha"+
@@ -336,7 +363,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                         return;
                     }
 
-                    if ( (!entregou10Moedas) && (!entregar2Itens) ) {
+                    if ( (!entregou10Moedas) && (!escolheuItensDaListaSuspensa) ) {
                         CarregarTelas.telaMensagem("Você não recupera sua espada.\n\nAndar na"+
                                 " Floresta de Darkwood desarmado é suicídio. Volte por onde você veio.\n\nSua aventura acaba aqui.");
                         dispose();

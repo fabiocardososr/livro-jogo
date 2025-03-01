@@ -81,7 +81,7 @@ public class Testes {
         for (int i=1; i<=53; i++) {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
                     "livros/florestadadestruicao/itens/item_" + i + ".json"));
-            System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
+            //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
         }
 
 ////        for (int i=1; i<=5; i++)

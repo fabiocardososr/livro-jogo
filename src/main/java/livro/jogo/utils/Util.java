@@ -12,14 +12,11 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.TimerTask;
 
 
 public class Util {
@@ -208,61 +205,6 @@ public class Util {
         return listaNomesArquivos;
     }
 
-    //Serve para popular uma lista dos itens para algum tipo de escolha (por exemplo, secao 12 pede para escolher 2 itens e dar para o Gnomo)
-    public static HashMap<String, Integer> listarNomesItensNaBolsa(){
-        HashMap<String, Integer> listaNomesDeItens = new HashMap<>();
-
-        for (Item item : DadosLivroCarregado.getBolsa()){
-                listaNomesDeItens.put(item.getNome(),item.getIdItem());
-        }
-
-        return listaNomesDeItens;
-    }
-
-    //Verifica se o personagem possui determinado item na bolsa ou equipado
-    public static boolean verificarExistenciaDeItemNaBolsaOuEquipado(int idItem){
-
-        //Estando na bolsa
-        for (Item item : DadosLivroCarregado.getBolsa()){
-            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
-                return true;
-            }
-        }
-
-        //Equipado
-        for (Item item : DadosLivroCarregado.getItensEquipados()){
-            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    //Verifica se o personagem possui determinado item na bolsa
-    public static boolean verificarExistenciaDeItemNaBolsa(int idItem){
-
-        //Estando na bolsa
-        for (Item item : DadosLivroCarregado.getBolsa()){
-            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    //Verifica se o personagem possui determinado item equipado
-    public static boolean verificarExistenciaDeItemEquipado(int idItem){
-
-        for (Item item : DadosLivroCarregado.getItensEquipados()){
-            if ( item.getIdItem() == idItem ){
-                return true;
-            }
-        }
-        return false;
-    }
-
     //Verifica se personagem vivo. True se Energia maior que "0"
     public static boolean retornaSePersonagemVivo(){
 
@@ -330,29 +272,15 @@ public class Util {
             return false;
     }
 
-    /// Usado, por exemplo, para montar a lista de itens(combo).
-    /// Exemplo seção 12 que pede uma lista e deve ser escolhido
-    /// 2 itens para descartar
-    public static ListItem[]  retornaListaDeBensNaBolsa(){
-        //Recupera os itens da bolsa
-        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-        ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
-        Item item;
-        for (int i=0; i<bolsa.size(); i++) {
-            item = bolsa.get(i);
-
-            //Não crio o objeto Icon diretamente, mas pela classe que redimensiona colocando n otalamnho que quero
-            RedimensionarImagem imagem = new RedimensionarImagem(item.getEnderecoImagem(), 20, 20);
-            ListItem itemDaLista = new ListItem(item.getIdItem(), item.getNome(), imagem.getImageIcon());
-            listaDeItensNaBolsa.add(itemDaLista);
-        }
-        //Transformando o ARrayList em um simples Array
-        return listaDeItensNaBolsa.toArray(new ListItem[0]);
-    }
-
     public static Item retornaItem(int idItem){
 
         return DadosLivroCarregado.getMapItem().get( idItem );
+
+    }
+
+    public static void retiraItemDaBolsa(){
+        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+
 
     }
 

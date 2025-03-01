@@ -32,6 +32,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     FAIXA_VERTICAL_1("livros/florestadadestruicao/imagens/faixa_vertical_1.png"),
     BOLSA("livros/florestadadestruicao/imagens/bolsa.png"),
+    BOLSA_SELECIONADA("livros/florestadadestruicao/imagens/bolsa_selecionada.png"),
     PLACA_1("livros/florestadadestruicao/imagens/placa.png"),
     HOMEM_CORRENDO("livros/florestadadestruicao/imagens/homem_correndo.png"),
     GIF_ROLANDO_DADOS("livros/florestadadestruicao/imagens/rolando_dados.gif"),
@@ -57,6 +58,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BUSSOLA("livros/florestadadestruicao/imagens/bussola.png"),
     ANOTACOES("livros/florestadadestruicao/imagens/anotacoes.png"),
     FAIXA("livros/florestadadestruicao/imagens/faixa.png"),
+    FAIXA_SELECIONADA("livros/florestadadestruicao/imagens/faixa_selecionada.png"),
     FAIXA_SUPERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_superior_esquerda.png"),
     FAIXA_SUPERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_superior_direita.png"),
     FAIXA_INFERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_inferior_esquerda.png"),
