@@ -7,6 +7,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.BotaoFaixa;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
@@ -21,10 +22,16 @@ import java.awt.event.MouseListener;
 
 public class TelaPrincipal extends TelaBasica {
     private final Livro livro;
-    private JLabel labelOpcoesRegras;
-    private JLabel labelBotaoCarregarPersonagem;
-    private JLabel labelBotaoIniciarJogo;
-    private JLabel labelBotaoFechar;
+    private JLabel labelRegras;
+    private JLabelOpcoesTelaSecao botaoRegras;
+    private JLabel labelIniciarJogo;
+    private JLabelOpcoesTelaSecao botaoIniciarJogo;
+    private JLabel labelCarregarPersonagem;
+    private JLabelOpcoesTelaSecao botaoCarregarPersonagem;
+    private JLabel labelSair;
+    private JLabelOpcoesTelaSecao botaoSair;
+    private final int LARGURA_BOTOES_INFERIORES = 220;
+    private final int ALTURA_BOTOES_INFERIORES = 150;
     private final CarregarTelas carregarTelas = new CarregarTelas(this);
 
     public TelaPrincipal(int largura, int altura) {
@@ -44,24 +51,24 @@ public class TelaPrincipal extends TelaBasica {
         labelImgCapaLivro.setIcon( new ImageIcon(livro.getImagemCapa()));
 
         //FAIXA SUPERIOR ESQUERDA
-        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
+        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao("",
+                300, 250, ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
         labelFaixaSuperiorEsquerda.setBounds(-120,-100,300,250);
         labelFaixaSuperiorEsquerda.setCursor(null);
 
         //FAIXA SUPERIOR DIREITA
-        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
+        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao("",
+                300, 250, ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
         labelFaixaSuperiorDireita.setBounds(1255,-100,300,250);
 
         //FAIXA INFERIOR DIREITA
-        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
+        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao("",
+                300, 250, ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
         labelFaixaInferiorDireita.setBounds(1255,580,300,250);
 
         //FAIXA INFERIOR ESQUERDA
-        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
+        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao("",
+                300, 250, ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
         labelFaixaInferiorEsquerda.setBounds(-130,580,300,250);
         labelFaixaInferiorEsquerda.setCursor(null);
 
@@ -74,7 +81,6 @@ public class TelaPrincipal extends TelaBasica {
         StyledDocument textoCapaLivroStyle = textoCapaLivro.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
-        //StyleConstants.setFontSize(configTexto,17);
         StyleConstants.setForeground(configTexto,new Color(139,0,0));
         textoCapaLivroStyle.setParagraphAttributes(0, textoCapaLivroStyle.getLength(), configTexto, false);
         textoCapaLivro.setEditable(false);
@@ -82,8 +88,8 @@ public class TelaPrincipal extends TelaBasica {
         textoCapaLivro.setText(livro.getDescricao());
 
         //Fundo do texto (moldura)
-        JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao(null,900,600,
-                ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
+        JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao("",
+                900, 600, ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
         labelMolduraTextoTelaPrincipal.setCursor(null);
 
         /* Posicionanado */
@@ -115,54 +121,123 @@ public class TelaPrincipal extends TelaBasica {
     }
 
     private void configurarBotaoRegras(TelaPrincipalAcaoDosLabelsBotoes acao){
-        BotaoFaixa botaoFaixa = new BotaoFaixa("Regras",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelOpcoesRegras = botaoFaixa.criarBotao(getContentPane(), 480, 520,250,200,
-                530, 590,150,50);
-        labelOpcoesRegras.addMouseListener(acao);
+
+        botaoRegras = new JLabelOpcoesTelaSecao("",
+                LARGURA_BOTOES_INFERIORES,
+                ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoRegras.setBounds(490,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoRegras.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        botaoRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoRegras.addMouseListener(acao);
+
+        labelRegras = new JLabel("Regras");
+        labelRegras.setForeground(new Color(139,0,0));
+        labelRegras.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelRegras.setHorizontalAlignment(SwingConstants.CENTER);
+        labelRegras.setVerticalAlignment(SwingConstants.CENTER);
+        labelRegras.setBounds(525,603,150,50);
+        labelRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelRegras.addMouseListener(acao);
+
+        add(labelRegras);
+        add(botaoRegras);
     }
 
     private void configurarBotaoIniciarJogo(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        BotaoFaixa botaoFaixa = new BotaoFaixa("Iniciar",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoIniciarJogo = botaoFaixa.criarBotao(getContentPane(),
-                710, 520,250,200,
-                763, 590,150,50);
-        labelBotaoIniciarJogo.addMouseListener(acao);
+        botaoIniciarJogo = new JLabelOpcoesTelaSecao("",
+                LARGURA_BOTOES_INFERIORES,
+                ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoIniciarJogo.setBounds(720,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        botaoIniciarJogo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoIniciarJogo.addMouseListener(acao);
+
+        labelIniciarJogo = new JLabel("Iniciar");
+        labelIniciarJogo.setForeground(new Color(139,0,0));
+        labelIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelIniciarJogo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelIniciarJogo.setVerticalAlignment(SwingConstants.CENTER);
+        labelIniciarJogo.setBounds(758,603,150,50);
+        labelIniciarJogo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelIniciarJogo.addMouseListener(acao);
+
+        add(labelIniciarJogo);
+        add(botaoIniciarJogo);
     }
 
     private void configurarBotaoCarregarPersonagem(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        BotaoFaixa botaoFaixa = new BotaoFaixa("Carregar",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoCarregarPersonagem = botaoFaixa.criarBotao(getContentPane(),
-                940, 520,250,200,
-                992, 590,150,50);
-        labelBotaoCarregarPersonagem.addMouseListener(acao);
+
+        botaoCarregarPersonagem = new JLabelOpcoesTelaSecao("",
+                LARGURA_BOTOES_INFERIORES,
+                ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoCarregarPersonagem.setBounds(950,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        botaoCarregarPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoCarregarPersonagem.addMouseListener(acao);
+
+        labelCarregarPersonagem = new JLabel("Carregar");
+        labelCarregarPersonagem.setForeground(new Color(139,0,0));
+        labelCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelCarregarPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
+        labelCarregarPersonagem.setVerticalAlignment(SwingConstants.CENTER);
+        labelCarregarPersonagem.setBounds(988,603,150,50);
+        labelCarregarPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelCarregarPersonagem.addMouseListener(acao);
+
+        add(labelCarregarPersonagem);
+        add(botaoCarregarPersonagem);
     }
 
     private void configurarBotaoFechar(TelaPrincipalAcaoDosLabelsBotoes acao) {
-        BotaoFaixa botaoFaixa = new BotaoFaixa("Sair",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoFechar = botaoFaixa.criarBotao(getContentPane(),
-                1170, 520,250,200,
-                1225, 590,150,50);
-        labelBotaoFechar.addMouseListener(acao);
+        botaoSair = new JLabelOpcoesTelaSecao("",
+                LARGURA_BOTOES_INFERIORES,
+                ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoSair.setBounds(1180,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoSair.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoSair.addMouseListener(acao);
+
+        labelSair = new JLabel("Sair");
+        labelSair.setForeground(new Color(139,0,0));
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.setVerticalAlignment(SwingConstants.CENTER);
+        labelSair.setBounds(1217,603,150,50);
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelSair.addMouseListener(acao);
+
+        add(labelSair);
+        add(botaoSair);
+
+
+//        BotaoFaixa botaoFaixa = new BotaoFaixa("Sair",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+//        labelBotaoFechar = botaoFaixa.criarBotao(getContentPane(),
+//                1170, 520,250,200,
+//                1225, 590,150,50);
+//        labelBotaoFechar.addMouseListener(acao);
     }
 
     private class TelaPrincipalAcaoDosLabelsBotoes implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getSource() == labelOpcoesRegras){
+            if ( (e.getSource() == labelRegras) || (e.getSource() == botaoRegras) ){
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
             }
 
-            if (e.getSource() == labelBotaoCarregarPersonagem){
-                //JOptionPane.showMessageDialog(null,"Aqui vai ter uma tela para carregar personagens salvos");
+            if ( (e.getSource() == labelCarregarPersonagem) ||  (e.getSource() == botaoCarregarPersonagem)){
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
             }
 
-            if (e.getSource() == labelBotaoIniciarJogo){
+            if ( (e.getSource() == labelIniciarJogo) || (e.getSource() == botaoIniciarJogo) ){
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CRIACAO_PERSONAGEM,"","","");
             }
 
-            if (e.getSource() == labelBotaoFechar){
+            if ( (e.getSource() == labelSair) || (e.getSource() == botaoSair) ){
                 System.exit(0);
             }
         }
@@ -179,11 +254,62 @@ public class TelaPrincipal extends TelaBasica {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if ( (e.getSource() == labelRegras) || (e.getSource() == botaoRegras) ){
+                botaoRegras.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoRegras.getWidth(), botaoRegras.getHeight()).getImageIcon());
+                repaint();
+            }
 
+            if ( (e.getSource() == labelIniciarJogo) || (e.getSource() == botaoIniciarJogo) ){
+                botaoIniciarJogo.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoIniciarJogo.getWidth(), botaoIniciarJogo.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelCarregarPersonagem) ||  (e.getSource() == botaoCarregarPersonagem)){
+                botaoCarregarPersonagem.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoCarregarPersonagem.getWidth(), botaoCarregarPersonagem.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelSair) || (e.getSource() == botaoSair) ){
+                botaoSair.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                repaint();
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if ( (e.getSource() == labelRegras) || (e.getSource() == botaoRegras) ){
+                botaoRegras.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoRegras.getWidth(), botaoRegras.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelIniciarJogo) || (e.getSource() == botaoIniciarJogo) ){
+                botaoIniciarJogo.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoIniciarJogo.getWidth(), botaoIniciarJogo.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelCarregarPersonagem) ||  (e.getSource() == botaoCarregarPersonagem)){
+                botaoCarregarPersonagem.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoCarregarPersonagem.getWidth(), botaoCarregarPersonagem.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelSair) || (e.getSource() == botaoSair) ){
+                botaoSair.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                repaint();
+            }
 
         }
     } //FIM AcaoDosBotoes implements ActionListener
