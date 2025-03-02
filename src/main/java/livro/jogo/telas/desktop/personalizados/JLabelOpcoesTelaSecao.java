@@ -66,5 +66,4 @@ public class JLabelOpcoesTelaSecao extends JLabel {
     }
 
 
-
 }

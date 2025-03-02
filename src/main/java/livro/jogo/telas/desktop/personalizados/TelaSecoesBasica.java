@@ -72,6 +72,8 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
     //Objeto que guarda a imagem do item
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
+    private JLabelOpcoesTelaSecao labelFundoMapa;
+    private JLabelOpcoesTelaSecao labelFundoPocaoInicial;
 
     //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
     private JLabelOpcoesTelaSecao imagemItemEscolhido1; //
@@ -79,7 +81,10 @@ public abstract class TelaSecoesBasica extends JDialog {
     private int limiteDeEscolhaDeItens; //Limite de seleções no módulo de itens (usado, por exemplo, seção 12)
     private DefaultListModel<ListItem> listaItensParaEscolha; //Vai servir para a tela de escolha de itens
     protected boolean escolheuItensDaListaSuspensa;    //Informa se escolheu entregar 2 itens ao Gnomo
-
+    private boolean pocaoInicialConsumido; //Informa se a poção incial foi tomada
+    private JLabelOpcoesTelaSecao botaoLabelFundoProvisoes;
+    private JLabelOpcoesTelaSecao botaoLabelFundoAnotacoes;
+    private JLabelOpcoesTelaSecao botaoLabelFundoSalvar;
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -765,9 +770,12 @@ public abstract class TelaSecoesBasica extends JDialog {
     }
 
     private void carregarPainelDireito() {
+
+        //Imagem de fundo (um pergaminho)
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
         imgPainelDireito.setLayout(null);
 
+        //Quadra onde mostra a imagem padrão de uma floresta
         ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
         JLabel labelImgMapa = new JLabel(imageIcon);
         labelImgMapa.setBounds(2,2,200,200);
@@ -776,59 +784,20 @@ public abstract class TelaSecoesBasica extends JDialog {
         dialogImagemMapa.add(labelImgMapa);
         dialogImagemMapa.addMouseListener(new TelaSecoesBasicaAcaoDosLabels());
 
-        //Configura labelMapa(Botão)
-        labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        //Configura imagem do botão do Mapa
+        configuraBotaoMapa();
 
-        //Significa que é a tela inicial e o personagem ainda não adquiriu o mapa
-        if (secao == null)
-            labelMapaBotao.setEnabled(false);
-        else
-            labelMapaBotao.addMouseListener(acaoLabels);
-
-        //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
-        pocaoInicial = Util.retornaPocaoInicialDaBolsa();
-
-        if (pocaoInicial == null)
-            configuraPocaoVaziaQuandoPocaoInicialConsumida();
-
-        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
-            labelPocaoInicial.setToolTipText("Repõe os pontos de HABILIDADE");
-            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
-            labelPocaoInicial.setBounds(1285,265,150,100);
-        }
-
-        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45,
-                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
-            labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
-            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
-            labelPocaoInicial.setBounds(1290,265,150,100);
-        }
-        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35,
-                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
-            labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
-            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
-            labelPocaoInicial.setBounds(1285,265,150,100);
-        }
-
-        if (pocaoInicial != null)
-            labelPocaoInicial.addMouseListener(acaoLabels);
+        //Configura botão da poção inicial
+        configuraBotaoPocaoInicial();
 
         //Provisões
-        var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
-        labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
-                ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
-        labelProvisoes.addMouseListener(acaoLabels);
-        labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        carregaBotaoDeProvisoes();
 
         //Anotações
-        labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",30,35,
-                ImagensDoLivroFlorestaDaDestruicao.ANOTACOES);
-        labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        labelAnotacoes.addMouseListener(acaoLabels);
+        carregarBotaoAnotacoes();
+
+        //Salvar
+        carregarBotaoSalvar();
 
         //Ouro
         labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
@@ -839,26 +808,6 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
 
-        //Salvar
-        labelSalvar = new JLabel("Salvar");
-        labelSalvar.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        labelSalvar.setForeground(new Color(139,0,0));
-        labelSalvar.addMouseListener(acaoLabels);
-        labelSalvar.setHorizontalAlignment(SwingConstants.CENTER);
-        labelSalvar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //labelSalvar.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        JLabelOpcoesTelaSecao labelFundoMapa = new JLabelOpcoesTelaSecao(null,220,180,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        JLabelOpcoesTelaSecao labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,180,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        JLabelOpcoesTelaSecao labelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,180,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        JLabelOpcoesTelaSecao labelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,180,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        JLabelOpcoesTelaSecao labelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,150,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
 
         labelSair = new JLabelOpcoesTelaSecao(null,130,110,
                 ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR);
@@ -872,39 +821,141 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Posicionamento
         labelOuro.setBounds(1300,60,85,55);
         labelFundoOuro.setBounds(1238,40,200,100);
-        labelMapaBotao.setBounds(1285,157,120,80);
-        labelFundoMapa.setBounds(1230,140,200,120);
-        labelFundoPocaoInicial.setBounds(1230,260,200,120);
-        labelProvisoes.setBounds(1260,375,250,100);
-        labelFundoProvisoes.setBounds(1230,380,250,100);
-        labelAnotacoes.setBounds(1280,495,250,100);
-        labelFundoAnotacoes.setBounds(1230,500,250,100);
-        labelSalvar.setBounds(1290,620,100,50);
-        labelFundoSalvar.setBounds(1238,600,200,100);
+
         labelSair.setBounds(1285,700,100,100);
-
-
-
         imgPainelDireito.setBounds(1200,2,280,770);
 
         //Adiciona a tela
         add(labelOuro);
         add(labelFundoOuro);
+        add(labelSair);
+        add(imgPainelDireito);
+    }
+
+    private void carregarBotaoSalvar() {
+        //Salvar
+        labelSalvar = new JLabel("Salvar");
+        labelSalvar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelSalvar.setForeground(new Color(139,0,0));
+        labelSalvar.addMouseListener(acaoLabels);
+        labelSalvar.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSalvar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelSalvar.setBounds(1290,630,100,50);
+
+        //Botão salvar
+        botaoLabelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,150,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoLabelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoLabelFundoSalvar.setBounds(1255,580,170,150);
+        botaoLabelFundoSalvar.addMouseListener(acaoLabels);
+
+        add(labelSalvar);
+        add(botaoLabelFundoSalvar);
+    }
+
+    //Carregar botão de anotações
+    private void carregarBotaoAnotacoes() {
+        labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",30,35,
+                ImagensDoLivroFlorestaDaDestruicao.ANOTACOES);
+        labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelAnotacoes.setBounds(1275,495,250,100);
+        labelAnotacoes.addMouseListener(acaoLabels);
+
+        //Botão anotações
+        botaoLabelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoLabelFundoAnotacoes.setBounds(1230,460,220,180);
+        botaoLabelFundoAnotacoes.addMouseListener(acaoLabels);
         add(labelAnotacoes);
-        add(labelFundoAnotacoes);
+        add(botaoLabelFundoAnotacoes);
+    }
+
+    private void carregaBotaoDeProvisoes() {
+
+        var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
+        labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
+                ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
+        labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        labelProvisoes.setBounds(1265, 405,150,55);
+        labelProvisoes.addMouseListener(acaoLabels);
+
+        //Botão faixa
+        botaoLabelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoLabelFundoProvisoes.setBounds(1230,345,220,180);
+        botaoLabelFundoProvisoes.addMouseListener(acaoLabels);
+
         add(labelProvisoes);
-        add(labelFundoProvisoes);
-        add(labelMapaBotao);
-        add(labelFundoMapa);
+        add(botaoLabelFundoProvisoes);
+    }
+
+    //Configura poção inicial
+    private void configuraBotaoPocaoInicial() {
+
+        //Configura a poção inicial (na condição sendo '0' é porque já foi usada)
+        pocaoInicial = Util.retornaPocaoInicialDaBolsa();
+
+        if (pocaoInicial == null)
+            configuraPocaoVaziaQuandoPocaoInicialConsumida();
+
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de HABILIDADE");
+        }
+
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
+        }
+        if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ) {
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35,
+                    ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
+            labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
+        }
+
+        if (pocaoInicial != null) {
+            labelPocaoInicial.addMouseListener(acaoLabels);
+            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
+            labelPocaoInicial.setBounds(1285,265,150,100);
+        }
+
+        //Botão faixa
+        labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelFundoPocaoInicial.setBounds(1230,230,220,180);
+        labelFundoPocaoInicial.addMouseListener(acaoLabels);
 
         if (pocaoInicial != null)
             add(labelPocaoInicial);
 
         add(labelFundoPocaoInicial);
-        add(labelSalvar);
-        add(labelFundoSalvar);
-        add(labelSair);
-        add(imgPainelDireito);
+    }
+
+    //Configura botão do mapa
+    private void configuraBotaoMapa() {
+        labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,
+                ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
+        labelMapaBotao.setBounds(1285,170,120,55);
+        labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
+
+        //Botãso faixa
+        labelFundoMapa = new JLabelOpcoesTelaSecao(null,220,180,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelFundoMapa.setBounds(1230,110,220,180);
+
+        //labelMapaBotao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Significa que é a tela inicial e o personagem ainda não adquiriu o mapa
+        if (secao == null)
+            labelMapaBotao.setEnabled(false);
+        else {
+            labelMapaBotao.addMouseListener(acaoLabels);
+            labelFundoMapa.addMouseListener(acaoLabels);
+        }
+
+        add(labelMapaBotao);
+        add(labelFundoMapa);
     }
 
     //Substitui a imagem da poção inicial por um recipiente vazio
@@ -953,7 +1004,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
 
         CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                ", você toma a poção e se sente bem.\n\nSeu índice de " +
+                ",\nvocê toma a poção e se sente bem.\n\nSeu índice de " +
                 pocaoInicial.getTipoEfeito().name().toLowerCase()
                 + " encontra-se no nível máximo."+complementoTexto);
     }
@@ -1140,7 +1191,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 }
             }
 
-            if (e.getSource() == labelMapaBotao){
+            if ( (e.getSource() == labelMapaBotao) || (e.getSource() == labelFundoMapa) ){
                 dialogImagemMapa.setVisible(true);
             }
 
@@ -1154,7 +1205,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                         lbSortePersonagem, labelProvisoes, labelPocaoInicial);
             }
 
-            if (e.getSource() == labelPocaoInicial){
+            if ( (e.getSource() == labelPocaoInicial) || (e.getSource() == labelFundoPocaoInicial) ){
 
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
                     return;
@@ -1162,15 +1213,15 @@ public abstract class TelaSecoesBasica extends JDialog {
                 //Caso consumida via bolsa essa variável fica ativa no botão. Então verifica se ainda contém na bolsa.
                 pocaoInicial = Util.retornaPocaoInicialDaBolsa();
 
-                if ( pocaoInicial == null ) {
+                if ( ( pocaoInicial == null ) || ( pocaoInicialConsumido ) ){
                     CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                            ", você já tomou a poção especial.");
+                            ",\nvocê já tomou a poção especial.");
                     return;
                 }
 
-                var foiConsumido = EfeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
+                pocaoInicialConsumido = EfeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
 
-                if ( foiConsumido ) {
+                if ( pocaoInicialConsumido ) {
                     configuraPocaoVaziaQuandoPocaoInicialConsumida();
                     pocaoInicial = null;
                 }
@@ -1181,7 +1232,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                             "\n\nNão existe necessidade de tomar a poção.");
             }
 
-            if (e.getSource() ==  labelProvisoes){
+            if ( (e.getSource() ==  labelProvisoes) || ((e.getSource() ==  botaoLabelFundoProvisoes)) ){
 
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
                     return;
@@ -1210,11 +1261,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                     CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");
             }
 
-            if (e.getSource() ==  labelAnotacoes){
+            if ( (e.getSource() ==  labelAnotacoes) || (e.getSource() ==  botaoLabelFundoAnotacoes) ){
                 CarregarTelas.telaAnotacoes(personagem);
             }
 
-            if (e.getSource() ==  labelSalvar){
+            if ( (e.getSource() ==  labelSalvar) || (e.getSource() == botaoLabelFundoSalvar) ){
                 CarregarTelas.telaMensagem("Deseja salvar o andamento do jogo?",thisDialog);
 
                 //Se resposta da tela telaMensagem positiva, salva o jogo
@@ -1251,6 +1302,36 @@ public abstract class TelaSecoesBasica extends JDialog {
                         labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
                 repaint();
             }
+
+            if ( (e.getSource() == labelMapaBotao) || (e.getSource() == labelFundoMapa) ){
+                labelFundoMapa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        labelFundoMapa.getWidth(), labelFundoMapa.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelPocaoInicial) || (e.getSource() == labelFundoPocaoInicial) ){
+                labelFundoPocaoInicial.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        labelFundoPocaoInicial.getWidth(), labelFundoPocaoInicial.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelProvisoes) || ((e.getSource() ==  botaoLabelFundoProvisoes)) ){
+                botaoLabelFundoProvisoes.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoLabelFundoProvisoes.getWidth(), botaoLabelFundoProvisoes.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelAnotacoes) || (e.getSource() ==  botaoLabelFundoAnotacoes) ){
+                botaoLabelFundoAnotacoes.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoLabelFundoAnotacoes.getWidth(), botaoLabelFundoAnotacoes.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelSalvar) || (e.getSource() == botaoLabelFundoSalvar) ){
+                botaoLabelFundoSalvar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoLabelFundoSalvar.getWidth(), botaoLabelFundoSalvar.getHeight()).getImageIcon());
+                repaint();
+            }
         }
 
         @Override
@@ -1260,6 +1341,37 @@ public abstract class TelaSecoesBasica extends JDialog {
                         labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
                 repaint();
             }
+
+            if ( (e.getSource() == labelMapaBotao) || (e.getSource() == labelFundoMapa) ){
+                labelFundoMapa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        labelFundoMapa.getWidth(), labelFundoMapa.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() == labelPocaoInicial) || (e.getSource() == labelFundoPocaoInicial) ){
+                labelFundoPocaoInicial.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        labelFundoPocaoInicial.getWidth(), labelFundoPocaoInicial.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelProvisoes) || ((e.getSource() ==  botaoLabelFundoProvisoes)) ){
+                botaoLabelFundoProvisoes.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoLabelFundoProvisoes.getWidth(), botaoLabelFundoProvisoes.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelAnotacoes) || (e.getSource() ==  botaoLabelFundoAnotacoes) ){
+                botaoLabelFundoAnotacoes.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoLabelFundoAnotacoes.getWidth(), botaoLabelFundoAnotacoes.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if ( (e.getSource() ==  labelSalvar) || (e.getSource() == botaoLabelFundoSalvar) ){
+                botaoLabelFundoSalvar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoLabelFundoSalvar.getWidth(), botaoLabelFundoSalvar.getHeight()).getImageIcon());
+                repaint();
+            }
+
         }
     }
 
