@@ -2,6 +2,7 @@ package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -27,8 +28,9 @@ public class TelaRegra extends JDialog {
         setModal(true);
         setUndecorated(true);
         setLocationRelativeTo(null);
+        setBackground(new Color(0,0,0,0));
 
-        getContentPane().setBackground(new Color(210,180,140));
+        //getContentPane().setBackground(new Color(210,180,140));
         getContentPane().setCursor(null);
         carregarCompenentesTela();
     }
@@ -99,6 +101,7 @@ public class TelaRegra extends JDialog {
                 200, 100,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelSair.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -117,58 +120,35 @@ public class TelaRegra extends JDialog {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                labelSair.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        labelSair.getWidth(), labelSair.getHeight()).getImageIcon());
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                labelSair.setIcon(new RedimensionarImagem(
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        labelSair.getWidth(), labelSair.getHeight()).getImageIcon());
+                repaint();
             }
         });
         //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
-        //FAIXA SUPERIOR ESQUERDA
-        JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
-                320, 400,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
-        labelFaixaSuperiorEsquerda.setBounds(-145,-95,300,250);
-        labelFaixaSuperiorEsquerda.setCursor(null);
-
-        //FAIXA SUPERIOR DIREITA
-        JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
-        labelFaixaSuperiorDireita.setBounds(1010,-95,300,250);
-        labelFaixaSuperiorDireita.setCursor(null);
-
-        //FAIXA INFERIOR DIREITA
-        JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
-        labelFaixaInferiorDireita.setBounds(1015,640,300,250);
-        labelFaixaInferiorDireita.setCursor(null);
-
-        //FAIXA INFERIOR ESQUERDA
-        JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
-                300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
-        labelFaixaInferiorEsquerda.setBounds(-125,645,300,250);
-        labelFaixaInferiorEsquerda.setCursor(null);
-
-
         //Posicionamento
-        labelImgTitulo.setBounds(0,10,1200,130);
-        labelDescricaoTitulo.setBounds(502,20, 200,100);
+        labelImgTitulo.setBounds(0,50,1200,130);
+        labelDescricaoTitulo.setBounds(502,63, 200,100);
         labelAumentaTexto.setBounds(172,365,50,50);
         labelDiminuiTexto.setBounds(980,367,50,50);
         scrollTextoRegra.setBounds(210,205,781,396);
-        labelSair.setBounds(492,700,220,80);
-        labelDescricaoSair.setBounds(585,695,80,80);
+        labelSair.setBounds(500,600,200,100);
+        labelDescricaoSair.setBounds(582,603,80,80);
 
         //Adicionar a tela
         add(labelDescricaoSair);
         add(labelSair);
-        add(labelFaixaInferiorEsquerda);
-        add(labelFaixaInferiorDireita);
-        add(labelFaixaSuperiorDireita);
-        add(labelFaixaSuperiorEsquerda);
         add(labelDescricaoTitulo);
         add(labelImgTitulo);
         add(labelAumentaTexto);
