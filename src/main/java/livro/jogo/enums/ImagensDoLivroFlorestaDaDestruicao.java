@@ -29,7 +29,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     CAVEIRA("livros/florestadadestruicao/imagens/caveira.png"),
     FAIXA_OPCOES("livros/florestadadestruicao/imagens/faixa_opcoes.png"),
     FAIXA_OPCOES_SELECIONADA("livros/florestadadestruicao/imagens/faixa_opcoes_selecionada.png"),
-    FAIXA_3("livros/florestadadestruicao/imagens/faixa3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
+    FAIXA_3("livros/florestadadestruicao/imagens/faixa_3.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
+    FAIXA_3_SELECIONADA("livros/florestadadestruicao/imagens/faixa_3_selecionada.png"), //Aqui usei na tela de regras. Diminui os espaços em branco da imagem e nãol quis alterar o arquivo "faixa.png"
     FAIXA_VERTICAL_1("livros/florestadadestruicao/imagens/faixa_vertical_1.png"),
     FAIXA_VERTICAL_1_SELECIONADO("livros/florestadadestruicao/imagens/faixa_vertical_1_selecionado.png"),
     BOLSA("livros/florestadadestruicao/imagens/bolsa.png"),

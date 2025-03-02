@@ -20,7 +20,6 @@ public class TelaRegra extends JDialog {
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
 
     public TelaRegra(int largura, int altura, String titulo, String texto) {
-        //super(largura,altura);
         setSize(largura,altura);
         this.titulo = titulo;
         this.texto = texto;
@@ -89,8 +88,6 @@ public class TelaRegra extends JDialog {
         labelDiminuiTexto.setToolTipText("Diminuir texto");
         labelDiminuiTexto.addMouseListener(acao);
         //labelDiminuiTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-
 
 
         //Botão sair

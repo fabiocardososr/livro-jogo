@@ -4,7 +4,6 @@ import livro.jogo.entidades.Livro;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.BotaoFaixa;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
@@ -212,13 +211,6 @@ public class TelaPrincipal extends TelaBasica {
 
         add(labelSair);
         add(botaoSair);
-
-
-//        BotaoFaixa botaoFaixa = new BotaoFaixa("Sair",ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-//        labelBotaoFechar = botaoFaixa.criarBotao(getContentPane(),
-//                1170, 520,250,200,
-//                1225, 590,150,50);
-//        labelBotaoFechar.addMouseListener(acao);
     }
 
     private class TelaPrincipalAcaoDosLabelsBotoes implements MouseListener {

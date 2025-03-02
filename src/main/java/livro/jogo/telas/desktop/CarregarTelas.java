@@ -69,7 +69,7 @@ public class CarregarTelas {
     }
 
     private void telaRegrasOpcoes(){
-        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(350,740);
+        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(400,740);
         telaRegrasOpcoes.setVisible(true);
     }
 
