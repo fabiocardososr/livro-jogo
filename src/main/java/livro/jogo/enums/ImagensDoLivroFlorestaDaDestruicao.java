@@ -37,6 +37,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BOLSA_SELECIONADA("livros/florestadadestruicao/imagens/bolsa_selecionada.png"),
     PLACA_1("livros/florestadadestruicao/imagens/placa.png"),
     HOMEM_CORRENDO("livros/florestadadestruicao/imagens/homem_correndo.png"),
+    HOMEM_CORRENDO_SELECIONADO("livros/florestadadestruicao/imagens/homem_correndo_selecionado.png"),
     GIF_ROLANDO_DADOS("livros/florestadadestruicao/imagens/rolando_dados.gif"),
     POCAO_DE_VAZIA("livros/florestadadestruicao/imagens/itens/pocao_vazia.png"),
     MAPA_DA_FLORESTA("livros/florestadadestruicao/imagens/mapainicial.png"),
@@ -47,6 +48,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     X("livros/florestadadestruicao/imagens/x.png"),
     MOLDURA_13("livros/florestadadestruicao/imagens/moldura_13.png"),
     ESCUDO_LUTA("livros/florestadadestruicao/imagens/escudo_luta.png"),
+    ESCUDO_LUTA_SELECIONADO("livros/florestadadestruicao/imagens/escudo_luta_selecionado.png"),
     MOLDURA_14("livros/florestadadestruicao/imagens/moldura_14.png"),
     MOLDURA_ANOTACOES("livros/florestadadestruicao/imagens/moldura_anotacoes.png"),
     MOLDURA_2("livros/florestadadestruicao/imagens/moldura_2.png"),
@@ -75,12 +77,14 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     UM_DADOS("livros/florestadadestruicao/imagens/um_dado.png"),
     INTERROGACAO("livros/florestadadestruicao/imagens/interrogacao.png"),
     INTERROGACAO_2("livros/florestadadestruicao/imagens/interrogacao_2.png"),
+    INTERROGACAO_2_SELECIONADA("livros/florestadadestruicao/imagens/interrogacao_2_selecionada.png"),
     FUNDO_BOLSA("livros/florestadadestruicao/imagens/fundo_bolsa.png"),
     FUNDO_BOLSA_LISTA("livros/florestadadestruicao/imagens/fundo_bolsa_lista.png"),
     SIMBOLO_VOZ("livros/florestadadestruicao/imagens/voz.png"),
     BRASAO_BATALHA("livros/florestadadestruicao/imagens/brasao_batalha.png"),
     BRASAO_BATALHA_SELECIONADO("livros/florestadadestruicao/imagens/brasao_batalha_selecionado.png"),
     TREVO("livros/florestadadestruicao/imagens/trevo.png"),
+    TREVO_SELECIONADO("livros/florestadadestruicao/imagens/trevo_selecionado.png"),
     SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png")
     ;
 

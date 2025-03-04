@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.principal;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.CarregarJogoSalvo;
 import livro.jogo.utils.Util;
 import javax.swing.*;
@@ -20,14 +21,15 @@ public class TelaCarregarJogoSalvo extends JDialog {
     private String nomeArquivo;
 
     public TelaCarregarJogoSalvo(int largura, int altura) {
-        setSize(largura+160,altura+50);
+        setSize(largura+160,altura+30);
         setLayout(null);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setModal(true);
-
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
+        setLocationRelativeTo(null);
+        //setResizable(false);
+        setModal(true);
+
+
 
         carregaListaDeArquivos();
         carregarBotoes();
@@ -45,7 +47,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
     private void carregarBotoes() {
         JLabel labelCarregar = new JLabel("Carregar");
-        labelCarregar.setBounds(103, 252, 80,60);
+        labelCarregar.setBounds(123, 252, 80,60);
         labelCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelCarregar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelCarregar.setVerticalTextPosition(SwingConstants.CENTER);
@@ -53,14 +55,14 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         botaoCarregar = new JLabelOpcoesTelaSecao(null,
                 100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoCarregar.setBounds(80,260,100,50);
+        botaoCarregar.setBounds(100,260,100,50);
         botaoCarregar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoCarregar.addMouseListener(acao);
 
         JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(270, 252, 80,60);
+        labelSair.setBounds(250, 252, 80,60);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelSair.setVerticalTextPosition(SwingConstants.CENTER);
@@ -68,7 +70,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(230,260,100,50);
+        botaoSair.setBounds(210,260,100,50);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(acao);
@@ -139,12 +141,32 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == botaoCarregar){
+                botaoCarregar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoCarregar.getWidth(), botaoCarregar.getHeight()).getImageIcon());
+                repaint();
+            }
 
+            if (e.getSource() == botaoSair){
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                repaint();
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == botaoCarregar){
+                botaoCarregar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoCarregar.getWidth(), botaoCarregar.getHeight()).getImageIcon());
+                //repaint();
+            }
 
+            if (e.getSource() == botaoSair){
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                //repaint();
+            }
         }
     }
 }

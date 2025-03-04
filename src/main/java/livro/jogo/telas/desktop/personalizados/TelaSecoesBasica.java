@@ -958,7 +958,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA);
             labelPocaoInicial.setText("");
             labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-            labelPocaoInicial.setBounds(1270,265,150,100);
+            labelPocaoInicial.setBounds(1270,257,150,100);
             labelPocaoInicial.addMouseListener(null);
             labelPocaoInicial.setToolTipText("Poção consumida");
             add(labelPocaoInicial);
@@ -988,7 +988,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
         labelPocaoInicial.setText("");
         labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPocaoInicial.setBounds(1270,265,150,100);
+        labelPocaoInicial.setBounds(1270,257,150,100);
         labelPocaoInicial.addMouseListener(null);
         labelPocaoInicial.setToolTipText("Poção consumida");
 

@@ -7,6 +7,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.LimitarCampoJTextField;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
@@ -17,7 +18,7 @@ import java.awt.event.*;
 
 
 public class TelaCriarPersonagem extends TelaBasica {
-    private JLabelOpcoesTelaSecao botaoRolarDadoHabilidade;
+    private JLabelOpcoesTelaSecao botaoRolarDadosHabilidade;
     private JLabelOpcoesTelaSecao botaoRolarDadosEnergia;
     private JLabelOpcoesTelaSecao botaoRolarDadosSorte;
     private JLabelOpcoesTelaSecao botaoGravar;
@@ -392,12 +393,12 @@ public class TelaCriarPersonagem extends TelaBasica {
         //labelImgFundoIndice.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Botão rolar dado
-        botaoRolarDadoHabilidade = new JLabelOpcoesTelaSecao(null,200,100,
+        botaoRolarDadosHabilidade = new JLabelOpcoesTelaSecao(null,150,100,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoRolarDadoHabilidade.setBounds(122,202,150,100);
-        botaoRolarDadoHabilidade.setCursor(cursor);
-        botaoRolarDadoHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
-        botaoRolarDadoHabilidade.addMouseListener(acao);
+        botaoRolarDadosHabilidade.setBounds(122,202,150,100);
+        botaoRolarDadosHabilidade.setCursor(cursor);
+        botaoRolarDadosHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoRolarDadosHabilidade.addMouseListener(acao);
         umDadoHabilidade = new JLabelOpcoesTelaSecao(null,45,40,
                 ImagensDoLivroFlorestaDaDestruicao.UM_DADOS);
         umDadoHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
@@ -409,7 +410,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(labelImgFaixaTitulo);
         add(labelIndiceHabilidade);
         add(labelImgFundoIndice);
-        add(botaoRolarDadoHabilidade);
+        add(botaoRolarDadosHabilidade);
         add(painelDeHabilidade);
     }
 
@@ -451,7 +452,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         labelImgFundoIndice.setHorizontalAlignment(SwingConstants.CENTER);
         //labelImgFundoIndice.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        botaoRolarDadosEnergia = new JLabelOpcoesTelaSecao(null,200,100,
+        botaoRolarDadosEnergia = new JLabelOpcoesTelaSecao(null,150,100,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
         botaoRolarDadosEnergia.setBounds(503,202,150,100);
         botaoRolarDadosEnergia.setCursor(cursor);
@@ -513,7 +514,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         umDadoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         umDadoSorte.setBounds(934,225,50,45);
 
-        botaoRolarDadosSorte = new JLabelOpcoesTelaSecao(null,200,100,
+        botaoRolarDadosSorte = new JLabelOpcoesTelaSecao(null,150,100,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
         botaoRolarDadosSorte.setBounds(885,202,150,100);
 
@@ -534,20 +535,19 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Botao Gravar
         labelGravar = new JLabel("Gravar");
-        labelGravar.setBounds(245, 705,100,100);
+        labelGravar.setBounds(245, 700,100,100);
         labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,30));
         labelGravar.setVerticalTextPosition(SwingConstants.CENTER);
         labelGravar.setCursor(cursor);
         labelGravar.setForeground(new Color(139,0,0));
-        botaoGravar = new JLabelOpcoesTelaSecao(null,280,170,
+        botaoGravar = new JLabelOpcoesTelaSecao(null,280,110,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoGravar.setBounds(150, 710,280,100);
+        botaoGravar.setBounds(150, 705,280,110);
         botaoGravar.addMouseListener(acao);
         botaoGravar.setCursor(cursor);
         botaoGravar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoGravar.setEnabled(false);
         labelGravar.setEnabled(false);
-        //botaoGravar.setBorder(BorderFactory.createLineBorder(Color.RED));
         add(labelGravar);
         add(botaoGravar);
 
@@ -558,9 +558,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         labelResetar.setVerticalTextPosition(SwingConstants.CENTER);
         labelResetar.setCursor(cursor);
         labelResetar.setForeground(new Color(139,0,0));
-        botaoResetar = new JLabelOpcoesTelaSecao("",280,170,
+        botaoResetar = new JLabelOpcoesTelaSecao("",280,110,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(440, 710,280,100);
+        botaoResetar.setBounds(440, 705,280,110);
         botaoResetar.addMouseListener(acao);
         botaoResetar.setCursor(cursor);
         botaoResetar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -570,19 +570,18 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Fechar janela
         labelFechar = new JLabel("Sair");
-        labelFechar.setBounds(845, 705,200,100);
+        labelFechar.setBounds(845, 700,200,100);
         labelFechar.setFont(new Font(Font.SERIF,Font.BOLD,30));
         labelFechar.setVerticalTextPosition(SwingConstants.CENTER);
         labelFechar.setCursor(cursor);
         labelFechar.setForeground(new Color(139,0,0));
-        botaoFechar = new JLabelOpcoesTelaSecao("",280,170,
+        botaoFechar = new JLabelOpcoesTelaSecao("",280,110,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoFechar.setBounds(730, 710,280,100);
+        botaoFechar.setBounds(730, 705,280,110);
         botaoFechar.addMouseListener(acao);
         botaoFechar.setCursor(cursor);
         botaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoFechar.addMouseListener(acao);
-
         add(labelFechar);
         add(botaoFechar);
     }
@@ -656,7 +655,7 @@ public class TelaCriarPersonagem extends TelaBasica {
                 habilitarBotaoGravar();
             }
 
-            if ( (e.getSource() == botaoRolarDadoHabilidade) && (habilidadeInicial == 0) ){
+            if ( (e.getSource() == botaoRolarDadosHabilidade) && (habilidadeInicial == 0) ){
                 TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
@@ -712,11 +711,116 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == botaoRolarDadosSorte) {
+                botaoRolarDadosSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoRolarDadosSorte.getWidth(), botaoRolarDadosSorte.getHeight()).getImageIcon());
+                repaint();
+            }
 
+            if (e.getSource() == botaoRolarDadosEnergia) {
+                botaoRolarDadosEnergia.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoRolarDadosEnergia.getWidth(), botaoRolarDadosEnergia.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoRolarDadosHabilidade) {
+                botaoRolarDadosHabilidade.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoRolarDadosHabilidade.getWidth(), botaoRolarDadosHabilidade.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoHabilidade) {
+                botaoPocaoHabilidade.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoPocaoHabilidade.getWidth(), botaoPocaoHabilidade.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoEnergia) {
+                botaoPocaoEnergia.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoPocaoEnergia.getWidth(), botaoPocaoEnergia.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoSorte) {
+                botaoPocaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoPocaoSorte.getWidth(), botaoPocaoSorte.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoGravar) {
+                botaoGravar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoGravar.getWidth(), botaoGravar.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoResetar) {
+                botaoResetar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoResetar.getWidth(), botaoResetar.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoFechar) {
+                botaoFechar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoFechar.getWidth(), botaoFechar.getHeight()).getImageIcon());
+                repaint();
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == botaoRolarDadosSorte) {
+                botaoRolarDadosSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoRolarDadosSorte.getWidth(), botaoRolarDadosSorte.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoRolarDadosEnergia) {
+                botaoRolarDadosEnergia.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoRolarDadosEnergia.getWidth(), botaoRolarDadosEnergia.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoRolarDadosHabilidade) {
+                botaoRolarDadosHabilidade.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoRolarDadosHabilidade.getWidth(), botaoRolarDadosHabilidade.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoHabilidade) {
+                botaoPocaoHabilidade.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoPocaoHabilidade.getWidth(), botaoPocaoHabilidade.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoEnergia) {
+                botaoPocaoEnergia.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoPocaoEnergia.getWidth(), botaoPocaoEnergia.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoPocaoSorte) {
+                botaoPocaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoPocaoSorte.getWidth(), botaoPocaoSorte.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoGravar) {
+                botaoGravar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoGravar.getWidth(), botaoGravar.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoResetar) {
+                botaoResetar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoResetar.getWidth(), botaoResetar.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            if (e.getSource() == botaoFechar) {
+                botaoFechar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoFechar.getWidth(), botaoFechar.getHeight()).getImageIcon());
+                repaint();
+            }
 
         }
     }

@@ -7,6 +7,7 @@ import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.AcoesBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
 
@@ -167,9 +168,10 @@ public class TelaBatalha extends JDialog {
         JLabelOpcoesTelaSecao botaoInterrogacaoSorte = new JLabelOpcoesTelaSecao(null,
                 15,20,
                 ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO_2);
+        botaoInterrogacaoSorte.setBounds(posicaoX,posicaoY, 15,20);
         botaoInterrogacaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         botaoInterrogacaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoInterrogacaoSorte.setBounds(posicaoX,posicaoY, 15,20);
+
         botaoInterrogacaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoInterrogacaoSorte.addMouseListener(new MouseListener() {
 
@@ -193,12 +195,16 @@ public class TelaBatalha extends JDialog {
                 //Texto da regra que vai aparecer quando posicionar o mouse em cima do botão
                 labelTextoTelaSuspensa.setText(texto);
                 telaPanelRegrasSorte.setVisible(true);
+                botaoInterrogacaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO_2_SELECIONADA.getEnderecoImagem(),
+                        botaoInterrogacaoSorte.getWidth(), botaoInterrogacaoSorte.getHeight()).getImageIcon());
                 repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 telaPanelRegrasSorte.setVisible(false);
+                botaoInterrogacaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO_2.getEnderecoImagem(),
+                        botaoInterrogacaoSorte.getWidth(), botaoInterrogacaoSorte.getHeight()).getImageIcon());
                 repaint();
             }
         });
@@ -259,12 +265,16 @@ public class TelaBatalha extends JDialog {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.TREVO_SELECIONADO.getEnderecoImagem(),
+                        botaoSorte.getWidth(), botaoSorte.getHeight()).getImageIcon());
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botaoSorte.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.TREVO.getEnderecoImagem(),
+                        botaoSorte.getWidth(), botaoSorte.getHeight()).getImageIcon());
+                repaint();
             }
         });
 
@@ -313,12 +323,16 @@ public class TelaBatalha extends JDialog {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botaoFuga.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.HOMEM_CORRENDO_SELECIONADO.getEnderecoImagem(),
+                        botaoFuga.getWidth(), botaoFuga.getHeight()).getImageIcon());
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botaoFuga.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.HOMEM_CORRENDO.getEnderecoImagem(),
+                        botaoFuga.getWidth(), botaoFuga.getHeight()).getImageIcon());
+                repaint();
             }
         });
 
@@ -431,6 +445,39 @@ public class TelaBatalha extends JDialog {
         botaoEscudoBatalha.setHorizontalAlignment(SwingConstants.CENTER);
         botaoEscudoBatalha.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoEscudoBatalha.setBounds(416,450, largura,altura);
+        botaoEscudoBatalha.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( (e.getSource() == botaoEscudoBatalha) && ( labelInfoRodada.isEnabled()) ){
+                    podeUsarASorte = false;
+                    executarAcaoLuta();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoEscudoBatalha.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA_SELECIONADO.getEnderecoImagem(),
+                        botaoEscudoBatalha.getWidth(), botaoEscudoBatalha.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoEscudoBatalha.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA.getEnderecoImagem(),
+                        botaoEscudoBatalha.getWidth(), botaoEscudoBatalha.getHeight()).getImageIcon());
+                repaint();
+            }
+        });
 
         //Label que informará qual a rodada de combate
         labelInfoRodada = new JLabel("<html><center>Turno<br><b>"+ quantidadeRodadas+"</b></center></html>");
@@ -462,12 +509,16 @@ public class TelaBatalha extends JDialog {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                botaoEscudoBatalha.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA_SELECIONADO.getEnderecoImagem(),
+                        botaoEscudoBatalha.getWidth(), botaoEscudoBatalha.getHeight()).getImageIcon());
+                repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                botaoEscudoBatalha.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.ESCUDO_LUTA.getEnderecoImagem(),
+                        botaoEscudoBatalha.getWidth(), botaoEscudoBatalha.getHeight()).getImageIcon());
+                repaint();
             }
         });
 

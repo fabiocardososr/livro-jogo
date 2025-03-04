@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.principal;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -37,31 +38,37 @@ public class TelaAnotacoes extends JDialog {
     }
 
     private void carregarBotoes() {
-        JLabel labelSalvarESair = new JLabel("Salvar e Sair");
+        JLabel labelSalvarESair = new JLabel("Salvar");
         labelSalvarESair.setForeground(new Color(139,0,0));
-        labelSalvarESair.setBounds(274,488,190,60);
+        labelSalvarESair.setBounds(295,510,50,30);
+        labelSalvarESair.setHorizontalAlignment(SwingConstants.CENTER);
         labelSalvarESair.setFont(new Font(Font.DIALOG,Font.BOLD,16));
         labelSalvarESair.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        JLabel labelSair = new JLabel("Sair");
-        labelSair.setForeground(new Color(139,0,0));
-        labelSair.setBounds(518,486,190,60);
-        labelSair.setFont(new Font(Font.DIALOG,Font.BOLD,18));
-        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        labelBotaoSalvarESair = new JLabelOpcoesTelaSecao("Salvar e Sair",190,110,
+
+
+        labelBotaoSalvarESair = new JLabelOpcoesTelaSecao("Salvar",180,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoSalvarESair.setBounds(230,485,180,90);
         labelBotaoSalvarESair.setFont(new Font(Font.SERIF,Font.BOLD,18));
         labelBotaoSalvarESair.addMouseListener(acao);
-        labelBotaoSalvarESair.setBounds(225,465,190,110);
         labelBotaoSalvarESair.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 
-        labelBotaoSair = new JLabelOpcoesTelaSecao("Salvar e Sair",190,110,
+        JLabel labelSair = new JLabel("Sair");
+        labelSair.setForeground(new Color(139,0,0));
+        labelSair.setBounds(515,510,50,30);
+        labelSair.setFont(new Font(Font.DIALOG,Font.BOLD,18));
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        labelBotaoSair = new JLabelOpcoesTelaSecao("Sair",180,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelBotaoSair.setBounds(442,485,180,90);
         labelBotaoSair.setFont(new Font(Font.SERIF,Font.BOLD,18));
         labelBotaoSair.addMouseListener(acao);
-        labelBotaoSair.setBounds(438,465,190,110);
+
 
         add(labelSair);
         add(labelSalvarESair);
@@ -147,12 +154,28 @@ public class TelaAnotacoes extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == labelBotaoSalvarESair) {
+                labelBotaoSalvarESair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        labelBotaoSalvarESair.getWidth(), labelBotaoSalvarESair.getHeight()).getImageIcon());
+            }
 
+            if (e.getSource() == labelBotaoSair) {
+                labelBotaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        labelBotaoSair.getWidth(), labelBotaoSair.getHeight()).getImageIcon());
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == labelBotaoSalvarESair) {
+                labelBotaoSalvarESair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        labelBotaoSalvarESair.getWidth(), labelBotaoSalvarESair.getHeight()).getImageIcon());
+            }
 
+            if (e.getSource() == labelBotaoSair) {
+                labelBotaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        labelBotaoSair.getWidth(), labelBotaoSair.getHeight()).getImageIcon());
+            }
         }
     }
 

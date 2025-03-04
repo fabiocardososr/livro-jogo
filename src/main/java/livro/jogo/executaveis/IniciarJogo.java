@@ -4,7 +4,7 @@ import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 
-public class IniciarJogo {
+public class  IniciarJogo {
 
     public static void main(String[] args) {
 

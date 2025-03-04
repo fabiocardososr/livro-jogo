@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -20,8 +21,6 @@ public class TelaDeMensagensAoJogador extends JDialog {
     private JLabelOpcoesTelaSecao botaoSair;
     private JLabelOpcoesTelaSecao botaoConfirmarESair;
     private TelaRegrasOpcoesAcaoDosBotoes acao = new TelaRegrasOpcoesAcaoDosBotoes();
-    private JLabelOpcoesTelaSecao botaoSim;
-    private JLabelOpcoesTelaSecao botaoNao;
     private TelaSecoesBasica telaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
     private TelaBasica telaBasicaQueChamouEsta; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
     private TelaBatalha telaDialog; //Serve para, por exemplo, fechar a tela quando confirmado o desejo de sair
@@ -111,7 +110,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
     public void carregarBotoesConfirmacao() {
 
         JLabel labelConfirmarESair = new JLabel("Sim");
-        labelConfirmarESair.setBounds(308,445,100,50);
+        labelConfirmarESair.setBounds(326,563,100,50);
         labelConfirmarESair.setForeground(new Color(139,0,0));
         labelConfirmarESair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelConfirmarESair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -120,13 +119,13 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
         botaoConfirmarESair = new JLabelOpcoesTelaSecao(null,
                 150, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoConfirmarESair.setBounds(246,430,220,90);
+        botaoConfirmarESair.setBounds(300,550,150,90);
         botaoConfirmarESair.setHorizontalAlignment(SwingConstants.CENTER);
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoConfirmarESair.addMouseListener(acao);
 
         JLabel labelSair = new JLabel("Não");
-        labelSair.setBounds(508,445,100,50);
+        labelSair.setBounds(491,563,100,50);
         labelSair.setForeground(new Color(139,0,0));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -135,7 +134,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 150, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(446,430,220,90);
+        botaoSair.setBounds(465,550,150,90);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoSair.addMouseListener(acao);
@@ -160,7 +159,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
         //Use esta linha como exemplo para aumentar ou diminuir tamanho da font
         textoHistoria.setFont(new Font(Font.DIALOG,Font.BOLD,20));
 
-
+        //Formatando o texto
         StyledDocument textoLivroStyle = textoHistoria.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_CENTER);
@@ -243,12 +242,28 @@ public class TelaDeMensagensAoJogador extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == botaoConfirmarESair) {
+                botaoConfirmarESair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoConfirmarESair.getWidth(), botaoConfirmarESair.getHeight()).getImageIcon());
+            }
 
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == botaoConfirmarESair) {
+                botaoConfirmarESair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoConfirmarESair.getWidth(), botaoConfirmarESair.getHeight()).getImageIcon());
+            }
 
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+            }
         }
     } //FIM AcaoDosBotoes implements ActionListener
 
