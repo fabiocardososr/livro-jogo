@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.personalizados;
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,12 +42,20 @@ public class JButtonAbrirBatalha {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                if (e.getSource() == btInimigo){
+                    btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA_SELECIONADO.getEnderecoImagem(),
+                            btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
+                    tela.repaint();
+                }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                if (e.getSource() == btInimigo){
+                    btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA.getEnderecoImagem(),
+                            btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
+                    tela.repaint();
+                }
             }
         });
 

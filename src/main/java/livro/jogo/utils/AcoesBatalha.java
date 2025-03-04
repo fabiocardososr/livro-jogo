@@ -140,7 +140,7 @@ public class AcoesBatalha {
         mensagemComDelay(2000,"<html><center>Calculando seu ataque...</center></html>");
         TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
         var resultadoDadosPersonagem = Util.rolarDados(6,2);
-        var forcaDeAtaquePersonagem  = resultadoDadosPersonagem + personagem.getHabilidadeAtual();
+        var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem();
 
 
         ///Mostrar resultado no painel (escudo) do lado esquerdo (personagem)

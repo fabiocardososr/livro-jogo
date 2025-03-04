@@ -66,6 +66,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_INFERIOR_ESQUERDA("livros/florestadadestruicao/imagens/faixa_inferior_esquerda.png"),
     FAIXA_INFERIOR_DIREITA("livros/florestadadestruicao/imagens/faixa_inferior_direita.png"),
     PORTA_SAIR("livros/florestadadestruicao/imagens/porta_sair.png"),
+    PORTA_SAIR_SELECIONADA("livros/florestadadestruicao/imagens/porta_sair_selecionada.png"),
     SINAL_SOMA("livros/florestadadestruicao/imagens/sinal_soma.png"),
     SINAL_MENOS("livros/florestadadestruicao/imagens/sinal_menos.png"),
     FUNDO_REGRAS_OPCOES("livros/florestadadestruicao/imagens/fundo_regra_opcoes.png"),
@@ -78,6 +79,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FUNDO_BOLSA_LISTA("livros/florestadadestruicao/imagens/fundo_bolsa_lista.png"),
     SIMBOLO_VOZ("livros/florestadadestruicao/imagens/voz.png"),
     BRASAO_BATALHA("livros/florestadadestruicao/imagens/brasao_batalha.png"),
+    BRASAO_BATALHA_SELECIONADO("livros/florestadadestruicao/imagens/brasao_batalha_selecionado.png"),
     TREVO("livros/florestadadestruicao/imagens/trevo.png"),
     SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png")
     ;

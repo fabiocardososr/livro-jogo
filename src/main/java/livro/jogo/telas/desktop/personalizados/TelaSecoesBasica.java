@@ -774,6 +774,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Imagem de fundo (um pergaminho)
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
         imgPainelDireito.setLayout(null);
+        imgPainelDireito.setBounds(1200,2,280,770);
 
         //Quadra onde mostra a imagem padrão de uma floresta
         ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
@@ -803,9 +804,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,19));
         labelOuro.setForeground(new Color(139,0,0));
-        //labelOuro.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,170,150,
+        labelOuro.setBounds(1302,72,85,55);
+        JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,160,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        labelFundoOuro.setBounds(1260,40,160,130);
         labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
 
 
@@ -816,14 +818,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setToolTipText("Sair");
         // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+        labelSair.setBounds(1272,690,130,110);
 
-
-        //Posicionamento
-        labelOuro.setBounds(1300,60,85,55);
-        labelFundoOuro.setBounds(1238,40,200,100);
-
-        labelSair.setBounds(1285,700,100,100);
-        imgPainelDireito.setBounds(1200,2,280,770);
 
         //Adiciona a tela
         add(labelOuro);
@@ -840,13 +836,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelSalvar.addMouseListener(acaoLabels);
         labelSalvar.setHorizontalAlignment(SwingConstants.CENTER);
         labelSalvar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelSalvar.setBounds(1290,630,100,50);
+        labelSalvar.setBounds(1290,600,100,50);
 
         //Botão salvar
-        botaoLabelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,150,
+        botaoLabelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         botaoLabelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
-        botaoLabelFundoSalvar.setBounds(1255,580,170,150);
+        botaoLabelFundoSalvar.setBounds(1255,565,170,130);
         botaoLabelFundoSalvar.addMouseListener(acaoLabels);
 
         add(labelSalvar);
@@ -858,13 +854,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",30,35,
                 ImagensDoLivroFlorestaDaDestruicao.ANOTACOES);
         labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        labelAnotacoes.setBounds(1275,495,250,100);
+        labelAnotacoes.setBounds(1275,470,250,100);
         labelAnotacoes.addMouseListener(acaoLabels);
 
         //Botão anotações
-        botaoLabelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,180,
+        botaoLabelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoLabelFundoAnotacoes.setBounds(1230,460,220,180);
+        botaoLabelFundoAnotacoes.setBounds(1230,460,220,130);
         botaoLabelFundoAnotacoes.addMouseListener(acaoLabels);
         add(labelAnotacoes);
         add(botaoLabelFundoAnotacoes);
@@ -876,13 +872,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
                 ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
-        labelProvisoes.setBounds(1265, 405,150,55);
+        labelProvisoes.setBounds(1265, 387,150,55);
         labelProvisoes.addMouseListener(acaoLabels);
 
         //Botão faixa
-        botaoLabelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,180,
+        botaoLabelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoLabelFundoProvisoes.setBounds(1230,345,220,180);
+        botaoLabelFundoProvisoes.setBounds(1231,355,220,130);
         botaoLabelFundoProvisoes.addMouseListener(acaoLabels);
 
         add(labelProvisoes);
@@ -917,13 +913,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         if (pocaoInicial != null) {
             labelPocaoInicial.addMouseListener(acaoLabels);
             labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
-            labelPocaoInicial.setBounds(1285,265,150,100);
+            labelPocaoInicial.setBounds(1285,260,150,100);
         }
 
         //Botão faixa
-        labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,180,
+        labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoPocaoInicial.setBounds(1230,230,220,180);
+        labelFundoPocaoInicial.setBounds(1230,250,220,130);
         labelFundoPocaoInicial.addMouseListener(acaoLabels);
 
         if (pocaoInicial != null)
@@ -936,13 +932,13 @@ public abstract class TelaSecoesBasica extends JDialog {
     private void configuraBotaoMapa() {
         labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,
                 ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        labelMapaBotao.setBounds(1285,170,120,55);
+        labelMapaBotao.setBounds(1285,180,120,55);
         labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
 
         //Botãso faixa
-        labelFundoMapa = new JLabelOpcoesTelaSecao(null,220,180,
+        labelFundoMapa = new JLabelOpcoesTelaSecao(null,180,130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoMapa.setBounds(1230,110,220,180);
+        labelFundoMapa.setBounds(1250,145,180,130);
 
         //labelMapaBotao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -1297,6 +1293,12 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == labelSair){
+                labelSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR_SELECIONADA.getEnderecoImagem(),
+                        labelSair.getWidth(), labelSair.getHeight()).getImageIcon());
+                repaint();
+            }
+
             if (e.getSource() == labelBolsa){
                 labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA_SELECIONADA.getEnderecoImagem(),
                         labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
@@ -1336,6 +1338,12 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == labelSair){
+                labelSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR.getEnderecoImagem(),
+                        labelSair.getWidth(), labelSair.getHeight()).getImageIcon());
+                repaint();
+            }
+
             if (e.getSource() == labelBolsa){
                 labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem(),
                         labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());

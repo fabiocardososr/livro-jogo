@@ -2,15 +2,14 @@
 	"idItem":"10",
 	"tipoEfeito":"HABILIDADE",
 	"nome":"Espada Magnífica",
-	"descricao":"Aumenta em 2 pontos a seu índice de HABILIDADE atual.",
+	"descricao":"Aumenta em 2 pontos o seu índice de HABILIDADE atual.",
 	"valorCusto":"0",
 	"modificador":"2",   
 	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
-	"flgUsoUnico":"N",
 	"flgUsoPermanente":"S",
     "flgAfetaRolagemDados":"S",
-	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
 	"flgAfetaNivelMaxPersonagem":"N",
 	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_10.png"
   }

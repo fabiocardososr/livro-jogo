@@ -2,8 +2,10 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.*;
 import livro.jogo.entidades.Secao;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -47,12 +49,20 @@ public class TelaSecao_3 extends TelaSecoesBasica {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-
+                    if (e.getSource() == botaoOpcao1){
+                        botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                                botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                        repaint();
+                    }
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-
+                    if (e.getSource() == botaoOpcao1){
+                        botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                                botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                        repaint();
+                    }
                 }
             });
 

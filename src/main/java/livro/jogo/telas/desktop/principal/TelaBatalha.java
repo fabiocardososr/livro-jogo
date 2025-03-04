@@ -639,7 +639,7 @@ public class TelaBatalha extends JDialog {
         faixaNomePeronsagem.setBounds(258,290,150,80);
 
         JLabel labelPersonagem = new JLabel(personagem.getNome());
-        labelPersonagem.setBounds(280,305,110,40);
+        labelPersonagem.setBounds(278,305,110,40);
         labelPersonagem.setForeground(new Color(139,0,0));
         labelPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         labelPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -691,7 +691,7 @@ public class TelaBatalha extends JDialog {
         faixaNomeInimigo.setBounds(645,290,150,80);
 
         JLabel labelInimigo = new JLabel(inimigoTemporario.getNome());
-        labelInimigo.setBounds(665,305,110,40);
+        labelInimigo.setBounds(665,307,110,40);
         labelInimigo.setForeground(new Color(139,0,0));
         labelInimigo.setHorizontalAlignment(SwingConstants.CENTER);
         labelInimigo.setFont(new Font(Font.SERIF,Font.BOLD,16));
@@ -723,59 +723,6 @@ public class TelaBatalha extends JDialog {
         add(labelInimigo);
         add(faixaNomeInimigo);
         add(panelDireito);
-    }
-
-    private void carregarBotaoSair() {
-        JLabel label = new JLabel("Sair");
-        label.setForeground(new Color(139,0,0));
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        label.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        label.setBounds(442,700, 180,50);
-        //label.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        JLabelOpcoesTelaSecao labelBotaoSair = new JLabelOpcoesTelaSecao(null,230,185,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelBotaoSair.setHorizontalAlignment(SwingConstants.CENTER);
-        labelBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelBotaoSair.setBounds(414,640, 230,185);
-        labelBotaoSair.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                CarregarTelas.telaMensagem("Deseja abandonar a luta?\n\n A criatura será regenerada, mas você não.", tela);
-
-                if (respostaTelaConfirmacao) {
-
-                    if (telaPai != null)
-                        telaPai.setVisible(true);
-
-                    dispose();
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
-        add(label);
-        add(labelBotaoSair);
     }
 
     private void carregarFaixaTitulo(){

@@ -12,6 +12,7 @@ import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.principal.TelaBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilItens;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio cardoso",1,12,22,
+        Personagem personagem = new Personagem("Fábio",1,12,22,
                 10,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
@@ -43,6 +44,9 @@ public class Testes {
         //TRABALHANDO NA SEÇÃO:
         Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 12 );
         CarregarTelas.carregarSecao(secao);
+
+        int forca = UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(itensEquipados.getFirst());
+//        int forca2 = UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(itensEquipados.getFirst());
 
         //TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
 
@@ -64,11 +68,11 @@ public class Testes {
 
         //Equipando uma espada(50)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_50.json"));
+                "livros/florestadadestruicao/itens/item_10.json"));
 
         //Equipando uma armadura de couro(51)
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_51.json"));
+//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+//                "livros/florestadadestruicao/itens/item_51.json"));
 
 
         return itensEquipados;
