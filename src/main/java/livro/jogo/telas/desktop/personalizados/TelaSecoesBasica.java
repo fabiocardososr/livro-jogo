@@ -10,20 +10,14 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.Bolsa;
-import livro.jogo.utils.EfeitoDeItens;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
+import livro.jogo.utils.*;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class TelaSecoesBasica extends JDialog {
@@ -67,7 +61,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel labelNumOpcao1;
     protected JLabel labelNumOpcao2;
     protected JLabel labelNumOpcao3;
-    protected final HashMap<String, Integer> listaNomeEIdDosItens = Bolsa.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
+    protected final HashMap<String, Integer> listaNomeEIdDosItens = UtilBolsa.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
     protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
     protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
     //Objeto que guarda a imagem do item
@@ -199,7 +193,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Cria um listModel para que possa iterar diretamente com o JList.
         //Atualizando ele, automaticamente o JList muda
         listaItensParaEscolha = new DefaultListModel<>();
-        for (ListItem listItem : Bolsa.retornaListaDeBensNaBolsa())
+        for (ListItem listItem : UtilBolsa.retornaListaDeBensNaBolsa())
             listaItensParaEscolha.addElement(listItem);
 
         //Criando o JList de itens na bolsa
@@ -432,7 +426,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         if ( respostaTelaMensagem  ) {
             for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
-                Bolsa.removerItem(mapItens.get(key).getIdItem());
+                UtilBolsa.removerItem(mapItens.get(key).getIdItem());
                 escolheuItensDaListaSuspensa = true;
                 panelListaSuspensaItens.setVisible(false);
                 panelListaItensEscolhidos.setVisible(false);
@@ -455,7 +449,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         int posicaoY = 80;
 
         //Recupera as informações do item
-        Item item = Util.retornaItem(jListItem.getSelectedValue().getIdItem());
+        Item item = UtilItens.retornaItem(jListItem.getSelectedValue().getIdItem());
 
         //Se item já incluído não faça nada
         for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
@@ -868,7 +862,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     private void carregaBotaoDeProvisoes() {
 
-        var textoProvisoes = "<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>";
+        var textoProvisoes = "<html>Provisões:" + UtilItens.quantidadeProvisoesRestantes() + "</html>";
         labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
                 ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
@@ -1234,14 +1228,14 @@ public abstract class TelaSecoesBasica extends JDialog {
                     return;
 
                 //Testa se personagem encontra-se com energia cheia e o avisa.
-                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
                     CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+", sua energia está completa."+
                             "\n\nNão existe necessidade de se alimentar.");
                     return;
                 }
 
                 //Testa se ainda existem provisões para comer
-                if (Util.quantidadeProvisoesRestantes() > 0) {
+                if (UtilItens.quantidadeProvisoesRestantes() > 0) {
 
                     //Aqui trata a ação de comer a provisão
                     //Item provisão
@@ -1249,7 +1243,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));
-                        labelProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+                        labelProvisoes.setText("<html>Provisões:" + UtilItens.quantidadeProvisoesRestantes() + "</html>");
                         CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
                     }
                 }

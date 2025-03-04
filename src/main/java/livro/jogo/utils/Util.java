@@ -74,48 +74,6 @@ public class Util {
         return imageIcon;
     }
 
-    //Retorna diferença entre o valor máximo e o atual de ENERGIA do personagem
-    public static int retornaDiferencaEntreEnergiaMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-        var indiceEnergiaAtual = personagem.getEnergiaAtual();
-        var indiceEnergiaMax   = personagem.getEnergiaMax();
-
-        return indiceEnergiaMax - indiceEnergiaAtual;
-    }
-
-    //Retorna diferença entre o valor máximo e o atual de HABILIDADE do personagem
-    public static int retornaDiferencaEntreHabilidadeMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-        var indiceAtual = personagem.getHabilidadeAtual();
-        var indiceMax   = personagem.getHabilidadeMax();
-
-        return indiceMax - indiceAtual;
-    }
-
-    //Retorna diferença entre o valor máximo e o atual de SORTE do personagem
-    public static int retornaDiferencaEntreSorteMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-        var indiceAtual = personagem.getSorteAtual();
-        var indiceMax   = personagem.getSorteMax();
-
-        return indiceMax - indiceAtual;
-    }
-
-    //    //Retorna a quantidade de provisões que estão na bolsa
-    public static int quantidadeProvisoesRestantes(){
-        int quantidadeProvisoes = 0;
-        ArrayList<Item> itens = DadosLivroCarregado.getPersonagem().getBolsa();
-
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() )
-                ++quantidadeProvisoes;
-
-        return quantidadeProvisoes;
-    }
-
     public void reproduzirAudioMp3(String nomeAudio, JLabelOpcoesTelaSecao label){
         audio = new Audio(nomeAudio, label);
         audio.start();
@@ -206,27 +164,11 @@ public class Util {
         return listaNomesArquivos;
     }
 
-    //Verifica se personagem vivo. True se Energia maior que "0"
-    public static boolean retornaSePersonagemVivo(){
-
-        return DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0;
-
-    }
-
     //Verifica se inimigo vivo. True se Energia maior que "0"
     public static boolean retornaSeInimigoVivo(Inimigo inimigo){
 
         return inimigo.getEnergia() > 0;
 
-    }
-
-    //Personagem perda de energia. E retorna true se personagem continuar vivo
-    public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){
-        var nivelDeEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
-
-        DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
-
-       return retornaSePersonagemVivo();
     }
 
     //Inimigo perda de energia. E retorna true se inimigo continuar vivo
@@ -272,21 +214,5 @@ public class Util {
         else
             return false;
     }
-
-    public static Item retornaItem(int idItem){
-
-        return DadosLivroCarregado.getMapItem().get( idItem );
-
-    }
-
-    public static void retiraItemDaBolsa(){
-        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-
-
-    }
-
-
-
-
 
 }

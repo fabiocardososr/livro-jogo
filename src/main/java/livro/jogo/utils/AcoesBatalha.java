@@ -42,7 +42,7 @@ public class AcoesBatalha {
         }
 
         //A função retorna se personagem ainda está vivo
-        return Util.personagemPerdeEnergia( quantidadeEnergiaPerdida );
+        return UtilPersonagem.personagemPerdeEnergia( quantidadeEnergiaPerdida );
     }
 
     //Quando clica no botão da fuga
@@ -175,7 +175,7 @@ public class AcoesBatalha {
 
             util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/dor.mp3", null);
             mensagemComDelay(4000,"<html><center>Inimigo o atinge</center></html>");
-            personagemVivo = Util.personagemPerdeEnergia(2);
+            personagemVivo = UtilPersonagem.personagemPerdeEnergia(2);
 
 
             /*Se após dedução da energia do personagem o índice chegar a zero(NÃO abaixo de zero), existe
@@ -203,7 +203,7 @@ public class AcoesBatalha {
                     else {
                         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nSeu dano será aumentado em mais 1 ponto.");
-                        personagemVivo = Util.personagemPerdeEnergia(1);
+                        personagemVivo = UtilPersonagem.personagemPerdeEnergia(1);
                     }
                 }
             }
@@ -298,7 +298,7 @@ public class AcoesBatalha {
             else{
                 util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                 mensagemComDelay(4000, "<html><center>AZAR!<br>+1 ponto de dano<center><html>");
-                var personagemVivo = Util.personagemPerdeEnergia(1);
+                var personagemVivo = UtilPersonagem.personagemPerdeEnergia(1);
                 telaBatalha.atualizarIndicesPersonagemInimigo();
 
                 if ( !personagemVivo )

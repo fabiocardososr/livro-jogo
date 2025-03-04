@@ -2,16 +2,15 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Bolsa {
-    private static ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-    private static ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
+public class UtilBolsa {
+    private static final ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+    private static final ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
 
     /// Usado, por exemplo, para montar a lista de itens(combo).
@@ -96,4 +95,5 @@ public class Bolsa {
         }
         return false;
     }
+
 }

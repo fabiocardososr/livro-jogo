@@ -27,7 +27,7 @@ public class EfeitoDeItens {
     private static boolean efeitoItem1() {
 
         //Se o anel já equipado, não faz nada e sai
-        if (Bolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
+        if (UtilBolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
             return false;
 
         //Recupera o item anel da luz(código 1)
@@ -69,7 +69,7 @@ public class EfeitoDeItens {
         ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
-        if (Util.retornaDiferencaEntreSorteMaxEAtual() == 0){
+        if (UtilPersonagem.retornaDiferencaEntreSorteMaxEAtual() == 0){
             return false;
         }
 
@@ -95,7 +95,7 @@ public class EfeitoDeItens {
         ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
-        if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+        if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
             return false;
         }
 
@@ -118,7 +118,7 @@ public class EfeitoDeItens {
         ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
-        if (Util.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
+        if (UtilPersonagem.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
             return false;
         }
 
@@ -141,7 +141,7 @@ public class EfeitoDeItens {
         ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com energia máxima, não fazer nada
-        if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+        if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
             return false;
         }
 

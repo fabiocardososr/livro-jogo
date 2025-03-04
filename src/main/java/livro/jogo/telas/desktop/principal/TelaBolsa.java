@@ -7,9 +7,7 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.utils.EfeitoDeItens;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
+import livro.jogo.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -549,7 +547,7 @@ public class TelaBolsa extends JDialog {
                     String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
                     String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
 
-            botaoProvisoes.setText("<html>Provisões:" + Util.quantidadeProvisoesRestantes() + "</html>");
+            botaoProvisoes.setText("<html>Provisões:" + UtilItens.quantidadeProvisoesRestantes() + "</html>");
 
             if ( consumiuItem ) {
                 //Destrói o objeto
@@ -561,7 +559,7 @@ public class TelaBolsa extends JDialog {
             }
             else
                 //Testa se personagem encontra-se com energia cheia e o avisa.
-                if (Util.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
                     CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()
                             .toUpperCase()+", sua energia está completa."+
                             "\n\nNão existe necessidade de se alimentar.");
