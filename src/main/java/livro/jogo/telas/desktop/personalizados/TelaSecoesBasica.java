@@ -1,5 +1,6 @@
 package livro.jogo.telas.desktop.personalizados;
 
+import livro.jogo.acaosecoes.AcoesSecao_12;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
@@ -48,7 +49,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
-    private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar
+    private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
     protected JLabel labelOuro;
     protected JLabelOpcoesTelaSecao botaoOpcao1; //Primeira Opção da seção
@@ -187,7 +188,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
                 largura, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
         fundoPanel.setBounds(0,0,largura,altura);
-
 
 
         //Cria um listModel para que possa iterar diretamente com o JList.
@@ -427,18 +427,23 @@ public abstract class TelaSecoesBasica extends JDialog {
         if ( respostaTelaMensagem  ) {
             for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
                 UtilBolsa.removerItem(mapItens.get(key).getIdItem());
-                escolheuItensDaListaSuspensa = true;
-                panelListaSuspensaItens.setVisible(false);
-                panelListaItensEscolhidos.setVisible(false);
             }
 
+            escolheuItensDaListaSuspensa = true;
+            panelListaSuspensaItens.setVisible(false);
+            panelListaItensEscolhidos.setVisible(false);
+
+            //Na secao 12 quando é removido os itens é devolvida a espada
+            if (secao.getCodSecaoLivro() == 12) {
+                AcoesSecao_12.recuperaEspadaDoGnomo();
+                CarregarTelas.telaMensagem("Dívida paga.\n\nSua espada é devolvida!");
+                botaoOpcao3.setEnabled(false);
+            }
             //Recria a lista de modo a não aparecer mais os itens excluídos
             //Deixe aqui como exemplo caso precise iterar com algum jlist
 //            listaItensParaEscolha.clear();
 //            for (ListItem listItem : Bolsa.retornaListaDeBensNaBolsa())
 //                listaItensParaEscolha.addElement(listItem);
-
-
         }
     }
 
@@ -483,9 +488,6 @@ public abstract class TelaSecoesBasica extends JDialog {
             case 10: return larguraPadrao + 10; //Espada Magnífica
             case 16: return larguraPadrao - 10; //Poção Controle dos Insetos
             case 25: return larguraPadrao - 20; //Cabo do Martelo de Guerra dos Anões
-
-
-
         }
 
         return larguraPadrao;
@@ -1200,6 +1202,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
                     return;
 
+
                 //Caso consumida via bolsa essa variável fica ativa no botão. Então verifica se ainda contém na bolsa.
                 pocaoInicial = Util.retornaPocaoInicialDaBolsa();
 
@@ -1208,6 +1211,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                             ",\nvocê já tomou a poção especial.");
                     return;
                 }
+
+                //Questionar se de fato quer usar a poção
+                CarregarTelas.telaMensagem("Deseja realmente tomar a poção?",thisDialog);
+                if ( !respostaTelaMensagem )
+                    return;
 
                 pocaoInicialConsumido = EfeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
 
@@ -1233,6 +1241,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                             "\n\nNão existe necessidade de se alimentar.");
                     return;
                 }
+
+                //Questionar se de fato quer usar a poção
+                CarregarTelas.telaMensagem("Você realmente quer comer uma provisão?",thisDialog);
+                if ( !respostaTelaMensagem )
+                    return;
 
                 //Testa se ainda existem provisões para comer
                 if (UtilItens.quantidadeProvisoesRestantes() > 0) {

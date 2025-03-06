@@ -2,17 +2,12 @@ package livro.jogo.executaveis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
-import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
-import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.principal.TelaBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilItens;
+
 
 import java.util.ArrayList;
 
@@ -30,7 +25,7 @@ public class Testes {
                 10,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        personagem.setQuantidadeOuro(25);
+        personagem.setQuantidadeOuro(20);
         personagem.setHabilidadeAtual(9);
         personagem.setEnergiaAtual(9);
         DadosLivroCarregado.setPersonagem(personagem);
@@ -42,8 +37,10 @@ public class Testes {
         //Util.testarSorte();
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 7 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 12 );
         CarregarTelas.carregarSecao(secao);
+
+        //AcoesSecao_12.recuperaEspadaDoGnomo();
 
        // int forca = UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(itensEquipados.getFirst());
 //        int forca2 = UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(itensEquipados.getFirst());
@@ -59,7 +56,7 @@ public class Testes {
     }
 
     public static ArrayList<Item> recuperaItensIniciaisEquipados() {
-        ObjectMapper objMapper = new ObjectMapper();
+        //ObjectMapper objMapper = new ObjectMapper();
         var itensEquipados = new ArrayList<Item>();
 
         //Anel de ouro
@@ -67,8 +64,7 @@ public class Testes {
 //                "livros/florestadadestruicao/itens/item_1.json"));
 
         //Equipando uma espada(50)
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_10.json"));
+        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 
         //Equipando uma armadura de couro(51)
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
@@ -84,55 +80,52 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=53; i++) {
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+        for (int i=1; i<=5; i++) {
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_" + i + ".json"));
-            //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
+            System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
         }
 
-////        for (int i=1; i<=5; i++)
-//        //Poção de força(energia)
-//       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//               "livros/florestadadestruicao/itens/item_46.json"));
+
 //
 //       //Cabeça de martelo
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                "livros/florestadadestruicao/itens/item_6.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_50.json"));
 //
        //Provisão
 
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_50.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        //Provisão
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_49.json"));
 //
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
 //                "livros/florestadadestruicao/itens/item_49.json"));

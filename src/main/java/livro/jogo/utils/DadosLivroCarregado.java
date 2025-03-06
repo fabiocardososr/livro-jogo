@@ -15,6 +15,7 @@ public class DadosLivroCarregado {
     private static Livro livro;
     private static Personagem personagem;
     private static int secaoAtual;
+    private static final ObjectMapper objMapper = new ObjectMapper();
 
     public static Personagem getPersonagem() {
         return personagem;
@@ -48,7 +49,7 @@ public class DadosLivroCarregado {
         return personagem.getItensEquipados();
     }
 
-    public static Item recuperaItemDoJson(ObjectMapper objMapper, String enderecoDoArquivoDoItem){
+    public static Item recuperaItemDoJson(String enderecoDoArquivoDoItem){
         Item item = null;
 
         try {

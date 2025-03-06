@@ -688,6 +688,7 @@ public class TelaBatalha extends JDialog {
         JLabelOpcoesTelaSecao faixaNomePeronsagem = new JLabelOpcoesTelaSecao("",150,170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
         faixaNomePeronsagem.setBounds(258,290,150,80);
+        faixaNomePeronsagem.setCursor(null);
 
         JLabel labelPersonagem = new JLabel(personagem.getNome());
         labelPersonagem.setBounds(278,305,110,40);
@@ -740,6 +741,7 @@ public class TelaBatalha extends JDialog {
         JLabelOpcoesTelaSecao faixaNomeInimigo = new JLabelOpcoesTelaSecao("",150,170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
         faixaNomeInimigo.setBounds(645,290,150,80);
+        faixaNomeInimigo.setCursor(null);
 
         JLabel labelInimigo = new JLabel(inimigoTemporario.getNome());
         labelInimigo.setBounds(665,307,110,40);

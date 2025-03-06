@@ -1,5 +1,6 @@
 package livro.jogo.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
@@ -32,8 +33,8 @@ public class UtilBolsa {
         return listaDeItensNaBolsa.toArray(new ListItem[0]);
     }
 
-    public static void incluirItem(Item item){
-        bolsa.add(item);
+    public static void incluirItem(ItensMapeamento itemMapeado){
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(itemMapeado.getEnderecoJson()));
     }
 
     public static void removerItem(int idItem){

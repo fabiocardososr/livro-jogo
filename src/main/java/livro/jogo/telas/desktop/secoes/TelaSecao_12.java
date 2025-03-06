@@ -1,5 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_12;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -18,7 +19,7 @@ import java.awt.event.MouseListener;
 
 public class TelaSecao_12 extends TelaSecoesBasica {
     private boolean entregou10Moedas = false;  //Informa se o personagem entregou 10 moedas
-    private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
+    //private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
     private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopó global para que seja desabilitado caso escolha a opção de pagar com moedas
 
     public TelaSecao_12(Secao secao) {
@@ -59,7 +60,6 @@ public class TelaSecao_12 extends TelaSecoesBasica {
     private void carregarListaItensParaDarAoGnomo() {
 
         //Botão
-
         botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
@@ -195,6 +195,8 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
+                    AcoesSecao_12.recuperaEspadaDoGnomo();
+                    botaoOpcao3.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar ao Gnomo.");
@@ -250,11 +252,13 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
-                    CarregarTelas.telaMensagem("Você entrega 10 moedas para o Gnomo.");
+                    CarregarTelas.telaMensagem("Você entrega 10 moedas para o Gnomo.\n\nSua espada é devolvida!");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
+                    AcoesSecao_12.recuperaEspadaDoGnomo();
+                    botaoOpcao3.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar ao Gnomo.");
@@ -383,16 +387,23 @@ public class TelaSecao_12 extends TelaSecoesBasica {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao3){
 
+                    //Se já entregou itens ao Gnomo, não é possível escolher esta opção
+                    if ( (entregou10Moedas) || (escolheuItensDaListaSuspensa) ) {
+                        return;
+                    }
+
                     if ( (DadosLivroCarregado.getBolsa().size() > 1) ||
                             (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 9) ){
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ", existem recursos para serem dados ao Gnomo.\n\nVocê precisa recuperar sua espada para continuar a jornada.");
+                                ", existem recursos para serem dados ao Gnomo. Escolha uma das opções."+
+                                "\n\nVocê precisa recuperar sua espada para continuar a jornada.");
                         return;
                     }
 
                     if ( (!entregou10Moedas) && (!escolheuItensDaListaSuspensa) ) {
                         CarregarTelas.telaMensagem("Você não recupera sua espada.\n\nAndar na"+
-                                " Floresta de Darkwood desarmado é suicídio. Volte por onde você veio.\n\nSua aventura acaba aqui.");
+                                " Floresta de Darkwood desarmado é suicídio. Volte por onde você veio."+
+                                "\n\nSua aventura acaba aqui.");
                         dispose();
                     }
 

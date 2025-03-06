@@ -40,7 +40,7 @@ public class CriacaoPersonagem {
 
         //Guardando na bolsa 10 provisões(refeições)(49)
         for (int i=0; i<10; i++)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     ItensMapeamento.PROVISAO.getEnderecoJson()));
 
         //teste
@@ -49,15 +49,15 @@ public class CriacaoPersonagem {
 
 
         if (ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() == pocaoEscolhida)
-           bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+           bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                    ItensMapeamento.POCAO_DE_HABILIDADE.getEnderecoJson()));
 
         if (ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() == pocaoEscolhida)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     ItensMapeamento.POCAO_DE_ENERGIA.getEnderecoJson()));
 
         if (ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() == pocaoEscolhida)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     ItensMapeamento.POCAO_DA_FORTUNA.getEnderecoJson()));
 
         return bolsa;
@@ -68,11 +68,11 @@ public class CriacaoPersonagem {
         var itensEquipados = new ArrayList<Item>();
 
         //Equipando uma espada(50)
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
                 ItensMapeamento.ESPADA.getEnderecoJson()));
 
         //Equipando uma armadura de couro(51)
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
                 ItensMapeamento.ARMADURA_DE_COURO.getEnderecoJson()));
 
         return itensEquipados;

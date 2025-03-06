@@ -46,8 +46,6 @@ public class TelaAnotacoes extends JDialog {
         labelSalvarESair.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 
-
-
         labelBotaoSalvarESair = new JLabelOpcoesTelaSecao("Salvar",180,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelBotaoSalvarESair.setBounds(230,485,180,90);
@@ -109,7 +107,7 @@ public class TelaAnotacoes extends JDialog {
         JScrollPane scrollTexto = new JScrollPane(anotacao);
         scrollTexto.setFocusable(true);
         scrollTexto.setBorder(null);
-        scrollTexto.setBounds(160,115,533,368);
+        scrollTexto.setBounds(156,115,537,368);
 
         //Carregar anotações do personagem
         anotacao.setText(personagem.getAnotacoes());

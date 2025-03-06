@@ -7,6 +7,7 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
@@ -230,12 +231,18 @@ public class TelaBolsa extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+            }
         }
     }
 
