@@ -36,6 +36,18 @@ public class UtilPersonagem {
         return retornaSePersonagemVivo();
     }
 
+    //Personagem perda de energia. E retorna true se personagem continuar vivo
+    public static void personagemPerdeSorte(int valorSorteAPerder){
+        var nivelDeSorteAtual = DadosLivroCarregado.getPersonagem().getSorteAtual();
+
+        var novoNivelDeSorte = nivelDeSorteAtual - valorSorteAPerder;
+
+        if (novoNivelDeSorte < 0)
+            novoNivelDeSorte = 0;
+
+        DadosLivroCarregado.getPersonagem().setSorteAtual(novoNivelDeSorte);
+    }
+
     //Verifica se personagem vivo. True se Energia maior que "0"
     public static boolean retornaSePersonagemVivo(){
 

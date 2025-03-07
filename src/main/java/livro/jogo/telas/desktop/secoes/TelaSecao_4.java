@@ -120,11 +120,8 @@ public class TelaSecao_4 extends TelaSecoesBasica {
             acaoBotoes(secao);
         }
 
-        //Atualiza label que mostra os níveis de energia do personagem na tela
-        lbEnergiaPersonagem.setText("Energia: "+
-                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual())+ "/"+
-                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
-        repaint();
+        //Atualiza label que mostra os níveis de habilidade, sorte e energia do personagem na tela
+        atualizaIndicesNaTelaDoPersonagem();
     }
 
     @Override

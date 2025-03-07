@@ -430,10 +430,6 @@ public abstract class TelaSecoesBasica extends JDialog {
             return;
         }
 
-        CarregarTelas.telaMensagem(personagem.getNome()+
-                ",\nDeseja confirmar sua escolha?", this);
-
-        if ( respostaTelaMensagem  ) {
             for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
                 UtilBolsa.removerItem(mapItens.get(key).getIdItem());
             }
@@ -442,17 +438,22 @@ public abstract class TelaSecoesBasica extends JDialog {
             panelListaSuspensaItens.setVisible(false);
             panelListaItensEscolhidos.setVisible(false);
 
-            //Na secao 12 quando é removido os itens é devolvida a espada
-            if (secao.getCodSecaoLivro() == 12) {
-                AcoesSecao_12.recuperaEspadaDoGnomo();
-                CarregarTelas.telaMensagem("Dívida paga.\n\nSua espada é devolvida!");
-                botaoOpcao3.setEnabled(false);
-            }
+            acoesEspecificasDasSecoes();
 
-            //Na seção 271 vc apenas paga pela informação e habilita a opção.
-            if (secao.getCodSecaoLivro() == 271) {
-                botaoOpcao1.setEnabled(true);
-            }
+    }
+
+    private void acoesEspecificasDasSecoes(){
+
+        //Na secao 12 quando é removido os itens é devolvida a espada
+        if (secao.getCodSecaoLivro() == 12) {
+            AcoesSecao_12.recuperaEspadaDoGnomo();
+            CarregarTelas.telaMensagem("Dívida paga.\n\nSua espada é devolvida!");
+            botaoOpcao3.setEnabled(false);
+        }
+
+        //Seção 271 é necessário pagar para obter informações do Gnomo
+        if (secao.getCodSecaoLivro() == 271) {
+            CarregarTelas.telaMensagem("Pagamento efetuado ao ganancioso Gnomo.");
         }
     }
 
@@ -1064,21 +1065,24 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelNumOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelNumOpcao1.setHorizontalAlignment(SwingConstants.CENTER);
         labelNumOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        labelNumOpcao1.setBounds(116,592, 50,50);
+
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botaoOpcao1 = new JLabelOpcoesTelaSecao("",40,50,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoOpcao1.setBounds(120,600,40,50);
+
         botaoOpcao1.setToolTipText("Clique para escolher esta Opção.");
         //botaoOpcao1.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Texto da opção
         lbTextoOpcao1 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao1.setBounds(170,587,700,60);
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,22));
         lbTextoOpcao1.setForeground(new Color(139,0,0));
+
+        labelNumOpcao1.setBounds(116,592, 50,50);
+        botaoOpcao1.setBounds(120,600,40,50);
+        lbTextoOpcao1.setBounds(170,587,700,60);
 
         add(lbTextoOpcao1);
         add(labelNumOpcao1);

@@ -37,7 +37,7 @@ public class Testes {
         //Util.testarSorte();
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 271 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 13 );
         CarregarTelas.carregarSecao(secao);
 
         //AcoesSecao_12.recuperaEspadaDoGnomo();

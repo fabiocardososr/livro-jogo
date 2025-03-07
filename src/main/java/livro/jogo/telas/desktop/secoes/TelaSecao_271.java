@@ -34,7 +34,6 @@ public class TelaSecao_271 extends TelaSecoesBasica {
 
         //posicionando as opção mais abaixo
         botaoOpcao1.setBounds(120,655,40,50);
-        //botaoOpcao1.setEnabled(false);
         labelNumOpcao1.setBounds(116,647, 50,50);
         lbTextoOpcao1.setBounds(170,642,700,60);
 
@@ -78,12 +77,10 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 5){
-                    CarregarTelas.telaMensagem("Você entrega 5 moedas para o Gnomo.");
+                    CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     entregou5Moedas = true;
-                    AcoesSecao_12.recuperaEspadaDoGnomo();
-                    botaoOpcao1.setEnabled(true);
                     repaint();
                 }
                 else{
@@ -120,7 +117,7 @@ public class TelaSecao_271 extends TelaSecoesBasica {
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
         texto.setForeground(new Color(128,0,0));
-        texto.setToolTipText("Você entrega 5 moedas ao Gnomo.");
+        texto.setToolTipText("Pague 5 moedas ao Gnomo.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.addMouseListener(new MouseListener() {
             @Override
@@ -140,13 +137,11 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 5){
-                    CarregarTelas.telaMensagem("Você entrega 5 moedas para o Gnomo.");
+                    CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
-                    repaint();
                     entregou5Moedas = true;
-                    AcoesSecao_12.recuperaEspadaDoGnomo();
-                    botaoOpcao1.setEnabled(true);
+                    repaint();
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 5 moedas para entregar ao Gnomo.");
@@ -295,7 +290,7 @@ public class TelaSecao_271 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if ( (e.getSource() == botaoOpcao1) && (botaoOpcao1.isEnabled()) ){
+                if ( e.getSource() == botaoOpcao1 ){
 
                     if ( (entregou5Moedas) || (escolheuItensDaListaSuspensa) )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );

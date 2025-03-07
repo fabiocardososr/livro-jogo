@@ -394,7 +394,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     if ( (DadosLivroCarregado.getBolsa().size() > 1) ||
                             (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 9) ){
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ", existem recursos para serem dados ao Gnomo. Escolha uma das opções."+
+                                ",\n existem recursos para serem dados ao Gnomo. Escolha uma das opções."+
                                 "\n\nVocê precisa recuperar sua espada para continuar a jornada.");
                         return;
                     }
