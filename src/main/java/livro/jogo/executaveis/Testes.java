@@ -37,7 +37,7 @@ public class Testes {
         //Util.testarSorte();
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 12 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 271 );
         CarregarTelas.carregarSecao(secao);
 
         //AcoesSecao_12.recuperaEspadaDoGnomo();
@@ -80,10 +80,10 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=5; i++) {
+        for (int i=1; i<=53; i++) {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_" + i + ".json"));
-            System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
+            //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
         }
 
 

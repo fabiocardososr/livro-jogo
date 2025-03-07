@@ -20,7 +20,7 @@ import java.awt.event.MouseListener;
 public class TelaSecao_12 extends TelaSecoesBasica {
     private boolean entregou10Moedas = false;  //Informa se o personagem entregou 10 moedas
     //private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
-    private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopó global para que seja desabilitado caso escolha a opção de pagar com moedas
+    private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopo global para que seja desabilitado caso escolha a opção de pagar com moedas
 
     public TelaSecao_12(Secao secao) {
         super(secao);
@@ -71,7 +71,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                 }
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.");
+                    CarregarTelas.telaMensagem("Você já entregou 2 itens ao Gnomo.");
                     return;
                 }
 
@@ -170,8 +170,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
         botao.setBounds(90,560,340,80);
-        botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-     //   botao.setBorder(BorderFactory.createLineBorder(Color.RED));
+        //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -228,11 +227,11 @@ public class TelaSecao_12 extends TelaSecoesBasica {
         //Texto
         JLabel texto = new JLabel("<html><center>Pagar 10 moedas</center></html>");
         texto.setBounds(185,587,150,25);
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Você entrega 10 moedas ao Gnomo.");
-        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.addMouseListener(new MouseListener() {
             @Override

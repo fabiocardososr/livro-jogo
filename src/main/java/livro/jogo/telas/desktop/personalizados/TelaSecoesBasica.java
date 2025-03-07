@@ -49,7 +49,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
-    private final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)
+    protected final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)
     private static boolean respostaTelaMensagem = false; //Setado quando chamada a tela de confirmação e não é para fechar a tela
     protected JLabel labelOuro;
     protected JLabelOpcoesTelaSecao botaoOpcao1; //Primeira Opção da seção
@@ -214,17 +214,26 @@ public abstract class TelaSecoesBasica extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 //Se já escolhidos 2 itens
                 if (mapItens.size() == limiteDeEscolhaDeItens){
-                    CarregarTelas.telaMensagem("Os "+limiteDeEscolhaDeItens+
+                    if (limiteDeEscolhaDeItens > 1)
+                        CarregarTelas.telaMensagem("Os "+limiteDeEscolhaDeItens+
                             " itens já foram escolhidos.\n\n"+
                             "Se precisar, remova-os e faça novas escolhas.");
+                    else
+                        CarregarTelas.telaMensagem(limiteDeEscolhaDeItens+
+                                " item já foi escolhido.\n\n"+
+                                "Se precisar, remova-o e faça nova escolha.");
+
                     return;
                 }
 
                 //Incluir itens escolhidos
                 //ATENÇÃO AQUI pois está preparado apenas para atender a
-                // tela de seção 12 que a escolha é apenas 2 itens
+                // tela de seção 12 e 271 que a escolha é apenas 2 itens
                 if ( mapItens.isEmpty() ){
-                    incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
+                    if (secao.getCodSecaoLivro() == 271)
+                        incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
+                    else
+                        incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
                 }else {
                     incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
                 }
@@ -439,11 +448,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                 CarregarTelas.telaMensagem("Dívida paga.\n\nSua espada é devolvida!");
                 botaoOpcao3.setEnabled(false);
             }
-            //Recria a lista de modo a não aparecer mais os itens excluídos
-            //Deixe aqui como exemplo caso precise iterar com algum jlist
-//            listaItensParaEscolha.clear();
-//            for (ListItem listItem : Bolsa.retornaListaDeBensNaBolsa())
-//                listaItensParaEscolha.addElement(listItem);
+
+            //Na seção 271 vc apenas paga pela informação e habilita a opção.
+            if (secao.getCodSecaoLivro() == 271) {
+                botaoOpcao1.setEnabled(true);
+            }
         }
     }
 

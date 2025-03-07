@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_271.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vai pagar o ganancioso Gnomo pelas informações dele?",
+      "textoOpcao": "Pagou pelas informações?",
       "codProximaSecao": "297"
     },
 	{	  
-      "textoOpcao": "Caso não tenha condições ou não quiser pagar a ele, diga-lhe o que pensa dele e parta para o oeste pela trilha",
+      "textoOpcao": "Não tem condições ou não quer pagá-lo, vá para o oeste pela trilha.",
       "codProximaSecao": "67"
     }
   ]

@@ -33,12 +33,12 @@ public class JLabelOpcoesTelaSecao extends JLabel {
         setText(texto);
         this.largura = largura;
         this.altura = altura;
+        setCursor(cursor);
         setFont(new Font(Font.SERIF,Font.BOLD,23));
         setIcon(Util.dimensionarImagem(largura,altura, enderecoImagem.getEnderecoImagem()));
         setForeground(new Color(139,0,0));
         setBackground(new Color(210,180,140));
         setVerticalTextPosition(SwingConstants.CENTER);
-        setCursor(cursor);
     }
 
     public void setImagem(ImagensDoLivroFlorestaDaDestruicao enderecoImagem){
