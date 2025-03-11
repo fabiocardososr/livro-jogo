@@ -11,6 +11,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.telas.desktop.secoes.TelaSecao_1;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
@@ -229,11 +230,21 @@ public abstract class TelaSecoesBasica extends JDialog {
                 //Incluir itens escolhidos
                 //ATENÇÃO AQUI pois está preparado apenas para atender a
                 // tela de seção 12 e 271 que a escolha é apenas 2 itens
+
+
+
+
+
                 if ( mapItens.isEmpty() ){
-                    if (secao.getCodSecaoLivro() == 271)
-                        incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
-                    else
-                        incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
+
+                    /// trata o posicionamento de acordo com a quantidade de itens a serem descartados
+                    /// Exemplo, na seção 271 é apenas 1 item então posiciona mais ou menos no centro da tela
+                    /// os demais posiciona o primeiro item à esquerda
+                    ///e depois o espaçamento de 50 entre eles
+                    switch ( secao.getCodSecaoLivro() ) {
+                        case 14, 271 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
+                        default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
+                    }
                 }else {
                     incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
                 }
@@ -1072,7 +1083,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        botaoOpcao1.setToolTipText("Clique para escolher esta Opção.");
+        botaoOpcao1.setToolTipText("Clique para escolher esta opção.");
         //botaoOpcao1.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Texto da opção
@@ -1105,7 +1116,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoOpcao2.setBounds(120,660,40,50);
-        botaoOpcao2.setToolTipText("Clique para escolher esta Opção.");
+        botaoOpcao2.setToolTipText("Clique para escolher esta opção.");
 
         //Texto da opção
         lbTextoOpcao2 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
@@ -1135,7 +1146,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao3.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoOpcao3.setBounds(120,720,40,50);
-        botaoOpcao3.setToolTipText("Clique para escolher esta Opção.");
+        botaoOpcao3.setToolTipText("Clique para escolher esta opção.");
 
         //Texto da opção
         lbTextoOpcao3 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());

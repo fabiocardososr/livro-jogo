@@ -30,14 +30,8 @@ public class Testes {
         personagem.setEnergiaAtual(9);
         DadosLivroCarregado.setPersonagem(personagem);
 
-//        System.out.println("ìndice personagem: "+ personagem.getSorteAtual());
-//        System.out.println("Resultado teste sorte: "+ Util.testarSorte());
-//        System.out.println("ìndice personagem APÓS TESTE: "+ personagem.getSorteAtual());
-
-        //Util.testarSorte();
-
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 13 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 14 );
         CarregarTelas.carregarSecao(secao);
 
         //AcoesSecao_12.recuperaEspadaDoGnomo();
@@ -80,17 +74,18 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=53; i++) {
+        for (int i=1; i<=2; i++) {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_" + i + ".json"));
             //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
         }
 
+                //Espada magnifica
 
 //
-//       //Cabeça de martelo
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_50.json"));
+//       //espada comum
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_50.json"));
 //
        //Provisão
 

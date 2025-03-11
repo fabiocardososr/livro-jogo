@@ -1,6 +1,5 @@
 package livro.jogo.acaosecoes;
 
-import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.UtilPersonagem;
 
 public class AcoesSecao_13 {
@@ -9,7 +8,6 @@ public class AcoesSecao_13 {
     public static void perde3PontosDeSorte(){
 
         UtilPersonagem.personagemPerdeSorte(3);
-        System.out.println(DadosLivroCarregado.getPersonagem().getSorteAtual());
 
     }
 }
