@@ -31,10 +31,16 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
 
         opcao1(secao);
-        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
         botaoOpcao1.setBounds(120,660,40,50);
         labelNumOpcao1.setBounds(116,652, 50,50);
         lbTextoOpcao1.setBounds(170,647,700,60);
+
+        opcao2(secao);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        botaoOpcao2.setBounds(120,710,40,50);
+        labelNumOpcao2.setBounds(116,702, 50,50);
+        lbTextoOpcao2.setBounds(170,697,700,60);
 
         carregaBotaoOpcaoMoedas();
 
@@ -180,7 +186,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou3Moedas = true;
-                    botaoOpcao3.setEnabled(false);
+                    botaoOpcao2.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 3 moedas para entregar ao caçador.");
@@ -241,6 +247,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
                     repaint();
                     entregou3Moedas = true;
+                    botaoOpcao2.setEnabled(false);
                 }
                 else{
                     CarregarTelas.telaMensagem("Você não tem 3 moedas para entregar ao caçador.");
@@ -286,7 +293,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                     if ( (entregou3Moedas) || (escolheuItensDaListaSuspensa) )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
-                        CarregarTelas.telaMensagem("Pague ao caçador 3 peças de ouro ou entregue 1 item a sua escolha.");
+                        CarregarTelas.telaMensagem("Você não pagou ao caçador 3 peças de ouro ou 1 item a sua escolha.");
                 }
             }
 
@@ -314,6 +321,63 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+
+        botaoOpcao2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+
+                    //Se já entregou itens ao caçador, não é possível escolher esta opção
+                    if ( (entregou3Moedas) || (escolheuItensDaListaSuspensa) ) {
+                        return;
+                    }
+
+                    if ( (DadosLivroCarregado.getBolsa().size() > 1) ||
+                            (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 3) ){
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ",\n existem recursos para serem dados ao caçador. Escolha uma das opções.");
+                        return;
+                    }
+
+                    if ( (!entregou3Moedas) && (!escolheuItensDaListaSuspensa) ) {
+                        CarregarTelas.telaMensagem("Ele o encara e diz: "+
+                                "\n\"Você estragou a armadilha e não tem como pagar uma compensação, suba sozinho.\""+
+                                "\n\nA morte o espera. Sua aventura acaba aqui!");
+                        dispose();
+                    }
+
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }

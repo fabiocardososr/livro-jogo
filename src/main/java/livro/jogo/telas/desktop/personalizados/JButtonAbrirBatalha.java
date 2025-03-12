@@ -12,7 +12,8 @@ import java.awt.event.MouseListener;
 
 public class JButtonAbrirBatalha {
 
-    public static JPanel carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura, int altura){
+    public static JPanel carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura,
+                                               int altura){
 
         JPanel panel = new JPanel(null);
         panel.setBounds(x,y,largura,altura);
@@ -42,6 +43,10 @@ public class JButtonAbrirBatalha {
 
             @Override
             public void mouseEntered(MouseEvent e) {
+
+                if (inimigo.getEnergia() <= 0)
+                    return;
+
                 if (e.getSource() == btInimigo){
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA_SELECIONADO.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
@@ -51,6 +56,10 @@ public class JButtonAbrirBatalha {
 
             @Override
             public void mouseExited(MouseEvent e) {
+
+                if (inimigo.getEnergia() <= 0)
+                    return;
+
                 if (e.getSource() == btInimigo){
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
@@ -76,7 +85,6 @@ public class JButtonAbrirBatalha {
         JLabelOpcoesTelaSecao faixaHabilidadeInimigo = new JLabelOpcoesTelaSecao("",150,30,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
         faixaHabilidadeInimigo.setBounds(5,105,150,30);
-        //faixaHabilidadeInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         faixaHabilidadeInimigo.setHorizontalAlignment(SwingConstants.CENTER);
         //faixaIndicesInimigo.setBorder(BorderFactory.createLineBorder(Color.RED));
 

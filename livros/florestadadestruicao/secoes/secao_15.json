@@ -12,9 +12,10 @@
   "inimigos":[
 	{
 		"idInimigo":"5",
-		"nome":"VERME DE PEÇONHA",
+		"nome":"VERME",
 		"habilidade":"8",
-		"energia":"7"
+		"energia":"7",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/enxame.png"
 	}
   ]
  }

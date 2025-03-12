@@ -165,6 +165,7 @@ public class CarregarTelas {
             case 12  -> new TelaSecao_12(secao).setVisible(true); //Escolher itens para remover
             case 13  -> new TelaSecao_13(secao).setVisible(true);
             case 14  -> new TelaSecao_14(secao).setVisible(true); //Escolher itens para remover ou dar ouro
+            case 15  -> new TelaSecao_15(secao).setVisible(true); //Tem inimigo
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -178,6 +179,7 @@ public class CarregarTelas {
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6
             case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9
+            case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5
             case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14
             case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1

@@ -449,6 +449,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             panelListaSuspensaItens.setVisible(false);
             panelListaItensEscolhidos.setVisible(false);
 
+            //Trata determinadas ações quando usa a telinha de escolha de itens
             acoesEspecificasDasSecoes();
 
     }
@@ -460,6 +461,10 @@ public abstract class TelaSecoesBasica extends JDialog {
             AcoesSecao_12.recuperaEspadaDoGnomo();
             CarregarTelas.telaMensagem("Dívida paga.\n\nSua espada é devolvida!");
             botaoOpcao3.setEnabled(false);
+        }
+
+        if (secao.getCodSecaoLivro() == 14) {
+            botaoOpcao2.setEnabled(false);
         }
 
         //Seção 271 é necessário pagar para obter informações do Gnomo

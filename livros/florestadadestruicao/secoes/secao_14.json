@@ -4,8 +4,12 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_14.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Pagando o combinado ao caçador siga para o norte, descendo a garganta.",
+      "textoOpcao":"Você pagou o combinado ao caçador. Siga para o norte, descendo a garganta.",
       "codProximaSecao":"255"
+    },
+	{	  
+      "textoOpcao":"Você não possui moedas nem itens para pagar ao caçador.",
+      "codProximaSecao":""
     }
   ]
  }

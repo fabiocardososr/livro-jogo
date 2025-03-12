@@ -12,10 +12,8 @@ import livro.jogo.utils.Util;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_7 extends TelaSecoesBasica {
-
-
-    public TelaSecao_7(Secao secao) {
+public class TelaSecao_15 extends TelaSecoesBasica {
+    public TelaSecao_15(Secao secao) {
         super(secao);
     }
 
@@ -28,23 +26,16 @@ public class TelaSecao_7 extends TelaSecoesBasica {
         botaoOpcao1.setBounds(120,740,40,50);
         botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        //Configurando botões
         acaoBotoes(secao);
 
-        //Inclusao dos botões que representam os inimigos a serem atacados
         configurandoBotoesBatalha(secao);
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
 
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
-
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().getFirst(),
                 365,570,150,165);
 
-         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
-                630,570,150,165);
     }
 
     @Override
@@ -58,7 +49,7 @@ public class TelaSecao_7 extends TelaSecoesBasica {
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ",\nvocê deve vencer os inimigos antes de continuar sua jornada.");
+                                ",\nvocê deve vencer o inimigo antes de continuar sua jornada.");
                 }
             }
 
@@ -91,6 +82,4 @@ public class TelaSecao_7 extends TelaSecoesBasica {
             }
         });
     }
-
-
 }

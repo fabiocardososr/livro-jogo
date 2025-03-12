@@ -575,6 +575,7 @@ public class TelaBatalha extends JDialog {
                 CarregarTelas.telaMensagem("Você foi derrotado.\n\nVocê está morto. Sua aventura acaba aqui.");
                 telaPai.dispose();
                 dispose();
+                return;
             }
 
             //Se o inimigo morreu
@@ -583,6 +584,7 @@ public class TelaBatalha extends JDialog {
                         "\n\nVocê venceu a batalha!");
                 inimigoSecao.setEnergia(0);
                 dispose();
+                return;
             }
 
             //Atualiza quantidade de rodadas
