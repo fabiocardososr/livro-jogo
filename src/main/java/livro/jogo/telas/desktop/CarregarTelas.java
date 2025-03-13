@@ -166,6 +166,7 @@ public class CarregarTelas {
             case 13  -> new TelaSecao_13(secao).setVisible(true);
             case 14  -> new TelaSecao_14(secao).setVisible(true); //Escolher itens para remover ou dar ouro
             case 15  -> new TelaSecao_15(secao).setVisible(true); //Tem inimigo
+            case 16  -> new TelaSecao_16(secao).setVisible(true); //Pergunta se tem Poção Antiveneno
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 

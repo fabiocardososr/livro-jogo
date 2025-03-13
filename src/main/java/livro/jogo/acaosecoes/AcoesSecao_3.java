@@ -2,6 +2,7 @@ package livro.jogo.acaosecoes;
 
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.DadosLivroCarregado;
 
@@ -24,9 +25,23 @@ public class AcoesSecao_3 {
         //Se possui o anel de luz mas ele encontra-se na bolsa, informa que ele deve ser equipado antes
         if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.ANEL_DA_LUZ.getIdItem()) )
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                    ", você possui o item. Mas precisa equipá-lo.\n\nProcure-o na sua bolsa.");
+                    ",\nvocê possui o item. Mas precisa equipá-lo.\n\nProcure-o na sua bolsa e coloque-o no dedo.");
 
         return false;
+    }
+
+    public static void opcao_2(TelaSecoesBasica tela){
+
+        if ( UtilBolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()) ) {
+            return;
+        }
+
+        //Se personagem tem o anel de luz mas não quer seguir sem colocar o nael no dedo
+        if ( UtilBolsa.verificarExistenciaDeItemNaBolsaOuEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()) ) {
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                    ", observe sua bolsa a existência do Anel de Luz."+
+                    "\n\nCaso possua, mesmo assim deseja escolher esta opção?",tela);
+        }
     }
 
 }

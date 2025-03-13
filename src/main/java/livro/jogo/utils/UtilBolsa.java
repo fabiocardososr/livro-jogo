@@ -67,7 +67,7 @@ public class UtilBolsa {
 
         //Estando na bolsa
         for (Item item : bolsa){
-            if ( item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem() ){
+            if ( item.getIdItem() == idItem ){
                 return true;
             }
         }

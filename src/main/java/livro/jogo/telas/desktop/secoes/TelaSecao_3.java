@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_3 extends TelaSecoesBasica {
+    private TelaSecoesBasica tela = this;
 
     public TelaSecao_3(Secao secao) {
         super(secao);
@@ -71,8 +72,10 @@ public class TelaSecao_3 extends TelaSecoesBasica {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao2){
 
-                    //Seção que esta opção vai direcionar
-                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                    //Se personagem tem o anel de luz, mas não quer seguir sem colocar o anel no dedo
+                    AcoesSecao_3.opcao_2(tela);
+                    if (isRespostaTelaMensagem())
+                        abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
                 }
             }
 
