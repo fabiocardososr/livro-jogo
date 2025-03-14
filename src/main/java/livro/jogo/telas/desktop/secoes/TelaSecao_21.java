@@ -8,15 +8,15 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_23 extends TelaSecoesBasica {
-
-    public TelaSecao_23(Secao secao) {
+public class TelaSecao_21 extends TelaSecoesBasica {
+    public TelaSecao_21(Secao secao) {
         super(secao);
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
+
         acaoBotoes(secao);
     }
 

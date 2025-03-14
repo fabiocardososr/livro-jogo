@@ -2,21 +2,22 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_23 extends TelaSecoesBasica {
-
-    public TelaSecao_23(Secao secao) {
+public class TelaSecao_20 extends TelaSecoesBasica {
+    public TelaSecao_20(Secao secao) {
         super(secao);
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
+
         acaoBotoes(secao);
     }
 
@@ -56,5 +57,6 @@ public class TelaSecao_23 extends TelaSecoesBasica {
                 }
             }
         });
+
     }
 }

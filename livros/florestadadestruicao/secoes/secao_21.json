@@ -1,10 +1,10 @@
 {  
   "codSecaoLivro":"21",
-  "texto":"A dor aumenta, e você rapidamente procura em sua mochila e retira a pequena garrafa com o rótulo de Poção Antiveneno. Você engole o conteúdo. Seu corpo relaxa, os efeitos do veneno vão sumindo. Você fica imaginando o que mais está reservado para você nessa floresta e volta-se para o norte, subindo a trilha",
+  "texto":"\t\t\t\tA dor aumenta, e você rapidamente procura em sua mochila e retira a pequena garrafa com o rótulo de Poção Antiveneno. Você engole o conteúdo.\n\n\t\t\t\tSeu corpo relaxa, os efeitos do veneno vão sumindo. Você fica imaginando o que mais está reservado para você nessa floresta e volta-se para o norte, subindo a trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_21.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Vá para",
+      "textoOpcao":"Ir para o norte subindo a trilha.",
       "codProximaSecao":"226"
     }
   ]

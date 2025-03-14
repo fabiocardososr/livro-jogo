@@ -31,7 +31,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 19 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 26 );
         CarregarTelas.carregarSecao(secao);
 
         //AcoesSecao_12.recuperaEspadaDoGnomo();
