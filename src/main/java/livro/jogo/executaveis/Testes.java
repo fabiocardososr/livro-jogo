@@ -74,7 +74,7 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=2; i++) {
+        for (int i=1; i<=3; i++) {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_" + i + ".json"));
             //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
@@ -83,50 +83,13 @@ public class Testes {
 
 
 //
-//       //espada comum
+//       //Provisão
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_50.json"));
-//
-       //Provisão
+               "livros/florestadadestruicao/itens/item_49.json"));
 
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_50.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                "livros/florestadadestruicao/itens/item_49.json"));
-//
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                "livros/florestadadestruicao/itens/item_25.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_46.json"));
+
 
 
 

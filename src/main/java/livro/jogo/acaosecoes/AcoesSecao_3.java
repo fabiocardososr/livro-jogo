@@ -30,7 +30,8 @@ public class AcoesSecao_3 {
         return false;
     }
 
-    public static void opcao_2(TelaSecoesBasica tela){
+    /// Neste caso o item existe, mas o jogador clicou nesta opção
+    public static void opcao_2_possui_item(TelaSecoesBasica tela){
 
         if ( UtilBolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()) ) {
             return;
@@ -39,8 +40,8 @@ public class AcoesSecao_3 {
         //Se personagem tem o anel de luz mas não quer seguir sem colocar o nael no dedo
         if ( UtilBolsa.verificarExistenciaDeItemNaBolsaOuEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()) ) {
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                    ", observe sua bolsa a existência do Anel de Luz."+
-                    "\n\nCaso possua, mesmo assim deseja escolher esta opção?",tela);
+                    ",\nverifique em sua bolsa a existência do Anel de Luz e coloque-o em seu dedo."+
+                    "\n\nCaso possuindo, mesmo assim, deseja escolher esta opção?",tela);
         }
     }
 

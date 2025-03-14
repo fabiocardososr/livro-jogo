@@ -1,12 +1,15 @@
 package livro.jogo.telas.desktop.principal;
 
+import livro.jogo.acaosecoes.AcoesSecao_16;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.*;
 
@@ -33,16 +36,18 @@ public class TelaBolsa extends JDialog {
     private JLabelOpcoesTelaSecao botaoProvisoes; //Vai ser atualizado com ações de itens a tela de secoes
     private JLabelOpcoesTelaSecao labelPocaoInicial; //Poção inicial
     private Container container;
+    private Secao secao;
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
                      JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
-                     JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial) {
+                     JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial, Secao secao) {
         this.lbEnergiaPersonagem = lbEnergiaPersonagem;
         this.botaoProvisoes = botaoProvisoes;
         this.labelPocaoInicial = labelPocaoInicial;
         this.lbSortePersonagem = lbSortePersonagem;
         this.lbHabilidadePersonagem = lbHabilidadePersonagem;
         this.container = container;
+        this.secao = secao;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
@@ -191,8 +196,6 @@ public class TelaBolsa extends JDialog {
 
         add(painelListaItens);
         add(painelImgFundoBolsa);
-
-
     }
 
     private class TelaBolsaListener implements MouseListener {
@@ -211,7 +214,7 @@ public class TelaBolsa extends JDialog {
             Item item = mapItens.get(imgLabel);
 
             //executa o efeito e remove da bolsa.
-            consumiuItem = EfeitoDeItens.acoesDosItens(item.getIdItem());
+            consumiuItem = new EfeitoDeItens(secao).acoesDosItens(item.getIdItem());
 
             //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
             atualizarCamposTelaSecao(imgLabel, item, consumiuItem);
@@ -252,7 +255,7 @@ public class TelaBolsa extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
         labelPocaoInicial.setText("");
         labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPocaoInicial.setBounds(1270,265,150,100);
+        labelPocaoInicial.setBounds(1270,260,150,100);
         labelPocaoInicial.addMouseListener(null);
         labelPocaoInicial.setToolTipText("Poção consumida");
     }
@@ -267,18 +270,7 @@ public class TelaBolsa extends JDialog {
             if ( consumiuItem )
                 CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
             else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Coroa de ouro(2)*/
-        if (item.getIdItem() == ItensMapeamento.COROA_DE_OURO.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
+                CarregarTelas.telaMensagem("Você retira o anel do seu dedo indicador.");
 
             dispose();
         }
@@ -286,184 +278,18 @@ public class TelaBolsa extends JDialog {
         /*Poção Antiveneno(3)*/
         if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
 
+            //Cada seção que a poção antiveneno é necessária
+            switch (secao.getCodSecaoLivro()){
+                case 16 -> consumiuItem = AcoesSecao_16.isConsumiuPocaoAntiveneno();
+            }
+
             if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
+                CarregarTelas.telaMensagem("Vá para a próxima seção (Opção 1).");
             else
-                CarregarTelas.telaMensagem("Item já equipado!");
+                CarregarTelas.telaMensagem("Não é necessário tomar a Poção Antiveneno.");
 
             dispose();
         }
-
-        /*Filtros Nasais(4)*/
-        if (item.getIdItem() == ItensMapeamento.FILTROS_NASAIS.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(5)*/
-        if (item.getIdItem() == ItensMapeamento.CHAVE_DE_PRATA.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(5)*/
-        if (item.getIdItem() == ItensMapeamento.CHAVE_DE_PRATA.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(6)*/
-        if (item.getIdItem() == ItensMapeamento.CABECA_DE_MARTELO_DOS_ANOES.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(7)*/
-        if (item.getIdItem() == ItensMapeamento.AGUA_BENTA.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(8)*/
-        if (item.getIdItem() == ItensMapeamento.POCAO_CONTROLE_DAS_PLANTAS.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /*Chave de prata(9)*/
-        if (item.getIdItem() == ItensMapeamento.SINO_DE_METAL.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Item já equipado!");
-
-            dispose();
-        }
-
-        /* Espada magnífica(10) */
-        if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-        /* Poeira da Levitação(11) */
-        if (item.getIdItem() == ItensMapeamento.POEIRA_DA_LEVITACAO.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-        /* Poeira da Levitação(12) */
-        if (item.getIdItem() == ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-        /* Poção da Imobilidade(13) */
-        if (item.getIdItem() == ItensMapeamento.POCAO_DA_IMOBILIDADE.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-        /* Poção da Imobilidade(14) */
-        if (item.getIdItem() == ItensMapeamento.BELADONA.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-        /* Colar Olho de Âmbar(15) */
-        if (item.getIdItem() == ItensMapeamento.BELADONA.getIdItem()){
-            /*
-            Lembre que será um botão fora da bolsa, provavelmente um botão na parte de opções,
-            tipo: "Receba a espada", e então não tem necessidade de precisar clicar na espada
-            dentro da bolsa. Na bolsa já mostrará "Equipado'.
-            Mas não tem a opção de clicar na espada inicial para voltar (também não faz sentido voltar...)
-            * */
-
-            //Muda informação do índice do personagem
-            lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
-        }
-
-
-
-
 
 
         /* Poção de Habilidade(45)  */
@@ -493,6 +319,7 @@ public class TelaBolsa extends JDialog {
                     " encontra-se no nível máximo.");
         }
 
+
         /* Poção da Força(energia - 46)  */
         if (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
 
@@ -519,6 +346,7 @@ public class TelaBolsa extends JDialog {
                     ", você toma a poção e se sente bem.\n\nSeu índice de energia" +
                     " encontra-se no nível máximo.");
         }
+
 
         /* Poção da Fortuna(47)  */
         if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
@@ -547,6 +375,7 @@ public class TelaBolsa extends JDialog {
                         " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
         }
 
+
         /* PROVISÃO(49) */
         if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
 
@@ -574,10 +403,9 @@ public class TelaBolsa extends JDialog {
                 }
         }
 
+
         //atualiza a tela de secao que chama este tela
         //estava ficando estranha a tela em alguns pontos ao clicar nos itens. fundo com imagens sem sentido
         container.repaint();
     }
-
-
 }

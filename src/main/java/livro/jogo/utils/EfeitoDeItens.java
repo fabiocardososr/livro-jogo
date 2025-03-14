@@ -1,37 +1,58 @@
 package livro.jogo.utils;
 
+import livro.jogo.acaosecoes.AcoesSecao_16;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
 
-import java.util.ArrayList;
-
 public class EfeitoDeItens {
+    private Secao secao;
+
+    public EfeitoDeItens(Secao secao) {
+        this.secao = secao;
+    }
 
     //Aqui são codificados todos os efeitos dos itens
     //O retorno indica se consumiu/equipou
-    public static boolean acoesDosItens(int idItem){
+    public boolean acoesDosItens(int idItem){
 
         return switch(idItem) {
-            case 1  -> efeitoItem1();      //Anel de Luz(da luz)
-            case 10 -> efeitoItem10();     //Espada magnífica
-            case 45 -> efeitoItem45();     //Poção de Habilidade
-            case 46 -> efeitoItem46();     //Poção de força
-            case 47 -> efeitoItem47();     //Poção de Fortuna
-            case 49 -> efeitoItem49();     //Provisões (comida)
+            case 1  -> efeitoItem_1();      //Anel de Luz(da luz)
+            case 3  -> efeitoItem_3();      //Poção Antiveneno
+            case 10 -> efeitoItem_10();     //Espada magnífica
+            case 45 -> efeitoItem_45();     //Poção de Habilidade
+            case 46 -> efeitoItem_46();     //Poção de força
+            case 47 -> efeitoItem_47();     //Poção de Fortuna
+            case 49 -> efeitoItem_49();     //Provisões (comida)
             default -> false;
         };
     }
 
-    //Equipar o Anel da Luz(colocar no dedo)
-    private static boolean efeitoItem1() {
+    //apenas informa que a Poção Antiveneno foi consumida
+    private boolean efeitoItem_3() {
+        boolean retorno = false;
 
-        //Se o anel já equipado, não faz nada e sai
-        if (UtilBolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem()))
-            return false;
+        //Cada seção que a poção antiveneno é necessária
+        switch (secao.getCodSecaoLivro()){
 
+            case 16 -> retorno = AcoesSecao_16.consumiuPocaoAntiveneno();  //seta variável e remove item
+
+        }
+        return retorno;
+    }
+
+    ///Equipar o Anel da Luz(colocar no dedo)
+    private boolean efeitoItem_1() {
         //Recupera o item anel da luz(código 1)
         Item item = DadosLivroCarregado.getMapItem().get( ItensMapeamento.ANEL_DA_LUZ.getIdItem() );
+
+        //Se o anel já equipado, coloca-o na bolsa novamente
+        if (UtilBolsa.verificarExistenciaDeItemEquipado(ItensMapeamento.ANEL_DA_LUZ.getIdItem())) {
+            DadosLivroCarregado.removeItemEquipado(item);
+            DadosLivroCarregado.getBolsa().add(item);
+            return false;
+        }
 
         //Adiciona aos equipados
         DadosLivroCarregado.getItensEquipados().add(item);
@@ -42,8 +63,8 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Espada magnífica deve ser equipada (seção 70)
-    private static boolean efeitoItem10() {
+    ///Espada magnífica deve ser equipada (seção 70)
+    private boolean efeitoItem_10() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Recupera o item
@@ -63,10 +84,9 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Poção da fortuna(sorte)
-    private static boolean efeitoItem47() {
+    ///Poção da fortuna(sorte)
+    private boolean efeitoItem_47() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
-        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreSorteMaxEAtual() == 0){
@@ -74,11 +94,7 @@ public class EfeitoDeItens {
         }
 
         //Achar o item e removê-lo da bolsa
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem() ) {
-                itens.remove(item);
-                break;
-            }
+        UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORTUNA.getIdItem());
 
         //Aumenta em 1 o nível inicial(máximo) de sorte
         personagem.setSorteMax( personagem.getSorteMax() + 1 );
@@ -89,10 +105,9 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Poção de força(energia)
-    private static boolean efeitoItem46() {
+    ///Poção de força(energia)
+    private boolean efeitoItem_46() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
-        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
@@ -100,11 +115,7 @@ public class EfeitoDeItens {
         }
 
         //Achar o item e removê-lo da bolsa
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem() ) {
-                itens.remove(item);
-                break;
-            }
+        UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_ENERGIA.getIdItem());
 
         //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
         personagem.setEnergiaAtual( personagem.getEnergiaMax() );
@@ -112,10 +123,9 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Poção de Habilidade inicial
-    private static boolean efeitoItem45(){
+    ///Poção de Habilidade inicial
+    private boolean efeitoItem_45(){
         Personagem personagem = DadosLivroCarregado.getPersonagem();
-        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
@@ -123,11 +133,7 @@ public class EfeitoDeItens {
         }
 
         //Achar o item e removê-lo da bolsa
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() ) {
-                itens.remove(item);
-                break;
-            }
+        UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem());
 
         //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
         personagem.setHabilidadeAtual( personagem.getHabilidadeMax() );
@@ -135,10 +141,9 @@ public class EfeitoDeItens {
         return true;
     }
 
-    //Provisão
-    private static boolean efeitoItem49(){
+    ///Provisão
+    private boolean efeitoItem_49(){
         Personagem personagem = DadosLivroCarregado.getPersonagem();
-        ArrayList<Item> itens = DadosLivroCarregado.getBolsa();
 
         //Se personagem com energia máxima, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
@@ -146,11 +151,7 @@ public class EfeitoDeItens {
         }
 
         //Achar um item do tipo provisão e removê-lo da bolsa
-        for (Item item : itens)
-            if ( item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem() ) {
-                itens.remove(item);
-                break;
-            }
+        UtilBolsa.removerItem(ItensMapeamento.PROVISAO.getIdItem());
 
         //Recuperando o índice atual e o índice máximo em que o personagem pode chegar
         var indiceAtual   = personagem.getEnergiaAtual();

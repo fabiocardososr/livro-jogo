@@ -99,9 +99,9 @@ public class CarregarTelas {
 
     public static void telaBolsa(Container container, int largura, int altura, JLabel lbEnergiaPersonagem,
                                  JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
-                                 JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial){
+                                 JLabelOpcoesTelaSecao botaoProvisoes, JLabelOpcoesTelaSecao labelPocaoInicial, Secao secao){
         TelaBolsa telaBolsa = new TelaBolsa(container,largura,altura, lbEnergiaPersonagem,lbHabilidadePersonagem,
-                lbSortePersonagem,botaoProvisoes, labelPocaoInicial);
+                lbSortePersonagem,botaoProvisoes, labelPocaoInicial,secao);
 
         telaBolsa.setVisible(true);
     }
@@ -180,6 +180,7 @@ public class CarregarTelas {
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6
             case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9
+            case 211 -> new TelaSecao_211(secao).setVisible(true);//chamado pela seção 16
             case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5
             case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14
@@ -189,6 +190,7 @@ public class CarregarTelas {
             case 317 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 8
             case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 Termina o jogo
+            case 345 -> new TelaSecao_345(secao).setVisible(true);//chamado pela seção 16
             case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11 Termina o jogo
             case 392 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 8
 

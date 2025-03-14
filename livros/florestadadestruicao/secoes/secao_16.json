@@ -1,14 +1,14 @@
 {  
   "codSecaoLivro":"16",
-  "texto":"Você grita para os três humanóides que estão cuidando de um roçado de fungos de topo vermelho. Outra vez eles ignoram sua presença, continuando o trabalho deles. Você pega um dos fungos, parte um pedaço do topo e começa a comer. O gosto é bom, mas uma dor terrível invade seu estômago. O fungo é venenoso",
+  "texto":"\t\t\t\tVocê grita para os três humanóides que estão cuidando de um roçado de fungos de topo vermelho. Outra vez eles ignoram sua presença, continuando o trabalho deles. Você pega um dos fungos, parte um pedaço do topo e começa a comer. O gosto é bom, mas uma dor terrível invade seu estômago. O fungo é venenoso.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_16.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Você tem uma Poção Antiveneno?",
+      "textoOpcao":"Você tem uma Poção Antiveneno? Melhor tomá-la.",
       "codProximaSecao":"211"
     },
 	{	  
-      "textoOpcao":"Se você não possuir esta poção",
+      "textoOpcao":"Se você não possuir esta poção. Ou não queira tomá-la.",
       "codProximaSecao":"345"
     }
   ]

@@ -77,7 +77,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private int limiteDeEscolhaDeItens; //Limite de seleções no módulo de itens (usado, por exemplo, seção 12)
     private DefaultListModel<ListItem> listaItensParaEscolha; //Vai servir para a tela de escolha de itens
     protected boolean escolheuItensDaListaSuspensa;    //Informa se escolheu entregar 2 itens ao Gnomo
-    private boolean pocaoInicialConsumido; //Informa se a poção incial foi tomada
+    private boolean pocaoInicialConsumido; //Informa se a poção inicial foi tomada
     private JLabelOpcoesTelaSecao botaoLabelFundoProvisoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoAnotacoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoSalvar;
@@ -1223,7 +1223,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             if (e.getSource() == labelBolsa){
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0)
                     CarregarTelas.telaBolsa(getContentPane(),1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
-                        lbSortePersonagem, labelProvisoes, labelPocaoInicial);
+                        lbSortePersonagem, labelProvisoes, labelPocaoInicial,secao);
             }
 
             if ( (e.getSource() == labelPocaoInicial) || (e.getSource() == labelFundoPocaoInicial) ){
@@ -1246,7 +1246,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if ( !respostaTelaMensagem )
                     return;
 
-                pocaoInicialConsumido = EfeitoDeItens.acoesDosItens(pocaoInicial.getIdItem());
+                pocaoInicialConsumido = new EfeitoDeItens(secao).acoesDosItens(pocaoInicial.getIdItem());
 
                 if ( pocaoInicialConsumido ) {
                     configuraPocaoVaziaQuandoPocaoInicialConsumida();
@@ -1281,7 +1281,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                     //Aqui trata a ação de comer a provisão
                     //Item provisão
-                    if  (EfeitoDeItens.acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+                    if  (new EfeitoDeItens(secao).acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));
