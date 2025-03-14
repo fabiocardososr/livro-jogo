@@ -81,11 +81,13 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FUNDO_BOLSA("livros/florestadadestruicao/imagens/fundo_bolsa.png"),
     FUNDO_BOLSA_LISTA("livros/florestadadestruicao/imagens/fundo_bolsa_lista.png"),
     SIMBOLO_VOZ("livros/florestadadestruicao/imagens/voz.png"),
+    SIMBOLO_VOZ_SELECIONADO("livros/florestadadestruicao/imagens/voz_selecionada.png"),
     BRASAO_BATALHA("livros/florestadadestruicao/imagens/brasao_batalha.png"),
     BRASAO_BATALHA_SELECIONADO("livros/florestadadestruicao/imagens/brasao_batalha_selecionado.png"),
     TREVO("livros/florestadadestruicao/imagens/trevo.png"),
     TREVO_SELECIONADO("livros/florestadadestruicao/imagens/trevo_selecionado.png"),
-    SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png")
+    SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png"),
+    SIMBOLO_VOZ_PARAR_SELECIONADO("livros/florestadadestruicao/imagens/parar_voz_selecionado.png")
     ;
 
     private final String enderecoImagem;

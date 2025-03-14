@@ -1,18 +1,18 @@
 {  
   "codSecaoLivro":"17",
-  "texto":"Uma escada desce pelo interior do poço até a água lá embaixo. Contudo, parece haver um túnel logo acima da superfície da água, o qual segue para o norte. É circular, e tem o diâmetro de um metro. Você pode",
+  "texto":"\t\t\t\tUma escada desce pelo interior do poço até a água lá embaixo. Contudo, parece haver um túnel logo acima da superfície da água, o qual segue para o norte. É circular, e tem o diâmetro de um metro.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_17.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Jogar uma Peça de Ouro no poço para fazer um pedido",
+      "textoOpcao":"Jogar uma Peça de Ouro no poço para fazer um pedido.",
       "codProximaSecao":"89"
     },
 	{	  
-      "textoOpcao":"Descer a escada para olhar o túnel",
+      "textoOpcao":"Descer a escada para olhar o túnel.",
       "codProximaSecao":"256"
     },
 	{	  
-      "textoOpcao":"Retornar à trilha para seguir para o oeste",
+      "textoOpcao":"Retornar à trilha para seguir para o oeste.",
       "codProximaSecao":"238"
     }
   ]

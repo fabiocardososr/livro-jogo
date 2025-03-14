@@ -1,10 +1,10 @@
 {  
   "codSecaoLivro":"19",
-  "texto":"Embora fraco por causa da febre, você consegue sentar. Segura então sua espada e, apertando os dentes, você corta a si mesmo no lugar onde foi a mordida do Lobisomem. O sangue corre rapidamente do ferimento e, com sorte, leva com ele a doença. Você perde 1 ponto de ENERGIA devido à perda de sangue.",
+  "texto":"\t\t\t\tEmbora fraco por causa da febre, você consegue sentar. Segura então sua espada e, apertando os dentes, você corta a si mesmo no lugar onde foi a mordida do Lobisomem.\n\n\t\t\t\tO sangue corre rapidamente do ferimento e, com sorte, leva com ele a doença.\n\n\t\t\t\tVocê perde 1 ponto de ENERGIA devido à perda de sangue.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_19.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se ainda estiver vivo, volte",
+      "textoOpcao":"Perca 1 ponto de Energia devido ao sangramento e continue.",
       "codProximaSecao":"18"
     }
   ]

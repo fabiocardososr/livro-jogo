@@ -84,4 +84,16 @@ public class UtilPersonagem {
 
         return indiceMax - indiceAtual;
     }
+
+    //Dedução de outro
+    public static boolean reduzirValorOuro(int valorASerReduzido){
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        if (valorASerReduzido > personagem.getQuantidadeOuro())
+            return false;
+
+        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - valorASerReduzido);
+
+        return true;
+    }
 }

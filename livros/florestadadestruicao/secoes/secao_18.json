@@ -1,10 +1,10 @@
 {  
   "codSecaoLivro":"18",
-  "texto":"Seu plano funciona e a febre diminui. Felizmente, os pêlos nas costas de suas mãos desaparecem, e você cai de novo em sono profundo, exausto. De manhã, você reúne seus pertences e parte para o norte pela trilha, na direção das montanhas",
+  "texto":"\t\t\t\tSeu plano funciona e a febre diminui. Felizmente, os pêlos nas costas de suas mãos desaparecem, e você cai de novo em sono profundo, exausto.\n\n\t\t\t\tDe manhã, você reúne seus pertences e parte para o norte pela trilha, na direção das montanhas.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_18.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Vá para",
+      "textoOpcao":"Siga para o norte.",
       "codProximaSecao":"198"
     }
   ]

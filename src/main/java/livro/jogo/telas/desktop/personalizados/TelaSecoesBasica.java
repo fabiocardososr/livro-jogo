@@ -47,7 +47,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     protected JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     protected JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
-    private int tamanhoTexto = 25; //tamanho default para o texto da seção. Pode ser ajustado
+    private int tamanhoTexto = 22; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     protected final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)
@@ -126,8 +126,11 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent e) {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent  e) {
                 util.pararAudioMp3();
+                if (referenciaTelaPrincipal != null)
+                    referenciaTelaPrincipal.setVisible(true);
             }
         });
     }
@@ -226,14 +229,6 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                     return;
                 }
-
-                //Incluir itens escolhidos
-                //ATENÇÃO AQUI pois está preparado apenas para atender a
-                // tela de seção 12 e 271 que a escolha é apenas 2 itens
-
-
-
-
 
                 if ( mapItens.isEmpty() ){
 
@@ -1041,6 +1036,8 @@ public abstract class TelaSecoesBasica extends JDialog {
                 String.valueOf(personagem.getHabilidadeAtual())+ "/"+
                 String.valueOf(personagem.getHabilidadeMax()));
 
+        labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+
         repaint();
     }
 
@@ -1329,6 +1326,18 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == labelVoz){
+                labelVoz.setIcon(Util.dimensionarImagem(labelVoz.getWidth(),
+                        labelVoz.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_SELECIONADO.getEnderecoImagem()));
+                repaint();
+            }
+
+            if (e.getSource() == labelVozParar){
+                labelVozParar.setIcon(Util.dimensionarImagem(labelVozParar.getWidth(),
+                        labelVozParar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_PARAR_SELECIONADO.getEnderecoImagem()));
+                repaint();
+            }
+
             if (e.getSource() == labelSair){
                 labelSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR_SELECIONADA.getEnderecoImagem(),
                         labelSair.getWidth(), labelSair.getHeight()).getImageIcon());
@@ -1374,6 +1383,18 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == labelVoz){
+                labelVoz.setIcon(Util.dimensionarImagem(labelVoz.getWidth(),
+                        labelVoz.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ.getEnderecoImagem()));
+                repaint();
+            }
+
+            if (e.getSource() == labelVozParar){
+                labelVozParar.setIcon(Util.dimensionarImagem(labelVozParar.getWidth(),
+                        labelVozParar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_PARAR.getEnderecoImagem()));
+                repaint();
+            }
+
             if (e.getSource() == labelSair){
                 labelSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.PORTA_SAIR.getEnderecoImagem(),
                         labelSair.getWidth(), labelSair.getHeight()).getImageIcon());

@@ -3,8 +3,8 @@ package livro.jogo.telas.desktop.secoes;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 
-public class TelaSecao_211 extends TelaSecoesBasica {
-    public TelaSecao_211(Secao secao) {
+public class TelaSecao_89 extends TelaSecoesBasica {
+    public TelaSecao_89(Secao secao) {
         super(secao);
     }
 
