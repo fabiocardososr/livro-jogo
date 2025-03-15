@@ -1,6 +1,7 @@
 package livro.jogo.executaveis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import livro.jogo.acaosecoes.AcoesSecao_28;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
@@ -31,8 +32,13 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 26 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 28 );
         CarregarTelas.carregarSecao(secao);
+
+//        if ( AcoesSecao_28.bracadeiraDaForcaEquipada() )
+//            System.out.println("ENTROU");
+//        else
+//            System.out.println("não ENTROU");
 
         //AcoesSecao_12.recuperaEspadaDoGnomo();
 
@@ -53,9 +59,9 @@ public class Testes {
         //ObjectMapper objMapper = new ObjectMapper();
         var itensEquipados = new ArrayList<Item>();
 
-        //Anel de ouro
-//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                "livros/florestadadestruicao/itens/item_1.json"));
+        //Braçadeira da força
+//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_12.json"));
 
         //Equipando uma espada(50)
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
@@ -80,17 +86,16 @@ public class Testes {
             //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
         }
 
-
-
-//
-//       //Provisão
+       //Provisão
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                "livros/florestadadestruicao/itens/item_49.json"));
 
+        //Braçadeira da força
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_12.json"));
+
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_46.json"));
-
-
 
 
         return bolsa;

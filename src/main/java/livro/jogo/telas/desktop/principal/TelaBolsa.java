@@ -264,7 +264,7 @@ public class TelaBolsa extends JDialog {
                                           boolean consumiuItem) {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
-        /* Anel da Luz(1) */
+        /// Anel da Luz(1)
         if (item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem()){
 
             if ( consumiuItem )
@@ -275,7 +275,7 @@ public class TelaBolsa extends JDialog {
             dispose();
         }
 
-        /*Poção Antiveneno(3)*/
+        ///Poção Antiveneno(3)
         if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
 
             //Cada seção que a poção antiveneno é necessária
@@ -291,8 +291,15 @@ public class TelaBolsa extends JDialog {
             dispose();
         }
 
+        ///Braçadeira da Força(12)
+        if (item.getIdItem() == ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem()){
 
-        /* Poção de Habilidade(45)  */
+
+
+            dispose();
+        }
+
+        ///Poção de Habilidade(45)
         if (item.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) {
 
             //Retornando falso o personagem está com índice completo e portanto não consume o item
@@ -319,8 +326,7 @@ public class TelaBolsa extends JDialog {
                     " encontra-se no nível máximo.");
         }
 
-
-        /* Poção da Força(energia - 46)  */
+        ///Poção da Força(energia - 46)
         if (item.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) {
 
             //Retornando falso o personagem está com índice completo e portanto não consume o item
@@ -347,8 +353,7 @@ public class TelaBolsa extends JDialog {
                     " encontra-se no nível máximo.");
         }
 
-
-        /* Poção da Fortuna(47)  */
+        ///Poção da Fortuna(47)
         if (item.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) {
 
             //Retornando falso o personagem está com índice completo e portanto não consume o item
@@ -375,8 +380,7 @@ public class TelaBolsa extends JDialog {
                         " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
         }
 
-
-        /* PROVISÃO(49) */
+        ///PROVISÃO(49)
         if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
 
             lbEnergiaPersonagem.setText("Energia: " +

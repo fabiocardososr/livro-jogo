@@ -96,4 +96,10 @@ public class UtilPersonagem {
 
         return true;
     }
+
+    //Equipar Item
+    public static void equiparItem(Item item){
+        DadosLivroCarregado.removeItemBolsa(item);
+        DadosLivroCarregado.getItensEquipados().add(item);
+    }
 }

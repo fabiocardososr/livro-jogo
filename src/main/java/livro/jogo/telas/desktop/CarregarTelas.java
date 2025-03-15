@@ -152,7 +152,7 @@ public class CarregarTelas {
         //Aqui vai ser chamado as seções
         switch ( secao.getCodSecaoLivro() ){
             case 1   -> new TelaSecao_1(secao).setVisible(true);
-            case 2   -> new TelaSecao_2(secao).setVisible(true);  //Termina o jogo
+            case 2   -> new TelaSecao_2(secao).setVisible(true); //Termina o jogo
             case 3   -> new TelaSecao_3(secao).setVisible(true);
             case 4   -> new TelaSecao_4(secao).setVisible(true); //perde energia
             case 5   -> new TelaSecao_5(secao).setVisible(true);
@@ -177,11 +177,14 @@ public class CarregarTelas {
             case 24  -> new TelaSecao_24(secao).setVisible(true);
             case 25  -> new TelaSecao_25(secao).setVisible(true);
             case 26  -> new TelaSecao_26(secao).setVisible(true);
+            case 27  -> new TelaSecao_27(secao).setVisible(true);
+            case 28  -> new TelaSecao_28(secao).setVisible(true); //pergunta se possui braçadeira da Força
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
             case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4
+            case 52  -> new TelaSecao_52(secao).setVisible(true); //chamado pela seção 28
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1
             case 56  -> new TelaSecao_56(secao).setVisible(true);//chamado pela seção 25
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271
@@ -203,11 +206,13 @@ public class CarregarTelas {
             case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14
             case 256 -> new TelaSecao_256(secao).setVisible(true); //chamado pela seção 17
             case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1
+            case 266 -> new TelaSecao_266(secao).setVisible(true);//chamado pela seção 28
             case 277 -> new TelaSecao_277(secao).setVisible(true);//chamado pela seção 20
             case 290 -> new TelaSecao_290(secao).setVisible(true);//chamado pela seção 10
             case 297 -> new TelaSecao_297(secao).setVisible(true);//chamado pela seção 271
             case 317 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 8
             case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3
+            case 329 -> new TelaSecao_329(secao).setVisible(true);//chamado pela seção 27
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 Termina o jogo
             case 339 -> new TelaSecao_339(secao).setVisible(true);//chamado pela seção 23
             case 345 -> new TelaSecao_345(secao).setVisible(true);//chamado pela seção 16

@@ -20,6 +20,7 @@ public class EfeitoDeItens {
         return switch(idItem) {
             case 1  -> efeitoItem_1();      //Anel de Luz(da luz)
             case 3  -> efeitoItem_3();      //Poção Antiveneno
+            case 12 -> efeitoItem_12();      //Braçadeira da Força
             case 10 -> efeitoItem_10();     //Espada magnífica
             case 45 -> efeitoItem_45();     //Poção de Habilidade
             case 46 -> efeitoItem_46();     //Poção de força
@@ -27,6 +28,15 @@ public class EfeitoDeItens {
             case 49 -> efeitoItem_49();     //Provisões (comida)
             default -> false;
         };
+    }
+
+    private boolean efeitoItem_12() {
+
+        ///TESTAR AO CLICAR NO ITEM NA BOLSA E VÊ SE EQUIPA
+        Item item = DadosLivroCarregado.getMapItem().get( ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem() );
+        UtilPersonagem.equiparItem(item);
+
+        return false;
     }
 
     //apenas informa que a Poção Antiveneno foi consumida

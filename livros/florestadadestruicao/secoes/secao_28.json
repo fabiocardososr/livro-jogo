@@ -1,14 +1,14 @@
 {  
   "codSecaoLivro":"28",
-  "texto":"Veja opções",
+  "texto":"Um artigo que pode ser útil neste momento é uma Braçaderia da Força.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_28.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se você possui uma Braçadeira da Força",
+      "textoOpcao":"Possui uma Braçadeira da Força?",
       "codProximaSecao":"52"
     },
 	{	  
-      "textoOpcao":"e você não possui este item",
+      "textoOpcao":"Não possui a Braçadeira da Força ou não quer usá-la.",
       "codProximaSecao":"266"
     }
   ]
