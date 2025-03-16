@@ -34,7 +34,7 @@ public class EfeitoDeItens {
 
         ///TESTAR AO CLICAR NO ITEM NA BOLSA E VÊ SE EQUIPA
         Item item = DadosLivroCarregado.getMapItem().get( ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem() );
-        UtilPersonagem.equiparItem(item);
+        UtilPersonagem.equiparDesequiparItem(item);
 
         return false;
     }

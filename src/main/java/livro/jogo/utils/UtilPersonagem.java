@@ -2,6 +2,7 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
+import livro.jogo.enums.ItensMapeamento;
 
 import java.util.ArrayList;
 
@@ -85,7 +86,7 @@ public class UtilPersonagem {
         return indiceMax - indiceAtual;
     }
 
-    //Dedução de outro
+    ///Dedução de outro
     public static boolean reduzirValorOuro(int valorASerReduzido){
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
@@ -97,9 +98,25 @@ public class UtilPersonagem {
         return true;
     }
 
-    //Equipar Item
-    public static void equiparItem(Item item){
-        DadosLivroCarregado.removeItemBolsa(item);
+    ///Equipa ou coloca-o na bolsa novamente.
+    ///Depende de onde ele esteja atualmente. Se na bolsa equipa-o, se equipado volta para a bolsa
+    public static void equiparDesequiparItem(Item item){
+
+        //Se o item já equipado, coloca-o na bolsa novamente
+        if ( UtilBolsa.verificarExistenciaDeItemEquipado( item.getIdItem()) ) {
+            DadosLivroCarregado.removeItemEquipado(item);
+            DadosLivroCarregado.getBolsa().add(item);
+            return;
+        }
+
+        //Adiciona aos equipados
         DadosLivroCarregado.getItensEquipados().add(item);
+
+        //Remove da bolsa
+        DadosLivroCarregado.removeItemBolsa(item);
+
+
+//        DadosLivroCarregado.removeItemBolsa(item);
+//        DadosLivroCarregado.getItensEquipados().add(item);
     }
 }

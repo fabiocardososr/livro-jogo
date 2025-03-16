@@ -27,8 +27,9 @@ public class Testes {
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(10);
-        //personagem.setHabilidadeAtual(9);
+        personagem.setHabilidadeAtual(9);
         personagem.setEnergiaAtual(10);
+        personagem.setSorteAtual(2);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
@@ -95,7 +96,7 @@ public class Testes {
                 "livros/florestadadestruicao/itens/item_12.json"));
 
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_46.json"));
+                "livros/florestadadestruicao/itens/item_47.json"));
 
 
         return bolsa;

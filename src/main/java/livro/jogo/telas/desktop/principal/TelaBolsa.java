@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TelaBolsa extends JDialog {
 
@@ -37,6 +38,9 @@ public class TelaBolsa extends JDialog {
     private JLabelOpcoesTelaSecao labelPocaoInicial; //Poção inicial
     private Container container;
     private Secao secao;
+    private ImagePanel painelListaItens; //Painel onde irão ficar todos os itens na bolsa ou equipados. São as imagens dos itens. Os quais o jogador irá interagir
+    private TelaBolsaListener acao = new TelaBolsaListener(); //Configurar ouvinte do click do mouse quando clicar nos itens
+
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
                      JLabel lbHabilidadePersonagem, JLabel lbSortePersonagem,
@@ -59,13 +63,6 @@ public class TelaBolsa extends JDialog {
 
     public void carregarTela(){
 
-        //Configurar ouvinte do click do mouse quando clicar nos itens
-        TelaBolsaListener acao = new TelaBolsaListener();
-
-        //Carregar itens da bolsa e os equipados
-        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-        ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
-
         //fundo
         ImagePanel painelImgFundoBolsa = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA);
         painelImgFundoBolsa.setBackground(new Color(210,180,140));
@@ -73,12 +70,71 @@ public class TelaBolsa extends JDialog {
         painelImgFundoBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelImgFundoBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        ImagePanel painelListaItens = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA_LISTA);
+        ///Painel onde irão ficar todos os itens na bolsa ou equipados.
+        ///São as imagens dos itens. Os quais o jogador irá interagir
+        painelListaItens = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.FUNDO_BOLSA_LISTA);
         painelListaItens.setBackground(new Color(210,180,140));
         painelListaItens.setForeground(new Color(139,0,0));
         painelListaItens.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
+        painelListaItens.setBounds(185,115,625, 570);
+        painelImgFundoBolsa.setBounds(0,0,1000,800);
+        painelImgFundoBolsa.add(painelListaItens);
+        //painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+
+        //Botão sair
+        JLabel labelSair = new JLabel("Sair");
+        labelSair.setBounds(465,700,100,50);
+        labelSair.setForeground(new Color(139,0,0));
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
+        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoSair = new JLabelOpcoesTelaSecao(null,
+                220, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoSair.setBounds(405,685,220,90);
+        botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        botaoSair.addMouseListener(acao);
+        add(labelSair);
+        add(botaoSair);
+
+        add(painelListaItens);
+        add(painelImgFundoBolsa);
+
+        //Recupera todos os itens da bolsa ou equipados e os mostra.
+        atualizarBolsa();
+    }
+
+    /// Usado basicamente quando incluir clicar em um item para equipar ou consumir.
+    ///O primeiro coloca a tarja "Equipado" o outro some.
+    private void atualizarBolsa(){
+        JLabelOpcoesTelaSecao imgItem;
+
+        //Retira todas as imagens do painel
+        painelListaItens.removeAll();
+
+        //Apaga todos os itens do hashMap
+        for (Map.Entry<JLabelOpcoesTelaSecao, Item> map : mapItens.entrySet()) {
+            imgItem = map.getKey();
+            imgItem = null;
+        }
+        //Limpa o hashmap
+        mapItens.clear();
+
+        //Recria a bolsa
+        carregaItensNaBolsaEEquipados(acao, painelListaItens);
+
+        repaint();
+    }
+
+    private void carregaItensNaBolsaEEquipados(TelaBolsaListener acao, ImagePanel painelListaItens) {
+        //Carregar itens da bolsa e os equipados
+        ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
+        ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
         var x = 90; //Posição da esquerda para a direita
         var y = 30;  //Posição de cima para baixo
@@ -145,7 +201,7 @@ public class TelaBolsa extends JDialog {
             if (item.getDescricao().isEmpty())
                 imgItem.setToolTipText(item.getNome().toUpperCase());
             else
-               imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
+                imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
 
             imgItem.addMouseListener(acao);
 
@@ -157,7 +213,7 @@ public class TelaBolsa extends JDialog {
 
             //Incluir item no hashmap para que possa ser identificado quando clicado na imagem
             mapItens.put(imgItem, item);
-           // mapLabel.put(imgItem, rotuloEquipado);
+            // mapLabel.put(imgItem, rotuloEquipado);
 
             //Incluir no panel
             painelListaItens.add(rotuloEquipado);
@@ -169,33 +225,6 @@ public class TelaBolsa extends JDialog {
             //Caminhando da esquerda para a direita
             x = x + 100;
         }
-
-        painelListaItens.setBounds(185,115,625, 570);
-        painelImgFundoBolsa.setBounds(0,0,1000,800);
-        painelImgFundoBolsa.add(painelListaItens);
-        //painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-
-        //Botão sair
-        JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(465,700,100,50);
-        labelSair.setForeground(new Color(139,0,0));
-        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
-        labelSair.setHorizontalAlignment(SwingConstants.CENTER);
-        labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        botaoSair = new JLabelOpcoesTelaSecao(null,
-                220, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(405,685,220,90);
-        botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
-        //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        botaoSair.addMouseListener(acao);
-        add(labelSair);
-        add(botaoSair);
-
-        add(painelListaItens);
-        add(painelImgFundoBolsa);
     }
 
     private class TelaBolsaListener implements MouseListener {
@@ -264,17 +293,6 @@ public class TelaBolsa extends JDialog {
                                           boolean consumiuItem) {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
-        /// Anel da Luz(1)
-        if (item.getIdItem() == ItensMapeamento.ANEL_DA_LUZ.getIdItem()){
-
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Você coloca o Anel de luz no seu dedo indicador.");
-            else
-                CarregarTelas.telaMensagem("Você retira o anel do seu dedo indicador.");
-
-            dispose();
-        }
-
         ///Poção Antiveneno(3)
         if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
 
@@ -283,20 +301,9 @@ public class TelaBolsa extends JDialog {
                 case 16 -> consumiuItem = AcoesSecao_16.isConsumiuPocaoAntiveneno();
             }
 
-            if ( consumiuItem )
-                CarregarTelas.telaMensagem("Vá para a próxima seção (Opção 1).");
-            else
+            if ( !consumiuItem )
                 CarregarTelas.telaMensagem("Não é necessário tomar a Poção Antiveneno.");
 
-            dispose();
-        }
-
-        ///Braçadeira da Força(12)
-        if (item.getIdItem() == ItensMapeamento.BRACADEIRA_DA_FORCA.getIdItem()){
-
-
-
-            dispose();
         }
 
         ///Poção de Habilidade(45)
@@ -408,8 +415,7 @@ public class TelaBolsa extends JDialog {
         }
 
 
-        //atualiza a tela de secao que chama este tela
-        //estava ficando estranha a tela em alguns pontos ao clicar nos itens. fundo com imagens sem sentido
-        container.repaint();
+        //Após a interação com o item, atualiza a tela
+        atualizarBolsa();
     }
 }
