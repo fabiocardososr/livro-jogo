@@ -1,15 +1,15 @@
 {  
   "codSecaoLivro":"29",
-  "texto":"Numa pequena clareira em meio às árvores, você vê duas pequenas criaturas de pele cheia de verrugas, vestindo armaduras de couro. Eles parecem estar discutindo sobre quem deveria se encarregar do coelho que está sendo assando ao fogo num espeto. Ao verem você, eles interrompem a discussão e puxam suas espadas curtas. Você terá que lutar contra os ORCS que avançam na sua direção.",
+  "texto":"\t\t\t\tNuma pequena clareira em meio às árvores, você vê duas pequenas criaturas de pele cheia de verrugas, vestindo armaduras de couro.\n\n\t\t\t\tEles parecem estar discutindo sobre quem deveria se encarregar do coelho que está sendo assado ao fogo num espeto.\n\n\t\t\t\tAo verem você, eles interrompem a discussão e puxam suas espadas curtas.\n\n\t\t\t\tVocê terá que lutar contra os ORCS que avançam na sua direção.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_29.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se você vencer a batalha",
+      "textoOpcao":"Venceu a batalha.",
       "codProximaSecao":"383"
     },
 	{	  
-      "textoOpcao":"Se quiser Fugir durante a batalha, poderá fazer isso correndo de volta para a trilha e prosseguindo para o norte(sujeito a regra de Fuga)",
+      "textoOpcao":"Fugir! Corra para a trilha, siga para o norte.",
       "codProximaSecao":"254"
     }
   ],

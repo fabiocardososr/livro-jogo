@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 28 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 29 );
         CarregarTelas.carregarSecao(secao);
 
 //        if ( AcoesSecao_28.bracadeiraDaForcaEquipada() )
