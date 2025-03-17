@@ -40,6 +40,7 @@ public class TelaBolsa extends JDialog {
     private Secao secao;
     private ImagePanel painelListaItens; //Painel onde irão ficar todos os itens na bolsa ou equipados. São as imagens dos itens. Os quais o jogador irá interagir
     private TelaBolsaListener acao = new TelaBolsaListener(); //Configurar ouvinte do click do mouse quando clicar nos itens
+    private JTextPane descricaoItem;
 
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
@@ -99,9 +100,13 @@ public class TelaBolsa extends JDialog {
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoSair.addMouseListener(acao);
+
+        //Carregar tela de informações dos itens
+        telaInfoItem();
+
+
         add(labelSair);
         add(botaoSair);
-
         add(painelListaItens);
         add(painelImgFundoBolsa);
 
@@ -225,6 +230,44 @@ public class TelaBolsa extends JDialog {
             //Caminhando da esquerda para a direita
             x = x + 100;
         }
+    }
+
+    //Carrega tela suspensa com informação do item
+    private void telaInfoItem(){
+        JPanel panelInfoItem = new JPanel();
+        panelInfoItem.setLayout(null);
+        panelInfoItem.setBounds(785,280,220, 250);
+        panelInfoItem.setBackground(new Color(0,0,0,0));
+        //panelInfoItem.setBackground(Color.GREEN);
+
+        //Fundo do painel
+        var largura = panelInfoItem.getWidth();
+        var altura = panelInfoItem.getHeight();
+        JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
+                largura, altura,ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_1);
+        fundoPanel.setHorizontalAlignment(SwingConstants.CENTER);
+        fundoPanel.setVerticalAlignment(SwingConstants.CENTER);
+        fundoPanel.setBounds(0,0,largura,altura);
+        //fundoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        descricaoItem = new JTextPane();
+        //descricaoItem.setBackground(new Color(210,180,140));
+        //descricaoItem.setOpaque(true);
+        descricaoItem.setBackground(new Color(0,0,0,0));
+        descricaoItem.setText("Ilumina ambientes escuros.");
+
+        descricaoItem.setFocusable(false);
+        descricaoItem.setFont(new Font(Font.DIALOG,Font.BOLD,12));
+        descricaoItem.setBounds(46,86,largura-95, altura-130);
+        descricaoItem.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+
+        //Criar título (nome do item e embaixo a descrição dele)
+
+
+        panelInfoItem.add(descricaoItem);
+        panelInfoItem.add(fundoPanel);
+        add(panelInfoItem);
     }
 
     private class TelaBolsaListener implements MouseListener {

@@ -19,6 +19,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     PERGAMINHO_FUNDO_CAD_PERSONAGEM("livros/florestadadestruicao/imagens/pergaminho_painel_cadPersonagem.png"),
     PERGAMINHO_FAIXA("livros/florestadadestruicao/imagens/pergaminho_inferior_secao.png"),
     PERGAMINHO_ABERTO("livros/florestadadestruicao/imagens/pergaminho_aberto7.png"),
+    PERGAMINHO_1("livros/florestadadestruicao/imagens/pergaminho_1.png"),
     FAIXA_INDICE_TELA_SECAO("livros/florestadadestruicao/imagens/faixa9.png"),
     FAIXA_NOME_PERSONAGEM_TELA_SECAO("livros/florestadadestruicao/imagens/faixa2.png"),
     FAIXA_8("livros/florestadadestruicao/imagens/faixa_8.png"),

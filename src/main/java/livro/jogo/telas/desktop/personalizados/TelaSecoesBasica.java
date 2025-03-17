@@ -770,8 +770,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         dialogImSecaoAmpliar.add(labelImagemTempoaria);
         dialogImSecaoAmpliar.addMouseListener(acaoLabels);
 
-
-
         //Adiciona componentes na tela atual
         add(labelImagemSecao);
         add(imgMolduraParaImgSecao);
