@@ -9,7 +9,7 @@
       "codProximaSecao":"383"
     },
 	{	  
-      "textoOpcao":"Fugir! Corra para a trilha, siga para o norte.",
+      "textoOpcao":"Fugir dos 2 ORCs e seguir para o norte?",
       "codProximaSecao":"254"
     }
   ],
@@ -18,13 +18,15 @@
 		"idInimigo":"6",
 		"nome":"ORC",
 		"habilidade":"5",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png"
 	},
 	{
 		"idInimigo":"7",
 		"nome":"ORC",
 		"habilidade":"5",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png"
 	}
   ]
  }

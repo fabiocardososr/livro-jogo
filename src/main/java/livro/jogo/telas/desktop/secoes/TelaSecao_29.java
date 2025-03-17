@@ -3,10 +3,15 @@ package livro.jogo.telas.desktop.secoes;
 import livro.jogo.acaosecoes.AcoesSecao_29;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.AcoesBatalha;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -21,17 +26,34 @@ public class TelaSecao_29 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         //Redimensionando o botão da opção 1
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        labelNumOpcao1.setText("2");
-        lbTextoOpcao1.setBounds(170,707,700,60);
-        botaoOpcao1.setBounds(120,720,40,50);
+        labelNumOpcao1.setBounds(436,592, 50,50);
+        lbTextoOpcao1.setBounds(490,587,700,60);
+        botaoOpcao1.setBounds(440,600,40,50);
         botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
         opcao2(secao);
-        labelNumOpcao2.setText("1"); //Já que posicionei a opção 1 abaixo (não importa o label...)
+        labelNumOpcao2.setBounds(436,652, 50,50);
+        lbTextoOpcao2.setBounds(490,647,700,60);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        botaoOpcao2.setBounds(440,660,40,50);
+        botaoOpcao2.setToolTipText("Escolha esta opção sendo covarde. Corra antes de enfrentar quaisquer inimigos.");
 
 
         acaoBotoes(secao);
+
+        //Inimigos
+        configurandoBotoesBatalha(secao);
+
+    }
+
+    private void configurandoBotoesBatalha(Secao secao) {
+
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
+                100,570,150,165);
+
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
+                280,570,150,165);
+
     }
 
     @Override
@@ -41,7 +63,11 @@ public class TelaSecao_29 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao1){
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                    if ( Util.isVenceuTodosInimigos(secao) )
+                        abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                    else
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ",\nvocê deve vencer os inimigos antes de continuar sua jornada.");
                 }
             }
 
