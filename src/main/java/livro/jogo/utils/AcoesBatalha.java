@@ -19,6 +19,13 @@ public class AcoesBatalha {
     private final TelaSecoesBasica telaSecao;
     private final Util util = new Util();
 
+    ///Apenas para quando quiser usar a função acaoAoClicarNoBotaoFuga()
+    public AcoesBatalha() {
+        this.inimigo = null;
+        this.telaBatalha = null;
+        this.telaSecao = null;
+    }
+
     public AcoesBatalha(Inimigo inimigo, TelaBatalha telaBatalha, TelaSecoesBasica telaSecao) {
         this.inimigo = inimigo;
         this.telaBatalha = telaBatalha;
@@ -45,7 +52,7 @@ public class AcoesBatalha {
         return UtilPersonagem.personagemPerdeEnergia( quantidadeEnergiaPerdida );
     }
 
-    //Quando clica no botão da fuga
+    //Quando clica no botão da fuga na TELA DE BATALHA
     public void acaoAoClicarNoBotaoFuga(TelaSecoesBasica telaPai){
         boolean vaiTestarSorte = false; //Se na fuga foi feito o teste de sorte. O default é não fazer
         boolean resultadoSorte = false; //Resultado do teste da sorte, caso feito.
@@ -97,8 +104,69 @@ public class AcoesBatalha {
                         "Sua aventura acaba aqui.");
                 telaPai.dispose();
             }
-            telaBatalha.dispose();
+
+            if (telaBatalha != null)
+                telaBatalha.dispose();
         }
+    }
+
+    //Quando utilizado por outra tela que não a tela de batalha (exemplo, seção 29)
+    public boolean clicarNaOpcaoFuga(TelaSecoesBasica telaPai){
+        boolean vaiTestarSorte = false; //Se na fuga foi feito o teste de sorte. O default é não fazer
+        boolean resultadoSorte = false; //Resultado do teste da sorte, caso feito.
+
+        CarregarTelas.telaMensagem("Deseja abandonar a luta?"+
+                "\n\n"+ DadosLivroCarregado.getPersonagem().getNome() +", você perderá 2 pontos de energia."+
+                "\nEsse é o preço de sua covardia.", telaPai);
+
+        if ( telaPai.isRespostaTelaMensagem() ) {
+
+            //Se tiver índice de sorte para usar
+            if ( DadosLivroCarregado.getPersonagem().getSorteAtual() > 0) {
+
+                //Perguntar se o jogador quer Testar a Sorte para diminuir o dano
+                CarregarTelas.telaMensagem("Deseja tentar a sorte para diminuir o " +
+                        "dano na fuga?\n\nObs.: Todo teste de sorte decrementa em 1 seu " +
+                        "índice de Sorte independentemente de sucesso ou não.", telaPai);
+
+                if ( telaPai.isRespostaTelaMensagem() ) {
+                    vaiTestarSorte = true;
+                    resultadoSorte = Util.testarSorte();
+                    TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+
+
+                    if (resultadoSorte) {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                        CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
+                    }
+                    else {
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                        CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
+                    }
+                }
+            }
+
+            //Passando resultadoSorte TRUE diminui 1 ponto de dano
+            var estaVivo = fuga(vaiTestarSorte, resultadoSorte);
+
+            //Após o decremento da energia se estiver vivo, atualiza os índices da tela de seção
+            if ( estaVivo ) {
+                if (telaPai != null){
+                    telaPai.atualizaIndicesNaTelaDoPersonagem();
+                    telaPai.setVisible(true);
+                    telaPai.repaint();
+                }
+            }
+            else{
+                CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
+                        "Sua aventura acaba aqui.");
+                telaPai.dispose();
+            }
+        }
+        else //Se na tela de confirmação desistiu de fugir
+            return false;
+
+        return true;
     }
 
     //Rodada de luta entre o personagem e o inimigo

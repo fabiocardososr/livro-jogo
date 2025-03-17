@@ -1,15 +1,18 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_3;
+import livro.jogo.acaosecoes.AcoesSecao_29;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.AcoesBatalha;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_29 extends TelaSecoesBasica {
+    private TelaSecoesBasica estaTela = this;
+
     public TelaSecao_29(Secao secao) {
         super(secao);
     }
@@ -75,7 +78,10 @@ public class TelaSecao_29 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao2){
-                   abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
+                    if ( AcoesSecao_29.fuga(estaTela) ) {
+                        atualizaIndicesNaTelaDoPersonagem();
+                        abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                    }
                 }
             }
 
