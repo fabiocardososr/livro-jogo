@@ -1,0 +1,15 @@
+ {
+	"idItem":"54",
+	"tipoEfeito":"HABILIDADE",
+	"nome":"Elmo de Bronze",
+	"descricao":"Acrescenta 1 ponto a todos os seus lances de dados futuros no ataque.",
+	"valorCusto":"0",
+	"modificador":"1",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_54.png"
+  }
