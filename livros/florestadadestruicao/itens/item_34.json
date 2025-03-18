@@ -1,8 +1,8 @@
  {
 	"idItem":"34",
 	"tipoEfeito":"NENHUM",
-	"nome":"Vara de Encontrar Água",
-	"descricao":"",
+	"nome":"Vara",
+	"descricao":"Vara de Encontrar Água.",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

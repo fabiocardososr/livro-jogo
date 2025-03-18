@@ -1,8 +1,8 @@
  {
 	"idItem":"39",
 	"tipoEfeito":"HABILIDADE",
-	"nome":"Manopla de Ferro (Habilidade com Arma)",
-	"descricao":"",
+	"nome":"Manopla de Ferro",
+	"descricao":"Habilidade com Arma.",
 	"valorCusto":"0",
 	"modificador":"1",   
 	"quantidadeUso":"0",

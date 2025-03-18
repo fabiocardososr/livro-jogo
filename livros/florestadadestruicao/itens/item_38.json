@@ -1,8 +1,8 @@
  {
 	"idItem":"38",
 	"tipoEfeito":"HABILIDADE",
-	"nome":"Pulseira de cobre (Pulseira de Habilidade)",
-	"descricao":"",
+	"nome":"Pulseira de cobre",
+	"descricao":" Pulseira de Habilidade.",
 	"valorCusto":"0",
 	"modificador":"1",   
 	"quantidadeUso":"0",

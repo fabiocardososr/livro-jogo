@@ -8,6 +8,7 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.UtilItens;
 
 
 import java.util.ArrayList;
@@ -22,19 +23,22 @@ public class Testes {
         var itensEquipados = recuperaItensIniciaisEquipados();
         var bolsa = adicionaItensNaBolsaParaTeste();
 
-        Personagem personagem = new Personagem("Fábio",1,22,1,
+        Personagem personagem = new Personagem("Fábio",1,22,10,
                 1,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(10);
-        personagem.setHabilidadeAtual(9);
-        personagem.setEnergiaAtual(10);
+        //personagem.setHabilidadeAtual(9);
+        personagem.setEnergiaAtual(4);
         personagem.setSorteAtual(0);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 29 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 30 );
         CarregarTelas.carregarSecao(secao);
+
+//        UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_54.json"));
 
 //        if ( AcoesSecao_28.bracadeiraDaForcaEquipada() )
 //            System.out.println("ENTROU");
@@ -81,10 +85,15 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=3; i++) {
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                    "livros/florestadadestruicao/itens/item_" + i + ".json"));
-            //System.out.println(bolsa.get(i-1).getIdItem() +" Nome: "+bolsa.get(i-1).getNome());
+        for (int i=50; i<=54; i++) {
+            try {
+                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
+               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
+            } catch (Exception e) {
+                System.out.println("ÍNIDCE "+ i);
+                throw new RuntimeException(e);
+            }
         }
 
        //Provisão

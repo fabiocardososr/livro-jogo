@@ -10,6 +10,7 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.AcoesBatalha;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilPersonagem;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -108,6 +109,12 @@ public class TelaSecao_29 extends TelaSecoesBasica {
                         atualizaIndicesNaTelaDoPersonagem();
                         abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
                     }
+
+                    //Após a fuga e perda de energia, verifica se o personagem está vivo.
+                    if ( !UtilPersonagem.retornaSePersonagemVivo() )
+                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                        if (referenciaTelaPrincipal != null)
+                            referenciaTelaPrincipal.setVisible(true);
                 }
             }
 

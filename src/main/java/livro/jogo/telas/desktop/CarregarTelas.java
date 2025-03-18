@@ -180,6 +180,7 @@ public class CarregarTelas {
             case 27  -> new TelaSecao_27(secao).setVisible(true);
             case 28  -> new TelaSecao_28(secao).setVisible(true); //pergunta se possui braçadeira da Força
             case 29  -> new TelaSecao_29(secao).setVisible(true); //inimigos ORCs
+            case 30  -> new TelaSecao_30(secao).setVisible(true); //perda de energia
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -201,6 +202,7 @@ public class CarregarTelas {
             case 211 -> new TelaSecao_211(secao).setVisible(true);//chamado pela seção 16
             case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15
             case 220 -> new TelaSecao_220(secao).setVisible(true);//chamado pela seção 26
+            case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
             case 226 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 21
             case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5

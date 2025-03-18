@@ -11,6 +11,7 @@ public enum ItensMapeamento {
     POCAO_CONTROLE_DAS_PLANTAS("livros/florestadadestruicao/itens/item_8.json",8),
     SINO_DE_METAL("livros/florestadadestruicao/itens/item_9.json",9),
     ESPADA_MAGNIFICA("livros/florestadadestruicao/itens/item_10.json",10),
+    ELMO_DE_BRONZE("livros/florestadadestruicao/imagens/item_54.png",54),
     POEIRA_DA_LEVITACAO("livros/florestadadestruicao/itens/item_11.json",11),
     BRACADEIRA_DA_FORCA("livros/florestadadestruicao/itens/item_12.json",12),
     POCAO_DA_IMOBILIDADE("livros/florestadadestruicao/itens/item_13.json",13),

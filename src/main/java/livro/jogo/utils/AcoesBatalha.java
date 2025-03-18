@@ -158,9 +158,11 @@ public class AcoesBatalha {
                 }
             }
             else{
+                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                 CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
                         "Sua aventura acaba aqui.");
                 telaPai.dispose();
+                return false;
             }
         }
         else //Se na tela de confirmação desistiu de fugir
@@ -175,7 +177,6 @@ public class AcoesBatalha {
         boolean personagemVivo  = true;
 
         //Info do que está acontecendo. Aparecerá na tela para o jogador
-        //JLabel painelInfo = telaBatalha.getLabelPainelMensagens();
         ResultadoBatalha resultadoTurnoBatalha;
 
         /*Em caso de teste de sorte quando o personagem está morto com 2 de dano,
@@ -207,7 +208,6 @@ public class AcoesBatalha {
         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
         mensagemComDelay(2000,"<html><center>Calculando seu ataque...</center></html>");
         TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
-        var resultadoDadosPersonagem = Util.rolarDados(6,2);
         var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem();
 
 

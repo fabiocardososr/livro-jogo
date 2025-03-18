@@ -2,7 +2,7 @@
 	"idItem":"49",
 	"tipoEfeito":"ENERGIA",
 	"nome":"Provisão(Refeição)",
-	"descricao":"Você pode descansar e comer a qualquer momento, exceto quando estiver empenhado numa batalha. Comer uma refeição repõe 4 pontos de ENERGIA.",
+	"descricao":"Comer uma refeição repõe 4 pontos de ENERGIA.",
 	"valorCusto":"0",
 	"modificador":"4",   
 	"quantidadeUso":"1",

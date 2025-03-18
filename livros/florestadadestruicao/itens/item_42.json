@@ -1,8 +1,8 @@
  {
 	"idItem":"42",
 	"tipoEfeito":"HABILIDADE",
-	"nome":"Medalhão de Ouro (com fita de seda)",
-	"descricao":"",
+	"nome":"Medalhão de Ouro",
+	"descricao":" preso em uma fita de seda",
 	"valorCusto":"5",
 	"modificador":"0",   
 	"quantidadeUso":"0",

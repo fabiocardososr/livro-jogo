@@ -14,7 +14,7 @@ public class UtilPersonagem {
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
         int modificador = 0;  //Será somado (ou diminuído) a força de ataque, caso o item tenha algum modificador
 
-        //Para cada item verifica se existe modificador que afeta no cáclulo do ataque
+        //Para cada item EQUIPADO verifica se existe modificador que afeta no cáclulo do ataque
         for (Item item : itensEquipados){
 
             //Se existe algum modificador que influencia(soma) ao resultado

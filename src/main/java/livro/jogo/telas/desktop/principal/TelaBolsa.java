@@ -9,11 +9,13 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -40,7 +42,10 @@ public class TelaBolsa extends JDialog {
     private Secao secao;
     private ImagePanel painelListaItens; //Painel onde irão ficar todos os itens na bolsa ou equipados. São as imagens dos itens. Os quais o jogador irá interagir
     private TelaBolsaListener acao = new TelaBolsaListener(); //Configurar ouvinte do click do mouse quando clicar nos itens
-    private JTextPane descricaoItem;
+    private JTextPane descricaoItem; //Na tela suspensa de informação
+    private JPanel panelInfoItem; //Representa a tela suspensa de informação do item
+    private final int LARGURA_IMG = 220, ALTURA_IMG = 250; //Tamanho da imagem da tela suspensa de info dos itens
+    private JLabel tituloTelaSuspensaInfo;
 
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
@@ -103,6 +108,7 @@ public class TelaBolsa extends JDialog {
 
         //Carregar tela de informações dos itens
         telaInfoItem();
+
 
 
         add(labelSair);
@@ -172,7 +178,7 @@ public class TelaBolsa extends JDialog {
             }
 
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
+            //imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
             imgItem.addMouseListener(acao);
 
             //Coloco o objeto no map para posterior consulta ao clicar nele
@@ -202,12 +208,6 @@ public class TelaBolsa extends JDialog {
                     item.getEnderecoImagem());
             imgItem.setBounds(x,y,largura,altura);
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-            if (item.getDescricao().isEmpty())
-                imgItem.setToolTipText(item.getNome().toUpperCase());
-            else
-                imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
-
             imgItem.addMouseListener(acao);
 
             //Rótulo indicando que este item está equipado
@@ -234,37 +234,54 @@ public class TelaBolsa extends JDialog {
 
     //Carrega tela suspensa com informação do item
     private void telaInfoItem(){
-        JPanel panelInfoItem = new JPanel();
+
+        panelInfoItem = new JPanel();
         panelInfoItem.setLayout(null);
-        panelInfoItem.setBounds(785,280,220, 250);
         panelInfoItem.setBackground(new Color(0,0,0,0));
-        //panelInfoItem.setBackground(Color.GREEN);
+        panelInfoItem.setBounds(0,0,LARGURA_IMG, ALTURA_IMG);
+        panelInfoItem.setVisible(false);
 
         //Fundo do painel
-        var largura = panelInfoItem.getWidth();
-        var altura = panelInfoItem.getHeight();
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
-                largura, altura,ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_1);
+                LARGURA_IMG, ALTURA_IMG,ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_1);
         fundoPanel.setHorizontalAlignment(SwingConstants.CENTER);
         fundoPanel.setVerticalAlignment(SwingConstants.CENTER);
-        fundoPanel.setBounds(0,0,largura,altura);
+        fundoPanel.setBounds(0,0, LARGURA_IMG, ALTURA_IMG);
         //fundoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         descricaoItem = new JTextPane();
-        //descricaoItem.setBackground(new Color(210,180,140));
-        //descricaoItem.setOpaque(true);
+        descricaoItem.setForeground(new Color(139,0,0));
         descricaoItem.setBackground(new Color(0,0,0,0));
-        descricaoItem.setText("Ilumina ambientes escuros.");
-
         descricaoItem.setFocusable(false);
+        descricaoItem.setEditable(false);
         descricaoItem.setFont(new Font(Font.DIALOG,Font.BOLD,12));
-        descricaoItem.setBounds(46,86,largura-95, altura-130);
-        descricaoItem.setBorder(BorderFactory.createLineBorder(Color.RED));
+        descricaoItem.setBounds(46,96, LARGURA_IMG -95, ALTURA_IMG -140);
+        StyledDocument textoLivroStyle = descricaoItem.getStyledDocument();
+        SimpleAttributeSet configTexto = new SimpleAttributeSet();
+        StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_CENTER);
+        textoLivroStyle.setParagraphAttributes(0, textoLivroStyle.getLength(), configTexto, false);
+        //descricaoItem.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
-        //Criar título (nome do item e embaixo a descrição dele)
+        //Criar fundo do título (nome do item e embaixo a descrição dele)
+        JLabelOpcoesTelaSecao titulo = new JLabelOpcoesTelaSecao("",120,40,
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+        titulo.setBounds(48,52,120,40);
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        titulo.setVerticalAlignment(SwingConstants.CENTER);
+        //titulo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        //Criando texto do título
+        tituloTelaSuspensaInfo = new JLabel("");
+        tituloTelaSuspensaInfo.setBounds(54,60,110,25);
+        tituloTelaSuspensaInfo.setForeground(new Color(0,0,0));
+        tituloTelaSuspensaInfo.setHorizontalAlignment(SwingConstants.CENTER);
+        tituloTelaSuspensaInfo.setVerticalAlignment(SwingConstants.CENTER);
+        tituloTelaSuspensaInfo.setFont(new Font(Font.DIALOG,Font.BOLD,10));
+        //tituloTelaSuspensaInfo.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        panelInfoItem.add(tituloTelaSuspensaInfo);
+        panelInfoItem.add(titulo);
         panelInfoItem.add(descricaoItem);
         panelInfoItem.add(fundoPanel);
         add(panelInfoItem);
@@ -309,7 +326,14 @@ public class TelaBolsa extends JDialog {
             if (e.getSource() == botaoSair) {
                 botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
                         botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                return;
             }
+
+            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
+            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
+
+            //Configura tela suspensa de informação de itens
+            configuraTelaSuspensaInfoItem(imgLabel);
         }
 
         @Override
@@ -317,8 +341,22 @@ public class TelaBolsa extends JDialog {
             if (e.getSource() == botaoSair) {
                 botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
                         botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                return;
             }
+
+            //Esconde a tela suspensa de info.
+            panelInfoItem.setVisible(false);
         }
+    }
+
+    private void configuraTelaSuspensaInfoItem(JLabelOpcoesTelaSecao imgLabel) {
+
+        Item item = mapItens.get(imgLabel);
+        panelInfoItem.setBounds(imgLabel.getX()+210,imgLabel.getY(),LARGURA_IMG, ALTURA_IMG);
+        panelInfoItem.setVisible(true);
+        descricaoItem.setText( "\n"+item.getDescricao() );
+        tituloTelaSuspensaInfo.setText( item.getNome() );
+
     }
 
     //Quando clicado no botão de poção inicial, muda a imagem para uma garrafa vazia

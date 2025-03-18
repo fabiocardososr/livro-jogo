@@ -1,10 +1,10 @@
 {  
   "codSecaoLivro":"30",
-  "texto":"Você perde 2 pontos de ENERGIA por causa do profundo corte na sua testa.",
+  "texto":"\t\t\t\tVocê perde 2 pontos de ENERGIA por causa do profundo corte na sua testa.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_30.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se ainda estiver vivo, vá para",
+      "textoOpcao":"Siga seu caminho.",
       "codProximaSecao":"225"
     }
   ]
