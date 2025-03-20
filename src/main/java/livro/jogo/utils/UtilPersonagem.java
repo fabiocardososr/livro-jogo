@@ -7,10 +7,10 @@ import livro.jogo.enums.ItensMapeamento;
 import java.util.ArrayList;
 
 public class UtilPersonagem {
+    private static final Personagem personagem = DadosLivroCarregado.getPersonagem();
 
     //Calcula força de ataque do personagem
     public static int calcularForcaDeAtaqueDoPersonagem(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
         int modificador = 0;  //Será somado (ou diminuído) a força de ataque, caso o item tenha algum modificador
 
@@ -30,7 +30,7 @@ public class UtilPersonagem {
 
     //Personagem perda de energia. E retorna true se personagem continuar vivo
     public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){
-        var nivelDeEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
+        var nivelDeEnergiaAtual = personagem.getEnergiaAtual();
 
         DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
 
@@ -39,7 +39,7 @@ public class UtilPersonagem {
 
     //Personagem perda de energia. E retorna true se personagem continuar vivo
     public static void personagemPerdeSorte(int valorSorteAPerder){
-        var nivelDeSorteAtual = DadosLivroCarregado.getPersonagem().getSorteAtual();
+        var nivelDeSorteAtual = personagem.getSorteAtual();
 
         var novoNivelDeSorte = nivelDeSorteAtual - valorSorteAPerder;
 
@@ -58,7 +58,6 @@ public class UtilPersonagem {
 
     //Retorna diferença entre o valor máximo e o atual de ENERGIA do personagem
     public static int retornaDiferencaEntreEnergiaMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         var indiceEnergiaAtual = personagem.getEnergiaAtual();
         var indiceEnergiaMax   = personagem.getEnergiaMax();
@@ -68,7 +67,6 @@ public class UtilPersonagem {
 
     //Retorna diferença entre o valor máximo e o atual de HABILIDADE do personagem
     public static int retornaDiferencaEntreHabilidadeMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         var indiceAtual = personagem.getHabilidadeAtual();
         var indiceMax   = personagem.getHabilidadeMax();
@@ -78,7 +76,6 @@ public class UtilPersonagem {
 
     //Retorna diferença entre o valor máximo e o atual de SORTE do personagem
     public static int retornaDiferencaEntreSorteMaxEAtual(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         var indiceAtual = personagem.getSorteAtual();
         var indiceMax   = personagem.getSorteMax();
@@ -88,8 +85,6 @@ public class UtilPersonagem {
 
     ///Dedução de outro
     public static boolean reduzirValorOuro(int valorASerReduzido){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-
         if (valorASerReduzido > personagem.getQuantidadeOuro())
             return false;
 
@@ -118,5 +113,10 @@ public class UtilPersonagem {
 
 //        DadosLivroCarregado.removeItemBolsa(item);
 //        DadosLivroCarregado.getItensEquipados().add(item);
+    }
+
+    //Repõe o índice de habilidade ao valor inicial (valor máximo no momento da criação do personagem)
+    public static void repoeHabilidadeAoNivelMaximo(){
+        personagem.setHabilidadeAtual(personagem.getHabilidadeMax());
     }
 }

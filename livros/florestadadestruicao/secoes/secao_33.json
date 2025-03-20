@@ -1,10 +1,10 @@
 {  
   "codSecaoLivro":"33",
-  "texto":"O frade sacode a cabeça, dizendo:\n- Não parece mais existir caridade no mundo. – Com um meneio de ombros, ele parte de novo para o sul. Você fica olhando enquanto ele desaparece, antes de continuar sua jornada para o norte",
+  "texto":"\t\t\t\tO frade sacode a cabeça, dizendo:\n\n- Não parece mais existir caridade no mundo.\n\n\t\t\t\tCom um meneio de ombros, ele parte de novo para o sul. Você fica olhando enquanto ele desaparece, antes de continuar sua jornada para o norte.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_33.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Vá para",
+      "textoOpcao":"Siga para o norte.",
       "codProximaSecao":"390"
     }
   ]

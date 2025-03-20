@@ -24,17 +24,17 @@ public class Testes {
         var bolsa = adicionaItensNaBolsaParaTeste();
 
         Personagem personagem = new Personagem("Fábio",1,22,10,
-                1,
+                10,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        personagem.setQuantidadeOuro(10);
+        personagem.setQuantidadeOuro(11);
         //personagem.setHabilidadeAtual(9);
         personagem.setEnergiaAtual(4);
-        personagem.setSorteAtual(0);
+        personagem.setSorteAtual(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 30 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 34 );
         CarregarTelas.carregarSecao(secao);
 
 //        UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(DadosLivroCarregado.recuperaItemDoJson(
@@ -69,7 +69,7 @@ public class Testes {
 //                "livros/florestadadestruicao/itens/item_12.json"));
 
         //Equipando uma espada(50)
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
         //Equipando uma armadura de couro(51)
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
@@ -85,7 +85,7 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=50; i<=54; i++) {
+        for (int i=51; i<=54; i++) {
             try {
                 bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                         "livros/florestadadestruicao/itens/item_" + i + ".json"));

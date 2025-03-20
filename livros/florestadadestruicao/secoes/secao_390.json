@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "390",
-  "texto": "Na distância, você vê a muralha de árvores de um marrom escuro que se ergue à sua frente. A trilha conduz diretamente à Floresta de Darkwood e logo principia a descrever curvas e voltas entre raízes e moitas enredadas. A trilha acaba se dividindo.",
+  "texto": "\t\t\t\tNa distância, você vê a muralha de árvores de um marrom escuro que se ergue à sua frente.\n\n\t\t\t\tA trilha conduz diretamente à Floresta de Darkwood e logo principia a descrever curvas e voltas entre raízes e moitas enredadas. A trilha acaba se dividindo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_390.mp3",
   "proximasSecoes": [
     {	  
