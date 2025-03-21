@@ -1,15 +1,15 @@
 {  	
   "codSecaoLivro": "38",
-  "texto": "Você dá uma olhada pela pequena janela suja da cabana e vê uma velha com roupas rotas, rosto enrugado e nariz cheio de verrugas, lendo um dos diversos livros que estão junto à lareira da parede do outro lado da cabana. Um servo corcunda está trazendo mais livros para ela, das estantes atulhadas de livros velhos, mapas e pergaminhos.",
+  "texto": "\t\t\t\tVocê dá uma olhada pela pequena janela suja da cabana e vê uma velha com roupas rotas, rosto enrugado e nariz cheio de verrugas, lendo um dos diversos livros que estão junto à lareira da parede do outro lado da cabana.\n\n\t\t\t\tUm servo corcunda está trazendo mais livros para ela, das estantes atulhadas de livros velhos, mapas e pergaminhos.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_38.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_38.mp3",
   "proximasSecoes":[
     {	  
-      "textoOpcao":"Se quiser entrar na cabana",
+      "textoOpcao":"Você quer entrar na cabana?",
       "codProximaSecao":"315"
     },
 	{	  
-      "textoOpcao":"Se preferir retornar à trilha e se dirigir para o norte novamente",
+      "textoOpcao":"Prefere retornar à trilha e se dirigir para o norte novamente?",
       "codProximaSecao":"220"
     }
   ]

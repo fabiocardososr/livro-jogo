@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "37",
-  "texto": "Você estica a mão e pega um fruto com forma de pêra de cor roxa. Você tira uma pequena mordida, o gosto é muito amargo.",
+  "texto": "\n\t\t\t\tVocê estica a mão e pega um fruto com forma de pêra de cor roxa. Você tira uma pequena mordida, o gosto é muito amargo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_37.mp3",
   "proximasSecoes":[
     {	  
-      "textoOpcao":"Se quiser cuspir fora o pedaço e continuar subindo a trilha para o norte",
+      "textoOpcao":"Cuspir fora o pedaço e continuar subindo a trilha para o norte?",
       "codProximaSecao":"226"
     },
 	{	  
-      "textoOpcao":"Se preferir engolir o fruto",
+      "textoOpcao":"Engolir o fruto?",
       "codProximaSecao":"336"
     }
   ]
