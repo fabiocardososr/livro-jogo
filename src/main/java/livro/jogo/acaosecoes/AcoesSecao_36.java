@@ -44,7 +44,7 @@ public class AcoesSecao_36 {
         } else if (personagem.getQuantidadeOuro() > 0) {
             mensagem = roubadoOuro();
         } else{
-            mensagem = removerOsItensQuePuder(bolsa,quantidadeItensBolsa);
+            mensagem = removerItem(bolsa,quantidadeItensBolsa);
         }
 
         return mensagem;
@@ -77,12 +77,11 @@ public class AcoesSecao_36 {
             }
         }
 
-        System.out.println(itensRemovidos);
         return itensRemovidos;
     }
 
     //Se, excetuando os itens do objetivo, não tiver 2 ou mais para serem removidos. Remova 1 item se puder
-    private static String removerOsItensQuePuder(ArrayList<Item> bolsa, int qtdItensSemAsExcecoes) {
+    private static String removerItem(ArrayList<Item> bolsa, int qtdItensSemAsExcecoes) {
         var contRemoveItens = 1;    //Será decrementado até que pelo menos 1 item
         var indiceItemNaBolsaEscolhido = 0;
         String itensRemovidos = ""; //String com os nomes do que foi removido para que seja mostrado na tela
@@ -96,6 +95,7 @@ public class AcoesSecao_36 {
                     && (it.getIdItem() != ItensMapeamento.CABO_DO_MARTELO_DE_GUERRA_DOS_ANOES.getIdItem())){
                 itensRemovidos = it.getNome();
                 bolsa.remove(it);
+                break;
             }
 
         return itensRemovidos;

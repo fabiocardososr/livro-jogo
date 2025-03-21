@@ -30,6 +30,10 @@ public class TelaSecao_36 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
         opcao1(secao);
+        labelNumOpcao1.setBounds(116,712, 50,50);
+        botaoOpcao1.setBounds(120,720,40,50);
+        lbTextoOpcao1.setBounds(170,707,700,60);
+
         acaoBotoes(secao);
         carregaBotaoDeConferenciaDaBolsa();
     }
@@ -126,12 +130,16 @@ public class TelaSecao_36 extends TelaSecoesBasica {
             return;
         }
 
-
+        //Fazer a conferência propriamente dita
         itensRoubados = AcoesSecao_36.ladraoRouba();
         conferido = true;
         atualizaIndicesNaTelaDoPersonagem();
 
-        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+        if ( itensRoubados.isEmpty() )
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\n\nVocê teve muita sorte.\nNada foi roubado!\n\nMas você tem algo para ser roubado...?");
+        else
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                 ",\n\nMais cuidado em confiar em um estranho."+
                 "\n\nRoubado(s): "+itensRoubados);
     }
