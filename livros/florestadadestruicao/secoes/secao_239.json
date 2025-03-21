@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "239",
-  "texto": "A trilha continua, abrindo caminho em meio à vegetação espessa, e você se sente um pouco claustrofóbico com as árvores se inclinando sobre você de ambos os lados. Depois de algum tempo, a trilha faz uma curva fechada para a esquerda, onde há uma árvore que dá uma fruta estranha.",
+  "texto": "\t\t\t\tA trilha continua, abrindo caminho em meio à vegetação espessa, e você se sente um pouco claustrofóbico com as árvores se inclinando sobre você de ambos os lados.\n\n\t\t\t\tDepois de algum tempo, a trilha faz uma curva fechada para a esquerda, onde há uma árvore que dá uma fruta estranha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_239.mp3",
   "proximasSecoes": [
     {	  

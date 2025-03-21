@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "39",
-  "texto": "Você estica a rede e, em seguida, a faz girar em torno de sua cabeça. Você a lança na direção do Troll da Caverna e fica observando enquanto ela voa silenciosamente pelo ar e aterrissa sobre o seu alvo imóvel. Ela se enrosca em torno do Troll da Caverna, que acorda rapidamente de seu sono, rosna alto e tenta se livrar da rede. Você corre na direção da cadeira de pedra e toma a bolsa de couro do furioso Troll da Caverna. Você sai correndo da caverna, deixando Troll da Caverna ocupado na sua luta para se desvencilhar da rede.",
+  "texto": "\t\t\t\tVocê estica a rede e, em seguida, a faz girar em torno de sua cabeça.\n\n\t\t\t\tVocê a lança na direção do Troll da Caverna e fica observando enquanto ela voa silenciosamente pelo ar e aterrissa sobre o seu alvo imóvel.\n\n\t\t\t\tEla se enrosca em torno do Troll da Caverna, que acorda rapidamente de seu sono, rosna alto e tenta se livrar da rede.\n\n\t\t\t\tVocê corre na direção da cadeira de pedra e toma a bolsa de couro do furioso Troll da Caverna.\n\n\t\t\t\tVocê sai correndo da caverna, deixando Troll da Caverna ocupado na sua luta para se desvencilhar da rede.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_39.mp3",
   "proximasSecoes":[
     {	  
-      "textoOpcao":"Vá para",
+      "textoOpcao":"Saia da caverna.",
       "codProximaSecao":"287"
     }
   ]
