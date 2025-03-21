@@ -2,6 +2,7 @@ package livro.jogo.executaveis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.acaosecoes.AcoesSecao_28;
+import livro.jogo.acaosecoes.AcoesSecao_36;
 import livro.jogo.criarLivro.cadastro.CarregarLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
@@ -12,6 +13,7 @@ import livro.jogo.utils.UtilItens;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Testes {
     public static void main(String[] args) {
@@ -28,14 +30,20 @@ public class Testes {
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(11);
-        //personagem.setHabilidadeAtual(9);
-        personagem.setEnergiaAtual(4);
-        personagem.setSorteAtual(5);
+//        personagem.setHabilidadeAtual(9);
+        personagem.setEnergiaAtual(5);
+//        personagem.setSorteAtual(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 34 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 36 );
         CarregarTelas.carregarSecao(secao);
+
+//        System.out.println("Tamanho da bolsa: "+bolsa.size());
+//       for (int i=0; i<100; i++)
+//            System.out.println( 1 + new Random().nextInt(2 ) );
+
+       // AcoesSecao_36.ladraoRouba();
 
 //        UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_54.json"));
@@ -85,28 +93,33 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=51; i<=54; i++) {
-            try {
-                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
-               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
-            } catch (Exception e) {
-                System.out.println("ÍNIDCE "+ i);
-                throw new RuntimeException(e);
-            }
-        }
+//        for (int i=5; i<=6; i++) {
+//            try {
+//                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
+//               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
+//            } catch (Exception e) {
+//                System.out.println("ÍNIDCE "+ i);
+//                throw new RuntimeException(e);
+//            }
+//        }
 
        //Provisão
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_49.json"));
-
-        //Braçadeira da força
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_49.json"));
+//
+//        //Braçadeira da força
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_12.json"));
 
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_47.json"));
+                "livros/florestadadestruicao/itens/item_8.json"));
 
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_6.json"));
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_3.json"));
 
         return bolsa;
     }

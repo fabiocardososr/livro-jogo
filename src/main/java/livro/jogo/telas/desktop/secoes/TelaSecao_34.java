@@ -1,12 +1,14 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_34;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilPersonagem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,14 +16,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_34 extends TelaSecoesBasica {
+    private boolean escolheuDesejo = false;  //Somente é possível escolher um desejo e essta variável faz o controle
+
     public TelaSecao_34(Secao secao) {
         super(secao);
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        //opcao1(secao);
-        //acaoBotoes(secao);
+        opcao1(secao);
+        labelNumOpcao1.setBounds(116,702, 50,50);
+        botaoOpcao1.setBounds(120,710,40,50);
+        lbTextoOpcao1.setBounds(170,697,700,60);
+
+        acaoBotoes(secao);
 
         carregaBotoesDeGanhoHabilidadeEnergiaOuSorte();
     }
@@ -43,7 +51,8 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         textoBotaoHabilidade.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               // UtilPersonagem.
+
+                clicarEscolhaHabilidade();
             }
 
             @Override
@@ -75,7 +84,7 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         botaoReporHabilidade.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                clicarEscolhaHabilidade();
             }
 
             @Override
@@ -103,6 +112,43 @@ public class TelaSecao_34 extends TelaSecoesBasica {
             }
         });
 
+        //Texto botão repor Energia
+        JLabel textoBotaoEnergia = new JLabel("<html><center>Energia</center></html>");
+        textoBotaoEnergia.setBounds(415,eixoY+23,140,30);
+        textoBotaoEnergia.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoEnergia.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoEnergia.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoEnergia.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoEnergia.setForeground(new Color(128,0,0));
+        textoBotaoEnergia.setToolTipText("Restabeleça sua energia ao nível inicial.");
+        textoBotaoEnergia.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicarEscolhaEnergia();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //textoBotaoEnergia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         //Botão repor Energia
         JLabelOpcoesTelaSecao botaoReporEnergia = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
@@ -110,7 +156,7 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         botaoReporEnergia.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                clicarEscolhaEnergia();
             }
 
             @Override
@@ -138,6 +184,42 @@ public class TelaSecao_34 extends TelaSecoesBasica {
             }
         });
 
+        //Texto botão repor Sorte
+        JLabel textoBotaoSorte = new JLabel("<html><center>Sorte</center></html>");
+        textoBotaoSorte.setBounds(675,eixoY+23,140,30);
+        textoBotaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoSorte.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoSorte.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoSorte.setForeground(new Color(128,0,0));
+        textoBotaoSorte.setToolTipText("Restabeleça sua sorte ao nível inicial.");
+        textoBotaoSorte.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                clicarEscolhaSorte();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
         //Botão repor Energia
         JLabelOpcoesTelaSecao botaoReporSorte = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
@@ -145,7 +227,7 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         botaoReporSorte.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                clicarEscolhaSorte();
             }
 
             @Override
@@ -173,10 +255,69 @@ public class TelaSecao_34 extends TelaSecoesBasica {
             }
         });
 
+        add(textoBotaoSorte);
+        add(textoBotaoEnergia);
         add(textoBotaoHabilidade);
         add(botaoReporHabilidade);
         add(botaoReporEnergia);
         add(botaoReporSorte);
+    }
+
+    private void clicarEscolhaHabilidade() {
+        if ( escolheuDesejo ) {
+            CarregarTelas.telaMensagem("\nVocê já fez o seu desejo.\n\nSiga para o norte!");
+            return;
+        }
+
+
+        if ( AcoesSecao_34.recuperaHabilidadeAoNivelMaximo() ) {
+            escolheuDesejo = true;
+            atualizaIndicesNaTelaDoPersonagem();
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu índice de habilidade foi restaurado!");
+        }
+        else
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu nível de habilidade já encontra-se no máximo. "+
+                    "\n\nVocê não pode escolher esta opção!");
+    }
+
+    private void clicarEscolhaEnergia() {
+        if ( escolheuDesejo ) {
+            CarregarTelas.telaMensagem("\nVocê já fez o seu desejo.\n\nSiga para o norte!");
+            return;
+        }
+
+
+        if ( AcoesSecao_34.recuperaEnergiaAoNivelMaximo() ) {
+            escolheuDesejo = true;
+            atualizaIndicesNaTelaDoPersonagem();
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu índice de energia foi restaurado!");
+        }
+        else
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu nível de energia já encontra-se no máximo. "+
+                    "\n\nVocê não pode escolher esta opção!");
+    }
+
+    private void clicarEscolhaSorte() {
+        if ( escolheuDesejo ) {
+            CarregarTelas.telaMensagem("\nVocê já fez o seu desejo.\n\nSiga para o norte!");
+            return;
+        }
+
+
+        if ( AcoesSecao_34.recuperaSorteAoNivelMaximo() ) {
+            escolheuDesejo = true;
+            atualizaIndicesNaTelaDoPersonagem();
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu índice de sorte foi restaurado!");
+        }
+        else
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                    ",\nSeu nível de sorte já encontra-se no máximo. "+
+                    "\n\nVocê não pode escolher esta opção!");
     }
 
     @Override
@@ -185,8 +326,12 @@ public class TelaSecao_34 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao1){
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                    if ( (AcoesSecao_34.verificaSeTodosIndicesCompletos()) || ( escolheuDesejo ) )
+                        abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                 }
+
+                if ( !escolheuDesejo )
+                    CarregarTelas.telaMensagem("Você precisa fazer sua escolha.\n\nFaça seu desejo!");
             }
 
             @Override

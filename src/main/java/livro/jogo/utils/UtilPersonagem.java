@@ -119,4 +119,14 @@ public class UtilPersonagem {
     public static void repoeHabilidadeAoNivelMaximo(){
         personagem.setHabilidadeAtual(personagem.getHabilidadeMax());
     }
+
+    //Repõe o índice de energia ao valor inicial (valor máximo no momento da criação do personagem)
+    public static void repoeEnergiaAoNivelMaximo(){
+        personagem.setEnergiaAtual(personagem.getEnergiaMax());
+    }
+
+    //Repõe o índice de sorte ao valor inicial (valor máximo no momento da criação do personagem)
+    public static void repoeSorteAoNivelMaximo(){
+        personagem.setSorteAtual(personagem.getSorteMax());
+    }
 }

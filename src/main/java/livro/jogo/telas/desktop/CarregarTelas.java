@@ -185,6 +185,8 @@ public class CarregarTelas {
             case 32  -> new TelaSecao_32(secao).setVisible(true); //perda de sorte, perde moedas e perde 2 itens
             case 33  -> new TelaSecao_33(secao).setVisible(true);
             case 34  -> new TelaSecao_34(secao).setVisible(true); //Ganho de Habilidade, Energia ou Sorte.
+            case 35  -> new TelaSecao_35(secao).setVisible(true); //Perde energia.
+            case 36  -> new TelaSecao_36(secao).setVisible(true); //Perde itens ou moedas.
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -199,10 +201,12 @@ public class CarregarTelas {
             case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
+            case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6
             case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13
             case 150 -> new TelaSecao_150(secao).setVisible(true);//chamado pela seção 32
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9
+            case 187 -> new TelaSecao_187(secao).setVisible(true);//chamado pela seção 36
             case 198 -> new TelaSecao_198(secao).setVisible(true);//chamado pela seção 18
             case 211 -> new TelaSecao_211(secao).setVisible(true);//chamado pela seção 16
             case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15

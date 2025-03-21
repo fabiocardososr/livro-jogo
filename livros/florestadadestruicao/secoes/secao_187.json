@@ -1,6 +1,6 @@
 {
   "codSecaoLivro": "187",
-  "texto": "Caminhando pela trilha sinuosa, você vê uma criatura pequena e musculosa, de pele marrom coberta de escamas, sentada em um tronco à direita da trilha. Ela tem uma expressão malhumorada no rosto, enquanto joga lentamente uma vara preta e brilhante de uma mão para outra. Talvez ela seja um dos Goblins que você está procurando.",
+  "texto": "\t\t\t\tCaminhando pela trilha sinuosa, você vê uma criatura pequena e musculosa, de pele marrom coberta de escamas, sentada em um tronco à direita da trilha.\n\n\t\t\t\tEla tem uma expressão mal-humorada no rosto, enquanto joga lentamente uma vara preta e brilhante de uma mão para outra.\n\n\t\t\t\tTalvez ela seja um dos Goblins que você está procurando.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_187.mp3",
   "proximasSecoes": [
     {

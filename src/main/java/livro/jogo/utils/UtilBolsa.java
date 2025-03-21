@@ -75,7 +75,8 @@ public class UtilBolsa {
         return false;
     }
 
-    //Serve para popular uma lista dos itens para algum tipo de escolha (por exemplo, secao 12 pede para escolher 2 itens e dar para o Gnomo)
+    //Serve para popular uma lista dos itens para algum tipo de escolha
+    // (por exemplo, secao 12 pede para escolher 2 itens e dar para o Gnomo)
     public static HashMap<String, Integer> listarNomesItensNaBolsa(){
         HashMap<String, Integer> listaNomesDeItens = new HashMap<>();
 

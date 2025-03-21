@@ -19,7 +19,6 @@ import java.awt.event.MouseListener;
 
 public class TelaSecao_12 extends TelaSecoesBasica {
     private boolean entregou10Moedas = false;  //Informa se o personagem entregou 10 moedas
-    //private TelaSecoesBasica tela = this; //Apenas para ter uma referência desta tela para passar como parâmetro
     private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopo global para que seja desabilitado caso escolha a opção de pagar com moedas
 
     public TelaSecao_12(Secao secao) {
