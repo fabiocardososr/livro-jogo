@@ -8,22 +8,24 @@
       "codProximaSecao":"50"
     },
 	{	  
-      "textoOpcao":"Você pode fugir, correndo pela trilha para o norte",
+      "textoOpcao":"Fuga! Corra para o norte.",
       "codProximaSecao":"188"
     }
   ],
   "inimigos":[
 	{
 		"idInimigo":"7",
-		"nome":"MONTANHÊS SELVAGEM",
+		"nome":"Montanhês",
 		"habilidade":"7",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/montanhes_selvagem.png"
 	},
 	{
 		"idInimigo":"6",
-		"nome":"MONTANHÊS SELVAGEM",
+		"nome":"Montanhês",
 		"habilidade":"6",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/montanhes_selvagem.png"
 	}
   ]
 }

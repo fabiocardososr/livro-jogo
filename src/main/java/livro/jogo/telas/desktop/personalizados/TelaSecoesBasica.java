@@ -37,7 +37,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private JLabel labelSalvar;
     private JDialog dialogImagemMapa;
     private JDialog dialogImSecaoAmpliar;
-    private JLabel labelImagemSecao;
+    protected JLabel labelImagemSecao;
     private JLabelOpcoesTelaSecao labelSair;
     private JLabelOpcoesTelaSecao labelAumentaTexto;
     private JLabelOpcoesTelaSecao labelDiminuiTexto;
@@ -883,7 +883,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     private void carregaBotaoDeProvisoes() {
 
-        var textoProvisoes = "<html>Provisões:" + UtilItens.quantidadeProvisoesRestantes() + "</html>";
+        var textoProvisoes = "<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>";
         labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
                 ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
@@ -1036,6 +1036,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
 
+        labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
+
         repaint();
     }
 
@@ -1109,21 +1111,22 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelNumOpcao2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelNumOpcao2.setHorizontalAlignment(SwingConstants.CENTER);
         labelNumOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        labelNumOpcao2.setBounds(116,652, 50,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botaoOpcao2 = new JLabelOpcoesTelaSecao("",40,50,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao2.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoOpcao2.setBounds(120,660,40,50);
         botaoOpcao2.setToolTipText("Clique para escolher esta opção.");
 
         //Texto da opção
         lbTextoOpcao2 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao2.setBounds(170,647,700,60);
         lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,22));
         lbTextoOpcao2.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        labelNumOpcao2.setBounds(116,652, 50,50);
+        botaoOpcao2.setBounds(120,660,40,50);
+        lbTextoOpcao2.setBounds(170,647,700,60);
 
         add(lbTextoOpcao2);
         add(labelNumOpcao2);
@@ -1280,7 +1283,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));
-                        labelProvisoes.setText("<html>Provisões:" + UtilItens.quantidadeProvisoesRestantes() + "</html>");
+                        labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
                         CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
                     }
                 }

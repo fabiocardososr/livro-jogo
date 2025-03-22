@@ -4,13 +4,19 @@ import livro.jogo.entidades.Inimigo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class JButtonAbrirBatalha {
+    private final static int LARGURA_IMG = 150, ALTURA_IMG = 180; //Tamanho da imagem da tela suspensa de info dos itens
+    private static JPanel panelImagemInimigo; //Representa a tela suspensa de informação do item
 
     public static JPanel carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura,
                                                int altura){
@@ -50,6 +56,11 @@ public class JButtonAbrirBatalha {
                 if (e.getSource() == btInimigo){
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA_SELECIONADO.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
+
+                    tela.labelImagemSecao.setIcon(new RedimensionarImagem(inimigo.getEnderecoImagem(),
+                            tela.labelImagemSecao.getWidth(),
+                            tela.labelImagemSecao.getHeight()).getImageIcon());
+
                     tela.repaint();
                 }
             }
@@ -63,6 +74,11 @@ public class JButtonAbrirBatalha {
                 if (e.getSource() == btInimigo){
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
+
+                    tela.labelImagemSecao.setIcon(new RedimensionarImagem(DadosLivroCarregado.getLivro().getImagemComplementar(),
+                            tela.labelImagemSecao.getWidth(),
+                            tela.labelImagemSecao.getHeight()).getImageIcon());
+
                     tela.repaint();
                 }
             }
@@ -130,4 +146,5 @@ public class JButtonAbrirBatalha {
         //Caso ele morra vou precisar alterar a imagem
         return panel;
     }
+
 }
