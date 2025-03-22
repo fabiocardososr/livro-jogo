@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "45",
-  "texto": "Você perde 2 pontos de ENERGIA.",
+  "texto": "\n\t\t\t\tVocê perde 2 pontos de ENERGIA.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_45.mp3",
   "proximasSecoes":[
     {	  
-      "textoOpcao":"Se ainda estiver vivo, vá para",
+      "textoOpcao":"Siga.",
       "codProximaSecao":"165"
     }
   ]

@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "48",
-  "texto": "Você ergue a arca acima de sua cabeça e a atira de encontro ao chão. Ela se espatifa e abre, expondo um grande ovo azul-claro, com quase um metro de circunferência, em meio à madeira despedaçada. Você toca o ovo com o dedo. É frio e duro, como se fosse mármore. Subitamente, aparece uma rachadura e, antes que você tenha tempo de se mexer, o ovo explode, espalhando fragmentos da casca, afiados como lâminas, em todas as direções. Jogue um dado para determinar quantos pedaços da casca atingem você, diminuindo 1 ponto de ENERGIA para cada. Se ainda estiver vivo, você cambaleia para fora do aposento e continua para o norte pela trilha",
+  "texto": "\t\t\t\tVocê ergue a arca acima de sua cabeça e a atira de encontro ao chão.\n\n\t\t\t\tEla se espatifa e abre, expondo um grande ovo azul-claro, com quase um metro de circunferência, em meio à madeira despedaçada.\n\n\t\t\t\tVocê toca o ovo com o dedo. É frio e duro, como se fosse mármore.\n\n\t\t\t\tSubitamente, aparece uma rachadura e, antes que você tenha tempo de se mexer, o ovo explode, espalhando fragmentos da casca, afiados como lâminas, em todas as direções.\n\n\t\t\t\tJogue um dado para determinar quantos pedaços da casca atingem você, diminuindo 1 ponto de ENERGIA para cada.\n\n\t\t\t\tSe ainda estiver vivo, você cambaleia para fora do aposento e continua para o norte pela trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_48.mp3",
   "proximasSecoes":[
     {	  
-      "textoOpcao":"Vá para",
+      "textoOpcao":"Sair do aposento e ir para o norte.",
       "codProximaSecao":"288"
     }
   ]
