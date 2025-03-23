@@ -192,8 +192,9 @@ public class AcoesBatalha {
 
         ///Calculando ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
-        mensagemComDelay(2000,"<html><center>Calculando ataque do inimigo...</center></html>");
-        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+//        mensagemComDelay(2000,"<html><center>Calculando ataque do inimigo...</center></html>");
+//        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+        animacaoRolagemDados("Calculando ataque do inimigo...");
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
 
@@ -206,8 +207,9 @@ public class AcoesBatalha {
 
         ///Calculando ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
-        mensagemComDelay(2000,"<html><center>Calculando seu ataque...</center></html>");
-        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+//        mensagemComDelay(2000,"<html><center>Calculando seu ataque...</center></html>");
+//        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+        animacaoRolagemDados("Calculando seu ataque...");
         var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem();
 
 
@@ -305,6 +307,12 @@ public class AcoesBatalha {
         }
 
         return resultadoTurnoBatalha;
+    }
+
+    //Pode ser usado por outras telas que não sejam a tela de batalha
+    public void animacaoRolagemDados(String mensagem){
+        mensagemComDelay(2000,"<html><center>"+mensagem+"</center></html>");
+        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
     }
 
     public ResultadoBatalha testarSorte(ResultadoBatalha resultadoBatalha){
