@@ -36,7 +36,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 48 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 49 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -118,8 +118,8 @@ public class Testes {
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_6.json"));
 //
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_3.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_55.json"));
 
         return bolsa;
     }
