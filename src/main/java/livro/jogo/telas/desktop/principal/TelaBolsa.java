@@ -84,15 +84,15 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
-        painelListaItens.setBounds(185,115,625, 570);
-        painelImgFundoBolsa.setBounds(0,0,1000,800);
+        painelListaItens.setBounds(185,115,825, 570);
+        painelImgFundoBolsa.setBounds(0,0,1200,800);
         painelImgFundoBolsa.add(painelListaItens);
         //painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
         //Botão sair
         JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(465,700,100,50);
+        labelSair.setBounds(565,700,100,50);
         labelSair.setForeground(new Color(139,0,0));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -101,7 +101,7 @@ public class TelaBolsa extends JDialog {
 
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 220, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(405,685,220,90);
+        botaoSair.setBounds(505,685,220,90);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoSair.addMouseListener(acao);
@@ -147,8 +147,8 @@ public class TelaBolsa extends JDialog {
         ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
-        var x = 90; //Posição da esquerda para a direita
-        var y = 30;  //Posição de cima para baixo
+        var x = 100; //Posição da esquerda para a direita
+        var y = 45;  //Posição de cima para baixo
         var largura = 50;
         var altura = 50;
         var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 5 itens por linha
@@ -156,10 +156,10 @@ public class TelaBolsa extends JDialog {
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
-            if (contNumerodeItensPorLinha == 5){
+            if (contNumerodeItensPorLinha == 7){
                 contNumerodeItensPorLinha = 0;
                 y = y + 60; //Posiciona os próximos itens logo abaixo
-                x = 90; //Volta para o início da (esquerda para a direita)
+                x = 100; //Volta para o início da (esquerda para a direita)
             }
 
             //Inserindo os itens na tela

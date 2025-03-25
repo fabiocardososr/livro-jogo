@@ -77,7 +77,7 @@ public class Testes {
 //                "livros/florestadadestruicao/itens/item_12.json"));
 
         //Equipando uma espada(50)
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
+       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
         //Equipando uma armadura de couro(51)
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
@@ -93,16 +93,16 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-//        for (int i=5; i<=6; i++) {
-//            try {
-//                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
-//               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
-//            } catch (Exception e) {
-//                System.out.println("ÍNIDCE "+ i);
-//                throw new RuntimeException(e);
-//            }
-//        }
+        for (int i=1; i<=55; i++) {
+            try {
+                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
+               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
+            } catch (Exception e) {
+                System.out.println("ÍNIDCE "+ i);
+                throw new RuntimeException(e);
+            }
+        }
 
        //Provisão
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
@@ -118,8 +118,8 @@ public class Testes {
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_6.json"));
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_55.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_55.json"));
 
         return bolsa;
     }

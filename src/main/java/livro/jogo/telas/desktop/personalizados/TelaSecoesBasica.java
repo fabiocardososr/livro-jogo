@@ -1224,7 +1224,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             if (e.getSource() == labelBolsa){
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0)
-                    CarregarTelas.telaBolsa(getContentPane(),1000,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
+                    CarregarTelas.telaBolsa(getContentPane(),1200,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
                         lbSortePersonagem, labelProvisoes, labelPocaoInicial,secao);
             }
 
