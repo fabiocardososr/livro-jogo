@@ -33,8 +33,13 @@ public class UtilBolsa {
         return listaDeItensNaBolsa.toArray(new ListItem[0]);
     }
 
-    public static void incluirItem(ItensMapeamento itemMapeado){
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(itemMapeado.getEnderecoJson()));
+    public static boolean incluirItem(ItensMapeamento itemMapeado){
+        try {
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(itemMapeado.getEnderecoJson()));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public static void removerItem(int idItem){
