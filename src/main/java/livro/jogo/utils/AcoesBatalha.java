@@ -175,6 +175,7 @@ public class AcoesBatalha {
     public ResultadoBatalha turnoDeBatalha() {
         boolean inimigoVivo     = true;
         boolean personagemVivo  = true;
+        int desvantagem         = 0;  //setado com zero para a maioria das lutas (EXEMPLO: seção 49 será usado -3 pontos)
 
         //Info do que está acontecendo. Aparecerá na tela para o jogador
         ResultadoBatalha resultadoTurnoBatalha;
@@ -192,8 +193,6 @@ public class AcoesBatalha {
 
         ///Calculando ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
-//        mensagemComDelay(2000,"<html><center>Calculando ataque do inimigo...</center></html>");
-//        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
         animacaoRolagemDados("Calculando ataque do inimigo...");
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
@@ -207,10 +206,14 @@ public class AcoesBatalha {
 
         ///Calculando ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
-//        mensagemComDelay(2000,"<html><center>Calculando seu ataque...</center></html>");
-//        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
         animacaoRolagemDados("Calculando seu ataque...");
-        var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem();
+
+        //Verifica se existe alguma desvantagem no ataque do personagem em algum seção
+        switch ( telaSecao.getSecao().getCodSecaoLivro() ){
+            case 49 -> desvantagem = desvantagemSecao49();  //Na seção 49 o personagem tem desvantagem na luta de -3 pontos de ataque
+        }
+
+        var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem(desvantagem);
 
 
         ///Mostrar resultado no painel (escudo) do lado esquerdo (personagem)
@@ -307,6 +310,12 @@ public class AcoesBatalha {
         }
 
         return resultadoTurnoBatalha;
+    }
+
+    //Seção 49 a força de ataque é reduzida em 3 pontos
+    private int desvantagemSecao49(){
+        mensagemComDelay(4000,"<html><center>-3 pontos na sua Força de  Ataque</center></html>");
+        return 3;
     }
 
     //Pode ser usado por outras telas que não sejam a tela de batalha

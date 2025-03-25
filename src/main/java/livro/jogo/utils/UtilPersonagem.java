@@ -10,7 +10,8 @@ public class UtilPersonagem {
     private static final Personagem personagem = DadosLivroCarregado.getPersonagem();
 
     //Calcula força de ataque do personagem
-    public static int calcularForcaDeAtaqueDoPersonagem(){
+    //desvantagem é usada por exemplo na seção 49 quando o personagem encontra-se lutando agachado (-3 pontos de ataque)
+    public static int calcularForcaDeAtaqueDoPersonagem(int desvantagem){
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
         int modificador = 0;  //Será somado (ou diminuído) a força de ataque, caso o item tenha algum modificador
 
@@ -25,8 +26,12 @@ public class UtilPersonagem {
         var resultadoDadosPersonagem = Util.rolarDados(6,2);
 
         //Força de ataque
-        return resultadoDadosPersonagem + modificador + personagem.getHabilidadeAtual();
+        return resultadoDadosPersonagem + modificador + personagem.getHabilidadeAtual() - desvantagem;
     }
+
+    //Calcula força de ataque menos alguma desvantagem
+    // Exemplo na seção 49 o personagem está agachado e seu
+    //ataque é prejudicado e com isso dá menos 3 pontos de força de ataque
 
     //Personagem perda de energia. E retorna true se personagem continuar vivo
     public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){

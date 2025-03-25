@@ -135,6 +135,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         });
     }
 
+    public Secao getSecao(){
+        return this.secao;
+    }
+
     //Limpa a lista de itens selecionados
     private void limparPanelEscolhaItensASeremDescartados(){
 

@@ -1,7 +1,6 @@
 {  
   "codSecaoLivro":"49",
   "texto":"\t\t\t\tVocê prossegue, descendo pelo túnel até a entrada da caverna. O teto da caverna não é mais alto do que o túnel, e você não consegue ficar de pé.\n\n\t\t\t\tA caverna é muito pequena e cheia de minúsculas peças de mobiliário, além de uma variedade de objetos e curiosidades.\n\n\t\t\t\tDe pé, no meio da caverna, há duas criaturas de pele verde que possuem corpos pequenos e cabeças grandes. Têm orelhas pontudas e narizes compridos. Suas roupas são feitas de sacos. Parecem muito alarmadas e avançam na sua direção com punhais.\n\n\t\t\t\tVocê terá que lutar contra os GREMLINS, pois não tem como dar meia volta e fugir.\n\n\t\t\t\tVocê luta contra um Gremlin de cada vez, mas sua força de ataque será reduzida em 3 pontos, pois está lutando de gatinhas(agachado).",
-  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_49.png",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_49.mp3",
   "proximasSecoes": [
     {	  
@@ -14,13 +13,15 @@
 		"idInimigo":"10",
 		"nome":"GREMLIN",
 		"habilidade":"4",
-		"energia":"3"
+		"energia":"3",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_49.png"
 	},
 	{
 		"idInimigo":"11",
 		"nome":"GREMLIN",
 		"habilidade":"3",
-		"energia":"2"
+		"energia":"2",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_49.png"
 	}
   ]
  }
