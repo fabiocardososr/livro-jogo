@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "163",
-  "texto": "Embora seja um dia claro e ensolarado, uma minúscula nuvem cinza aparece no céu. Está bem baixa e dá a impressão de estar se deslocando na sua direção. Ao se aproximar, você vê que ela está se deslocando muito rápido. Finalmente, ela paira acima de você a uns cinco metros do chão. De repente, um raio parte da nuvem, atingindo você no ombro.\n\nVocê perde 3 pontos de ENERGIA.",
+  "texto": "\t\t\t\tEmbora seja um dia claro e ensolarado, uma minúscula nuvem cinza aparece no céu. Está bem baixa e dá a impressão de estar se deslocando na sua direção.\n\n\t\t\t\tAo se aproximar, você vê que ela está se deslocando muito rápido. Finalmente, ela paira acima de você a uns cinco metros do chão.\n\n\t\t\t\tDe repente, um raio parte da nuvem, atingindo você no ombro.\n\n\t\t\t\tVocê perde 3 pontos de ENERGIA.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_163.mp3",
   "proximasSecoes": [
     {	  

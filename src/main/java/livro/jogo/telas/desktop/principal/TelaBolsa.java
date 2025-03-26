@@ -292,7 +292,7 @@ public class TelaBolsa extends JDialog {
         Item item = mapItens.get(imgLabel);
         panelInfoItem.setBounds(imgLabel.getX()+210,imgLabel.getY(),LARGURA_IMG, ALTURA_IMG);
         panelInfoItem.setVisible(true);
-        descricaoItem.setText( "\n"+item.getDescricao() );
+        descricaoItem.setText( item.getDescricao() );
         tituloTelaSuspensaInfo.setText( item.getNome() );
 
     }

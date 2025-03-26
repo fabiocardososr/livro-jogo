@@ -36,7 +36,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 54 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 56 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -92,7 +92,7 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=1; i<=55; i++) {
+        for (int i=18; i<=22; i++) {
             try {
                 bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                         "livros/florestadadestruicao/itens/item_" + i + ".json"));

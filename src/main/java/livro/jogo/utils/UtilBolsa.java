@@ -91,6 +91,19 @@ public class UtilBolsa {
         return false;
     }
 
+    //Verifica se o personagem possui determinado item e o retorna ao invés de true ou false
+    public static Item verificarExistenciaDeItemNaBolsaERetornaItem(int idItem){
+
+        //Estando na bolsa
+        for (Item item : bolsa){
+            if ( item.getIdItem() == idItem ){
+                return item;
+            }
+        }
+
+        return null;
+    }
+
     //Serve para popular uma lista dos itens para algum tipo de escolha
     // (por exemplo, secao 12 pede para escolher 2 itens e dar para o Gnomo)
     public static HashMap<String, Integer> listarNomesItensNaBolsa(){
