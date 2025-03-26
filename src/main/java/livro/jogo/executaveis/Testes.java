@@ -29,14 +29,14 @@ public class Testes {
                 20,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        //personagem.setQuantidadeOuro(1);
+        personagem.setQuantidadeOuro(10);
 //        personagem.setHabilidadeAtual(9);
-        personagem.setEnergiaAtual(10);
+        personagem.setEnergiaAtual(5);
         personagem.setSorteAtual(1);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 51 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 54 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -77,11 +77,10 @@ public class Testes {
 //                "livros/florestadadestruicao/itens/item_12.json"));
 
         //Equipando uma espada(50)
-       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
         //Equipando uma armadura de couro(51)
-//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                "livros/florestadadestruicao/itens/item_51.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));
 
 
         return itensEquipados;
@@ -105,8 +104,9 @@ public class Testes {
         }
 
        //Provisão
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//               "livros/florestadadestruicao/itens/item_49.json"));
+        for (int i=1; i<=10; i++)
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //        //Braçadeira da força
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(

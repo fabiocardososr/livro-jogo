@@ -42,10 +42,21 @@ public class UtilBolsa {
         }
     }
 
+    //Remove item da bolsa
     public static void removerItem(int idItem){
 
-        bolsa.removeIf(item -> item.getIdItem() == idItem);
+        for (Item item : bolsa)
+            if (item.getIdItem() == idItem) {
+                bolsa.remove(item);
+                break;
+            }
     }
+
+    public static void removerItemEspecifico(Item item){
+
+        bolsa. remove(item);
+    }
+
 
     //Verifica se o personagem possui determinado item na bolsa ou equipado
     public static boolean verificarExistenciaDeItemNaBolsaOuEquipado(int idItem){

@@ -98,6 +98,11 @@ public class UtilPersonagem {
         return true;
     }
 
+    /// Perde TODO o ouro
+    public static void perdeTodoOuro(){
+        personagem.setQuantidadeOuro(0);
+    }
+
     ///Equipa ou coloca-o na bolsa novamente.
     ///Depende de onde ele esteja atualmente. Se na bolsa equipa-o, se equipado volta para a bolsa
     public static void equiparDesequiparItem(Item item){

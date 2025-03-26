@@ -147,8 +147,8 @@ public class TelaBolsa extends JDialog {
         ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
-        var x = 100; //Posição da esquerda para a direita
-        var y = 45;  //Posição de cima para baixo
+        var x = 60; //Posição da esquerda para a direita
+        var y = 70;  //Posição de cima para baixo
         var largura = 50;
         var altura = 50;
         var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 5 itens por linha
@@ -156,10 +156,10 @@ public class TelaBolsa extends JDialog {
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
-            if (contNumerodeItensPorLinha == 7){
+            if (contNumerodeItensPorLinha == 12){
                 contNumerodeItensPorLinha = 0;
-                y = y + 60; //Posiciona os próximos itens logo abaixo
-                x = 100; //Volta para o início da (esquerda para a direita)
+                y = y + 70; //Posiciona os próximos itens logo abaixo
+                x = 60; //Volta para o início da (esquerda para a direita)
             }
 
             //Inserindo os itens na tela
@@ -189,7 +189,7 @@ public class TelaBolsa extends JDialog {
             //imgInterrogacao.setBorder(BorderFactory.createLineBorder(Color.RED));
 
             //Caminhando da esquerda para a direita
-            x = x + 100;
+            x = x + 60;
         }
 
         for (Item item: itensEquipados) {
@@ -197,10 +197,10 @@ public class TelaBolsa extends JDialog {
             if (item.getEnderecoImagem().isEmpty())
                 continue;
 
-            if (contNumerodeItensPorLinha == 5){
+            if (contNumerodeItensPorLinha == 12){
                 contNumerodeItensPorLinha = 0;
-                y = y + 60; //Posiciona os próximos itens logo abaixo
-                x = 90; //Volta para o início da (esquerda para a direita)
+                y = y + 70; //Posiciona os próximos itens logo abaixo
+                x = 60; //Volta para o início da (esquerda para a direita)
             }
 
             //Criando a imagem
@@ -213,7 +213,7 @@ public class TelaBolsa extends JDialog {
             //Rótulo indicando que este item está equipado
             JLabel rotuloEquipado = new JLabel("Equipado");
             rotuloEquipado.setForeground(new Color(220,220,220));
-            rotuloEquipado.setFont(new Font(Font.SERIF,Font.PLAIN,18));
+            rotuloEquipado.setFont(new Font(Font.SERIF,Font.PLAIN,14));
             rotuloEquipado.setBounds(x+5,y+40,75,18);
 
             //Incluir item no hashmap para que possa ser identificado quando clicado na imagem
@@ -228,7 +228,7 @@ public class TelaBolsa extends JDialog {
             ++contNumerodeItensPorLinha;
 
             //Caminhando da esquerda para a direita
-            x = x + 100;
+            x = x + 60;
         }
     }
 
@@ -285,68 +285,6 @@ public class TelaBolsa extends JDialog {
         panelInfoItem.add(descricaoItem);
         panelInfoItem.add(fundoPanel);
         add(panelInfoItem);
-    }
-
-    private class TelaBolsaListener implements MouseListener {
-        private boolean consumiuItem;
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-            if (e.getSource() == botaoSair){
-                dispose();
-                return;
-            }
-
-            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
-            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
-            Item item = mapItens.get(imgLabel);
-
-            //executa o efeito e remove da bolsa.
-            consumiuItem = new EfeitoDeItens(secao).acoesDosItens(item.getIdItem());
-
-            //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
-            atualizarCamposTelaSecao(imgLabel, item, consumiuItem);
-        }
-
-
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            if (e.getSource() == botaoSair) {
-                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
-                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
-                return;
-            }
-
-            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
-            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
-
-            //Configura tela suspensa de informação de itens
-            configuraTelaSuspensaInfoItem(imgLabel);
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            if (e.getSource() == botaoSair) {
-                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
-                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
-                return;
-            }
-
-            //Esconde a tela suspensa de info.
-            panelInfoItem.setVisible(false);
-        }
     }
 
     private void configuraTelaSuspensaInfoItem(JLabelOpcoesTelaSecao imgLabel) {
@@ -498,5 +436,67 @@ public class TelaBolsa extends JDialog {
 
         //Após a interação com o item, atualiza a tela
         atualizarBolsa();
+    }
+
+    private class TelaBolsaListener implements MouseListener {
+        private boolean consumiuItem;
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            if (e.getSource() == botaoSair){
+                dispose();
+                return;
+            }
+
+            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
+            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
+            Item item = mapItens.get(imgLabel);
+
+            //executa o efeito e remove da bolsa.
+            consumiuItem = new EfeitoDeItens(secao).acoesDosItens(item.getIdItem());
+
+            //Faz a atualização dos campos da tela de secao ou retorna alguma mensagem
+            atualizarCamposTelaSecao(imgLabel, item, consumiuItem);
+        }
+
+
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                return;
+            }
+
+            //Recupero o item através do índice do Map que é o objeto do tipo JLabelOpcoesTelaSecao
+            JLabelOpcoesTelaSecao imgLabel = (JLabelOpcoesTelaSecao) e.getSource();
+
+            //Configura tela suspensa de informação de itens
+            configuraTelaSuspensaInfoItem(imgLabel);
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            if (e.getSource() == botaoSair) {
+                botaoSair.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoSair.getWidth(), botaoSair.getHeight()).getImageIcon());
+                return;
+            }
+
+            //Esconde a tela suspensa de info.
+            panelInfoItem.setVisible(false);
+        }
     }
 }
