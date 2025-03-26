@@ -29,14 +29,14 @@ public class Testes {
                 20,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        personagem.setQuantidadeOuro(10);
+        personagem.setQuantidadeOuro(0);
 //        personagem.setHabilidadeAtual(9);
-        personagem.setEnergiaAtual(5);
+        personagem.setEnergiaAtual(3);
         personagem.setSorteAtual(1);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 56 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 58 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -92,7 +92,7 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
         //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=18; i<=22; i++) {
+        for (int i=1; i<=4; i++) {
             try {
                 bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                         "livros/florestadadestruicao/itens/item_" + i + ".json"));

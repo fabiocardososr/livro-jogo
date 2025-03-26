@@ -207,6 +207,8 @@ public class CarregarTelas {
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1
             case 55  -> new TelaSecao_55(secao).setVisible(true); //Equipa luvas de arremesso automaticamente
             case 56  -> new TelaSecao_56(secao).setVisible(true);//chamado pela seção 25
+            case 57  -> new TelaSecao_57(secao).setVisible(true);//Teste de Sorte
+            case 58  -> new TelaSecao_58(secao).setVisible(true);//Ganha 25 ouro e a Cabeça do Martelo dos Anões(6)
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -218,6 +220,7 @@ public class CarregarTelas {
             case 91  -> new TelaSecao_91(secao).setVisible(true);//chamado pela seção 26
             case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
+            case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6

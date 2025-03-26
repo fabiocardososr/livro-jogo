@@ -88,12 +88,20 @@ public class UtilPersonagem {
         return indiceMax - indiceAtual;
     }
 
-    ///Dedução de outro
+    ///Dedução de ouro
     public static boolean reduzirValorOuro(int valorASerReduzido){
         if (valorASerReduzido > personagem.getQuantidadeOuro())
             return false;
 
         personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - valorASerReduzido);
+
+        return true;
+    }
+
+    /// Soma ouro
+    public static boolean somarValorOuro(int valorASerReduzido){
+
+        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() + valorASerReduzido);
 
         return true;
     }
@@ -138,5 +146,27 @@ public class UtilPersonagem {
     //Repõe o índice de sorte ao valor inicial (valor máximo no momento da criação do personagem)
     public static void repoeSorteAoNivelMaximo(){
         personagem.setSorteAtual(personagem.getSorteMax());
+    }
+
+    /*REGRA: Jogue dois dados. Se o número obtido for igual ou menor do que o seu índice de SORTE atual,
+             você teve sorte, e o resultado lhe será favorável. Se o número obtido for maior do que o seu
+             índice de SORTE atual, você não teve sorte.
+    Na função: Retornando TRUE significa que foi bem sucedido no teste*/
+    public static boolean testarSorte(){
+        int indiceAtualSorte = personagem.getSorteAtual();
+
+        if (indiceAtualSorte <= 0)
+            return false;
+
+        //Simulando rolamento do(s) dado(s)
+        var resultadoDoisDados  = Util.rolarDados(6,2);
+
+        //Independentemente de qualquer resultado a sorte é diminuida em 1.
+        personagem.setSorteAtual(indiceAtualSorte - 1);
+
+        if (resultadoDoisDados <= indiceAtualSorte)
+            return true;
+        else
+            return false;
     }
 }

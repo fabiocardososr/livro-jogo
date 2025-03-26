@@ -4,9 +4,11 @@ package livro.jogo.utils;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import livro.jogo.entidades.*;
+import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.enums.TipoEfeito;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 
@@ -191,28 +193,9 @@ public class Util {
         return true;
     }
 
-
-    /*REGRA: Jogue dois dados. Se o número obtido for igual ou menor do que o seu índice de SORTE atual,
-             você teve sorte, e o resultado lhe será favorável. Se o número obtido for maior do que o seu
-             índice de SORTE atual, você não teve sorte.
-    Na função: Retornando TRUE significa que foi bem sucedido no teste*/
-    public static boolean testarSorte(){
-        var personagem          = DadosLivroCarregado.getPersonagem();
-        int indiceAtualSorte    = personagem.getSorteAtual();
-
-        if (indiceAtualSorte <= 0)
-            return false;
-
-        //Simulando rolamento do(s) dado(s)
-        var resultadoDoisDados  = rolarDados(6,2);
-
-        //Independentemente de qualquer resultado a sorte é diminuida em 1.
-        personagem.setSorteAtual(indiceAtualSorte - 1);
-
-        if (resultadoDoisDados <= indiceAtualSorte)
-            return true;
-        else
-            return false;
+    //Animação de dados rolando
+    public static void mostrarAnimacaoDadosRolando(){
+        TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
     }
 
 }

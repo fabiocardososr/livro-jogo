@@ -73,7 +73,7 @@ public class AcoesBatalha {
 
                 if (TelaBatalha.isRespostaTelaConfirmacao()) {
                     vaiTestarSorte = true;
-                    resultadoSorte = Util.testarSorte();
+                    resultadoSorte = UtilPersonagem.testarSorte();
                     TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
 
 
@@ -131,7 +131,7 @@ public class AcoesBatalha {
 
                 if ( telaPai.isRespostaTelaMensagem() ) {
                     vaiTestarSorte = true;
-                    resultadoSorte = Util.testarSorte();
+                    resultadoSorte = UtilPersonagem.testarSorte();
                     TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
 
 
@@ -261,7 +261,7 @@ public class AcoesBatalha {
                         "dano?\n\nO dano causado será fatal caso não teste a sorte e tenha sucesso.", telaBatalha);
 
                 if (TelaBatalha.isRespostaTelaConfirmacao()) {
-                    boolean resultadoSorte = Util.testarSorte();
+                    boolean resultadoSorte = UtilPersonagem.testarSorte();
                     sorteJaUsada = true;
 
                     TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
@@ -335,7 +335,7 @@ public class AcoesBatalha {
             //util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
             mensagemComDelay(2000, "<html><center>Teste de sorte...<center><html>");
             TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
-            var teveSorte = Util.testarSorte();
+            var teveSorte = UtilPersonagem.testarSorte();
             mensagemComDelay(4000, "<html><center>Teste realizado!<center><html>");
 
             if ( teveSorte ){
@@ -371,7 +371,7 @@ public class AcoesBatalha {
             //util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
             mensagemComDelay(2000, "<html><center>Teste de sorte...<center><html>");
             TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
-            var teveSorte = Util.testarSorte();
+            var teveSorte = UtilPersonagem.testarSorte();
             mensagemComDelay(4000, "<html><center>Teste realizado!<center><html>");
 
             if ( teveSorte ){
