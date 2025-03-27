@@ -32,11 +32,11 @@ public class Testes {
         personagem.setQuantidadeOuro(0);
 //        personagem.setHabilidadeAtual(9);
         personagem.setEnergiaAtual(3);
-        personagem.setSorteAtual(1);
+        //personagem.setSorteAtual(1);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 58 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 63 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());

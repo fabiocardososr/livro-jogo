@@ -6,11 +6,9 @@ import javazoom.jl.player.Player;
 import livro.jogo.entidades.*;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.enums.TipoEfeito;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.personalizados.util.ListItem;
-import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,7 +16,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 
@@ -196,6 +193,23 @@ public class Util {
     //Animação de dados rolando
     public static void mostrarAnimacaoDadosRolando(){
         TelaBasica.mostrarDadosRolando(4000, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+    }
+
+    //Testar sorte. Faz o teste propriamente dito e cria a animação e feito sonoro.
+    public static boolean testarSorte(){
+        boolean sorte;
+
+        //Animação de dados rolando
+        Util.mostrarAnimacaoDadosRolando();
+
+        sorte = UtilPersonagem.testarSorte();
+
+        if ( sorte )
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        else
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+
+        return sorte;
     }
 
 }

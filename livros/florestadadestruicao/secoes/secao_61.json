@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "61",
-  "texto": "Logo você está de volta à primeira encruzilhada.",
+  "texto": "\t\t\t\tLogo você está de volta à primeira encruzilhada.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_61.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Se quiser engatinhar de volta para o poço ao sul",
+      "textoOpcao": "Engatinhar de volta para o poço ao sul?",
       "codProximaSecao": "398"
     },
 	{	  
-      "textoOpcao": "Se desejar continuar para o leste",
+      "textoOpcao": "Continuar para o leste?",
       "codProximaSecao": "151"
     }
   ]

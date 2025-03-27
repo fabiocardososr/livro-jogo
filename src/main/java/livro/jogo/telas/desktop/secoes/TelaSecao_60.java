@@ -14,114 +14,12 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_57 extends TelaSecoesBasica {
+public class TelaSecao_60 extends TelaSecoesBasica {
     boolean testouSorte = false;
     JLabel textoBotaoTesteSorte;
 
-    public TelaSecao_57(Secao secao) {
+    public TelaSecao_60(Secao secao) {
         super(secao);
-    }
-
-    private void carregaBotaoTestarSorte() {
-        int largura = 500;
-        int altura = 100;
-        int eixoY = 570;
-        int eixoX = 190;
-
-        //Texto botão repor habilidade
-        textoBotaoTesteSorte = new JLabel("<html><center>Testar Sorte</center></html>");
-        textoBotaoTesteSorte.setBounds(eixoX+125,eixoY+18,250,60);
-        textoBotaoTesteSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        textoBotaoTesteSorte.setHorizontalAlignment(SwingConstants.CENTER);
-        textoBotaoTesteSorte.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoTesteSorte.setFont(new Font(Font.SERIF,Font.BOLD,25));
-        textoBotaoTesteSorte.setForeground(new Color(128,0,0));
-        textoBotaoTesteSorte.setToolTipText("REGRA: São jogados dois dados. Número obtido" +
-                " igual ou menor ao seu índice de SORTE, você teve sorte. Qualquer que seja o resultado, SEMPRE é diminuído em 1 seu índice.");
-        textoBotaoTesteSorte.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                testarSorte();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-        //textoBotaoConferencia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        //Botão de conferência
-        JLabelOpcoesTelaSecao botaoTesteSorte = new JLabelOpcoesTelaSecao("",largura, altura,
-                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoTesteSorte.setBounds(eixoX,eixoY,largura,altura);
-        botaoTesteSorte.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                testarSorte();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                botaoTesteSorte.setIcon(Util.dimensionarImagem(botaoTesteSorte.getWidth(),
-                        botaoTesteSorte.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
-                repaint();
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                botaoTesteSorte.setIcon(Util.dimensionarImagem(botaoTesteSorte.getWidth(),
-                        botaoTesteSorte.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
-                repaint();
-            }
-        });
-
-        add(textoBotaoTesteSorte);
-        add(botaoTesteSorte);
-    }
-
-    private void testarSorte(){
-
-        if ( testouSorte )
-            return;
-
-        if ( Util.testarSorte() ){
-            CarregarTelas.telaMensagem("Parabéns!\n\nVocê foi bem sucedido no teste de sorte.");
-            botaoOpcao2.setEnabled(false);
-        }else {
-            CarregarTelas.telaMensagem("Azarado!\n\nVocê foi malsucedido no teste de sorte.");
-            botaoOpcao1.setEnabled(false);
-        }
-
-        textoBotaoTesteSorte.setText("<html><center>Teste Realizado!</center></html>");
-        testouSorte = true;
-        atualizaIndicesNaTelaDoPersonagem();
     }
 
     @Override
@@ -233,5 +131,107 @@ public class TelaSecao_57 extends TelaSecoesBasica {
                 }
             }
         });
+    }
+
+    private void carregaBotaoTestarSorte() {
+        int largura = 500;
+        int altura = 100;
+        int eixoY = 570;
+        int eixoX = 190;
+
+        //Texto botão repor habilidade
+        textoBotaoTesteSorte = new JLabel("<html><center>Testar Sorte</center></html>");
+        textoBotaoTesteSorte.setBounds(eixoX+125,eixoY+18,250,60);
+        textoBotaoTesteSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoTesteSorte.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoTesteSorte.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoTesteSorte.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        textoBotaoTesteSorte.setForeground(new Color(128,0,0));
+        textoBotaoTesteSorte.setToolTipText("REGRA: São jogados dois dados. Número obtido" +
+                " igual ou menor ao seu índice de SORTE, você teve sorte. Qualquer que seja o resultado, SEMPRE é diminuído em 1 seu índice.");
+        textoBotaoTesteSorte.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                testarSorte();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //textoBotaoConferencia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Botão de conferência
+        JLabelOpcoesTelaSecao botaoTesteSorte = new JLabelOpcoesTelaSecao("",largura, altura,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoTesteSorte.setBounds(eixoX,eixoY,largura,altura);
+        botaoTesteSorte.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                testarSorte();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoTesteSorte.setIcon(Util.dimensionarImagem(botaoTesteSorte.getWidth(),
+                        botaoTesteSorte.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoTesteSorte.setIcon(Util.dimensionarImagem(botaoTesteSorte.getWidth(),
+                        botaoTesteSorte.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        add(textoBotaoTesteSorte);
+        add(botaoTesteSorte);
+    }
+
+    private void testarSorte(){
+
+        if ( testouSorte )
+            return;
+
+        if ( Util.testarSorte() ){
+            CarregarTelas.telaMensagem("Parabéns!\n\nVocê foi bem sucedido no teste de sorte.");
+            botaoOpcao2.setEnabled(false);
+        }else {
+            CarregarTelas.telaMensagem("Azarado!\n\nVocê foi malsucedido no teste de sorte.");
+            botaoOpcao1.setEnabled(false);
+        }
+
+        textoBotaoTesteSorte.setText("<html><center>Teste Realizado!</center></html>");
+        testouSorte = true;
+        atualizaIndicesNaTelaDoPersonagem();
     }
 }
