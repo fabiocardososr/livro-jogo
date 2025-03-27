@@ -2,7 +2,7 @@
 	"idItem":"8",
 	"tipoEfeito":"NENHUM",
 	"nome":"Controle das Plantas",
-	"descricao":"",
+	"descricao":"Espécie de repelente para plantas.",
 	"valorCusto":"2",
 	"modificador":"0",   
 	"quantidadeUso":"0",

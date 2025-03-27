@@ -14,14 +14,14 @@
 		"nome":"GREMLIN",
 		"habilidade":"4",
 		"energia":"3",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_49.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gremlin.png"
 	},
 	{
 		"idInimigo":"11",
 		"nome":"GREMLIN",
 		"habilidade":"3",
 		"energia":"2",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_49.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gremlin.png"
 	}
   ]
  }

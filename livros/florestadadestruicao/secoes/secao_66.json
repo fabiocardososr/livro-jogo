@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "66",
-  "texto": "Você pisa cuidadosamente pelas pedras escorregadias até o outro lado do rio. Você vê que a trilha continua para o norte pelas colinas adentro, mas, como já está ficando escuro, decide acampar, à noite, sob uma grande árvore solitária à direita da trilha. Você acende um fogo bem grande e se instala para dormir com sua espada a seu lado",
+  "texto": "\t\t\t\tVocê pisa cuidadosamente pelas pedras escorregadias até o outro lado do rio.\n\n\t\t\t\tVocê vê que a trilha continua para o norte pelas colinas adentro, mas, como já está ficando escuro, decide acampar, à noite, sob uma grande árvore solitária à direita da trilha.\n\n\t\t\t\tVocê acende um fogo bem grande e se instala para dormir com sua espada a seu lado.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_66.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Continue.",
       "codProximaSecao": "325"
     }
   ]

@@ -169,4 +169,10 @@ public class UtilPersonagem {
         else
             return false;
     }
+
+    //Recupera energia
+    public static void recuperaEnergia(int somaEnergia){
+
+        personagem.setEnergiaAtual(personagem.getEnergiaAtual() + somaEnergia);
+    }
 }

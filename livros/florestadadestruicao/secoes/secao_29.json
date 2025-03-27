@@ -18,14 +18,14 @@
 		"nome":"ORC",
 		"habilidade":"5",
 		"energia":"5",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/orc.png"
 	},
 	{
 		"idInimigo":"7",
 		"nome":"ORC",
 		"habilidade":"5",
 		"energia":"6",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_29.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/orc.png"
 	}
   ]
  }

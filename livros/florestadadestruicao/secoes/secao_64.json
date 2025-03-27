@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "64",
-  "texto": "Antes que a Erva Enredante possa arrastá-lo para o chão, você consegue apanhar a garrafa que contém a Poção de Controle das Plantas, na sua mochila, e engole o líquido. Como se tacada por fogo, a Erva Enredante solta seus membros e se afasta para fora da trilha. Você resolve correr velozmente pela trilha enquanto os efeitos da poção ainda duram",
+  "texto": "\t\t\t\tAntes que a Erva Enredante possa arrastá-lo para o chão, você consegue apanhar a garrafa que contém a Poção de Controle das Plantas, na sua mochila, e engole o líquido.\n\n\t\t\t\tComo se tacada por fogo, a Erva Enredante solta seus membros e se afasta para fora da trilha.\n\n\t\t\t\tVocê resolve correr velozmente pela trilha enquanto os efeitos da poção ainda duram.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_64.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Siga.",
       "codProximaSecao": "142"
     }
   ]
