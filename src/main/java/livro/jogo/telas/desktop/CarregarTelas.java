@@ -223,6 +223,7 @@ public class CarregarTelas {
             case 70  -> new TelaSecao_70(secao).setVisible(true); //Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true);
+            case 73  -> new TelaSecao_73(secao).setVisible(true); //Realizar teste rolando dados para vê se abre porta
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -233,7 +234,7 @@ public class CarregarTelas {
             case 91  -> new TelaSecao_91(secao).setVisible(true);//chamado pela seção 26
             case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
-            case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58
+            case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73
             case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
@@ -286,6 +287,7 @@ public class CarregarTelas {
             case 317 -> new TelaSecao_317(secao).setVisible(true);//chamado pela seção 8
             case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3
             case 325 -> new TelaSecao_330(secao).setVisible(true);//chamado pela seção 66
+            case 327 -> new TelaSecao_327(secao).setVisible(true);//chamado pela seção 73
             case 329 -> new TelaSecao_329(secao).setVisible(true);//chamado pela seção 27
             case 330 -> new TelaSecao_330(secao).setVisible(true);//chamado pela seção 65
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 Termina o jogo
