@@ -60,9 +60,11 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel lbTextoOpcao1;
     protected JLabel lbTextoOpcao2;
     protected JLabel lbTextoOpcao3;
+    protected JLabel lbTextoOpcao4;
     protected JLabel labelNumOpcao1;
     protected JLabel labelNumOpcao2;
     protected JLabel labelNumOpcao3;
+    protected JLabel labelNumOpcao4;
     protected final HashMap<String, Integer> listaNomeEIdDosItens = UtilBolsa.listarNomesItensNaBolsa(); //(Chave=nome do item; Valor = idItem)
     protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
     protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
@@ -1095,6 +1097,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Texto da opção
         lbTextoOpcao1 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lbTextoOpcao1.setForeground(new Color(139,0,0));
 
         labelNumOpcao1.setBounds(116,592, 50,50);
@@ -1146,25 +1149,59 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelNumOpcao3.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelNumOpcao3.setHorizontalAlignment(SwingConstants.CENTER);
         labelNumOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,30));
-        labelNumOpcao3.setBounds(116,712, 50,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botaoOpcao3 = new JLabelOpcoesTelaSecao("",40,50,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
         botaoOpcao3.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoOpcao3.setBounds(120,720,40,50);
         botaoOpcao3.setToolTipText("Clique para escolher esta opção.");
 
         //Texto da opção
         lbTextoOpcao3 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao3.setBounds(170,707,700,60);
         lbTextoOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,22));
         lbTextoOpcao3.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
+        labelNumOpcao3.setBounds(116,712, 50,50);
+        botaoOpcao3.setBounds(120,720,40,50);
+        lbTextoOpcao3.setBounds(170,707,700,60);
+
+
         add(lbTextoOpcao3);
         add(labelNumOpcao3);
         add(botaoOpcao3);
+    }
+
+    protected void opcao4(Secao secao){
+        String texto = "4";             //Número da opção que aparecerá para o usuário (label)
+        int indiceOpcao = 3;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
+
+        labelNumOpcao4 = new JLabel(texto);
+        labelNumOpcao4.setForeground(Color.WHITE);
+        labelNumOpcao4.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelNumOpcao4.setHorizontalAlignment(SwingConstants.CENTER);
+        labelNumOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        //label.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        botaoOpcao4 = new JLabelOpcoesTelaSecao("",40,50,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        botaoOpcao4.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoOpcao4.setToolTipText("Clique para escolher esta opção.");
+
+        //Texto da opção
+        lbTextoOpcao4 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
+        lbTextoOpcao4.setBounds(170,707,700,60);
+        lbTextoOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao4.setForeground(new Color(139,0,0));
+        //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        labelNumOpcao4.setBounds(116,772, 50,50);
+        botaoOpcao4.setBounds(120,780,40,50);
+        lbTextoOpcao4.setBounds(170,767,700,60);
+
+        add(lbTextoOpcao4);
+        add(labelNumOpcao4);
+        add(botaoOpcao4);
     }
 
     private class TelaSecoesBasicaAcaoDosLabels implements MouseListener {

@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "273",
-  "texto": "Você pega o medalhão no pescoço do Gremlin caído. É feito de ouro e vale 9 Peças de Ouro. Não há nada mais que seja de uso ou valor na caverna. Não há outra saída na caverna, e você tem que engatinhar de volta, descendo o túnel até a encruzilhada.",
+  "texto": "\t\t\t\tVocê pega o medalhão no pescoço do Gremlin caído.\n\n\t\t\t\tÉ feito de ouro e vale 9 Peças de Ouro.\n\n\t\t\t\tNão há nada mais que seja de uso ou valor na caverna. Não há outra saída na caverna, e você tem que engatinhar de volta, descendo o túnel até a encruzilhada.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_273.mp3",
   "proximasSecoes": [
     {	  

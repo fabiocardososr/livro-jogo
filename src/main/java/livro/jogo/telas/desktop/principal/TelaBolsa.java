@@ -139,6 +139,9 @@ public class TelaBolsa extends JDialog {
         //Recria a bolsa
         carregaItensNaBolsaEEquipados(acao, painelListaItens);
 
+        //Esconde a tela de informação do item suspensa
+        panelInfoItem.setVisible(false);
+
         repaint();
     }
 
@@ -433,6 +436,11 @@ public class TelaBolsa extends JDialog {
                 }
         }
 
+        if ( (item.getIdItem() == ItensMapeamento.ESPADA.getIdItem()) ||
+                (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()))
+            lbHabilidadePersonagem.setText("Habilidade: " +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeAtual()) + "/" +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeMax()));
 
         //Após a interação com o item, atualiza a tela
         atualizarBolsa();

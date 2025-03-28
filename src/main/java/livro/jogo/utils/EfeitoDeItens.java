@@ -26,6 +26,7 @@ public class EfeitoDeItens {
             case 46 -> efeitoItem_46();     //Poção de força
             case 47 -> efeitoItem_47();     //Poção de Fortuna
             case 49 -> efeitoItem_49();     //Provisões (comida)
+            case 50 -> efeitoItem_50();     //Espada comum (inicial)
             default -> false;
         };
     }
@@ -78,18 +79,47 @@ public class EfeitoDeItens {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Recupera o item
-        Item item = DadosLivroCarregado.getMapItem().get(10);
+        Item item = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem());
+
+        if ( UtilBolsa.verificarExistenciaDeItemEquipado( item.getIdItem()) )
+            return false;
 
         //desequipar a espada incial e incluir na bolsa
-        Item espadaInicial = DadosLivroCarregado.getMapItem().get(50);
+        Item espadaInicial = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA.getIdItem());
         DadosLivroCarregado.removeItemEquipado(espadaInicial);
         personagem.getBolsa().add(espadaInicial);
 
         //Equipa a espada magnífica(idItem 10)
         personagem.getItensEquipados().add(item);
+        personagem.getBolsa().remove(item);
 
         //Efeito mágico da espada(idItem=10): aumenta a habilidade atual do personagem em 2 pontos(seção 70)
         personagem.setHabilidadeAtual(personagem.getHabilidadeAtual() + 2);
+
+        return true;
+    }
+
+    private boolean efeitoItem_50() {
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        //Recupera o item espada comum
+        Item item = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA.getIdItem());
+
+        if ( UtilBolsa.verificarExistenciaDeItemEquipado( item.getIdItem()) )
+            return false;
+
+
+        //desequipar a espada magnífica e incluir na bolsa
+        Item espadaMagnifica = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem());
+        DadosLivroCarregado.removeItemEquipado(espadaMagnifica);
+        personagem.getBolsa().add(espadaMagnifica);
+
+        //Equipa a espada comum(idItem 50)
+        personagem.getItensEquipados().add(item);
+        personagem.getBolsa().remove(item);
+
+        //Efeito mágico da espada(idItem=10): aumenta a habilidade atual do personagem em 2 pontos(seção 70)
+        personagem.setHabilidadeAtual(personagem.getHabilidadeAtual() - 2);
 
         return true;
     }

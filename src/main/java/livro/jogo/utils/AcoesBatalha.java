@@ -175,7 +175,7 @@ public class AcoesBatalha {
     public ResultadoBatalha turnoDeBatalha() {
         boolean inimigoVivo     = true;
         boolean personagemVivo  = true;
-        int desvantagem         = 0;  //setado com zero para a maioria das lutas (EXEMPLO: seção 49 será usado -3 pontos)
+        int desvantagem = 0; //Algumas seções desvantagem no ataque (seção 49,71).
 
         //Info do que está acontecendo. Aparecerá na tela para o jogador
         ResultadoBatalha resultadoTurnoBatalha;
@@ -210,9 +210,9 @@ public class AcoesBatalha {
 
         //Verifica se existe alguma desvantagem no ataque do personagem em algum seção
         switch ( telaSecao.getSecao().getCodSecaoLivro() ){
-            case 49 -> desvantagem = desvantagemSecao49();  //Na seção 49 o personagem tem desvantagem na luta de -3 pontos de ataque
+            case 49 -> desvantagem = desvantagem3pontosNoAtque();  //Na seção 49 o personagem tem desvantagem na luta de -3 pontos de ataque
+            case 71 -> desvantagem = desvantagem3pontosNoAtque();  //Na seção 71 o personagem tem desvantagem na luta de -3 pontos de ataque
         }
-
         var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem(desvantagem);
 
 
@@ -313,7 +313,7 @@ public class AcoesBatalha {
     }
 
     //Seção 49 a força de ataque é reduzida em 3 pontos
-    private int desvantagemSecao49(){
+    private int desvantagem3pontosNoAtque(){
         mensagemComDelay(4000,"<html><center>-3 pontos na sua Força de  Ataque</center></html>");
         return 3;
     }

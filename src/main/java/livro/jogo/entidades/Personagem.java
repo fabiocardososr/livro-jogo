@@ -122,12 +122,9 @@ public class Personagem implements Serializable {
     }
 
     public void setHabilidadeAtual(int habilidadeAtual) {
-
-        //Regra: Personagem não pode ter índice maior que a calculada na sua criação
-        if (habilidadeAtual >= habilidadeMax)
-            this.habilidadeAtual = habilidadeMax;
-        else
-            this.habilidadeAtual = habilidadeAtual;
+        //Não segue a restrição do índice máximo ser igual ao da criação do personagem devido a seção 70
+        //Que dá a espada magnífica(10) que aumenta em 2 pontos a habilidade atual
+        this.habilidadeAtual = habilidadeAtual;
     }
 
     public void setEnergiaAtual(int energiaAtual) {
