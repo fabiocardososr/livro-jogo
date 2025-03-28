@@ -47,7 +47,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     protected JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     protected JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
-    private int tamanhoTexto = 22; //tamanho default para o texto da seção. Pode ser ajustado
+    private int tamanhoTexto = 20; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     protected final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)

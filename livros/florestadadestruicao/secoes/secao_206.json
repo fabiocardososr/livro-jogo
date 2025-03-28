@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "206",
-  "texto": "De repente, você ouve gritos de socorro à sua esquerda, fora da trilha.",  
+  "texto": "\t\t\t\tDe repente, você ouve gritos de socorro à sua esquerda, fora da trilha.",  
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_206.mp3",
   "proximasSecoes": [
     {	  
