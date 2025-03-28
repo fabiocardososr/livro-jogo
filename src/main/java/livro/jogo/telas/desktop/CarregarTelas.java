@@ -222,6 +222,7 @@ public class CarregarTelas {
             case 69  -> new TelaSecao_69(secao).setVisible(true);
             case 70  -> new TelaSecao_70(secao).setVisible(true); //Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //inimigo Gremlin
+            case 72  -> new TelaSecao_72(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -236,6 +237,7 @@ public class CarregarTelas {
             case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
+            case 138 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 72
             case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64
             case 143 -> new TelaSecao_143(secao).setVisible(true);//chamado pela seção 69
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6
