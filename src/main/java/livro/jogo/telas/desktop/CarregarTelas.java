@@ -233,6 +233,7 @@ public class CarregarTelas {
             case 80  -> new TelaSecao_80(secao).setVisible(true);
             case 81  -> new TelaSecao_81(secao).setVisible(true); //Teste de sorte
             case 82  -> new TelaSecao_82(secao).setVisible(true); //Pergunta se tem poção de Imobilidade
+            case 83  -> new TelaSecao_83(secao).setVisible(true); //Perde energia; uso de Beladona (pegue esta como exemplo)
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -248,6 +249,7 @@ public class CarregarTelas {
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
             case 138 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 72
+            case 139 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 83
             case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64
             case 143 -> new TelaSecao_143(secao).setVisible(true);//chamado pela seção 69
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6

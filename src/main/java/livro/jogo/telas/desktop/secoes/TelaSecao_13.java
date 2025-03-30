@@ -25,7 +25,7 @@ public class TelaSecao_13 extends TelaSecoesBasica {
 
         //Aviso sobre a perda de 3 pontos de sorte
         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                ",\n\nvocê perde 3 pontos de Sorte.\n\nLeia e entenderá o porquê.");
+                ",\n\nvocê perde 3 pontos de Sorte.");
     }
 
     @Override

@@ -90,6 +90,7 @@ public class CarregarLivroFlorestaDaDestruicao {
         try {
             var json = ManipularArquivos.lerTexto(enderecoDoArquivoDoItem).toString();
             var  item = objMapper.readValue(json, Item.class);
+            //System.out.println(item.getNome());
             DadosLivroCarregado.getMapItem().put(item.getIdItem(),item);
 
         } catch (JsonProcessingException e) {

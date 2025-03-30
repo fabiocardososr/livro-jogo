@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 82 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 83 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -91,22 +91,32 @@ public class Testes {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
-        //Guardando na bolsa 10 provisões(refeições)(49)
-        for (int i=10; i<=12; i++) {
-            try {
-                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
-               // System.out.println(bolsa.get(i-21).getIdItem() +" Nome: "+bolsa.get(i-21).getNome());
-            } catch (Exception e) {
-                System.out.println("ÍNIDCE "+ i);
-                throw new RuntimeException(e);
-            }
-        }
+        //Guardando na bolsa
+//        for (int i=11; i<=15; i++) {
+//            try {
+//                bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                        "livros/florestadadestruicao/itens/item_" + i + ".json"));
+//            } catch (Exception e) {
+//                System.out.println("ÍNIDCE "+ i);
+//                throw new RuntimeException(e);
+//            }
+//        }
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_14.json"));
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_15.json"));
+
+//        System.out.println(bolsa.get(0).getIdItem() +" Nome: "+bolsa.get(0).getNome());
+//        System.out.println(bolsa.get(1).getIdItem() +" Nome: "+bolsa.get(1).getNome());
+//        System.out.println(bolsa.get(2).getIdItem() +" Nome: "+bolsa.get(2).getNome());
+//        System.out.println(bolsa.get(3).getIdItem() +" Nome: "+bolsa.get(3).getNome());
 
        //Provisão
-        for (int i=1; i<=10; i++)
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_49.json"));
+//        for (int i=1; i<=2; i++)
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //        //Braçadeira da força
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(

@@ -455,6 +455,17 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     }
 
+    //Em caso do personagem morto, fecha a tela de seção e abre a principal
+    protected void personagemMorto(boolean vivo){
+
+        if ( !vivo ) {
+            if (referenciaTelaPrincipal != null)
+                referenciaTelaPrincipal.setVisible(true);
+
+            dispose();
+        }
+    }
+
     private void acoesEspecificasDasSecoes(){
 
         //Na secao 12 quando é removido os itens é devolvida a espada

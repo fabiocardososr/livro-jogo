@@ -154,7 +154,7 @@ public class TelaBolsa extends JDialog {
         var y = 70;  //Posição de cima para baixo
         var largura = 50;
         var altura = 50;
-        var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 5 itens por linha
+        var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 12 itens por linha
 
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {

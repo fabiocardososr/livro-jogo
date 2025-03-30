@@ -1,11 +1,10 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_235;
-import livro.jogo.acaosecoes.AcoesSecao_55;
 import livro.jogo.entidades.Secao;
-import livro.jogo.enums.ItensMapeamento;
+
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
-import livro.jogo.utils.UtilBolsa;
+
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
