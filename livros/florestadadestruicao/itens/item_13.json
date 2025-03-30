@@ -1,8 +1,8 @@
  {
 	"idItem":"13",
 	"tipoEfeito":"NENHUM",
-	"nome":"Imobilidade",
-	"descricao":"",
+	"nome":"Poção Imobilidade",
+	"descricao":"Pode ocorrer caos a sua volta, mas você permanecerá calmo.",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",
