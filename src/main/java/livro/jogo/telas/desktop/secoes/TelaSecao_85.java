@@ -1,15 +1,20 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_84;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilPersonagem;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_89 extends TelaSecoesBasica {
-    public TelaSecao_89(Secao secao) {
+public class TelaSecao_85 extends TelaSecoesBasica {
+    public TelaSecao_85(Secao secao) {
         super(secao);
     }
 
@@ -17,7 +22,6 @@ public class TelaSecao_89 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         opcao2(secao);
-        opcao3(secao);
         acaoBotoes(secao);
     }
 
@@ -64,8 +68,8 @@ public class TelaSecao_89 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao2){
-                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
-                }
+                        abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                    }
             }
 
             @Override
@@ -92,43 +96,6 @@ public class TelaSecao_89 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao2){
                     botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-        });
-
-        botaoOpcao3.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    abrirProximaSecao(secao.getProximasSecoes().get(2).getCodProximaSecao());
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
-                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
-                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
                     repaint();
                 }
             }
