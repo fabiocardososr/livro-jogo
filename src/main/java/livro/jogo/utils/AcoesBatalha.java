@@ -110,7 +110,7 @@ public class AcoesBatalha {
         }
     }
 
-    //Quando utilizado por outra tela que não a tela de batalha (exemplo, seção 29)
+    //Quando utilizado por outra tela que não a tela de batalha (exemplo, seção 29,43,84)
     public boolean clicarNaOpcaoFuga(TelaSecoesBasica telaPai){
         boolean vaiTestarSorte = false; //Se na fuga foi feito o teste de sorte. O default é não fazer
         boolean resultadoSorte = false; //Resultado do teste da sorte, caso feito.

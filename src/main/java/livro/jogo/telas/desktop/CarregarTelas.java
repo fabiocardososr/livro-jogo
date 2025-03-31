@@ -234,6 +234,7 @@ public class CarregarTelas {
             case 81  -> new TelaSecao_81(secao).setVisible(true); //Teste de sorte
             case 82  -> new TelaSecao_82(secao).setVisible(true); //Pergunta se tem poção de Imobilidade
             case 83  -> new TelaSecao_83(secao).setVisible(true); //Perde energia; uso de Beladona (pegue esta como exemplo)
+            case 84  -> new TelaSecao_84(secao).setVisible(true); //Inimigo Bicho Rochedo
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -252,6 +253,7 @@ public class CarregarTelas {
             case 139 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 83
             case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64
             case 143 -> new TelaSecao_143(secao).setVisible(true);//chamado pela seção 69
+            case 146 -> new TelaSecao_146(secao).setVisible(true);//chamado pela seção 84
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6
             case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13
             case 150 -> new TelaSecao_150(secao).setVisible(true);//chamado pela seção 32
@@ -279,6 +281,7 @@ public class CarregarTelas {
             case 235 -> new TelaSecao_235(secao).setVisible(true); //chamado pela seção 82
             case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17
             case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41
+            case 245 -> new TelaSecao_245(secao).setVisible(true);//chamado pela seção 84
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5
             case 254 -> new TelaSecao_254(secao).setVisible(true);//chamado pela seção 29
             case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14

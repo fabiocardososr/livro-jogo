@@ -1,0 +1,15 @@
+ {
+	"idItem":"56",
+	"tipoEfeito":"NENHUM",
+	"nome":"Pedra",
+	"descricao":"Pedaço do Bicho Rochedo que você pegou quando o derrotou.",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_56.png"
+  }

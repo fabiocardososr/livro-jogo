@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "245",
-  "texto": "Chegando ao fundo do vale, você descobre que a trilha se bifurca.",
+  "texto": "\t\t\t\tChegando ao fundo do vale, você descobre que a trilha se bifurca.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_245.mp3",
   "proximasSecoes": [
     {	  
