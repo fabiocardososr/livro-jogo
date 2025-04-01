@@ -16,25 +16,25 @@
   "inimigos":[
 	{
 		"idInimigo":"50",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"6",
 		"energia":"6"
 	},
 	{
 		"idInimigo":"51",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"5",
 		"energia":"6"
 	},
 	{
 		"idInimigo":"52",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"6",
 		"energia":"5"
 	},
 	{
 		"idInimigo":"53",
-		"nome":"MASCARADO",
+		"nome":"Mascarado",
 		"habilidade":"8",
 		"energia":"7"
 	}

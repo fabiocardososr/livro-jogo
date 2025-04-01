@@ -246,7 +246,7 @@ public class CarregarTelas {
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
             case 94  -> new TelaSecao_94(secao).setVisible(true);
             case 95  -> new TelaSecao_95(secao).setVisible(true); //Pergunta sobre a Poeria da Levitação(11)
-            case 96  -> new TelaSecao_96(secao).setVisible(true);
+            case 96  -> new TelaSecao_96(secao).setVisible(true); //Inimigos 3 cães-de-caça e um caçador mascarado
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 

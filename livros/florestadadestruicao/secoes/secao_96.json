@@ -4,34 +4,38 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_96.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Se vencer",
+      "textoOpcao": "Após derrotar todos os inimigos.",
       "codProximaSecao": "62"
     }
   ],
   "inimigos":[
 	{
 		"idInimigo":"18",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"6",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
 	},
 	{
 		"idInimigo":"19",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"5",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
 	},
 	{
 		"idInimigo":"20",
-		"nome":"CÃO-DE-CAÇA",
+		"nome":"Cão",
 		"habilidade":"6",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
 	},
 	{
 		"idInimigo":"21",
-		"nome":"HOMEM MASCARADO",
+		"nome":"Mascarado",
 		"habilidade":"8",
-		"energia":"7"
+		"energia":"7",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cacador_mascarado.png"
 	}
   ]
  }
