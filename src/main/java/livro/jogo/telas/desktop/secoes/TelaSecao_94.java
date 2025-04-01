@@ -5,22 +5,22 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_93 extends TelaSecoesBasica {
-
-
-    public TelaSecao_93(Secao secao) {
+public class TelaSecao_94 extends TelaSecoesBasica {
+    public TelaSecao_94(Secao secao) {
         super(secao);
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        opcao2(secao);
-        acaoBotoes(secao);
+       opcao1(secao);
+       opcao2(secao);
+       acaoBotoes(secao);
     }
 
     @Override
@@ -28,9 +28,8 @@ public class TelaSecao_93 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1){
+                if (e.getSource() == botaoOpcao1)
                     abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                }
             }
 
             @Override
@@ -65,9 +64,8 @@ public class TelaSecao_93 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
+                if (e.getSource() == botaoOpcao2)
                     abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
-                }
             }
 
             @Override

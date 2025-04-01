@@ -1,19 +1,62 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_55;
+import livro.jogo.acaosecoes.AcoesSecao_95;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class TelaSecao_93 extends TelaSecoesBasica {
+public class TelaSecao_95 extends TelaSecoesBasica {
+    TelaSecoesBasica tela = this;
+    boolean possuiPoeiraDaLevitacao = false;
 
-
-    public TelaSecao_93(Secao secao) {
+    public TelaSecao_95(Secao secao) {
         super(secao);
+
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                possuiPoeiraDaLevitacao = AcoesSecao_95.verificaSePossuiPoeiraDaLevitacao();
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
     }
 
     @Override
@@ -28,9 +71,15 @@ public class TelaSecao_93 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1){
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                }
+                if (e.getSource() == botaoOpcao1)
+
+                    if ( possuiPoeiraDaLevitacao )
+                        abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                    else
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ",\n\nvocê não possui o item Poeira da Levitação."+
+                                "\n\nNão é possível escolher esta opção.");
+
             }
 
             @Override
@@ -65,8 +114,16 @@ public class TelaSecao_93 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-                    abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
+                if (e.getSource() == botaoOpcao2) {
+
+                    if (possuiPoeiraDaLevitacao) {
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                                ",\n\nvocê possui a Poeira da Levitação, encontra-se em sua bolsa." +
+                                "\n\nDeseja seguir seu caminho sem consumi-la?", tela);
+                    }
+
+                    if ( (!possuiPoeiraDaLevitacao) || (isRespostaTelaMensagem()) )
+                        abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
                 }
             }
 

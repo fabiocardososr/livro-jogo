@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "95",
-  "texto": "Você tenta com todas as suas forças deslocar a tampa de pedra, mas ela nem se mexe. Você tem a Poeira da Levitação?",
+  "texto": "\t\t\t\tVocê tenta com todas as suas forças deslocar a tampa de pedra, mas ela nem se mexe.\n\n\t\t\t\tVocê tem a Poeira da Levitação?",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_95.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Se tiver",
+      "textoOpcao": "Sim!",
       "codProximaSecao": "173"
     },
 	{	  
-      "textoOpcao": "Não tem",
+      "textoOpcao": "Não. Ou tenho, mas não quero usá-la.",
       "codProximaSecao": "368"
     }
   ]

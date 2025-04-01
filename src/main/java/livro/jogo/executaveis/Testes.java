@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 92 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 95 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -113,6 +113,9 @@ public class Testes {
 
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_16.json"));
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_11.json"));
 
 //        System.out.println(bolsa.get(0).getIdItem() +" Nome: "+bolsa.get(0).getNome());
 //        System.out.println(bolsa.get(1).getIdItem() +" Nome: "+bolsa.get(1).getNome());
