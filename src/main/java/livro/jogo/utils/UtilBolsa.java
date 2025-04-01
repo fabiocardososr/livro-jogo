@@ -42,7 +42,7 @@ public class UtilBolsa {
         }
     }
 
-    //Remove item da bolsa
+    //Remove item da bolsa passando apenas o código do item
     public static void removerItem(int idItem){
 
         for (Item item : bolsa)
@@ -52,9 +52,19 @@ public class UtilBolsa {
             }
     }
 
+    //Remove item passando o objeto item
     public static void removerItemEspecifico(Item item){
 
-        bolsa. remove(item);
+        //Estando na bolsa
+        for (Item it : bolsa){
+            if ( it.getIdItem() == item.getIdItem() ){
+                bolsa.remove(it);
+                break;
+            }
+        }
+
+
+
     }
 
 

@@ -2,7 +2,6 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
-import livro.jogo.enums.ItensMapeamento;
 
 import java.util.ArrayList;
 
@@ -99,11 +98,10 @@ public class UtilPersonagem {
     }
 
     /// Soma ouro
-    public static boolean somarValorOuro(int valorASerReduzido){
+    public static void somarValorOuro(int valorASerReduzido){
 
         personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() + valorASerReduzido);
 
-        return true;
     }
 
     /// Perde TODO o ouro
@@ -174,5 +172,11 @@ public class UtilPersonagem {
     public static void recuperaEnergia(int somaEnergia){
 
         personagem.setEnergiaAtual(personagem.getEnergiaAtual() + somaEnergia);
+    }
+
+    //Recupera Sorte
+    public static void recuperaSorte(int somaSorte){
+
+        personagem.setSorteAtual(personagem.getSorteAtual() + somaSorte);
     }
 }
