@@ -214,7 +214,7 @@ public class CarregarTelas {
             case 61  -> new TelaSecao_61(secao).setVisible(true);
             case 62  -> new TelaSecao_62(secao).setVisible(true);
             case 63  -> new TelaSecao_63(secao).setVisible(true);
-            case 64  -> new TelaSecao_64(secao).setVisible(true); //Consome Poção Controle das Plantas
+            case 64  -> new TelaSecao_64(secao).setVisible(true); //Consome Poção Controle das Plantas(8)
             case 65  -> new TelaSecao_65(secao).setVisible(true);
             case 66  -> new TelaSecao_66(secao).setVisible(true);
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271
@@ -242,7 +242,7 @@ public class CarregarTelas {
             case 89  -> new TelaSecao_89(secao).setVisible(true); //chamado pela seção 17
             case 90  -> new TelaSecao_90(secao).setVisible(true); //Testar Sorte - chamado pela seção 87
             case 91  -> new TelaSecao_91(secao).setVisible(true);//chamado pela seção 26 - Recupera sorte
-            case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77
+            case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77 (pergunta sobre Poção Controle de insetos(16))
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
