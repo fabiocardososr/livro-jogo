@@ -212,7 +212,7 @@ public class CarregarTelas {
             case 59  -> new TelaSecao_59(secao).setVisible(true); //Chamado por 68
             case 60  -> new TelaSecao_60(secao).setVisible(true); //Testar sorte
             case 61  -> new TelaSecao_61(secao).setVisible(true); //chamado por 93
-            case 62  -> new TelaSecao_62(secao).setVisible(true);
+            case 62  -> new TelaSecao_62(secao).setVisible(true); //Chamado por 96
             case 63  -> new TelaSecao_63(secao).setVisible(true);
             case 64  -> new TelaSecao_64(secao).setVisible(true); //Consome Poção Controle das Plantas(8)
             case 65  -> new TelaSecao_65(secao).setVisible(true);
@@ -245,7 +245,8 @@ public class CarregarTelas {
             case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77 (pergunta sobre Poção Controle de insetos(16))
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
             case 94  -> new TelaSecao_94(secao).setVisible(true);
-            case 95  -> new TelaSecao_95(secao).setVisible(true);
+            case 95  -> new TelaSecao_95(secao).setVisible(true); //Pergunta sobre a Poeria da Levitação(11)
+            case 96  -> new TelaSecao_96(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -272,7 +273,7 @@ public class CarregarTelas {
             case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45
             case 168 -> new TelaSecao_168(secao).setVisible(true);//chamado pela seção 55
             case 171 -> new TelaSecao_171(secao).setVisible(true);//chamado pela seção 59
-            case 173 -> new TelaSecao_173(secao).setVisible(true);//chamado pela seção 95
+            case 173 -> new TelaSecao_173(secao).setVisible(true);//chamado pela seção 95 (Remove Poeira da Levitação(11))
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9
             case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63
             case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
