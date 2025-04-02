@@ -32,7 +32,7 @@ public class UtilPersonagem {
     // Exemplo na seção 49 o personagem está agachado e seu
     //ataque é prejudicado e com isso dá menos 3 pontos de força de ataque
 
-    //Personagem perda de energia. E retorna true se personagem continuar vivo
+    //Personagem perda de energia. E retorna TRUE se personagem continuar vivo
     public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){
         var nivelDeEnergiaAtual = personagem.getEnergiaAtual();
 

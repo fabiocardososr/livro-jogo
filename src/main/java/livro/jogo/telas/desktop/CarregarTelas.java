@@ -247,6 +247,7 @@ public class CarregarTelas {
             case 94  -> new TelaSecao_94(secao).setVisible(true);
             case 95  -> new TelaSecao_95(secao).setVisible(true); //Pergunta sobre a Poeria da Levitação(11)
             case 96  -> new TelaSecao_96(secao).setVisible(true); //Inimigos 3 cães-de-caça e um caçador mascarado
+            case 97  -> new TelaSecao_97(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -256,6 +257,7 @@ public class CarregarTelas {
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88
             case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73
             case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67
+            case 118 -> new TelaSecao_118(secao).setVisible(true); //chamado pela seção 97
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35
             case 136 -> new TelaSecao_136(secao).setVisible(true);//chamado pela seção 94
@@ -321,6 +323,7 @@ public class CarregarTelas {
             case 322 -> new TelaSecao_322(secao).setVisible(true);//chamado pela seção 3
             case 325 -> new TelaSecao_325(secao).setVisible(true);//chamado pela seção 66
             case 327 -> new TelaSecao_327(secao).setVisible(true);//chamado pela seção 73
+            case 328 -> new TelaSecao_328(secao).setVisible(true);//chamado pela seção 97 (perde energia e perde provisão)
             case 329 -> new TelaSecao_329(secao).setVisible(true);//chamado pela seção 27
             case 330 -> new TelaSecao_330(secao).setVisible(true);//chamado pela seção 65,75
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5 Termina o jogo

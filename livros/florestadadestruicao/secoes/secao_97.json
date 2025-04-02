@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "97",
-  "texto": "A trilha conduz sempre para o norte, mas, finalmente, as árvores começam a ser mais esparsas e parecem menos ameaçadoras, à medida que a luz do dia passa a penetrar entre elas. No lado direito da trilha, você vê uma velha cadeira de carvalho coberta de musgo.",
+  "texto": "\t\t\t\tA trilha conduz sempre para o norte, mas, finalmente, as árvores começam a ser mais esparsas e parecem menos ameaçadoras, à medida que a luz do dia passa a penetrar entre elas.\n\n\t\t\t\tNo lado direito da trilha, você vê uma velha cadeira de carvalho coberta de musgo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_97.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Deseja sentar-se na cadeira para descansar e comer?",
+      "textoOpcao": "Deseja sentar-se na cadeira para descansar e comer uma provisão?",
       "codProximaSecao": "328"
     },
 	{	  
