@@ -65,6 +65,8 @@ public class TelaBatalha extends JDialog {
 
         /* Carregar componentes da tela */
 
+        //Carrega botão de aumento/diminuição de velocidade do turno
+        carregaBotao2x();
 
         //Carrega a tela de mensagem suspensa, mas invisível
         telaMensagemSuspensaBotaoSorte();
@@ -78,9 +80,65 @@ public class TelaBatalha extends JDialog {
         carregaImagemMostraResultRolagemDado();
         carregarPainelEsquerdo();
         carregarPainelDireito();
-        //carregarBotaoSair();
         carregarFaixaTitulo();
         carregarFundoTela(largura,altura);
+    }
+
+    private void carregaBotao2x() {
+        int largura = 60;
+        int altura  = 40;
+
+        JLabelOpcoesTelaSecao botao2x = new JLabelOpcoesTelaSecao(null,
+                largura, altura, ImagensDoLivroFlorestaDaDestruicao.X_2);
+        botao2x.setHorizontalAlignment(SwingConstants.CENTER);
+        botao2x.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botao2x.setBounds(770,235, largura, altura);
+        botao2x.setToolTipText("Desativado - Velocidade do turno de batalha.");
+        add(botao2x);
+        botao2x.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( e.getSource() == botao2x ){
+
+                    //Aumenta/diminui velocidade do turno
+                    var velocidadeAumentada = acoesBatalha.velocidade2x();
+                    if ( velocidadeAumentada ) {
+                        botao2x.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.X_2_SELECIONADO.getEnderecoImagem(),
+                                botao2x.getWidth(), botao2x.getHeight()).getImageIcon());
+                        botao2x.setToolTipText("Ativado - Velocidade do turno de batalha.");
+                    }
+                    else {
+                        botao2x.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.X_2.getEnderecoImagem(),
+                                botao2x.getWidth(), botao2x.getHeight()).getImageIcon());
+                        botao2x.setToolTipText("Desativado - Velocidade do turno de batalha.");
+                    }
+
+
+                    repaint();
+
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
     public JPanel getPanelBotao() {
