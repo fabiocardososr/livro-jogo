@@ -29,11 +29,11 @@ public class Testes {
         personagem.setQuantidadeOuro(0);
         //personagem.setHabilidadeAtual(1);
         personagem.setEnergiaAtual(5);
-        personagem.setSorteAtual(1);
+        personagem.setSorteAtual(0);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO:
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 97 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 99 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -123,9 +123,9 @@ public class Testes {
 //        System.out.println(bolsa.get(3).getIdItem() +" Nome: "+bolsa.get(3).getNome());
 
        //Provisão
-//        for (int i=1; i<=2; i++)
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//               "livros/florestadadestruicao/itens/item_49.json"));
+        for (int i=1; i<=2; i++)
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //        //Braçadeira da força
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(

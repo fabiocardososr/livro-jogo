@@ -23,7 +23,7 @@ public class TelaSecao_83 extends TelaSecoesBasica {
                 AcoesSecao_83.consumirBeladona();
 
                 //Se personagem morto, fecha a tela de seção e abre a principal
-               personagemMorto( AcoesSecao_83.perde2PontosDeEnergia() );
+               personagemVivo( AcoesSecao_83.perde2PontosDeEnergia() );
 
                 //Atualiza label que mostra os níveis de habilidade, sorte e energia do personagem na tela
                 atualizaIndicesNaTelaDoPersonagem();

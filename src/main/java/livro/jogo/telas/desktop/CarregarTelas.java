@@ -151,7 +151,7 @@ public class CarregarTelas {
 
         //Aqui vai ser chamado as seções
         switch ( secao.getCodSecaoLivro() ){
-            case 1   -> new TelaSecao_1(secao).setVisible(true);
+            case 1   -> new TelaSecao_1(secao).setVisible(true); //chamado por 98
             case 2   -> new TelaSecao_2(secao).setVisible(true); //Termina o jogo
             case 3   -> new TelaSecao_3(secao).setVisible(true);
             case 4   -> new TelaSecao_4(secao).setVisible(true); //perde energia (chamado por 81)
@@ -248,6 +248,8 @@ public class CarregarTelas {
             case 95  -> new TelaSecao_95(secao).setVisible(true); //Pergunta sobre a Poeria da Levitação(11)
             case 96  -> new TelaSecao_96(secao).setVisible(true); //Inimigos 3 cães-de-caça e um caçador mascarado
             case 97  -> new TelaSecao_97(secao).setVisible(true);
+            case 98  -> new TelaSecao_98(secao).setVisible(true); //Testar sorte: falhando no teste, morre!
+            case 99  -> new TelaSecao_99(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -285,6 +287,7 @@ public class CarregarTelas {
             case 199 -> new TelaSecao_199(secao).setVisible(true);//chamado pela seção 51
             case 206 -> new TelaSecao_206(secao).setVisible(true);//chamado pela seção 76
             case 208 -> new TelaSecao_208(secao).setVisible(true);//chamado pela seção 62,86
+            case 209 -> new TelaSecao_209(secao).setVisible(true);//chamado pela seção 99
             case 210 -> new TelaSecao_210(secao).setVisible(true);//chamado pela seção 90
             case 211 -> new TelaSecao_211(secao).setVisible(true);//chamado pela seção 16
             case 212 -> new TelaSecao_212(secao).setVisible(true);//chamado pela seção 88
@@ -333,7 +336,7 @@ public class CarregarTelas {
             case 342 -> new TelaSecao_342(secao).setVisible(true);//chamado pela seção 42
             case 345 -> new TelaSecao_345(secao).setVisible(true);//chamado pela seção 16
             case 348 -> new TelaSecao_348(secao).setVisible(true);//chamado pela seção 90
-            case 349 -> new TelaSecao_349(secao).setVisible(true);//chamado pela seção 78
+            case 349 -> new TelaSecao_349(secao).setVisible(true);//chamado pela seção 78,99
             case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11 Termina o jogo
             case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85
             case 362 -> new TelaSecao_362(secao).setVisible(true); //chamado pela seção 31

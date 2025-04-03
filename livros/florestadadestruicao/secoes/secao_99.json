@@ -1,7 +1,8 @@
 {  	
   "codSecaoLivro": "99",
-  "texto": "À sua frente, você vê que a trilha termina na porta de uma cabana grande, feita de lama seca. Possui um telhado em forma de domo, e uma única janela. Você dá uma olhada pela janela e vê um homem grande, de pele escura, sentado a uma mesa no meio da cabana. Tem o tronco nu e está flexionando os músculos de seus braços.",
+  "texto": "\t\t\t\tÀ sua frente, você vê que a trilha termina na porta de uma cabana grande, feita de lama seca. Possui um telhado em forma de domo, e uma única janela.\n\n\t\t\t\tVocê dá uma olhada pela janela e vê um homem grande, de pele escura, sentado a uma mesa no meio da cabana. Tem o tronco nu e está flexionando os músculos de seus braços.",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_99.png",
+  "enderecoAudio":"livros/florestadadestruicao/audio/secao_99.mp3",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Entrar na cabana?",

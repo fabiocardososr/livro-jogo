@@ -11,7 +11,6 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.telas.desktop.secoes.TelaSecao_1;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
@@ -456,7 +455,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     }
 
     //Em caso do personagem morto, fecha a tela de seção e abre a principal
-    protected void personagemMorto(boolean vivo){
+    protected void personagemVivo(boolean vivo){
 
         if ( !vivo ) {
             if (referenciaTelaPrincipal != null)
@@ -1492,6 +1491,5 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         }
     }
-
 
 }

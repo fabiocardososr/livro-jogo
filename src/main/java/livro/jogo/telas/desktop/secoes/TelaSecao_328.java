@@ -1,7 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_328;
-import livro.jogo.acaosecoes.AcoesSecao_55;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 
@@ -14,7 +13,7 @@ public class TelaSecao_328 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                personagemMorto( AcoesSecao_328.diminuiUmaProvisaoEPerdeQuatroPontosDeEnergia() );
+                personagemVivo( AcoesSecao_328.diminuiUmaProvisaoEPerdeQuatroPontosDeEnergia() );
                 atualizaIndicesNaTelaDoPersonagem();
             }
 

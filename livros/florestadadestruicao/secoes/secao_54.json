@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_54.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao":"Se você ainda desejar atacá-lo",
+      "textoOpcao":"Se você ainda desejar atacá-lo.",
       "codProximaSecao":"399"
     },
 	{	  
-      "textoOpcao":"Muda de ideia e resolve segui-lo escada acima",
+      "textoOpcao":"Muda de ideia e resolve segui-lo escada acima.",
       "codProximaSecao":"261"
     }
   ]

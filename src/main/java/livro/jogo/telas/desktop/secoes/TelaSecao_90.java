@@ -208,7 +208,7 @@ public class TelaSecao_90 extends TelaSecoesBasica {
                             abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
 
                         //Se morto sai da tela e volta para a tela principal
-                        personagemMorto( vivo );
+                        personagemVivo( vivo );
                     }}
             }
 
