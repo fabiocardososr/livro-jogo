@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "101",
-  "texto": "Você ergue a sacola de couro da cadeira de pedra e caminha para fora. Examinando o conteúdo da sacola, você encontra 5 Peças de Ouro e um pequeno sino de metal. Você coloca essas coisas na sua mochila e caminha de volta para a encruzilhada na trilha, a fim de prosseguir para o norte",
+  "texto": "\t\t\t\tVocê ergue a sacola de couro da cadeira de pedra e caminha para fora.\n\n\t\t\t\tExaminando o conteúdo da sacola, você encontra 5 Peças de Ouro e um pequeno sino de metal.\n\n\t\t\t\tVocê coloca essas coisas na sua mochila e caminha de volta para a encruzilhada na trilha, a fim de prosseguir para o norte.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_101.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Seguir para o norte.",
       "codProximaSecao": "25"
     }
   ],

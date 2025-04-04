@@ -11,8 +11,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_74 extends TelaSecoesBasica {
-    public TelaSecao_74(Secao secao) {
+public class TelaSecao_101 extends TelaSecoesBasica {
+    public TelaSecao_101(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
@@ -65,8 +65,9 @@ public class TelaSecao_74 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1)
+                if (e.getSource() == botaoOpcao1){
                     abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                }
             }
 
             @Override

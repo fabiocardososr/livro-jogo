@@ -4,7 +4,7 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilPersonagem;
 
-public class AcoesSecao_74 {
+public class AcoesSecao_74_101 {
 
     public static void receba5PecasDeOuroESinoDeMetal(){
         UtilPersonagem.somarValorOuro(5);
