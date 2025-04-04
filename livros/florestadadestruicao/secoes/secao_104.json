@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "104",
-  "texto": "A mulher BANDIDA dá um passo adiante com a espada erguida, gritando: - “Morte ao intruso!” - Ela é a chefe deles, e você terá que lutar contra ela primeiro.\n\nSe você conseguir derrotá-la, terá que lutar então contra os outros quatro bandidos em pares. Ambos os membros de cada par terão a oportunidade de atacá-lo separadamente em cada Série de Ataque, mas você terá que escolher qual dos dois atacará. Ataque o Bandido que escolher da maneira normal. Contra o outro, você joga os dados para saber sua Força de Ataque como numa batalha normal, mas não poderá causar-lhe ferimento se sua Força de Ataque for maior. Terá que considerar isso como uma defesa bem-sucedida de um golpe dele. É claro que, se a Força de Ataque dele for maior, você terá sido ferido por ele do modo normal",
+  "texto": "A mulher BANDIDA dá um passo adiante com a espada erguida, gritando:\n\n\t\t\t- “Morte ao intruso!”\n\n\t\t\t\t- Ela é a chefe deles. Resolva essa batalha!",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_104.mp3",
   "proximasSecoes": [
     {	  
@@ -11,33 +11,31 @@
   "inimigos":[
 	{
 		"idInimigo":"22",
-		"nome":"BANDIDA",
+		"nome":"Bandida",
 		"habilidade":"8",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/bandida.png"
 	},
 	{
 		"idInimigo":"23",
-		"nome":"BANDIDO A",
+		"nome":"Bandido",
 		"habilidade":"7",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/bandido_1.png"
 	},
 	{
 		"idInimigo":"24",
-		"nome":"BANDIDO B",
+		"nome":"Bandido",
 		"habilidade":"6",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/bandido_2.png"
 	},
 	{
 		"idInimigo":"25",
-		"nome":"BANDIDO A",
+		"nome":"Bandido",
 		"habilidade":"7",
-		"energia":"5"
-	},
-	{
-		"idInimigo":"26",
-		"nome":"BANDIDO B",
-		"habilidade":"5",
-		"energia":"6"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/bandido_3.png"
 	}
   ]
  }

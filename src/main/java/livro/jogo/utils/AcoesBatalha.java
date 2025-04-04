@@ -114,6 +114,7 @@ public class AcoesBatalha {
                 }
             }
             else{
+                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                 CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
                         "Sua aventura acaba aqui.");
                 telaPai.dispose();

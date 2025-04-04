@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "102",
-  "texto": "Caminhando pela trilha, você nota que há marcas no chão feitas pelos cascos de um cavalo indo na direção leste. Você logo chega a outra encruzilhada na trilha. As marcas de cascos levam para o sul, de volta à floresta. Você resolve seguir para o norte",
+  "texto": "\t\t\t\tCaminhando pela trilha, você nota que há marcas no chão feitas pelos cascos de um cavalo indo na direção leste. Você logo chega a outra encruzilhada na trilha.\n\n\t\t\t\tAs marcas de cascos levam para o sul, de volta à floresta.\n\n\t\t\t\tVocê resolve seguir para o norte.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_102.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Siga para o norte.",
       "codProximaSecao": "105"
     }
   ]
