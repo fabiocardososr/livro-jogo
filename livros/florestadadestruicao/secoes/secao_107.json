@@ -2,7 +2,6 @@
   "codSecaoLivro": "107",
   "texto": "\t\t\t\tNo momento em que você chega nos últimos degraus antes do nicho seguinte, um jato de chamas se projeta para barrar seu caminho.\n\n\t\t\t\tEm seguida, um enorme vulto escuro sai do nicho, soltando fogo pelas narinas.\n\n\t\t\t\tUma fumaça negra sobe pelo ar em anéis.\n\n\t\t\t\tA fera tem a forma de um homem, mas possui asas e carrega uma espada de fogo em uma das mãos e um chicote na outra. Traz uma coroa de ouro sobre a cabeça.\n\n\t\t\t\tEla fica encarando você imóvel nos degraus acima. De repente, ela estala seu chicote e ergue a espada flamejante. A única saída dessa caverna está à sua frente no alto da escada.\n\n\t\t\t\tPara chegar lá, você terá que lutar contra o DEMÔNIO DE FOGO, senhor dos clones.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_107.mp3",
-  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_107.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Vencendo",
@@ -12,9 +11,10 @@
   "inimigos":[
 	{
 		"idInimigo":"27",
-		"nome":"DEMÔNIO DE FOGO",
+		"nome":"Demônio",
 		"habilidade":"10",
-		"energia":"10"
+		"energia":"10",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/demonio_de_fogo.png"
 	}
   ]
   }

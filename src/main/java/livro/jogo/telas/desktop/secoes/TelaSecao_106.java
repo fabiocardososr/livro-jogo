@@ -1,41 +1,64 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_106;
+import livro.jogo.acaosecoes.AcoesSecao_74_101;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.JButtonAbrirBatalha;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class TelaSecao_107 extends TelaSecoesBasica {
-    public TelaSecao_107(Secao secao) {
+public class TelaSecao_106 extends TelaSecoesBasica {
+    public TelaSecao_106(Secao secao) {
         super(secao);
-    }
 
-    private void configurandoBotoesBatalha(Secao secao) {
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                AcoesSecao_106.recebe2PontosDeSorteEAnelDeOuroComGrandeEsmeralda();
+                atualizaIndicesNaTelaDoPersonagem();
+            }
 
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                363,570,150,165);
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
 
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
-        //Redimensionando o botão da opção 1 (direcionando para a próxima seção)
-        labelNumOpcao1.setBounds(116,727, 50,50);
-        lbTextoOpcao1.setBounds(170,722,700,60);
-        botaoOpcao1.setBounds(120,735,40,50);
-        botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
-
         acaoBotoes(secao);
-
-        configurandoBotoesBatalha(secao);
     }
 
     @Override
@@ -43,11 +66,9 @@ public class TelaSecao_107 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if ( Util.isVenceuTodosInimigos(secao) )
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                            ",\n\nvocê deve vencer os inimigos antes de continuar sua jornada.");
+                if (e.getSource() == botaoOpcao1) {
+                    abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
+                }
             }
 
             @Override
