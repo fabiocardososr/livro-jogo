@@ -258,6 +258,7 @@ public class CarregarTelas {
             case 105 -> new TelaSecao_105(secao).setVisible(true); //chamado pela seção 102
             case 106 -> new TelaSecao_106(secao).setVisible(true); //Anel de ouro com uma grande esmeralda(18) e 2 pontos de sorte
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88 (inimigo demônio de fogo)
+            case 108 -> new TelaSecao_108(secao).setVisible(true); //perde energia
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -303,7 +304,7 @@ public class CarregarTelas {
             case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15
             case 220 -> new TelaSecao_220(secao).setVisible(true);//chamado pela seção 26,38,47
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
-            case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36
+            case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 231 -> new TelaSecao_231(secao).setVisible(true); //chamado pela seção 34
             case 233 -> new TelaSecao_233(secao).setVisible(true); //chamado pela seção 56
             case 235 -> new TelaSecao_235(secao).setVisible(true); //chamado pela seção 82
