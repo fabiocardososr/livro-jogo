@@ -1,28 +1,25 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_114;
+import livro.jogo.acaosecoes.AcoesSecao_116;
+import livro.jogo.acaosecoes.AcoesSecao_74_101;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_114 extends TelaSecoesBasica {
-    boolean possuiCapsulaDeFogo;
-    TelaSecoesBasica tela = this;
-    public TelaSecao_114(Secao secao) {
+public class TelaSecao_116 extends TelaSecoesBasica {
+    public TelaSecao_116(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                possuiCapsulaDeFogo = AcoesSecao_114.verificaSePossuiCapsulasDeFogo();
+                AcoesSecao_116.pegarColeiraDeCouroComAplicacoesEmOuro();
             }
 
             @Override
@@ -60,7 +57,6 @@ public class TelaSecao_114 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
-        opcao2(secao);
         acaoBotoes(secao);
     }
 
@@ -69,15 +65,7 @@ public class TelaSecao_114 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( possuiCapsulaDeFogo )
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê não possui Cápsulas  de Fogo." +
-                            "\nNão é possível escolher esta opção.");
-
-
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override
@@ -104,48 +92,6 @@ public class TelaSecao_114 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-        });
-
-        botaoOpcao2.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (possuiCapsulaDeFogo) {
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê possui Cápsulas de Fogo, encontra-se em sua bolsa." +
-                            "\n\nMesmo assim deseja lutar contra o Homem-Árvore?", tela);
-                }
-
-                if ( (!possuiCapsulaDeFogo) || (isRespostaTelaMensagem()) )
-                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
-                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
-                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }
