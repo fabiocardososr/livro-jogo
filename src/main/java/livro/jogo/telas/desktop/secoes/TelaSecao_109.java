@@ -8,8 +8,8 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_113 extends TelaSecoesBasica {
-    public TelaSecao_113(Secao secao) {
+public class TelaSecao_109 extends TelaSecoesBasica {
+    public TelaSecao_109(Secao secao) {
         super(secao);
     }
 
@@ -17,6 +17,7 @@ public class TelaSecao_113 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         opcao2(secao);
+        opcao3(secao);
         acaoBotoes(secao);
     }
 
@@ -87,6 +88,41 @@ public class TelaSecao_113 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao2){
                     botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+        botaoOpcao3.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirProximaSecao( secao.getProximasSecoes().get(2).getCodProximaSecao() );
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao3){
+                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao3){
+                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
                     repaint();
                 }
             }

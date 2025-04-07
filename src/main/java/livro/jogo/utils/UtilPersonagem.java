@@ -98,9 +98,9 @@ public class UtilPersonagem {
     }
 
     /// Soma ouro
-    public static void somarValorOuro(int valorASerReduzido){
+    public static void somarValorOuro(int valorASerSomado){
 
-        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() + valorASerReduzido);
+        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() + valorASerSomado);
 
     }
 

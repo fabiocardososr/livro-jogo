@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "124",
-  "texto": "A trilha termina em uma outra encruzilhada. O caminho para o sul conduz de volta à floresta, por isso você resolve rumar para o norte.",
+  "texto": "\t\t\t\tA trilha termina em uma outra encruzilhada.\n\n\t\t\t\tO caminho para o sul conduz de volta à floresta, por isso você resolve rumar para o norte.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_124.mp3",
   "proximasSecoes": [
     {	  
