@@ -267,6 +267,7 @@ public class CarregarTelas {
             case 114 -> new TelaSecao_114(secao).setVisible(true); //Verifica a existência de Cápsula de Fogo
             case 115 -> new TelaSecao_115(secao).setVisible(true);
             case 116 -> new TelaSecao_116(secao).setVisible(true); //Coleira de couro com aplicações em ouro(20).
+            case 117 -> new TelaSecao_117(secao).setVisible(true); // 1 Inimigo Goblin
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
@@ -313,6 +314,7 @@ public class CarregarTelas {
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
             case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 231 -> new TelaSecao_231(secao).setVisible(true); //chamado pela seção 34
+            case 232 -> new TelaSecao_232(secao).setVisible(true); //chamado pela seção 117
             case 233 -> new TelaSecao_233(secao).setVisible(true); //chamado pela seção 56
             case 235 -> new TelaSecao_235(secao).setVisible(true); //chamado pela seção 82
             case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17,89

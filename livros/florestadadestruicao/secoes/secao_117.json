@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "117",
-  "texto": "Você destranca a porta e recua, desembainhando sua espada para o caso do Goblin tentar atacar você. Ele pega um banco de madeira e, sacudindo-o no ar, dá um pontapé na porta para abri-la e avança sobre você aos berros. Lute!",  
+  "texto": "\t\t\t\tVocê destranca a porta e recua, desembainhando sua espada para o caso do Goblin tentar atacar você.\n\n\t\t\t\tEle pega um banco de madeira e, sacudindo-o no ar, dá um pontapé na porta para abri-la e avança sobre você aos berros.\n\n\t\t\t\tLute!",  
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_117.mp3",
   "proximasSecoes": [
     {	  
@@ -13,7 +13,8 @@
 		"idInimigo":"28",
 		"nome":"GOBLIN",
 		"habilidade":"5",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/goblin.png"
 	}
   ]
   }
