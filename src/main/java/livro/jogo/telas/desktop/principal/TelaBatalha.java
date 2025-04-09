@@ -812,7 +812,7 @@ public class TelaBatalha extends JDialog {
 
         JPanel panelDireito = new JPanel();
         panelDireito.setLayout(null);
-        panelDireito.setBounds(652,348,140,180);
+        panelDireito.setBounds(655,348,140,180);
         panelDireito.setBackground(new Color(0,0,0,0));
 
         //Moldura

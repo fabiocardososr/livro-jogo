@@ -240,7 +240,7 @@ public class CarregarTelas {
             case 87  -> new TelaSecao_87(secao).setVisible(true);
             case 88  -> new TelaSecao_88(secao).setVisible(true);
             case 89  -> new TelaSecao_89(secao).setVisible(true); //chamado pela seção 17
-            case 90  -> new TelaSecao_90(secao).setVisible(true); //Testar Sorte - chamado pela seção 87
+            case 90  -> new TelaSecao_90(secao).setVisible(true); //Testar Sorte - chamado pela seção 87,119
             case 91  -> new TelaSecao_91(secao).setVisible(true);//chamado pela seção 26 - Recupera sorte
             case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77 (pergunta sobre Poção Controle de insetos(16))
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4
@@ -268,13 +268,15 @@ public class CarregarTelas {
             case 115 -> new TelaSecao_115(secao).setVisible(true);
             case 116 -> new TelaSecao_116(secao).setVisible(true); //Coleira de couro com aplicações em ouro(20).
             case 117 -> new TelaSecao_117(secao).setVisible(true); // 1 Inimigo Goblin
+            case 118 -> new TelaSecao_118(secao).setVisible(true); //chamado pela seção 97 (inimigo javali selvagem)
+            case 119 -> new TelaSecao_119(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
 
-            case 118 -> new TelaSecao_118(secao).setVisible(true); //chamado pela seção 97
+
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
             case 123 -> new TelaSecao_123(secao).setVisible(true);//chamado pela seção 114
             case 124 -> new TelaSecao_124(secao).setVisible(true);//chamado pela seção 109
@@ -296,6 +298,7 @@ public class CarregarTelas {
             case 168 -> new TelaSecao_168(secao).setVisible(true);//chamado pela seção 55
             case 171 -> new TelaSecao_171(secao).setVisible(true);//chamado pela seção 59
             case 173 -> new TelaSecao_173(secao).setVisible(true);//chamado pela seção 95 (Remove Poeira da Levitação(11))
+            case 174 -> new TelaSecao_174(secao).setVisible(true); //chamado por 118
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9
             case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63
             case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
@@ -309,6 +312,7 @@ public class CarregarTelas {
             case 210 -> new TelaSecao_210(secao).setVisible(true);//chamado pela seção 90
             case 211 -> new TelaSecao_211(secao).setVisible(true);//chamado pela seção 16
             case 212 -> new TelaSecao_212(secao).setVisible(true);//chamado pela seção 88
+            case 216 -> new TelaSecao_216(secao).setVisible(true);//chamado pela seção 119
             case 217 -> new TelaSecao_217(secao).setVisible(true);//chamado pela seção 15
             case 220 -> new TelaSecao_220(secao).setVisible(true);//chamado pela seção 26,38,47
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
