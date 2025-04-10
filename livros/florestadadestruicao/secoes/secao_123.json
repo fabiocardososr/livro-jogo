@@ -4,12 +4,21 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_123.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vencendo",
+      "textoOpcao": "Vencendo.",
       "codProximaSecao": "27"
     },
 	{	  
-      "textoOpcao": "Fugir durante a batalha, correndo de volta para a encruzilhada na trilha?",
+      "textoOpcao": "Fugir! Corra de volta para a encruzilhada na trilha.",
       "codProximaSecao": "234"
     }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"30",
+		"nome":"H. Árvore",
+		"habilidade":"8",
+		"energia":"8",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/homem_arvore.png"
+	}
   ]
   }

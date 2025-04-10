@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "234",
-  "texto": "Você chega de volta à encruzilhada na trilha. Ignorando o caminho que vai para o sul, você ruma para o oeste.",
+  "texto": "\t\t\t\tVocê chega de volta à encruzilhada na trilha. Ignorando o caminho que vai para o sul, você ruma para o oeste.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_234.mp3",
   "proximasSecoes": [
     {	  

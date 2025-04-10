@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "120",
-  "texto": "Você deixa cair uma pedra pelo tronco oco da árvore, descendo pelo túnel abaixo. Deve haver uns cinco metros até o fundo.",
+  "texto": "\t\t\t\tVocê deixa cair uma pedra pelo tronco oco da árvore, descendo pelo túnel abaixo. Deve haver uns cinco metros até o fundo.",
     "enderecoAudio":"livros/florestadadestruicao/audio/secao_120.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Possuindo",
+      "textoOpcao": "Possui Corda de Escalada?",
       "codProximaSecao": "94"
     },
 	{	  
-      "textoOpcao": "Não possuindo",
+      "textoOpcao": "Não possui uma Corda de Escalada?",
       "codProximaSecao": "380"
     }
   ]
