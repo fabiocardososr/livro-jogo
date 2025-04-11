@@ -41,6 +41,18 @@ public class UtilPersonagem {
         return retornaSePersonagemVivo();
     }
 
+    //Personagem perda habilidade.
+    public static void personagemPerdeHabilidade(int valorHabilidadeAperder){
+        var nivelDeHabilidadeAtual = personagem.getHabilidadeAtual();
+
+        var novoNivelDeHabilidade = nivelDeHabilidadeAtual - valorHabilidadeAperder;
+
+        if (novoNivelDeHabilidade < 0)
+            novoNivelDeHabilidade = 0;
+
+        DadosLivroCarregado.getPersonagem().setHabilidadeAtual(novoNivelDeHabilidade);
+    }
+
     //Personagem perda de energia. E retorna true se personagem continuar vivo
     public static void personagemPerdeSorte(int valorSorteAPerder){
         var nivelDeSorteAtual = personagem.getSorteAtual();

@@ -17,7 +17,7 @@ public class AcoesSecao_73 {
         //Mostra animação
         Util.mostrarAnimacaoDadosRolando();
 
-        //Simula a rolage mde dados
+        //Simula a rolage 2 dados
         var resultadoDoisDados  = Util.rolarDados(6,2);
 
         //Faz a comparação seguindo as regras da seção
