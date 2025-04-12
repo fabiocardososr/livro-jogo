@@ -277,7 +277,10 @@ public class CarregarTelas {
             case 124 -> new TelaSecao_124(secao).setVisible(true);//chamado pela seção 109
             case 125 -> new TelaSecao_125(secao).setVisible(true);
             case 126 -> new TelaSecao_126(secao).setVisible(true); //Verifica a existência de Filtros Nasais
+            case 127 -> new TelaSecao_127(secao).setVisible(true); //Paga 3 peças de ouro ao Centauro
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
+            case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127
+
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
@@ -287,7 +290,8 @@ public class CarregarTelas {
             case 135 -> new TelaSecao_135(secao).setVisible(true);//chamado pela seção 122
             case 136 -> new TelaSecao_136(secao).setVisible(true);//chamado pela seção 94
             case 138 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 72
-            case 139 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 83
+            case 139 -> new TelaSecao_139(secao).setVisible(true);//chamado pela seção 83
+            case 140 -> new TelaSecao_140(secao).setVisible(true);//chamado pela seção 298
             case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64
             case 143 -> new TelaSecao_143(secao).setVisible(true);//chamado pela seção 69
             case 144 -> new TelaSecao_144(secao).setVisible(true);//chamado pela seção 94
