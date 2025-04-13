@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "128",
-  "texto": "Você corta as cordas grossas que prendem o Bárbaro. Ele grunhe e senta, esfregando os pulsos e tornozelos. Olha para você e ri com desprezo. Está delirante ou é ingrato, pois ele arranca uma das estacas de madeira do chão e se volta para atacar você!",
+  "texto": "\t\t\t\tVocê corta as cordas grossas que prendem o Bárbaro. Ele grunhe e senta, esfregando os pulsos e tornozelos. Olha para você e ri com desprezo.\n\n\t\t\t\tEstá delirante ou é ingrato, pois ele arranca uma das estacas de madeira do chão e se volta para atacar você!",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_128.mp3",
   "proximasSecoes": [
     {	  
@@ -14,7 +14,7 @@
 		"nome":"BÁRBARO",
 		"habilidade":"9",
 		"energia":"7",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/barbaro_solto_por_voce.png.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/barbaro_solto_por_voce.png"
 	}
   ]
 }
