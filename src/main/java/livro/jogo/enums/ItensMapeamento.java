@@ -41,7 +41,7 @@ public enum ItensMapeamento {
     PULSEIRA_DE_COBRE("livros/florestadadestruicao/itens/item_38.json",38),
     MANOPLA_DE_FERRO("livros/florestadadestruicao/itens/item_39.json",39),
     FACA_DE_ARREMESSO("livros/florestadadestruicao/itens/item_40.json",40),
-    ANEL_DE_OURO("livros/florestadadestruicao/itens/item_41.json",41),
+    ANEL_DA_LENTIDAO("livros/florestadadestruicao/itens/item_41.json",41),
     MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA("livros/florestadadestruicao/itens/item_42.json",42),
     CAIXA_DE_PRATA("livros/florestadadestruicao/itens/item_43.json",43),
     DENTE_DE_DRAGAO("livros/florestadadestruicao/itens/item_44.json",44),

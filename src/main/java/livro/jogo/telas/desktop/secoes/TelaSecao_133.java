@@ -1,28 +1,25 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_132;
+import livro.jogo.acaosecoes.AcoesSecao_133;
+import livro.jogo.acaosecoes.AcoesSecao_55;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
+
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_132 extends TelaSecoesBasica {
-    private boolean possuiFlauta;
-    private TelaSecoesBasica tela = this;
-    public TelaSecao_132(Secao secao) {
+public class TelaSecao_133 extends TelaSecoesBasica {
+    public TelaSecao_133(Secao secao) {
         super(secao);
-
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                possuiFlauta = AcoesSecao_132.verificaSePossuiFlautaDoSonoDoDragao();
+                AcoesSecao_133.colocaAnelDaLentidaoNoDedo();
             }
 
             @Override
@@ -69,14 +66,7 @@ public class TelaSecao_132 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( possuiFlauta )
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê não possui uma Flauta." +
-                            "\nNão é possível escolher esta opção.");
-
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override
@@ -111,15 +101,7 @@ public class TelaSecao_132 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if (possuiFlauta) {
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê possui uma flauta, encontra-se em sua bolsa." +
-                            "\n\nMas deseja escolher esta opção?", tela);
-                }
-
-                if ( (!possuiFlauta) || (isRespostaTelaMensagem()) )
-                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
             }
 
             @Override

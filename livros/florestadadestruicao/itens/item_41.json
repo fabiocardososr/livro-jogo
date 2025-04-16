@@ -1,8 +1,8 @@
  {
 	"idItem":"41",
 	"tipoEfeito":"HABILIDADE",
-	"nome":"Anel de ouro",
-	"descricao":"",
+	"nome":"Anel da Lentidão",
+	"descricao":"Amaldiçoado!\n\nPerde 2 pontos no cálculo da força de ataque.",
 	"valorCusto":"0",
 	"modificador":"-2",   
 	"quantidadeUso":"0",
