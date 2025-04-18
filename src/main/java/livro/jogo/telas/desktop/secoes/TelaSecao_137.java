@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_126;
+import livro.jogo.acaosecoes.AcoesSecao_137;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -13,17 +14,17 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_126 extends TelaSecoesBasica {
-    private boolean possuiFiltrosNasais;
+public class TelaSecao_137 extends TelaSecoesBasica {
+    private boolean possuiLuvaDeDestrezaDeArremesso;
     private TelaSecoesBasica tela = this;
 
-    public TelaSecao_126(Secao secao) {
+    public TelaSecao_137(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                possuiFiltrosNasais = AcoesSecao_126.verificaSePossuiFiltrosNasais();
+                possuiLuvaDeDestrezaDeArremesso = AcoesSecao_137.verificaSePossuiLuvaDeDestrezaDeArremesso();
             }
 
             @Override
@@ -71,12 +72,12 @@ public class TelaSecao_126 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if ( possuiFiltrosNasais )
+                if ( possuiLuvaDeDestrezaDeArremesso )
                     abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                 else
                     CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê não possui Filtros Nasais." +
-                            "\nNão é possível escolher esta opção.");
+                            ",\n\nvocê não possui uma Luva de Destreza de Aremesso." +
+                            "\nPoderia ter comprado com o velho Yaztromo.");
 
             }
 
@@ -113,13 +114,13 @@ public class TelaSecao_126 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (possuiFiltrosNasais) {
+                if (possuiLuvaDeDestrezaDeArremesso) {
                     CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê possui Filtros Nasais, encontra-se em sua bolsa." +
-                            "\n\nMesmo assim continuar sem usá-los?", tela);
+                            ",\n\nvocê possui Luvas de Destreza de Arremesso, encontra-se em sua bolsa." +
+                            "\n\nVocê é o cara e se confia na própria força?", tela);
                 }
 
-                if ( (!possuiFiltrosNasais) || (isRespostaTelaMensagem()) )
+                if ( (!possuiLuvaDeDestrezaDeArremesso) || (isRespostaTelaMensagem()) )
                     abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
             }
 

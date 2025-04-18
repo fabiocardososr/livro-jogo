@@ -160,7 +160,7 @@ public class CarregarTelas {
             case 7   -> new TelaSecao_7(secao).setVisible(true);  //Tem 3 inimigos (chamado por 92)
             case 8   -> new TelaSecao_8(secao).setVisible(true);
             case 9   -> new TelaSecao_9(secao).setVisible(true);  //Tem 1 inimigos (chamado por 85)
-            case 10  -> new TelaSecao_10(secao).setVisible(true);
+            case 10  -> new TelaSecao_10(secao).setVisible(true); //chamado por 137
             case 11  -> new TelaSecao_11(secao).setVisible(true);
             case 12  -> new TelaSecao_12(secao).setVisible(true); //Remoção de itens. Chamado pelas seções: 46
             case 13  -> new TelaSecao_13(secao).setVisible(true); //Chamado por 82
@@ -205,7 +205,7 @@ public class CarregarTelas {
             case 52  -> new TelaSecao_52(secao).setVisible(true); //chamado pela seção 28
             case 53  -> new TelaSecao_53(secao).setVisible(true); //Perde ouro
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1
-            case 55  -> new TelaSecao_55(secao).setVisible(true); //Equipa luvas de arremesso automaticamente
+            case 55  -> new TelaSecao_55(secao).setVisible(true); //chamado por 137 - Equipa luvas de arremesso automaticamente
             case 56  -> new TelaSecao_56(secao).setVisible(true);//chamado pela seção 25
             case 57  -> new TelaSecao_57(secao).setVisible(true);//Teste de Sorte (chamado por 103)
             case 58  -> new TelaSecao_58(secao).setVisible(true);//Ganha 25 ouro e a Cabeça do Martelo dos Anões(6)
@@ -219,7 +219,7 @@ public class CarregarTelas {
             case 66  -> new TelaSecao_66(secao).setVisible(true);
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271
             case 68  -> new TelaSecao_68(secao).setVisible(true);
-            case 69  -> new TelaSecao_69(secao).setVisible(true);
+            case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136
             case 70  -> new TelaSecao_70(secao).setVisible(true); //Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //1 inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true);
@@ -286,6 +286,8 @@ public class CarregarTelas {
             case 133 -> new TelaSecao_133(secao).setVisible(true); //Coloca anel no dedo(Anel da Lentidão)
             case 134 -> new TelaSecao_134(secao).setVisible(true); //Perde 1 ponto de sorte
             case 135 -> new TelaSecao_135(secao).setVisible(true);//chamado pela seção 122
+            case 136 -> new TelaSecao_136(secao).setVisible(true);//chamado pela seção 94
+            case 137 -> new TelaSecao_137(secao).setVisible(true);
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127
 
@@ -293,7 +295,6 @@ public class CarregarTelas {
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 136 -> new TelaSecao_136(secao).setVisible(true);//chamado pela seção 94
             case 138 -> new TelaSecao_138(secao).setVisible(true);//chamado pela seção 72
             case 139 -> new TelaSecao_139(secao).setVisible(true);//chamado pela seção 83
             case 140 -> new TelaSecao_140(secao).setVisible(true);//chamado pela seção 298

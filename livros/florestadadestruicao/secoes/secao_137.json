@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "137",
-  "texto": "Veja as opções",
+  "texto": "\t\t\t\tVeja as opções",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_137.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Possui Luva da Destreza de Arremesso?",
+      "textoOpcao": "Possui Luva de Destreza de Arremesso?",
       "codProximaSecao": "55"
     },
 	{	  
-      "textoOpcao": "Não possui Luva da Destreza de Arremesso",
+      "textoOpcao": "Não possui Luva de Destreza de Arremesso",
       "codProximaSecao": "10"
     }
   ]
