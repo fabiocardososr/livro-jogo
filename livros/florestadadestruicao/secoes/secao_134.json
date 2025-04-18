@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "134",
-  "texto": "Você enuncia um desejo, mas nada acontece.\nVocê perde 1 ponto de SORTE.",
+  "texto": "\t\t\t\tVocê enuncia um desejo, mas nada acontece.\n\n\t\t\t\tVocê perde 1 ponto de SORTE.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_134.mp3",
   "proximasSecoes": [
     {	  

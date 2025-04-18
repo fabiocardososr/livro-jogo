@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "283",
-  "texto": "Seus ferimentos saram diante dos seus olhos, devido às propriedades mágicas da lama.\nVocê recupera 4 pontos de ENERGIA.\nSentindo-se muito melhor, você parte para o norte de novo ao longo da trilha.",
+  "texto": "\t\t\t\tSeus ferimentos saram diante dos seus olhos, devido às propriedades mágicas da lama.\n\n\t\t\t\tVocê recupera 4 pontos de ENERGIA.\n\n\t\t\t\tSentindo-se muito melhor, você parte para o norte de novo ao longo da trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_283.mp3",
   "proximasSecoes": [
     {	  

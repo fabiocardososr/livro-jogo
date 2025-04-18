@@ -1,24 +1,25 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_133;
+import livro.jogo.acaosecoes.AcoesSecao_134;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_133 extends TelaSecoesBasica {
-    public TelaSecao_133(Secao secao) {
+public class TelaSecao_134 extends TelaSecoesBasica {
+    public TelaSecao_134(Secao secao) {
         super(secao);
+
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_133.colocaAnelDaLentidaoNoDedo();
+                AcoesSecao_134.perde1PontoDeSorte();
+                atualizaIndicesNaTelaDoPersonagem();
             }
 
             @Override

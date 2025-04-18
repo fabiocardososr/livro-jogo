@@ -53,7 +53,7 @@ public class UtilPersonagem {
         DadosLivroCarregado.getPersonagem().setHabilidadeAtual(novoNivelDeHabilidade);
     }
 
-    //Personagem perda de energia. E retorna true se personagem continuar vivo
+    //Personagem perda sorte
     public static void personagemPerdeSorte(int valorSorteAPerder){
         var nivelDeSorteAtual = personagem.getSorteAtual();
 
