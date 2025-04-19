@@ -175,6 +175,7 @@ public class TelaDeMensagensAoJogador extends JDialog {
         scrollTextoHistoria.setFocusable(true);
         scrollTextoHistoria.setBorder(null);
 
+
         add(textoHistoria);
     }
 
