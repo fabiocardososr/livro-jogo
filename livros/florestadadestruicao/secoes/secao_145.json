@@ -1,11 +1,11 @@
 {  	
   "codSecaoLivro": "145",
-  "texto": "Você desamarra o barco e começa a remar, atravessando o rio para a outra margem. Você está mais ou menos na metade do caminho quando nota que o fundo do barco está começando a se encher de água. Aparecem vazamentos em toda parte. O barco está podre e começa a afundar. Você agarra seus pertences e nada para o outro lado. Você sobe a ribanceira e sai do outro lado do rio, mas fica desolado ao ver que todas as Provisões restantes na sua mochila (se você ainda tiver alguma) se dissolveram na água. Está ficando escuro com a chegada da noite, e você resolve acampar atrás de umas rochas à direita da trilha. Você acende um grande fogo e se instala para dormir com a espada a seu lado.",
+  "texto": "\t\t\t\tVocê desamarra o barco e começa a remar, atravessando o rio para a outra margem.\n\n\t\t\t\tVocê está mais ou menos na metade do caminho quando nota que o fundo do barco está começando a se encher de água. Aparecem vazamentos em toda parte.\n\n\t\t\t\tO barco está podre e começa a afundar. Você agarra seus pertences e nada para o outro lado.\n\n\t\t\t\tVocê sobe a ribanceira e sai do outro lado do rio, mas fica desolado ao ver que todas as Provisões restantes na sua mochila (se você ainda tiver alguma) se dissolveram na água.\n\n\t\t\t\tEstá ficando escuro com a chegada da noite, e você resolve acampar atrás de umas rochas à direita da trilha.\n\n\t\t\t\tVocê acende um grande fogo e se instala para dormir com a espada a seu lado.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_145.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para 285",
-      "codProximaSecao": ""
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "285"
     }
   ]
   }

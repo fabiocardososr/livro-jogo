@@ -1,26 +1,24 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_143;
-import livro.jogo.acaosecoes.AcoesSecao_178;
+import livro.jogo.acaosecoes.AcoesSecao_145;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.UtilPersonagem;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_143 extends TelaSecoesBasica {
-    public TelaSecao_143(Secao secao) {
+public class TelaSecao_145 extends TelaSecoesBasica {
+    public TelaSecao_145(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                personagemVivo(AcoesSecao_143.perde2PontosDeEnergia());
+                AcoesSecao_145.perdeTodasAsProvisoes();
                 atualizaIndicesNaTelaDoPersonagem();
             }
 

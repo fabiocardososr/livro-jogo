@@ -52,6 +52,15 @@ public class UtilBolsa {
             }
     }
 
+    //Remove TODOS os itens daquele (exemplo secao 145 perde todas as provisões) tipo da bolsa passando apenas o código do item
+    public static void removerTodosItensEspecificado(int idItem){
+
+        //O laço tem que ser do último para o início
+        for (int i = bolsa.size() - 1; i >= 0; i--)
+            if (bolsa.get(i).getIdItem() == idItem)
+                bolsa.remove(i);
+    }
+
     //Remove item passando o objeto item
     public static void removerItemEspecifico(Item item){
 

@@ -28,12 +28,12 @@ public class Testes {
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(8);
         //personagem.setHabilidadeAtual(1);
-        personagem.setEnergiaAtual(10);
+        personagem.setEnergiaAtual(3);
         personagem.setSorteAtual(10);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 142 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 145 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -116,8 +116,6 @@ public class Testes {
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_8.json"));
 
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_16.json"));
 
        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_22.json"));
@@ -128,7 +126,7 @@ public class Testes {
 //        System.out.println(bolsa.get(3).getIdItem() +" Nome: "+bolsa.get(3).getNome());
 
        //Provisão
-        for (int i=1; i<=2; i++)
+        for (int i=1; i<=5; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                "livros/florestadadestruicao/itens/item_49.json"));
 //
