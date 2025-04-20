@@ -55,7 +55,8 @@ public enum ItensMapeamento {
     BISCOITO_CHEIO_DE_BICHOS("livros/florestadadestruicao/itens/item_52.json",52),
     COLAR_DE_CRANIO_DE_CAMUNDONGOS("livros/florestadadestruicao/itens/item_53.json",53),
     ELMO_DE_BRONZE("livros/florestadadestruicao/imagens/item_54.png",54),
-    MAO_DE_ARGILA("livros/florestadadestruicao/itens/item_53.json",55)
+    MAO_DE_ARGILA("livros/florestadadestruicao/itens/item_53.json",55),
+    PEDACO_BICHO_ROCHEDO("livros/florestadadestruicao/itens/item_56.json",56)
 
     ;
     private String enderecoJson;

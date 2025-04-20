@@ -2,7 +2,7 @@
 	"idItem":"56",
 	"tipoEfeito":"NENHUM",
 	"nome":"Pedra",
-	"descricao":"Pedaço do Bicho Rochedo que você pegou quando o derrotou.",
+	"descricao":"Rocha que é um Pedaço do Bicho Rochedo.",
 	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",
