@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"31",
-		"nome":"BÁRBARO",
+		"nome":"Bárbaro",
 		"habilidade":"9",
 		"energia":"7",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/barbaro_solto_por_voce.png"

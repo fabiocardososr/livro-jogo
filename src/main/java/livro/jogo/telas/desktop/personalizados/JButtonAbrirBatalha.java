@@ -93,7 +93,7 @@ public class JButtonAbrirBatalha {
         JLabel label = new JLabel(inimigo.getNome());
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setForeground(new Color(139,0,0));
-        label.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        label.setFont(new Font(Font.SERIF,Font.BOLD,16));
         label.setBounds(0,-5,150,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 

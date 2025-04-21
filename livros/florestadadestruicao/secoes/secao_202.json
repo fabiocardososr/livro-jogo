@@ -1,6 +1,6 @@
 {
   "codSecaoLivro": "202",
-  "texto": "As orelhas da Mulher-Gato são adornadas por dois brincos de ouro. Cada um deles vale 5 Peças de Ouro, e você coloca-os na sua mochila. Você parte para o leste, ao longo da sinuosa trilha.",
+  "texto": "\t\t\t\tAs orelhas da Mulher-Gato são adornadas por dois brincos de ouro. Cada um deles vale 5 Peças de Ouro, e você coloca-os na sua mochila.\n\n\t\t\t\tVocê parte para o leste, ao longo da sinuosa trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_202.mp3",
   "proximasSecoes": [
     {

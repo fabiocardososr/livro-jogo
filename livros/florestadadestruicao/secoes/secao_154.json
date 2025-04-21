@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "154",
-  "texto": "Você se levanta e vê que a Lanterna está com uma cor preta fosca. Você resolve não se importar mais com ela e parte para o norte pela trilha.",
+  "texto": "\t\t\t\tVocê se levanta e vê que a Lanterna está com uma cor preta fosca.\n\n\t\t\t\tVocê resolve não se importar mais com ela e parte para o norte pela trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_154.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Siga para o norte.",
       "codProximaSecao": "231"
     }
   ]

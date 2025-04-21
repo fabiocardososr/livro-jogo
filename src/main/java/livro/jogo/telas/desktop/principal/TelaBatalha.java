@@ -804,7 +804,7 @@ public class TelaBatalha extends JDialog {
         faixaNomeInimigo.setCursor(null);
 
         JLabel labelInimigo = new JLabel(inimigoTemporario.getNome());
-        labelInimigo.setBounds(665,307,110,40);
+        labelInimigo.setBounds(665,306,110,40);
         labelInimigo.setForeground(new Color(139,0,0));
         labelInimigo.setHorizontalAlignment(SwingConstants.CENTER);
         labelInimigo.setFont(new Font(Font.SERIF,Font.BOLD,16));

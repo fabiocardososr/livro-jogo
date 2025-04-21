@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"28",
-		"nome":"GOBLIN",
+		"nome":"Goblin",
 		"habilidade":"5",
 		"energia":"4",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/goblin.png"
