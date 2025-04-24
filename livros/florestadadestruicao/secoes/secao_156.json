@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "156",
-  "texto": "Cair no chão está se tornando uma espécie de mau costume! Além disso, está começando a machucar. Você perde 3 pontos de ENERGIA por causa das contusões.",
+  "texto": "\t\t\t\tCair no chão está se tornando uma espécie de mau costume! Além disso, está começando a machucar.\n\n\t\t\t\tVocê perde 3 pontos de ENERGIA por causa das contusões.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_156.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Se estiver vivo, você se levanta e continua na direção do norte pela trilha.",
+      "textoOpcao": "Estando vivo, você se levanta e continua indo ao norte pela trilha.",
       "codProximaSecao": "109"
     }
   ]
