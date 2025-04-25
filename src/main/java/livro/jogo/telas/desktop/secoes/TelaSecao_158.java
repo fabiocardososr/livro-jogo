@@ -1,5 +1,8 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_156;
+import livro.jogo.acaosecoes.AcoesSecao_158;
+import livro.jogo.acaosecoes.AcoesSecao_83;
 import livro.jogo.acaosecoes.AcoesSecao_90;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -14,13 +17,69 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-public class TelaSecao_90 extends TelaSecoesBasica {
+public class TelaSecao_158 extends TelaSecoesBasica {
     boolean testouSorte = false;
     JLabel textoBotaoTesteSorte;
 
-    public TelaSecao_90(Secao secao) {
+    public TelaSecao_158(Secao secao) {
         super(secao);
+
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                AcoesSecao_158.consumirFaixaDaConcentracao();
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
+    }
+
+    @Override
+    protected void carregarComponentesEspecificos(Secao secao) {
+        opcao1(secao);
+        labelNumOpcao1.setBounds(116,662, 50,50);
+        botaoOpcao1.setBounds(120,670,40,50);
+        lbTextoOpcao1.setBounds(170,657,700,60);
+
+        opcao2(secao);
+        labelNumOpcao2.setBounds(116,712, 50,50);
+        botaoOpcao2.setBounds(120,720,40,50);
+        lbTextoOpcao2.setBounds(170,707,700,60);
+
+        acaoBotoes(secao);
+
+        carregaBotaoTestarSorte();
     }
 
     private void carregaBotaoTestarSorte() {
@@ -126,38 +185,19 @@ public class TelaSecao_90 extends TelaSecoesBasica {
     }
 
     @Override
-    protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
-        lbTextoOpcao1.setBounds(170,657,700,60);
-
-        opcao2(secao);
-        labelNumOpcao2.setBounds(116,712, 50,50);
-        botaoOpcao2.setBounds(120,720,40,50);
-        lbTextoOpcao2.setBounds(170,707,700,60);
-
-        acaoBotoes(secao);
-        carregaBotaoTestarSorte();
-
-    }
-
-    @Override
     protected void acaoBotoes(Secao secao) {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1){
-
+                if (e.getSource() == botaoOpcao1)
                     if ( !testouSorte ){
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                                 ",\n\nVocê ainda não fez o Teste de Sorte!");
                         return;
                     }
 
-                    if ( botaoOpcao1.isEnabled() )
-                        abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                }
+                if ( botaoOpcao1.isEnabled() )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override
@@ -202,15 +242,10 @@ public class TelaSecao_90 extends TelaSecoesBasica {
 
 
                     if ( botaoOpcao2.isEnabled() ) {
-                        var vivo = AcoesSecao_90.perde3PontosDeEnergia();
-
-                        if ( vivo )
                             abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
-
-                        //Se morto sai da tela e volta para a tela principal
-                        personagemVivo( vivo );
                     }
                 }
+
             }
 
             @Override

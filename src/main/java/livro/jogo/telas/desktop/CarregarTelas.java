@@ -197,7 +197,7 @@ public class CarregarTelas {
             case 44  -> new TelaSecao_44(secao).setVisible(true); //Perde energia. Chamado por 60
             case 45  -> new TelaSecao_45(secao).setVisible(true); //Perde energia
             case 46  -> new TelaSecao_46(secao).setVisible(true); //Perde sorte
-            case 47  -> new TelaSecao_47(secao).setVisible(true);
+            case 47  -> new TelaSecao_47(secao).setVisible(true); //Chamado por 158
             case 48  -> new TelaSecao_48(secao).setVisible(true);
             case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4 (tem 2 inimigo Gremlin)
             case 50  -> new TelaSecao_50(secao).setVisible(true); //chamado pela seção 43
@@ -292,7 +292,7 @@ public class CarregarTelas {
             case 139 -> new TelaSecao_139(secao).setVisible(true);//chamado pela seção 83
             case 140 -> new TelaSecao_140(secao).setVisible(true);//chamado pela seção 298
             case 141 -> new TelaSecao_141(secao).setVisible(true); //Perde sorte
-            case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64
+            case 142 -> new TelaSecao_142(secao).setVisible(true);//chamado pela seção 64,159
             case 143 -> new TelaSecao_143(secao).setVisible(true);//chamado pela seção 69 (perde energia)
             case 144 -> new TelaSecao_144(secao).setVisible(true);//chamado pela seção 94
             case 145 -> new TelaSecao_145(secao).setVisible(true);
@@ -308,6 +308,8 @@ public class CarregarTelas {
             case 155 -> new TelaSecao_155(secao).setVisible(true); //Verifica se tem Beladona(14)
             case 156 -> new TelaSecao_156(secao).setVisible(true); //Perde energia
             case 157 -> new TelaSecao_157(secao).setVisible(true);
+            case 158 -> new TelaSecao_158(secao).setVisible(true);
+            case 159 -> new TelaSecao_159(secao).setVisible(true);//chamado pela seção 138 (perde energia)
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127
 
@@ -315,8 +317,6 @@ public class CarregarTelas {
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-
-            case 159 -> new TelaSecao_159(secao).setVisible(true);//chamado pela seção 138 (perde energia)
             case 163 -> new TelaSecao_163(secao).setVisible(true);//chamado pela seção 163
             case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45
             case 167 -> new TelaSecao_167(secao).setVisible(true);//chamado pela seção 132
@@ -408,7 +408,7 @@ public class CarregarTelas {
             case 348 -> new TelaSecao_348(secao).setVisible(true);//chamado pela seção 90
             case 349 -> new TelaSecao_349(secao).setVisible(true);//chamado pela seção 78,99,129
             case 350 -> new TelaSecao_350(secao).setVisible(true);//chamado pela seção 114
-            case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11 Termina o jogo
+            case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11, 158
             case 355 -> new TelaSecao_355(secao).setVisible(true);//chamado por 130,153
             case 357 -> new TelaSecao_357(secao).setVisible(true);//chamado pela seção 150
             case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85
