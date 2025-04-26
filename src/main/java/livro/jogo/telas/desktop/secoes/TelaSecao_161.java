@@ -11,17 +11,16 @@ import livro.jogo.utils.DadosLivroCarregado;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_160 extends TelaSecoesBasica {
-    public TelaSecao_160(Secao secao) {
+public class TelaSecao_161 extends TelaSecoesBasica {
+    public TelaSecao_161(Secao secao) {
         super(secao);
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-       opcao1(secao);
-       opcao2(secao);
-       opcao3(secao);
-       acaoBotoes(secao);
+        opcao1(secao);
+        opcao2(secao);
+        acaoBotoes(secao);
     }
 
     @Override
@@ -29,13 +28,7 @@ public class TelaSecao_160 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( AcoesSecao_160_343.verificaSePossuiOuro() )
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                            ",\n\nvocê não possui ouro para pagar ao corvo.");
-
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override
@@ -99,43 +92,6 @@ public class TelaSecao_160 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao2){
                     botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-        });
-
-        botaoOpcao3.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    abrirProximaSecao( secao.getProximasSecoes().get(2).getCodProximaSecao() );
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
-                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (e.getSource() == botaoOpcao3){
-                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
-                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
                     repaint();
                 }
             }

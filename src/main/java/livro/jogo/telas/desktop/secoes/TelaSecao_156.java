@@ -1,7 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_156;
-import livro.jogo.acaosecoes.AcoesSecao_83;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -19,9 +18,6 @@ public class TelaSecao_156 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-
-                //Consumir Beladona(14)
-                AcoesSecao_83.consumirBeladona();
 
                 //Se personagem morto, fecha a tela de seção e abre a principal
                 personagemVivo(AcoesSecao_156.perde3PontosDeEnergia() );

@@ -1,9 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_156;
 import livro.jogo.acaosecoes.AcoesSecao_158;
-import livro.jogo.acaosecoes.AcoesSecao_83;
-import livro.jogo.acaosecoes.AcoesSecao_90;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
