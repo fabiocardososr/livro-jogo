@@ -1,10 +1,10 @@
 {
   "codSecaoLivro": "166",
-  "texto": "O frade sorri e diz: - Te abençoe. - Ele se inclina e parte para o sul pela trilha, assobiando enquanto vai andando. Ganhou 2 pontos de SORTE.",
+  "texto": "\t\t\t\tO frade sorri e diz: - Te abençoe. - Ele se inclina e parte para o sul pela trilha, assobiando enquanto vai andando.\n\n\t\t\t\tGanhou 2 pontos de SORTE.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_166.mp3",
   "proximasSecoes": [
     {
-      "textoOpcao": "Rume para o norte",
+      "textoOpcao": "Rume para o norte.",
       "codProximaSecao": "390"
     }
   ]

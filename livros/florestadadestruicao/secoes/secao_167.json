@@ -11,9 +11,10 @@
   "inimigos":[
 	{
 		"idInimigo":"34",
-		"nome":"DRAGÃO ALADO",
+		"nome":"DRAGÃO",
 		"habilidade":"10",
-		"energia":"11"
+		"energia":"11",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_57.png"
 	}
   ]
 }

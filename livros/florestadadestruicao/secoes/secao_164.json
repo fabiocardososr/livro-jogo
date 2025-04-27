@@ -1,10 +1,10 @@
 {
   "codSecaoLivro": "164",
-  "texto": "Você sobe os últimos degraus e sai da caverna, chegando à rica grama verde do fundo do vale. A leste, você vê o tronco oco da árvore pelo qual você desceu há algum tempo atrás. Você passa por ele e retorna à trilha, onde ruma para o norte de novo.",
+  "texto": "\t\t\t\tVocê sobe os últimos degraus e sai da caverna, chegando à rica grama verde do fundo do vale.\n\n\t\t\t\tA leste, você vê o tronco oco da árvore pelo qual você desceu há algum tempo atrás. Você passa por ele e retorna à trilha, onde ruma para o norte de novo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_164.mp3",
   "proximasSecoes": [
     {
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Seguir para o norte.",
       "codProximaSecao": "144"
     }
   ]

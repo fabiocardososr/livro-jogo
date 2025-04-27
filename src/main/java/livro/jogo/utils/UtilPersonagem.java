@@ -18,7 +18,7 @@ public class UtilPersonagem {
         for (Item item : itensEquipados){
 
             //Se existe algum modificador que influencia(soma) ao resultado
-            modificador = UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(item);
+            modificador = modificador + UtilItens.retornaModificadorQueInfluenciaNaRolagemDeDadosDaHabilidade(item);
         }
 
         //Rolagem de dados
