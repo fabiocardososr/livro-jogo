@@ -1,69 +1,23 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_173;
-import livro.jogo.acaosecoes.AcoesSecao_95;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
-public class TelaSecao_173 extends TelaSecoesBasica {
-    private boolean possuiAguaBenta;
-    private TelaSecoesBasica tela = this;
-
-    public TelaSecao_173(Secao secao) {
+public class TelaSecao_172 extends TelaSecoesBasica {
+    public TelaSecao_172(Secao secao) {
         super(secao);
-
-        addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-                AcoesSecao_173.removerDaBolsaAPoeiraDaLevitacao();
-                possuiAguaBenta = AcoesSecao_173.verificaSePossuiAguaBenta();
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-                // Código a ser executado quando o diálogo está fechando
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-                // Código a ser executado quando o diálogo é fechado
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-                // Código a ser executado quando o diálogo é minimizado
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-                // Código a ser executado quando o diálogo é restaurado
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-                // Código a ser executado quando o diálogo é ativado
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-                // Código a ser executado quando o diálogo é desativado
-            }
-        });
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         opcao2(secao);
+        opcao3(secao);
         acaoBotoes(secao);
     }
 
@@ -72,14 +26,7 @@ public class TelaSecao_173 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( possuiAguaBenta )
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê não possui água benta." +
-                            "\nNão é possível escolher esta opção.");
-
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override
@@ -114,15 +61,7 @@ public class TelaSecao_173 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if (possuiAguaBenta) {
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                            ",\n\nvocê possui água benta, encontra-se em sua bolsa." +
-                            "\n\nDeixá-la guardada para outro momento?", tela);
-                }
-
-                if ( (!possuiAguaBenta) || (isRespostaTelaMensagem()) )
-                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
             }
 
             @Override
@@ -149,6 +88,41 @@ public class TelaSecao_173 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao2){
                     botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+        botaoOpcao3.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirProximaSecao( secao.getProximasSecoes().get(2).getCodProximaSecao() );
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao3){
+                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao3){
+                    botaoOpcao3.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao3.getWidth(), botaoOpcao3.getHeight()).getImageIcon());
                     repaint();
                 }
             }

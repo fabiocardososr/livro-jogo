@@ -1,7 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_35;
-import livro.jogo.acaosecoes.AcoesSecao_58;
+import livro.jogo.acaosecoes.AcoesSecao_170;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -14,16 +13,16 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_58 extends TelaSecoesBasica {
-    public TelaSecao_58(Secao secao) {
+public class TelaSecao_170 extends TelaSecoesBasica {
+    private boolean possuiColarOlhoDeAmbar;
+
+    public TelaSecao_170(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_58.ganha25OuroECabecaDoMarteloDosAnoes();
-                AcoesSecao_58.removerDaBolsaAguaBenta();
-                atualizaIndicesNaTelaDoPersonagem();
+                possuiColarOlhoDeAmbar = AcoesSecao_170.verificaSePossuiColarOlhoDeAmbar();
             }
 
             @Override
@@ -61,6 +60,7 @@ public class TelaSecao_58 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
+        opcao2(secao);
         acaoBotoes(secao);
     }
 
@@ -69,9 +69,12 @@ public class TelaSecao_58 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1){
+                if ( possuiColarOlhoDeAmbar )
                     abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                }
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                            ",\n\nvocê não possui o colar Olho de Âmbar." +
+                            "\nNão é possível escolher esta opção.");
             }
 
             @Override
@@ -98,6 +101,46 @@ public class TelaSecao_58 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+        botaoOpcao2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( possuiColarOlhoDeAmbar ) {
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                            ",\n\nvocê está usando o colar Olho de Âmbar.");
+                }
+                else
+                   abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }

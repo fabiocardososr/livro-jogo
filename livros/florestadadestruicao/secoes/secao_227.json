@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "227",
-  "texto": "A criatura que está prestes a atacar você com suas garras é um GHOUL.\n\nEle tem a capacidade de paralisar você, se causar quatro ferimentos separados durante esta batalha",
+  "texto": "\t\t\t\tA criatura que está prestes a atacar você com suas garras é um GHOUL.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_227.mp3",
   "proximasSecoes": [
     {	  

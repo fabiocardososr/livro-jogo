@@ -15,4 +15,8 @@ public class AcoesSecao_58 {
         UtilPersonagem.somarValorOuro(25);
     }
 
+    public static void removerDaBolsaAguaBenta(){
+        UtilBolsa.removerItem(ItensMapeamento.AGUA_BENTA.getIdItem());
+    }
+
 }
