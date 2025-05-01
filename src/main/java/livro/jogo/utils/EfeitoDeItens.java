@@ -27,8 +27,18 @@ public class EfeitoDeItens {
             case 47 -> efeitoItem_47();     //Poção de Fortuna
             case 49 -> efeitoItem_49();     //Provisões (comida)
             case 50 -> efeitoItem_50();     //Espada comum (inicial)
+            case 54 -> efeitoItem_54();     //Elmo
             default -> false;
         };
+    }
+
+    private boolean efeitoItem_54() {
+
+        ///TESTAR AO CLICAR NO ITEM NA BOLSA E VÊ SE EQUIPA
+        Item item = DadosLivroCarregado.getMapItem().get( ItensMapeamento.ELMO_DE_BRONZE.getIdItem() );
+        UtilPersonagem.equiparDesequiparItem(item);
+
+        return false;
     }
 
     private boolean efeitoItem_12() {

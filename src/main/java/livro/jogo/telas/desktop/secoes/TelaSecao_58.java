@@ -8,6 +8,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -21,6 +22,7 @@ public class TelaSecao_58 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
                 AcoesSecao_58.ganha25OuroECabecaDoMarteloDosAnoes();
                 AcoesSecao_58.removerDaBolsaAguaBenta();
                 atualizaIndicesNaTelaDoPersonagem();

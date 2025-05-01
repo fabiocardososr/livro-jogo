@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 173 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 179 );
         CarregarTelas.carregarSecao(secao);
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());
@@ -82,8 +82,8 @@ public class Testes {
         //Equipando uma armadura de couro(51)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));
 
-        //Anel da lentidão
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_41.json"));
+        //Elmo
+        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_54.json"));
 
         //Colar olho de Âmbar
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_15.json"));

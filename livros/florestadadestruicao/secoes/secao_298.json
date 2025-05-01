@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"57",
-		"nome":"ARANHA GIGANTE",
+		"nome":"Aranha",
 		"habilidade":"7",
 		"energia":"8",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/aranha_gigante.png"
