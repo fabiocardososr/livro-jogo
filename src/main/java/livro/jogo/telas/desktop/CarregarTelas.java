@@ -255,7 +255,7 @@ public class CarregarTelas {
             case 102 -> new TelaSecao_102(secao).setVisible(true);
             case 103 -> new TelaSecao_103(secao).setVisible(true); //Chamado por 112
             case 104 -> new TelaSecao_104(secao).setVisible(true); //Chamado por 360 ( 3 bandidos e 1 bandida)
-            case 105 -> new TelaSecao_105(secao).setVisible(true); //chamado pela seção 102
+            case 105 -> new TelaSecao_105(secao).setVisible(true); //chamado pela seção 102,180
             case 106 -> new TelaSecao_106(secao).setVisible(true); //Chamado por 175 - Anel de ouro com uma grande esmeralda(18) e 2 pontos de sorte
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88 (inimigo demônio de fogo)
             case 108 -> new TelaSecao_108(secao).setVisible(true); //perde energia
@@ -312,7 +312,7 @@ public class CarregarTelas {
             case 159 -> new TelaSecao_159(secao).setVisible(true);//chamado pela seção 138 (perde energia)
             case 160 -> new TelaSecao_160(secao).setVisible(true); //Chamado por 177 - pagar moeda ao corvo, opção 1
             case 161 -> new TelaSecao_161(secao).setVisible(true);
-            case 162 -> new TelaSecao_162(secao).setVisible(true);
+            case 162 -> new TelaSecao_162(secao).setVisible(true); //Chamado por 181
             case 163 -> new TelaSecao_163(secao).setVisible(true);//chamado pela seção 56
             case 164 -> new TelaSecao_164(secao).setVisible(true);
             case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45 (inimigo Gremlin.Desvantagem -3 pontos)
@@ -330,6 +330,8 @@ public class CarregarTelas {
             case 177 -> new TelaSecao_177(secao).setVisible(true);
             case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142
             case 179 -> new TelaSecao_179(secao).setVisible(true); //Equipa Elmo(54)
+            case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124
+            case 181 -> new TelaSecao_181(secao).setVisible(true);//inimigo homem-peixe
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
@@ -338,7 +340,7 @@ public class CarregarTelas {
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
 
-            case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124
+
             case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
             case 185 -> new TelaSecao_185(secao).setVisible(true);//chamado pela seção 161
             case 187 -> new TelaSecao_187(secao).setVisible(true);//chamado pela seção 36
@@ -436,6 +438,7 @@ public class CarregarTelas {
             case 357 -> new TelaSecao_357(secao).setVisible(true);//chamado pela seção 150
             case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85,168,169,176
             case 360 -> new TelaSecao_360(secao).setVisible(true); //chamado pela seção 103,133 (4 homens e 1 mulher)
+            case 361 -> new TelaSecao_361(secao).setVisible(true); //chamado pela seção 180
             case 362 -> new TelaSecao_362(secao).setVisible(true); //chamado pela seção 31,122
             case 365 -> new TelaSecao_365(secao).setVisible(true); //chamado pela seção 126
             case 366 -> new TelaSecao_366(secao).setVisible(true); //chamado pela seção 142

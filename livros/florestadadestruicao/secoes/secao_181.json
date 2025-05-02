@@ -1,7 +1,6 @@
 {
   "codSecaoLivro": "181",
-  "texto": "Você caminha pelos degraus, atravessando a cachoeira e entrando numa grande caverna, onde há um lago de água parada. Os degraus contornam as margens do lago, e há, do outro lado, uma mesa e uma cadeira, ambas de pedra. Você vai até a mesa e vê restos de peixe sobre ela. De repente, você ouve um ruído de água atrás de você. Uma estranha criatura sai do lago e avança na sua direção, armada com um tridente. Tem pernas como as de um homem, mas seu rosto e tronco se assemelham a um grande peixe verde com olhos arregalados. Os braços dele são como os seus, mas estão cobertos por escamas grandes. Trata-se de um HOMEM-PEIXE, e você terá que lutar contra ele.",
-    "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_181.png",
+  "texto": "\t\t\t\tVocê caminha pelos degraus, atravessando a cachoeira e entrando numa grande caverna, onde há um lago de água parada.\n\n\t\t\t\tOs degraus contornam as margens do lago, e há, do outro lado, uma mesa e uma cadeira, ambas de pedra. Você vai até a mesa e vê restos de peixe sobre ela.\n\n\t\t\t\tDe repente, você ouve um ruído de água atrás de você. Uma estranha criatura sai do lago e avança na sua direção. Tem pernas como as de um homem, mas seu rosto e tronco se assemelham a um grande peixe verde com olhos arregalados.\n\n\t\t\t\tOs braços dele são como os seus, mas estão cobertos por escamas grandes.\n\n\t\t\t\tTrata-se de um HOMEM-PEIXE, e você terá que lutar contra ele.",    
 	"enderecoAudio":"livros/florestadadestruicao/audio/secao_181.mp3",
   "proximasSecoes": [
     {
@@ -12,9 +11,10 @@
   "inimigos":[
 	{
 		"idInimigo":"35",
-		"nome":"HOMEM-PEIXE",
+		"nome":"Homem-Peixe",
 		"habilidade":"7",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/homem_peixe.png"
 	}
   ]
 }
