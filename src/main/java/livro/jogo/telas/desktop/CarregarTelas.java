@@ -220,7 +220,7 @@ public class CarregarTelas {
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271
             case 68  -> new TelaSecao_68(secao).setVisible(true);
             case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136
-            case 70  -> new TelaSecao_70(secao).setVisible(true); //Espada magnífica
+            case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //Chamado por 151 - 1 inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true);
             case 73  -> new TelaSecao_73(secao).setVisible(true); //Realizar teste rolando dados para vê se abre porta
@@ -332,6 +332,8 @@ public class CarregarTelas {
             case 179 -> new TelaSecao_179(secao).setVisible(true); //Equipa Elmo(54)
             case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124
             case 181 -> new TelaSecao_181(secao).setVisible(true);//inimigo homem-peixe
+            case 182 -> new TelaSecao_182(secao).setVisible(true);//Testar habilidade jogando 2 dados
+            case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
@@ -341,7 +343,7 @@ public class CarregarTelas {
 
 
 
-            case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
+
             case 185 -> new TelaSecao_185(secao).setVisible(true);//chamado pela seção 161
             case 187 -> new TelaSecao_187(secao).setVisible(true);//chamado pela seção 36
             case 188 -> new TelaSecao_188(secao).setVisible(true); //chamado pela seção 43,50
@@ -398,7 +400,7 @@ public class CarregarTelas {
             case 288 -> new TelaSecao_288(secao).setVisible(true);//chamado pela seção 48, 106
             case 289 -> new TelaSecao_289(secao).setVisible(true);//chamado pela seção 177
             case 290 -> new TelaSecao_290(secao).setVisible(true);//chamado pela seção 10
-            case 293 -> new TelaSecao_293(secao).setVisible(true);//chamado pela seção 44,80
+            case 293 -> new TelaSecao_293(secao).setVisible(true);//chamado pela seção 44,80,183
             case 296 -> new TelaSecao_296(secao).setVisible(true);//chamado pela seção 151
             case 297 -> new TelaSecao_297(secao).setVisible(true);//chamado pela seção 271
             case 299 -> new TelaSecao_299(secao).setVisible(true);//chamado pela seção 92
@@ -420,7 +422,7 @@ public class CarregarTelas {
             case 329 -> new TelaSecao_329(secao).setVisible(true);//chamado pela seção 27
             case 330 -> new TelaSecao_330(secao).setVisible(true);//chamado pela seção 65,75
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5,152 - Termina o jogo
-            case 334 -> new TelaSecao_334(secao).setVisible(true);//chamado pela seção 70
+            case 334 -> new TelaSecao_334(secao).setVisible(true);//chamado pela seção 70,182
             case 336 -> new TelaSecao_336(secao).setVisible(true);//chamado pela seção 37
             case 337 -> new TelaSecao_337(secao).setVisible(true);//chamado pela seção 125, 157
             case 339 -> new TelaSecao_339(secao).setVisible(true);//chamado pela seção 23,100

@@ -99,7 +99,7 @@ public class TelaSecao_98 extends TelaSecoesBasica {
                     }
 
                     if ( botaoOpcao2.isEnabled() ){
-                        falhouNoTesteDESorte();
+                        falhouNoTesteDeSorte();
                     }
 
                 }
@@ -135,7 +135,7 @@ public class TelaSecao_98 extends TelaSecoesBasica {
         });
     }
 
-    private void falhouNoTesteDESorte(){
+    private void falhouNoTesteDeSorte(){
         new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                 ",\n\nvocê tentou desviar das flechas, mas se desequilibrou e dezenas delas o atinge."+
