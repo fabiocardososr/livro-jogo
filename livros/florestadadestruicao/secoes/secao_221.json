@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "221",
-  "texto": "O fundo do vale é coberto de mato verde e luxuriante, e o terreno é plano. Você logo chega a uma outra encruzilhada na trilha.",
+  "texto": "\t\t\t\tO fundo do vale é coberto de mato verde e luxuriante, e o terreno é plano.\n\n\t\t\t\tVocê logo chega a uma outra encruzilhada na trilha.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_221.mp3",
   "proximasSecoes": [
     {	  
