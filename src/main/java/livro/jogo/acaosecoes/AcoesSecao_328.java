@@ -25,6 +25,7 @@ public class AcoesSecao_328 {
                     " não foi suficiente para mantê-lo vivo.");
         }
 
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
         return vivo;
     }
 }

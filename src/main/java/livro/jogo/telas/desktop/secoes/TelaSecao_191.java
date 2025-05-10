@@ -1,27 +1,30 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_184;
+import livro.jogo.acaosecoes.AcoesSecao_191;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.Util;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_184 extends TelaSecoesBasica {
-    public TelaSecao_184(Secao secao) {
+
+public class TelaSecao_191 extends TelaSecoesBasica {
+    boolean possuiSinoDeMetal;
+    TelaSecoesBasica tela = this;
+
+    public TelaSecao_191(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_184.entregaSinoAoFrade();
-                AcoesSecao_184.recupera4PontosDeEnergia();
-                atualizaIndicesNaTelaDoPersonagem();
+                possuiSinoDeMetal = AcoesSecao_191.verificaSePossuiSinoDeMetal();
             }
 
             @Override
@@ -59,6 +62,7 @@ public class TelaSecao_184 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
+        opcao2(secao);
         acaoBotoes(secao);
     }
 
@@ -67,9 +71,13 @@ public class TelaSecao_184 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1) {
-                    abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
-                }
+
+                if ( possuiSinoDeMetal )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                            ",\n\nvocê não possui Sino de Metal." +
+                            "\nNão é possível escolher esta opção.");
             }
 
             @Override
@@ -96,6 +104,49 @@ public class TelaSecao_184 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+        botaoOpcao2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if (possuiSinoDeMetal) {
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                            ",\nvocê possui o Sino de Metal, encontra-se em sua bolsa." +
+                            "\n\nDeseja ficar com o sino, pois ele pode valer algumas moedas na cidade?", tela);
+                }
+
+                if ( (!possuiSinoDeMetal) || (isRespostaTelaMensagem()) )
+                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }

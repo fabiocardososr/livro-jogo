@@ -19,6 +19,7 @@ public class AcoesSecao_45 {
 
         }
 
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 

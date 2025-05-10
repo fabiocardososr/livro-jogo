@@ -1,10 +1,10 @@
 {
   "codSecaoLivro": "196",
-  "texto": "Você penetra na caverna escura com a espada na mão. O ar é frio e úmido. Você ouve roncos altos e vê, quando seus olhos se habituam à escuridão, a massa enorme de um TROLL DA CAVERNA dormindo em uma cadeira de pedra. A pele dele é marrom e enrugada, e ele está vestindo peles de animais. Há uma clava de madeira em seu colo e uma grande bolsa de couroque pende das costas da cadeira de pedra.",
+  "texto": "\t\t\t\tVocê penetra na caverna escura com a espada na mão. O ar é frio e úmido.\n\n\t\t\t\tVocê ouve roncos altos e vê, quando seus olhos se habituam à escuridão, a massa enorme de um TROLL DA CAVERNA dormindo em uma cadeira de pedra.\n\n\t\t\t\tA pele dele é marrom e enrugada, e ele está vestindo peles de animais.\n\n\t\t\t\tHá uma clava de madeira em seu colo e uma grande bolsa de couroque pende das costas da cadeira de pedra.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_196.mp3",
   "proximasSecoes": [
     {
-      "textoOpcao": "Entrará na ponta dos pés e levará a bolsa de couro enquanto o Troll da Caverna está dormindo?",
+      "textoOpcao": "Entrará na ponta dos pés e rouba a bolsa enquanto o Troll dorme?",
       "codProximaSecao": "376"
     },
 	 {

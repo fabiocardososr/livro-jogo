@@ -173,6 +173,8 @@ public class TelaBolsa extends JDialog {
                 imgItem = new JLabelOpcoesTelaSecao("", largura, altura + 15,
                         item.getEnderecoImagem());
                 imgItem.setBounds(x,y,largura,altura+15);
+
+             //Sendo a seção 192 a espada equipada transforma-se em cenoura
             }
             else {
                 imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
@@ -206,10 +208,22 @@ public class TelaBolsa extends JDialog {
                 x = 60; //Volta para o início da (esquerda para a direita)
             }
 
-            //Criando a imagem
+            ///Seção 192 - a espada se transforma em uma cenoura.
+            if ( (secao.getCodSecaoLivro() == 192) &&
+                    ( (item.getIdItem() == 10)  || (item.getIdItem() == 50)  ))
+                item = DadosLivroCarregado.recuperaItemDoJson(ItensMapeamento.CENOURA.getEnderecoJson());
+
+            ///Seção 45 - O personagem joga a cenoura no gnomo, então ela não está na bolsa
+            if ( (secao.getCodSecaoLivro() == 46) &&
+                    ( (item.getIdItem() == 10)  || (item.getIdItem() == 50)  ))
+                continue;
+
+            //Criar imagem
             JLabelOpcoesTelaSecao imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
-                    item.getEnderecoImagem());
+                        ImagensDoLivroFlorestaDaDestruicao.CENOURA.getEnderecoImagem());
             imgItem.setBounds(x,y,largura,altura);
+            imgItem = new JLabelOpcoesTelaSecao("", largura, altura, item.getEnderecoImagem());
+            imgItem.setBounds(x, y, largura, altura);
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
             imgItem.addMouseListener(acao);
 

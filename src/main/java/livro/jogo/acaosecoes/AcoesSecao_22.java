@@ -8,6 +8,7 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_22 {
 
     public static void perde2DeHabilidade(){
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
         UtilPersonagem.personagemPerdeHabilidade(2);
     }
 

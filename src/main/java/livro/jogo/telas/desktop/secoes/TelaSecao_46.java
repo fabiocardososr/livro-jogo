@@ -5,6 +5,7 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilPersonagem;
 
 import java.awt.event.MouseEvent;
@@ -21,6 +22,7 @@ public class TelaSecao_46 extends TelaSecoesBasica {
             public void windowOpened(WindowEvent e) {
                 // Código a ser executado quando o diálogo é aberto
 
+                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                 //Perda de 2 pontos de sorte
                 UtilPersonagem.personagemPerdeSorte(2);
                 atualizaIndicesNaTelaDoPersonagem();

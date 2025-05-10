@@ -1,9 +1,9 @@
  {
-	"idItem":"32",
+	"idItem":"57",
 	"tipoEfeito":"NENHUM",
-	"nome":"Rede Aprisionamento",
-	"descricao":"Se enrosca no alvo e o impede de movimentar-se.",
-	"valorCusto":"3",
+	"nome":"Cenoura",
+	"descricao":"Linda cenoura. Parece deliciosa.",
+	"valorCusto":"0",
 	"modificador":"0",   
 	"quantidadeUso":"0",
 	"flgUsoTemporario":"N",
@@ -11,5 +11,5 @@
     "flgAfetaRolagemDados":"N",
 	"flgAfetaNivelAtualPersonagem":"N",
 	"flgAfetaNivelMaxPersonagem":"N",
-	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_32.png"
+	"enderecoImagem":"livros/florestadadestruicao/imagens/itens/item_57.png"
   }

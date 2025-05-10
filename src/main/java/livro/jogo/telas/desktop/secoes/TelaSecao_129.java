@@ -29,6 +29,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
                 UtilPersonagem.personagemPerdeSorte(2);
                 atualizaIndicesNaTelaDoPersonagem();
             }

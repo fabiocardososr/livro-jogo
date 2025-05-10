@@ -1,6 +1,6 @@
 {
   "codSecaoLivro": "191",
-  "texto": "O frade está muito nervoso e irrequieto, não para de andar de um lado para o outro quando você começa a falar. Você pergunta a ele por que está tão alterado, e ele lhe diz que seu sino de metal sagrado foi roubado. Como pagamento por sua devolução, ele está disposto a oferecer uma poção mágica curadora.",
+  "texto": "\t\t\t\tO frade está muito nervoso e irrequieto, não para de andar de um lado para o outro quando você começa a falar.\n\n\t\t\t\tVocê pergunta a ele por que está tão alterado, e ele lhe diz que seu sino de metal sagrado foi roubado.\n\n\t\t\t\tComo pagamento por sua devolução, ele está disposto a oferecer uma poção mágica curadora.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_191.mp3",
   "proximasSecoes": [
     {
@@ -8,7 +8,7 @@
       "codProximaSecao": "184"
     },
 	{
-      "textoOpcao": "Não tem o sino",
+      "textoOpcao": "Não tem o sino ou não quer entregá-lo?",
       "codProximaSecao": "243"
     }
   ]
