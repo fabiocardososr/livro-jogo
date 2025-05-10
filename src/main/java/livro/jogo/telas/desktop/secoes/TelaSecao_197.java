@@ -1,24 +1,29 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_24;
+import livro.jogo.acaosecoes.AcoesSecao_197;
+import livro.jogo.acaosecoes.AcoesSecao_53;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_24 extends TelaSecoesBasica {
-    public TelaSecao_24(Secao secao) {
+public class TelaSecao_197 extends TelaSecoesBasica {
+    boolean possuiPocaoAntiveneno;
+
+    public TelaSecao_197(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_24.consumirPocaoAntiveneno();
+                possuiPocaoAntiveneno = AcoesSecao_197.verificaSePossuiPocaoAntiveneno();
             }
 
             @Override
@@ -57,17 +62,19 @@ public class TelaSecao_24 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         opcao2(secao);
-
         acaoBotoes(secao);
     }
 
     @Override
     protected void acaoBotoes(Secao secao) {
-
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( possuiPocaoAntiveneno )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nvocê não possui uma Poção Antiveneno.");
             }
 
             @Override
@@ -133,6 +140,5 @@ public class TelaSecao_24 extends TelaSecoesBasica {
                 }
             }
         });
-
     }
 }

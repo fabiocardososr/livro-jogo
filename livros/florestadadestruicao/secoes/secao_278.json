@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "278",
-  "texto": "A trilha cruza uma garganta estreita entre duas colinas. Você se sente vulnerável e desembainha sua espada, esperando ser emboscado a qualquer momento. Infelizmente, por você estar concentrado em observar os lados da garganta, não vê um pequeno amontoado de folhas e galhos na trilha adiante. Seu pé atravessa diretamente a cobertura fina de uma armadilha para ursos, e você despenca por quatro metros até o fundo de um fosso rochoso.\n\nPara aumentar a sua desgraça, uma estaca de madeira com uma ponta aguçada está cravada no centro do fosso.\nTESTE SUA SORTE.",
+  "texto": "\t\t\t\tA trilha cruza uma garganta estreita entre duas colinas. Você se sente vulnerável e desembainha sua espada, esperando ser emboscado a qualquer momento.\n\n\t\t\t\tInfelizmente, por você estar concentrado em observar os lados da garganta, não vê um pequeno amontoado de folhas e galhos na trilha adiante.\n\n\t\t\t\tSeu pé atravessa diretamente a cobertura fina de uma armadilha para ursos, e você despenca por quatro metros até o fundo de um fosso rochoso.\n\n\t\t\t\tPara aumentar a sua desgraça, uma estaca de madeira com uma ponta aguçada está cravada no centro do fosso.\n\n\t\t\t\tTESTE SUA SORTE.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_278.mp3",
   "proximasSecoes": [
     {	  

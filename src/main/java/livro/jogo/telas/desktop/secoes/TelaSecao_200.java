@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_24;
+import livro.jogo.acaosecoes.AcoesSecao_184;
+import livro.jogo.acaosecoes.AcoesSecao_200;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -11,14 +12,14 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_24 extends TelaSecoesBasica {
-    public TelaSecao_24(Secao secao) {
+public class TelaSecao_200 extends TelaSecoesBasica {
+    public TelaSecao_200(Secao secao) {
         super(secao);
 
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_24.consumirPocaoAntiveneno();
+                AcoesSecao_200.usarChaveDePrataNaFechadura();
             }
 
             @Override
@@ -57,13 +58,11 @@ public class TelaSecao_24 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
         opcao2(secao);
-
         acaoBotoes(secao);
     }
 
     @Override
     protected void acaoBotoes(Secao secao) {
-
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -133,6 +132,5 @@ public class TelaSecao_24 extends TelaSecoesBasica {
                 }
             }
         });
-
     }
 }

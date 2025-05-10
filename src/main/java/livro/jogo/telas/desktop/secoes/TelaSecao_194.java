@@ -21,7 +21,6 @@ public class TelaSecao_194 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
                 AcoesSecao_194.ganhaBeladona();
             }
 
