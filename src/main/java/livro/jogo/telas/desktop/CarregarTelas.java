@@ -353,13 +353,13 @@ public class CarregarTelas {
             case 200 -> new TelaSecao_200(secao).setVisible(true); //Usar chave. (remover chave de prata da bolsa(5))
             case 201 -> new TelaSecao_201(secao).setVisible(true);
             case 202 -> new TelaSecao_202(secao).setVisible(true);//chamado pela seção 153
+            case 203 -> new TelaSecao_203(secao).setVisible(true); //Chamado por 187
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 203 -> new TelaSecao_203(secao).setVisible(true); //Chamado por 187
             case 206 -> new TelaSecao_206(secao).setVisible(true);//chamado pela seção 76
             case 208 -> new TelaSecao_208(secao).setVisible(true);//chamado pela seção 62,86,194
             case 209 -> new TelaSecao_209(secao).setVisible(true);//chamado pela seção 99
@@ -467,6 +467,7 @@ public class CarregarTelas {
             case 369 -> new TelaSecao_369(secao).setVisible(true); //chamado pela seção 25
             case 371 -> new TelaSecao_371(secao).setVisible(true); //chamado pela seção 49
             case 372 -> new TelaSecao_372(secao).setVisible(true); //chamado pela seção 175
+            case 373 -> new TelaSecao_373(secao).setVisible(true); //chamado pela seção 203
             case 374 -> new TelaSecao_374(secao).setVisible(true); //chamado pela seção 133
             case 375 -> new TelaSecao_375(secao).setVisible(true); //chamado pela seção 163
             case 376 -> new TelaSecao_376(secao).setVisible(true); //chamado pela seção 196

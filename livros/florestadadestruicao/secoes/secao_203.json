@@ -11,9 +11,10 @@
   "inimigos":[
 	{
 		"idInimigo":"38",
-		"nome":"MUDA-FORMAS",
+		"nome":"Muda-Forma",
 		"habilidade":"10",
-		"energia":"10"
+		"energia":"10",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/muda_forma.png"
 	}
   ]
 }
