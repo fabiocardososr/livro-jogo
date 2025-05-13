@@ -1,23 +1,30 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_211;
+import livro.jogo.acaosecoes.AcoesSecao_197;
+import livro.jogo.acaosecoes.AcoesSecao_204;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_211 extends TelaSecoesBasica {
-    public TelaSecao_211(Secao secao) {
+public class TelaSecao_204 extends TelaSecoesBasica {
+    boolean possuiTodasAsPartesDoMartelo;
+
+    public TelaSecao_204(Secao secao) {
         super(secao);
+
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_211.bebePocaoAntiveneno();
+                possuiTodasAsPartesDoMartelo = AcoesSecao_204.verificaSePossuiTodasAsPartesDoMarteloDosAnoes();
             }
 
             @Override
@@ -55,6 +62,7 @@ public class TelaSecao_211 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
+        opcao2(secao);
         acaoBotoes(secao);
     }
 
@@ -63,7 +71,11 @@ public class TelaSecao_211 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( possuiTodasAsPartesDoMartelo )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nvocê não possui todas as partes do martelo dos anões.");
             }
 
             @Override
@@ -90,6 +102,42 @@ public class TelaSecao_211 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+        });
+
+        botaoOpcao2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( Util.isVenceuTodosInimigos(secao) )
+                    abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
+                    repaint();
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (e.getSource() == botaoOpcao2){
+                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
+                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }

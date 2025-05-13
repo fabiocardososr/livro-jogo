@@ -1,6 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_211;
+import livro.jogo.acaosecoes.AcoesSecao_205;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -11,13 +11,15 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class TelaSecao_211 extends TelaSecoesBasica {
-    public TelaSecao_211(Secao secao) {
+public class TelaSecao_205 extends TelaSecoesBasica {
+    public TelaSecao_205(Secao secao) {
         super(secao);
+
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_211.bebePocaoAntiveneno();
+                AcoesSecao_205.receba6PecasDeOuro();
+                atualizaIndicesNaTelaDoPersonagem();
             }
 
             @Override
