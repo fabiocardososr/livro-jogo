@@ -9,34 +9,38 @@
       "codProximaSecao": "321"
     },
 	{	  
-      "textoOpcao": "Fugir, correndo para fora do ninho subindo os degraus?",
+      "textoOpcao": "Fugir! Correr para fora do ninho?",
       "codProximaSecao": "107"
     }
   ],
   "inimigos":[
 	{
 		"idInimigo":"39",
-		"nome":"GUERREIRO-CLONE",
+		"nome":"Clone",
 		"habilidade":"5",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/clone.png"
 	},
 	{
 		"idInimigo":"40",
-		"nome":"GUERREIRO-CLONE",
+		"nome":"Clone",
 		"habilidade":"6",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/clone.png"
 	},
 	{
 		"idInimigo":"41",
-		"nome":"GUERREIRO-CLONE",
+		"nome":"Clone",
 		"habilidade":"5",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/clone.png"
 	},
 	{
 		"idInimigo":"42",
-		"nome":"GUERREIRO-CLONE",
+		"nome":"Clone",
 		"habilidade":"6",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/clone.png"
 	}
   ]
   }

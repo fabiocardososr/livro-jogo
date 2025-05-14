@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.entidades.Inimigo;
+import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
@@ -17,6 +18,7 @@ import java.awt.event.MouseListener;
 public class JButtonAbrirBatalha {
     private final static int LARGURA_IMG = 150, ALTURA_IMG = 180; //Tamanho da imagem da tela suspensa de info dos itens
     private static JPanel panelImagemInimigo; //Representa a tela suspensa de informação do item
+    private static Secao secao;
 
     public static JPanel carregarBotoesBatalha(TelaSecoesBasica tela, Inimigo inimigo, int x, int y, int largura,
                                                int altura){
@@ -24,6 +26,7 @@ public class JButtonAbrirBatalha {
         JPanel panel = new JPanel(null);
         panel.setBounds(x,y,largura,altura);
         panel.setBackground(new Color(0,0,0,0));
+         secao = tela.getSecao();
 
         JLabelOpcoesTelaSecao btInimigo = new JLabelOpcoesTelaSecao("",100,80,
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA);
@@ -67,6 +70,7 @@ public class JButtonAbrirBatalha {
 
             @Override
             public void mouseExited(MouseEvent e) {
+                String enderecoImagemPainel;
 
                 if (inimigo.getEnergia() <= 0)
                     return;
@@ -75,7 +79,12 @@ public class JButtonAbrirBatalha {
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
 
-                    tela.labelImagemSecao.setIcon(new RedimensionarImagem(DadosLivroCarregado.getLivro().getImagemComplementar(),
+                    if ( !secao.getEnderecoImagem().isEmpty() )
+                        enderecoImagemPainel = secao.getEnderecoImagem();
+                    else
+                        enderecoImagemPainel = DadosLivroCarregado.getLivro().getImagemComplementar();
+
+                    tela.labelImagemSecao.setIcon(new RedimensionarImagem(enderecoImagemPainel,
                             tela.labelImagemSecao.getWidth(),
                             tela.labelImagemSecao.getHeight()).getImageIcon());
 
@@ -111,15 +120,12 @@ public class JButtonAbrirBatalha {
         labelInfoHabilidade.setForeground(new Color(139,0,0));
         labelInfoHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelInfoHabilidade.setBounds(2,104,150,30);
-        //labelInfoHabilidade.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Faixa onde fica as informações de Energia(força)
         JLabelOpcoesTelaSecao faixaEnergiaInimigo = new JLabelOpcoesTelaSecao("",150,30,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
         faixaEnergiaInimigo.setBounds(5,130,150,30);
-        //faixaEnergiaInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         faixaEnergiaInimigo.setHorizontalAlignment(SwingConstants.CENTER);
-        //faixaIndicesInimigo.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Info da Energia
         JLabel labelInfoEnergia = new JLabel("<html>Energia: <b>"+
