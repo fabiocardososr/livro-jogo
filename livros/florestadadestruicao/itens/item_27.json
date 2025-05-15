@@ -2,7 +2,7 @@
 	"idItem":"27",
 	"tipoEfeito":"NENHUM",
 	"nome":"Poção Curativa",
-	"descricao":"",
+	"descricao":"Cura desde doenças a ossos quebrados. Milagroso!",
 	"valorCusto":"3",
 	"modificador":"0",   
 	"quantidadeUso":"0",
