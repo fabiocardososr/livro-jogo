@@ -242,7 +242,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                     /// os demais posiciona o primeiro item à esquerda
                     ///e depois o espaçamento de 50 entre eles
                     switch ( secao.getCodSecaoLivro() ) {
-                        case 14, 271,129 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
+                        case 14, 271,129,218 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
                         default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
                     }
                 }else {

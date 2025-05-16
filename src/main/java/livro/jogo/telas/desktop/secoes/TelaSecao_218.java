@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_12;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -11,17 +10,18 @@ import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilBolsa;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_14 extends TelaSecoesBasica {
-    private boolean entregou3Moedas = false;  //Informa se o personagem entregou 3 moedas
+public class TelaSecao_218 extends TelaSecoesBasica {
+    private boolean entregou5Moedas = false;
     private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopo global para que seja desabilitado caso escolha a opção de pagar com moedas
 
-    public TelaSecao_14(Secao secao) {
+    public TelaSecao_218(Secao secao) {
         super(secao);
     }
 
@@ -32,21 +32,124 @@ public class TelaSecao_14 extends TelaSecoesBasica {
 
         opcao1(secao);
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao1.setBounds(120,660,40,50);
-        labelNumOpcao1.setBounds(116,652, 50,50);
-        lbTextoOpcao1.setBounds(170,647,700,60);
-
-        opcao2(secao);
-        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao2.setBounds(120,710,40,50);
-        labelNumOpcao2.setBounds(116,702, 50,50);
-        lbTextoOpcao2.setBounds(170,697,700,60);
+        botaoOpcao1.setBounds(120,720,40,50);
+        labelNumOpcao1.setBounds(116,712, 50,50);
+        lbTextoOpcao1.setBounds(170,707,700,60);
 
         carregaBotaoOpcaoMoedas();
 
         carregarListaItensParaDar();
 
+        carregaBotaoNaoTemComoPagar();
+
         acaoBotoes(secao);
+    }
+
+    private void carregaBotaoNaoTemComoPagar() {
+
+        //Botão
+        JLabelOpcoesTelaSecao botaoNaoTemComoPagar = new BotaoFaixaOpcoes(272,640,340,80)
+                .criarBotao();
+        botaoNaoTemComoPagar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               cliqueBotaoNaoTemComoPagar();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoNaoTemComoPagar.setIcon(Util.dimensionarImagem(botaoNaoTemComoPagar.getWidth(),
+                        botaoNaoTemComoPagar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoNaoTemComoPagar.setIcon(Util.dimensionarImagem(botaoNaoTemComoPagar.getWidth(),
+                        botaoNaoTemComoPagar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        //Texto
+        JLabel texto= new JLabel("<html><center>Sem recursos</center></html>");
+        texto.setBounds(375,665,130,25);
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        texto.setForeground(new Color(128,0,0));
+        texto.setToolTipText("Não possui recursos para pagar ao garotinho.");
+        //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        texto.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                cliqueBotaoNaoTemComoPagar();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoNaoTemComoPagar.setIcon(Util.dimensionarImagem(botaoNaoTemComoPagar.getWidth(),
+                        botaoNaoTemComoPagar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoNaoTemComoPagar.setIcon(Util.dimensionarImagem(botaoNaoTemComoPagar.getWidth(),
+                        botaoNaoTemComoPagar.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(texto);
+        add(botaoNaoTemComoPagar);
+    }
+
+    private void cliqueBotaoNaoTemComoPagar() {
+        if ( (!entregou5Moedas) &&
+                (!escolheuItensDaListaSuspensa) &&
+                (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() < 5) &&
+                (UtilBolsa.retornaListaDeBensNaBolsa().length == 0) ){
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            CarregarTelas.telaMensagem("Você não tem como pagar e o garotinho o deixa pendurado."+
+                    "\n\nA morte o espera.\nSua aventura acaba aqui!");
+            dispose();
+        }
+
+        if ( (entregou5Moedas) || (escolheuItensDaListaSuspensa) ){
+            CarregarTelas.telaMensagem("Você já pagou ao garotinho.");
+            return;
+        }
+
+        if  ( (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 5) ||
+                (UtilBolsa.retornaListaDeBensNaBolsa().length > 0) ){
+            CarregarTelas.telaMensagem("Você possui recursos para pagar ao garotinho.");
+        }
     }
 
     private void carregarListaItensParaDar() {
@@ -57,13 +160,13 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (entregou3Moedas) {
-                    CarregarTelas.telaMensagem("Você já pagou o caçador.");
+                if (entregou5Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou ao garotinho.");
                     return;
                 }
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 1 item ao caçador.");
+                    CarregarTelas.telaMensagem("Você já entregou 1 item ao garotinho.");
                     return;
                 }
 
@@ -103,19 +206,19 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
-        texto.setToolTipText("Escolha 1 item para dar ao caçador.");
+        texto.setToolTipText("Escolha 1 item para dar ao garotinho.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (entregou3Moedas) {
-                    CarregarTelas.telaMensagem("Você já pagou o caçador.");
+                if (entregou5Moedas) {
+                    CarregarTelas.telaMensagem("Você já pagou ao garotinho.");
                     return;
                 }
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 1 item para o caçador.");
+                    CarregarTelas.telaMensagem("Você já entregou 1 item para ao garotinho.");
                     return;
                 }
 
@@ -156,6 +259,32 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         add(botaoEscolhaItens);
     }
 
+    private void clicarBotaoMoeda(){
+        if ( escolheuItensDaListaSuspensa ){
+            CarregarTelas.telaMensagem("Você já entregou 1 item ao garotinho.\nNão existe necessidade de entregar 5 moedas.");
+            return;
+        }
+
+
+        if (entregou5Moedas) {
+            CarregarTelas.telaMensagem("Você já pagou o garotinho.");
+            return;
+        }
+
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
+        if (personagem.getQuantidadeOuro() >= 5){
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+            CarregarTelas.telaMensagem("Você entrega 5 moedas para o garotinho.");
+            personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
+            atualizaIndicesNaTelaDoPersonagem();
+            entregou5Moedas = true;
+        }
+        else{
+            CarregarTelas.telaMensagem("Você não tem 5 moedas para entregar ao garotinho.");
+        }
+    }
+
     private void carregaBotaoOpcaoMoedas() {
 
         //Botão
@@ -166,33 +295,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( escolheuItensDaListaSuspensa ){
-                    CarregarTelas.telaMensagem("Você já entregou 1 item para o caçador.\nNão existe necessidade de entregar 3 moedas.");
-                    return;
-                }
-
-
-                if (entregou3Moedas) {
-                    CarregarTelas.telaMensagem("Você já pagou o caçador.");
-                    return;
-                }
-
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 3){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
-                    CarregarTelas.telaMensagem("Você entrega 3 moedas para o caçador.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
-                    repaint();
-                    entregou3Moedas = true;
-                    botaoOpcao2.setEnabled(false);
-                }
-                else{
-                    CarregarTelas.telaMensagem("Você não tem 3 moedas para entregar ao caçador.");
-                }
-
+                clicarBotaoMoeda();
             }
 
             @Override
@@ -217,43 +320,18 @@ public class TelaSecao_14 extends TelaSecoesBasica {
         });
 
         //Texto
-        JLabel texto = new JLabel("<html><center>Pagar 3 moedas</center></html>");
+        JLabel texto = new JLabel("<html><center>Pagar 5 moedas</center></html>");
         texto.setBounds(185,587,150,25);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
         texto.setForeground(new Color(128,0,0));
-        texto.setToolTipText("Você entrega 3 moedas ao caçador.");
+        texto.setToolTipText("Você entrega 5 moedas ao garotinho.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                if ( escolheuItensDaListaSuspensa ){
-                    CarregarTelas.telaMensagem("Você já entregou 1 item para o Caçador.\nNão existe necessidade de entregar 3 moedas.");
-                    return;
-                }
-
-
-                if (entregou3Moedas) {
-                    CarregarTelas.telaMensagem("Você já pagou o Caçador.");
-                    return;
-                }
-
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 3){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
-                    CarregarTelas.telaMensagem("Você entrega 3 moedas para o Caçador.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
-                    repaint();
-                    entregou3Moedas = true;
-                    botaoOpcao2.setEnabled(false);
-                }
-                else{
-                    CarregarTelas.telaMensagem("Você não tem 3 moedas para entregar ao caçador.");
-                }
+                clicarBotaoMoeda();
             }
 
             @Override
@@ -292,10 +370,10 @@ public class TelaSecao_14 extends TelaSecoesBasica {
 
                 if (e.getSource() == botaoOpcao1){
 
-                    if ( (entregou3Moedas) || (escolheuItensDaListaSuspensa) )
+                    if ( (entregou5Moedas) || (escolheuItensDaListaSuspensa) )
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
-                        CarregarTelas.telaMensagem("Você não pagou ao caçador 3 peças de ouro ou 1 item a sua escolha.");
+                        CarregarTelas.telaMensagem("Você não pagou ao garotinho 5 peças de ouro ou 1 item a sua escolha.");
                 }
             }
 
@@ -323,63 +401,6 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                 if (e.getSource() == botaoOpcao1){
                     botaoOpcao1.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-        });
-
-
-        botaoOpcao2.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-
-                    //Se já entregou itens ao caçador, não é possível escolher esta opção
-                    if ( (entregou3Moedas) || (escolheuItensDaListaSuspensa) ) {
-                        return;
-                    }
-
-                    if ( (DadosLivroCarregado.getBolsa().size() > 1) ||
-                            (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 3) ){
-                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ",\n existem recursos para serem dados ao caçador. Escolha uma das opções.");
-                        return;
-                    }
-
-                    if ( (!entregou3Moedas) && (!escolheuItensDaListaSuspensa) ) {
-                        CarregarTelas.telaMensagem("Ele o encara e diz: "+
-                                "\n\"Você estragou a armadilha e não tem como pagar uma compensação, suba sozinho.\""+
-                                "\n\nA morte o espera. Sua aventura acaba aqui!");
-                        dispose();
-                    }
-
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1_SELECIONADO.getEnderecoImagem(),
-                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
-                    repaint();
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (e.getSource() == botaoOpcao2){
-                    botaoOpcao2.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1.getEnderecoImagem(),
-                            botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
             }
