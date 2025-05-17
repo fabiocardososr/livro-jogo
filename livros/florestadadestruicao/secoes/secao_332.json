@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "332",
-  "texto": "Você logo chega a uma outra encruzilhada da trilha. Olhando para o mapa de Perna Grande, você resolve se dirigir para o norte novamente, na direção de Stonebridge, ignorando a trilha estreita que continua para o oeste.",
+  "texto": "\t\t\t\tVocê logo chega a uma outra encruzilhada da trilha.\n\n\t\t\t\tOlhando para o mapa de Perna Grande, você resolve se dirigir para o norte novamente, na direção de Stonebridge, ignorando a trilha estreita que continua para o oeste.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_332.mp3",
   "proximasSecoes": [    
 	{	  
