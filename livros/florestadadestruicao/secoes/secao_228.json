@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "228",
-  "texto": "O fosso é circular, com lados lisos, e você está fraco por causa da queda. Você remexe na sua mochila e tira as botas de couro marrom. Elas parecem muito leves em seus pés. Você se agacha e, com um salto poderoso, cai fora do fosso. Você limpa a poeira de suas roupas e continua sua caminhada para o norte, descendo a garganta.",
+  "texto": "\t\t\t\tO fosso é circular, com lados lisos, e você está fraco por causa da queda.\n\n\t\t\t\tVocê remexe na sua mochila e tira as botas de couro marrom. Elas parecem muito leves em seus pés. Você se agacha e, com um salto poderoso, cai fora do fosso.\n\n\t\t\t\tVocê limpa a poeira de suas roupas e continua sua caminhada para o norte, descendo a garganta.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_228.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Continue para o norte.",
       "codProximaSecao": "255"
     }
   ]

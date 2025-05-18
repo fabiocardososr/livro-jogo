@@ -223,7 +223,7 @@ public class CarregarTelas {
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271
             case 68  -> new TelaSecao_68(secao).setVisible(true);
             case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136,214
-            case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Espada magnífica
+            case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Equipar Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //Chamado por 151 - 1 inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true);
             case 73  -> new TelaSecao_73(secao).setVisible(true); //Realizar teste rolando dados para vê se abre porta
@@ -381,6 +381,7 @@ public class CarregarTelas {
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
             case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 227 -> new TelaSecao_227(secao).setVisible(true); //chamado pelas seções 173
+            case 228 -> new TelaSecao_228(secao).setVisible(true); //Equipar botas saltadoras(31)
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
@@ -404,7 +405,7 @@ public class CarregarTelas {
             case 251 -> new TelaSecao_251(secao).setVisible(true);//chamado pela seção 142
             case 253 -> new TelaSecao_253(secao).setVisible(true);//chamado pela seção 206
             case 254 -> new TelaSecao_254(secao).setVisible(true);//chamado pela seção 29,226
-            case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14
+            case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14,228
             case 256 -> new TelaSecao_256(secao).setVisible(true); //chamado pela seção 17,89,172
             case 257 -> new TelaSecao_257(secao).setVisible(true); //chamado pela seção 110
             case 258 -> new TelaSecao_258(secao).setVisible(true); //chamado pela seção 132

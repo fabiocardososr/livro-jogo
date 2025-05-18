@@ -35,7 +35,7 @@ public class Testes {
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 227 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 70 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -92,7 +92,7 @@ public class Testes {
         //Colar olho de Âmbar
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_15.json"));
 
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
+        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 
 
 
@@ -123,10 +123,10 @@ public class Testes {
                 "livros/florestadadestruicao/itens/item_7.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_4.json"));
+                "livros/florestadadestruicao/itens/item_10.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_52.json"));
+                "livros/florestadadestruicao/itens/item_31.json"));
 
 
         return bolsa;
