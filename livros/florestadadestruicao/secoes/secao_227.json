@@ -6,10 +6,6 @@
     {	  
       "textoOpcao": "Vencendo",
       "codProximaSecao": "312"
-    },
-	{	  
-      "textoOpcao": "Se você morrer ou ficar paralisado",
-      "codProximaSecao": "2"
     }
   ],
   "inimigos":[

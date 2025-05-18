@@ -150,9 +150,12 @@ public class CarregarTelas {
         }
 
         //Aqui vai ser chamado as seções
+        ///Resolvi nao chamar a seção 2 a partir da 227. Pois uniformizei todos os inimigos retirando qualquer ataque especial
+        ///e o GHOUL paraliza, e ao paralizar ou matar chama a seção 2 sendo que a tela de batalha, ao zerar a energia,
+        /// já faz isso
         switch ( secao.getCodSecaoLivro() ){
             case 1   -> new TelaSecao_1(secao).setVisible(true); //chamado por 98
-            case 2   -> new TelaSecao_2(secao).setVisible(true); //Termina o jogo
+            //case 2   -> new TelaSecao_2(secao).setVisible(true); //Chamado por 227 - Termina o jogo
             case 3   -> new TelaSecao_3(secao).setVisible(true);
             case 4   -> new TelaSecao_4(secao).setVisible(true); //perde energia (chamado por 81)
             case 5   -> new TelaSecao_5(secao).setVisible(true); //Chamado por 152
@@ -179,7 +182,7 @@ public class CarregarTelas {
             case 26  -> new TelaSecao_26(secao).setVisible(true); //Chamado pela seção 47
             case 27  -> new TelaSecao_27(secao).setVisible(true); //Chamado por seção 123
             case 28  -> new TelaSecao_28(secao).setVisible(true); //Chamado por 209 - pergunta se possui braçadeira da Força
-            case 29  -> new TelaSecao_29(secao).setVisible(true); //2 inimigos ORCs
+            case 29  -> new TelaSecao_29(secao).setVisible(true); //Chamado por 226 - 2 inimigos ORCs
             case 30  -> new TelaSecao_30(secao).setVisible(true); //perda de energia
             case 31  -> new TelaSecao_31(secao).setVisible(true); //chamado por 110
             case 32  -> new TelaSecao_32(secao).setVisible(true); //perda de sorte, perde moedas e perde 2 itens
@@ -376,13 +379,13 @@ public class CarregarTelas {
             case 223 -> new TelaSecao_223(secao).setVisible(true); //Chamado por 170
             case 224 -> new TelaSecao_224(secao).setVisible(true);
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
+            case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 227 -> new TelaSecao_227(secao).setVisible(true); //chamado pelas seções 173
             case 231 -> new TelaSecao_231(secao).setVisible(true); //chamado pela seção 34,154
             case 232 -> new TelaSecao_232(secao).setVisible(true); //chamado pela seção 117
@@ -399,7 +402,7 @@ public class CarregarTelas {
             case 250 -> new TelaSecao_250(secao).setVisible(true);//chamado por 185
             case 251 -> new TelaSecao_251(secao).setVisible(true);//chamado pela seção 142
             case 253 -> new TelaSecao_253(secao).setVisible(true);//chamado pela seção 206
-            case 254 -> new TelaSecao_254(secao).setVisible(true);//chamado pela seção 29
+            case 254 -> new TelaSecao_254(secao).setVisible(true);//chamado pela seção 29,226
             case 255 -> new TelaSecao_255(secao).setVisible(true);//chamado pela seção 14
             case 256 -> new TelaSecao_256(secao).setVisible(true); //chamado pela seção 17,89,172
             case 257 -> new TelaSecao_257(secao).setVisible(true); //chamado pela seção 110

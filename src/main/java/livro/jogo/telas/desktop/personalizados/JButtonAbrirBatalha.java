@@ -79,7 +79,7 @@ public class JButtonAbrirBatalha {
                     btInimigo.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA.getEnderecoImagem(),
                             btInimigo.getWidth(), btInimigo.getHeight()).getImageIcon());
 
-                    if ( !secao.getEnderecoImagem().isEmpty() )
+                    if ( (secao.getEnderecoImagem() != null)  && (!secao.getEnderecoImagem().isEmpty()) )
                         enderecoImagemPainel = secao.getEnderecoImagem();
                     else
                         enderecoImagemPainel = DadosLivroCarregado.getLivro().getImagemComplementar();
