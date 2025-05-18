@@ -13,7 +13,8 @@
 		"idInimigo":"43",
 		"nome":"GHOUL",
 		"habilidade":"9",
-		"energia":"7"
+		"energia":"8",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/ghoul.png"
 	}
   ]
 }
