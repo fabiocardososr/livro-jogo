@@ -508,6 +508,7 @@ public class CarregarTelas {
             case 390 -> new TelaSecao_390(secao).setVisible(true);//chamado pela seção 33,166,184
             case 392 -> new TelaSecao_392(secao).setVisible(true);//chamado pela seção 8
             case 394 -> new TelaSecao_394(secao).setVisible(true);//chamado pela seção 105
+            case 396 -> new TelaSecao_396(secao).setVisible(true);
             case 397 -> new TelaSecao_397(secao).setVisible(true);//chamado pela seção 51
             case 398 -> new TelaSecao_398(secao).setVisible(true);//chamado pela seção 61
             case 399 -> new TelaSecao_399(secao).setVisible(true);//chamado pela seção 54

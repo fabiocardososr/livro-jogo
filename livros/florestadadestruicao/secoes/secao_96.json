@@ -14,21 +14,21 @@
 		"nome":"Cão",
 		"habilidade":"6",
 		"energia":"6",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_1.png"
 	},
 	{
 		"idInimigo":"19",
 		"nome":"Cão",
 		"habilidade":"5",
 		"energia":"6",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_2.png"
 	},
 	{
 		"idInimigo":"20",
 		"nome":"Cão",
 		"habilidade":"6",
 		"energia":"5",
-		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao.png"
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_3.png"
 	},
 	{
 		"idInimigo":"21",
