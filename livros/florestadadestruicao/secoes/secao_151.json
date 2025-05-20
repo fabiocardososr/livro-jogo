@@ -2,6 +2,7 @@
   "codSecaoLivro": "151",
   "texto": "\t\t\t\tO túnel termina numa entrada para uma caverna. Há uma cortina que tapa a entrada, e você não consegue ver lá dentro.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_151.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_151.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Puxar a cortina e entrar na caverna?",

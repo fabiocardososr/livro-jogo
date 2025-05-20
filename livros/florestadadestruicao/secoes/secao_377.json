@@ -17,13 +17,15 @@
 		"idInimigo":"67",
 		"nome":"PIGMEU",
 		"habilidade":"5",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/pigmeu_a.png"
 	},
 	{
 		"idInimigo":"68",
 		"nome":"PIGMEU",
 		"habilidade":"5",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/pigmeu_b.png"
 	}
   ]
 }
