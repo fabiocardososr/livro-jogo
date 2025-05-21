@@ -29,13 +29,13 @@ public class Testes {
         personagem.setQuantidadeOuro(5);
         //personagem.setHabilidadeAtual(1);
         personagem.setEnergiaAtual(10);
-        personagem.setSorteAtual(10);
+        personagem.setSorteAtual(1);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 118 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 229 );
         CarregarTelas.carregarSecao(secao);
 
 

@@ -198,7 +198,7 @@ public class CarregarTelas {
             case 42  -> new TelaSecao_42(secao).setVisible(true); //Perde sorte automaticamente
             case 43  -> new TelaSecao_43(secao).setVisible(true); //Chamado por 210 - 2 Inimigos e permite fuga
             case 44  -> new TelaSecao_44(secao).setVisible(true); //Perde energia. Chamado por 60
-            case 45  -> new TelaSecao_45(secao).setVisible(true); //Perde energia
+            case 45  -> new TelaSecao_45(secao).setVisible(true); //Chamado por 229 - Perde energia
             case 46  -> new TelaSecao_46(secao).setVisible(true); //Chamado por 192 - Perde sorte
             case 47  -> new TelaSecao_47(secao).setVisible(true); //Chamado por 158
             case 48  -> new TelaSecao_48(secao).setVisible(true);
@@ -318,7 +318,7 @@ public class CarregarTelas {
             case 162 -> new TelaSecao_162(secao).setVisible(true); //Chamado por 181
             case 163 -> new TelaSecao_163(secao).setVisible(true);//chamado pela seção 56
             case 164 -> new TelaSecao_164(secao).setVisible(true);
-            case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45 (inimigo Gremlin. Desvantagem -3 pontos)
+            case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45,229 (inimigo Gremlin. Desvantagem -3 pontos)
             case 166 -> new TelaSecao_166(secao).setVisible(true);// Perdeu moeda
             case 167 -> new TelaSecao_167(secao).setVisible(true);//chamado pela seção 132 (inimigo dragão)
             case 168 -> new TelaSecao_168(secao).setVisible(true);//chamado pela seção 55
@@ -382,6 +382,7 @@ public class CarregarTelas {
             case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108
             case 227 -> new TelaSecao_227(secao).setVisible(true); //chamado pelas seções 173
             case 228 -> new TelaSecao_228(secao).setVisible(true); //Equipar botas saltadoras(31)
+            case 229 -> new TelaSecao_229(secao).setVisible(true); //Testar sorte
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
