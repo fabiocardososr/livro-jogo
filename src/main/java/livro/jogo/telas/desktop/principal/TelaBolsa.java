@@ -208,16 +208,18 @@ public class TelaBolsa extends JDialog {
                 x = 60; //Volta para o início da (esquerda para a direita)
             }
 
-            ///Seção 192 - a espada se transforma em uma cenoura.
-            if ( (secao.getCodSecaoLivro() == 192) &&
-                    ( (item.getIdItem() == 10)  || (item.getIdItem() == 50)  ))
-                item = DadosLivroCarregado.recuperaItemDoJson(ItensMapeamento.CENOURA.getEnderecoJson());
+            if (secao != null) {
 
-            ///Seção 45 - O personagem joga a cenoura no gnomo, então ela não está na bolsa
-            if ( (secao.getCodSecaoLivro() == 46) &&
-                    ( (item.getIdItem() == 10)  || (item.getIdItem() == 50)  ))
-                continue;
+                ///Seção 192 - a espada se transforma em uma cenoura.
+                if ((secao.getCodSecaoLivro() == 192) &&
+                        ((item.getIdItem() == 10) || (item.getIdItem() == 50)))
+                    item = DadosLivroCarregado.recuperaItemDoJson(ItensMapeamento.CENOURA.getEnderecoJson());
 
+                ///Seção 45 - O personagem joga a cenoura no gnomo, então ela não está na bolsa
+                if ((secao.getCodSecaoLivro() == 46) &&
+                        ((item.getIdItem() == 10) || (item.getIdItem() == 50)))
+                    continue;
+            }
             //Criar imagem
             JLabelOpcoesTelaSecao imgItem = new JLabelOpcoesTelaSecao("", largura, altura,
                         ImagensDoLivroFlorestaDaDestruicao.CENOURA.getEnderecoImagem());
@@ -332,9 +334,12 @@ public class TelaBolsa extends JDialog {
         ///Poção Antiveneno(3)
         if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
 
+
             //Cada seção que a poção antiveneno é necessária
-            switch (secao.getCodSecaoLivro()){
-                case 16 -> consumiuItem = AcoesSecao_16.isConsumiuPocaoAntiveneno();
+            if (secao != null) {
+                switch (secao.getCodSecaoLivro()) {
+                    case 16 -> consumiuItem = AcoesSecao_16.isConsumiuPocaoAntiveneno();
+                }
             }
 
             if ( !consumiuItem )
