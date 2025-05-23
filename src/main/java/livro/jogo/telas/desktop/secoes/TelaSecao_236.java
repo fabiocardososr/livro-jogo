@@ -8,8 +8,8 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_233 extends TelaSecoesBasica {
-    public TelaSecao_233(Secao secao) {
+public class TelaSecao_236 extends TelaSecoesBasica {
+    public TelaSecao_236(Secao secao) {
         super(secao);
     }
 
@@ -60,7 +60,7 @@ public class TelaSecao_233 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override

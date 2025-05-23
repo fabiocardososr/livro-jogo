@@ -1,8 +1,9 @@
 
 {  	
   "codSecaoLivro": "236",
-  "texto": "A trilha termina à porta de uma casa de pedra com teto de palha. Uma placa sobre a porta de madeira diz: Arragon o Arquimago.",
+  "texto": "\t\t\t\tA trilha termina à porta de uma casa de pedra com teto de palha.\n\n\t\t\t\tUma placa sobre a porta de madeira diz: Arragon o Arquimago.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_236.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_236.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Entrar na casa?",

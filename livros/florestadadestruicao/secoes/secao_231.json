@@ -15,21 +15,24 @@
   "inimigos":[
 	{
 		"idInimigo":"44",
-		"nome":"GAVIÃO DA MORTE",
+		"nome":"Gavião",
 		"habilidade":"4",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gaviao_1.png"
 	},
 	{
 		"idInimigo":"45",
-		"nome":"GAVIÃO DA MORTE",
+		"nome":"Gavião",
 		"habilidade":"4",
-		"energia":"3"
+		"energia":"3",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gaviao_2.png"
 	},
 	{
 		"idInimigo":"46",
-		"nome":"GAVIÃO DA MORTE",
+		"nome":"Gavião",
 		"habilidade":"5",
-		"energia":"4"
+		"energia":"4",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gaviao_3.png"
 	}
   ]
 }

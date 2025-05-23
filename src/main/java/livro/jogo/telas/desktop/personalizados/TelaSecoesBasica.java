@@ -775,7 +775,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Configura clique na imagem para ampliar em uma nova tela
         JLabel labelImagemTempoaria = new JLabel();
-        labelImagemTempoaria.setBounds(0, 0, 590,715);
+        labelImagemTempoaria.setBounds(0, 0, 650,715);
 
 
         labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
@@ -1060,7 +1060,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Carrega uma tela de diálogo com uma imagem
     private JDialog carregaImagemEmUmaTela(){
         JDialog dialogImagem = new JDialog(this,"",false);
-        dialogImagem.setSize(new Dimension(590,715));
+        dialogImagem.setSize(new Dimension(650,715));
         dialogImagem.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
         dialogImagem.setResizable(false);
         dialogImagem.getContentPane().setBackground(new Color(210,180,140));

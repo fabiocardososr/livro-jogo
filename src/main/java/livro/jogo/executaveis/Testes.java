@@ -35,7 +35,7 @@ public class Testes {
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 230 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 236 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -126,7 +126,7 @@ public class Testes {
                 "livros/florestadadestruicao/itens/item_10.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_31.json"));
+                "livros/florestadadestruicao/itens/item_13.json"));
 
 
         return bolsa;
