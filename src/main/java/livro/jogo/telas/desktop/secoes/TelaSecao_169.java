@@ -29,6 +29,7 @@ public class TelaSecao_169 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
                 AcoesSecao_169.perde2DeHabilidade();
+                AcoesSecao_169.colocaCaixaNaBolsa();
                 atualizaIndicesNaTelaDoPersonagem();
             }
 
@@ -169,7 +170,7 @@ public class TelaSecao_169 extends TelaSecoesBasica {
             return;
 
         //Se personagem morto, fecha a tela de seção e abre a principal
-        personagemVivo( AcoesSecao_22.rolarUmDadoDefineQuantoDeEnergiaPerdeERetornaSeVivo() );
+        personagemVivo( AcoesSecao_169.rolarUmDadoDefineQuantoDeEnergiaPerdeERetornaSeVivo() );
 
         //Atualiza label que mostra os níveis de habilidade, sorte e energia do personagem na tela
         atualizaIndicesNaTelaDoPersonagem();

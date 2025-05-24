@@ -2,6 +2,7 @@
   "codSecaoLivro": "313",
   "texto": "\t\t\t\tNão há muita coisa de interesse a ser encontrada na caverna. Uma cama de palha, vasos de pedra, uma mesa e uma cadeira são tudo que está imediatamente visível, mas, numa prateleira de pedra, logo acima da cama, uma pequena caixa de prata chama sua atenção.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_313.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_263_313.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Quer abrir a caixa de prata?",

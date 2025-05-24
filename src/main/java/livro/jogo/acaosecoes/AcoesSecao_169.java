@@ -1,8 +1,10 @@
 package livro.jogo.acaosecoes;
 
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilPersonagem;
 
 public class AcoesSecao_169 {
@@ -34,5 +36,10 @@ public class AcoesSecao_169 {
                 ",\n\nseu corpo resistiu ao gás venenoso. Mas perde "+ resultadoDoisDado +" de energia.");
 
         return true;
+    }
+
+    public static void colocaCaixaNaBolsa(){
+        if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()) )
+            UtilBolsa.incluirItem(ItensMapeamento.CAIXA_DE_PRATA);
     }
 }

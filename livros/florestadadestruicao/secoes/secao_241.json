@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "241",
-  "texto": "À medida em que vai abrindo caminho entre as árvores na direção dos grunhidos, você subitamente dá de cara com um enorme URSO pardo. Há um pequeno dardo cravado em seu peito, e ele parece estar enlouquecido de dor e raiva.\nVocê desembainha sua espada e se prepara para lutar.",
+  "texto": "\t\t\t\tÀ medida em que vai abrindo caminho entre as árvores na direção dos grunhidos, você subitamente dá de cara com um enorme URSO pardo.\n\n\t\t\t\tHá um pequeno dardo cravado em seu peito, e ele parece estar enlouquecido de dor e raiva.\n\n\t\t\t\tVocê desembainha sua espada e se prepara para lutar.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_241.mp3",
   "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_241.png",
   "proximasSecoes": [
@@ -15,7 +15,8 @@
 		"idInimigo":"47",
 		"nome":"URSO",
 		"habilidade":"7",
-		"energia":"8"
+		"energia":"8",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_241.png"
 	}
   ]
   }

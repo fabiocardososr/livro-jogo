@@ -60,7 +60,7 @@ public class TelaSecao_236 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
             }
 
             @Override

@@ -10,7 +10,6 @@ import livro.jogo.utils.DadosLivroCarregado;
 
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Testes {
     public static void main(String[] args) {
@@ -29,13 +28,13 @@ public class Testes {
         personagem.setQuantidadeOuro(5);
         //personagem.setHabilidadeAtual(1);
         personagem.setEnergiaAtual(10);
-        personagem.setSorteAtual(1);
+        personagem.setSorteAtual(5);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 236 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 24 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -125,8 +124,8 @@ public class Testes {
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_10.json"));
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_13.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_4.json"));
 
 
         return bolsa;
