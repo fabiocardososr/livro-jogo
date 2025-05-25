@@ -238,11 +238,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if ( mapItens.isEmpty() ){
 
                     /// trata o posicionamento de acordo com a quantidade de itens a serem descartados
-                    /// Exemplo, na seção 14,271,129 é apenas 1 item então posiciona mais ou menos no centro da tela
+                    /// Exemplo, na seção 14,271,129,218,242 é apenas 1 item então posiciona mais ou menos no centro da tela
                     /// os demais posiciona o primeiro item à esquerda
                     ///e depois o espaçamento de 50 entre eles
                     switch ( secao.getCodSecaoLivro() ) {
-                        case 14, 271,129,218 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
+                        case 14, 271,129,218,242 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
                         default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
                     }
                 }else {
@@ -481,6 +481,12 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Seção 271 é necessário pagar para obter informações do Gnomo
         if (secao.getCodSecaoLivro() == 271) {
             CarregarTelas.telaMensagem("Pagamento efetuado ao ganancioso Gnomo.");
+        }
+
+        //Ao descartar um item, ganha-se o lingote de ouro.
+        if (secao.getCodSecaoLivro() == 242){
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            UtilBolsa.incluirItem(ItensMapeamento.LINGOTE_DE_OURO);
         }
     }
 

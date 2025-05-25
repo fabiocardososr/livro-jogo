@@ -34,7 +34,7 @@ public class Testes {
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 24 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 242 );
         CarregarTelas.carregarSecao(secao);
 
 

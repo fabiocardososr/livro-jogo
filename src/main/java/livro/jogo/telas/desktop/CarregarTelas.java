@@ -274,7 +274,7 @@ public class CarregarTelas {
             case 118 -> new TelaSecao_118(secao).setVisible(true); //chamado pela seção 97 (inimigo javali selvagem)
             case 119 -> new TelaSecao_119(secao).setVisible(true);
             case 120 -> new TelaSecao_120(secao).setVisible(true);//chamado pela seção 3
-            case 121 -> new TelaSecao_121(secao).setVisible(true);
+            case 121 -> new TelaSecao_121(secao).setVisible(true); //Chamado por 242
             case 122 -> new TelaSecao_122(secao).setVisible(true);
             case 123 -> new TelaSecao_123(secao).setVisible(true);//chamado pela seção 114 (1 inimigo e tem fuga)
             case 124 -> new TelaSecao_124(secao).setVisible(true);//chamado pela seção 109
@@ -395,13 +395,13 @@ public class CarregarTelas {
             case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41,160
             case 240 -> new TelaSecao_240(secao).setVisible(true); //Verifica Filtros Nasais
             case 241 -> new TelaSecao_241(secao).setVisible(true); //Inimigo Urso
+            case 242 -> new TelaSecao_242(secao).setVisible(true); //chamado pela seção 165 - Escolhe item para descartar e ganhar um lingote de ouro
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 242 -> new TelaSecao_242(secao).setVisible(true); //chamado pela seção 165
             case 243 -> new TelaSecao_243(secao).setVisible(true); //chamado pela seção 191
             case 245 -> new TelaSecao_245(secao).setVisible(true);//chamado pela seção 84,146
             case 248 -> new TelaSecao_248(secao).setVisible(true);//chamado pela seção 215
