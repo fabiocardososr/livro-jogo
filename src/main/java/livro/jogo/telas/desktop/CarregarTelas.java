@@ -186,7 +186,7 @@ public class CarregarTelas {
             case 30  -> new TelaSecao_30(secao).setVisible(true); //perda de energia
             case 31  -> new TelaSecao_31(secao).setVisible(true); //chamado por 110
             case 32  -> new TelaSecao_32(secao).setVisible(true); //perda de sorte, perde moedas e perde 2 itens
-            case 33  -> new TelaSecao_33(secao).setVisible(true);
+            case 33  -> new TelaSecao_33(secao).setVisible(true); //Chamado por 243
             case 34  -> new TelaSecao_34(secao).setVisible(true); //Ganho de Habilidade, Energia ou Sorte.
             case 35  -> new TelaSecao_35(secao).setVisible(true); //Perde energia.
             case 36  -> new TelaSecao_36(secao).setVisible(true); //Perde itens ou moedas.
@@ -319,7 +319,7 @@ public class CarregarTelas {
             case 163 -> new TelaSecao_163(secao).setVisible(true);//chamado pela seção 56
             case 164 -> new TelaSecao_164(secao).setVisible(true);
             case 165 -> new TelaSecao_165(secao).setVisible(true);//chamado pela seção 45,229 (inimigo Gremlin. Desvantagem -3 pontos)
-            case 166 -> new TelaSecao_166(secao).setVisible(true);// Perdeu moeda
+            case 166 -> new TelaSecao_166(secao).setVisible(true);//Chamado por 243 - Perdeu moeda
             case 167 -> new TelaSecao_167(secao).setVisible(true);//chamado pela seção 132 (inimigo dragão)
             case 168 -> new TelaSecao_168(secao).setVisible(true);//chamado pela seção 55
             case 169 -> new TelaSecao_169(secao).setVisible(true); //Chamado por 240 - perde habilidade e Energia de acordo com rolagem de dados
@@ -396,13 +396,14 @@ public class CarregarTelas {
             case 240 -> new TelaSecao_240(secao).setVisible(true); //Verifica Filtros Nasais
             case 241 -> new TelaSecao_241(secao).setVisible(true); //Inimigo Urso
             case 242 -> new TelaSecao_242(secao).setVisible(true); //chamado pela seção 165 - Escolhe item para descartar e ganhar um lingote de ouro
+            case 243 -> new TelaSecao_243(secao).setVisible(true); //chamado pela seção 191 - Pergunta se quer doar 1 moeda ao frade
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 243 -> new TelaSecao_243(secao).setVisible(true); //chamado pela seção 191
+
             case 245 -> new TelaSecao_245(secao).setVisible(true);//chamado pela seção 84,146
             case 248 -> new TelaSecao_248(secao).setVisible(true);//chamado pela seção 215
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5, 152
