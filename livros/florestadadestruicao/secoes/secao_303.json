@@ -13,7 +13,8 @@
 		"idInimigo":"58",
 		"nome":"PTERODÁCTILO",
 		"habilidade":"7",
-		"energia":"8"
+		"energia":"8",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/pterodactilo.png"
 	}
   ]
 }
