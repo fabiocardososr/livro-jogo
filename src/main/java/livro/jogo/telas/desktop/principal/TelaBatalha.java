@@ -6,10 +6,10 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.AcoesBatalha;
-import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,6 +42,8 @@ public class TelaBatalha extends JDialog {
     /* Setado pela função turnoDeBatalha() (classe AcoesBatalha)
        informa que terminou o turno de combate e tem a opção de usar a sorte.*/
     private boolean podeUsarASorte = false;
+    private boolean podeUsarEspecialEscudoDeFerro;
+    private boolean possuiEscudoFerro28;
 
     public TelaBatalha(Inimigo inimigoSecao, TelaSecoesBasica telaPai, JPanel panelBotao) {
         this.inimigoSecao    = inimigoSecao;
@@ -63,6 +65,9 @@ public class TelaBatalha extends JDialog {
         setCursor(null);
         setBackground(new Color(0,0,0,0));
 
+        //Verifica se possui Escudo de Ferro (item=28).
+        possuiEscudoFerro28 = UtilItemEquipado.verificaSeItemEquipado(28);
+
         /* Carregar componentes da tela */
 
         //Carrega botão de aumento/diminuição de velocidade do turno
@@ -72,6 +77,12 @@ public class TelaBatalha extends JDialog {
         telaMensagemSuspensaBotaoSorte();
         carregaBotaoSorte();
         carregaBotaoFuga();
+
+        /* Se escudo de ferro do imperador (item=28) mostra opção de rolar dados.
+           REGRA: Se o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto*/
+        if ( possuiEscudoFerro28 )
+            carregaBotaoEspecialEscudoFerroItem28();
+
         carregaPainelResultadoBatalha();
         carregaEnergiaSortePersonagem();
         carregaEnergiaInimigo();
@@ -398,6 +409,72 @@ public class TelaBatalha extends JDialog {
         add(botaoFuga);
     }
 
+    private void carregaBotaoEspecialEscudoFerroItem28() {
+        int largura = 60;
+        int altura  = 60;
+        int posicaoX = 620;
+        int posicaoY = 575;
+
+        //Botão que exibe regra do Escudo de ferro item 28
+        var texto = "<html><center>Especial Escudo de Ferro"+
+                "<br><br>Se resultado da rolagem = 4, 5 ou 6:<br>Dano será reduzido em 1 ponto."+
+                "</center></html>";
+        botaoMostraRegras(posicaoX+50, posicaoY+45, texto);
+
+        JLabelOpcoesTelaSecao botaoEspecialEscudoDeFerro = new JLabelOpcoesTelaSecao(null,
+                largura,altura,
+                ImagensDoLivroFlorestaDaDestruicao.UM_DADO);
+        botaoEspecialEscudoDeFerro.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoEspecialEscudoDeFerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoEspecialEscudoDeFerro.setBounds(posicaoX,posicaoY, largura,altura);
+        botaoEspecialEscudoDeFerro.setToolTipText("REGRA: Resultado 4, 5 ou 6 os danos causados a você serão reduzidos em 1 ponto.");
+        botaoEspecialEscudoDeFerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoEspecialEscudoDeFerro.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( labelInfoRodada.isEnabled() )
+
+                    if ( (podeUsarEspecialEscudoDeFerro) && (labelInfoRodada.isEnabled()) ){
+                        if ( acoesBatalha.testarDefesaEscudoDeFerroItem28() ) {
+                            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                    ",\n\nSucesso no teste com o escudo. Será reduzido em 1 ponto seu dano.");
+                            UtilPersonagem.recuperaEnergia(1);
+                            atualizarIndicesPersonagemInimigo();
+                            podeUsarEspecialEscudoDeFerro = false;
+                        }
+
+                    }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoEspecialEscudoDeFerro.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.UM_DADO_SELECIONADO.getEnderecoImagem(),
+                        botaoEspecialEscudoDeFerro.getWidth(), botaoEspecialEscudoDeFerro.getHeight()).getImageIcon());
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoEspecialEscudoDeFerro.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.UM_DADO.getEnderecoImagem(),
+                        botaoEspecialEscudoDeFerro.getWidth(), botaoEspecialEscudoDeFerro.getHeight()).getImageIcon());
+                repaint();
+            }
+        });
+
+        //botaoFuga.setBorder(BorderFactory.createLineBorder(Color.RED));
+        add(botaoEspecialEscudoDeFerro);
+    }
+
     private void carregaEnergiaInimigo() {
         int largura = 95;
         int altura = 30;
@@ -627,6 +704,11 @@ public class TelaBatalha extends JDialog {
 
             //Lógica de um turno de batalha
             resultadoBatalha = acoesBatalha.turnoDeBatalha();
+
+            if ( (possuiEscudoFerro28) && (resultadoBatalha == ResultadoBatalha.PERSONAGEM_PERDEU_TURNO) )
+                podeUsarEspecialEscudoDeFerro = true;
+            else
+                podeUsarEspecialEscudoDeFerro = false;
 
             //Se o personagem morreu
             if (resultadoBatalha == ResultadoBatalha.PERSONAGEM_MORTO) {

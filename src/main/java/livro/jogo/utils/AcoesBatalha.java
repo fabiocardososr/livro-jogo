@@ -259,14 +259,17 @@ public class AcoesBatalha {
 
             }
         }
+
+
         /// INIMIGO GANHA TURNO DE BATALHA
         else if (forcaDeAtaqueInimigo > forcaDeAtaquePersonagem) {
             resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_PERDEU_TURNO;
 
             util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/dor.mp3", null);
             mensagemComDelay(milisegundos,"<html><center>Inimigo o atinge</center></html>");
-            personagemVivo = UtilPersonagem.personagemPerdeEnergia(2);
 
+            //Regra é perder 2 pontos de energia por turno de batalha não vencido.
+            personagemVivo = UtilPersonagem.personagemPerdeEnergia(2);
 
             /*Se após dedução da energia do personagem o índice chegar a zero(NÃO abaixo de zero), existe
               a possibilidade de testar sorte e recupera 1 ponto e com isso evitar a morte do personagem ou
@@ -439,5 +442,11 @@ public class AcoesBatalha {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /// REGRA DO ESCUDO: Se o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto
+    public boolean testarDefesaEscudoDeFerroItem28() {
+        TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+        return new EfeitoDeItens(null).acoesDosItens(28);
     }
 }

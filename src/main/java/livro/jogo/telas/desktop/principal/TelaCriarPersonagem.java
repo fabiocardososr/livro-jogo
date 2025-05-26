@@ -400,7 +400,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
         botaoRolarDadosHabilidade.addMouseListener(acao);
         umDadoHabilidade = new JLabelOpcoesTelaSecao(null,45,40,
-                ImagensDoLivroFlorestaDaDestruicao.UM_DADOS);
+                ImagensDoLivroFlorestaDaDestruicao.UM_DADO);
         umDadoHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
         umDadoHabilidade.setBounds(174,225,50,45);
 
@@ -510,7 +510,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         //labelImgFundoIndice.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         umDadoSorte = new JLabelOpcoesTelaSecao(null,45,40,
-                ImagensDoLivroFlorestaDaDestruicao.UM_DADOS);
+                ImagensDoLivroFlorestaDaDestruicao.UM_DADO);
         umDadoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         umDadoSorte.setBounds(934,225,50,45);
 

@@ -22,14 +22,26 @@ public class EfeitoDeItens {
             case 3  -> efeitoItem_3();      //Poção Antiveneno
             case 12 -> efeitoItem_12();     //Braçadeira da Força
             case 10 -> efeitoItem_10();     //Espada magnífica
+            case 28 -> efeitoItem_28();     //Escudo de ferro(imperador)
             case 45 -> efeitoItem_45();     //Poção de Habilidade
             case 46 -> efeitoItem_46();     //Poção de força
             case 47 -> efeitoItem_47();     //Poção de Fortuna
             case 49 -> efeitoItem_49();     //Provisões (comida)
             case 50 -> efeitoItem_50();     //Espada comum (inicial)
             case 54 -> efeitoItem_54();     //Elmo
+
             default -> false;
         };
+    }
+
+    /// REGRA DO ESCUDO: Se o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto
+    private boolean efeitoItem_28() {
+        var resultadoDado = Util.rolarDados(6,1);
+
+        if (resultadoDado >= 4)
+            return true;
+        else
+            return false;
     }
 
     private boolean efeitoItem_54() {

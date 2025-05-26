@@ -17,4 +17,15 @@ public class UtilItemEquipado {
 
         itensEquipados.removeIf(item -> item.getIdItem() == idItem);
     }
+
+    public static boolean verificaSeItemEquipado(int idItem){
+
+        for (Item item : itensEquipados){
+            if ( item.getIdItem() == idItem ){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
