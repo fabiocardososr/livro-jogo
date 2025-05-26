@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "247",
-  "texto": "O abjeto Pterodáctilo jaz no solo numa massa desconjuntada, no lugar onde caiu depois do golpe fatal de sua espada. Caminhando até ele, você repara numa flecha amarela pintada no capim ao lado da trilha, apontando para o oeste.",
+  "texto": "\t\t\t\tO abjeto Pterodáctilo jaz no solo numa massa desconjuntada, no lugar onde caiu depois do golpe fatal de sua espada.\n\n\t\t\t\tCaminhando até ele, você repara numa flecha amarela pintada no capim ao lado da trilha, apontando para o oeste.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_247.mp3",
   "proximasSecoes": [
     {	  

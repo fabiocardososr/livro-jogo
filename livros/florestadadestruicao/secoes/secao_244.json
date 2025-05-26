@@ -1,11 +1,11 @@
 
 {  	
   "codSecaoLivro": "244",
-  "texto": "Os efeitos da febre finalmente desaparecem, e você adormece outra vez, aliviado. De manhã, você recolhe seus pertences, ruma para o norte ao longo da trilha para as colinas.",
+  "texto": "\t\t\t\tOs efeitos da febre finalmente desaparecem, e você adormece outra vez, aliviado.\n\n\t\t\t\tDe manhã, você recolhe seus pertences, ruma para o norte ao longo da trilha para as colinas.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_244.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Siga para o norte ao longo da trilha para as colinas.",
       "codProximaSecao": "198"
     }
   ]
