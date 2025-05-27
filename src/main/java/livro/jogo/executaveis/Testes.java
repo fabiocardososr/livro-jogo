@@ -34,7 +34,7 @@ public class Testes {
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 251 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 178 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -110,9 +110,9 @@ public class Testes {
 //
 //
 //       //Provisão
-//        for (int i=1; i<=5; i++)
-//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//               "livros/florestadadestruicao/itens/item_49.json"));
+        for (int i=1; i<=5; i++)
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
