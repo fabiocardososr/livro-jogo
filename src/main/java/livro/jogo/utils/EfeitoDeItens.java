@@ -37,6 +37,7 @@ public class EfeitoDeItens {
     /// REGRA DO ESCUDO: Se o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto
     private boolean efeitoItem_28() {
         var resultadoDado = Util.rolarDados(6,1);
+        //System.out.println("resultadoDado:" + resultadoDado);
 
         if (resultadoDado >= 4)
             return true;

@@ -16,8 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_73 extends TelaSecoesBasica {
-    JLabel textoBotaoTeste;
-    boolean testeRealizado = false;
+    private JLabel textoBotaoTeste;
+    private boolean testeRealizado = false;
 
     public TelaSecao_73(Secao secao) {
         super(secao);

@@ -65,7 +65,8 @@ public class TelaBatalha extends JDialog {
         setCursor(null);
         setBackground(new Color(0,0,0,0));
 
-        //Verifica se possui Escudo de Ferro (item=28).
+        /* Verifica se possui Escudo de Ferro (item=28) que dá
+          opção de rolagem de dado para reduzir o dano em 1 ponto.*/
         possuiEscudoFerro28 = UtilItemEquipado.verificaSeItemEquipado(28);
 
         /* Carregar componentes da tela */
@@ -436,13 +437,16 @@ public class TelaBatalha extends JDialog {
 
                     if ( (podeUsarEspecialEscudoDeFerro) && (labelInfoRodada.isEnabled()) ){
                         if ( acoesBatalha.testarDefesaEscudoDeFerroItem28() ) {
-                            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
                                     ",\n\nSucesso no teste com o escudo. Será reduzido em 1 ponto seu dano.");
                             UtilPersonagem.recuperaEnergia(1);
                             atualizarIndicesPersonagemInimigo();
-                            podeUsarEspecialEscudoDeFerro = false;
                         }
-
+                        else {
+                            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                                    ",\n\nFalha! O escudo não foi capaz de aparar parte do dano.");
+                        }
+                        podeUsarEspecialEscudoDeFerro = false;
                     }
             }
 

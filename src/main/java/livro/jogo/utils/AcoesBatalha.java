@@ -326,7 +326,14 @@ public class AcoesBatalha {
         if (  (inimigoVivo) && (personagemVivo) && (personagem.getSorteAtual() > 0) &&
                 (resultadoTurnoBatalha != ResultadoBatalha.EMPATE_TURNO) && ( !sorteJaUsada ) ) {
             telaBatalha.podeUsarASorte();
-            mensagemComDelay(1000, "<html><center>Você pode testar a sorte<center><html>");
+
+            //Caso possua o escudo de ferro avisa que pode usar sedu efeito
+            String complementoMsg = "";
+            if ( (UtilItemEquipado.verificaSeItemEquipado(28)) &&
+                    (resultadoTurnoBatalha == ResultadoBatalha.PERSONAGEM_PERDEU_TURNO) )
+                complementoMsg = " e usar efeito do escudo.";
+
+            mensagemComDelay(1000, "<html><center>Você pode testar a sorte"+complementoMsg+"<center><html>");
         }
 
         return resultadoTurnoBatalha;
