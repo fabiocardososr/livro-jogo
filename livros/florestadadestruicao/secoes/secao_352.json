@@ -17,7 +17,8 @@
 		"idInimigo":"66",
 		"nome":"HOMEM-MACACO",
 		"habilidade":"8",
-		"energia":"7"
+		"energia":"7",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/homem_macaco.png"
 	}
   ]
 }

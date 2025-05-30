@@ -1,14 +1,14 @@
 {  	
   "codSecaoLivro": "259",
-  "texto": "\t\t\t\tVocê sente uma sensação de ardência no interior do seu corpo, enquanto mergulha numa febre furiosa.\n\n\t\t\t\tVocê pode estar prestes a se tornar você mesmo um Lobisomem!\n\n\t\t\t\tPor isso, perde 3 pontos de ENERGIA e tem que Testar a sua Sorte, se ainda estiver vivo.",
+  "texto": "\t\t\t\tVocê sente uma sensação de ardência no interior do seu corpo, enquanto mergulha numa febre furiosa.\n\n\t\t\t\tVocê pode estar prestes a se tornar você mesmo um Lobisomem!\n\n\t\t\t\tPor isso, perde 3 pontos de ENERGIA e tem que testar a sua sorte, se ainda estiver vivo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_259.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "No teste de sorte, Caso o número obtido seja igual ou menor do que o seu índice de SORTE, sua febre vai diminuindo.",
+      "textoOpcao": "Sucesso no Teste de Sorte. Continue.",
       "codProximaSecao": "244"
     },
 	{	  
-      "textoOpcao": "No teste de sorte, Se o número obtido for maior do que o seu índice de SORTE, a febre continua a tomar conta de seu corpo, e você fica apavorado ao ver pêlos grossos marrons aparecendo nas costas de suas mãos.\nO choque faz com que você perca mais 2 pontos de ENERGIA.\nSe ainda estiver vivo, volte para",
+      "textoOpcao": "Falha no Teste de Sorte. Continue.",
       "codProximaSecao": "19"
     }
   ]

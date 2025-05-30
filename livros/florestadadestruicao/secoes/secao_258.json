@@ -2,9 +2,10 @@
   "codSecaoLivro": "258",
   "texto": "\t\t\t\tVocê remexe na sua mochila e tira a minúscula flauta de metal. Você tem a estranha sensação de que tem de tocá-la agora, diante do furioso Dragão Alado.\n\n\t\t\t\tAo fazê-lo, um som suave e delicado flui da flauta, e um olhar de curiosidade aparece no rosto do Dragão Alado. Sua boca fecha, e as pálpebras começam a se fechar.\n\n\t\t\t\tVocê está tocando uma mágica Flauta do Sono do Dragão, e a fera não tem forças para resistir à sua canção tranquilizante.\n\n\t\t\t\tPouco a pouco, o Dragão Alado vai se deitando no chão e logo está dormindo a sono solto.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_258.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_258.png",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Continue.",
       "codProximaSecao": "305"
     }
   ]
