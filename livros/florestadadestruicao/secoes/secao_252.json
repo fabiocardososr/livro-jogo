@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "252",
-  "texto": "Você chega a um cruzamento de quatro caminhos na trilha. O que vai para o sul conduz de volta à floresta, portanto você descarta esta alternativa.",
+  "texto": "\t\t\t\tVocê chega a um cruzamento de quatro caminhos na trilha.\n\n\t\t\t\tO que vai para o sul conduz de volta à floresta, portanto você descarta esta alternativa.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_252.mp3",
   "proximasSecoes": [
     {	  

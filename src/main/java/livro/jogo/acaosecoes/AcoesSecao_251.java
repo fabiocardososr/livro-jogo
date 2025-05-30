@@ -20,7 +20,7 @@ public class AcoesSecao_251 {
 
         //Simula a rolage 2 dados
         var resultadoDoisDados  = Util.rolarDados(6,2);
-
+System.out.println(resultadoDoisDados);
         //Faz a comparação seguindo as regras da seção
         if ( resultadoDoisDados <= habilidadeAtualPersonagem ) {
             new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
