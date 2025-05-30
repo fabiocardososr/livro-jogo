@@ -330,8 +330,8 @@ public class CarregarTelas {
             case 174 -> new TelaSecao_174(secao).setVisible(true); //chamado por 118 - grande anel de ouro (24) e ganha sorte
             case 175 -> new TelaSecao_175(secao).setVisible(true);
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9 - Cabo do martelo de guerra dos anões(25)
-            case 177 -> new TelaSecao_177(secao).setVisible(true);
-            case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142
+            case 177 -> new TelaSecao_177(secao).setVisible(true); //Chamado por 261
+            case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142,260
             case 179 -> new TelaSecao_179(secao).setVisible(true); //Equipa Elmo(54)
             case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124
             case 181 -> new TelaSecao_181(secao).setVisible(true);//inimigo homem-peixe
@@ -413,14 +413,14 @@ public class CarregarTelas {
             case 257 -> new TelaSecao_257(secao).setVisible(true); //chamado pela seção 110
             case 258 -> new TelaSecao_258(secao).setVisible(true); //chamado pela seção 132
             case 259 -> new TelaSecao_259(secao).setVisible(true); //chamado pela seção 155 perde 3 pontos de energia e testa sorte, sendo azarado perde mais 2 pontos de energia
+            case 260 -> new TelaSecao_260(secao).setVisible(true); //chamado pela seção 251
+            case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1,54 - Loja de itens de Yaztromo
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 260 -> new TelaSecao_260(secao).setVisible(true); //chamado pela seção 251
-            case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1,54
             case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217
             case 263 -> new TelaSecao_263(secao).setVisible(true);//chamado pela seção 232
             case 264 -> new TelaSecao_264(secao).setVisible(true);//chamado pela seção 69
