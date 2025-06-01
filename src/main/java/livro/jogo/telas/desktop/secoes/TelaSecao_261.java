@@ -1,13 +1,11 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
+import livro.jogo.telas.desktop.principal.LojaDoMago;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;
@@ -16,9 +14,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_261 extends TelaSecoesBasica {
+    private LojaDoMago lojaDoMago;
 
     public TelaSecao_261(Secao secao) {
         super(secao);
+
+        lojaDoMago = new LojaDoMago(0,0,1000,500,secao);
     }
 
     @Override
@@ -46,9 +47,7 @@ public class TelaSecao_261 extends TelaSecoesBasica {
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-
-
+                    abrirListaDeItensAVenda();
             }
 
             @Override
@@ -84,7 +83,7 @@ public class TelaSecao_261 extends TelaSecoesBasica {
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                abrirListaDeItensAVenda();
             }
 
             @Override
@@ -114,6 +113,12 @@ public class TelaSecao_261 extends TelaSecoesBasica {
 
         add(texto);
         add(botao);
+    }
+
+    private void abrirListaDeItensAVenda(){
+        lojaDoMago.setVisible(true);
+        lojaDoMago.getPanelListaItensAVenda().setVisible(true);
+        lojaDoMago.getPanelListaItensComprados().setVisible(true);
     }
 
     @Override
