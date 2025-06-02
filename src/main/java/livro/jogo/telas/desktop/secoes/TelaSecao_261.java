@@ -12,6 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class TelaSecao_261 extends TelaSecoesBasica {
     private LojaDoMago lojaDoMago;
@@ -20,6 +22,14 @@ public class TelaSecao_261 extends TelaSecoesBasica {
         super(secao);
 
         lojaDoMago = new LojaDoMago(0,0,1000,500,secao);
+
+        addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                lojaDoMago.dispose();
+            }
+        });
     }
 
     @Override
@@ -117,8 +127,6 @@ public class TelaSecao_261 extends TelaSecoesBasica {
 
     private void abrirListaDeItensAVenda(){
         lojaDoMago.setVisible(true);
-        lojaDoMago.getPanelListaItensAVenda().setVisible(true);
-        lojaDoMago.getPanelListaItensComprados().setVisible(true);
     }
 
     @Override
