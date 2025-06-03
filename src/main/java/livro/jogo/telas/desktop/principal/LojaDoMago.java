@@ -1,5 +1,6 @@
 package livro.jogo.telas.desktop.principal;
 
+import livro.jogo.acaosecoes.AcoesLojaDoMago;
 import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -9,6 +10,7 @@ import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilBolsa;
+import livro.jogo.utils.UtilItens;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -21,7 +23,7 @@ import java.util.HashMap;
 
 public class LojaDoMago extends JDialog {
     private JPanel panelListaItensAVenda;
-    private JPanel panelListaItensComprados;
+    private JPanel panelItemAserComprado;
     private DefaultListModel<ListItem> listaItensParaEscolha;
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
     private Secao secao;
@@ -29,6 +31,7 @@ public class LojaDoMago extends JDialog {
     private JPanel panelInfoItem; //Representa a tela suspensa de informação do item
     private JTextPane descricaoItem; //Na tela suspensa de informação
     private JLabel tituloTelaSuspensaInfo;
+    private JList<ListItem> jListItem;
 
     public LojaDoMago(int posicaoX, int posicaoY,
                       int largura, int altura, Secao secao) {
@@ -65,15 +68,15 @@ public class LojaDoMago extends JDialog {
 
         /*** Tela arredondda para visualizar item para compra ***/
 
-        //Painel que mostrará os itens comprados
-        panelListaItensComprados = new PanelCircular();
-        panelListaItensComprados.setLayout(null);
-        panelListaItensComprados.setBounds(posicaoX+590,posicaoY+57,250,230);
-        panelListaItensComprados.setBackground(new Color(0,0,0, 190));
+        //Painel que mostrará o item a ser comprado comprados
+        panelItemAserComprado = new PanelCircular();
+        panelItemAserComprado.setLayout(null);
+        panelItemAserComprado.setBounds(posicaoX+590,posicaoY+57,250,230);
+        panelItemAserComprado.setBackground(new Color(0,0,0, 190));
         //panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
 
 
-        //Fundo painel suspenso escolha (panelListaItensComprados)
+        //Fundo painel suspenso escolha
         JLabelOpcoesTelaSecao fundoPanelEscolha = new JLabelOpcoesTelaSecao(null,
                 273, 243, ImagensDoLivroFlorestaDaDestruicao.MOLDURA_CIRCULAR);
         fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,55 +84,9 @@ public class LojaDoMago extends JDialog {
         fundoPanelEscolha.setBounds(0,-2,250,230);
         //fundoPanelEscolha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        panelListaItensComprados.add(fundoPanelEscolha);
+        panelItemAserComprado.add(fundoPanelEscolha);
         /*** FIM: tela arredondda para visualizar item para compra ***/
 
-
-        //Cria um listModel para que possa iterar diretamente com o JList.
-        //Atualizando ele, automaticamente o JList muda
-        listaItensParaEscolha = new DefaultListModel<>();
-        for (ListItem listItem : UtilBolsa.retornaListaDeBensNaBolsa())
-            listaItensParaEscolha.addElement(listItem);
-
-        //Criando o JList de itens na bolsa
-        JList<ListItem> jListItem = new JList<>(listaItensParaEscolha);
-        jListItem.setCellRenderer(new ListaDeItensComImagem());
-        jListItem.setVisibleRowCount(5);
-        jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jListItem.setForeground(Color.WHITE);
-        jListItem.setBackground(new Color(0,0,0,0));
-        jListItem.setOpaque(false);
-        JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
-        scrollListaSuspensaDeItens.setBounds(posicaoX+95,posicaoY+143,largura-579,altura-187);
-        scrollListaSuspensaDeItens.setOpaque(false);
-        scrollListaSuspensaDeItens.getViewport().setOpaque(false);
-        //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        jListItem.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                cliqueEmItemDaLista();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
 
         ///Botão de confirmação
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
@@ -276,14 +233,69 @@ public class LojaDoMago extends JDialog {
         panelListaItensAVenda.add(botaoConfirmar);
         panelListaItensAVenda.add(lbBotaoSair);
         panelListaItensAVenda.add(botaoSair);
-        panelListaItensAVenda.add(scrollListaSuspensaDeItens);
+        panelListaItensAVenda.add( criarListaItens(posicaoX, posicaoY, largura, altura) );
         panelListaItensAVenda.add(fundoPanel);
 
-        tela.add(panelListaItensComprados);
+        tela.add(panelItemAserComprado);
         tela.add(panelListaItensAVenda);
 
         //Tela de info do item selecionado
         tela.add( telaInfoItem(posicaoX,posicaoY+50) );
+    }
+
+    private JScrollPane criarListaItens(int posicaoX, int posicaoY, int largura, int altura){
+
+        //Cria um listModel para que possa iterar diretamente com o JList.
+        //Atualizando ele, automaticamente o JList muda
+        listaItensParaEscolha = new DefaultListModel<>();
+        //Carregando os dados
+        for (ListItem listItem : AcoesLojaDoMago.retornaListaDeItensAVenda())
+            listaItensParaEscolha.addElement(listItem);
+
+        //Criando o JList de itens na bolsa
+        jListItem = new JList<>(listaItensParaEscolha);
+        //jListItem.setFont(new Font(Font.DIALOG,Font.BOLD,30));
+        jListItem.setCellRenderer(new ListaDeItensComImagem());
+        jListItem.setVisibleRowCount(5);
+        jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jListItem.setForeground(Color.WHITE);
+        jListItem.setBackground(new Color(0,0,0,0));
+        jListItem.setOpaque(false);
+        JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
+        //scrollListaSuspensaDeItens.setFont(new Font(Font.DIALOG,Font.BOLD,30));
+        scrollListaSuspensaDeItens.setBounds(posicaoX+95,posicaoY+143,largura-579,altura-187);
+        scrollListaSuspensaDeItens.setOpaque(false);
+        scrollListaSuspensaDeItens.getViewport().setOpaque(false);
+        //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        //jListItem.setFont(new Font(Font.DIALOG,Font.BOLD,30));
+        jListItem.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                selecionarItem();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        return scrollListaSuspensaDeItens;
     }
 
     private JPanel telaInfoItem(int posicaoX, int posicaoY){
@@ -342,22 +354,11 @@ public class LojaDoMago extends JDialog {
         return panelInfoItem;
     }
 
-
-    public JPanel getPanelListaItensAVenda() {
-        return panelListaItensAVenda;
-    }
-
-    public JPanel getPanelListaItensComprados() {
-        return panelListaItensComprados;
-    }
-
     //Inclui a imagem no panel de escolha suspensa e guarda em um hashmap
-    private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem, JList<ListItem> jListItem,
-                                      int espacoEntreItens) {
+    private Item itemSelecionadoParaCompra() {
 
-        /*
-        int posicaoX = 25 + espacoEntreItens;
-        int posicaoY = 80;
+        int posicaoX = 75;
+        int posicaoY = 60;
 
         //Recupera as informações do item
         Item item = UtilItens.retornaItem(jListItem.getSelectedValue().getIdItem());
@@ -365,59 +366,69 @@ public class LojaDoMago extends JDialog {
         //Se item já incluído não faça nada
         for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
             if (mapItens.get(key).getIdItem() == item.getIdItem())
-                return;
+                return null;
         }
 
-        //Para ajustar largura da imagem. Vai ser necessário para alguns itens (padrão é 60)
+        //Para ajustar largura da imagem. Vai ser necessário para alguns itens (padrão é 90)
         int largura = ajusteLargura(jListItem.getSelectedValue().getIdItem());
 
 
         //Cria o componente e incluir no panel
-        imagemItem = new JLabelOpcoesTelaSecao(null,
-                largura,70,item.getEnderecoImagem());
-        imagemItem.setBounds(posicaoX+espacoEntreItens,posicaoY,largura,70);
-        imagemItem.setName("REMOVER"); //caso precise resetar a escolha. Entrão esse marcador indica que pode remover do panel
+        JLabelOpcoesTelaSecao imagemItem = new JLabelOpcoesTelaSecao(null,
+                largura,90,item.getEnderecoImagem());
+        imagemItem.setBounds(posicaoX,posicaoY,largura,90);
+        imagemItem.setName("REMOVER"); //caso precise resetar a escolha. esse marcador indica que pode remover do panel
         imagemItem.setHorizontalAlignment(SwingConstants.CENTER);
-        panelListaItensEscolhidos.add(imagemItem);
+        panelItemAserComprado.add(imagemItem);
         //imagemItem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Guarda a referência do botão(item) para ser usado em seguida
         mapItens.put(imagemItem,item);
         repaint();
-        */
+
+        return item;
     }
 
-    private void cliqueEmItemDaLista() {
+    private void selecionarItem(){
+        Item item = itemSelecionadoParaCompra();
 
-        /*
-        //Se já escolhidos 2 itens
-        if (mapItens.size() == limiteDeEscolhaDeItens){
-            if (limiteDeEscolhaDeItens > 1)
-                CarregarTelas.telaMensagem("Os "+limiteDeEscolhaDeItens+
-                        " itens já foram escolhidos.\n\n"+
-                        "Se precisar, remova-os e faça novas escolhas.");
-            else
-                CarregarTelas.telaMensagem(limiteDeEscolhaDeItens+
-                        " item já foi escolhido.\n\n"+
-                        "Se precisar, remova-o e faça nova escolha.");
-
+        if (item == null)
             return;
+
+        descricaoItem.setText( item.getDescricao() );
+        tituloTelaSuspensaInfo.setText( item.getNome() );
+    }
+
+    private int ajusteLargura(int idItem) {
+        int larguraPadrao = 90;
+
+        switch (idItem){
+            case  5: return larguraPadrao - 10; //Chave de prata
+            case 10: return larguraPadrao + 10; //Espada Magnífica
+            case 16: return larguraPadrao - 10; //Poção Controle dos Insetos
+            case 25: return larguraPadrao - 20; //Cabo do Martelo de Guerra dos Anões
         }
 
-        if ( mapItens.isEmpty() ){
+        return larguraPadrao;
+    }
 
-            /// trata o posicionamento de acordo com a quantidade de itens a serem descartados
-            /// Exemplo, na seção 14,271,129,218,242 é apenas 1 item então posiciona mais ou menos no centro da tela
-            /// os demais posiciona o primeiro item à esquerda
-            ///e depois o espaçamento de 50 entre eles
-            switch ( secao.getCodSecaoLivro() ) {
-                case 14, 271,129,218,242 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
-                default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
+    private void removerItemSelecionado(){
+
+            //Limpar o hashmap coim os itens selecionados
+            //mapItens.clear();
+
+            //Removendo todos os componentes menos o fundo (imagem) circular
+            Component[] components = panelItemAserComprado.getComponents();
+            for (Component component : components) {
+
+                if (component.getName() == null)
+                    continue;
+
+                if ( component.getName().equals("REMOVER") ) {
+                    panelItemAserComprado.remove(component);
+                }
             }
-        }else {
-            incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
-        }
-        */
+            repaint();
     }
 
     private void limparPanelEscolhaItensASeremDescartados(){
@@ -426,14 +437,14 @@ public class LojaDoMago extends JDialog {
         mapItens.clear();
 
         //Removendo todos os componentes menos o fundo (imagem) circular
-        Component[] components = panelListaItensComprados.getComponents();
+        Component[] components = panelItemAserComprado.getComponents();
         for (Component component : components) {
 
             if (component.getName() == null)
                 continue;
 
             if ( component.getName().equals("REMOVER") ) {
-                panelListaItensComprados.remove(component);
+                panelItemAserComprado.remove(component);
             }
         }
         repaint();

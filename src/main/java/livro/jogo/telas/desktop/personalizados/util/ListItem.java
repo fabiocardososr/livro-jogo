@@ -11,11 +11,19 @@ public class ListItem {
     private int idItem;
     private String nomeItem;
     private Icon imagemItem;
+    private int valorCusto;
 
     public ListItem(int idItem, String nomeItem, Icon imagemItem) {
         this.idItem = idItem;
         this.nomeItem = nomeItem;
         this.imagemItem = imagemItem;
+    }
+
+    public ListItem(int idItem, String nomeItem, Icon imagemItem, int valorCusto) {
+        this.idItem = idItem;
+        this.nomeItem = nomeItem;
+        this.imagemItem = imagemItem;
+        this.valorCusto = valorCusto;
     }
 
     public int getIdItem() {
@@ -28,5 +36,9 @@ public class ListItem {
 
     public Icon getImagemItem() {
         return imagemItem;
+    }
+
+    public int getValorCusto() {
+        return valorCusto;
     }
 }
