@@ -42,6 +42,15 @@ public class UtilBolsa {
         }
     }
 
+    public static boolean incluirItem(Item item){
+        try {
+            bolsa.add(item);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     //Remove item da bolsa passando apenas o código do item
     public static void removerItem(int idItem){
 

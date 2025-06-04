@@ -2,21 +2,23 @@ package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.acaosecoes.AcoesLojaDoMago;
 import livro.jogo.entidades.Item;
+import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.PanelCircular;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilBolsa;
-import livro.jogo.utils.UtilItens;
+import livro.jogo.utils.*;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 public class LojaDoMago extends JDialog {
     private JPanel panelListaItensAVenda;
     private JPanel panelItemAserComprado;
+    private JPanel panelItemAserCompradoCusto;
     private DefaultListModel<ListItem> listaItensParaEscolha;
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
     private Secao secao;
@@ -32,12 +35,18 @@ public class LojaDoMago extends JDialog {
     private JTextPane descricaoItem; //Na tela suspensa de informação
     private JLabel tituloTelaSuspensaInfo;
     private JList<ListItem> jListItem;
+    private Item itemSelecionado;
+    private JLabel lbCusto;
+    private TelaSecoesBasica telaSecao;
+    private JLabel lbBotaoConfirmar;  //Usado para informar quando o item não pode ser adquirido uma segunda vez
 
     public LojaDoMago(int posicaoX, int posicaoY,
-                      int largura, int altura, Secao secao) {
+                      int largura, int altura, Secao secao, TelaSecoesBasica telaSecao) {
 
 
         this.secao = secao;
+        this.telaSecao = telaSecao;
+
 
         /* CRIAÇÃO DOS COMPONENTES VISUAIS */
 
@@ -62,6 +71,7 @@ public class LojaDoMago extends JDialog {
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
                 larguraListaItensAVenda, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
         fundoPanel.setBounds(0,50,larguraListaItensAVenda,altura);
+        fundoPanel.setCursor(null);
         //fundoPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         /**** FIM: Painel que incorporará a lista de itens da bolsa ****/
 
@@ -82,16 +92,13 @@ public class LojaDoMago extends JDialog {
         fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
         fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
         fundoPanelEscolha.setBounds(0,-2,250,230);
+        fundoPanelEscolha.setCursor(null);
         //fundoPanelEscolha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        panelItemAserComprado.add(fundoPanelEscolha);
-        /*** FIM: tela arredondda para visualizar item para compra ***/
-
 
         ///Botão de confirmação
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
                 100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoConfirmar.setBounds(posicaoX+120,posicaoY+470,100,60);
+        botaoConfirmar.setBounds(posicaoX+75,posicaoY+175,100,60);
         botaoConfirmar.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -126,12 +133,66 @@ public class LojaDoMago extends JDialog {
         });
 
         ///label do botaoConfirmar
-        JLabel lbBotaoConfirmar = new JLabel("OK");
+        lbBotaoConfirmar = new JLabel("Comprar");
         lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         lbBotaoConfirmar.setForeground(new Color(139,0,0));
         lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoConfirmar.setBounds(posicaoX+145,posicaoY+486,50,20);
+        lbBotaoConfirmar.setBounds(posicaoX+93,posicaoY+191,65,20);
         lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        panelItemAserComprado.add(lbBotaoConfirmar);
+        panelItemAserComprado.add(botaoConfirmar);
+        panelItemAserComprado.add(fundoPanelEscolha);
+        /*** FIM: tela arredondda para visualizar item para compra ***/
+
+
+        /*** Tela arredonda para visualizar VALOR EM OURO ***/
+
+        //Painel que mostrará o item a ser comprado comprados
+        panelItemAserCompradoCusto = new PanelCircular();
+        panelItemAserCompradoCusto.setLayout(null);
+        panelItemAserCompradoCusto.setBounds(posicaoX+750,posicaoY+10,100,80);
+        panelItemAserCompradoCusto.setBackground(new Color(0,0,0, 190));
+        //panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
+
+
+        //Fundo painel suspenso escolha
+        JLabelOpcoesTelaSecao fundoPanelEscolhaCusto = new JLabelOpcoesTelaSecao(null,
+                113, 83, ImagensDoLivroFlorestaDaDestruicao.MOLDURA_CIRCULAR);
+        fundoPanelEscolhaCusto.setHorizontalAlignment(SwingConstants.CENTER);
+        fundoPanelEscolhaCusto.setVerticalAlignment(SwingConstants.CENTER);
+        fundoPanelEscolhaCusto.setBounds(0,-2,100,80);
+        //fundoPanelEscolhaCusto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Titulo da tela de valor do item
+        JLabelOpcoesTelaSecao tituloTelaCusto = new JLabelOpcoesTelaSecao(null,
+                80, 30, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        tituloTelaCusto.setHorizontalAlignment(SwingConstants.CENTER);
+        tituloTelaCusto.setVerticalAlignment(SwingConstants.BOTTOM);
+        tituloTelaCusto.setBounds(8,posicaoY-23,80,50);
+        //tituloTelaCusto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Título
+        JLabel lbTituloCusto = new JLabel("Ouro");
+        lbTituloCusto.setFont(new Font(Font.SERIF,Font.BOLD,14));
+        lbTituloCusto.setForeground(new Color(139,0,0));
+        lbTituloCusto.setHorizontalAlignment(SwingConstants.CENTER);
+        lbTituloCusto.setBounds(9,0,80,20);
+        //lbTituloCusto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        lbCusto = new JLabel("");
+        lbCusto.setFont(new Font(Font.SERIF,Font.BOLD,40));
+        lbCusto.setForeground(Color.white);
+        lbCusto.setHorizontalAlignment(SwingConstants.CENTER);
+        lbCusto.setBounds(posicaoX+25,posicaoY+20,50,45);
+        //lbCusto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        panelItemAserCompradoCusto.add(lbTituloCusto);
+        panelItemAserCompradoCusto.add(tituloTelaCusto);
+        panelItemAserCompradoCusto.add(lbCusto);
+        panelItemAserCompradoCusto.add(fundoPanelEscolhaCusto);
+
+        /*** FIM: Tela arredonda para visualizar VALOR EM OURO ***/
 
 
         ///Botão sair sem fazer nada
@@ -142,7 +203,7 @@ public class LojaDoMago extends JDialog {
         botaoSair.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                limparPanelEscolhaItensASeremDescartados();
+                removerItemSelecionado();
                 setVisible(false);
             }
 
@@ -180,63 +241,13 @@ public class LojaDoMago extends JDialog {
         lbBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //lbBotaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        //Botão limpar (resetar)
-        JLabelOpcoesTelaSecao botaoResetar = new JLabelOpcoesTelaSecao(null,
-                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(posicaoX+388,posicaoY+470,100,60);
-        botaoResetar.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                limparPanelEscolhaItensASeremDescartados();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
-                        botaoResetar.getHeight(),
-                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem()));
-                repaint();
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
-                        botaoResetar.getHeight(),
-                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem()));
-                repaint();
-            }
-        });
-
-        //label do resetar
-        JLabel lbBotaoLimpar = new JLabel("Limpar");
-        lbBotaoLimpar.setFont(new Font(Font.SERIF,Font.BOLD,14));
-        lbBotaoLimpar.setForeground(new Color(139,0,0));
-        lbBotaoLimpar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoLimpar.setBounds(posicaoX+415,posicaoY+487,50,20);
-        lbBotaoLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        //Adicionando componentes no panel que mostra os itens a serem escolhidos
-        panelListaItensAVenda.add(lbBotaoLimpar);
-        //panelListaItensAVenda.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        panelListaItensAVenda.add(botaoResetar);
-        panelListaItensAVenda.add(lbBotaoConfirmar);
-        panelListaItensAVenda.add(botaoConfirmar);
         panelListaItensAVenda.add(lbBotaoSair);
         panelListaItensAVenda.add(botaoSair);
         panelListaItensAVenda.add( criarListaItens(posicaoX, posicaoY, largura, altura) );
         panelListaItensAVenda.add(fundoPanel);
 
         tela.add(panelItemAserComprado);
+        tela.add(panelItemAserCompradoCusto);
         tela.add(panelListaItensAVenda);
 
         //Tela de info do item selecionado
@@ -254,7 +265,6 @@ public class LojaDoMago extends JDialog {
 
         //Criando o JList de itens na bolsa
         jListItem = new JList<>(listaItensParaEscolha);
-        //jListItem.setFont(new Font(Font.DIALOG,Font.BOLD,30));
         jListItem.setCellRenderer(new ListaDeItensComImagem());
         jListItem.setVisibleRowCount(5);
         jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -262,15 +272,19 @@ public class LojaDoMago extends JDialog {
         jListItem.setBackground(new Color(0,0,0,0));
         jListItem.setOpaque(false);
         JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
-        //scrollListaSuspensaDeItens.setFont(new Font(Font.DIALOG,Font.BOLD,30));
         scrollListaSuspensaDeItens.setBounds(posicaoX+95,posicaoY+143,largura-579,altura-187);
         scrollListaSuspensaDeItens.setOpaque(false);
         scrollListaSuspensaDeItens.getViewport().setOpaque(false);
         //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        //jListItem.setFont(new Font(Font.DIALOG,Font.BOLD,30));
+
+        //desabilitar teclas UP e Down
+        InputMap inputMap = jListItem.getInputMap(JComponent.WHEN_FOCUSED);
+        inputMap.put(KeyStroke.getKeyStroke("UP"), "none");
+        inputMap.put(KeyStroke.getKeyStroke("DOWN"), "none");
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 selecionarItem();
             }
 
@@ -361,17 +375,10 @@ public class LojaDoMago extends JDialog {
         int posicaoY = 60;
 
         //Recupera as informações do item
-        Item item = UtilItens.retornaItem(jListItem.getSelectedValue().getIdItem());
-
-        //Se item já incluído não faça nada
-        for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
-            if (mapItens.get(key).getIdItem() == item.getIdItem())
-                return null;
-        }
+        Item item = UtilItens.retornaItem( jListItem.getSelectedValue().getIdItem() );
 
         //Para ajustar largura da imagem. Vai ser necessário para alguns itens (padrão é 90)
         int largura = ajusteLargura(jListItem.getSelectedValue().getIdItem());
-
 
         //Cria o componente e incluir no panel
         JLabelOpcoesTelaSecao imagemItem = new JLabelOpcoesTelaSecao(null,
@@ -380,23 +387,34 @@ public class LojaDoMago extends JDialog {
         imagemItem.setName("REMOVER"); //caso precise resetar a escolha. esse marcador indica que pode remover do panel
         imagemItem.setHorizontalAlignment(SwingConstants.CENTER);
         panelItemAserComprado.add(imagemItem);
-        //imagemItem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-        //Guarda a referência do botão(item) para ser usado em seguida
-        mapItens.put(imagemItem,item);
         repaint();
 
         return item;
     }
 
     private void selecionarItem(){
-        Item item = itemSelecionadoParaCompra();
 
-        if (item == null)
-            return;
+        //Remover item anterior da tela
+        removerItemSelecionado();
 
-        descricaoItem.setText( item.getDescricao() );
-        tituloTelaSuspensaInfo.setText( item.getNome() );
+        //Recuperando o objeto Item
+        itemSelecionado = itemSelecionadoParaCompra();
+
+        //Preenchendo informações do item
+        descricaoItem.setText( itemSelecionado.getDescricao() );
+        tituloTelaSuspensaInfo.setText( itemSelecionado.getNome() );
+
+        //Se já comprou, não pode adquirir outro
+        if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ) {
+            lbCusto.setText("0");
+            lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,12));
+            lbBotaoConfirmar.setText("Comprado!");
+        }
+        else {
+            lbCusto.setText(String.valueOf(itemSelecionado.getValorCusto()));
+            lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
+            lbBotaoConfirmar.setText("Comprar");
+        }
     }
 
     private int ajusteLargura(int idItem) {
@@ -414,10 +432,7 @@ public class LojaDoMago extends JDialog {
 
     private void removerItemSelecionado(){
 
-            //Limpar o hashmap coim os itens selecionados
-            //mapItens.clear();
-
-            //Removendo todos os componentes menos o fundo (imagem) circular
+            //Removendo a imagem do artefato
             Component[] components = panelItemAserComprado.getComponents();
             for (Component component : components) {
 
@@ -428,49 +443,51 @@ public class LojaDoMago extends JDialog {
                     panelItemAserComprado.remove(component);
                 }
             }
+
+            //Apagar campos de informações do artefato (custo e descrição)
+            descricaoItem.setText("");
+            tituloTelaSuspensaInfo.setText("");
+            lbCusto.setText("");
+            itemSelecionado = null;
+
             repaint();
     }
 
-    private void limparPanelEscolhaItensASeremDescartados(){
-
-        //Limpar o hashmap coim os itens selecionados
-        mapItens.clear();
-
-        //Removendo todos os componentes menos o fundo (imagem) circular
-        Component[] components = panelItemAserComprado.getComponents();
-        for (Component component : components) {
-
-            if (component.getName() == null)
-                continue;
-
-            if ( component.getName().equals("REMOVER") ) {
-                panelItemAserComprado.remove(component);
-            }
-        }
-        repaint();
-    }
-
     private void confirmarEscolhaItens() {
-        /*
-        if ( escolheuItensDaListaSuspensa )
-            return;
+        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
-        if (mapItens.size() < limiteDeEscolhaDeItens) {
+        //Verifica se possui ouro suficiente para a compra
+        if ( itemSelecionado.getValorCusto() > personagem.getQuantidadeOuro() ){
+            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
             CarregarTelas.telaMensagem(personagem.getNome()+
-                    ",\nVocê precisa escolher "+limiteDeEscolhaDeItens+" itens.");
+                    ",\n\nVocê não possui ouro suficiente para comprar o(a) "+itemSelecionado.getNome()+".");
             return;
         }
 
-        for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
-            UtilBolsa.removerItem(mapItens.get(key).getIdItem());
+
+        if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ){
+            CarregarTelas.telaMensagem(personagem.getNome()+
+                    ",\n\nSomente é possivel adquirir um artefato. Você já comprou o(a) "+itemSelecionado.getNome()+".");
+            return;
         }
 
-        escolheuItensDaListaSuspensa = true;
-        panelListaSuspensaItens.setVisible(false);
-        panelListaItensEscolhidos.setVisible(false);
+        //Efeito sonoro de moedas
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
 
-        //Trata determinadas ações quando usa a telinha de escolha de itens
-        acoesEspecificasDasSecoes();
-        */
+        //Decrementar valor em ouro
+        UtilPersonagem.reduzirValorOuro( itemSelecionado.getValorCusto() );
+
+        //Atualiza tela
+        telaSecao.atualizaIndicesNaTelaDoPersonagem();
+
+        //Inclui na bolsa
+        UtilBolsa.incluirItem( itemSelecionado );
+
+        //Aviso que adquiriu o item
+        CarregarTelas.telaMensagem(personagem.getNome()+
+                ",\n\nVocê comprou o(a) "+itemSelecionado.getNome()+".");
+
+        //Apagar informações do artefato
+        removerItemSelecionado();
     }
 }

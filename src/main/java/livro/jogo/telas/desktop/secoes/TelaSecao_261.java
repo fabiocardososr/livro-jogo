@@ -17,11 +17,12 @@ import java.awt.event.WindowEvent;
 
 public class TelaSecao_261 extends TelaSecoesBasica {
     private LojaDoMago lojaDoMago;
+    private TelaSecoesBasica tela = this;
 
     public TelaSecao_261(Secao secao) {
         super(secao);
 
-        lojaDoMago = new LojaDoMago(0,0,1000,500,secao);
+        lojaDoMago = new LojaDoMago(0,0,1000,500,secao, tela);
 
         addWindowListener(new WindowAdapter() {
 
