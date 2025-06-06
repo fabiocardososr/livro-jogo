@@ -76,7 +76,9 @@ public class TelaBatalha extends JDialog {
         carregaBotao2x();
 
         //Carrega imagem da Poção de Habilidade com Armas(58)
-        carregaImagemPocaoHabilidadeComArmas();
+        Item item = UtilItemEquipado.verificaSeItemEquipadoERetornaItem(58);
+        if ( (item != null) && (item.getQuantidadeUso()>0) )
+            carregaImagemPocaoHabilidadeComArmas();
 
         //Carrega a tela de mensagem suspensa, mas invisível
         telaMensagemSuspensaBotaoSorte();
