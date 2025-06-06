@@ -22,7 +22,7 @@ public class TelaSecao_261 extends TelaSecoesBasica {
     public TelaSecao_261(Secao secao) {
         super(secao);
 
-        lojaDoMago = new LojaDoMago(0,0,1000,500,secao, tela);
+        lojaDoMago = new LojaDoMago(0,0,1000,500, tela);
 
         addWindowListener(new WindowAdapter() {
 

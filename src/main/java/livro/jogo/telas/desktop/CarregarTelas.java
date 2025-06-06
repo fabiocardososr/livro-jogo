@@ -415,13 +415,13 @@ public class CarregarTelas {
             case 259 -> new TelaSecao_259(secao).setVisible(true); //chamado pela seção 155 perde 3 pontos de energia e testa sorte, sendo azarado perde mais 2 pontos de energia
             case 260 -> new TelaSecao_260(secao).setVisible(true); //chamado pela seção 251
             case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1,54 - Loja de itens de Yaztromo
+            case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217 - Ganhapoção de habilidade com Armas, tem efeito temporário
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217
             case 263 -> new TelaSecao_263(secao).setVisible(true);//chamado pela seção 232
             case 264 -> new TelaSecao_264(secao).setVisible(true);//chamado pela seção 69
             case 265 -> new TelaSecao_265(secao).setVisible(true);//chamado pela seção 190
@@ -477,7 +477,7 @@ public class CarregarTelas {
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5,152 - Termina o jogo
             case 334 -> new TelaSecao_334(secao).setVisible(true);//chamado pela seção 70,182,255
             case 336 -> new TelaSecao_336(secao).setVisible(true);//chamado pela seção 37
-            case 337 -> new TelaSecao_337(secao).setVisible(true);//chamado pela seção 125, 157,217
+            case 337 -> new TelaSecao_337(secao).setVisible(true);//chamado pela seção 125, 157,217,262
             case 338 -> new TelaSecao_338(secao).setVisible(true);//chamado pela seção 240
             case 339 -> new TelaSecao_339(secao).setVisible(true);//chamado pela seção 23,100
             case 341 -> new TelaSecao_341(secao).setVisible(true);//chamado pela seção 161

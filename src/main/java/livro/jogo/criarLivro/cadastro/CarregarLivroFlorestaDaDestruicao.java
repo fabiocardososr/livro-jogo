@@ -71,7 +71,7 @@ public class CarregarLivroFlorestaDaDestruicao {
     private void inserirItens(ObjectMapper objMapper) {
 
         //São 53 itens
-        for (int i=1; i<=57; i++) {
+        for (int i=1; i<=58; i++) {
             var endereco = "livros/florestadadestruicao/itens/item_"+i+".json";
             var existe = (new File(endereco)).exists();
 

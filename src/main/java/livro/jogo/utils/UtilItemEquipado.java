@@ -28,4 +28,15 @@ public class UtilItemEquipado {
 
         return false;
     }
+
+    public static Item verificaSeItemEquipadoERetornaItem(int idItem){
+
+        for (Item item : itensEquipados){
+            if ( item.getIdItem() == idItem ){
+                return item;
+            }
+        }
+
+        return null;
+    }
 }

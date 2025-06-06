@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.entidades.Inimigo;
+import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
@@ -74,6 +75,9 @@ public class TelaBatalha extends JDialog {
         //Carrega botão de aumento/diminuição de velocidade do turno
         carregaBotao2x();
 
+        //Carrega imagem da Poção de Habilidade com Armas(58)
+        carregaImagemPocaoHabilidadeComArmas();
+
         //Carrega a tela de mensagem suspensa, mas invisível
         telaMensagemSuspensaBotaoSorte();
         carregaBotaoSorte();
@@ -106,6 +110,67 @@ public class TelaBatalha extends JDialog {
         botao2x.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botao2x.setBounds(770,235, largura, altura);
         botao2x.setToolTipText("Desativado - Velocidade do turno de batalha.");
+        add(botao2x);
+        botao2x.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ( e.getSource() == botao2x ){
+
+                    //Aumenta/diminui velocidade do turno
+                    var velocidadeAumentada = acoesBatalha.velocidade2x();
+                    if ( velocidadeAumentada ) {
+                        botao2x.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.X_2_SELECIONADO.getEnderecoImagem(),
+                                botao2x.getWidth(), botao2x.getHeight()).getImageIcon());
+                        botao2x.setToolTipText("Ativado - Velocidade do turno de batalha.");
+                    }
+                    else {
+                        botao2x.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.X_2.getEnderecoImagem(),
+                                botao2x.getWidth(), botao2x.getHeight()).getImageIcon());
+                        botao2x.setToolTipText("Desativado - Velocidade do turno de batalha.");
+                    }
+
+
+                    repaint();
+
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+    //Item 58 - Poção de Habilidade com Armas - Seção 262
+    //O efeito dá 1 ponto de força de ataque por duas batalhas
+    //Aqui vai mostrar a imagem informando que o efeito ainda ativo
+    private void carregaImagemPocaoHabilidadeComArmas() {
+        Item item = DadosLivroCarregado.getMapItem().get(58);
+        int largura = 60;
+        int altura  = 40;
+
+        JLabelOpcoesTelaSecao botao2x = new JLabelOpcoesTelaSecao(null,
+                largura, altura, ImagensDoLivroFlorestaDaDestruicao.X_2);
+        botao2x.setHorizontalAlignment(SwingConstants.CENTER);
+        botao2x.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botao2x.setBounds(770,215, largura, altura);
+        botao2x.setToolTipText("Poção De Habilidade com Armas Efeito ativo.");
         add(botao2x);
         botao2x.addMouseListener(new MouseListener() {
             @Override

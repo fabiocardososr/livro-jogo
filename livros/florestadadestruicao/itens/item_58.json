@@ -1,0 +1,15 @@
+ {
+	"idItem":"58",
+	"tipoEfeito":"HABILIDADE",
+	"nome":"Poção de Habilidade de Armas",
+	"descricao":"Acrecenta 1 ponto ao seu ataque nos próximos 2 combates.(Não tem imagem pois não vai para a bolsa, bebe imediatamente na secão 262)",
+	"valorCusto":"0",
+	"modificador":"1",   
+	"quantidadeUso":"2",
+	"flgUsoTemporario":"S",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"S",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":""
+  }

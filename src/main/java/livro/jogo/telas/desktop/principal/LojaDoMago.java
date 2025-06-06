@@ -18,7 +18,6 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -29,7 +28,6 @@ public class LojaDoMago extends JDialog {
     private JPanel panelItemAserCompradoCusto;
     private DefaultListModel<ListItem> listaItensParaEscolha;
     private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
-    private Secao secao;
     private Container telaPrincipalLista;
     private JPanel panelInfoItem; //Representa a tela suspensa de informação do item
     private JTextPane descricaoItem; //Na tela suspensa de informação
@@ -41,10 +39,9 @@ public class LojaDoMago extends JDialog {
     private JLabel lbBotaoConfirmar;  //Usado para informar quando o item não pode ser adquirido uma segunda vez
 
     public LojaDoMago(int posicaoX, int posicaoY,
-                      int largura, int altura, Secao secao, TelaSecoesBasica telaSecao) {
+                      int largura, int altura, TelaSecoesBasica telaSecao) {
 
 
-        this.secao = secao;
         this.telaSecao = telaSecao;
 
 

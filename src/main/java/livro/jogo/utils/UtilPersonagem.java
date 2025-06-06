@@ -137,10 +137,6 @@ public class UtilPersonagem {
 
         //Remove da bolsa
         DadosLivroCarregado.removeItemBolsa(item);
-
-
-//        DadosLivroCarregado.removeItemBolsa(item);
-//        DadosLivroCarregado.getItensEquipados().add(item);
     }
 
     //Repõe o índice de habilidade ao valor inicial (valor máximo no momento da criação do personagem)

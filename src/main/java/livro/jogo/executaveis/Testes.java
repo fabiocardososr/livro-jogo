@@ -7,6 +7,7 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.UtilItemEquipado;
 
 
 import java.util.ArrayList;
@@ -34,8 +35,11 @@ public class Testes {
         //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
         //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 261 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 84 );
         CarregarTelas.carregarSecao(secao);
+
+
+
 
 
 
@@ -83,6 +87,8 @@ public class Testes {
 //
         //Equipando uma espada(50)
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
+
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));

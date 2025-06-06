@@ -1,6 +1,7 @@
 package livro.jogo.utils;
 
 import livro.jogo.entidades.Inimigo;
+import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
@@ -257,6 +258,9 @@ public class AcoesBatalha {
                 mensagemComDelay(milisegundos,"<html><center>Inimigo derrotado!</center></html>");
                 removerComponentesPanelETrocarImagem( telaSecao, telaBatalha.getPanelBotao() );
 
+                //item 58 - Poção de Habilidade com Armas - Seção 262
+                //O decremento é por batalha, no caso a poção aumenta em 1 ponto o ataque por 2 batalhas seguidas
+                decrementaEfeitosTemporariosPocaoHabilidadeComArmas();
             }
         }
 
@@ -337,6 +341,16 @@ public class AcoesBatalha {
         }
 
         return resultadoTurnoBatalha;
+    }
+
+    public static void decrementaEfeitosTemporariosPocaoHabilidadeComArmas() {
+        Item item = UtilItemEquipado.verificaSeItemEquipadoERetornaItem(58);
+
+        if (item == null)
+            return;
+
+        if (item.getQuantidadeUso() > 0)
+            item.setQuantidadeUso(item.getQuantidadeUso()-1);
     }
 
     //Seção 49,71,165,193 a força de ataque é reduzida em 3 pontos

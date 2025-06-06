@@ -22,7 +22,9 @@ public class UtilItens {
             modificador = item.getModificador();
 
             //Se item de uso temporário é necessário decrementar a quantidade de uso.
-            if (item.getFlgUsoTemporario().equals("S"))
+            //Sendo item 58 - "Poção de habilidade com Armas" não decrementa agora, pois são dois
+            //usos temporários por batalha e não turno
+            if (item.getFlgUsoTemporario().equals("S") && (item.getIdItem() != 58) )
                 item.setQuantidadeUso(item.getQuantidadeUso() - 1);
         }
 
