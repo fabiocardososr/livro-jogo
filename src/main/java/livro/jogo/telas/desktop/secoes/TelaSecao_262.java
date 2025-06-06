@@ -19,6 +19,8 @@ public class TelaSecao_262 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
                 AcoesSecao_262.tomaPocaoDeHabilidadeComArmas();
+                AcoesSecao_262.pegar4PecasDeOuro();
+                atualizaIndicesNaTelaDoPersonagem();
             }
 
             @Override
