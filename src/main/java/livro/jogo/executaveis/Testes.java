@@ -32,10 +32,8 @@ public class Testes {
         personagem.setSorteAtual(0);
         DadosLivroCarregado.setPersonagem(personagem);
 
-        //System.out.println("Bolsa: "+ UtilBolsa.retornaListaDeBensNaBolsa().length);
 
-        //TRABALHANDO NA SEÇÃO: (volte para 126)
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 262 );
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 84 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -88,7 +86,7 @@ public class Testes {
         //Equipando uma espada(50)
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));

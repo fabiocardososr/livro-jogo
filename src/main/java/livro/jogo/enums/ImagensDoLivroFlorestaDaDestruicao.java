@@ -92,7 +92,8 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     TREVO_SELECIONADO("livros/florestadadestruicao/imagens/trevo_selecionado.png"),
     SIMBOLO_VOZ_PARAR("livros/florestadadestruicao/imagens/parar_voz.png"),
     SIMBOLO_VOZ_PARAR_SELECIONADO("livros/florestadadestruicao/imagens/parar_voz_selecionado.png"),
-    CENOURA("livros/florestadadestruicao/imagens/itens/item_57.png")
+    CENOURA("livros/florestadadestruicao/imagens/itens/item_57.png"),
+    EFEITO_POCAO_HAB_ARMAS("livros/florestadadestruicao/imagens/efeito_pocao_hab_Armas.png")
     ;
 
     private final String enderecoImagem;
