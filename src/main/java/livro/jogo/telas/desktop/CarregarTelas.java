@@ -415,7 +415,7 @@ public class CarregarTelas {
             case 259 -> new TelaSecao_259(secao).setVisible(true); //chamado pela seção 155 perde 3 pontos de energia e testa sorte, sendo azarado perde mais 2 pontos de energia
             case 260 -> new TelaSecao_260(secao).setVisible(true); //chamado pela seção 251
             case 261 -> new TelaSecao_261(secao).setVisible(true);//chamado pela seção 1,54 - Loja de itens de Yaztromo
-            case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217 - Ganhapoção de habilidade com Armas, tem efeito temporário
+            case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217 - Ganha poção de habilidade com Armas, tem efeito temporário
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 

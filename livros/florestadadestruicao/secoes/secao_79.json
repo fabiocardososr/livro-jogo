@@ -13,14 +13,14 @@
 		"idInimigo":"13",
 		"nome":"Morcego",
 		"habilidade":"5",
-		"energia":"5",
+		"energia":"1",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/morcego_vampiro.png"
 	},
 	{
 		"idInimigo":"14",
 		"nome":"Morcego",
 		"habilidade":"6",
-		"energia":"5",
+		"energia":"1",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/morcego_vampiro.png"
 	},
 	{

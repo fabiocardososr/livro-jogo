@@ -6,6 +6,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -26,10 +27,16 @@ public class JButtonAbrirBatalha {
         JPanel panel = new JPanel(null);
         panel.setBounds(x,y,largura,altura);
         panel.setBackground(new Color(0,0,0,0));
-         secao = tela.getSecao();
+        secao = tela.getSecao();
+        JLabelOpcoesTelaSecao btInimigo;
 
-        JLabelOpcoesTelaSecao btInimigo = new JLabelOpcoesTelaSecao("",100,80,
+         if ( inimigo.getEnergia() == 0 )
+             btInimigo = new JLabelOpcoesTelaSecao("",100,80,
+                     ImagensDoLivroFlorestaDaDestruicao.CAVEIRA);
+         else
+            btInimigo = new JLabelOpcoesTelaSecao("",100,80,
                 ImagensDoLivroFlorestaDaDestruicao.BRASAO_BATALHA);
+
         btInimigo.setBounds(27,30,100,80);
         btInimigo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btInimigo.setToolTipText("Clique para lutar com este inimigo.");
@@ -136,14 +143,15 @@ public class JButtonAbrirBatalha {
         labelInfoEnergia.setBounds(2,129,150,30);
         //labelInfoHabilidade.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        //Lembre que alterar a ordem ou remover algum pode dar problema na função
-        //removerComponentesPanelETrocarImagem da classe AcoesBatalha
-        panel.add(labelInfoEnergia);
-        panel.add(faixaEnergiaInimigo);
-        panel.add(labelInfoHabilidade);
-        panel.add(faixaHabilidadeInimigo);
-        panel.add(label);
-        panel.add(faixaNomeInimigo);
+        //Ao carregar jogo, se salvou com algum inimigo morto é preciso carregar apenas com a imagem da caveira
+        if (inimigo.getEnergia() > 0) {
+            panel.add(labelInfoEnergia);
+            panel.add(faixaEnergiaInimigo);
+            panel.add(labelInfoHabilidade);
+            panel.add(faixaHabilidadeInimigo);
+            panel.add(label);
+            panel.add(faixaNomeInimigo);
+        }
         panel.add(btInimigo);
 
         tela.add(panel);

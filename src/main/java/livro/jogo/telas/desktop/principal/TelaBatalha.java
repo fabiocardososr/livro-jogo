@@ -163,7 +163,11 @@ public class TelaBatalha extends JDialog {
     //O efeito dá 1 ponto de força de ataque por duas batalhas
     //Aqui vai mostrar a imagem informando que o efeito ainda ativo
     private void carregaImagemPocaoHabilidadeComArmas() {
-        Item item = DadosLivroCarregado.getMapItem().get(58);
+        Item item = UtilItemEquipado.verificaSeItemEquipadoERetornaItem(58);
+
+        if (item == null)
+            return;
+
         int largura = 60;
         int altura  = 60;
 
@@ -174,8 +178,10 @@ public class TelaBatalha extends JDialog {
         botaoHabComArmas.setBounds(305,250, largura, altura);
         //botaoHabComArmas.setToolTipText("Poção De Habilidade com Armas Efeito ativo.");
 
-        var texto = "Efeito temporário da Poção de Habilidade com Armas. Inclui 1 ponto ao ataque. "+
-                "Efeito(s) Restante(s): "+ item.getQuantidadeUso();
+        var texto = "<html><center><b>Efeito da Poção de Habilidade com Armas</b><br><br>"+
+                " Adiciona 1 ponto ao ataque em batalhas. "+
+                "<br><br>Efeito(s) Restante(s): "+ item.getQuantidadeUso()+
+                " <br>(decrementa em 1 por cada batalha)</center></html>";
 
         botaoHabComArmas.addMouseListener(new MouseListener() {
 
@@ -199,6 +205,8 @@ public class TelaBatalha extends JDialog {
                 //Texto da regra que vai aparecer quando posicionar o mouse em cima do botão
                 labelTextoTelaSuspensa.setText(texto);
                 telaPanelRegrasSorte.setVisible(true);
+                telaPanelRegrasSorte.setBounds(192,250, telaPanelRegrasSorte.getWidth(),
+                        telaPanelRegrasSorte.getHeight());
                 repaint();
             }
 

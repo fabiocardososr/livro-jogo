@@ -343,7 +343,7 @@ public class AcoesBatalha {
         return resultadoTurnoBatalha;
     }
 
-    public static void decrementaEfeitosTemporariosPocaoHabilidadeComArmas() {
+    public void decrementaEfeitosTemporariosPocaoHabilidadeComArmas() {
         Item item = UtilItemEquipado.verificaSeItemEquipadoERetornaItem(58);
 
         if (item == null)
