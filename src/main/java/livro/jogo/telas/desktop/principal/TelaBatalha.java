@@ -181,7 +181,7 @@ public class TelaBatalha extends JDialog {
         var texto = "<html><center><b>Efeito da Poção de Habilidade com Armas</b><br><br>"+
                 " Adiciona 1 ponto ao ataque em batalhas. "+
                 "<br><br>Efeito(s) Restante(s): "+ item.getQuantidadeUso()+
-                " <br>(decrementa em 1 por cada batalha)</center></html>";
+                " <br>(perde 1 efeito por cada batalha)</center></html>";
 
         botaoHabComArmas.addMouseListener(new MouseListener() {
 

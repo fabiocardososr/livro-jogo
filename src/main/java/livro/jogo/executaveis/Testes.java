@@ -33,7 +33,9 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 79 );
+
+
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 264 );
         CarregarTelas.carregarSecao(secao);
 
 
@@ -86,7 +88,7 @@ public class Testes {
         //Equipando uma espada(50)
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
+        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));
