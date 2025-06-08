@@ -719,7 +719,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
         imgPersonagem.setLayout(null);
         imgPersonagem.setToolTipText(toolTip);
-        imgPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        imgPersonagem.setCursor(null);
         //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
