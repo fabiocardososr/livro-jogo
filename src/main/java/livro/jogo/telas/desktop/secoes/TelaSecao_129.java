@@ -216,6 +216,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
+                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
                     entregouMoedas = true;
@@ -282,6 +283,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
+                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
                     entregouMoedas = true;

@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_266.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Sendo vitorioso",
+      "textoOpcao": "Sendo vitorioso.",
       "codProximaSecao": "354"
     },
 	{	  
-      "textoOpcao": "Se qualquer dos três lances for maior do que o seu índice de HABILIDADE, seu braço cede diante da força de Quin e encosta no tampo da mesa",
+      "textoOpcao": "Fracasso em qualquer dos 3 testes de habilidade.",
       "codProximaSecao": "129"
     }
   ]

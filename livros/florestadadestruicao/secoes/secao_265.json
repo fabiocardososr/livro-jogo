@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"48",
-		"nome":"GIGANTE DA FLORESTA",
+		"nome":"Gigante",
 		"habilidade":"9",
 		"energia":"9",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/gigante_da_floresta.png"

@@ -282,7 +282,7 @@ public class CarregarTelas {
             case 126 -> new TelaSecao_126(secao).setVisible(true); //Chamado por 263 - Verifica a existência de Filtros Nasais
             case 127 -> new TelaSecao_127(secao).setVisible(true); //Paga 3 peças de ouro ao Centauro
             case 128 -> new TelaSecao_128(secao).setVisible(true); //inimigo bárbaro
-            case 129 -> new TelaSecao_129(secao).setVisible(true); //perda de sorte, escolher perder 10 moedas ou 1 item
+            case 129 -> new TelaSecao_129(secao).setVisible(true); //Chamado por 266 - perda de sorte, escolher perder 10 moedas ou 1 item
             case 130 -> new TelaSecao_130(secao).setVisible(true); //Chamado por 149
             case 131 -> new TelaSecao_131(secao).setVisible(true);
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35 (verifica se tem Flauta do Sono do Dragão )
@@ -418,15 +418,14 @@ public class CarregarTelas {
             case 262 -> new TelaSecao_262(secao).setVisible(true);//chamado pela seção 217 - Ganha poção de habilidade com Armas, tem efeito temporário
             case 263 -> new TelaSecao_263(secao).setVisible(true);//chamado pela seção 232
             case 264 -> new TelaSecao_264(secao).setVisible(true);//chamado pela seção 69
+            case 265 -> new TelaSecao_265(secao).setVisible(true);//chamado pela seção 190
+            case 266 -> new TelaSecao_266(secao).setVisible(true);//chamado pela seção 28
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-
-            case 265 -> new TelaSecao_265(secao).setVisible(true);//chamado pela seção 190
-            case 266 -> new TelaSecao_266(secao).setVisible(true);//chamado pela seção 28
             case 267 -> new TelaSecao_267(secao).setVisible(true);//chamado pela seção 140
             case 269 -> new TelaSecao_269(secao).setVisible(true);//chamado pela seção 69,189
             case 270 -> new TelaSecao_270(secao).setVisible(true);//chamado pela seção 93
@@ -495,7 +494,9 @@ public class CarregarTelas {
             case 351 -> new TelaSecao_351(secao).setVisible(true); //Chamado por 200
             case 352 -> new TelaSecao_352(secao).setVisible(true); //Chamado por 195
             case 353 -> new TelaSecao_353(secao).setVisible(true);//chamado pela seção 11, 158
+            case 354 -> new TelaSecao_354(secao).setVisible(true);//chamado pela seção 266
             case 355 -> new TelaSecao_355(secao).setVisible(true);//chamado por 130,153,202
+            case 356 -> new TelaSecao_356(secao).setVisible(true);//chamado por 265
             case 357 -> new TelaSecao_357(secao).setVisible(true);//chamado pela seção 150
             case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85,168,169,176,230,232,263
             case 359 -> new TelaSecao_359(secao).setVisible(true);//chamado pela seção 188
