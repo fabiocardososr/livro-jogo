@@ -20,6 +20,7 @@ public class TelaSecao_229 extends TelaSecoesBasica {
 
     public TelaSecao_229(Secao secao) {
         super(secao);
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/estouro.mp3", null);
     }
 
     @Override
