@@ -190,7 +190,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
         fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
         fundoPanelEscolha.setBounds(0,-2,250,230);
-        //fundoPanelEscolha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
         //Fundo painel suspenso principal (panelListaSuspensaItens)
@@ -221,16 +220,16 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //Se já escolhidos 2 itens
+                //Se já escolhidos a limite de itens
                 if (mapItens.size() == limiteDeEscolhaDeItens){
                     if (limiteDeEscolhaDeItens > 1)
                         CarregarTelas.telaMensagem("Os "+limiteDeEscolhaDeItens+
                             " itens já foram escolhidos.\n\n"+
-                            "Se precisar, remova-os e faça novas escolhas.");
+                            "Se precisar, resete e faça novas escolhas.");
                     else
                         CarregarTelas.telaMensagem(limiteDeEscolhaDeItens+
                                 " item já foi escolhido.\n\n"+
-                                "Se precisar, remova-o e faça nova escolha.");
+                                "Se precisar, resete e faça nova escolha.");
 
                     return;
                 }
@@ -403,7 +402,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //label do resetar
-        JLabel lbBotaoLimpar = new JLabel("Limpar");
+        JLabel lbBotaoLimpar = new JLabel("Resetar");
         lbBotaoLimpar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         lbBotaoLimpar.setForeground(new Color(139,0,0));
         lbBotaoLimpar.setHorizontalAlignment(SwingConstants.CENTER);

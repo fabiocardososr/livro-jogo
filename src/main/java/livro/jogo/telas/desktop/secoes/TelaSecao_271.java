@@ -118,7 +118,6 @@ public class TelaSecao_271 extends TelaSecoesBasica {
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Pague 5 moedas ao Gnomo.");
-        //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -137,6 +136,7 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 5){
+                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
@@ -170,7 +170,6 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 repaint();
             }
         });
-        //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
         add(texto);
@@ -243,7 +242,7 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 }
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 2 itens para o Gnomo.");
+                    CarregarTelas.telaMensagem("Você já entregou 1 item ao Gnomo.");
                     return;
                 }
 

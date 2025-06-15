@@ -425,13 +425,13 @@ public class CarregarTelas {
             case 269 -> new TelaSecao_269(secao).setVisible(true);//chamado pela seção 69,189
             case 270 -> new TelaSecao_270(secao).setVisible(true);//chamado pela seção 93
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
+            case 272 -> new TelaSecao_272(secao).setVisible(true);//chamado pela seção 128
+            case 273 -> new TelaSecao_273(secao).setVisible(true);//chamado pela seção 71 - pegar medalhão
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 272 -> new TelaSecao_272(secao).setVisible(true);//chamado pela seção 128
-            case 273 -> new TelaSecao_273(secao).setVisible(true);//chamado pela seção 71
             case 274 -> new TelaSecao_274(secao).setVisible(true);//chamado pela seção 40,218
             case 275 -> new TelaSecao_275(secao).setVisible(true);//chamado pela seção 220
             case 277 -> new TelaSecao_277(secao).setVisible(true);//chamado pela seção 20,115
@@ -449,7 +449,7 @@ public class CarregarTelas {
             case 291 -> new TelaSecao_291(secao).setVisible(true);//chamado pela seção 208
             case 293 -> new TelaSecao_293(secao).setVisible(true);//chamado pela seção 44,80,183,189,211,222,269
             case 295 -> new TelaSecao_295(secao).setVisible(true);//chamado pela seção 256
-            case 296 -> new TelaSecao_296(secao).setVisible(true);//chamado pela seção 151
+            case 296 -> new TelaSecao_296(secao).setVisible(true);//chamado pela seção 151,273
             case 297 -> new TelaSecao_297(secao).setVisible(true);//chamado pela seção 271
             case 299 -> new TelaSecao_299(secao).setVisible(true);//chamado pela seção 92
             case 300 -> new TelaSecao_300(secao).setVisible(true);//chamado pela seção 219,254
@@ -529,7 +529,7 @@ public class CarregarTelas {
             case 390 -> new TelaSecao_390(secao).setVisible(true);//chamado pela seção 33,166,184
             case 392 -> new TelaSecao_392(secao).setVisible(true);//chamado pela seção 8
             case 393 -> new TelaSecao_393(secao).setVisible(true);//chamado pela seção 245
-            case 394 -> new TelaSecao_394(secao).setVisible(true);//chamado pela seção 105
+            case 394 -> new TelaSecao_394(secao).setVisible(true);//chamado pela seção 105,272
             case 396 -> new TelaSecao_396(secao).setVisible(true);
             case 397 -> new TelaSecao_397(secao).setVisible(true);//chamado pela seção 51
             case 398 -> new TelaSecao_398(secao).setVisible(true);//chamado pela seção 61

@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 270);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 273);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -129,9 +129,7 @@ public class Testes {
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_10.json"));
-//
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_1.json"));
+
 
 
         return bolsa;
