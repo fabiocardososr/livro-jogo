@@ -262,7 +262,7 @@ public class CarregarTelas {
             case 106 -> new TelaSecao_106(secao).setVisible(true); //Chamado por 175 - Anel de ouro com uma grande esmeralda(18) e 2 pontos de sorte
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88,212 (inimigo Demônio de fogo)
             case 108 -> new TelaSecao_108(secao).setVisible(true); //perde energia
-            case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207
+            case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207,274
             case 110 -> new TelaSecao_110(secao).setVisible(true); //Chamado por 193
             case 111 -> new TelaSecao_111(secao).setVisible(true);
             case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200
@@ -348,7 +348,7 @@ public class CarregarTelas {
             case 192 -> new TelaSecao_192(secao).setVisible(true);
             case 193 -> new TelaSecao_193(secao).setVisible(true); //Inimigo Gremlin
             case 194 -> new TelaSecao_194(secao).setVisible(true); //Ganha Beladona
-            case 195 -> new TelaSecao_195(secao).setVisible(true);
+            case 195 -> new TelaSecao_195(secao).setVisible(true); //Chamado por 274
             case 196 -> new TelaSecao_196(secao).setVisible(true); //Chamado por 267 - Verifica se tem rede de aprisionamento
             case 197 -> new TelaSecao_197(secao).setVisible(true); //Verifica se tem poção Antiveneno
             case 198 -> new TelaSecao_198(secao).setVisible(true);//chamado pela seção 18, 139,244
@@ -427,12 +427,12 @@ public class CarregarTelas {
             case 271 -> new TelaSecao_271(secao).setVisible(true); //chamado pela seção 12 (Escolher itens para remover)
             case 272 -> new TelaSecao_272(secao).setVisible(true);//chamado pela seção 128
             case 273 -> new TelaSecao_273(secao).setVisible(true);//chamado pela seção 71 - pegar medalhão
+            case 274 -> new TelaSecao_274(secao).setVisible(true);//chamado pela seção 40,218
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 274 -> new TelaSecao_274(secao).setVisible(true);//chamado pela seção 40,218
             case 275 -> new TelaSecao_275(secao).setVisible(true);//chamado pela seção 220
             case 277 -> new TelaSecao_277(secao).setVisible(true);//chamado pela seção 20,115
             case 278 -> new TelaSecao_278(secao).setVisible(true);//chamado pela seção 198,216

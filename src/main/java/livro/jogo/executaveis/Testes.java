@@ -33,7 +33,7 @@ public class Testes {
         DadosLivroCarregado.setPersonagem(personagem);
 
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 273);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 274);
         CarregarTelas.carregarSecao(secao);
 
 
