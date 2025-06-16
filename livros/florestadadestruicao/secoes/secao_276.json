@@ -1,7 +1,7 @@
 
 {  	
   "codSecaoLivro": "276",
-  "texto": "Quando você recua para atacar o cavaleiro mascarado, o maior dos três cães salta sobre você, o que o obriga a lutar.\n\n\t\t\t\tEnfrente-os!",
+  "texto": "\t\t\t\tQuando você recua para atacar o cavaleiro mascarado, o maior dos três cães salta sobre você, o que o obriga a lutar.\n\n\t\t\t\tEnfrente-os!",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_276.mp3",
   "proximasSecoes": [
     {	  
@@ -18,25 +18,29 @@
 		"idInimigo":"50",
 		"nome":"Cão",
 		"habilidade":"6",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_1.png"
 	},
 	{
 		"idInimigo":"51",
 		"nome":"Cão",
 		"habilidade":"5",
-		"energia":"6"
+		"energia":"6",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_2.png"
 	},
 	{
 		"idInimigo":"52",
 		"nome":"Cão",
 		"habilidade":"6",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cao_3.png"
 	},
 	{
 		"idInimigo":"53",
 		"nome":"Mascarado",
 		"habilidade":"8",
-		"energia":"7"
+		"energia":"7",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/cacador_mascarado.png"
 	}
   ]
   }

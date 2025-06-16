@@ -5,11 +5,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_278.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Sorte! Consegue evitar a queda sobre a estaca de madeira, mas cai pesadamente no chão, perdendo 2 pontos de ENERGIA. Se estiver vivo vá para",
+      "textoOpcao": "Sorte! Não cai sobre a estaca.",
       "codProximaSecao": "319"
     },
 	{	  
-      "textoOpcao": "Azar! A ponta da estaca rasga sua perna quando você cai. Você perde 2 pontos de ENERGIA pela queda e mais 2 pontos de ENERGIA pelo ferimento na sua perna. Se ainda estiver vivo vá para",
+      "textoOpcao": "Azar! A ponta da estaca rasga sua perna.",
       "codProximaSecao": "319"
     }
   ]
