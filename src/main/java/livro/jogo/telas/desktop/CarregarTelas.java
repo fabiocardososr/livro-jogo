@@ -432,6 +432,7 @@ public class CarregarTelas {
             case 276 -> new TelaSecao_276(secao).setVisible(true);
             case 277 -> new TelaSecao_277(secao).setVisible(true);//chamado pela seção 20,115
             case 278 -> new TelaSecao_278(secao).setVisible(true);//chamado pela seção 198,216 - Testa sorte em queda
+            case 279 -> new TelaSecao_279(secao).setVisible(true);
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
