@@ -268,7 +268,7 @@ public class CarregarTelas {
             case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200
             case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67
             case 114 -> new TelaSecao_114(secao).setVisible(true); //Verifica a existência de Cápsula de Fogo
-            case 115 -> new TelaSecao_115(secao).setVisible(true); //Chamado por 179,220
+            case 115 -> new TelaSecao_115(secao).setVisible(true); //Chamado por 179,220,275
             case 116 -> new TelaSecao_116(secao).setVisible(true); //Coleira de couro com aplicações em ouro(20).
             case 117 -> new TelaSecao_117(secao).setVisible(true); //Chamado por 168 - 1 Inimigo Goblin
             case 118 -> new TelaSecao_118(secao).setVisible(true); //chamado pela seção 97 (inimigo javali selvagem)
@@ -332,7 +332,7 @@ public class CarregarTelas {
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9 - Cabo do martelo de guerra dos anões(25)
             case 177 -> new TelaSecao_177(secao).setVisible(true); //Chamado por 261
             case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142,260
-            case 179 -> new TelaSecao_179(secao).setVisible(true); //Equipa Elmo(54)
+            case 179 -> new TelaSecao_179(secao).setVisible(true);//Chamado por 275 - Equipa Elmo(54)
             case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124
             case 181 -> new TelaSecao_181(secao).setVisible(true);//inimigo homem-peixe
             case 182 -> new TelaSecao_182(secao).setVisible(true);//Chamado por 255 - Testar habilidade jogando 2 dados
@@ -428,12 +428,12 @@ public class CarregarTelas {
             case 272 -> new TelaSecao_272(secao).setVisible(true);//chamado pela seção 128
             case 273 -> new TelaSecao_273(secao).setVisible(true);//chamado pela seção 71 - pegar medalhão
             case 274 -> new TelaSecao_274(secao).setVisible(true);//chamado pela seção 40,218
+            case 275 -> new TelaSecao_275(secao).setVisible(true);//chamado pela seção 220 - Perde energia
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 275 -> new TelaSecao_275(secao).setVisible(true);//chamado pela seção 220
             case 277 -> new TelaSecao_277(secao).setVisible(true);//chamado pela seção 20,115
             case 278 -> new TelaSecao_278(secao).setVisible(true);//chamado pela seção 198,216
             case 281 -> new TelaSecao_281(secao).setVisible(true);//chamado pela seção 39,89,172

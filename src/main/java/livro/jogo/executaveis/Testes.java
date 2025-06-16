@@ -28,12 +28,12 @@ public class Testes {
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(10);
         personagem.setHabilidadeAtual(2);
-        personagem.setEnergiaAtual(5);
+        personagem.setEnergiaAtual(2);
         personagem.setSorteAtual(0);
         DadosLivroCarregado.setPersonagem(personagem);
 
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 274);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get( 275);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -97,7 +97,7 @@ public class Testes {
         //Colar olho de Âmbar
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_15.json"));
 
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_28.json"));
+       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_54.json"));
 
 
 
