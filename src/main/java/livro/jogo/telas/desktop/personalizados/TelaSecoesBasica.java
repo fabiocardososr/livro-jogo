@@ -68,12 +68,12 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JPanel panelListaSuspensaItens; //Lista suspensa de itens da bolsa. Usada, por exmeplo, na seção 12
     protected JPanel panelListaItensEscolhidos; //Lista suspensa de itens escolhidos da bolsa. Usada, por exmeplo, na seção 12
     //Objeto que guarda a imagem do item
-    private HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
+    protected HashMap<JLabelOpcoesTelaSecao, Item> mapItens = new HashMap<JLabelOpcoesTelaSecao, Item>();
     private JLabelOpcoesTelaSecao labelFundoMapa;
     private JLabelOpcoesTelaSecao labelFundoPocaoInicial;
 
     //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
-    private JLabelOpcoesTelaSecao imagemItemEscolhido1; //
+    protected JLabelOpcoesTelaSecao imagemItemEscolhido1; //
     private JLabelOpcoesTelaSecao imagemItemEscolhido2; //Referente as seções (exemplo da seção 12) que precisa escolher 2 itens para descartar
     private int limiteDeEscolhaDeItens; //Limite de seleções no módulo de itens (usado, por exemplo, seção 12)
     private DefaultListModel<ListItem> listaItensParaEscolha; //Vai servir para a tela de escolha de itens
@@ -522,7 +522,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         repaint();
     }
 
-    private int ajusteLargura(int idItem) {
+    protected int ajusteLargura(int idItem) {
         int larguraPadrao = 70;
 
         switch (idItem){
