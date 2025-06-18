@@ -143,7 +143,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Limpa a lista de itens selecionados
     private void limparPanelEscolhaItensASeremDescartados(){
 
-        //Limpar o hashmap coim os itens selecionados
+        //Limpar o hashmap com os itens selecionados
         mapItens.clear();
 
         //Removendo todos os componentes menos o fundo (imagem) circular

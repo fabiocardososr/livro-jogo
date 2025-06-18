@@ -22,14 +22,26 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_279 extends TelaSecoesBasica {
-    private int qtdPagar5itens = 5;  //5 itens e vai decrementando a medida que vai sendo pago(removido da bolsa)
+    private int qtdPagar5itens;  //5 itens e vai decrementando a medida que vai sendo pago(removido da bolsa)
     private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopo global para que seja desabilitado caso escolha a opção de pagar com moedas
+    private JList<ListItem> jListItem;
     private DefaultListModel<ListItem> listaItensParaEscolha; //Vai servir para a tela de escolha de itens
     private Item itemEscolhido;
+    private JLabel lbFaixaPanelSuspensoInfoQtdItensFaltam;
+    private JLabel lbFaixaInfoQtdItensFaltam;
 
 
     public TelaSecao_279(Secao secao) {
         super(secao);
+
+    }
+
+    //Atualiza infos que mostra quanto falta de itens ou moedas a serem pagas
+    private void atualizaInfoPagamento(){
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setText("Falta pagar: "+qtdPagar5itens );
+        lbFaixaInfoQtdItensFaltam.setText("<html><center>Pagar<br>"+qtdPagar5itens+" item(ns)</center></html>");
+
+        repaint();
     }
 
     //Limpa a lista de itens selecionados
@@ -52,11 +64,17 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         repaint();
     }
 
+    //Ao clicar no botão quando escolhido um item
     private void confirmarEscolhaItens() {
+
+        if ( (itemEscolhido == null) || (jListItem.getSelectedIndex() == -1) )
+            return;
 
         if (qtdPagar5itens == 0){
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nA mulher já foi paga.");
+            fecharTelaListaItens();
+            return;
         }
 
         //Remover item da bolsa
@@ -65,14 +83,25 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Decrementa a variável que indica quantos itens faltam entregar (conta ouro como um item)
         --qtdPagar5itens;
 
-        escolheuItensDaListaSuspensa = true;
-        panelListaSuspensaItens.setVisible(false);
-        panelListaItensEscolhidos.setVisible(false);
+        // Para remover o item selecionado
+        int selectedIndex = jListItem.getSelectedIndex();
+        if (selectedIndex != -1) {
+            listaItensParaEscolha.remove(selectedIndex);
+        }
 
+        //Limpa panel de visualização do item
+        limparPanelEscolhaItensASeremDescartados();
 
+        //atualiza informação sobre quanto falta pagar
+        atualizaInfoPagamento();
     }
 
-    private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem, JList<ListItem> jListItem) {
+    private void fecharTelaListaItens(){
+        panelListaSuspensaItens.setVisible(false);
+        panelListaItensEscolhidos.setVisible(false);
+    }
+
+    private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem) {
         int posicaoX = 85;
         int posicaoY = 75;
 
@@ -90,7 +119,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         imagemItem = new JLabelOpcoesTelaSecao(null,
                 largura,70,itemEscolhido.getEnderecoImagem());
         imagemItem.setBounds(posicaoX,posicaoY,largura,70);
-        imagemItem.setName("REMOVER"); //caso precise resetar a escolha. Entrão esse marcador indica que pode remover do panel
+        imagemItem.setName("REMOVER"); //caso precise resetar a escolha. Então esse marcador indica que pode remover do panel
         imagemItem.setHorizontalAlignment(SwingConstants.CENTER);
         panelListaItensEscolhidos.add(imagemItem);
 
@@ -138,7 +167,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
             listaItensParaEscolha.addElement(listItem);
 
         //Criando o JList de itens na bolsa
-        JList<ListItem> jListItem = new JList<>(listaItensParaEscolha);
+        jListItem = new JList<>(listaItensParaEscolha);
         jListItem.setCellRenderer(new ListaDeItensComImagem());
         jListItem.setVisibleRowCount(5);
         jListItem.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -156,11 +185,11 @@ public class TelaSecao_279 extends TelaSecoesBasica {
                 //Se já escolhidos o limite de itens
                 if  (qtdPagar5itens == 0) {
                     CarregarTelas.telaMensagem("A mulher foi paga");
+                    fecharTelaListaItens();
                     return;
                 }
 
-                incluirItemEscolhido(imagemItemEscolhido1, jListItem);
-
+                incluirItemEscolhido(imagemItemEscolhido1);
             }
 
             @Override
@@ -187,7 +216,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Botão de confirmação
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
                 100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoConfirmar.setBounds(50,195,100,60);
+        botaoConfirmar.setBounds(100,195,100,60);
         botaoConfirmar.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -221,17 +250,25 @@ public class TelaSecao_279 extends TelaSecoesBasica {
             }
         });
 
+        //label do botaoConfirmar
+        JLabel lbBotaoConfirmar = new JLabel("Confirmar");
+        lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,12));
+        lbBotaoConfirmar.setForeground(new Color(139,0,0));
+        lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoConfirmar.setBounds(122,212,55,20);
+        lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //lbBotaoConfirmar.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         //Botão sair sem fazer nada
         JLabelOpcoesTelaSecao botaoSair = new JLabelOpcoesTelaSecao(null,
                 100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoSair.setBounds(160,195,100,60);
+        botaoSair.setBounds(228,195,100,60);
         botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 limparPanelEscolhaItensASeremDescartados();
-                panelListaSuspensaItens.setVisible(false);
-                panelListaItensEscolhidos.setVisible(false);
+                fecharTelaListaItens();
             }
 
             @Override
@@ -260,72 +297,34 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         });
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        //Botão limpar (resetar)
-        JLabelOpcoesTelaSecao botaoResetar = new JLabelOpcoesTelaSecao(null,
-                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(270,195,100,60);
-        botaoResetar.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                limparPanelEscolhaItensASeremDescartados();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
-                        botaoResetar.getHeight(),
-                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_SELECIONADA.getEnderecoImagem()));
-                repaint();
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                botaoResetar.setIcon(Util.dimensionarImagem(botaoResetar.getWidth(),
-                        botaoResetar.getHeight(),
-                        ImagensDoLivroFlorestaDaDestruicao.FAIXA.getEnderecoImagem()));
-                repaint();
-            }
-        });
-
         //label do botãoSair
         JLabel lbBotaoSair = new JLabel("Sair");
         lbBotaoSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbBotaoSair.setForeground(new Color(139,0,0));
         lbBotaoSair.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoSair.setBounds(185,212,50,20);
+        lbBotaoSair.setBounds(253,212,50,20);
         lbBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //lbBotaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
-        //label do botaoConfirmar
-        JLabel lbBotaoConfirmar = new JLabel("OK");
-        lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
-        lbBotaoConfirmar.setForeground(new Color(139,0,0));
-        lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoConfirmar.setBounds(75,212,50,20);
-        lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //Faixa de informação de quantos itens faltam para pagar
+        JLabelOpcoesTelaSecao faixaInfoQtdItensFaltam = new JLabelOpcoesTelaSecao(null,
+                200,80,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8_REDUZIDO);
+        faixaInfoQtdItensFaltam.setBounds(25,-10,200,80);
+        faixaInfoQtdItensFaltam.setCursor(null);
 
-        //label do resetar
-        JLabel lbBotaoLimpar = new JLabel("Resetar");
-        lbBotaoLimpar.setFont(new Font(Font.SERIF,Font.BOLD,14));
-        lbBotaoLimpar.setForeground(new Color(139,0,0));
-        lbBotaoLimpar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoLimpar.setBounds(295,212,50,20);
-        lbBotaoLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //label da faixa de informação de quantos itens faltam para pagar
+        lbFaixaPanelSuspensoInfoQtdItensFaltam = new JLabel("Falta pagar: "+String.valueOf(qtdPagar5itens) );
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setForeground(new Color(139,0,0));
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setHorizontalAlignment(SwingConstants.CENTER);
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setBounds(51,10,150,25);
+        lbFaixaPanelSuspensoInfoQtdItensFaltam.setCursor(null);
+        //lbfaixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Adicionando componentes no panel que mostra os itens a serem escolhidos
-        panelListaSuspensaItens.add(lbBotaoLimpar);
-        panelListaSuspensaItens.add(botaoResetar);
+        panelListaItensEscolhidos.add(lbFaixaPanelSuspensoInfoQtdItensFaltam);
+        panelListaItensEscolhidos.add(faixaInfoQtdItensFaltam);
         panelListaSuspensaItens.add(lbBotaoConfirmar);
         panelListaSuspensaItens.add(botaoConfirmar);
         panelListaSuspensaItens.add(lbBotaoSair);
@@ -339,12 +338,15 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
 
         //Carrega, mas deixa invisível, pois nos testes demorou a ser carregada quando clicado no botão
-        panelListaSuspensaItens.setVisible(false);
-        panelListaItensEscolhidos.setVisible(false);
+        fecharTelaListaItens();
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
+        //estou inicializando aqui pois no construtor essa função
+        //está sendo chamada antes e vem zerado quando tento mostrá-la no label
+        this.qtdPagar5itens = 5;
+
         carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250);
 
         opcao1(secao);
@@ -361,14 +363,41 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Escolher moedas para dar ao Gnomo
         //carregaBotaoOpcaoMoedas();
 
-        //Escolher 2 itens para dar ao Gnomo
-        carregarListaItensParaDarAoGnomo();
+        //Carrega faixa de informações de quantos itens faltam
+        carregaFaixaDeInformacaoDeQuantitativoDeitensFaltantes();
+
+        //Carrega botão que chama a lista de itens
+        carregarBotaoQueChamaListaItens();
+
+
     }
 
-    private void carregarListaItensParaDarAoGnomo() {
+    private void carregaFaixaDeInformacaoDeQuantitativoDeitensFaltantes() {
+
+        JLabelOpcoesTelaSecao faixaInfoQtdItensFaltam = new JLabelOpcoesTelaSecao(null,
+                200,120,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
+        faixaInfoQtdItensFaltam.setBounds(330,560,200,120);
+        faixaInfoQtdItensFaltam.setCursor(null);
+        //faixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        lbFaixaInfoQtdItensFaltam = new JLabel("<html><center>Pagar<br>"+
+                                                String.valueOf(qtdPagar5itens)+" item(ns)</center></html>");
+        lbFaixaInfoQtdItensFaltam.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbFaixaInfoQtdItensFaltam.setForeground(new Color(139,0,0));
+        lbFaixaInfoQtdItensFaltam.setHorizontalAlignment(SwingConstants.CENTER);
+        lbFaixaInfoQtdItensFaltam.setBounds(355,580,150,80);
+        lbFaixaInfoQtdItensFaltam.setCursor(null);
+        //lbFaixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(lbFaixaInfoQtdItensFaltam);
+        add(faixaInfoQtdItensFaltam);
+
+    }
+
+    private void carregarBotaoQueChamaListaItens() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(520,560,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
@@ -403,8 +432,8 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         });
 
         //Texto
-        JLabel texto= new JLabel("<html><center>Escolha itens</center></html>");
-        texto.setBounds(555,585,130,25);
+        JLabel texto= new JLabel("<html><center>Itens</center></html>");
+        texto.setBounds(625,585,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
@@ -467,7 +496,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
                 if (e.getSource() == botaoOpcao1){
 
-                    if ( qtdPagar5itens == 5)
+                    if ( qtdPagar5itens == 0)
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
                         CarregarTelas.telaMensagem("AQUI MENSAGEM QUANDO NÃO PAGAR O QUE A MULHER QUER");

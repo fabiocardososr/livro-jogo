@@ -25,6 +25,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     FAIXA_INDICE_TELA_SECAO("livros/florestadadestruicao/imagens/faixa9.png"),
     FAIXA_NOME_PERSONAGEM_TELA_SECAO("livros/florestadadestruicao/imagens/faixa2.png"),
     FAIXA_8("livros/florestadadestruicao/imagens/faixa_8.png"),
+    FAIXA_8_REDUZIDO("livros/florestadadestruicao/imagens/faixa_8_reduzido_espaco.png"), //foi retirado espaços em branco na imagem faixa_8.png
     BRASAO_LUTA("livros/florestadadestruicao/imagens/brasao_luta.png"),
     FAIXA_10("livros/florestadadestruicao/imagens/faixa_10.png"),
     FAIXA_11("livros/florestadadestruicao/imagens/faixa_11.png"),
