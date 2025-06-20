@@ -504,6 +504,7 @@ public class TelaBatalha extends JDialog {
 
                     if ( (podeUsarEspecialEscudoDeFerro) && (labelInfoRodada.isEnabled()) ){
                         if ( acoesBatalha.testarDefesaEscudoDeFerroItem28() ) {
+                            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
                             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
                                     ",\n\nSucesso no teste com o escudo. Será reduzido em 1 ponto seu dano.");
                             UtilPersonagem.recuperaEnergia(1);

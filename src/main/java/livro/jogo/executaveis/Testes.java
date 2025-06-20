@@ -34,7 +34,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(289);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(294);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -92,7 +92,7 @@ public class Testes {
         //Colar olho de Âmbar
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_15.json"));
 
-       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_54.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_28.json"));
 
 
 
