@@ -11,10 +11,7 @@ import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilBolsa;
-import livro.jogo.utils.UtilItens;
+import livro.jogo.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,6 +26,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
     private Item itemEscolhido;
     private JLabel lbFaixaPanelSuspensoInfoQtdItensFaltam;
     private JLabel lbFaixaInfoQtdItensFaltam;
+    private JLabelOpcoesTelaSecao botaoDarMoedas;
 
 
     public TelaSecao_279(Secao secao) {
@@ -352,9 +350,9 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         opcao1(secao);
 
         //posicionando as opção mais abaixo
-        botaoOpcao1.setBounds(120,640,40,50);
-        labelNumOpcao1.setBounds(116,632, 50,50);
-        lbTextoOpcao1.setBounds(170,627,700,60);
+        botaoOpcao1.setBounds(120,710,40,50);
+        labelNumOpcao1.setBounds(116,702, 50,50);
+        lbTextoOpcao1.setBounds(170,697,700,60);
 
 
         //Ação ao clicar
@@ -369,14 +367,15 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Carrega botão que chama a lista de itens
         carregarBotaoQueChamaListaItens();
 
-
+        //Carrega botão de pagar moeda de ouro
+        carregarBotaoPagarMoedas();
     }
 
     private void carregaFaixaDeInformacaoDeQuantitativoDeitensFaltantes() {
 
         JLabelOpcoesTelaSecao faixaInfoQtdItensFaltam = new JLabelOpcoesTelaSecao(null,
                 200,120,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
-        faixaInfoQtdItensFaltam.setBounds(330,560,200,120);
+        faixaInfoQtdItensFaltam.setBounds(340,560,200,120);
         faixaInfoQtdItensFaltam.setCursor(null);
         //faixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -385,7 +384,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         lbFaixaInfoQtdItensFaltam.setFont(new Font(Font.SERIF,Font.BOLD,22));
         lbFaixaInfoQtdItensFaltam.setForeground(new Color(139,0,0));
         lbFaixaInfoQtdItensFaltam.setHorizontalAlignment(SwingConstants.CENTER);
-        lbFaixaInfoQtdItensFaltam.setBounds(355,580,150,80);
+        lbFaixaInfoQtdItensFaltam.setBounds(365,580,150,80);
         lbFaixaInfoQtdItensFaltam.setCursor(null);
         //lbFaixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -394,11 +393,118 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
     }
 
+    private void carregarBotaoPagarMoedas() {
+
+        //Botão
+        botaoDarMoedas = new JLabelOpcoesTelaSecao("",250, 80,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoDarMoedas.setBounds(100, 581,250,80);
+        botaoDarMoedas.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pagarMoeda();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoDarMoedas.setIcon(Util.dimensionarImagem(botaoDarMoedas.getWidth(),
+                        botaoDarMoedas.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoDarMoedas.setIcon(Util.dimensionarImagem(botaoDarMoedas.getWidth(),
+                        botaoDarMoedas.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        //Texto
+        JLabel texto= new JLabel("<html><center>+1 Moeda</center></html>");
+        texto.setBounds(180,606,90,25);
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        texto.setForeground(new Color(128,0,0));
+        texto.setToolTipText("Pague 1 moeda para a mulher");
+        //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        texto.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pagarMoeda();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoDarMoedas.setIcon(Util.dimensionarImagem(botaoDarMoedas.getWidth(),
+                        botaoDarMoedas.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoDarMoedas.setIcon(Util.dimensionarImagem(botaoDarMoedas.getWidth(),
+                        botaoDarMoedas.getHeight(),
+                        ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+        texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        add(texto);
+        add(botaoDarMoedas);
+    }
+
+    private void pagarMoeda() {
+
+        if (qtdPagar5itens == 0) {
+            CarregarTelas.telaMensagem("Você já pagou.");
+            return;
+        }
+
+        if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() == 0){
+           CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                   ",\n\nVocê não possui peças de ouro para pagar.");
+           return;
+        }
+
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+       UtilPersonagem.reduzirValorOuro(1);
+        --qtdPagar5itens;
+       atualizaInfoPagamento();
+       atualizaIndicesNaTelaDoPersonagem();
+    }
+
     private void carregarBotaoQueChamaListaItens() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(520,560,340,80)
-                .criarBotao();
+        botaoEscolhaItens = new JLabelOpcoesTelaSecao("",250, 80,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoEscolhaItens.setBounds(530, 581,250,80);
+
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -433,9 +539,9 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Itens</center></html>");
-        texto.setBounds(625,585,130,25);
+        texto.setBounds(605,606,90,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Escolha itens para dar a mulher.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -499,7 +605,9 @@ public class TelaSecao_279 extends TelaSecoesBasica {
                     if ( qtdPagar5itens == 0)
                         abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                     else
-                        CarregarTelas.telaMensagem("AQUI MENSAGEM QUANDO NÃO PAGAR O QUE A MULHER QUER");
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ",\n\nVocê precisa pagar tudo o que a mulher "+
+                                "bandida exigiu antes de continuar sua jornada.");
                 }
             }
 

@@ -6,12 +6,14 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.Util;
+import livro.jogo.utils.UtilPersonagem;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_282 extends TelaSecoesBasica {
-    public TelaSecao_282(Secao secao) {
+public class TelaSecao_388 extends TelaSecoesBasica {
+    public TelaSecao_388(Secao secao) {
         super(secao);
     }
 
@@ -27,7 +29,12 @@ public class TelaSecao_282 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( DadosLivroCarregado.getPersonagem().isMaldicaoLobisomem() )
+                  abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nVocê se saiu bem, não foi ferido pelo Lobisomem.\nEscolha outra opção.");
+
             }
 
             @Override
@@ -47,7 +54,6 @@ public class TelaSecao_282 extends TelaSecoesBasica {
                             botaoOpcao1.getWidth(), botaoOpcao1.getHeight()).getImageIcon());
                     repaint();
                 }
-
             }
 
             @Override
@@ -63,7 +69,15 @@ public class TelaSecao_282 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
+                if ( !DadosLivroCarregado.getPersonagem().isMaldicaoLobisomem() ) {
+                    abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
+                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                    DadosLivroCarregado.getPersonagem().setMaldicaoLobisomem(false);
+                    UtilPersonagem.recuperaSorte(1);
+                }
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nVocê foi ferido.\nEscolha outra opção.");
             }
 
             @Override
@@ -83,7 +97,6 @@ public class TelaSecao_282 extends TelaSecoesBasica {
                             botaoOpcao2.getWidth(), botaoOpcao2.getHeight()).getImageIcon());
                     repaint();
                 }
-
             }
 
             @Override

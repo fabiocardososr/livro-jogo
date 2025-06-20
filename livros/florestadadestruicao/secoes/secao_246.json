@@ -1,8 +1,8 @@
-
 {  	
   "codSecaoLivro": "246",
-  "texto": "\t\t\t\tA mulher BANDIDA pega seus artigos e recua para deixá-lo passar.\n\n\t\t\t\tVocê ruma para o norte de novo e logo nota que as árvores estão ficando mais esparsas em ambos os lados da trilha.\n\n\t\t\t\tA trilha acaba por conduzir para fora das árvores a um campo arado. Você está fora da Floresta de Darkwood!",
+  "texto": "\t\t\t\tA mulher bandida pega seus artigos e recua para deixá-lo passar.\n\n\t\t\t\tVocê ruma para o norte de novo e logo nota que as árvores estão ficando mais esparsas em ambos os lados da trilha.\n\n\t\t\t\tA trilha acaba por conduzir para fora das árvores a um campo arado. Você está fora da Floresta de Darkwood!",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_246.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_246.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Continue.",

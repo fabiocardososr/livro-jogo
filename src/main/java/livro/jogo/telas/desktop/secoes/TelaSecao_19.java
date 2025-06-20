@@ -16,6 +16,8 @@ import java.awt.event.WindowListener;
 public class TelaSecao_19 extends TelaSecoesBasica {
     public TelaSecao_19(Secao secao) {
         super(secao);
+        //Referente ao resultado da batalha com lobisomem na seção 285
+        DadosLivroCarregado.getPersonagem().setMaldicaoLobisomem(false);
     }
 
     @Override

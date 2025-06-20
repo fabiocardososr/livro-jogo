@@ -10,7 +10,8 @@ public class TelaSecao_360 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-
+        //LEMBRE DE FAZER TESTE SE O PERSONAGEM POSSUI MAIS DE 5 ITENS PARA PAGA E COM ISSO
+        // ESCOLHER A SEÇÃO 279.
     }
 
     @Override

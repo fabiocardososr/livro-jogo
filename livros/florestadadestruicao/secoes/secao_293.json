@@ -2,6 +2,7 @@
   "codSecaoLivro": "293",
   "texto": "\t\t\t\tOs degraus são feitos de pedra, esculpidos na parede da caverna. Estão molhados no limo que pinga e desce pelas paredes.\n\n\t\t\t\tVocê vê que há três nichos que penetram na parede da caverna a partir dos degraus a intervalos diversos até o teto. Cada um deles tem três metros de altura.\n\n\t\t\t\tVocê sobe os degraus e olha para o interior da penumbra do primeiro nicho, onde vê um barril e uma arca de madeira.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_293.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_293.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Olhar dentro do barril?",

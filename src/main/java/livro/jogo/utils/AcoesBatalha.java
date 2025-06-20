@@ -275,6 +275,13 @@ public class AcoesBatalha {
             //Regra é perder 2 pontos de energia por turno de batalha não vencido.
             personagemVivo = UtilPersonagem.personagemPerdeEnergia(2);
 
+            //Caso na seção 285 o personagem sofre ferimento do lobisomem, seta a variável.
+            //vai ser testada na seção 388, pois a escolha depende se foi ferido ou não.
+            if ( (telaSecao.getSecao().getCodSecaoLivro() == 285) &&
+                    (!DadosLivroCarregado.getPersonagem().isMaldicaoLobisomem()) )
+                DadosLivroCarregado.getPersonagem().setMaldicaoLobisomem(true);
+
+
             /*Se após dedução da energia do personagem o índice chegar a zero(NÃO abaixo de zero), existe
               a possibilidade de testar sorte e recupera 1 ponto e com isso evitar a morte do personagem ou
               perde +1 de dano em caso de azar*/

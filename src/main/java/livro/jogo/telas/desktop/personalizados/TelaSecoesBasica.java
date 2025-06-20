@@ -1226,6 +1226,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             if (e.getSource() == labelVoz){
 
+                if (secao.getEnderecoAudio() == null)
+                    return;
+
                 //Não deixar ativar o som mais de uma vez
                 if ( !labelVoz.isEnabled() )
                     return;

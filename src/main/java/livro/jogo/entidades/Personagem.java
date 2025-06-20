@@ -19,6 +19,8 @@ public class Personagem implements Serializable {
     private int quantidadeOuro;
     private ArrayList<Item> bolsa;
     private ArrayList<Item> itensEquipados;
+    //Necessário pois na seção 285 sofrendo ferimento mas vencendo a batalha, na seção 388 se ferido pode ter consequências
+    private boolean maldicaoLobisomem = false;
 
     /*Preciso manter este objeto "CondicaoEspecialPersonagem" porque tem itens que são temporários e somem
       E para facilitar a organização e adminstração como por exemplo poções que dão 1 de habilidade por duas batalhas
@@ -166,5 +168,13 @@ public class Personagem implements Serializable {
                 ", condicaoEspecial= " + condicaoEspecial +"\n\n"+
                 ", Ouro carregado= " + quantidadeOuro +
                 '}';
+    }
+
+    public boolean isMaldicaoLobisomem() {
+        return maldicaoLobisomem;
+    }
+
+    public void setMaldicaoLobisomem(boolean maldicaoLobisomem) {
+        this.maldicaoLobisomem = maldicaoLobisomem;
     }
 }

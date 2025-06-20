@@ -1,9 +1,9 @@
 {  	
   "codSecaoLivro": "388",
-  "texto": "-",
+  "texto": "\t\t\t\t...",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "O Lobisomem feriu você durante o combate?",
+      "textoOpcao": "O Lobisomem feriu você durante o combate.",
       "codProximaSecao": "155"
     },
 	{	  

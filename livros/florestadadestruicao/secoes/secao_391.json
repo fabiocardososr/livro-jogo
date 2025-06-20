@@ -2,6 +2,7 @@
   "codSecaoLivro": "391",
   "texto": "A construção mede apenas três metros por três metros e não tem janelas. A porta é feita de pedra e parece muito sólida. Não há maçaneta e não parece haver outro meio de entrar na construção. Em seguida, você repara numa minúscula fechadura na porta de pedra.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_391.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_391.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Possui a Chave de Prata?",

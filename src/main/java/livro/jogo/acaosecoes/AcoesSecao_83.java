@@ -28,5 +28,6 @@ public class AcoesSecao_83 {
     //Retirar a Beladona da bolsa (foi consumida)
     public static void consumirBeladona(){
         UtilBolsa.removerItem(ItensMapeamento.BELADONA.getIdItem());
+        DadosLivroCarregado.getPersonagem().setMaldicaoLobisomem(false);
     }
 }
