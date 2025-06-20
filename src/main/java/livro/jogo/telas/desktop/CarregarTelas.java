@@ -183,7 +183,7 @@ public class CarregarTelas {
             case 27  -> new TelaSecao_27(secao).setVisible(true); //Chamado por seção 123
             case 28  -> new TelaSecao_28(secao).setVisible(true); //Chamado por 209 - pergunta se possui braçadeira da Força
             case 29  -> new TelaSecao_29(secao).setVisible(true); //Chamado por 226 - 2 inimigos ORCs
-            case 30  -> new TelaSecao_30(secao).setVisible(true); //perda de energia
+            case 30  -> new TelaSecao_30(secao).setVisible(true); //Chamado por 295 - perda de energia
             case 31  -> new TelaSecao_31(secao).setVisible(true); //chamado por 110,257
             case 32  -> new TelaSecao_32(secao).setVisible(true); //perda de sorte, perde moedas e perde 2 itens
             case 33  -> new TelaSecao_33(secao).setVisible(true); //Chamado por 243
@@ -378,7 +378,7 @@ public class CarregarTelas {
             case 222 -> new TelaSecao_222(secao).setVisible(true);
             case 223 -> new TelaSecao_223(secao).setVisible(true); //Chamado por 170
             case 224 -> new TelaSecao_224(secao).setVisible(true); //Chamado por 231
-            case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30
+            case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30,295
             case 226 -> new TelaSecao_226(secao).setVisible(true); //chamado pelas seções 21,36,108,239
             case 227 -> new TelaSecao_227(secao).setVisible(true); //chamado pelas seções 173
             case 228 -> new TelaSecao_228(secao).setVisible(true); //Equipar botas saltadoras(31)
@@ -449,12 +449,12 @@ public class CarregarTelas {
             case 292 -> new TelaSecao_292(secao).setVisible(true);
             case 293 -> new TelaSecao_293(secao).setVisible(true);//chamado pela seção 44,80,183,189,211,222,269,282
             case 294 -> new TelaSecao_294(secao).setVisible(true);
+            case 295 -> new TelaSecao_295(secao).setVisible(true);
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 295 -> new TelaSecao_295(secao).setVisible(true);//chamado pela seção 256
             case 296 -> new TelaSecao_296(secao).setVisible(true);//chamado pela seção 151,273
             case 297 -> new TelaSecao_297(secao).setVisible(true);//chamado pela seção 271
             case 299 -> new TelaSecao_299(secao).setVisible(true);//chamado pela seção 92
