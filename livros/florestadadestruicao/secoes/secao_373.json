@@ -2,6 +2,7 @@
   "codSecaoLivro": "373",
   "texto": "\t\t\t\tVocê desaba sobre o tronco, exausto depois de sua longa batalha. Infelizmente, a vara preta era apenas parte da ilusão do Muda-Formas e não existe mais.\n\n\t\t\t\tPorém, você repara que há uns cogumelos roxos que crescem atrás do tronco.\n\n\t\t\t\tEles não são conhecidos para você, mas parecem apetitosos.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_373.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_373.png",
   "proximasSecoes": [
     {	  
       "textoOpcao": "Comer alguns cogumelos?",

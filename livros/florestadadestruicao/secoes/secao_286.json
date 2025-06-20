@@ -4,16 +4,17 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_286.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Venceu!",
       "codProximaSecao": "373"
     }
   ],
   "inimigos":[
 	{
 		"idInimigo":"55",
-		"nome":"MUDA-FORMAS",
+		"nome":"Muda-Formas",
 		"habilidade":"10",
-		"energia":"10"
+		"energia":"10",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/muda_forma.png"
 	}
   ]
   }
