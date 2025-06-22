@@ -439,7 +439,7 @@ public class TelaBatalha extends JDialog {
         botaoFuga.setHorizontalAlignment(SwingConstants.CENTER);
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoFuga.setBounds(posicaoX,posicaoY, largura,altura);
-        botaoFuga.setToolTipText("Abandonar a luta? Perde 2 de energia. Esse é o preço da covardia.");
+        //botaoFuga.setToolTipText("Abandonar a luta? Perde 2 de energia. Esse é o preço da covardia.");
         botaoFuga.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoFuga.addMouseListener(new MouseListener() {
             @Override
@@ -495,7 +495,7 @@ public class TelaBatalha extends JDialog {
         botaoEspecialEscudoDeFerro.setHorizontalAlignment(SwingConstants.CENTER);
         botaoEspecialEscudoDeFerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoEspecialEscudoDeFerro.setBounds(posicaoX,posicaoY, largura,altura);
-        botaoEspecialEscudoDeFerro.setToolTipText("REGRA: Resultado 4, 5 ou 6 os danos causados a você serão reduzidos em 1 ponto.");
+        //botaoEspecialEscudoDeFerro.setToolTipText("REGRA: Resultado 4, 5 ou 6 os danos causados a você serão reduzidos em 1 ponto.");
         botaoEspecialEscudoDeFerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoEspecialEscudoDeFerro.addMouseListener(new MouseListener() {
             @Override
