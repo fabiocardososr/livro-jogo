@@ -310,7 +310,7 @@ public class CarregarTelas {
             case 154 -> new TelaSecao_154(secao).setVisible(true);
             case 155 -> new TelaSecao_155(secao).setVisible(true); //Verifica se tem Beladona(14)
             case 156 -> new TelaSecao_156(secao).setVisible(true); //Chamado por 195 - Perde energia
-            case 157 -> new TelaSecao_157(secao).setVisible(true);
+            case 157 -> new TelaSecao_157(secao).setVisible(true); //Chamado por 301
             case 158 -> new TelaSecao_158(secao).setVisible(true);
             case 159 -> new TelaSecao_159(secao).setVisible(true);//chamado pela seção 138 (perde energia)
             case 160 -> new TelaSecao_160(secao).setVisible(true); //Chamado por 177 - pagar moeda ao corvo, opção 1
@@ -455,6 +455,7 @@ public class CarregarTelas {
             case 298 -> new TelaSecao_298(secao).setVisible(true);//chamado pela seção 127,178
             case 299 -> new TelaSecao_299(secao).setVisible(true);//chamado pela seção 92
             case 300 -> new TelaSecao_300(secao).setVisible(true);//chamado pela seção 219,254
+            case 301 -> new TelaSecao_301(secao).setVisible(true);
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
