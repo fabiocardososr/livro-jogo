@@ -210,12 +210,15 @@ public class EfeitoDeItens {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Se personagem com energia máxima, não fazer nada
-        if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+        //Exceto na seção 304 que exige que se coma 5 provisões independentemente se a energia estiver cheia
+        if ( (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0) &&
+            secao.getCodSecaoLivro() != 304){
             return false;
         }
 
         //Achar um item do tipo provisão e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.PROVISAO.getIdItem());
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/mastigacao.mp3", null);
 
         //Recuperando o índice atual e o índice máximo em que o personagem pode chegar
         var indiceAtual   = personagem.getEnergiaAtual();

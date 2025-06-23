@@ -10,6 +10,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.telas.desktop.secoes.TelaSecao_304;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
@@ -430,6 +431,15 @@ public class TelaBolsa extends JDialog {
 
         ///PROVISÃO(49)
         if (item.getIdItem() == ItensMapeamento.PROVISAO.getIdItem()) {
+
+            //Sendo a seção 304 tem que registrar quantas provisões comeram.
+            //pois somente passa para outra seção se consumir 5 provisões
+            if (secao.getCodSecaoLivro() == 304) {
+                TelaSecao_304.setQuantProvisoesComidas(TelaSecao_304.getQuantProvisoesComidas() + 1);
+                TelaSecao_304.getLbFaixaInfoQtdFaltamComer().setText("<html><center>Comer<br>"+
+                        String.valueOf(5 - TelaSecao_304.getQuantProvisoesComidas())+"<br>provisões(ão)</center></html>");
+                repaint();
+            }
 
             lbEnergiaPersonagem.setText("Energia: " +
                     String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +

@@ -110,7 +110,7 @@ public class Testes {
 //
 //
 //       //Provisão
-        for (int i=1; i<=5; i++)
+        for (int i=1; i<=2; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                "livros/florestadadestruicao/itens/item_49.json"));
 //

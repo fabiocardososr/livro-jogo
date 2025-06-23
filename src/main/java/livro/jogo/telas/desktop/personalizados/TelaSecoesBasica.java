@@ -82,7 +82,8 @@ public abstract class TelaSecoesBasica extends JDialog {
     private JLabelOpcoesTelaSecao botaoLabelFundoProvisoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoAnotacoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoSalvar;
-    private int quantProvisoesComidas; //Necessário para contar quantas provisões comeu na seção 304
+    private static int quantProvisoesComidas; //Necessário para contar quantas provisões comeu na seção 304
+    protected static JLabel lbFaixaInfoQtdFaltamComer; //Quantas provisões faltam comer usado na seção 304
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -135,6 +136,18 @@ public abstract class TelaSecoesBasica extends JDialog {
                     referenciaTelaPrincipal.setVisible(true);
             }
         });
+    }
+
+    public static JLabel getLbFaixaInfoQtdFaltamComer() {
+        return lbFaixaInfoQtdFaltamComer;
+    }
+
+    public static int getQuantProvisoesComidas() {
+        return quantProvisoesComidas;
+    }
+
+    public static void setQuantProvisoesComidas(int quantProvisoesComidas) {
+        TelaSecoesBasica.quantProvisoesComidas = quantProvisoesComidas;
     }
 
     public Secao getSecao(){
@@ -1319,11 +1332,29 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             if ( (e.getSource() ==  labelProvisoes) || ((e.getSource() ==  botaoLabelFundoProvisoes)) ){
 
+                if (UtilItens.quantidadeProvisoesRestantes() == 0) {
+
+                    if ( (secao.getCodSecaoLivro() == 304) && (quantProvisoesComidas < 5) ){
+                        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                        CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                                "\n\nVocê não tem provisões suficientes para se restabelecer.\n\nVocê Morreu!");
+                        personagemVivo(false);
+                        return;
+                    }
+
+                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                            "\n\nVocê não tem provisões para se alimentar.");
+                    return;
+                }
+
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
                     return;
 
                 //Testa se personagem encontra-se com energia cheia e o avisa.
-                if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
+                //Sendo a seção 304 ignore este bloqueio, pois é necessário comer 5 provisões para passar para a
+                //próxima seção
+                if ( (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0) &&
+                    secao.getCodSecaoLivro() != 304){
                     CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+", sua energia está completa."+
                             "\n\nNão existe necessidade de se alimentar.");
                     return;
@@ -1334,24 +1365,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if ( !respostaTelaMensagem )
                     return;
 
-                //Testa se ainda existem provisões para comer
-                if (UtilItens.quantidadeProvisoesRestantes() > 0) {
-
-                    //Aqui trata a ação de comer a provisão
-                    //Item provisão
-                    if  (new EfeitoDeItens(secao).acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
-
-                        //POR AQUI DEVE FICAR A INCREMENTAR A VARIÁVEL quantProvisoesComidas
-
-                        lbEnergiaPersonagem.setText("Energia: " +
-                                String.valueOf(personagem.getEnergiaAtual()) + "/" +
-                                String.valueOf(personagem.getEnergiaMax()));
-                        labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
-                        CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
-                    }
-                }
-                else
-                    CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");
+                efeitoDaProvisao();
             }
 
             if ( (e.getSource() ==  labelAnotacoes) || (e.getSource() ==  botaoLabelFundoAnotacoes) ){
@@ -1501,6 +1515,42 @@ public abstract class TelaSecoesBasica extends JDialog {
                 repaint();
             }
 
+        }
+    }
+
+    protected void efeitoDaProvisao() {
+
+        //Testa se ainda existem provisões para comer
+        if (UtilItens.quantidadeProvisoesRestantes() > 0) {
+
+            //Aqui trata a ação de comer a provisão
+            //Item provisão
+            if  (new EfeitoDeItens(secao).acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+
+                //Na seção 304 exige que se coma 5 provisões. E este é o contador
+                if (secao.getCodSecaoLivro() == 304) {
+                    ++quantProvisoesComidas;
+                    lbFaixaInfoQtdFaltamComer.setText("<html><center>Comer<br>"+
+                            String.valueOf(5 - quantProvisoesComidas)+"<br>provisões(ão)</center></html>");
+                    repaint();
+                }
+
+                lbEnergiaPersonagem.setText("Energia: " +
+                        String.valueOf(personagem.getEnergiaAtual()) + "/" +
+                        String.valueOf(personagem.getEnergiaMax()));
+                labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
+                repaint();
+
+                CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
+            }
+        }
+        else {
+            CarregarTelas.telaMensagem("Você não tem mais provisões para comer.");
+
+            //A seção 304 exige comer 5 provisões do contrário o personagem morre
+            if ( (quantProvisoesComidas < 5) && (secao.getCodSecaoLivro() == 304) ){
+                personagemVivo(false);
+            }
         }
     }
 
