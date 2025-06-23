@@ -82,6 +82,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private JLabelOpcoesTelaSecao botaoLabelFundoProvisoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoAnotacoes;
     private JLabelOpcoesTelaSecao botaoLabelFundoSalvar;
+    private int quantProvisoesComidas; //Necessário para contar quantas provisões comeu na seção 304
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -1339,6 +1340,9 @@ public abstract class TelaSecoesBasica extends JDialog {
                     //Aqui trata a ação de comer a provisão
                     //Item provisão
                     if  (new EfeitoDeItens(secao).acoesDosItens(ItensMapeamento.PROVISAO.getIdItem()) ) {
+
+                        //POR AQUI DEVE FICAR A INCREMENTAR A VARIÁVEL quantProvisoesComidas
+
                         lbEnergiaPersonagem.setText("Energia: " +
                                 String.valueOf(personagem.getEnergiaAtual()) + "/" +
                                 String.valueOf(personagem.getEnergiaMax()));

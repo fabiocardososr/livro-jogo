@@ -222,7 +222,7 @@ public class CarregarTelas {
             case 66  -> new TelaSecao_66(secao).setVisible(true);
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271,297
             case 68  -> new TelaSecao_68(secao).setVisible(true);
-            case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136,214
+            case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136,214,304
             case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Equipar Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //Chamado por 151 - 1 inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true); //Chamado por 252
@@ -400,7 +400,7 @@ public class CarregarTelas {
             case 244 -> new TelaSecao_244(secao).setVisible(true); //Chamado 259
             case 245 -> new TelaSecao_245(secao).setVisible(true);//chamado pela seção 84,146,288
             case 246 -> new TelaSecao_246(secao).setVisible(true); //Chamado por 279
-            case 247 -> new TelaSecao_247(secao).setVisible(true);
+            case 247 -> new TelaSecao_247(secao).setVisible(true); //Chamado por 303
             case 248 -> new TelaSecao_248(secao).setVisible(true);//chamado pela seção 215
             case 249 -> new TelaSecao_249(secao).setVisible(true);//chamado pela seção 5, 152
             case 250 -> new TelaSecao_250(secao).setVisible(true);//chamado por 185
@@ -457,12 +457,12 @@ public class CarregarTelas {
             case 300 -> new TelaSecao_300(secao).setVisible(true);//chamado pela seção 219,254
             case 301 -> new TelaSecao_301(secao).setVisible(true);
             case 302 -> new TelaSecao_302(secao).setVisible(true);//chamado pela secao 207
-
+            case 303 -> new TelaSecao_303(secao).setVisible(true);//chamado pela seção 134,199,283
+            case 304 -> new TelaSecao_304(secao).setVisible(true);//chamado pela seção 237
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 303 -> new TelaSecao_303(secao).setVisible(true);//chamado pela seção 134,199,283
-            case 304 -> new TelaSecao_304(secao).setVisible(true);//chamado pela seção 237
+
             case 305 -> new TelaSecao_305(secao).setVisible(true);//chamado pela seção 167,258
             case 306 -> new TelaSecao_306(secao).setVisible(true);//chamado pela seção 149,213,280
             case 309 -> new TelaSecao_309(secao).setVisible(true);//chamado pela seção 109,252
