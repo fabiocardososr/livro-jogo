@@ -7,7 +7,6 @@ import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.UtilItemEquipado;
 
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(301);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(302);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -81,7 +80,7 @@ public class Testes {
         //Equipando uma espada(50)
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
 
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_58.json"));
+        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_38.json"));
 
         //Equipando uma armadura de couro(51)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));
@@ -116,8 +115,8 @@ public class Testes {
                "livros/florestadadestruicao/itens/item_49.json"));
 //
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_53.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_53.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_7.json"));

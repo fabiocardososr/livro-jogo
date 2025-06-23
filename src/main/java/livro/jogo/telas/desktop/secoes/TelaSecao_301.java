@@ -1,5 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_301;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -13,6 +14,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_301 extends TelaSecoesBasica {
+    private JLabel textoBotaoPagarMoedas;
+    private JLabel textoBotaoPagarFlauta;
+    private JLabel textoBotaoPagarBiscoitos;
+    private JLabel textoBotaoPagarColar;
+    private boolean pegouOuro, pegouFlauta, pegouBiscoitos, pegouColar;
+
     public TelaSecao_301(Secao secao) {
         super(secao);
     }
@@ -20,35 +27,75 @@ public class TelaSecao_301 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
+        labelNumOpcao1.setBounds(116,722, 50,50);
+        botaoOpcao1.setBounds(120,730,40,50);
         botaoOpcao1.setToolTipText("Resultado do teste: SUCESSO - igual ou menor que a Habilidade");
-        lbTextoOpcao1.setBounds(170,657,700,60);
+        lbTextoOpcao1.setBounds(170,717,700,60);
 
         acaoBotoes(secao);
 
         carregaBotaoPegarOuro();
+        carregaBotaoPegarFlauta();
+        carregaBotaoPegarBiscoitos();
+        carregaBotaoPegarColar();
     }
 
     private void pegarOuro(){
 
+        if ( pegouOuro )
+            return;
+
+        AcoesSecao_301.pegar3PecasDeOuro();
+        pegouOuro = true;
+        atualizaIndicesNaTelaDoPersonagem();
+        textoBotaoPagarMoedas.setText("<html><center>Adquirido!</center></html>");
+    }
+
+    private void pegarFlauta(){
+
+        if ( pegouFlauta )
+            return;
+
+        AcoesSecao_301.pegarFlauta();
+        pegouFlauta = true;
+        textoBotaoPagarFlauta.setText("<html><center>Adquirido!</center></html>");
+    }
+
+    private void pegarBiscoitos(){
+
+        if ( pegouBiscoitos )
+            return;
+
+        AcoesSecao_301.pegarBiscoitos();
+        pegouBiscoitos = true;
+        textoBotaoPagarBiscoitos.setText("<html><center>Adquirido!</center></html>");
+    }
+
+    private void pegarColar(){
+
+        if ( pegouColar )
+            return;
+
+        AcoesSecao_301.pegarColar();
+        pegouColar = true;
+        textoBotaoPagarColar.setText("<html><center>Adquirido!</center></html>");
     }
 
     private void carregaBotaoPegarOuro() {
-        int largura = 500;
-        int altura = 100;
-        int eixoY = 570;
-        int eixoX = 190;
+        int largura = 350;
+        int altura  = 70;
+        int eixoY   = 570;
+        int eixoX   = 90;
 
         //Texto botão repor habilidade
-        JLabel textoBotao = new JLabel("<html><center>Pegar ouro</center></html>");
-        textoBotao.setBounds(eixoX+125,eixoY+18,250,60);
-        textoBotao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        textoBotao.setHorizontalAlignment(SwingConstants.CENTER);
-        textoBotao.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotao.setFont(new Font(Font.SERIF,Font.BOLD,25));
-        textoBotao.setForeground(new Color(128,0,0));
-        textoBotao.addMouseListener(new MouseListener() {
+        textoBotaoPagarMoedas = new JLabel("<html><center>Pegar ouro</center></html>");
+        textoBotaoPagarMoedas.setBounds(eixoX+100,eixoY+16,150,30);
+        textoBotaoPagarMoedas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoPagarMoedas.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarMoedas.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarMoedas.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        textoBotaoPagarMoedas.setForeground(new Color(128,0,0));
+        textoBotaoPagarMoedas.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 pegarOuro();
@@ -74,13 +121,13 @@ public class TelaSecao_301 extends TelaSecoesBasica {
 
             }
         });
-        //textoBotaoConferencia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        //textoBotaoPagarMoedas.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão de conferência
-        JLabelOpcoesTelaSecao botaoPegarOouro = new JLabelOpcoesTelaSecao("",largura, altura,
+        JLabelOpcoesTelaSecao botaoPegarOuro = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoPegarOouro.setBounds(eixoX,eixoY,largura,altura);
-        botaoPegarOouro.addMouseListener(new MouseListener() {
+        botaoPegarOuro.setBounds(eixoX,eixoY,largura,altura);
+        botaoPegarOuro.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 pegarOuro();
@@ -98,21 +145,264 @@ public class TelaSecao_301 extends TelaSecoesBasica {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                botaoPegarOouro.setIcon(Util.dimensionarImagem(botaoPegarOouro.getWidth(),
-                        botaoPegarOouro.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                botaoPegarOuro.setIcon(Util.dimensionarImagem(botaoPegarOuro.getWidth(),
+                        botaoPegarOuro.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
                 repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                botaoPegarOouro.setIcon(Util.dimensionarImagem(botaoPegarOouro.getWidth(),
-                        botaoPegarOouro.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                botaoPegarOuro.setIcon(Util.dimensionarImagem(botaoPegarOuro.getWidth(),
+                        botaoPegarOuro.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
                 repaint();
             }
         });
 
-        add(textoBotao);
-        add(botaoPegarOouro);
+        add(textoBotaoPagarMoedas);
+        add(botaoPegarOuro);
+    }
+
+    private void carregaBotaoPegarFlauta() {
+        int largura = 350;
+        int altura = 70;
+        int eixoY = 570;
+        int eixoX = 90;
+
+        //Texto botão repor habilidade
+        textoBotaoPagarFlauta = new JLabel("<html><center>Pegar Flauta</center></html>");
+        textoBotaoPagarFlauta.setBounds(eixoX+100,eixoY+97,150,30);
+        textoBotaoPagarFlauta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoPagarFlauta.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarFlauta.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarFlauta.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoPagarFlauta.setForeground(new Color(128,0,0));
+        textoBotaoPagarFlauta.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarFlauta();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //textoBotaoPagarFlauta.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Botão de conferência
+        JLabelOpcoesTelaSecao botaoPegarFlauta = new JLabelOpcoesTelaSecao("",largura, altura,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoPegarFlauta.setBounds(eixoX,eixoY+80,largura,altura);
+        botaoPegarFlauta.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarFlauta();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoPegarFlauta.setIcon(Util.dimensionarImagem(botaoPegarFlauta.getWidth(),
+                        botaoPegarFlauta.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoPegarFlauta.setIcon(Util.dimensionarImagem(botaoPegarFlauta.getWidth(),
+                        botaoPegarFlauta.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        add(textoBotaoPagarFlauta);
+        add(botaoPegarFlauta);
+    }
+
+    private void carregaBotaoPegarBiscoitos() {
+        int largura = 350;
+        int altura  = 70;
+        int eixoY   = 570;
+        int eixoX   = 440;
+
+        //Texto botão repor habilidade
+        textoBotaoPagarBiscoitos = new JLabel("<html><center>Pegar Biscoitos</center></html>");
+        textoBotaoPagarBiscoitos.setBounds(eixoX+100,eixoY+17,150,30);
+        textoBotaoPagarBiscoitos.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoPagarBiscoitos.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarBiscoitos.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarBiscoitos.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoPagarBiscoitos.setForeground(new Color(128,0,0));
+        textoBotaoPagarBiscoitos.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarBiscoitos();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //textoBotaoPagarMoedas.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Botão de conferência
+        JLabelOpcoesTelaSecao botaoPegarBiscoitos = new JLabelOpcoesTelaSecao("",largura, altura,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoPegarBiscoitos.setBounds(eixoX,eixoY,largura,altura);
+        botaoPegarBiscoitos.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarBiscoitos();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoPegarBiscoitos.setIcon(Util.dimensionarImagem(botaoPegarBiscoitos.getWidth(),
+                        botaoPegarBiscoitos.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoPegarBiscoitos.setIcon(Util.dimensionarImagem(botaoPegarBiscoitos.getWidth(),
+                        botaoPegarBiscoitos.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        add(textoBotaoPagarBiscoitos);
+        add(botaoPegarBiscoitos);
+    }
+
+    private void carregaBotaoPegarColar() {
+        int largura = 350;
+        int altura  = 70;
+        int eixoY   = 570;
+        int eixoX   = 440;
+
+        //Texto botão repor habilidade
+        textoBotaoPagarColar = new JLabel("<html><center>Pegar Colar</center></html>");
+        textoBotaoPagarColar.setBounds(eixoX+100,eixoY+97,150,30);
+        textoBotaoPagarColar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        textoBotaoPagarColar.setHorizontalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarColar.setVerticalAlignment(SwingConstants.CENTER);
+        textoBotaoPagarColar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoPagarColar.setForeground(new Color(128,0,0));
+        textoBotaoPagarColar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarColar();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        //textoBotaoPagarMoedas.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Botão de conferência
+        JLabelOpcoesTelaSecao botaoPegarColar = new JLabelOpcoesTelaSecao("",largura, altura,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoPegarColar.setBounds(eixoX,eixoY+80,largura,altura);
+        botaoPegarColar.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                pegarColar();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                botaoPegarColar.setIcon(Util.dimensionarImagem(botaoPegarColar.getWidth(),
+                        botaoPegarColar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES_SELECIONADA.getEnderecoImagem()));
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                botaoPegarColar.setIcon(Util.dimensionarImagem(botaoPegarColar.getWidth(),
+                        botaoPegarColar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem()));
+                repaint();
+            }
+        });
+
+        add(textoBotaoPagarColar);
+        add(botaoPegarColar);
     }
 
     @Override

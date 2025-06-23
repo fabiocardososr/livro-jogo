@@ -262,7 +262,7 @@ public class CarregarTelas {
             case 106 -> new TelaSecao_106(secao).setVisible(true); //Chamado por 175,294 - Anel de ouro com uma grande esmeralda(18) e 2 pontos de sorte
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88,212 (inimigo Demônio de fogo)
             case 108 -> new TelaSecao_108(secao).setVisible(true); //perde energia
-            case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207,274
+            case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207,274,302
             case 110 -> new TelaSecao_110(secao).setVisible(true); //Chamado por 193
             case 111 -> new TelaSecao_111(secao).setVisible(true);
             case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200,292
@@ -456,12 +456,11 @@ public class CarregarTelas {
             case 299 -> new TelaSecao_299(secao).setVisible(true);//chamado pela seção 92
             case 300 -> new TelaSecao_300(secao).setVisible(true);//chamado pela seção 219,254
             case 301 -> new TelaSecao_301(secao).setVisible(true);
+            case 302 -> new TelaSecao_302(secao).setVisible(true);//chamado pela secao 207
 
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-
-            case 302 -> new TelaSecao_302(secao).setVisible(true);//chamado pela secao 207
             case 303 -> new TelaSecao_303(secao).setVisible(true);//chamado pela seção 134,199,283
             case 304 -> new TelaSecao_304(secao).setVisible(true);//chamado pela seção 237
             case 305 -> new TelaSecao_305(secao).setVisible(true);//chamado pela seção 167,258

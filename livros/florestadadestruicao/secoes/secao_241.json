@@ -13,7 +13,7 @@
   "inimigos":[
 	{
 		"idInimigo":"47",
-		"nome":"URSO",
+		"nome":"Urso",
 		"habilidade":"7",
 		"energia":"8",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_241.png"

@@ -2,7 +2,7 @@
 	"idItem":"38",
 	"tipoEfeito":"HABILIDADE",
 	"nome":"Pulseira de cobre",
-	"descricao":" Pulseira de Habilidade.",
+	"descricao":"Acrescente 1 ponto a todos os seus lances de dados quando estiver calculando sua Força de Ataque.",
 	"valorCusto":"0",
 	"modificador":"1",   
 	"quantidadeUso":"0",
