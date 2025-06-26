@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "310",
-  "texto": "O Troll da Caverna se levanta e grunhe alto. Ele está muito aborrecido por ver um intruso na sua caverna e caminha na sua direção, brandindo a clava.\nVocê terá que lutar contra ele.",
+  "texto": "\t\t\t\tO Troll da Caverna se levanta e grunhe alto. Ele está muito aborrecido por ver um intruso na sua caverna e caminha na sua direção, brandindo a clava.\n\n\t\t\t\tVocê terá que lutar contra ele.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_310.mp3",
   "proximasSecoes": [
     {	  
@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"59",
-		"nome":"TROLL DA CAVERNA",
+		"nome":"Troll",
 		"habilidade":"8",
 		"energia":"9",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/troll_das_cavernas.png"

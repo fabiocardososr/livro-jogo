@@ -399,6 +399,7 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     }
 
                     if ( (!entregou10Moedas) && (!escolheuItensDaListaSuspensa) ) {
+                        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                         CarregarTelas.telaMensagem("Você não recupera sua espada.\n\nAndar na"+
                                 " Floresta de Darkwood desarmado é suicídio. Volte por onde você veio."+
                                 "\n\nSua aventura acaba aqui.");

@@ -22,18 +22,18 @@ public class Testes {
         var bolsa = adicionaItensNaBolsaParaTeste();
 
         Personagem personagem = new Personagem("Fábio",1,22,10,
-                20,
+                30,
                 bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
-        personagem.setQuantidadeOuro(10);
-        personagem.setHabilidadeAtual(9);
+        personagem.setQuantidadeOuro(1);
+        personagem.setHabilidadeAtual(19);
         personagem.setEnergiaAtual(5);
-        personagem.setSorteAtual(1);
+        personagem.setSorteAtual(20);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(305);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(310);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -78,7 +78,7 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 //
         //Equipando uma espada(50)
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_50.json"));
+        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_38.json"));
 
@@ -107,24 +107,24 @@ public class Testes {
         var bolsa = new ArrayList<Item>();
 
 
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_1.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_1.json"));
 //
 //
 //       //Provisão
-        for (int i=1; i<=2; i++)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_49.json"));
+//        for (int i=1; i<=2; i++)
+//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_53.json"));
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_7.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_7.json"));
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_10.json"));
+        //bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+          //      "livros/florestadadestruicao/itens/item_10.json"));
 
 
 
