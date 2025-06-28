@@ -42,11 +42,11 @@ public class TelaSecao_310 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                //if ( Util.isVenceuTodosInimigos(secao) )
+                if ( Util.isVenceuTodosInimigos(secao) )
                     abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-               // else
-                 //   CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-               //             ",\n\nvocê deve vencer o inimigo antes de continuar sua jornada.");
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nvocê deve vencer o inimigo antes de continuar sua jornada.");
 
             }
 
