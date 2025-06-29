@@ -33,7 +33,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(310);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(316);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -123,8 +123,8 @@ public class Testes {
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_7.json"));
 //
-        //bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-          //      "livros/florestadadestruicao/itens/item_10.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_25.json"));
 
 
 
