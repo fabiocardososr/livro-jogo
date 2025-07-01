@@ -2,9 +2,10 @@
   "codSecaoLivro": "318",
   "texto": "\t\t\t\tVocê pula na vegetação espessa ao lado da trilha. Espiando por trás das folhas, você vê as pernas maciças de um homem gigantesco passarem por você pela trilha.\n\n\t\t\t\tLogo ele desaparece, e você retorna à trilha silenciosamente e ruma para o norte de novo.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_318.mp3",
+  "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_318.png",
   "proximasSecoes": [    
 	{	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "siga para o norte.",
       "codProximaSecao": "231"
     }
   ]

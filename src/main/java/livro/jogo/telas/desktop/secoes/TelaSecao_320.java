@@ -2,17 +2,14 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_318 extends TelaSecoesBasica {
-    public TelaSecao_318(Secao secao) {
+public class TelaSecao_320 extends TelaSecoesBasica {
+    public TelaSecao_320(Secao secao) {
         super(secao);
     }
 
@@ -27,9 +24,7 @@ public class TelaSecao_318 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getSource() == botaoOpcao1){
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
-                }
+                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
             }
 
             @Override

@@ -169,7 +169,7 @@ public class TelaSecao_301 extends TelaSecoesBasica {
         int eixoX = 90;
 
         //Texto botão repor habilidade
-        textoBotaoPagarFlauta = new JLabel("<html><center>Pegar Flauta</center></html>");
+        textoBotaoPagarFlauta = new JLabel("<html><center>Pegar flauta</center></html>");
         textoBotaoPagarFlauta.setBounds(eixoX+100,eixoY+97,150,30);
         textoBotaoPagarFlauta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoPagarFlauta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -250,7 +250,7 @@ public class TelaSecao_301 extends TelaSecoesBasica {
         int eixoX   = 440;
 
         //Texto botão repor habilidade
-        textoBotaoPagarBiscoitos = new JLabel("<html><center>Pegar Biscoitos</center></html>");
+        textoBotaoPagarBiscoitos = new JLabel("<html><center>Pegar biscoitos</center></html>");
         textoBotaoPagarBiscoitos.setBounds(eixoX+100,eixoY+17,150,30);
         textoBotaoPagarBiscoitos.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoPagarBiscoitos.setHorizontalAlignment(SwingConstants.CENTER);
@@ -331,7 +331,7 @@ public class TelaSecao_301 extends TelaSecoesBasica {
         int eixoX   = 440;
 
         //Texto botão repor habilidade
-        textoBotaoPagarColar = new JLabel("<html><center>Pegar Colar</center></html>");
+        textoBotaoPagarColar = new JLabel("<html><center>Pegar colar</center></html>");
         textoBotaoPagarColar.setBounds(eixoX+100,eixoY+97,150,30);
         textoBotaoPagarColar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoPagarColar.setHorizontalAlignment(SwingConstants.CENTER);

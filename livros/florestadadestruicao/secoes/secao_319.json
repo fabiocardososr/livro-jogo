@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_319.mp3",
   "proximasSecoes": [    
 	{	  
-      "textoOpcao": "Se possui",
+      "textoOpcao": "Sim.",
       "codProximaSecao": "228"
     },
 	{	  
-      "textoOpcao": "Não possui",
+      "textoOpcao": "Não.",
       "codProximaSecao": "14"
     }
   ]

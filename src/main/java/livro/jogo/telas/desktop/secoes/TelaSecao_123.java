@@ -95,6 +95,7 @@ public class TelaSecao_123 extends TelaSecoesBasica {
                     return;
 
                 if ( AcoesSecao_29.fuga(estaTela) ) {
+                    util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/correndo.mp3", null);
                     atualizaIndicesNaTelaDoPersonagem();
                     abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
                 }
