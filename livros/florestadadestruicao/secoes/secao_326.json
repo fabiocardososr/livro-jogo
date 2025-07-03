@@ -1,10 +1,10 @@
 {  	
   "codSecaoLivro": "326",
-  "texto": "Junto à margem do rio, não parece haver nenhum outro meio de atravessá-lo, a não ser o barco.",
+  "texto": "\t\t\t\tJunto à margem do rio, não parece haver nenhum outro meio de atravessá-lo, a não ser o barco.",
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_326.mp3",
   "proximasSecoes": [    
 	{	  
-      "textoOpcao": "Vá para",
+      "textoOpcao": "Continue.",
       "codProximaSecao": "145"
     }
   ]

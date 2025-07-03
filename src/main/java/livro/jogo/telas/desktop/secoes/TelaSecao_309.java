@@ -161,7 +161,7 @@ public class TelaSecao_309 extends TelaSecoesBasica {
 
                     if ( !testouSorte ){
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ",\n\nVocê ainda não fez o Teste de Sorte!");
+                                ",\n\nVocê ainda não fez o teste de sorte!");
                         return;
                     }
 
@@ -206,7 +206,7 @@ public class TelaSecao_309 extends TelaSecoesBasica {
 
                     if ( !testouSorte ){
                         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                                ",\n\nVocê ainda não fez o Teste de Sorte!");
+                                ",\n\nVocê ainda não fez o teste de sorte!");
                         return;
                     }
 

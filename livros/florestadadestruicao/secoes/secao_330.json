@@ -11,21 +11,24 @@
   "inimigos":[
 	{
 		"idInimigo":"62",
-		"nome":"LOBO",
+		"nome":"Lobo",
 		"habilidade":"7",
-		"energia":"8"
+		"energia":"8",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/lobo_1.png"
 	},
 	{
 		"idInimigo":"63",
-		"nome":"LOBO",
+		"nome":"Lobo",
 		"habilidade":"7",
-		"energia":"7"
+		"energia":"7",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/lobo_2.png"
 	},
 	{
 		"idInimigo":"64",
-		"nome":"LOBO",
+		"nome":"Lobo",
 		"habilidade":"7",
-		"energia":"9"
+		"energia":"9",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/lobo_3.png"
 	}
   ]
 }
