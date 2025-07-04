@@ -174,7 +174,7 @@ public class CarregarTelas {
             case 18  -> new TelaSecao_18(secao).setVisible(true); //Chamado pelo 19 (pode morrer, perda de energia)
             case 19  -> new TelaSecao_19(secao).setVisible(true); //Chamado por 259 - perde energia
             case 20  -> new TelaSecao_20(secao).setVisible(true); //Chamado por 148
-            case 21  -> new TelaSecao_21(secao).setVisible(true);
+            case 21  -> new TelaSecao_21(secao).setVisible(true); //Chamado por 336
             case 22  -> new TelaSecao_22(secao).setVisible(true); //chamado por 126 - perde habilidade e energia de acordo com rolagem de dado
             case 23  -> new TelaSecao_23(secao).setVisible(true); //chamado pela seção 7
             case 24  -> new TelaSecao_24(secao).setVisible(true); //Chamado por 197
@@ -204,7 +204,7 @@ public class CarregarTelas {
             case 48  -> new TelaSecao_48(secao).setVisible(true);
             case 49  -> new TelaSecao_49(secao).setVisible(true); //chamado pela seção 4 (tem 2 inimigo Gremlin)
             case 50  -> new TelaSecao_50(secao).setVisible(true); //chamado pela seção 43
-            case 51  -> new TelaSecao_51(secao).setVisible(true);
+            case 51  -> new TelaSecao_51(secao).setVisible(true); //Chamado por 334
             case 52  -> new TelaSecao_52(secao).setVisible(true); //chamado pela seção 28
             case 53  -> new TelaSecao_53(secao).setVisible(true); //Chamado por 197 - Perde ouro
             case 54  -> new TelaSecao_54(secao).setVisible(true); //chamado pela seção 1
@@ -261,12 +261,12 @@ public class CarregarTelas {
             case 105 -> new TelaSecao_105(secao).setVisible(true); //chamado pela seção 102,180
             case 106 -> new TelaSecao_106(secao).setVisible(true); //Chamado por 175,294 - Anel de ouro com uma grande esmeralda(18) e 2 pontos de sorte
             case 107 -> new TelaSecao_107(secao).setVisible(true); //chamado pela seção 88,212 (inimigo Demônio de fogo)
-            case 108 -> new TelaSecao_108(secao).setVisible(true); //perde energia
+            case 108 -> new TelaSecao_108(secao).setVisible(true); //Chamado por 336 - perde energia
             case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207,274,302
             case 110 -> new TelaSecao_110(secao).setVisible(true); //Chamado por 193
             case 111 -> new TelaSecao_111(secao).setVisible(true);
             case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200,292,306,312,327
-            case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67
+            case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67,334
             case 114 -> new TelaSecao_114(secao).setVisible(true); //Chamado por 277 - Verifica a existência de Cápsula de Fogo
             case 115 -> new TelaSecao_115(secao).setVisible(true); //Chamado por 179,220,275
             case 116 -> new TelaSecao_116(secao).setVisible(true); //Chamado por 330 - Coleira de couro com aplicações em ouro(20).
@@ -334,7 +334,7 @@ public class CarregarTelas {
             case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142,260
             case 179 -> new TelaSecao_179(secao).setVisible(true);//Chamado por 275 - Equipa Elmo(54)
             case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124,329
-            case 181 -> new TelaSecao_181(secao).setVisible(true);//inimigo homem-peixe
+            case 181 -> new TelaSecao_181(secao).setVisible(true);//Chamado por 335 - inimigo homem-peixe
             case 182 -> new TelaSecao_182(secao).setVisible(true);//Chamado por 255 - Testar habilidade jogando 2 dados
             case 183 -> new TelaSecao_183(secao).setVisible(true);//chamado pela seção 60
             case 184 -> new TelaSecao_184(secao).setVisible(true);//Chamado por 191 - Remove sino da bolsa e recupera 4 pontos de energia
@@ -480,20 +480,21 @@ public class CarregarTelas {
             case 323 -> new TelaSecao_323(secao).setVisible(true);//chamado pela seção 174
             case 324 -> new TelaSecao_324(secao).setVisible(true);//chamado pela seção 113
             case 325 -> new TelaSecao_325(secao).setVisible(true);//chamado pela seção 66,131
-            case 326 -> new TelaSecao_326(secao).setVisible(true);
+            case 326 -> new TelaSecao_326(secao).setVisible(true); //Chamado por 335
             case 327 -> new TelaSecao_327(secao).setVisible(true);//chamado pela seção 73
             case 328 -> new TelaSecao_328(secao).setVisible(true);//chamado pela seção 97 (perde energia e perde provisão)
             case 329 -> new TelaSecao_329(secao).setVisible(true);//chamado pela seção 27
             case 330 -> new TelaSecao_330(secao).setVisible(true);//chamado pela seção 65,75 - 3 inimigos lobos
             case 331 -> new TelaSecao_331(secao).setVisible(true);//chamado pela seção 300
             case 332 -> new TelaSecao_332(secao).setVisible(true);//chamado pela seção 224,231
-
-            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
-
             case 333 -> new TelaSecao_333(secao).setVisible(true);//chamado pela seção 5,152 - Termina o jogo
             case 334 -> new TelaSecao_334(secao).setVisible(true);//chamado pela seção 70,182,255
             case 335 -> new TelaSecao_335(secao).setVisible(true);//chamado pela seção 291
             case 336 -> new TelaSecao_336(secao).setVisible(true);//chamado pela seção 37
+
+            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
+
+
             case 337 -> new TelaSecao_337(secao).setVisible(true);//chamado pela seção 125, 157,217,262
             case 338 -> new TelaSecao_338(secao).setVisible(true);//chamado pela seção 240
             case 339 -> new TelaSecao_339(secao).setVisible(true);//chamado pela seção 23,100
