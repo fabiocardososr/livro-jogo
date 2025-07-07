@@ -23,6 +23,7 @@ public class EfeitoDeItens {
             case 12 -> efeitoItem_12();     //Braçadeira da Força
             case 10 -> efeitoItem_10();     //Espada magnífica
             case 28 -> efeitoItem_28();     //Escudo de ferro(imperador)
+            case 33 -> efeitoItem_33();     //Poção da Força (adquirido na seção 341)
             case 45 -> efeitoItem_45();     //Poção de Habilidade
             case 46 -> efeitoItem_46();     //Poção de força
             case 47 -> efeitoItem_47();     //Poção de Fortuna
@@ -32,6 +33,14 @@ public class EfeitoDeItens {
 
             default -> false;
         };
+    }
+
+    //Poção da Força adquirido na seção 341
+    private boolean efeitoItem_33() {
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        UtilPersonagem.recuperaEnergia(5);
+        UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORCA.getIdItem());
+        return true;
     }
 
     /// REGRA DO ESCUDO: Se o resultado for 4, 5 ou 6, os danos causados a você serão reduzidos em 1 ponto
@@ -157,6 +166,8 @@ public class EfeitoDeItens {
             return false;
         }
 
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORTUNA.getIdItem());
 
@@ -178,6 +189,8 @@ public class EfeitoDeItens {
             return false;
         }
 
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_ENERGIA.getIdItem());
 
@@ -195,6 +208,8 @@ public class EfeitoDeItens {
         if (UtilPersonagem.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
             return false;
         }
+
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
 
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem());

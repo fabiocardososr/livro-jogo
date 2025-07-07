@@ -28,12 +28,12 @@ public class Testes {
         personagem.setQuantidadeOuro(1);
         personagem.setHabilidadeAtual(19);
         personagem.setEnergiaAtual(5);
-        personagem.setSorteAtual(20);
+        personagem.setSorteAtual(0);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(340);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(343);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -126,8 +126,8 @@ public class Testes {
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_25.json"));
 
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_3.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_23.json"));
 
         return bolsa;
     }

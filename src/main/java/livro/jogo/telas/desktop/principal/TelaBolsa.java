@@ -184,7 +184,6 @@ public class TelaBolsa extends JDialog {
             }
 
             imgItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            //imgItem.setToolTipText(item.getNome().toUpperCase()+" - " + item.getDescricao());
             imgItem.addMouseListener(acao);
 
             //Coloco o objeto no map para posterior consulta ao clicar nele
@@ -238,7 +237,6 @@ public class TelaBolsa extends JDialog {
 
             //Incluir item no hashmap para que possa ser identificado quando clicado na imagem
             mapItens.put(imgItem, item);
-            // mapLabel.put(imgItem, rotuloEquipado);
 
             //Incluir no panel
             painelListaItens.add(rotuloEquipado);
@@ -328,6 +326,7 @@ public class TelaBolsa extends JDialog {
         labelPocaoInicial.setToolTipText("Poção consumida");
     }
 
+    //FUTURAMENTE MELHORAR ESTA FUNÇÃO, POIS PODERIA ATUALIZAR OS ÍNDICE COM APENAS UMA FUNÇÃO CHAMADA
     private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item,
                                           boolean consumiuItem) {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
@@ -470,6 +469,13 @@ public class TelaBolsa extends JDialog {
             lbHabilidadePersonagem.setText("Habilidade: " +
                     String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeAtual()) + "/" +
                     String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeMax()));
+
+
+        if ( item.getIdItem() == ItensMapeamento.POCAO_DA_FORCA.getIdItem() ){
+            lbEnergiaPersonagem.setText("Energia: " +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
+        }
 
         //Após a interação com o item, atualiza a tela
         atualizarBolsa();

@@ -161,10 +161,10 @@ public class CarregarTelas {
             case 5   -> new TelaSecao_5(secao).setVisible(true); //Chamado por 152
             case 6   -> new TelaSecao_6(secao).setVisible(true); //Chamado por 187
             case 7   -> new TelaSecao_7(secao).setVisible(true);  //Tem 3 inimigos (chamado por 92)
-            case 8   -> new TelaSecao_8(secao).setVisible(true); //Chamado por 160
+            case 8   -> new TelaSecao_8(secao).setVisible(true); //Chamado por 160,343
             case 9   -> new TelaSecao_9(secao).setVisible(true);  //Tem 1 inimigos (chamado por 85)
             case 10  -> new TelaSecao_10(secao).setVisible(true); //chamado por 137
-            case 11  -> new TelaSecao_11(secao).setVisible(true);
+            case 11  -> new TelaSecao_11(secao).setVisible(true); //Chamado por 342
             case 12  -> new TelaSecao_12(secao).setVisible(true); //Chamado pelas seções: 46,192 - Remoção de itens.
             case 13  -> new TelaSecao_13(secao).setVisible(true); //Chamado por 82 - perde 3 pontos de sorte
             case 14  -> new TelaSecao_14(secao).setVisible(true); //Chamado por 319 - Escolher itens para remover ou dar ouro
@@ -302,7 +302,7 @@ public class CarregarTelas {
             case 146 -> new TelaSecao_146(secao).setVisible(true);//chamado pela seção 84 (adquirir item pedra)
             case 147 -> new TelaSecao_147(secao).setVisible(true); //Chamado por 289
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6,308
-            case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13,113,185,235,324
+            case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13,113,185,235,324,341
             case 150 -> new TelaSecao_150(secao).setVisible(true);//chamado pela seção 32,111,223,236
             case 151 -> new TelaSecao_151(secao).setVisible(true);//chamado pela seção 61,135
             case 152 -> new TelaSecao_152(secao).setVisible(true);//chamado pela seção 107
@@ -311,7 +311,7 @@ public class CarregarTelas {
             case 155 -> new TelaSecao_155(secao).setVisible(true); //Verifica se tem Beladona(14)
             case 156 -> new TelaSecao_156(secao).setVisible(true); //Chamado por 195 - Perde energia
             case 157 -> new TelaSecao_157(secao).setVisible(true); //Chamado por 301
-            case 158 -> new TelaSecao_158(secao).setVisible(true);
+            case 158 -> new TelaSecao_158(secao).setVisible(true); //Chamado por 342
             case 159 -> new TelaSecao_159(secao).setVisible(true);//chamado pela seção 138 (perde energia)
             case 160 -> new TelaSecao_160(secao).setVisible(true); //Chamado por 177 - pagar moeda ao corvo, opção 1
             case 161 -> new TelaSecao_161(secao).setVisible(true); //Chamado por 324
@@ -392,7 +392,7 @@ public class CarregarTelas {
             case 236 -> new TelaSecao_236(secao).setVisible(true);
             case 237 -> new TelaSecao_237(secao).setVisible(true); //Perde Sorte e Verifica se possui Poção curativa(27)
             case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17,89,233
-            case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41,160
+            case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41,160,343
             case 240 -> new TelaSecao_240(secao).setVisible(true); //Chamado por 313 - Verifica Filtros Nasais
             case 241 -> new TelaSecao_241(secao).setVisible(true); //Chamado por 254 - Inimigo Urso
             case 242 -> new TelaSecao_242(secao).setVisible(true); //chamado pela seção 165 - Escolhe item para descartar e ganhar um lingote de ouro
@@ -495,12 +495,14 @@ public class CarregarTelas {
             case 338 -> new TelaSecao_338(secao).setVisible(true);//chamado pela seção 240
             case 339 -> new TelaSecao_339(secao).setVisible(true);//chamado pela seção 23,100
             case 340 -> new TelaSecao_340(secao).setVisible(true);
+            case 341 -> new TelaSecao_341(secao).setVisible(true);//chamado pela seção 161 - Ganha moedas e itens
+            case 342 -> new TelaSecao_342(secao).setVisible(true);//chamado pela seção 42,315 - possui Fita de Cabeça da Concentração(23)
+            case 343 -> new TelaSecao_343(secao).setVisible(true);//chamado pela seção 160
 
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
-            case 341 -> new TelaSecao_341(secao).setVisible(true);//chamado pela seção 161
-            case 342 -> new TelaSecao_342(secao).setVisible(true);//chamado pela seção 42,315
-            case 343 -> new TelaSecao_343(secao).setVisible(true);//chamado pela seção 160
+
+
             case 344 -> new TelaSecao_344(secao).setVisible(true);//chamado pela seção 253
             case 345 -> new TelaSecao_345(secao).setVisible(true);//chamado pela seção 16
             case 346 -> new TelaSecao_346(secao).setVisible(true);//chamado pela seção 170
