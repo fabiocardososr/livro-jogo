@@ -11,9 +11,10 @@
   "inimigos":[
 	{
 		"idInimigo":"65",
-		"nome":"ANÃO",
+		"nome":"Anão",
 		"habilidade":"8",
-		"energia":"5"
+		"energia":"5",
+		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/anao.png"
 	}
   ]
   }

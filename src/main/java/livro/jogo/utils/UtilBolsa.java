@@ -155,4 +155,8 @@ public class UtilBolsa {
         return false;
     }
 
+    public static int quantidadeDeItensNaBolsa(){
+        return bolsa.size();
+    }
+
 }
