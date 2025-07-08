@@ -8,14 +8,14 @@
       "codProximaSecao": "207"
     },
 	{	  
-      "textoOpcao": "Fugir, ulando da plataforma para o chão cinco metros abaixo?",
+      "textoOpcao": "Fugir! Pular da plataforma cinco metros abaixo?",
       "codProximaSecao": "156"
     }	
   ],
   "inimigos":[
 	{
 		"idInimigo":"66",
-		"nome":"HOMEM-MACACO",
+		"nome":"H. Macaco",
 		"habilidade":"8",
 		"energia":"7",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/homem_macaco.png"

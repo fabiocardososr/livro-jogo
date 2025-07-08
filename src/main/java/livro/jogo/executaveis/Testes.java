@@ -33,7 +33,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(347);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(355);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -112,16 +112,16 @@ public class Testes {
 //
 //
 //       //Provisão
-//        for (int i=1; i<=2; i++)
-//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//               "livros/florestadadestruicao/itens/item_49.json"));
+        for (int i=1; i<=2; i++)
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_49.json"));
 //
 //
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_53.json"));
 //
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_7.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_19.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_25.json"));

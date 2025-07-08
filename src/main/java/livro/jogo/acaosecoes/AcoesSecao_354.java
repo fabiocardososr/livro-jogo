@@ -4,10 +4,6 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilItens;
-import livro.jogo.utils.UtilPersonagem;
-
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 public class AcoesSecao_354 {
 

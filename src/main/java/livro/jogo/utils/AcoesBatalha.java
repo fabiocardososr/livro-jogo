@@ -230,6 +230,7 @@ public class AcoesBatalha {
             case 71  -> desvantagem = desvantagem3pontosNoAtque();  //Na seção 71 o personagem tem desvantagem na luta de -3 pontos de ataque
             case 165 -> desvantagem = desvantagem3pontosNoAtque();  //Na seção 165 o personagem tem desvantagem na luta de -3 pontos de ataque
             case 193 -> desvantagem = desvantagem3pontosNoAtque();  //Na seção 193 o personagem tem desvantagem na luta de -3 pontos de ataque
+            case 352 -> desvantagem = desvantagem2pontosNoAtque();  //O personagem tem desvantagem na luta de -2 pontos de ataque
         }
         var forcaDeAtaquePersonagem  = UtilPersonagem.calcularForcaDeAtaqueDoPersonagem(desvantagem);
 
@@ -362,8 +363,13 @@ public class AcoesBatalha {
 
     //Seção 49,71,165,193 a força de ataque é reduzida em 3 pontos
     private int desvantagem3pontosNoAtque(){
-        mensagemComDelay(milisegundos,"<html><center>-3 pontos na sua Força de  Ataque</center></html>");
+        mensagemComDelay(milisegundos,"<html><center>-3 pontos na sua Força de Ataque</center></html>");
         return 3;
+    }
+
+    private int desvantagem2pontosNoAtque(){
+        mensagemComDelay(milisegundos,"<html><center>-2 pontos na sua Força de Ataque</center></html>");
+        return 2;
     }
 
     //Pode ser usado por outras telas que não sejam a tela de batalha
