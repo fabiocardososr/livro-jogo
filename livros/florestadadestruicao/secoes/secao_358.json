@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_358.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Sorte! Sua espada continua na bainha, e você consegue usá-la para cortar a corda e sair da armadilha.",
+      "textoOpcao": "Sorte! Você consegue usar sua espada para cortar a corda.",
       "codProximaSecao": "40"
     },
 	{	  
-      "textoOpcao": "Azar! Sua espada escorrega da bainha e cai no chão, deixando você balançando, indefeso, na ponta da corda.",
+      "textoOpcao": "Azar! Sua espada escorrega da bainha e cai no chão.",
       "codProximaSecao": "218"
     }
   ]

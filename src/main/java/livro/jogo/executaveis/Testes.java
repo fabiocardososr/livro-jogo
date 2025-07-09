@@ -28,12 +28,12 @@ public class Testes {
         personagem.setQuantidadeOuro(10);
         personagem.setHabilidadeAtual(19);
         personagem.setEnergiaAtual(1);
-        personagem.setSorteAtual(2);
+        personagem.setSorteAtual(20);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(355);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(360);
         CarregarTelas.carregarSecao(secao);
 
 
