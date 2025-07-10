@@ -1,11 +1,21 @@
 package livro.jogo.acaosecoes;
 
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilBolsa;
+import livro.jogo.utils.UtilItens;
 
 public class AcoesSecao_365 {
 
     public static void removerDaBolsaFiltrosNasais(){
         UtilBolsa.removerItem(ItensMapeamento.FILTROS_NASAIS.getIdItem());
+    }
+
+    public static void ganhaCaixaDePrata(){
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+
+        //Se já existir não deixe incluir (só por precaução, acredito que no livro não tem como se repetir)
+        if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()) )
+            UtilBolsa.incluirItem(UtilItens.retornaItem(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()));
     }
 }

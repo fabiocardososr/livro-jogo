@@ -5,11 +5,11 @@
   "proximasSecoes": [
     {	  
       "textoOpcao": "Aceitará a oferta dele?",
-      "codProximaSecao": "178"
+      "codProximaSecao": "127"
     },
 	{	  
       "textoOpcao": "Recusará delicadamente e entrará no rio para vadeá-lo?",
-      "codProximaSecao": "127"
+      "codProximaSecao": "178"
     }
   ]
 }

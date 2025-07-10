@@ -31,6 +31,7 @@ public class TelaSecao_22 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
                 AcoesSecao_22.perde2DeHabilidade();
+                AcoesSecao_22.ganhaCaixaDePrata();
                 atualizaIndicesNaTelaDoPersonagem();
             }
 

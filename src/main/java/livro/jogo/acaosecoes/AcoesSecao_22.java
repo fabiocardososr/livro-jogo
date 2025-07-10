@@ -1,9 +1,8 @@
 package livro.jogo.acaosecoes;
 
+import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilPersonagem;
+import livro.jogo.utils.*;
 
 public class AcoesSecao_22 {
 
@@ -34,5 +33,13 @@ public class AcoesSecao_22 {
                 ",\n\nseu corpo resistiu ao gás venenoso. Mas perde "+ resultadoDoisDado +" de energia.");
 
         return true;
+    }
+
+    public static void ganhaCaixaDePrata(){
+        //new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+
+        //Se já existir não deixe incluir (só por precaução, acredito que no livro não tem como se repetir)
+        if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()) )
+            UtilBolsa.incluirItem(UtilItens.retornaItem(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()));
     }
 }

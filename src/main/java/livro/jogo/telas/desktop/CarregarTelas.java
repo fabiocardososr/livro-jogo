@@ -212,8 +212,8 @@ public class CarregarTelas {
             case 56  -> new TelaSecao_56(secao).setVisible(true);//chamado pela seção 25
             case 57  -> new TelaSecao_57(secao).setVisible(true);//Teste de Sorte (chamado por 103)
             case 58  -> new TelaSecao_58(secao).setVisible(true);//chamado 173 - Ganha 25 ouro e a Cabeça do Martelo dos Anões(6)
-            case 59  -> new TelaSecao_59(secao).setVisible(true); //Chamado por 68,141,340
-            case 60  -> new TelaSecao_60(secao).setVisible(true); //Testar sorte
+            case 59  -> new TelaSecao_59(secao).setVisible(true); //Chamado por 68,141,340,363
+            case 60  -> new TelaSecao_60(secao).setVisible(true); //Chamado por 367 - Testar sorte
             case 61  -> new TelaSecao_61(secao).setVisible(true); //chamado por 93,121
             case 62  -> new TelaSecao_62(secao).setVisible(true); //Chamado por 96,276
             case 63  -> new TelaSecao_63(secao).setVisible(true); //Chamado por 251
@@ -221,7 +221,7 @@ public class CarregarTelas {
             case 65  -> new TelaSecao_65(secao).setVisible(true); //Chamado por 299,339
             case 66  -> new TelaSecao_66(secao).setVisible(true);
             case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271,297
-            case 68  -> new TelaSecao_68(secao).setVisible(true);
+            case 68  -> new TelaSecao_68(secao).setVisible(true); //Chamado por 363 - Toma poção e recupera 3 pontos de energia
             case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136,214,304
             case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Equipar Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //Chamado por 151 - 1 inimigo Gremlin
@@ -239,7 +239,7 @@ public class CarregarTelas {
             case 83  -> new TelaSecao_83(secao).setVisible(true); // chamado por 155 - Perde energia; uso de Beladona (pegue esta como exemplo)
             case 84  -> new TelaSecao_84(secao).setVisible(true); //chamado por 288 -Inimigo Bicho Rochedo
             case 85  -> new TelaSecao_85(secao).setVisible(true); //chamado por 169,313,338
-            case 86  -> new TelaSecao_86(secao).setVisible(true);
+            case 86  -> new TelaSecao_86(secao).setVisible(true); //Chamado por 86
             case 87  -> new TelaSecao_87(secao).setVisible(true); //Chamado por 198
             case 88  -> new TelaSecao_88(secao).setVisible(true); //Chamado por 201,249,293
             case 89  -> new TelaSecao_89(secao).setVisible(true); //chamado pela seção 17,172
@@ -265,7 +265,7 @@ public class CarregarTelas {
             case 109 -> new TelaSecao_109(secao).setVisible(true); //Chamado por 156,207,274,302
             case 110 -> new TelaSecao_110(secao).setVisible(true); //Chamado por 193
             case 111 -> new TelaSecao_111(secao).setVisible(true); //Chamado por 346
-            case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200,292,306,312,327,351
+            case 112 -> new TelaSecao_112(secao).setVisible(true); //chamado pela seção 58,73,200,292,306,312,327,351,368
             case 113 -> new TelaSecao_113(secao).setVisible(true); //chamado pela seção 67,334
             case 114 -> new TelaSecao_114(secao).setVisible(true); //Chamado por 277 - Verifica a existência de Cápsula de Fogo
             case 115 -> new TelaSecao_115(secao).setVisible(true); //Chamado por 179,220,275
@@ -280,7 +280,7 @@ public class CarregarTelas {
             case 124 -> new TelaSecao_124(secao).setVisible(true);//chamado pela seção 109,331
             case 125 -> new TelaSecao_125(secao).setVisible(true); //Chamado por 157
             case 126 -> new TelaSecao_126(secao).setVisible(true); //Chamado por 263 - Verifica a existência de Filtros Nasais
-            case 127 -> new TelaSecao_127(secao).setVisible(true); //Paga 3 peças de ouro ao Centauro
+            case 127 -> new TelaSecao_127(secao).setVisible(true); //Chamado por 366 - Paga 3 peças de ouro ao Centauro
             case 128 -> new TelaSecao_128(secao).setVisible(true); //inimigo bárbaro
             case 129 -> new TelaSecao_129(secao).setVisible(true); //Chamado por 266 - perda de sorte, escolher perder 10 moedas ou 1 item
             case 130 -> new TelaSecao_130(secao).setVisible(true); //Chamado por 149
@@ -331,7 +331,7 @@ public class CarregarTelas {
             case 175 -> new TelaSecao_175(secao).setVisible(true); //Chamado por 294
             case 176 -> new TelaSecao_176(secao).setVisible(true);//chamado pela seção 9 - Cabo do martelo de guerra dos anões(25)
             case 177 -> new TelaSecao_177(secao).setVisible(true); //Chamado por 261
-            case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142,260
+            case 178 -> new TelaSecao_178(secao).setVisible(true);//chamado pela seção 63,142,260,366
             case 179 -> new TelaSecao_179(secao).setVisible(true);//Chamado por 275 - Equipa Elmo(54)
             case 180 -> new TelaSecao_180(secao).setVisible(true);//chamado pela seção 124,329
             case 181 -> new TelaSecao_181(secao).setVisible(true);//Chamado por 335 - inimigo homem-peixe
@@ -344,7 +344,7 @@ public class CarregarTelas {
             case 188 -> new TelaSecao_188(secao).setVisible(true); //chamado pela seção 43,50,210,348
             case 189 -> new TelaSecao_189(secao).setVisible(true); //Chamado por 264
             case 190 -> new TelaSecao_190(secao).setVisible(true); //chamado pela seção 171
-            case 191 -> new TelaSecao_191(secao).setVisible(true); //Verifica sino de metal
+            case 191 -> new TelaSecao_191(secao).setVisible(true); //Chamado por 369 - Verifica sino de metal
             case 192 -> new TelaSecao_192(secao).setVisible(true); //Chamado por 307
             case 193 -> new TelaSecao_193(secao).setVisible(true); //Inimigo Gremlin
             case 194 -> new TelaSecao_194(secao).setVisible(true); //Ganha Beladona
@@ -375,7 +375,7 @@ public class CarregarTelas {
             case 219 -> new TelaSecao_219(secao).setVisible(true); //chamado por 241 - Ganha dardo de prata e sorte
             case 220 -> new TelaSecao_220(secao).setVisible(true);//chamado pela seção 26,38,47,147,353
             case 221 -> new TelaSecao_221(secao).setVisible(true);//chamado pela seção 188,238
-            case 222 -> new TelaSecao_222(secao).setVisible(true);
+            case 222 -> new TelaSecao_222(secao).setVisible(true);//Chamado por 367
             case 223 -> new TelaSecao_223(secao).setVisible(true); //Chamado por 170
             case 224 -> new TelaSecao_224(secao).setVisible(true); //Chamado por 231
             case 225 -> new TelaSecao_225(secao).setVisible(true); //chamado pela seção 30,295
@@ -384,14 +384,14 @@ public class CarregarTelas {
             case 228 -> new TelaSecao_228(secao).setVisible(true); //Chamado por 319 - Equipar botas saltadoras(31)
             case 229 -> new TelaSecao_229(secao).setVisible(true); //Chamado por 270 - Testar sorte
             case 230 -> new TelaSecao_230(secao).setVisible(true); //Chamado por 337
-            case 231 -> new TelaSecao_231(secao).setVisible(true); //chamado pela seção 34,154,318,356
+            case 231 -> new TelaSecao_231(secao).setVisible(true); //chamado pela seção 34,154,318,356,370
             case 232 -> new TelaSecao_232(secao).setVisible(true); //chamado pela seção 117 - Cabo do martelo dos anões e ganha sorte
             case 233 -> new TelaSecao_233(secao).setVisible(true); //chamado pela seção 56,245
             case 234 -> new TelaSecao_234(secao).setVisible(true); //chamado pela seção 123,277
             case 235 -> new TelaSecao_235(secao).setVisible(true); //chamado pela seção 82
             case 236 -> new TelaSecao_236(secao).setVisible(true);
             case 237 -> new TelaSecao_237(secao).setVisible(true); //Perde Sorte e Verifica se possui Poção curativa(27)
-            case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17,89,233
+            case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17,89,233,362
             case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41,160,343
             case 240 -> new TelaSecao_240(secao).setVisible(true); //Chamado por 313 - Verifica Filtros Nasais
             case 241 -> new TelaSecao_241(secao).setVisible(true); //Chamado por 254 - Inimigo Urso
@@ -435,7 +435,7 @@ public class CarregarTelas {
             //ATENÇÃO NESSA TELA 279 QUANDO FOR AJUSTAR O TAMANHO DAS TELAS
             case 279 -> new TelaSecao_279(secao).setVisible(true);//chamado por 360 - (criei nova mecânica de remoção de itens aqui)Remove peças de ouro ou itens. Máximo de 5 entre ouro e itens
             case 280 -> new TelaSecao_280(secao).setVisible(true);
-            case 281 -> new TelaSecao_281(secao).setVisible(true);//chamado pela seção 39,89,172,359
+            case 281 -> new TelaSecao_281(secao).setVisible(true);//chamado pela seção 39,89,172,359,362
             case 282 -> new TelaSecao_282(secao).setVisible(true);//chamado por 264
             case 283 -> new TelaSecao_283(secao).setVisible(true);//chamado por 134,199
             case 284 -> new TelaSecao_284(secao).setVisible(true);//chamado pela seção 135,296
@@ -512,20 +512,21 @@ public class CarregarTelas {
             case 355 -> new TelaSecao_355(secao).setVisible(true);//chamado por 130,153,202
             case 356 -> new TelaSecao_356(secao).setVisible(true);//chamado por 265
             case 357 -> new TelaSecao_357(secao).setVisible(true);//chamado pela seção 150
-            case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85,168,169,176,230,232,263,290,313,337,338 - Testar Sorte
+            case 358 -> new TelaSecao_358(secao).setVisible(true);//chamado pela seção 22,55,85,168,169,176,230,232,263,290,313,337,338,365 - Testar Sorte
             case 359 -> new TelaSecao_359(secao).setVisible(true);//chamado pela seção 188
             case 360 -> new TelaSecao_360(secao).setVisible(true); //chamado pela seção 103,133,305 (4 homens e 1 mulher)
-
-            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
-
             case 361 -> new TelaSecao_361(secao).setVisible(true); //chamado pela seção 180
             case 362 -> new TelaSecao_362(secao).setVisible(true); //chamado pela seção 31,122,225,320
             case 363 -> new TelaSecao_363(secao).setVisible(true); //chamado por 347
-            case 365 -> new TelaSecao_365(secao).setVisible(true); //chamado pela seção 126
+            case 364 -> new TelaSecao_364(secao).setVisible(true);
+            case 365 -> new TelaSecao_365(secao).setVisible(true); //chamado pela seção 126 - remove o filtro nasal e ganha caixa de prata
             case 366 -> new TelaSecao_366(secao).setVisible(true); //chamado pela seção 142
             case 367 -> new TelaSecao_367(secao).setVisible(true);//chamado pela seção 264
             case 368 -> new TelaSecao_368(secao).setVisible(true); //chamado pela seção 95
             case 369 -> new TelaSecao_369(secao).setVisible(true); //chamado pela seção 25
+            case 370 -> new TelaSecao_370(secao).setVisible(true);
+            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
+
             case 371 -> new TelaSecao_371(secao).setVisible(true); //chamado pela seção 49
             case 372 -> new TelaSecao_372(secao).setVisible(true); //chamado pela seção 175
             case 373 -> new TelaSecao_373(secao).setVisible(true); //chamado pela seção 203,286
@@ -544,13 +545,13 @@ public class CarregarTelas {
             case 387 -> new TelaSecao_387(secao).setVisible(true);//chamado pela seção 143
             case 388 -> new TelaSecao_388(secao).setVisible(true);//chamado 285
             case 389 -> new TelaSecao_389(secao).setVisible(true);//chamado pela seção 201,248,293
-            case 390 -> new TelaSecao_390(secao).setVisible(true);//chamado pela seção 33,166,184
+            case 390 -> new TelaSecao_390(secao).setVisible(true);//chamado pela seção 33,166,184,369
             case 391 -> new TelaSecao_391(secao).setVisible(true);//chamado pela seção 306
             case 392 -> new TelaSecao_392(secao).setVisible(true);//chamado pela seção 8
             case 393 -> new TelaSecao_393(secao).setVisible(true);//chamado pela seção 245, 281
             case 394 -> new TelaSecao_394(secao).setVisible(true);//chamado pela seção 105,272
             case 395 -> new TelaSecao_395(secao).setVisible(true);//chamado pela seção 356
-            case 396 -> new TelaSecao_396(secao).setVisible(true);
+            case 396 -> new TelaSecao_396(secao).setVisible(true); //Chamado por 361
             case 397 -> new TelaSecao_397(secao).setVisible(true);//chamado pela seção 51
             case 398 -> new TelaSecao_398(secao).setVisible(true);//chamado pela seção 61,296
             case 399 -> new TelaSecao_399(secao).setVisible(true);//chamado pela seção 54

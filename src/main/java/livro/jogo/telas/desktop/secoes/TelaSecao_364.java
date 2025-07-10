@@ -2,16 +2,14 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TelaSecao_366 extends TelaSecoesBasica {
-    public TelaSecao_366(Secao secao) {
+public class TelaSecao_364 extends TelaSecoesBasica {
+    public TelaSecao_364(Secao secao) {
         super(secao);
     }
 
@@ -27,11 +25,7 @@ public class TelaSecao_366 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 3)
-                    abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
-                else
-                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                            ",\n\nVocê não possui moedas suficientes para pagar o Centauro.");
+                abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
             }
 
             @Override
