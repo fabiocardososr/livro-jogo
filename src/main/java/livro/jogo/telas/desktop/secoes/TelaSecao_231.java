@@ -19,6 +19,7 @@ public class TelaSecao_231 extends TelaSecoesBasica {
 
     public TelaSecao_231(Secao secao) {
         super(secao);
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/aguia.mp3", null);
     }
 
     @Override

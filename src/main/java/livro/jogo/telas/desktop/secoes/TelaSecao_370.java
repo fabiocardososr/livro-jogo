@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -8,7 +7,6 @@ import livro.jogo.telas.desktop.personalizados.BotaoFaixaOpcoes;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilBolsa;
 
@@ -19,8 +17,10 @@ import java.awt.event.MouseListener;
 
 public class TelaSecao_370 extends TelaSecoesBasica {
     private JLabelOpcoesTelaSecao botaoEscolhaItens; //Deixei no escopo global para que seja desabilitado caso escolha a opção de pagar com moedas
+
     public TelaSecao_370(Secao secao) {
         super(secao);
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
     }
 
     @Override
@@ -42,14 +42,14 @@ public class TelaSecao_370 extends TelaSecoesBasica {
     private void carregarListaItensParaDar() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(270,590,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 1 item ao garotinho.");
+                    CarregarTelas.telaMensagem("Você já perdeu 1 item.");
                     return;
                 }
 
@@ -85,18 +85,18 @@ public class TelaSecao_370 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 1 item</center></html>");
-        texto.setBounds(555,585,130,25);
+        texto.setBounds(375,615,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
-        texto.setToolTipText("Escolha 1 item para dar ao garotinho.");
+        texto.setToolTipText("Escolha 1 item para perder.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 if ( escolheuItensDaListaSuspensa ) {
-                    CarregarTelas.telaMensagem("Você já entregou 1 item para ao garotinho.");
+                    CarregarTelas.telaMensagem("Você já perdeu 1 item.");
                     return;
                 }
 
