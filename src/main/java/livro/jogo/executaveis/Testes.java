@@ -33,7 +33,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(374);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(133);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -77,7 +77,7 @@ public class Testes {
 //        //Equipando uma espada(50)
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 //
-        //Equipando uma espada(50)
+        //Equipando uma espada magnífica(10)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 
         //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_38.json"));
@@ -91,9 +91,9 @@ public class Testes {
         //Colar olho de Âmbar
        // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_15.json"));
 
-        //itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_28.json"));
+       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_39.json"));
 
-        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_41.json"));
+      //  itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_41.json"));
 
 
 

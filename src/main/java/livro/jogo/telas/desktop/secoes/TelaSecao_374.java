@@ -1,16 +1,58 @@
 package livro.jogo.telas.desktop.secoes;
 
+import livro.jogo.acaosecoes.AcoesSecao_374;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class TelaSecao_374 extends TelaSecoesBasica {
     public TelaSecao_374(Secao secao) {
         super(secao);
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                if ( !AcoesSecao_374.verificaSePossuiManopla() )
+                    AcoesSecao_374.ganhaManoplaDeHabilidade();
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
     }
 
     @Override
@@ -25,7 +67,11 @@ public class TelaSecao_374 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( !AcoesSecao_374.verificaSePossuiAnelDaLentidao() )
+                   abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nO anel está em seu dedo.\nVocê já está amaldiçoado!");
             }
 
             @Override

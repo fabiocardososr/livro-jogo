@@ -2,7 +2,7 @@
 	"idItem":"39",
 	"tipoEfeito":"HABILIDADE",
 	"nome":"Manopla de Ferro",
-	"descricao":"Habilidade com Arma.",
+	"descricao":"Acrescenta 1 ponto aos seus lances de dados futuros ao calcular sua Força de Ataque durante os combates.",
 	"valorCusto":"0",
 	"modificador":"1",   
 	"quantidadeUso":"0",

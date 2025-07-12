@@ -13,8 +13,6 @@ public class AcoesSecao_194 {
 
         //Se já existir não deixe incluir (só por precaução, acredito que no livro não tem como se repetir)
         if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.BELADONA.getIdItem()) )
-            UtilBolsa.incluirItem(UtilItens.retornaItem(14));
-
-        UtilPersonagem.somarValorOuro(25);
+            UtilBolsa.incluirItem(UtilItens.retornaItem(ItensMapeamento.BELADONA.getIdItem()));
     }
 }

@@ -1,10 +1,13 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_133;
+import livro.jogo.acaosecoes.AcoesSecao_374;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 
 import java.awt.event.MouseEvent;
@@ -18,7 +21,8 @@ public class TelaSecao_133 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_133.colocaAnelDaLentidaoNoDedo();
+                if ( !AcoesSecao_133.verificaSePossuiAnel() )
+                    AcoesSecao_133.colocaAnelDaLentidaoNoDedo();
             }
 
             @Override
@@ -65,7 +69,11 @@ public class TelaSecao_133 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( !AcoesSecao_374.verificaSePossuiManopla() )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nVocê já está usando a manopla!");
             }
 
             @Override

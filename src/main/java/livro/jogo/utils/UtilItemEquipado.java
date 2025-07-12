@@ -29,6 +29,15 @@ public class UtilItemEquipado {
         return false;
     }
 
+    public static boolean incluirItem(Item item){
+        try {
+            itensEquipados.add(item);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public static Item verificaSeItemEquipadoERetornaItem(int idItem){
 
         for (Item item : itensEquipados){

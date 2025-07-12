@@ -528,7 +528,7 @@ public class CarregarTelas {
             case 371 -> new TelaSecao_371(secao).setVisible(true); //chamado pela seção 49 - ganha moeda e mão de argila(55)
             case 372 -> new TelaSecao_372(secao).setVisible(true); //chamado pela seção 175 - teste de habilidade
             case 373 -> new TelaSecao_373(secao).setVisible(true); //chamado pela seção 203,286
-            case 374 -> new TelaSecao_374(secao).setVisible(true); //chamado pela seção 133,305 - Ganha manopla de Habilidade(39)
+            case 374 -> new TelaSecao_374(secao).setVisible(true); //chamado pela seção 133,305 - Ganha manopla de Habilidade(39) usei nova função ded incluir item, pois estava criando outro objeto item sendo que ja tenho em DadosLivroCarregado
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
 
