@@ -4,11 +4,11 @@
   "enderecoAudio":"livros/florestadadestruicao/audio/secao_372.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Sendo bem sucedido",
+      "textoOpcao": "Conseguiu levantar a arca.",
       "codProximaSecao": "48"
     },
 	{	  
-      "textoOpcao": "Não se arriscar a causar mais danos às suas costas?",
+      "textoOpcao": "Não se arriscar a causar danos às suas costas?",
       "codProximaSecao": "288"
     }
   ]
