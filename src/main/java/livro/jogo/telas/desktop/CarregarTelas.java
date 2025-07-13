@@ -220,14 +220,14 @@ public class CarregarTelas {
             case 64  -> new TelaSecao_64(secao).setVisible(true); //Chamado por 138 - Consome Poção Controle das Plantas(8)
             case 65  -> new TelaSecao_65(secao).setVisible(true); //Chamado por 299,339
             case 66  -> new TelaSecao_66(secao).setVisible(true);
-            case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271,297
+            case 67  -> new TelaSecao_67(secao).setVisible(true); //chamado pelas seções: 12 e 271,297,378
             case 68  -> new TelaSecao_68(secao).setVisible(true); //Chamado por 363 - Toma poção e recupera 3 pontos de energia
             case 69  -> new TelaSecao_69(secao).setVisible(true); //chamada por 136,214,304
             case 70  -> new TelaSecao_70(secao).setVisible(true); //chamado por 182 - Equipar Espada magnífica
             case 71  -> new TelaSecao_71(secao).setVisible(true); //Chamado por 151 - 1 inimigo Gremlin
             case 72  -> new TelaSecao_72(secao).setVisible(true); //Chamado por 252
             case 73  -> new TelaSecao_73(secao).setVisible(true); //Realizar teste rolando dados para vê se abre porta
-            case 74  -> new TelaSecao_74(secao).setVisible(true); //Adquire moedas e sino.
+            case 74  -> new TelaSecao_74(secao).setVisible(true); //Chamado por 376 - Adquire moedas e sino.
             case 75  -> new TelaSecao_75(secao).setVisible(true); //Chamado por 299,339
             case 76  -> new TelaSecao_76(secao).setVisible(true); //Chamado por 289
             case 77  -> new TelaSecao_77(secao).setVisible(true); //Chamado por 77
@@ -245,7 +245,7 @@ public class CarregarTelas {
             case 89  -> new TelaSecao_89(secao).setVisible(true); //chamado pela seção 17,172
             case 90  -> new TelaSecao_90(secao).setVisible(true); //Testar Sorte - chamado pela seção 87,119
             case 91  -> new TelaSecao_91(secao).setVisible(true);//chamado pela seção 26 - Recupera sorte
-            case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77,205 (pergunta sobre Poção Controle de insetos(16))
+            case 92  -> new TelaSecao_92(secao).setVisible(true);//chamado pela seção 24,53,77,205,377 (pergunta sobre Poção Controle de insetos(16))
             case 93  -> new TelaSecao_93(secao).setVisible(true); //chamado pela seção 4,371
             case 94  -> new TelaSecao_94(secao).setVisible(true); //Chamado por 120,322
             case 95  -> new TelaSecao_95(secao).setVisible(true); //Chamado por 292 - Pergunta sobre a Poeira da Levitação(11)
@@ -303,7 +303,7 @@ public class CarregarTelas {
             case 147 -> new TelaSecao_147(secao).setVisible(true); //Chamado por 289
             case 148 -> new TelaSecao_148(secao).setVisible(true);//chamado pela seção 6,308,373
             case 149 -> new TelaSecao_149(secao).setVisible(true);//chamado pela seção 13,113,185,235,324,341
-            case 150 -> new TelaSecao_150(secao).setVisible(true);//chamado pela seção 32,111,223,236
+            case 150 -> new TelaSecao_150(secao).setVisible(true);//chamado pela seção 32,111,223,236,375
             case 151 -> new TelaSecao_151(secao).setVisible(true);//chamado pela seção 61,135
             case 152 -> new TelaSecao_152(secao).setVisible(true);//chamado pela seção 107
             case 153 -> new TelaSecao_153(secao).setVisible(true);//chamado pela seção 130 (inimigo Mulher-gato TEM FUGA)
@@ -358,7 +358,7 @@ public class CarregarTelas {
             case 202 -> new TelaSecao_202(secao).setVisible(true);//chamado pela seção 153
             case 203 -> new TelaSecao_203(secao).setVisible(true); //Chamado por 187
             case 204 -> new TelaSecao_204(secao).setVisible(true); //Chamado por 246,311 - Verifica se possui todas as partes do martelo
-            case 205 -> new TelaSecao_205(secao).setVisible(true); //ganha moedas
+            case 205 -> new TelaSecao_205(secao).setVisible(true); //Chamdo por 377 - ganha moedas
             case 206 -> new TelaSecao_206(secao).setVisible(true);//chamado pela seção 76
             case 207 -> new TelaSecao_207(secao).setVisible(true); //Chamado por 352
             case 208 -> new TelaSecao_208(secao).setVisible(true);//chamado pela seção 62,86,194
@@ -389,7 +389,7 @@ public class CarregarTelas {
             case 233 -> new TelaSecao_233(secao).setVisible(true); //chamado pela seção 56,245
             case 234 -> new TelaSecao_234(secao).setVisible(true); //chamado pela seção 123,277
             case 235 -> new TelaSecao_235(secao).setVisible(true); //chamado pela seção 82
-            case 236 -> new TelaSecao_236(secao).setVisible(true);
+            case 236 -> new TelaSecao_236(secao).setVisible(true); //Chamado por 375
             case 237 -> new TelaSecao_237(secao).setVisible(true); //Perde Sorte e Verifica se possui Poção curativa(27)
             case 238 -> new TelaSecao_238(secao).setVisible(true); //chamado pela seção 17,89,233,362
             case 239 -> new TelaSecao_239(secao).setVisible(true); //chamado pela seção 41,160,343
@@ -461,10 +461,10 @@ public class CarregarTelas {
             case 304 -> new TelaSecao_304(secao).setVisible(true);//chamado pela seção 237
             case 305 -> new TelaSecao_305(secao).setVisible(true);//chamado pela seção 167,258
             case 306 -> new TelaSecao_306(secao).setVisible(true);//chamado pela seção 149,213,280,357
-            case 307 -> new TelaSecao_307(secao).setVisible(true);
+            case 307 -> new TelaSecao_307(secao).setVisible(true);//Chamado por 378
             case 308 -> new TelaSecao_308(secao).setVisible(true);//Chamado por 373 - Efeito de troca de sorte com habilidade
             case 309 -> new TelaSecao_309(secao).setVisible(true);//chamado pela seção 109,252,331
-            case 310 -> new TelaSecao_310(secao).setVisible(true);
+            case 310 -> new TelaSecao_310(secao).setVisible(true); //Chamado por 376
             case 311 -> new TelaSecao_311(secao).setVisible(true);//chamado pela seção 104
             case 312 -> new TelaSecao_312(secao).setVisible(true);//chamado pela seção 227 - 25 moedas e cabeça de martelo letra G
             case 313 -> new TelaSecao_313(secao).setVisible(true);//chamado pela seção 55
@@ -529,13 +529,14 @@ public class CarregarTelas {
             case 372 -> new TelaSecao_372(secao).setVisible(true); //chamado pela seção 175 - teste de habilidade
             case 373 -> new TelaSecao_373(secao).setVisible(true); //chamado pela seção 203,286
             case 374 -> new TelaSecao_374(secao).setVisible(true); //chamado pela seção 133,305 - Ganha manopla de Habilidade(39) usei nova função ded incluir item, pois estava criando outro objeto item sendo que ja tenho em DadosLivroCarregado
+            case 375 -> new TelaSecao_375(secao).setVisible(true); //chamado pela seção 163
+            case 376 -> new TelaSecao_376(secao).setVisible(true); //chamado pela seção 196 - Testar sorte
+            case 377 -> new TelaSecao_377(secao).setVisible(true);//chamado pela seção 24,77 - 2 Inimigo e fuga
+            case 378 -> new TelaSecao_378(secao).setVisible(true);//chamado pela seção 221
             /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
 
 
-            case 375 -> new TelaSecao_375(secao).setVisible(true); //chamado pela seção 163
-            case 376 -> new TelaSecao_376(secao).setVisible(true); //chamado pela seção 196
-            case 377 -> new TelaSecao_377(secao).setVisible(true);//chamado pela seção 24,77
-            case 378 -> new TelaSecao_378(secao).setVisible(true);//chamado pela seção 221
+
             case 380 -> new TelaSecao_380(secao).setVisible(true);//chamado pela seção 120,322
             case 381 -> new TelaSecao_381(secao).setVisible(true);//chamado pela seção 115
             case 382 -> new TelaSecao_382(secao).setVisible(true);//chamado pela seção 204,234

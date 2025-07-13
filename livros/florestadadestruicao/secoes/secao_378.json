@@ -1,6 +1,6 @@
 {  	
   "codSecaoLivro": "378",
-  "texto": "\t\t\t\tÀ esquerda da trilha, você vê um homem pequeno com uma longa barba grisalha, sentado de pernas cruzadas em cima de um enorme cogumelo.\n\n\t\t\t\tEle está usando um casaco vermelho vivo e um gorro da mesma cor, suas calças são pretas e terminam nos joelhos.\n\n\t\t\t\tEstá dormindo e ronca alto.",
+  "texto": "\t\t\t\tÀ esquerda da trilha, você vê um homem pequeno com uma longa barba grisalha, sentado de pernas cruzadas em cima de um enorme cogumelo.\n\n\t\t\t\tEle está usando um casaco vermelho vivo e um gorro da mesma cor.\n\n\t\t\t\tEstá dormindo e ronca alto.",
     "enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_378.png",
 	"enderecoAudio":"livros/florestadadestruicao/audio/secao_378.mp3",
   "proximasSecoes": [
@@ -9,7 +9,7 @@
       "codProximaSecao": "307"
     },
 	{	  
-      "textoOpcao": "Passar caminhando por ele silenciosamente para continuar sua jornada para o oeste?",
+      "textoOpcao": "Passar por ele silenciosamente continuando sua jornada para o oeste?",
       "codProximaSecao": "67"
     }
   ]

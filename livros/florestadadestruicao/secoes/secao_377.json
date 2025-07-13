@@ -8,21 +8,21 @@
       "codProximaSecao": "205"
     },
 	{	  
-      "textoOpcao": "Fugir! Corra de volta para a trilha e vire para o norte.",
+      "textoOpcao": "Fugir! Corra e siga para o norte.",
       "codProximaSecao": "92"
     }
   ],
   "inimigos":[
 	{
 		"idInimigo":"67",
-		"nome":"PIGMEU",
+		"nome":"Pigmeu",
 		"habilidade":"5",
 		"energia":"5",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/pigmeu_a.png"
 	},
 	{
 		"idInimigo":"68",
-		"nome":"PIGMEU",
+		"nome":"Pigmeu",
 		"habilidade":"5",
 		"energia":"6",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/pigmeu_b.png"
