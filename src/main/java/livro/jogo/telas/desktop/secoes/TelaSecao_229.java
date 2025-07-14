@@ -46,7 +46,7 @@ public class TelaSecao_229 extends TelaSecoesBasica {
         int eixoY = 570;
         int eixoX = 190;
 
-        //Texto botão repor habilidade
+        //Texto botão testar sorte
         textoBotaoTesteSorte = new JLabel("<html><center>Testar Sorte</center></html>");
         textoBotaoTesteSorte.setBounds(eixoX+125,eixoY+18,250,60);
         textoBotaoTesteSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
