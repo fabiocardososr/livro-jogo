@@ -2,10 +2,7 @@ package livro.jogo.acaosecoes;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilBolsa;
-import livro.jogo.utils.UtilPersonagem;
+import livro.jogo.utils.*;
 
 public class AcoesSecao_248 {
 
@@ -15,7 +12,11 @@ public class AcoesSecao_248 {
     }
 
     public static void equiparEscudo(){
-        Item item = DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_28.json");
+        Item item = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESCUDO_DE_FERRO.getIdItem());
+
+        //Se já equipado, não deixa incluir outro escudo
+        if ( UtilItemEquipado.verificaSeItemEquipado(ItensMapeamento.ESCUDO_DE_FERRO.getIdItem()) )
+            return;
 
         if ( item != null)
             UtilPersonagem.equiparDesequiparItem(item);

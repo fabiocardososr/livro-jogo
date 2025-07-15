@@ -1,15 +1,12 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_232;
 import livro.jogo.acaosecoes.AcoesSecao_248;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilBolsa;
-import livro.jogo.utils.UtilPersonagem;
+import livro.jogo.utils.*;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -72,7 +69,11 @@ public class TelaSecao_248 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                if ( !DadosLivroCarregado.getInfoSecoes().getAbriuArcaSecao389() )
+                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                else
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                            ",\n\nVocê já abriu a arca, não lembra?");
             }
 
             @Override

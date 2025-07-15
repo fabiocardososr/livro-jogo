@@ -7,6 +7,7 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Livro;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
+import livro.jogo.telas.desktop.secoes.InfoSecoes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class DadosLivroCarregado {
     private static Personagem personagem;
     private static int secaoAtual;
     private static final ObjectMapper objMapper = new ObjectMapper();
+    private static InfoSecoes infoSecoes = new InfoSecoes();
 
     public static Personagem getPersonagem() {
         return personagem;
@@ -39,6 +41,14 @@ public class DadosLivroCarregado {
 
     public static HashMap<Integer, Item> getMapItem(){
         return livro.getMapItens();
+    }
+
+    public static InfoSecoes getInfoSecoes() {
+        return infoSecoes;
+    }
+
+    public static void setInfoSecoes(InfoSecoes infoSecoes) {
+        DadosLivroCarregado.infoSecoes = infoSecoes;
     }
 
     public static ArrayList<Item> getBolsa(){

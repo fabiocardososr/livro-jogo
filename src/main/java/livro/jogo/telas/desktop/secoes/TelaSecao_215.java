@@ -2,8 +2,12 @@ package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
+import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.UtilItemEquipado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -26,7 +30,12 @@ public class TelaSecao_215 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao1){
-                    abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
+                    //Se já equipado, não deixa incluir outro escudo
+                    if ( UtilItemEquipado.verificaSeItemEquipado(ItensMapeamento.ESCUDO_DE_FERRO.getIdItem()) )
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
+                                ",\n\nVocê já possui o escudo.");
+                    else
+                        abrirProximaSecao( secao.getProximasSecoes().getFirst().getCodProximaSecao() );
                 }
             }
 

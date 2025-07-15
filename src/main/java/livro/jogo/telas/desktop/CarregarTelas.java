@@ -540,11 +540,12 @@ public class CarregarTelas {
             case 383 -> new TelaSecao_383(secao).setVisible(true);//chamado pela seção 29 - Ganha moedas e apito de madeira e energia
             case 384 -> new TelaSecao_384(secao).setVisible(true);//chamado pela seção 105
             case 385 -> new TelaSecao_385(secao).setVisible(true);//chamado pela seção 290
-            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
-
             case 386 -> new TelaSecao_386(secao).setVisible(true);//chamado pela seção 79
             case 387 -> new TelaSecao_387(secao).setVisible(true);//chamado pela seção 143
             case 388 -> new TelaSecao_388(secao).setVisible(true);//chamado 285
+            /************* TELAS DE SEÇÕES CHAMADAS PELA TELAS ACIMA, MAS INCOMPLETAS **************/
+
+
             case 389 -> new TelaSecao_389(secao).setVisible(true);//chamado pela seção 201,248,293
             case 390 -> new TelaSecao_390(secao).setVisible(true);//chamado pela seção 33,166,184,369
             case 391 -> new TelaSecao_391(secao).setVisible(true);//chamado pela seção 306
