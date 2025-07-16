@@ -8,7 +8,7 @@
       "codProximaSecao": "154"
     },
 	{	  
-      "textoOpcao": "Azar! Sua cabeça se choca contra um tronco\nVocê perde 3 pontos de ENERGIA. Se ainda estiver vivo, volte para",
+      "textoOpcao": "Azar! Você bateu a cabeça ao cair. Perde 3 pontos de energia.",
       "codProximaSecao": "370"
     }
   ]

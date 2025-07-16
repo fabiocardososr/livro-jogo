@@ -47,7 +47,6 @@ public class TelaSecao_333 extends TelaSecoesBasica {
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,25));
         texto.setForeground(new Color(128,0,0));
-        texto.setToolTipText("Clique aqui para começar sua jornada.");
         texto.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
