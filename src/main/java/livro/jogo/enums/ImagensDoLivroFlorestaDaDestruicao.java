@@ -1,8 +1,11 @@
 package livro.jogo.enums;
 
+import livro.jogo.utils.DadosLivroCarregado;
+
 public enum ImagensDoLivroFlorestaDaDestruicao {
 
     /*** IMAGENS DE ITENS ***/
+    CAPA(DadosLivroCarregado.getLivro().getImagemCapa()),
     COROA_DE_OURO("livros/florestadadestruicao/imagens/itens/item_2.png"),
     FILTROS_NASAIS("livros/florestadadestruicao/imagens/itens/item_4.png"),
     CHAVE_DE_PRATA("livros/florestadadestruicao/imagens/itens/item_5.png"),
