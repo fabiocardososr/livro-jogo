@@ -69,7 +69,7 @@ public class CarregarTelas {
     }
 
     private void telaRegrasOpcoes(){
-        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(400,740);
+        TelaRegrasOpcoes telaRegrasOpcoes = new TelaRegrasOpcoes(400,730);
         telaRegrasOpcoes.setVisible(true);
     }
 
@@ -80,7 +80,7 @@ public class CarregarTelas {
     }
 
     private void telaCriacaoPersonagem(){
-        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,820, telaPrincipal);
+        TelaCriarPersonagem telaCriarPersonagem = new TelaCriarPersonagem(1150,622, telaPrincipal);
 
         //Quando fechar este tela, deve voltar para a principal
         telaCriarPersonagem.addWindowListener(new WindowAdapter() {
