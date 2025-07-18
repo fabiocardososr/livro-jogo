@@ -31,8 +31,8 @@ public class TelaPrincipal extends TelaBasica {
     private JLabelOpcoesTelaSecao botaoCarregarPersonagem;
     private JLabel labelSair;
     private JLabelOpcoesTelaSecao botaoSair;
-    private final int LARGURA_BOTOES_INFERIORES = 220;
-    private final int ALTURA_BOTOES_INFERIORES = 150;
+    private final int LARGURA_BOTOES_INFERIORES = 180;
+    private final int ALTURA_BOTOES_INFERIORES = 130;
     private final CarregarTelas carregarTelas = new CarregarTelas(this);
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     private JLabelOpcoesTelaSecao labelVoz;
@@ -94,7 +94,7 @@ public class TelaPrincipal extends TelaBasica {
         //Configuração do estilo "textoCapaLivro"
         JTextPane textoCapaLivro = new JTextPane();
         textoCapaLivro.setBackground(new Color(210,180,140));
-        textoCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        textoCapaLivro.setFont(new Font(Font.SERIF,Font.BOLD,18));
         StyledDocument textoCapaLivroStyle = textoCapaLivro.getStyledDocument();
         SimpleAttributeSet configTexto = new SimpleAttributeSet();
         StyleConstants.setAlignment(configTexto,StyleConstants.ALIGN_JUSTIFIED);
@@ -103,10 +103,12 @@ public class TelaPrincipal extends TelaBasica {
         textoCapaLivro.setEditable(false);
         textoCapaLivro.setFocusable(false);
         textoCapaLivro.setText(livro.getDescricao());
+        JScrollPane scrollTextoIntrodutorio = new JScrollPane(textoCapaLivro);
+        scrollTextoIntrodutorio.setBounds(602,108,560,272);
 
         //Fundo do texto (moldura)
         JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao("",
-                800, 600, ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
+                800, 500, ImagensDoLivroFlorestaDaDestruicao.MOLDURA_TELA_PRINCIPAL);
         labelMolduraTextoTelaPrincipal.setCursor(null);
 
         //Botão para narrar
@@ -120,12 +122,11 @@ public class TelaPrincipal extends TelaBasica {
                 ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_PARAR);
         labelVozParar.addMouseListener(acaoBotoes);
         labelVozParar.setToolTipText("Parar a narração");
-        labelVoz.setBounds(810,520,45,45);
-        labelVozParar.setBounds(912,520,45,45);
+        labelVoz.setBounds(810,420,45,45);
+        labelVozParar.setBounds(912,420,45,45);
 
         /* Posicionanado */
-        textoCapaLivro.setBounds(602,145,560,324);
-        labelMolduraTextoTelaPrincipal.setBounds(480,-40,800,660);
+        labelMolduraTextoTelaPrincipal.setBounds(480,-100,800,660);
         //labelMolduraTextoTelaPrincipal.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Adicionando a tela
@@ -136,7 +137,7 @@ public class TelaPrincipal extends TelaBasica {
         add(labelFaixaInferiorDireita);
         add(labelFaixaInferiorEsquerda);
 
-        add(textoCapaLivro);
+        add(scrollTextoIntrodutorio);
         add(labelImgCapaLivro);
         add(labelMolduraTextoTelaPrincipal);
 
@@ -146,7 +147,6 @@ public class TelaPrincipal extends TelaBasica {
         configurarBotaoCarregarPersonagem(acaoBotoes);
         configurarBotaoFechar(acaoBotoes);
 
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -155,17 +155,17 @@ public class TelaPrincipal extends TelaBasica {
         botaoRegras = new JLabelOpcoesTelaSecao("",
                 LARGURA_BOTOES_INFERIORES,
                 ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoRegras.setBounds(490,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoRegras.setBounds(505,470, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
         botaoRegras.setFont(new Font(Font.SERIF,Font.BOLD,19));
         botaoRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoRegras.addMouseListener(acao);
 
         labelRegras = new JLabel("Regras");
         labelRegras.setForeground(new Color(139,0,0));
-        labelRegras.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelRegras.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelRegras.setHorizontalAlignment(SwingConstants.CENTER);
         labelRegras.setVerticalAlignment(SwingConstants.CENTER);
-        labelRegras.setBounds(525,603,150,50);
+        labelRegras.setBounds(522,503,150,50);
         labelRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
         labelRegras.addMouseListener(acao);
@@ -178,17 +178,17 @@ public class TelaPrincipal extends TelaBasica {
         botaoIniciarJogo = new JLabelOpcoesTelaSecao("",
                 LARGURA_BOTOES_INFERIORES,
                 ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoIniciarJogo.setBounds(720,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoIniciarJogo.setBounds(695,470, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
         botaoIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,19));
         botaoIniciarJogo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoIniciarJogo.addMouseListener(acao);
 
         labelIniciarJogo = new JLabel("Iniciar");
         labelIniciarJogo.setForeground(new Color(139,0,0));
-        labelIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelIniciarJogo.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelIniciarJogo.setHorizontalAlignment(SwingConstants.CENTER);
         labelIniciarJogo.setVerticalAlignment(SwingConstants.CENTER);
-        labelIniciarJogo.setBounds(758,603,150,50);
+        labelIniciarJogo.setBounds(715,503,150,50);
         labelIniciarJogo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
         labelIniciarJogo.addMouseListener(acao);
@@ -202,17 +202,17 @@ public class TelaPrincipal extends TelaBasica {
         botaoCarregarPersonagem = new JLabelOpcoesTelaSecao("",
                 LARGURA_BOTOES_INFERIORES,
                 ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoCarregarPersonagem.setBounds(950,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoCarregarPersonagem.setBounds(885,470, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
         botaoCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,19));
         botaoCarregarPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoCarregarPersonagem.addMouseListener(acao);
 
         labelCarregarPersonagem = new JLabel("Carregar");
         labelCarregarPersonagem.setForeground(new Color(139,0,0));
-        labelCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelCarregarPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelCarregarPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         labelCarregarPersonagem.setVerticalAlignment(SwingConstants.CENTER);
-        labelCarregarPersonagem.setBounds(988,603,150,50);
+        labelCarregarPersonagem.setBounds(902,503,150,50);
         labelCarregarPersonagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
         labelCarregarPersonagem.addMouseListener(acao);
@@ -225,17 +225,17 @@ public class TelaPrincipal extends TelaBasica {
         botaoSair = new JLabelOpcoesTelaSecao("",
                 LARGURA_BOTOES_INFERIORES,
                 ALTURA_BOTOES_INFERIORES, ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoSair.setBounds(1180,560, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
+        botaoSair.setBounds(1075,470, LARGURA_BOTOES_INFERIORES, ALTURA_BOTOES_INFERIORES);
         botaoSair.setFont(new Font(Font.SERIF,Font.BOLD,19));
         botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(acao);
 
         labelSair = new JLabel("Sair");
         labelSair.setForeground(new Color(139,0,0));
-        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
         labelSair.setVerticalAlignment(SwingConstants.CENTER);
-        labelSair.setBounds(1217,603,150,50);
+        labelSair.setBounds(1090,503,150,50);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //labelRegras.setBorder(BorderFactory.createLineBorder(Color.RED));
         labelSair.addMouseListener(acao);
