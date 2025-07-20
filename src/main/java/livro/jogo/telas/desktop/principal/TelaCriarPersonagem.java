@@ -72,7 +72,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         carregarBotoesGravarResetarFechar();
         carregarTxtNomeGenero();
        // carregarFaixasDasExtremidades(); //Faixas que ficam nas extremidades da janela
-        carregarPainelInferior();
+        carregarPainelPrincipal();
 
     }
 
@@ -103,9 +103,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(labelFaixaSuperiorEsquerda);
     }
 
-    private void carregarPainelInferior() {
+    private void carregarPainelPrincipal() {
 
-        //Era o painel inferior mas resolvi estender para toda a tela (imagem de pergaminho maior)
+        //Painel principal (imagem de pergaminho maior)
         ImagePanel painelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO2);
         painelInferior.setLayout(null);
         painelInferior.setBounds(0,1,1150,620);
@@ -409,57 +409,55 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeHabilidade = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
         painelDeHabilidade.setLayout(null);
-        painelDeHabilidade.setBounds(50,20,370,230);
+        painelDeHabilidade.setBounds(135,60,260,160);
         painelDeHabilidade.setToolTipText("O resultado da rolagem do dado vai ser somado a 6. Este resultado será sua habilidade.");
 
         //Fundo do título
-        JLabelOpcoesTelaSecao labelImgFaixaTitulo = new JLabelOpcoesTelaSecao(null,250,
-                250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        labelImgFaixaTitulo.setBounds(120, 0,240,100);
+        JLabelOpcoesTelaSecao labelImgFaixaTitulo = new JLabelOpcoesTelaSecao(null,150,
+                150,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
+        labelImgFaixaTitulo.setBounds(193, 2,150,150);
         labelImgFaixaTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         labelImgFaixaTitulo.setCursor(null);
         //labelImgFaixaTitulo.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Título
         JLabel labelTituloHabilidade = new JLabel("Habilidade");
-        labelTituloHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelTituloHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelTituloHabilidade.setForeground(new Color(139,0,0));
-        labelTituloHabilidade.setBounds(190,17,150,50);
+        labelTituloHabilidade.setBounds(235,47,150,50);
 
         //Índice de Habilidade
         labelIndiceHabilidade = new JLabel("0");
-        labelIndiceHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,50));
-        //labelIndiceHabilidade.setForeground(new Color(139,0,0));
+        labelIndiceHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,40));
         labelIndiceHabilidade.setForeground(Color.WHITE);
-        labelIndiceHabilidade.setBounds(53,100,370,50);
+        labelIndiceHabilidade.setBounds(81,110,370,50);
         labelIndiceHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
-        //labelIndiceHabilidade.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Fundo do índice
-        JLabelOpcoesTelaSecao labelImgFundoIndice = new JLabelOpcoesTelaSecao(null,100,
-                125,ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
-        labelImgFundoIndice.setBounds(160, 60,150,165);
+        JLabelOpcoesTelaSecao labelImgFundoIndice = new JLabelOpcoesTelaSecao(null,70,
+                85,ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        labelImgFundoIndice.setBounds(230, 105,70,85);
         labelImgFundoIndice.setHorizontalAlignment(SwingConstants.CENTER);
         //labelImgFundoIndice.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Botão rolar dado
-        botaoRolarDadosHabilidade = new JLabelOpcoesTelaSecao(null,150,90,
+        botaoRolarDadosHabilidade = new JLabelOpcoesTelaSecao(null,100,60,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoRolarDadosHabilidade.setBounds(162,190,150,90);
+        botaoRolarDadosHabilidade.setBounds(217,180,100,60);
         botaoRolarDadosHabilidade.setCursor(cursor);
         botaoRolarDadosHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
         botaoRolarDadosHabilidade.addMouseListener(acao);
-        umDadoHabilidade = new JLabelOpcoesTelaSecao(null,35,30,
+        umDadoHabilidade = new JLabelOpcoesTelaSecao(null,25,20,
                 ImagensDoLivroFlorestaDaDestruicao.UM_DADO);
         umDadoHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
-        umDadoHabilidade.setBounds(222,215,35,30);
+        umDadoHabilidade.setBounds(255,197,25,20);
 
         //Fazer aparecer na tela
-        add(umDadoHabilidade);
         add(labelTituloHabilidade);
         add(labelImgFaixaTitulo);
         add(labelIndiceHabilidade);
         add(labelImgFundoIndice);
+        add(umDadoHabilidade);
         add(botaoRolarDadosHabilidade);
         add(painelDeHabilidade);
     }
@@ -469,55 +467,55 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeEnergia = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
         painelDeEnergia.setLayout(null);
-        painelDeEnergia.setBounds(392,20,370,230);
+        painelDeEnergia.setBounds(445,60,260,160);
         painelDeEnergia.setToolTipText("O resultado da rolagem de dois dados será somado a 12. Este resultado será seu índice de energia.");
 
         //Fundo do título
-        JLabelOpcoesTelaSecao labelImgFaixaTitulo = new JLabelOpcoesTelaSecao(null,250,
-                250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        labelImgFaixaTitulo.setBounds(460, 0,240,100);
+        JLabelOpcoesTelaSecao labelImgFaixaTitulo = new JLabelOpcoesTelaSecao(null,150,
+                150,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
+        labelImgFaixaTitulo.setBounds(505, 2,150,150);
         labelImgFaixaTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         labelImgFaixaTitulo.setCursor(null);
         //labelImgFaixaTitulo.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Título
         JLabel labelTituloEnergia = new JLabel("Energia");
-        labelTituloEnergia.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        labelTituloEnergia.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelTituloEnergia.setForeground(new Color(139,0,0));
-        labelTituloEnergia.setBounds(545,17,150,50);
+        labelTituloEnergia.setBounds(555,47,150,50);
 
         //Índice de Habilidade
         labelIndiceEnergia = new JLabel("0");
-        labelIndiceEnergia.setFont(new Font(Font.SERIF,Font.BOLD,50));
+        labelIndiceEnergia.setFont(new Font(Font.SERIF,Font.BOLD,40));
         labelIndiceEnergia.setForeground(Color.WHITE);
-        labelIndiceEnergia.setBounds(395,100,370,50);
+        labelIndiceEnergia.setBounds(395,110,370,50);
         labelIndiceEnergia.setHorizontalAlignment(SwingConstants.CENTER);
         //labelIndiceHabilidade.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
         //Fundo do índice
-        JLabelOpcoesTelaSecao labelImgFundoIndice = new JLabelOpcoesTelaSecao(null,100,
-                125,ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
-        labelImgFundoIndice.setBounds(500, 60,150,165);
+        JLabelOpcoesTelaSecao labelImgFundoIndice = new JLabelOpcoesTelaSecao(null,70,
+                85,ImagensDoLivroFlorestaDaDestruicao.FAIXA_VERTICAL_1);
+        labelImgFundoIndice.setBounds(542, 105,70,85);
         labelImgFundoIndice.setHorizontalAlignment(SwingConstants.CENTER);
         //labelImgFundoIndice.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        botaoRolarDadosEnergia = new JLabelOpcoesTelaSecao(null,150,90,
+        botaoRolarDadosEnergia = new JLabelOpcoesTelaSecao(null,100,60,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoRolarDadosEnergia.setBounds(503,190,150,90);
+        botaoRolarDadosEnergia.setBounds(529,180,100,60);
         botaoRolarDadosEnergia.setCursor(cursor);
         botaoRolarDadosEnergia.setHorizontalAlignment(SwingConstants.CENTER);
         botaoRolarDadosEnergia.addMouseListener(acao);
 
-        doisDadosEnergia = new JLabelOpcoesTelaSecao(null,35,30,
+        doisDadosEnergia = new JLabelOpcoesTelaSecao(null,27,22,
                 ImagensDoLivroFlorestaDaDestruicao.DOIS_DADOS);
         doisDadosEnergia.setHorizontalAlignment(SwingConstants.CENTER);
-        doisDadosEnergia.setBounds(558,215,35,30);
+        doisDadosEnergia.setBounds(567,196,27,22);
 
         add(doisDadosEnergia);
-        add(labelTituloEnergia);
         add(labelIndiceEnergia);
         add(labelImgFundoIndice);
+        add(labelTituloEnergia);
         add(labelImgFaixaTitulo);
         add(botaoRolarDadosEnergia);
         add(painelDeEnergia);
@@ -528,7 +526,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Criado um panel personalizado para incluir imagem de fundo
         ImagePanel painelDeSorte = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.MOLDURA_6);
         painelDeSorte.setLayout(null);
-        painelDeSorte.setBounds(735,20,370,230);
+        painelDeSorte.setBounds(755,60,260,160);
         painelDeSorte.setToolTipText("O resultado da rolagem de um dado será somado a 6. Este resultado será seu índice de sorte.");
 
         //Fundo do título
@@ -572,12 +570,12 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoRolarDadosSorte.setHorizontalAlignment(SwingConstants.CENTER);
         botaoRolarDadosSorte.addMouseListener(acao);
 
-        add(umDadoSorte);
-        add(labelTituloSorte);
-        add(labelImgFaixaTitulo);
-        add(labelIndiceSorte);
-        add(labelImgFundoIndice);
-        add(botaoRolarDadosSorte);
+//        add(umDadoSorte);
+//        add(labelTituloSorte);
+//        add(labelImgFaixaTitulo);
+//        add(labelIndiceSorte);
+//        add(labelImgFundoIndice);
+//        add(botaoRolarDadosSorte);
         add(painelDeSorte);
     }
 
