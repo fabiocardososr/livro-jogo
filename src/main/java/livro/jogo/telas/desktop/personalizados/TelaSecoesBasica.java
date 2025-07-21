@@ -13,12 +13,16 @@ import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 public abstract class TelaSecoesBasica extends JDialog {
@@ -84,6 +88,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private JLabelOpcoesTelaSecao botaoLabelFundoSalvar;
     private static int quantProvisoesComidas; //Necessário para contar quantas provisões comeu na seção 304
     protected static JLabel lbFaixaInfoQtdFaltamComer; //Quantas provisões faltam comer usado na seção 304
+    private BufferedImage imagemFundo;
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -116,6 +121,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         setLocationRelativeTo(null);
         setModal(true);
         setUndecorated(true);
+        setBackground(new Color(0,0,0,0));
 
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();
@@ -126,6 +132,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregarFaixasDasExtremidades();
         carregarComponentesEspecificos(secao);
         carregaPainelInferior();
+        carregaImagemDefundo();
 
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
@@ -136,6 +143,28 @@ public abstract class TelaSecoesBasica extends JDialog {
                     referenciaTelaPrincipal.setVisible(true);
             }
         });
+    }
+
+    private void carregaImagemDefundo(){
+        // Carrega a imagem de fundo
+        try {
+            imagemFundo = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao carregar a imagem de fundo");
+        }
+
+        // Adiciona um componente personalizado para desenhar o fundo
+        add(new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (imagemFundo != null) {
+                    // Desenha a imagem para preencher todo o painel
+                    g.drawImage(imagemFundo, 0, 0, getWidth(), getHeight(), this);
+                }
+            }
+        }).setBounds(0, 0, getWidth(), getHeight());
     }
 
     public static JLabel getLbFaixaInfoQtdFaltamComer() {

@@ -10,6 +10,7 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -18,6 +19,9 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /*System.exit(0) = Fecha aplicação toda*/
 
@@ -38,6 +42,7 @@ public class TelaPrincipal extends TelaBasica {
     private JLabelOpcoesTelaSecao labelVoz;
     private JLabelOpcoesTelaSecao labelVozParar;
     private TelaPrincipalAcaoDosLabelsBotoes acaoBotoes = new TelaPrincipalAcaoDosLabelsBotoes();;
+    private BufferedImage imagemFundo;
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
@@ -48,6 +53,26 @@ public class TelaPrincipal extends TelaBasica {
         livro = DadosLivroCarregado.getLivro();
         setTitle(livro.getNome());
         configurandoTelaPrincipal();
+
+        // Carrega a imagem de fundo
+        try {
+            imagemFundo = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao carregar a imagem de fundo");
+        }
+
+        // Adiciona um componente personalizado para desenhar o fundo
+        add(new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (imagemFundo != null) {
+                    // Desenha a imagem para preencher todo o painel
+                    g.drawImage(imagemFundo, 0, 0, getWidth(), getHeight(), this);
+                }
+            }
+        }).setBounds(0, 0, getWidth(), getHeight());
 
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
