@@ -1113,6 +1113,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         dialogImagem.setResizable(false);
         dialogImagem.getContentPane().setBackground(new Color(210,180,140));
         dialogImagem.setUndecorated(true); //retira a barra de ferramentas.
+        dialogImagem.setBackground(new Color(0,0,0,0));
         dialogImagem.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         return dialogImagem;

@@ -124,18 +124,18 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregaItensIniciaisPersonagem() {
 
         //Fundo
-        JLabelOpcoesTelaSecao labelFundoItensItensIniciais = new JLabelOpcoesTelaSecao(null,700,220,
+        JLabelOpcoesTelaSecao labelFundoItensItensIniciais = new JLabelOpcoesTelaSecao(null,700,200,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_4);
-        labelFundoItensItensIniciais.setBounds(310, 300, 700,220);
+        labelFundoItensItensIniciais.setBounds(310, 300, 700,200);
         labelFundoItensItensIniciais.setCursor(null);
         labelFundoItensItensIniciais.setHorizontalAlignment(SwingConstants.CENTER);
 
         //Mão apontando
-        JLabelOpcoesTelaSecao labelMao = new JLabelOpcoesTelaSecao(null,150,100,
+        JLabelOpcoesTelaSecao labelMao = new JLabelOpcoesTelaSecao(null,100,70,
                 ImagensDoLivroFlorestaDaDestruicao.SETA_APONTA_DIREITA);
+        labelMao.setBounds(640, 370,100,70);
         labelMao.setFont(new Font(Font.SERIF,Font.BOLD,80));
         labelMao.setForeground(new Color(139,0,0));
-        labelMao.setBounds(630, 460,120,50);
         labelMao.setHorizontalAlignment(SwingConstants.CENTER);
         //labelFlecha.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -147,13 +147,13 @@ public class TelaCriarPersonagem extends TelaBasica {
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelImgBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
         painelImgBolsa.setToolTipText("Carrega todos os itens que não estejam equipados");
-        painelImgBolsa.setBounds(755,430,100,100);
+        painelImgBolsa.setBounds(755,365,70,70);
 
         /*** Itens iniciais ***/
 
-        imgInterrogacao = new JLabelOpcoesTelaSecao(null,45, 45,
+        imgInterrogacao = new JLabelOpcoesTelaSecao(null,40, 35,
                 ImagensDoLivroFlorestaDaDestruicao.INTERROGACAO);
-        imgInterrogacao.setBounds(570,425,45,45);
+        imgInterrogacao.setBounds(550,363,40,35);
         imgInterrogacao.setHorizontalAlignment(SwingConstants.CENTER);
         imgInterrogacao.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgInterrogacao.setToolTipText("Aqui ficará a poção inicial escolhida.");
@@ -162,7 +162,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         ImagePanel imgPanelEspada = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ESPADA_INICIAL);
         imgPanelEspada.setLayout(null);
         imgPanelEspada.setToolTipText("Espada simples usada nos combates.");
-        imgPanelEspada.setBounds(490,425,55,55);
+        imgPanelEspada.setBounds(490,370,45,45);
         imgPanelEspada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //imgPanelEspada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -170,13 +170,13 @@ public class TelaCriarPersonagem extends TelaBasica {
         ImagePanel imgPanelArmadura = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.ARMADURA_DE_COURO_INICIAL);
         imgPanelArmadura.setLayout(null);
         imgPanelArmadura.setToolTipText("Armadura de couro que o(a) protegerá durante a aventura.");
-        imgPanelArmadura.setBounds(480,480,65,65);
+        imgPanelArmadura.setBounds(515,395,45,45);
         imgPanelArmadura.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //Provisões (refeições)
         ImagePanel imgPanelProvisoes = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
         imgPanelProvisoes.setLayout(null);
-        imgPanelProvisoes.setBounds(550,480,65,65);
+        imgPanelProvisoes.setBounds(560,395,45,45);
         imgPanelProvisoes.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imgPanelProvisoes.setToolTipText("<html>10 Provisões(refeições). Recompõe sua ENERGIA em 4 pontos.<br>Pode ser consumida em qualquer momento, exceto em combate.</html>");
         //imgPanelProvisões.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -195,7 +195,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         //Faixa do rótulo indicando a escolha das poções
         JLabelOpcoesTelaSecao labelImgEscolhaPocao = new JLabelOpcoesTelaSecao(null,150,
                 150,ImagensDoLivroFlorestaDaDestruicao.FAIXA_8);
-        labelImgEscolhaPocao.setBounds(100, 213,240,110);
+        labelImgEscolhaPocao.setBounds(145, 213,240,110);
         labelImgEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
         //labelImgEscolhaPocao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -203,7 +203,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         JLabel labelEscolhaPocao = new JLabel("Escolha");
         labelEscolhaPocao.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelEscolhaPocao.setForeground(new Color(139,0,0));
-        labelEscolhaPocao.setBounds(120, 228,200,70);
+        labelEscolhaPocao.setBounds(165, 228,200,70);
         labelEscolhaPocao.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(labelEscolhaPocao);
@@ -228,9 +228,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoHabilidade.addMouseListener(acao);
 
         //Posicionamento
-        labelRotuloHabilidade.setBounds(193,308,150,50);
-        labelImgHabilidade.setBounds(175,323,17,22);
-        botaoPocaoHabilidade.setBounds(140, 300,160,70);
+        labelRotuloHabilidade.setBounds(238,308,150,50);
+        labelImgHabilidade.setBounds(220,323,17,22);
+        botaoPocaoHabilidade.setBounds(185, 300,160,70);
 
         //Adicionando a tela
         add(labelRotuloHabilidade);
@@ -254,9 +254,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoEnergia.setCursor(cursor);
 
         //Posicionamento
-        labelImgEnergia.setBounds(175,393,17,22);
-        labelRotuloEnergia.setBounds(200,376,150,50);
-        botaoPocaoEnergia.setBounds(140, 370,160,70);
+        labelImgEnergia.setBounds(220,393,17,22);
+        labelRotuloEnergia.setBounds(245,376,150,50);
+        botaoPocaoEnergia.setBounds(185, 370,160,70);
 
         //Adicionando a tela
         add(labelRotuloEnergia);
@@ -280,9 +280,9 @@ public class TelaCriarPersonagem extends TelaBasica {
         botaoPocaoSorte.setCursor(cursor);
 
         //Posicionamento
-        labelImgSorte.setBounds(175,463,17,22);
-        labelRotuloSorte.setBounds(197,446,150,50);
-        botaoPocaoSorte.setBounds(140, 440,160,70);
+        labelImgSorte.setBounds(220,463,17,22);
+        labelRotuloSorte.setBounds(242,446,150,50);
+        botaoPocaoSorte.setBounds(185, 440,160,70);
 
         //Adicionando a tela
         add(labelImgSorte);
@@ -309,7 +309,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         txtNome.setBounds(486, 285,180,25);
         txtNome.setBackground(new Color(210,180,140));
         txtNome.setForeground(new Color(139,0,0));
-        txtNome.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        txtNome.setFont(new Font(Font.SERIF,Font.BOLD,20));
         txtNome.setCursor(cursor);
         txtNome.setBorder(BorderFactory.createLineBorder(new Color(139,0,0)));
         txtNome.addKeyListener(new KeyListener() {
@@ -580,14 +580,14 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         //Botao Gravar
         labelGravar = new JLabel("Gravar");
-        labelGravar.setBounds(245, 500,100,100);
-        labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelGravar.setBounds(435, 495,100,60);
+        labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         labelGravar.setVerticalTextPosition(SwingConstants.CENTER);
         labelGravar.setCursor(cursor);
         labelGravar.setForeground(new Color(139,0,0));
-        botaoGravar = new JLabelOpcoesTelaSecao(null,150,75,
+        botaoGravar = new JLabelOpcoesTelaSecao(null,150,70,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoGravar.setBounds(500, 505,150,75);
+        botaoGravar.setBounds(390, 495,150,70);
         botaoGravar.addMouseListener(acao);
         botaoGravar.setCursor(cursor);
         botaoGravar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -597,38 +597,38 @@ public class TelaCriarPersonagem extends TelaBasica {
         add(botaoGravar);
 
         //Botao resetar
-        labelResetar = new JLabel("Limpar Campos");
-        labelResetar.setBounds(505, 505,200,100);
-        labelResetar.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        labelResetar = new JLabel("Limpar");
+        labelResetar.setBounds(635, 495,100,60);
+        labelResetar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         labelResetar.setVerticalTextPosition(SwingConstants.CENTER);
         labelResetar.setCursor(cursor);
         labelResetar.setForeground(new Color(139,0,0));
-        botaoResetar = new JLabelOpcoesTelaSecao("",280,110,
+        botaoResetar = new JLabelOpcoesTelaSecao("",150,70,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(440, 505,280,110);
+        botaoResetar.setBounds(590, 495,150,70);
         botaoResetar.addMouseListener(acao);
         botaoResetar.setCursor(cursor);
         botaoResetar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoResetar.addMouseListener(acao);
-        //add(labelResetar);
-       // add(botaoResetar);
+        add(labelResetar);
+        add(botaoResetar);
 
         //Fechar janela
         labelFechar = new JLabel("Sair");
-        labelFechar.setBounds(845, 500,200,100);
-        labelFechar.setFont(new Font(Font.SERIF,Font.BOLD,30));
+        labelFechar.setBounds(850, 495,100,60);
+        labelFechar.setFont(new Font(Font.SERIF,Font.BOLD,20));
         labelFechar.setVerticalTextPosition(SwingConstants.CENTER);
         labelFechar.setCursor(cursor);
         labelFechar.setForeground(new Color(139,0,0));
-        botaoFechar = new JLabelOpcoesTelaSecao("",280,110,
+        botaoFechar = new JLabelOpcoesTelaSecao("",150,70,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoFechar.setBounds(730, 505,280,110);
+        botaoFechar.setBounds(790, 495,150,70);
         botaoFechar.addMouseListener(acao);
         botaoFechar.setCursor(cursor);
         botaoFechar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoFechar.addMouseListener(acao);
-        //add(labelFechar);
-      //  add(botaoFechar);
+        add(labelFechar);
+        add(botaoFechar);
     }
 
     private void resetarCriacaoPersonagem(){
