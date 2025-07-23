@@ -92,7 +92,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
 
     public TelaSecoesBasica(Secao secao) {
-        setSize(1500,800);
+        setSize(1275,622);
         this.secao = secao;
         this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = CarregarTelas.getReferenciaTelaPrincipal();
