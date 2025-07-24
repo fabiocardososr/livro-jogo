@@ -823,7 +823,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Configura clique na imagem para ampliar em uma nova tela
         JLabel labelImagemTempoaria = new JLabel();
-        labelImagemTempoaria.setBounds(0, 0, 650,715);
+        labelImagemTempoaria.setBounds(0, 0, 650,200);
 
 
         labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
@@ -856,11 +856,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         imgPainelDireito.setBounds(1200,2,280,770);
 
         //Quadra onde mostra a imagem padrão de uma floresta
-        ImageIcon imageIcon = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA.getEnderecoImagem());
-        JLabel labelImgMapa = new JLabel(imageIcon);
-        labelImgMapa.setBounds(2,2,200,200);
-        labelImgMapa.setBackground(new Color(210,180,140));
         dialogImagemMapa = carregaImagemEmUmaTela();
+        JLabelOpcoesTelaSecao labelImgMapa = new JLabelOpcoesTelaSecao(null,
+                dialogImagemMapa.getWidth(), dialogImagemMapa.getHeight(),ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA);
+        labelImgMapa.setBounds(0,0,dialogImagemMapa.getWidth(), dialogImagemMapa.getHeight());
+
         dialogImagemMapa.add(labelImgMapa);
         dialogImagemMapa.addMouseListener(new TelaSecoesBasicaAcaoDosLabels());
 
@@ -1108,7 +1108,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Carrega uma tela de diálogo com uma imagem
     private JDialog carregaImagemEmUmaTela(){
         JDialog dialogImagem = new JDialog(this,"",false);
-        dialogImagem.setSize(new Dimension(650,715));
+        dialogImagem.setSize(new Dimension(450,600));
         dialogImagem.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
         dialogImagem.setResizable(false);
         dialogImagem.getContentPane().setBackground(new Color(210,180,140));
