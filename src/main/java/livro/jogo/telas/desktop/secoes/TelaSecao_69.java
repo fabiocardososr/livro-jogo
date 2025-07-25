@@ -16,9 +16,9 @@ public class TelaSecao_69 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         opcao1(secao);
-        labelNumOpcao1.setBounds(116,572, 50,50);
-        botaoOpcao1.setBounds(120,580,40,50);
-        lbTextoOpcao1.setBounds(170,567,700,60);
+//        labelNumOpcao1.setBounds(116,572, 50,50);
+//        botaoOpcao1.setBounds(120,580,40,50);
+//        lbTextoOpcao1.setBounds(170,567,700,60);
 
         opcao2(secao);
         labelNumOpcao2.setBounds(116,622, 50,50);

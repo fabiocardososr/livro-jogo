@@ -50,7 +50,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected JLabel lbEnergiaPersonagem;         //Informa o índice de energia atual e máxima
     protected JLabel lbHabilidadePersonagem;      //Informa o índice de habilidade atual e máxima
     protected JLabel lbSortePersonagem;           //Informa o índice de sorte atual e máxima
-    private int tamanhoTexto = 20; //tamanho default para o texto da seção. Pode ser ajustado
+    private int tamanhoTexto = 18; //tamanho default para o texto da seção. Pode ser ajustado
     private String enderecoAudioHistoriaInicial; //Se é a histório inicial. Carrega áudio da história inicial
     protected final Util util = new Util(); //Usado para a a narração (play /stop)
     protected final TelaSecoesBasica thisDialog = this; //Referencia esta tela para passar para a tela de mensaagem quando precisar fechar(em conjunto com respostaTelaMensagem)
@@ -587,7 +587,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //FAIXA SUPERIOR DIREITA
         JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
-        labelFaixaSuperiorDireita.setBounds(1310,-108,300,250);
+        labelFaixaSuperiorDireita.setBounds(1100,-108,300,250);
 
         //FAIXA INFERIOR DIREITA
         JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
@@ -613,8 +613,9 @@ public abstract class TelaSecoesBasica extends JDialog {
     private void carregarTextoHistoria() {
 
         //Moldura que engloba o texto da seção
-        JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,900,600,
+        JLabelOpcoesTelaSecao labelMolduraTexto = new JLabelOpcoesTelaSecao(null,800,460,
                 ImagensDoLivroFlorestaDaDestruicao.MOLDURA_2);
+        labelMolduraTexto.setBounds(5,-10,800,460);
         labelMolduraTexto.setCursor(null);
         //labelMolduraTexto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -644,7 +645,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         textoHistoria.setCaretPosition(0);
 
         //Aumenta texto
-        labelAumentaTexto = new JLabelOpcoesTelaSecao(null, 40,40,
+        labelAumentaTexto = new JLabelOpcoesTelaSecao(null, 35,35,
                 ImagensDoLivroFlorestaDaDestruicao.SINAL_SOMA);
         labelAumentaTexto.setHorizontalAlignment(SwingConstants.CENTER);
         labelAumentaTexto.setToolTipText("Aumentar texto");
@@ -652,7 +653,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //labelAumentaTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Diminuir texto
-        labelDiminuiTexto = new JLabelOpcoesTelaSecao(null, 30,30,
+        labelDiminuiTexto = new JLabelOpcoesTelaSecao(null, 25,25,
                 ImagensDoLivroFlorestaDaDestruicao.SINAL_MENOS);
         labelDiminuiTexto.setHorizontalAlignment(SwingConstants.CENTER);
         labelDiminuiTexto.setToolTipText("Diminuir texto");
@@ -672,13 +673,12 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelVozParar.setToolTipText("Parar a narração");
 
         //posicionamento na tela
-        scrollTextoHistoria.setBounds(115, 118, 650, 350);
-        labelMolduraTexto.setBounds(-10,-40,950,650);
-        labelAumentaTexto.setBounds(80,260,30,30);
-        labelDiminuiTexto.setBounds(777,260,20,30);
+        scrollTextoHistoria.setBounds(111, 87, 592, 278);
+        labelAumentaTexto.setBounds(81,200,35,35);
+        labelDiminuiTexto.setBounds(701,200,25,25);
 
-        labelVoz.setBounds(315,510,45,45);
-        labelVozParar.setBounds(520,510,45,45);
+        labelVoz.setBounds(290,390,45,45);
+        labelVozParar.setBounds(473,390,45,45);
 
         //Adicionando a tela
         add(labelVoz);
@@ -842,7 +842,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected void carregaPainelInferior() {
         ImagePanel imgPainelInferior = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_ABERTO);
         imgPainelInferior.setLayout(null);
-        imgPainelInferior.setBounds(1,505,900,290);
+        imgPainelInferior.setBounds(1,420,800,205);
         //imgPainelInferior.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         add(imgPainelInferior);
@@ -1159,9 +1159,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lbTextoOpcao1.setForeground(new Color(139,0,0));
 
-        labelNumOpcao1.setBounds(116,592, 50,50);
-        botaoOpcao1.setBounds(120,600,40,50);
-        lbTextoOpcao1.setBounds(170,587,700,60);
+        labelNumOpcao1.setBounds(116,442, 50,50);
+        botaoOpcao1.setBounds(120,450,40,50);
+        lbTextoOpcao1.setBounds(170,437,700,60);
 
         add(lbTextoOpcao1);
         add(labelNumOpcao1);
