@@ -284,7 +284,7 @@ public class CarregarTelas {
             case 128 -> new TelaSecao_128(secao).setVisible(true); //Chamado por 384 - inimigo bárbaro
             case 129 -> new TelaSecao_129(secao).setVisible(true); //Chamado por 266 - perda de sorte, escolher perder 10 moedas ou 1 item
             case 130 -> new TelaSecao_130(secao).setVisible(true); //Chamado por 149
-            case 131 -> new TelaSecao_131(secao).setVisible(true);
+            case 131 -> new TelaSecao_131(secao).setVisible(true); //Chamado por 186
             case 132 -> new TelaSecao_132(secao).setVisible(true);//chamado pela seção 35 (verifica se tem Flauta do Sono do Dragão )
             case 133 -> new TelaSecao_133(secao).setVisible(true); //Chamado por 305,374 - Coloca anel no dedo(Anel da Lentidão)
             case 134 -> new TelaSecao_134(secao).setVisible(true); //Chamado por 199 - Perde 1 ponto de sorte

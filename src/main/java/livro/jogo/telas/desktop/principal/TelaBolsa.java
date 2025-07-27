@@ -47,6 +47,7 @@ public class TelaBolsa extends JDialog {
     private JPanel panelInfoItem; //Representa a tela suspensa de informação do item
     private final int LARGURA_IMG = 220, ALTURA_IMG = 250; //Tamanho da imagem da tela suspensa de info dos itens
     private JLabel tituloTelaSuspensaInfo;
+    private int largura, altura;
 
 
     public TelaBolsa(Container container,int largura, int altura, JLabel lbEnergiaPersonagem,
@@ -59,6 +60,8 @@ public class TelaBolsa extends JDialog {
         this.lbHabilidadePersonagem = lbHabilidadePersonagem;
         this.container = container;
         this.secao = secao;
+        this.largura = largura;
+        this.altura = altura;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         setSize(largura,altura);
@@ -85,15 +88,15 @@ public class TelaBolsa extends JDialog {
         painelListaItens.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelListaItens.setCursor(null);
         painelListaItens.setLayout(null);
-        painelListaItens.setBounds(185,115,825, 570);
-        painelImgFundoBolsa.setBounds(0,0,1200,800);
+        painelListaItens.setBounds(220,80,largura-450, altura-160);
+        painelImgFundoBolsa.setBounds(0,0,largura,altura);
         painelImgFundoBolsa.add(painelListaItens);
         //painelListaItens.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 
         //Botão sair
         JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(565,700,100,50);
+        labelSair.setBounds(565,500,100,50);
         labelSair.setForeground(new Color(139,0,0));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,25));
         labelSair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -102,7 +105,7 @@ public class TelaBolsa extends JDialog {
 
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 220, 90,ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(505,685,220,90);
+        botaoSair.setBounds(505,485,220,90);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoSair.addMouseListener(acao);
@@ -110,8 +113,7 @@ public class TelaBolsa extends JDialog {
         //Carregar tela de informações dos itens
         telaInfoItem();
 
-
-
+        //adicionar na tela os componentes
         add(labelSair);
         add(botaoSair);
         add(painelListaItens);
@@ -152,17 +154,17 @@ public class TelaBolsa extends JDialog {
         ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
 
         var x = 60; //Posição da esquerda para a direita
-        var y = 70;  //Posição de cima para baixo
-        var largura = 50;
-        var altura = 50;
+        var y = 50;  //Posição de cima para baixo
+        var largura = 40;
+        var altura = 40;
         var contNumerodeItensPorLinha = 0; //Vai auxiliar nos itens por linha, no caso estipulei 12 itens por linha
 
         //Para itens na bolsa (Não equipados)
         for (Item item: bolsa) {
 
-            if (contNumerodeItensPorLinha == 12){
+            if (contNumerodeItensPorLinha == 11){
                 contNumerodeItensPorLinha = 0;
-                y = y + 70; //Posiciona os próximos itens logo abaixo
+                y = y + 50; //Posiciona os próximos itens logo abaixo
                 x = 60; //Volta para o início da (esquerda para a direita)
             }
 
@@ -202,9 +204,9 @@ public class TelaBolsa extends JDialog {
             if (item.getEnderecoImagem().isEmpty())
                 continue;
 
-            if (contNumerodeItensPorLinha == 12){
+            if (contNumerodeItensPorLinha == 11){
                 contNumerodeItensPorLinha = 0;
-                y = y + 70; //Posiciona os próximos itens logo abaixo
+                y = y + 50; //Posiciona os próximos itens logo abaixo
                 x = 60; //Volta para o início da (esquerda para a direita)
             }
 

@@ -126,13 +126,25 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();
 
+        //Carrega imagem da seção, em caso de não existir carrega uma imagem padrão
         carregaImgSecao();
+
         carregaPainelPersonagem();
+
+        //Carrega imagem que é fundo dos botões na vertical-direita da tela de seção
         carregarPainelDireito();
+
         carregarFaixasDasExtremidades();
         carregarComponentesEspecificos(secao);
+
+        if (secao.getProximasSecoes() != null) {
+            ajustarOpcoesSecao(secao.getProximasSecoes().size());
+        }
+
         carregaPainelInferior();
         carregaImagemDefundo();
+
+        acaoBotoes(secao);
 
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
@@ -785,7 +797,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         imgPainelEnergiaPersonagem.setBounds(910,525,200,40);
         imgPainelSortePersonagem.setBounds(910,560,200,40);
         lbNomePersonagem.setBounds(900,415,300,50);
-        painelPersonagem.setBounds(875, 367, 340, 375);
+        painelPersonagem.setBounds(792, 367, 250, 270);
 
         //Adiciona a tela
         add(lbSortePersonagem);
@@ -810,9 +822,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         imgMolduraParaImgSecao.setLayout(null);
 
         //posicionamento
-        imgMolduraParaImgSecao.setBounds(875,2,340,375);
-        labelImagemSecao.setBounds(915, 45, 261, 289);
-
+        imgMolduraParaImgSecao.setBounds(795,2,250,270);
+        labelImagemSecao.setBounds(825, 32, 192, 210);
 
         labelImagemSecao.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemSecao.getWidth(),
                 labelImagemSecao.getHeight()).getImageIcon());
@@ -822,15 +833,15 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelImagemSecao.addMouseListener(acaoLabels);
 
         //Configura clique na imagem para ampliar em uma nova tela
+        int larguraAux = 400;
+        int alturaAux = 500;
         JLabel labelImagemTempoaria = new JLabel();
-        labelImagemTempoaria.setBounds(0, 0, 650,200);
-
-
+        labelImagemTempoaria.setBounds(0, 0, larguraAux,alturaAux);
         labelImagemTempoaria.setIcon(new RedimensionarImagem(enderecoImagem, labelImagemTempoaria.getWidth(),
                     labelImagemTempoaria.getHeight()).getImageIcon());
 
         labelImagemTempoaria.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        dialogImSecaoAmpliar = carregaImagemEmUmaTela();
+        dialogImSecaoAmpliar = carregaImagemEmUmaTela(larguraAux,alturaAux);
         dialogImSecaoAmpliar.add(labelImagemTempoaria);
         dialogImSecaoAmpliar.addMouseListener(acaoLabels);
 
@@ -856,7 +867,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         imgPainelDireito.setBounds(1200,2,280,770);
 
         //Quadra onde mostra a imagem padrão de uma floresta
-        dialogImagemMapa = carregaImagemEmUmaTela();
+        int larguraAux = 350;
+        int alturaAux = 200;
+        dialogImagemMapa = carregaImagemEmUmaTela(larguraAux,alturaAux);
         JLabelOpcoesTelaSecao labelImgMapa = new JLabelOpcoesTelaSecao(null,
                 dialogImagemMapa.getWidth(), dialogImagemMapa.getHeight(),ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA);
         labelImgMapa.setBounds(0,0,dialogImagemMapa.getWidth(), dialogImagemMapa.getHeight());
@@ -1106,9 +1119,9 @@ public abstract class TelaSecoesBasica extends JDialog {
     }
 
     //Carrega uma tela de diálogo com uma imagem
-    private JDialog carregaImagemEmUmaTela(){
+    private JDialog carregaImagemEmUmaTela(int largura, int altura){
         JDialog dialogImagem = new JDialog(this,"",false);
-        dialogImagem.setSize(new Dimension(450,600));
+        dialogImagem.setSize(new Dimension(largura,altura));
         dialogImagem.setLocationRelativeTo(this); //Centralizar baseado na tela que a chama
         dialogImagem.setResizable(false);
         dialogImagem.getContentPane().setBackground(new Color(210,180,140));
@@ -1155,13 +1168,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Texto da opção
         lbTextoOpcao1 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lbTextoOpcao1.setForeground(new Color(139,0,0));
-
-        labelNumOpcao1.setBounds(116,442, 50,50);
-        botaoOpcao1.setBounds(120,450,40,50);
-        lbTextoOpcao1.setBounds(170,437,700,60);
 
         add(lbTextoOpcao1);
         add(labelNumOpcao1);
@@ -1186,13 +1195,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Texto da opção
         lbTextoOpcao2 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao2.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        labelNumOpcao2.setBounds(116,652, 50,50);
-        botaoOpcao2.setBounds(120,660,40,50);
-        lbTextoOpcao2.setBounds(170,647,700,60);
 
         add(lbTextoOpcao2);
         add(labelNumOpcao2);
@@ -1217,14 +1222,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Texto da opção
         lbTextoOpcao3 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
-        lbTextoOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao3.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        labelNumOpcao3.setBounds(116,712, 50,50);
-        botaoOpcao3.setBounds(120,720,40,50);
-        lbTextoOpcao3.setBounds(170,707,700,60);
-
 
         add(lbTextoOpcao3);
         add(labelNumOpcao3);
@@ -1250,13 +1250,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Texto da opção
         lbTextoOpcao4 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
         lbTextoOpcao4.setBounds(170,707,700,60);
-        lbTextoOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        lbTextoOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao4.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        labelNumOpcao4.setBounds(116,772, 50,50);
-        botaoOpcao4.setBounds(120,780,40,50);
-        lbTextoOpcao4.setBounds(170,767,700,60);
+        labelNumOpcao4.setBounds(86,642, 50,50);
+        botaoOpcao4.setBounds(90,650,40,50);
+        lbTextoOpcao4.setBounds(140,637,700,60);
 
         add(lbTextoOpcao4);
         add(labelNumOpcao4);
@@ -1323,7 +1323,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             if (e.getSource() == labelBolsa){
                 if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0)
-                    CarregarTelas.telaBolsa(getContentPane(),1150,800, lbEnergiaPersonagem, lbHabilidadePersonagem,
+                    CarregarTelas.telaBolsa(getContentPane(),1200,600, lbEnergiaPersonagem, lbHabilidadePersonagem,
                         lbSortePersonagem, labelProvisoes, labelPocaoInicial,secao);
             }
 
@@ -1582,6 +1582,101 @@ public abstract class TelaSecoesBasica extends JDialog {
                 personagemVivo(false);
             }
         }
+    }
+
+    //Criar e posicionar de acordo com a quantidade de opções
+    protected void ajustarOpcoesSecao(int numeroDeOpcoes){
+        switch (numeroDeOpcoes){
+            case 1:
+                ajustar1opcao();
+                break;
+            case 2:
+                ajustar2opcoes();
+                break;
+            case 3:
+                ajustar3opcoes();
+                break;
+            case 4:
+                ajustar4opcoes();
+                break;
+        }
+    }
+
+    private void ajustar1opcao() {
+        //Cria as 1 Opção
+        opcao1(secao);
+
+        //Opção 1
+        labelNumOpcao1.setBounds(86,502, 50,50);
+        botaoOpcao1.setBounds(90,510,40,50);
+        lbTextoOpcao1.setBounds(140,497,700,60);
+    }
+
+    private void ajustar2opcoes() {
+        //Cria as 2 Opções
+        opcao1(secao);
+        opcao2(secao);
+
+        //Opção 1
+        labelNumOpcao1.setBounds(86,457, 50,50);
+        botaoOpcao1.setBounds(90,465,40,50);
+        lbTextoOpcao1.setBounds(140,452,700,60);
+
+        //Opção 2
+        labelNumOpcao2.setBounds(86,522, 50,50);
+        botaoOpcao2.setBounds(90,530,40,50);
+        lbTextoOpcao2.setBounds(140,517,700,60);
+    }
+
+    private void ajustar4opcoes() {
+        //Cria as 4 Opções
+        opcao1(secao);
+        opcao2(secao);
+        opcao3(secao);
+        opcao4(secao);
+
+        //Opção 1
+        labelNumOpcao1.setBounds(86,427, 50,50);
+        botaoOpcao1.setBounds(90,435,40,50);
+        lbTextoOpcao1.setBounds(140,422,700,60);
+
+        //Opção 2
+        labelNumOpcao2.setBounds(86,472, 50,50);
+        botaoOpcao2.setBounds(90,480,40,50);
+        lbTextoOpcao2.setBounds(140,467,700,60);
+
+        //Opção 3
+        labelNumOpcao3.setBounds(86,517, 50,50);
+        botaoOpcao3.setBounds(90,525,40,50);
+        lbTextoOpcao3.setBounds(140,512,700,60);
+
+        //opção 4
+        labelNumOpcao4.setBounds(86,562, 50,50);
+        botaoOpcao4.setBounds(90,570,40,50);
+        lbTextoOpcao4.setBounds(140,557,700,60);
+    }
+
+    private void ajustar3opcoes() {
+
+        //Cria as 3 Opções
+        opcao1(secao);
+        opcao2(secao);
+        opcao3(secao);
+
+        //Opção 1
+        labelNumOpcao1.setBounds(86,442, 50,50);
+        botaoOpcao1.setBounds(90,450,40,50);
+        lbTextoOpcao1.setBounds(140,437,700,60);
+
+        //Opção 2
+        labelNumOpcao2.setBounds(86,502, 50,50);
+        botaoOpcao2.setBounds(90,510,40,50);
+        lbTextoOpcao2.setBounds(140,497,700,60);
+
+        //Opção 3
+        labelNumOpcao3.setBounds(86,562, 50,50);
+        botaoOpcao3.setBounds(90,570,40,50);
+        lbTextoOpcao3.setBounds(140,557,700,60);
     }
 
 }

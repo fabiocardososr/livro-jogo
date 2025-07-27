@@ -10,6 +10,7 @@ import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.UtilBolsa;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,9 +23,7 @@ public class TelaSecao_16 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        opcao2(secao);
-        acaoBotoes(secao);
+
     }
 
     @Override
