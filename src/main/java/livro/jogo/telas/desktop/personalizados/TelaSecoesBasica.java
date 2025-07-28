@@ -90,6 +90,10 @@ public abstract class TelaSecoesBasica extends JDialog {
     protected static JLabel lbFaixaInfoQtdFaltamComer; //Quantas provisões faltam comer usado na seção 304
     private BufferedImage imagemFundo;
 
+    private int angle = 0;
+    private Timer timer;
+    private JPanel panelTelaEspera;
+
 
     public TelaSecoesBasica(Secao secao) {
         setSize(1275,622);
@@ -122,6 +126,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         setModal(true);
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
+
+        criarTelaEspera();
 
         //Carregar campo que receberá o texto da história
         carregarTextoHistoria();
@@ -770,6 +776,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             toolTip = "Esta é você!";
         }
 
+        //Imagem do bárbaro(a)
         ImagePanel imgPersonagem = new ImagePanel(enderecoImgPersonagem);
         imgPersonagem.setLayout(null);
         imgPersonagem.setToolTipText(toolTip);
@@ -781,35 +788,34 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelBolsa = new JLabelOpcoesTelaSecao(null,ImagensDoLivroFlorestaDaDestruicao.BOLSA);
         labelBolsa.setToolTipText("Acesse aqui sua mochila.");
         labelBolsa.addMouseListener(acaoLabels);
-        //labelBolsa.setBorder(BorderFactory.createLineBorder(Color.RED));
-        labelBolsa.setBounds(930,600,100,90);
+        labelBolsa.setBounds(845,525,100,90);
         labelBolsa.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.BOLSA.getEnderecoImagem(),
                 labelBolsa.getWidth(), labelBolsa.getHeight()).getImageIcon());
 
 
         //Posiciona
-        imgPersonagem.setBounds(1080,500,205,260);
-        lbSortePersonagem.setBounds(967,555,140,50);
-        lbEnergiaPersonagem.setBounds(960,520,140,50);
-        lbHabilidadePersonagem.setBounds(950,485,140,50);
-        imgPainelNomePersonagem.setBounds(895,370,300,150);
-        imgPainelHabilidadePersonagem.setBounds(910,490,200,40);
-        imgPainelEnergiaPersonagem.setBounds(910,525,200,40);
-        imgPainelSortePersonagem.setBounds(910,560,200,40);
-        lbNomePersonagem.setBounds(900,415,300,50);
-        painelPersonagem.setBounds(792, 367, 250, 270);
+        imgPersonagem.setBounds(945,365,205,260);
+        lbSortePersonagem.setBounds(880,435,140,50);
+        lbEnergiaPersonagem.setBounds(870,385,140,50);
+        lbHabilidadePersonagem.setBounds(862,335,140,50);
+        imgPainelHabilidadePersonagem.setBounds(830,340,180,40);
+        imgPainelEnergiaPersonagem.setBounds(830,390,180,40);
+        imgPainelSortePersonagem.setBounds(830,440,180,40);
+        imgPainelNomePersonagem.setBounds(793,240,250,120);
+        lbNomePersonagem.setBounds(770,272,300,50);
+        painelPersonagem.setBounds(794, 267, 250, 270);
 
         //Adiciona a tela
-        add(lbSortePersonagem);
-        add(lbEnergiaPersonagem);
+        add(imgPersonagem);
         add(lbHabilidadePersonagem);
-        add(lbNomePersonagem);
-        add(labelBolsa);
-        add(imgPainelNomePersonagem);
+        add(lbEnergiaPersonagem);
+        add(lbSortePersonagem);
         add(imgPainelSortePersonagem);
         add(imgPainelEnergiaPersonagem);
         add(imgPainelHabilidadePersonagem);
-        add(imgPersonagem);
+        add(lbNomePersonagem);
+        add(imgPainelNomePersonagem);
+        add(labelBolsa);
         add(painelPersonagem);
     }
 
@@ -864,11 +870,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Imagem de fundo (um pergaminho)
         ImagePanel imgPainelDireito = new ImagePanel(ImagensDoLivroFlorestaDaDestruicao.PERGAMINHO_FAIXA);
         imgPainelDireito.setLayout(null);
-        imgPainelDireito.setBounds(1200,2,280,770);
+        imgPainelDireito.setBounds(1080,70,200,550);
 
         //Quadra onde mostra a imagem padrão de uma floresta
-        int larguraAux = 350;
-        int alturaAux = 200;
+        int larguraAux = 450;
+        int alturaAux = 500;
         dialogImagemMapa = carregaImagemEmUmaTela(larguraAux,alturaAux);
         JLabelOpcoesTelaSecao labelImgMapa = new JLabelOpcoesTelaSecao(null,
                 dialogImagemMapa.getWidth(), dialogImagemMapa.getHeight(),ImagensDoLivroFlorestaDaDestruicao.MAPA_DA_FLORESTA);
@@ -881,25 +887,25 @@ public abstract class TelaSecoesBasica extends JDialog {
         configuraBotaoMapa();
 
         //Configura botão da poção inicial
-        configuraBotaoPocaoInicial();
+       // configuraBotaoPocaoInicial();
 
         //Provisões
         carregaBotaoDeProvisoes();
 
         //Anotações
-        carregarBotaoAnotacoes();
+       // carregarBotaoAnotacoes();
 
         //Salvar
-        carregarBotaoSalvar();
+       // carregarBotaoSalvar();
 
         //Ouro
         labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
-        labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelOuro.setForeground(new Color(139,0,0));
-        labelOuro.setBounds(1302,72,85,55);
-        JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,160,130,
+        labelOuro.setBounds(1145,73,85,55);
+        JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,120,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoOuro.setBounds(1260,40,160,130);
+        labelFundoOuro.setBounds(1118,60,120,90);
         labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
 
 
@@ -910,14 +916,14 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setToolTipText("Sair");
         // labelSair.setBorder(BorderFactory.createLineBorder(Color.RED));
-        labelSair.setBounds(1272,690,130,110);
+        labelSair.setBounds(1113,515,130,110);
 
 
         //Adiciona a tela
         add(labelOuro);
         add(labelFundoOuro);
         add(labelSair);
-        add(imgPainelDireito);
+       add(imgPainelDireito);
     }
 
     private void carregarBotaoSalvar() {
@@ -1022,15 +1028,15 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     //Configura botão do mapa
     private void configuraBotaoMapa() {
-        labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",50,55,
+        labelMapaBotao = new JLabelOpcoesTelaSecao("Mapa",25,30,
                 ImagensDoLivroFlorestaDaDestruicao.BUSSOLA);
-        labelMapaBotao.setBounds(1285,180,120,55);
-        labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        labelMapaBotao.setBounds(1145,155,100,55);
+        labelMapaBotao.setFont(new Font(Font.SERIF,Font.BOLD,14));
 
         //Botãso faixa
-        labelFundoMapa = new JLabelOpcoesTelaSecao(null,180,130,
+        labelFundoMapa = new JLabelOpcoesTelaSecao(null,120,80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoMapa.setBounds(1250,145,180,130);
+        labelFundoMapa.setBounds(1118,145,120,80);
 
         //labelMapaBotao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -1142,9 +1148,83 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     //Chamado para abrir a próxima seção que foi escolhida como opção
     protected void abrirProximaSecao(int codSecao){
+
+        //para áudio
         util.pararAudioMp3();
-        CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
-        this.dispose();
+
+        timer = new Timer(30, e -> {
+            angle = (angle + 5) % 360;
+            panelTelaEspera.setVisible(true);
+            repaint();
+        });
+        timer.start();
+
+        Timer timerFechar = new Timer(3000, e -> {
+            timer.stop();
+            CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+            dispose();
+            panelTelaEspera.setVisible(false);
+            this.dispose();
+        });
+        timerFechar.setRepeats(false);
+        timerFechar.start();
+    }
+
+    //Cria a tela de espera. Para usá-la basta setar o setVisible(deve-se criar Thread para o efeito de animação para as outras telas)
+    private void criarTelaEspera() {
+        panelTelaEspera = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+                // Fundo estilo forja medieval
+                Paint gp = new GradientPaint(0, 0, new Color(250, 230, 180, 250),
+                        getWidth(), getHeight(), new Color(220, 200, 150, 150));
+                g2d.setPaint(gp);
+                g2d.fillRoundRect(10, 10, getWidth()-20, getHeight()-20, 20, 20);
+
+                // Borda decorativa
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(new Color(150, 120, 80, 200));
+                g2d.drawRoundRect(10, 10, getWidth()-20, getHeight()-20, 20, 20);
+
+                // Animação - faíscas girando
+                int centerX = getWidth()/2;
+                int centerY = getHeight()/2;
+                int radius = 30;
+
+                // Faíscas giratórias ao redor
+                g2d.setStroke(new BasicStroke(2));
+                for (int i = 0; i < 8; i++) {
+                    double rad = Math.toRadians(angle + i*45);
+                    int x = centerX + (int)(Math.cos(rad)*radius);
+                    int y = centerY + (int)(Math.sin(rad)*radius);
+
+                    // Gradiente para faíscas
+                    Paint sparkGradient = new RadialGradientPaint(
+                            x, y, 8,
+                            new float[]{0f, 1f},
+                            new Color[]{new Color(255, 200, 50, 220), new Color(255, 100, 0, 0)}
+                    );
+                    g2d.setPaint(sparkGradient);
+                    g2d.fillOval(x-8, y-8, 16, 16);
+                }
+
+                g2d.dispose();
+            }
+
+        };
+
+        panelTelaEspera.setBounds(550,260,150,150);
+        panelTelaEspera.setOpaque(false);
+        panelTelaEspera.setLayout(null);
+        setUndecorated(true);
+        setBackground(new Color(0,0,0,0));
+        panelTelaEspera.setVisible(false);
+        add(panelTelaEspera);
     }
 
     protected void opcao1(Secao secao){
