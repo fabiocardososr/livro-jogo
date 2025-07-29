@@ -22,8 +22,7 @@ public class Testes {
         var bolsa = adicionaItensNaBolsaParaTeste();
 
         Personagem personagem = new Personagem("Fábio",1,22,10,
-                30,
-                bolsa,itensEquipados,1);
+                30, bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(0);
         personagem.setHabilidadeAtual(9);
@@ -112,16 +111,16 @@ public class Testes {
 //
 //
 //       //Provisão
-        for (int i=1; i<=57; i++)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_"+i+".json"));
+//        for (int i=1; i<=57; i++)
+//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_"+i+".json"));
 
         for (int i=1; i<=10; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_49.json"));
 //
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_53.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_45.json"));
 //
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_19.json"));

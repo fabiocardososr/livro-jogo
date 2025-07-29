@@ -887,25 +887,25 @@ public abstract class TelaSecoesBasica extends JDialog {
         configuraBotaoMapa();
 
         //Configura botão da poção inicial
-       // configuraBotaoPocaoInicial();
+        configuraBotaoPocaoInicial();
 
         //Provisões
         carregaBotaoDeProvisoes();
 
         //Anotações
-       // carregarBotaoAnotacoes();
+        carregarBotaoAnotacoes();
 
         //Salvar
-       // carregarBotaoSalvar();
+        carregarBotaoSalvar();
 
         //Ouro
         labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelOuro.setForeground(new Color(139,0,0));
-        labelOuro.setBounds(1145,73,85,55);
+        labelOuro.setBounds(1145,70,85,55);
         JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,120,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoOuro.setBounds(1118,60,120,90);
+        labelFundoOuro.setBounds(1118,57,120,90);
         labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
 
 
@@ -929,18 +929,18 @@ public abstract class TelaSecoesBasica extends JDialog {
     private void carregarBotaoSalvar() {
         //Salvar
         labelSalvar = new JLabel("Salvar");
-        labelSalvar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelSalvar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelSalvar.setForeground(new Color(139,0,0));
         labelSalvar.addMouseListener(acaoLabels);
         labelSalvar.setHorizontalAlignment(SwingConstants.CENTER);
         labelSalvar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelSalvar.setBounds(1290,600,100,50);
+        labelSalvar.setBounds(1127,451,100,50);
 
         //Botão salvar
-        botaoLabelFundoSalvar = new JLabelOpcoesTelaSecao(null,170,130,
+        botaoLabelFundoSalvar = new JLabelOpcoesTelaSecao(null,120,80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         botaoLabelFundoSalvar.setHorizontalAlignment(SwingConstants.CENTER);
-        botaoLabelFundoSalvar.setBounds(1255,565,170,130);
+        botaoLabelFundoSalvar.setBounds(1117,440,120,80);
         botaoLabelFundoSalvar.addMouseListener(acaoLabels);
 
         add(labelSalvar);
@@ -949,16 +949,16 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     //Carregar botão de anotações
     private void carregarBotaoAnotacoes() {
-        labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",30,35,
+        labelAnotacoes = new JLabelOpcoesTelaSecao("Anotações",15,20,
                 ImagensDoLivroFlorestaDaDestruicao.ANOTACOES);
-        labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        labelAnotacoes.setBounds(1275,470,250,100);
+        labelAnotacoes.setFont(new Font(Font.SERIF,Font.BOLD,12));
+        labelAnotacoes.setBounds(1140,360,120,90);
         labelAnotacoes.addMouseListener(acaoLabels);
 
         //Botão anotações
-        botaoLabelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,220,130,
+        botaoLabelFundoAnotacoes = new JLabelOpcoesTelaSecao(null,120,80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoLabelFundoAnotacoes.setBounds(1230,460,220,130);
+        botaoLabelFundoAnotacoes.setBounds(1117,368,120,80);
         botaoLabelFundoAnotacoes.addMouseListener(acaoLabels);
         add(labelAnotacoes);
         add(botaoLabelFundoAnotacoes);
@@ -967,16 +967,16 @@ public abstract class TelaSecoesBasica extends JDialog {
     private void carregaBotaoDeProvisoes() {
 
         var textoProvisoes = "<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>";
-        labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,40,45,
+        labelProvisoes = new JLabelOpcoesTelaSecao(textoProvisoes,15,20,
                 ImagensDoLivroFlorestaDaDestruicao.PROVISOES);
-        labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,18));
-        labelProvisoes.setBounds(1265, 387,150,55);
+        labelProvisoes.setFont(new Font(Font.SERIF,Font.BOLD,12));
+        labelProvisoes.setBounds(1131,286,120,90);
         labelProvisoes.addMouseListener(acaoLabels);
 
         //Botão faixa
-        botaoLabelFundoProvisoes = new JLabelOpcoesTelaSecao(null,220,130,
+        botaoLabelFundoProvisoes = new JLabelOpcoesTelaSecao(null,135,80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoLabelFundoProvisoes.setBounds(1231,355,220,130);
+        botaoLabelFundoProvisoes.setBounds(1110,294,135,80);
         botaoLabelFundoProvisoes.addMouseListener(acaoLabels);
 
         add(labelProvisoes);
@@ -993,31 +993,41 @@ public abstract class TelaSecoesBasica extends JDialog {
             configuraPocaoVaziaQuandoPocaoInicialConsumida();
 
         if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 30, 35, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Habilidade", 15, 20, ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_HABILIDADE);
             labelPocaoInicial.setToolTipText("Repõe os pontos de HABILIDADE");
         }
 
         if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DE_ENERGIA.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 40, 45,
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Força", 15, 20,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_ENERGIA);
             labelPocaoInicial.setToolTipText("Repõe os pontos de ENERGIA");
         }
         if ( (pocaoInicial != null) && (pocaoInicial.getIdItem() == ItensMapeamento.POCAO_DA_FORTUNA.getIdItem()) ) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 30, 35,
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("Fortuna", 15, 20,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_SORTE);
             labelPocaoInicial.setToolTipText("Repõe os pontos de SORTE e acrescenta 1 à SORTE Inicial");
         }
 
         if (pocaoInicial != null) {
+            var x = 1140;
+
+            //Reposicionar caso a poção de força, o nome é pequeno e não fica centralizado
+            if (pocaoInicial.getIdItem() == 46)
+                x = 1150;
+
+            if (pocaoInicial.getIdItem() == 47)
+                x = 1145;
+
             labelPocaoInicial.addMouseListener(acaoLabels);
-            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,18));
-            labelPocaoInicial.setBounds(1285,260,150,100);
+            labelPocaoInicial.setFont(new Font(Font.SERIF,Font.BOLD,12));
+            labelPocaoInicial.setBounds(x,242,100,30);
+            //labelPocaoInicial.setBorder(BorderFactory.createLineBorder(Color.RED));
         }
 
         //Botão faixa
-        labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,220,130,
+        labelFundoPocaoInicial = new JLabelOpcoesTelaSecao(null,120,80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoPocaoInicial.setBounds(1230,250,220,130);
+        labelFundoPocaoInicial.setBounds(1117,220,120,80);
         labelFundoPocaoInicial.addMouseListener(acaoLabels);
 
         if (pocaoInicial != null)
@@ -1038,8 +1048,6 @@ public abstract class TelaSecoesBasica extends JDialog {
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
         labelFundoMapa.setBounds(1118,145,120,80);
 
-        //labelMapaBotao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
         //Significa que é a tela inicial e o personagem ainda não adquiriu o mapa
         if (secao == null)
             labelMapaBotao.setEnabled(false);
@@ -1058,11 +1066,11 @@ public abstract class TelaSecoesBasica extends JDialog {
         boolean consumido = false;
 
         if (pocaoInicial == null) {
-            labelPocaoInicial = new JLabelOpcoesTelaSecao("", 50, 55,
+            labelPocaoInicial = new JLabelOpcoesTelaSecao("", 30, 35,
                     ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA);
             labelPocaoInicial.setText("");
             labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-            labelPocaoInicial.setBounds(1270,257,150,100);
+            labelPocaoInicial.setBounds(1165,238,30,35); //setBounds(1270,257,150,100);
             labelPocaoInicial.addMouseListener(null);
             labelPocaoInicial.setToolTipText("Poção consumida");
             add(labelPocaoInicial);
