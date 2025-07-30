@@ -143,7 +143,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregarFaixasDasExtremidades();
         carregarComponentesEspecificos(secao);
 
-        if (secao.getProximasSecoes() != null) {
+        if ( (secao !=null) && (secao.getProximasSecoes() != null) ){
             ajustarOpcoesSecao(secao.getProximasSecoes().size());
         }
 
@@ -716,7 +716,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Nome do personagem
         JLabel lbNomePersonagem = new JLabel(personagem.getNome());
-        lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
         lbNomePersonagem.setForeground(new Color(139,0,0));
         lbNomePersonagem.setHorizontalAlignment(SwingConstants.CENTER);
         //lbNomePersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));

@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.principal;
 import livro.jogo.Personagens.CriacaoPersonagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -51,6 +52,9 @@ public class TelaCriarPersonagem extends TelaBasica {
     private final TelaBasica telaPrincipal; //Usada para que esconda a tela mãe(principal) até que esta seja fechada e ai: telaMae.setVisible(true)
     private final TelaAcaoDosLabels acao = new TelaAcaoDosLabels();
     private Util util = new Util();
+    private int angle = 0;
+    private Timer timer;
+    private JPanel panelTelaEspera;
 
 
     public TelaCriarPersonagem(int largura, int altura, TelaBasica telaPrincipal) {
@@ -62,7 +66,78 @@ public class TelaCriarPersonagem extends TelaBasica {
         this.telaPrincipal = telaPrincipal;
         this.telaPrincipal.setVisible(false); //Lembrar de enviar esta referência para a tela do início do jogo.
         getContentPane().setBackground(new Color(210,180,140));
+        criarTelaEspera();
         carregarComponentesDaTela();
+
+        //para o áudio caso esteja sendo reproduzido
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent  e) {
+                util.pararAudioMp3();
+            }
+
+            @Override
+            public void windowOpened(WindowEvent e) {
+                System.out.println("Janela aberta/visível");
+                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/trilha_principal.mp3", null);
+            }
+        });
+    }
+
+    private void criarTelaEspera() {
+        panelTelaEspera = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+                // Fundo estilo forja medieval
+                Paint gp = new GradientPaint(0, 0, new Color(250, 230, 180, 250),
+                        getWidth(), getHeight(), new Color(220, 200, 150, 150));
+                g2d.setPaint(gp);
+                g2d.fillRoundRect(10, 10, getWidth()-20, getHeight()-20, 20, 20);
+
+                // Borda decorativa
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(new Color(150, 120, 80, 200));
+                g2d.drawRoundRect(10, 10, getWidth()-20, getHeight()-20, 20, 20);
+
+                // Animação - faíscas girando
+                int centerX = getWidth()/2;
+                int centerY = getHeight()/2;
+                int radius = 30;
+
+                // Faíscas giratórias ao redor
+                g2d.setStroke(new BasicStroke(2));
+                for (int i = 0; i < 8; i++) {
+                    double rad = Math.toRadians(angle + i*45);
+                    int x = centerX + (int)(Math.cos(rad)*radius);
+                    int y = centerY + (int)(Math.sin(rad)*radius);
+
+                    // Gradiente para faíscas
+                    Paint sparkGradient = new RadialGradientPaint(
+                            x, y, 8,
+                            new float[]{0f, 1f},
+                            new Color[]{new Color(255, 200, 50, 220), new Color(255, 100, 0, 0)}
+                    );
+                    g2d.setPaint(sparkGradient);
+                    g2d.fillOval(x-8, y-8, 16, 16);
+                }
+
+                g2d.dispose();
+            }
+
+        };
+
+        panelTelaEspera.setBounds(550,260,150,150);
+        panelTelaEspera.setOpaque(false);
+        panelTelaEspera.setLayout(null);
+        setUndecorated(true);
+        setBackground(new Color(0,0,0,0));
+        panelTelaEspera.setVisible(false);
+        add(panelTelaEspera);
     }
 
     private void carregarComponentesDaTela() {
@@ -675,8 +750,31 @@ public class TelaCriarPersonagem extends TelaBasica {
         criacaoPersonagem.criar();
 
         //Carrega tela seção inicial
-        CarregarTelas.carregarSecao(null);
-        dispose();
+        carregaTelaSecaoInicial();
+    }
+
+    private void carregaTelaSecaoInicial(){
+
+        //para áudio
+        util.pararAudioMp3();
+
+        timer = new Timer(30, e -> {
+            angle = (angle + 5) % 360;
+            panelTelaEspera.setVisible(true);
+            repaint();
+        });
+        timer.start();
+
+        Timer timerFechar = new Timer(3000, e -> {
+            timer.stop();
+            CarregarTelas.carregarSecao(null);
+            dispose();
+            panelTelaEspera.setVisible(false);
+            this.dispose();
+        });
+        timerFechar.setRepeats(false);
+        timerFechar.start();
+
     }
 
     private class TelaAcaoDosLabels implements MouseListener {
