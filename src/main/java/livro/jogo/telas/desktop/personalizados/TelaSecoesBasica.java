@@ -600,22 +600,22 @@ public abstract class TelaSecoesBasica extends JDialog {
         //FAIXA SUPERIOR ESQUERDA
         JLabelOpcoesTelaSecao labelFaixaSuperiorEsquerda = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_ESQUERDA);
-        labelFaixaSuperiorEsquerda.setBounds(-115,-100,300,250);
+        labelFaixaSuperiorEsquerda.setBounds(-115,-120,300,250);
 
         //FAIXA SUPERIOR DIREITA
         JLabelOpcoesTelaSecao labelFaixaSuperiorDireita = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_SUPERIOR_DIREITA);
-        labelFaixaSuperiorDireita.setBounds(1100,-108,300,250);
+        labelFaixaSuperiorDireita.setBounds(1100,-113,300,250);
 
         //FAIXA INFERIOR DIREITA
         JLabelOpcoesTelaSecao labelFaixaInferiorDireita = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_DIREITA);
-        labelFaixaInferiorDireita.setBounds(1325,650,300,250);
+        labelFaixaInferiorDireita.setBounds(1100,490,300,250);
 
         //FAIXA INFERIOR ESQUERDA
         JLabelOpcoesTelaSecao labelFaixaInferiorEsquerda = new JLabelOpcoesTelaSecao(null,
                 300, 250,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INFERIOR_ESQUERDA);
-        labelFaixaInferiorEsquerda.setBounds(-110,675,300,250);
+        labelFaixaInferiorEsquerda.setBounds(-115,530,300,250);
 
 
         add(labelFaixaInferiorDireita);
@@ -902,10 +902,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelOuro.setForeground(new Color(139,0,0));
-        labelOuro.setBounds(1145,70,85,55);
+        labelOuro.setBounds(1147,75,85,55);
         JLabelOpcoesTelaSecao labelFundoOuro = new JLabelOpcoesTelaSecao(null,120,90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        labelFundoOuro.setBounds(1118,57,120,90);
+        labelFundoOuro.setBounds(1118,60,120,90);
         labelFundoOuro.setHorizontalAlignment(SwingConstants.CENTER);
 
 
