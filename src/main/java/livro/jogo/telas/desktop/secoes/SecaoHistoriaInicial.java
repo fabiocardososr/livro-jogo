@@ -32,12 +32,12 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
     private void carregaBotaoOpcao() {
 
         //Texto
-        JLabel textoComecarJornada = new JLabel("<html><center>Pegue as 30 moedas e o mapa.<br>"+
+        JLabel textoComecarJornada = new JLabel("<html><center>Pegue as moedas e o mapa.<br>"+
                 "Comece sua jornada!</center></html>");
-        textoComecarJornada.setBounds(310,630,360,60);
+        textoComecarJornada.setBounds(295,495,230,60);
         textoComecarJornada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoComecarJornada.setHorizontalAlignment(SwingConstants.CENTER);
-        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,23));
+        textoComecarJornada.setFont(new Font(Font.SERIF,Font.BOLD,18));
         textoComecarJornada.setForeground(new Color(128,0,0));
         textoComecarJornada.setToolTipText("Clique aqui para começar sua jornada.");
         textoComecarJornada.addMouseListener(new MouseListener() {
@@ -71,11 +71,9 @@ public class SecaoHistoriaInicial extends TelaSecoesBasica {
         //textoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botaoComecarJornada = new JLabelOpcoesTelaSecao("",800, 200,
+        JLabelOpcoesTelaSecao botaoComecarJornada = new JLabelOpcoesTelaSecao("",650, 170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoComecarJornada.setBounds(82,560,800,200);
-        //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
-
+        botaoComecarJornada.setBounds(82,440,650,170);
         botaoComecarJornada.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

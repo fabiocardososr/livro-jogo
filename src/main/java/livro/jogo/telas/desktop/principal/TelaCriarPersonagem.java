@@ -68,20 +68,6 @@ public class TelaCriarPersonagem extends TelaBasica {
         getContentPane().setBackground(new Color(210,180,140));
         criarTelaEspera();
         carregarComponentesDaTela();
-
-        //para o áudio caso esteja sendo reproduzido
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent  e) {
-                util.pararAudioMp3();
-            }
-
-            @Override
-            public void windowOpened(WindowEvent e) {
-                System.out.println("Janela aberta/visível");
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/trilha_principal.mp3", null);
-            }
-        });
     }
 
     private void criarTelaEspera() {
@@ -755,9 +741,6 @@ public class TelaCriarPersonagem extends TelaBasica {
 
     private void carregaTelaSecaoInicial(){
 
-        //para áudio
-        util.pararAudioMp3();
-
         timer = new Timer(30, e -> {
             angle = (angle + 5) % 360;
             panelTelaEspera.setVisible(true);
@@ -768,7 +751,6 @@ public class TelaCriarPersonagem extends TelaBasica {
         Timer timerFechar = new Timer(3000, e -> {
             timer.stop();
             CarregarTelas.carregarSecao(null);
-            dispose();
             panelTelaEspera.setVisible(false);
             this.dispose();
         });
