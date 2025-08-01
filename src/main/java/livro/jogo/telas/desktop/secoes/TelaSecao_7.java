@@ -21,15 +21,12 @@ public class TelaSecao_7 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        //Redimensionando o botão da opção 1 (direcionando para a próxima seção)
-        labelNumOpcao1.setBounds(116,732, 50,50);
-        lbTextoOpcao1.setBounds(170,727,700,60);
-        botaoOpcao1.setBounds(120,740,40,50);
-        botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        //Configurando botões
-        acaoBotoes(secao);
+        //Redimensionando o botão da opção 1 (direcionando para a próxima seção)
+        labelNumOpcao1.setBounds(116,552, 50,50);
+        lbTextoOpcao1.setBounds(170,547,700,60);
+        botaoOpcao1.setBounds(120,560,40,50);
+        botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
         //Inclusao dos botões que representam os inimigos a serem atacados
         configurandoBotoesBatalha(secao);

@@ -1,4 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
+import livro.jogo.acaosecoes.AcoesSecao_108;
 import livro.jogo.acaosecoes.AcoesSecao_4;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -31,12 +32,12 @@ public class TelaSecao_4 extends TelaSecoesBasica {
 
     private void carregaBotaoCasoMorto() {
         //Texto
-        JLabel texto = new JLabel("<html><center>Você já estava fraco e esta flecha<br> "+
-                "no ombro causou um enorme sangramento.<br>Você morreu! Fim do jogo</center></html>");
-        texto.setBounds(305,635,360,80);
+        JLabel texto = new JLabel("<html><center>Você já estava fraco e a flecha<br> "+
+                "causou um enorme sangramento.<br>Você morreu!</center></html>");
+        texto.setBounds(300,505,250,60);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,16));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Clique aqui para começar sua jornada.");
         texto.addMouseListener(new MouseListener() {
@@ -68,9 +69,9 @@ public class TelaSecao_4 extends TelaSecoesBasica {
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 220,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",600, 170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(82,560,800,230);
+        botao.setBounds(120,450,600,170);
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botao.addMouseListener(new MouseListener() {
@@ -110,17 +111,17 @@ public class TelaSecao_4 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        
+
         //Se false o personagem morreu
         if ( !AcoesSecao_4.perde4PontosDeEnergia() ){
+            labelNumOpcao1.setVisible(false);
+            botaoOpcao1.setVisible(false);
+            lbTextoOpcao1.setVisible(false);
+            labelNumOpcao2.setVisible(false);
+            botaoOpcao2.setVisible(false);
+            lbTextoOpcao2.setVisible(false);
             carregaBotaoCasoMorto();
         }
-        else{
-            opcao1(secao);
-            opcao2(secao);
-            acaoBotoes(secao);
-        }
-
         //Atualiza label que mostra os níveis de habilidade, sorte e energia do personagem na tela
         atualizaIndicesNaTelaDoPersonagem();
     }

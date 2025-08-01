@@ -141,16 +141,21 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregarPainelDireito();
 
         carregarFaixasDasExtremidades();
-        carregarComponentesEspecificos(secao);
+
 
         if ( (secao !=null) && (secao.getProximasSecoes() != null) ){
             ajustarOpcoesSecao(secao.getProximasSecoes().size());
         }
 
+        if (secao != null) {
+            carregarComponentesEspecificos(secao);
+            acaoBotoes(secao);
+        }
+
         carregaPainelInferior();
         carregaImagemDefundo();
 
-        acaoBotoes(secao);
+
 
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
@@ -1341,10 +1346,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao4.setForeground(new Color(139,0,0));
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        labelNumOpcao4.setBounds(86,642, 50,50);
-        botaoOpcao4.setBounds(90,650,40,50);
-        lbTextoOpcao4.setBounds(140,637,700,60);
 
         add(lbTextoOpcao4);
         add(labelNumOpcao4);
