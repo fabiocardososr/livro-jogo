@@ -25,14 +25,14 @@ public class Testes {
                 30, bolsa,itensEquipados,1);
         personagem.setAnotacoes("Existe um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.\n\nExiste um caminho seguro para atravessar a Floresta da Darkwood, e você precisará fazer várias tentativas até encontrá-lo. Tome nota e faça um mapa na medida em que vai explorando - este mapa será inestimável em aventuras futuras e permitirá que você progrida rapidamente através de áreas inexploradas.");
         personagem.setQuantidadeOuro(0);
-        personagem.setHabilidadeAtual(9);
+        personagem.setHabilidadeAtual(30);
         personagem.setEnergiaAtual(5);
-        personagem.setSorteAtual(2);
+        personagem.setSorteAtual(50);
         DadosLivroCarregado.setPersonagem(personagem);
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(7);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(12);
         CarregarTelas.carregarSecao(secao);
 
 

@@ -34,8 +34,11 @@ public class TelaSecao_9 extends TelaSecoesBasica {
 
     private void configurandoBotoesBatalha(Secao secao) {
 
-        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().getFirst(),
-                365,570,150,165);
+//        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().getFirst(),
+//                365,570,150,165);
+
+        JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
+                340,450,135,120);
     }
 
     @Override

@@ -799,7 +799,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
 
         //Posiciona
-        imgPersonagem.setBounds(945,365,205,260);
+        imgPersonagem.setBounds(950,365,205,260);
         lbSortePersonagem.setBounds(880,435,140,50);
         lbEnergiaPersonagem.setBounds(870,385,140,50);
         lbHabilidadePersonagem.setBounds(862,335,140,50);
@@ -1264,6 +1264,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lbTextoOpcao1.setForeground(new Color(139,0,0));
+        lbTextoOpcao1.setCursor(null);
 
         add(lbTextoOpcao1);
         add(labelNumOpcao1);
@@ -1290,6 +1291,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao2 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
         lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao2.setForeground(new Color(139,0,0));
+        lbTextoOpcao2.setCursor(null);
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         add(lbTextoOpcao2);
@@ -1317,6 +1319,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao3 = new JLabel(secao.getProximasSecoes().get(indiceOpcao).getTextoOpcao());
         lbTextoOpcao3.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao3.setForeground(new Color(139,0,0));
+        lbTextoOpcao3.setCursor(null);
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         add(lbTextoOpcao3);
@@ -1345,6 +1348,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         lbTextoOpcao4.setBounds(170,707,700,60);
         lbTextoOpcao4.setFont(new Font(Font.SERIF,Font.BOLD,18));
         lbTextoOpcao4.setForeground(new Color(139,0,0));
+        lbTextoOpcao4.setCursor(null);
         //lbTexto.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         add(lbTextoOpcao4);
