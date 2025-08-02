@@ -29,25 +29,18 @@ public class TelaSecao_12 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
         carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
 
-        opcao1(secao);
-        opcao2(secao);
-        opcao3(secao);
-
         //posicionando as opção mais abaixo
-        botaoOpcao1.setBounds(120,640,40,50);
-        labelNumOpcao1.setBounds(116,632, 50,50);
-        lbTextoOpcao1.setBounds(170,627,700,60);
+        botaoOpcao1.setBounds(120,440,40,50);
+        labelNumOpcao1.setBounds(116,432, 50,50);
+        lbTextoOpcao1.setBounds(170,427,700,60);
 
-        botaoOpcao2.setBounds(120,685,40,50);
-        labelNumOpcao2.setBounds(116,677, 50,50);
-        lbTextoOpcao2.setBounds(170,672,700,60);
+        botaoOpcao2.setBounds(120,485,40,50);
+        labelNumOpcao2.setBounds(116,477, 50,50);
+        lbTextoOpcao2.setBounds(170,472,700,60);
 
-        botaoOpcao3.setBounds(120,730,40,50);
-        labelNumOpcao3.setBounds(116,722, 50,50);
-        lbTextoOpcao3.setBounds(170,717,700,60);
-
-        //Ação ao clicar
-        acaoBotoes(secao);
+        botaoOpcao3.setBounds(120,530,40,50);
+        labelNumOpcao3.setBounds(116,522, 50,50);
+        lbTextoOpcao3.setBounds(170,517,700,60);
 
         //Escolher moedas para dar ao Gnomo
         carregaBotaoOpcaoMoedas();
@@ -57,10 +50,10 @@ public class TelaSecao_12 extends TelaSecoesBasica {
     }
 
     private void carregarListaItensParaDarAoGnomo() {
-
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
-                .criarBotao();
+        botaoEscolhaItens = new JLabelOpcoesTelaSecao("",285, 50,
+                ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
+        botaoEscolhaItens.setBounds(410,570,285,50);
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -106,9 +99,10 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 2 itens</center></html>");
-        texto.setBounds(555,585,130,25);
+        //texto.setBounds(555,585,130,14);
+        texto.setBounds(495,583,120,20);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,14));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Escolha 2 itens para dar ao Gnomo.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -166,9 +160,9 @@ public class TelaSecao_12 extends TelaSecoesBasica {
     private void carregaBotaoOpcaoMoedas() {
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",285, 50,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(90,560,340,80);
+        botao.setBounds(130,570,285,50);
         //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botao.addMouseListener(new MouseListener() {
             @Override
@@ -225,10 +219,10 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Pagar 10 moedas</center></html>");
-        texto.setBounds(185,587,150,25);
+        texto.setBounds(200,583,150,20);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,14));
         texto.setForeground(new Color(128,0,0));
         texto.setToolTipText("Você entrega 10 moedas ao Gnomo.");
         //texto.setBorder(BorderFactory.createLineBorder(Color.RED));

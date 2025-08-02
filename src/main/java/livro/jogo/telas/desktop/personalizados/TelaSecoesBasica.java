@@ -155,8 +155,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregaPainelInferior();
         carregaImagemDefundo();
 
-
-
         //para o áudio caso esteja sendo reproduzido
         addWindowListener(new WindowAdapter() {
             @Override

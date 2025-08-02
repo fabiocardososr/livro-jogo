@@ -28,8 +28,6 @@ public class TelaSecao_9 extends TelaSecoesBasica {
 
         //Botão de batalha
         configurandoBotoesBatalha(secao);
-
-        acaoBotoes(secao);
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
