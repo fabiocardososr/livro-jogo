@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_30;
 import livro.jogo.acaosecoes.AcoesSecao_32;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
@@ -163,13 +162,13 @@ public class TelaSecao_32 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
-        opcao1(secao);
+       // carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
+        //opcao1(secao);
         labelNumOpcao1.setBounds(116,692, 50,50);
         botaoOpcao1.setBounds(120,700,40,50);
         lbTextoOpcao1.setBounds(170,687,700,60);
 
-        acaoBotoes(secao);
+
         carregarListaItensParaDar();
     }
 

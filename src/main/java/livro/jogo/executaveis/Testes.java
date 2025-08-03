@@ -115,21 +115,24 @@ public class Testes {
 //            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //               "livros/florestadadestruicao/itens/item_"+i+".json"));
 
-        for (int i=1; i<=10; i++)
+       // for (int i=1; i<=10; i++)
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     "livros/florestadadestruicao/itens/item_49.json"));
 //
         bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                 "livros/florestadadestruicao/itens/item_45.json"));
 //
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_19.json"));
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_5.json"));
 ////
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_25.json"));
+       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_10.json"));
 //
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_5.json"));
+       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+               "livros/florestadadestruicao/itens/item_16.json"));
+
+        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+                "livros/florestadadestruicao/itens/item_25.json"));
 
         return bolsa;
     }

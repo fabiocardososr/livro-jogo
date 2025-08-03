@@ -17,7 +17,7 @@ public class ListaDeItensComImagem extends JLabel implements ListCellRenderer<Li
         // Define o texto e o ícone
         setText( value.getNomeItem() );
         setIcon(value.getImagemItem());
-        setFont(new Font(Font.SANS_SERIF,Font.ITALIC,25));
+        setFont(new Font(Font.SANS_SERIF,Font.ITALIC,18));
 
         // Define a cor de fundo e de texto com base na seleção
         if (isSelected) {

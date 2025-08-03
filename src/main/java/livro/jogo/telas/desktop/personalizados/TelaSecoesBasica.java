@@ -142,6 +142,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         carregarFaixasDasExtremidades();
 
+        //carregar tela de escolha de itens
+        carregarEscolhaDeItens(secao);
 
         if ( (secao !=null) && (secao.getProximasSecoes() != null) ){
             ajustarOpcoesSecao(secao.getProximasSecoes().size());
@@ -164,6 +166,22 @@ public abstract class TelaSecoesBasica extends JDialog {
                     referenciaTelaPrincipal.setVisible(true);
             }
         });
+    }
+
+    private void carregarEscolhaDeItens(Secao secao) {
+        //Tela de escolha de item para ser descartado
+        //precisa ser chamada antes das opções pois colocando depois as opções apareceriam em cima
+        if (secao != null){
+            boolean carregaTelaDeEscolhaDeItens = false;
+
+            /// coloque aqui todas as seções onde precisam aparecer a tela de escolha de itens
+            switch (secao.getCodSecaoLivro()){
+                case 14: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,1);
+                    break;
+                case 32: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
+                    break;
+            }
+        }
     }
 
     private void carregaImagemDefundo(){
@@ -240,27 +258,24 @@ public abstract class TelaSecoesBasica extends JDialog {
         panelListaSuspensaItens.setBounds(posicaoX,posicaoY,largura,altura);
         panelListaSuspensaItens.setBackground(new Color(0,0,0,0));
 
-        //Painel que mostrará os itens escolhidos
-        panelListaItensEscolhidos = new PanelCircular();
-        panelListaItensEscolhidos.setLayout(null);
-        panelListaItensEscolhidos.setBounds(posicaoX+410,posicaoY+7,250,230);
-        panelListaItensEscolhidos.setBackground(new Color(0,0,0, 210));
-        //panelListaItensEscolhidos.setBackground(Color.DARK_GRAY);
-
-
-        //Fundo painel suspenso escolha (panelListaItensEscolhidos)
-        JLabelOpcoesTelaSecao fundoPanelEscolha = new JLabelOpcoesTelaSecao(null,
-                273, 243,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_CIRCULAR);
-        fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
-        fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
-        fundoPanelEscolha.setBounds(0,-2,250,230);
-
-
         //Fundo painel suspenso principal (panelListaSuspensaItens)
         JLabelOpcoesTelaSecao fundoPanel = new JLabelOpcoesTelaSecao(null,
                 largura, altura,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_16);
         fundoPanel.setBounds(0,0,largura,altura);
 
+        //Painel que mostrará os itens escolhidos
+        panelListaItensEscolhidos = new PanelCircular();
+        panelListaItensEscolhidos.setLayout(null);
+        panelListaItensEscolhidos.setBounds(posicaoX+400,posicaoY,200,180);
+        panelListaItensEscolhidos.setBackground(new Color(0,0,0, 210));
+        //panelListaItensEscolhidos.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        //Fundo painel suspenso escolha (panelListaItensEscolhidos)
+        JLabelOpcoesTelaSecao fundoPanelEscolha = new JLabelOpcoesTelaSecao(null,
+                218, 190,ImagensDoLivroFlorestaDaDestruicao.MOLDURA_CIRCULAR);
+        fundoPanelEscolha.setBounds(0,0,200,180);
+        fundoPanelEscolha.setHorizontalAlignment(SwingConstants.CENTER);
+        fundoPanelEscolha.setVerticalAlignment(SwingConstants.CENTER);
 
         //Cria um listModel para que possa iterar diretamente com o JList.
         //Atualizando ele, automaticamente o JList muda
@@ -277,10 +292,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.setBackground(new Color(0,0,0,0));
         jListItem.setOpaque(false);
         JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
-        scrollListaSuspensaDeItens.setBounds(68,47,292,altura-95);
+        scrollListaSuspensaDeItens.setBounds(65,35,280,altura-70);
         scrollListaSuspensaDeItens.setOpaque(false);
         scrollListaSuspensaDeItens.getViewport().setOpaque(false);
-        //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -306,7 +320,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                     ///e depois o espaçamento de 50 entre eles
                     switch ( secao.getCodSecaoLivro() ) {
                         case 14, 271,129,218,242,370 -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,32);
-                        default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,10);
+                        default  -> incluirItemEscolhido(imagemItemEscolhido1, jListItem,15);
                     }
                 }else {
                     incluirItemEscolhido(imagemItemEscolhido2, jListItem,50);
@@ -334,10 +348,18 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
+        //label do botaoConfirmar
+        JLabel lbBotaoConfirmar = new JLabel("OK");
+        lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
+        lbBotaoConfirmar.setForeground(new Color(139,0,0));
+        lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoConfirmar.setBounds(70,159,50,20);
+        lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         //Botão de confirmação
         JLabelOpcoesTelaSecao botaoConfirmar = new JLabelOpcoesTelaSecao(null,
-                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoConfirmar.setBounds(50,195,100,60);
+                90,40,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoConfirmar.setBounds(50,152,90,40);
         botaoConfirmar.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -371,10 +393,19 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
+        //label do botãoSair
+        JLabel lbBotaoSair = new JLabel("Sair");
+        lbBotaoSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        lbBotaoSair.setForeground(new Color(139,0,0));
+        lbBotaoSair.setHorizontalAlignment(SwingConstants.CENTER);
+        lbBotaoSair.setBounds(180,159,50,20);
+        lbBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //lbBotaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         //Botão sair sem fazer nada
         JLabelOpcoesTelaSecao botaoSair = new JLabelOpcoesTelaSecao(null,
-                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoSair.setBounds(160,195,100,60);
+                90,40,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoSair.setBounds(160,152,90,40);
         botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(new MouseListener() {
             @Override
@@ -412,8 +443,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Botão limpar (resetar)
         JLabelOpcoesTelaSecao botaoResetar = new JLabelOpcoesTelaSecao(null,
-                100,60,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
-        botaoResetar.setBounds(270,195,100,60);
+                90,40,ImagensDoLivroFlorestaDaDestruicao.FAIXA);
+        botaoResetar.setBounds(270,152,90,40);
         botaoResetar.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -447,30 +478,13 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
         });
 
-        //label do botãoSair
-        JLabel lbBotaoSair = new JLabel("Sair");
-        lbBotaoSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
-        lbBotaoSair.setForeground(new Color(139,0,0));
-        lbBotaoSair.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoSair.setBounds(185,212,50,20);
-        lbBotaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        //lbBotaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-
-
-        //label do botaoConfirmar
-        JLabel lbBotaoConfirmar = new JLabel("OK");
-        lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,14));
-        lbBotaoConfirmar.setForeground(new Color(139,0,0));
-        lbBotaoConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoConfirmar.setBounds(75,212,50,20);
-        lbBotaoConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //label do resetar
         JLabel lbBotaoLimpar = new JLabel("Resetar");
         lbBotaoLimpar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         lbBotaoLimpar.setForeground(new Color(139,0,0));
         lbBotaoLimpar.setHorizontalAlignment(SwingConstants.CENTER);
-        lbBotaoLimpar.setBounds(295,212,50,20);
+        lbBotaoLimpar.setBounds(291,159,50,20);
         lbBotaoLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //Adicionando componentes no panel que mostra os itens a serem escolhidos
@@ -556,8 +570,8 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Inclui a imagem no panel de escolha suspensa e guarda em um hashmap
     private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem, JList<ListItem> jListItem,
                                       int espacoEntreItens) {
-        int posicaoX = 25 + espacoEntreItens;
-        int posicaoY = 80;
+        int posicaoX = 10 + espacoEntreItens;
+        int posicaoY = 60;
 
         //Recupera as informações do item
         Item item = UtilItens.retornaItem(jListItem.getSelectedValue().getIdItem());
@@ -574,8 +588,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Cria o componente e incluir no panel
         imagemItem = new JLabelOpcoesTelaSecao(null,
-                largura,70,item.getEnderecoImagem());
-        imagemItem.setBounds(posicaoX+espacoEntreItens,posicaoY,largura,70);
+                largura,50,item.getEnderecoImagem());
+        imagemItem.setBounds(posicaoX+espacoEntreItens,posicaoY,largura,50);
         imagemItem.setName("REMOVER"); //caso precise resetar a escolha. Entrão esse marcador indica que pode remover do panel
         imagemItem.setHorizontalAlignment(SwingConstants.CENTER);
         panelListaItensEscolhidos.add(imagemItem);
@@ -587,7 +601,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     }
 
     protected int ajusteLargura(int idItem) {
-        int larguraPadrao = 70;
+        int larguraPadrao = 50;
 
         switch (idItem){
             case  5: return larguraPadrao - 10; //Chave de prata

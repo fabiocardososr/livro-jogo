@@ -27,8 +27,6 @@ public class TelaSecao_14 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        //Tela de escolha de item para ser descartado
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,370,420,220,1);
 
         //Opção 1
         labelNumOpcao1.setBounds(86,437, 50,50);
