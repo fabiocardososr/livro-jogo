@@ -172,7 +172,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         //Tela de escolha de item para ser descartado
         //precisa ser chamada antes das opções pois colocando depois as opções apareceriam em cima
         if (secao != null){
-            boolean carregaTelaDeEscolhaDeItens = false;
 
             /// coloque aqui todas as seções onde precisam aparecer a tela de escolha de itens
             switch (secao.getCodSecaoLivro()){
@@ -519,6 +518,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         }
 
             for (JLabelOpcoesTelaSecao key : mapItens.keySet()) {
+
+                //Se uma dos itens é uma poção inicial, mudar imagem do botão à direita para um recipiente vazio
+                switch (mapItens.get(key).getIdItem()){
+                    case 45,46,47: carregaImagemDePocaoInicialConsumida();
+                }
+
+                //Remove da bolsa
                 UtilBolsa.removerItem(mapItens.get(key).getIdItem());
             }
 
@@ -1112,20 +1118,26 @@ public abstract class TelaSecoesBasica extends JDialog {
             consumido = true;
         }
 
-        //Muda para recipiente vazio
-        labelPocaoInicial.setIcon(Util.dimensionarImagem(50,55,
-                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
-        labelPocaoInicial.setText("");
-        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPocaoInicial.setBounds(1270,257,150,100);
-        labelPocaoInicial.addMouseListener(null);
-        labelPocaoInicial.setToolTipText("Poção consumida");
+        carregaImagemDePocaoInicialConsumida();
 
-
+        //Mensagem para o jogador
         CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
                 ",\nvocê toma a poção e se sente bem.\n\nSeu índice de " +
                 pocaoInicial.getTipoEfeito().name().toLowerCase()
                 + " encontra-se no nível máximo."+complementoTexto);
+    }
+
+    //Troca a imagem do botão de poção inicial à direita para um recipiente vazio.
+    private void carregaImagemDePocaoInicialConsumida(){
+        //Muda para recipiente vazio
+        labelPocaoInicial.setIcon(Util.dimensionarImagem(30,35,
+                ImagensDoLivroFlorestaDaDestruicao.POCAO_DE_VAZIA.getEnderecoImagem()));
+        labelPocaoInicial.setText("");
+        labelPocaoInicial.setHorizontalAlignment(SwingConstants.CENTER);
+        labelPocaoInicial.setBounds(1165,238,30,35);
+
+        labelPocaoInicial.addMouseListener(null);
+        labelPocaoInicial.setToolTipText("Poção consumida");
     }
 
     public void atualizaIndicesNaTelaDoPersonagem(){
@@ -1443,7 +1455,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                 if ( ( pocaoInicial == null ) || ( pocaoInicialConsumido ) ){
                     CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
-                            ",\nvocê já tomou a poção especial.");
+                            ",\nvocê não possui mais uma poção especial(inicial).");
                     return;
                 }
 

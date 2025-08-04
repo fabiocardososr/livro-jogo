@@ -32,7 +32,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(14);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(7);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -73,8 +73,8 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_12.json"));
 
-//        //Equipando uma espada(50)
-       itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
+       for (int i=1; i<=57; i++)
+       itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_"+i+".json"));
 //
         //Equipando uma espada magnífica(10)
         itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
@@ -115,24 +115,24 @@ public class Testes {
 //            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //               "livros/florestadadestruicao/itens/item_"+i+".json"));
 
-       // for (int i=1; i<=10; i++)
-            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                    "livros/florestadadestruicao/itens/item_49.json"));
+       // for (int i=1; i<=57; i++)
+          //  bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+           //         "livros/florestadadestruicao/itens/item_49.json"));
 //
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_45.json"));
-//
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_5.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_46.json"));
 ////
-       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_10.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_5.json"));
+//////
+//       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_10.json"));
+////
+//       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//               "livros/florestadadestruicao/itens/item_16.json"));
 //
-       bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-               "livros/florestadadestruicao/itens/item_16.json"));
-
-        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-                "livros/florestadadestruicao/itens/item_25.json"));
+//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+//                "livros/florestadadestruicao/itens/item_25.json"));
 
         return bolsa;
     }
