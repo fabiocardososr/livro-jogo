@@ -45,6 +45,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
     BOLSA("livros/florestadadestruicao/imagens/bolsa.png"),
     BOLSA_SELECIONADA("livros/florestadadestruicao/imagens/bolsa_selecionada.png"),
     PLACA_1("livros/florestadadestruicao/imagens/placa.png"),
+    PLACA_2("livros/florestadadestruicao/imagens/placa_2.png"),
     HOMEM_CORRENDO("livros/florestadadestruicao/imagens/homem_correndo.png"),
     HOMEM_CORRENDO_SELECIONADO("livros/florestadadestruicao/imagens/homem_correndo_selecionado.png"),
     GIF_ROLANDO_DADOS("livros/florestadadestruicao/imagens/rolando_dados.gif"),

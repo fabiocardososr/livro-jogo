@@ -554,7 +554,7 @@ public class TelaBatalha extends JDialog {
         //Habilidade
         JLabelOpcoesTelaSecao placaDireitaHabilidade = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
-                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_2);
         placaDireitaHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
         placaDireitaHabilidade.setCursor(new Cursor(Cursor.HAND_CURSOR));
         placaDireitaHabilidade.setBounds(616,345, largura,altura);
@@ -572,7 +572,7 @@ public class TelaBatalha extends JDialog {
         //Energia
         JLabelOpcoesTelaSecao placaDireitaEnergia = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
-                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_2);
         placaDireitaEnergia.setHorizontalAlignment(SwingConstants.CENTER);
         placaDireitaEnergia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         placaDireitaEnergia.setBounds(616,405, largura,altura);
@@ -600,7 +600,7 @@ public class TelaBatalha extends JDialog {
         //Energia
         JLabelOpcoesTelaSecao placaEsquerdaEnergia = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
-                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_2);
         placaEsquerdaEnergia.setHorizontalAlignment(SwingConstants.CENTER);
         placaEsquerdaEnergia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         placaEsquerdaEnergia.setBounds(356,345, largura,altura);
@@ -618,7 +618,7 @@ public class TelaBatalha extends JDialog {
         //Sorte
         JLabelOpcoesTelaSecao placaEsquerdaSorte = new JLabelOpcoesTelaSecao(null,
                 largura,altura,
-                ImagensDoLivroFlorestaDaDestruicao.PLACA_1);
+                ImagensDoLivroFlorestaDaDestruicao.PLACA_2);
         placaEsquerdaSorte.setHorizontalAlignment(SwingConstants.CENTER);
         placaEsquerdaSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         placaEsquerdaSorte.setBounds(358,405, largura,altura);
