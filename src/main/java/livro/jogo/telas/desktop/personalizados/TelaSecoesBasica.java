@@ -177,7 +177,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             switch (secao.getCodSecaoLivro()){
                 case 14: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,1);
                     break;
-                case 32: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
+                case 12,32: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
                     break;
             }
         }
@@ -578,6 +578,9 @@ public abstract class TelaSecoesBasica extends JDialog {
                                       int espacoEntreItens) {
         int posicaoX = 10 + espacoEntreItens;
         int posicaoY = 60;
+
+        if (jListItem.getSelectedValue() == null)
+            return;
 
         //Recupera as informações do item
         Item item = UtilItens.retornaItem(jListItem.getSelectedValue().getIdItem());

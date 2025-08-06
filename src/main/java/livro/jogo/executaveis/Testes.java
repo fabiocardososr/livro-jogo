@@ -32,7 +32,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(7);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(12);
         CarregarTelas.carregarSecao(secao);
 
 
@@ -73,16 +73,16 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "livros/florestadadestruicao/itens/item_12.json"));
 
-       for (int i=1; i<=58; i++)
-       itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_"+i+".json"));
+       //for (int i=1; i<=58; i++)
+      // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_"+i+".json"));
 //
         //Equipando uma espada magnífica(10)
-//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
+       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_10.json"));
 //
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_38.json"));
 //
-//        //Equipando uma armadura de couro(51)
-//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_51.json"));
+//
+       // itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_57.json"));
 //
 //        //Elmo
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("livros/florestadadestruicao/itens/item_54.json"));
@@ -110,17 +110,17 @@ public class Testes {
 //                "livros/florestadadestruicao/itens/item_1.json"));
 //
 //
-//       //Provisão
-//        for (int i=1; i<=57; i++)
-//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//               "livros/florestadadestruicao/itens/item_"+i+".json"));
+//
+        for (int i=1; i<=9; i++)
+            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
+              "livros/florestadadestruicao/itens/item_"+i+".json"));
 
        // for (int i=1; i<=57; i++)
           //  bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
            //         "livros/florestadadestruicao/itens/item_49.json"));
 //
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
-//                "livros/florestadadestruicao/itens/item_46.json"));
+//                "livros/florestadadestruicao/itens/item_57.json"));
 ////
 //        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
 //               "livros/florestadadestruicao/itens/item_5.json"));

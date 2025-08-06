@@ -45,9 +45,6 @@ public class TelaSecao_14 extends TelaSecoesBasica {
 
     private void carregarListaItensParaDar() {
 
-        //Botão
-//        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
-//                .criarBotao();
         JLabelOpcoesTelaSecao botaoEscolhaItens = new JLabelOpcoesTelaSecao("",300, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
         botaoEscolhaItens.setBounds(410,530,300,80);

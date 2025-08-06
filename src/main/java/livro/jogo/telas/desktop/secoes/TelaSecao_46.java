@@ -1,6 +1,7 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_45;
+import livro.jogo.acaosecoes.AcoesSecao_46;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
@@ -23,8 +24,11 @@ public class TelaSecao_46 extends TelaSecoesBasica {
                 // Código a ser executado quando o diálogo é aberto
 
                 new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+
                 //Perda de 2 pontos de sorte
-                UtilPersonagem.personagemPerdeSorte(2);
+                AcoesSecao_46.perde2Sorte();
+
+                AcoesSecao_46.removerCenoura();
                 atualizaIndicesNaTelaDoPersonagem();
             }
 

@@ -3,6 +3,7 @@ package livro.jogo.acaosecoes;
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilItemEquipado;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class AcoesSecao_12 {
     public static void recuperaEspadaDoGnomo(){
         ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
         boolean espadaComumNaBolsa = false;
+        boolean jaPossuiEspadaMagnifica = false;
 
 
         //Pesquisa na bolsa a existência da espada comum
@@ -27,10 +29,20 @@ public class AcoesSecao_12 {
 
         ///Se existir a espada comum(a que o personagem inicia o jogo) na bolsa,
         ///indica que o personagem estava equipado com a Espada Magnífica. Já que a espada comum deve ir para bolsa
-        if ( espadaComumNaBolsa )
-            UtilItemEquipado.incluirItem(ItensMapeamento.ESPADA_MAGNIFICA);
+        if ( espadaComumNaBolsa ) {
+            for (Item item: bolsa)
+                if (item.getIdItem() == ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()) {
+                    jaPossuiEspadaMagnifica = true;
+                    break;
+                }
+            if ( !jaPossuiEspadaMagnifica )
+                UtilItemEquipado.incluirItem(ItensMapeamento.ESPADA_MAGNIFICA);
+        }
         else
             UtilItemEquipado.incluirItem(ItensMapeamento.ESPADA);
+
+        UtilItemEquipado.removerItem(ItensMapeamento.CENOURA.getIdItem());
+        UtilBolsa.removerItem(ItensMapeamento.CENOURA.getIdItem());
     }
 
 

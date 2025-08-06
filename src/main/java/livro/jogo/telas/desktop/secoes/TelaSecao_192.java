@@ -4,6 +4,7 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -11,6 +12,7 @@ import java.awt.event.MouseListener;
 public class TelaSecao_192 extends TelaSecoesBasica {
     public TelaSecao_192(Secao secao) {
         super(secao);
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
     }
 
     @Override

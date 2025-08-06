@@ -27,7 +27,6 @@ public class TelaSecao_12 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
 
         //posicionando as opção mais abaixo
         botaoOpcao1.setBounds(120,440,40,50);
