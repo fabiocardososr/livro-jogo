@@ -25,35 +25,32 @@ public class TelaSecao_29 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
+
         //Redimensionando o botão da opção 1
-        labelNumOpcao1.setBounds(436,592, 50,50);
-        lbTextoOpcao1.setBounds(490,587,700,60);
-        botaoOpcao1.setBounds(440,600,40,50);
+        labelNumOpcao1.setBounds(416,465, 50,50);
+        lbTextoOpcao1.setBounds(470,460,700,60);
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        botaoOpcao1.setBounds(420,473,40,50);
         botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        opcao2(secao);
-        labelNumOpcao2.setBounds(436,652, 50,50);
-        lbTextoOpcao2.setBounds(490,647,700,60);
-        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao2.setBounds(440,660,40,50);
+
+        labelNumOpcao2.setBounds(416,515, 50,50);
+        lbTextoOpcao2.setBounds(470,510,700,60);
+        botaoOpcao2.setBounds(420,523,40,50);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,16));
         botaoOpcao2.setToolTipText("Escolha esta opção sendo covarde. Corra antes de enfrentar quaisquer inimigos.");
-
-
-        acaoBotoes(secao);
 
         //Inimigos
         configurandoBotoesBatalha(secao);
-
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
+                100,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
-                280,570,150,165);
+                280,450,150,165);
 
     }
 

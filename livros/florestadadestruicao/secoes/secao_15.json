@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"5",
-		"nome":"VERME",
+		"nome":"Verme",
 		"habilidade":"8",
 		"energia":"7",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/secao/secao_15.png"

@@ -69,12 +69,10 @@ public class TelaSecao_22 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,692, 50,50);
-        botaoOpcao1.setBounds(120,700,40,50);
-        lbTextoOpcao1.setBounds(170,687,700,60);
 
-        acaoBotoes(secao);
+        labelNumOpcao1.setBounds(116,562, 50,50);
+        botaoOpcao1.setBounds(120,570,40,50);
+        lbTextoOpcao1.setBounds(170,557,700,60);
 
         carregaBotaoDeTeste();
     }
@@ -98,7 +96,7 @@ public class TelaSecao_22 extends TelaSecoesBasica {
     private void carregaBotaoDeTeste() {
         int largura = 500;
         int altura = 100;
-        int eixoY = 570;
+        int eixoY = 470;
         int eixoX = 190;
 
         //Texto botão repor habilidade
