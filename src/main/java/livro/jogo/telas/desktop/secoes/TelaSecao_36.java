@@ -26,13 +26,10 @@ public class TelaSecao_36 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,2);
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        botaoOpcao1.setBounds(120,720,40,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
+        labelNumOpcao1.setBounds(116,565, 50,50);
+        botaoOpcao1.setBounds(120,573,40,50);
+        lbTextoOpcao1.setBounds(170,560,700,60);
 
-        acaoBotoes(secao);
         carregaBotaoDeConferenciaDaBolsa();
     }
 
@@ -41,15 +38,15 @@ public class TelaSecao_36 extends TelaSecoesBasica {
     private void carregaBotaoDeConferenciaDaBolsa() {
         int largura = 550;
         int altura = 150;
-        int eixoY = 570;
+        int eixoY = 435;
 
         //Texto botão repor habilidade
         JLabel textoBotaoConferencia = new JLabel("<html><center>Confira se algo foi roubado</center></html>");
-        textoBotaoConferencia.setBounds(310,eixoY+45,250,60);
+        textoBotaoConferencia.setBounds(285,eixoY+45,250,60);
         textoBotaoConferencia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoConferencia.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoConferencia.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoConferencia.setFont(new Font(Font.SERIF,Font.BOLD,22));
+        textoBotaoConferencia.setFont(new Font(Font.SERIF,Font.BOLD,20));
         textoBotaoConferencia.setForeground(new Color(128,0,0));
         textoBotaoConferencia.setToolTipText("Conferir se algo foi roubado.");
         textoBotaoConferencia.addMouseListener(new MouseListener() {
@@ -79,12 +76,11 @@ public class TelaSecao_36 extends TelaSecoesBasica {
 
             }
         });
-        //textoBotaoConferencia.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão de conferência
         JLabelOpcoesTelaSecao botaoConferencia = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoConferencia.setBounds(165,eixoY,largura,altura);
+        botaoConferencia.setBounds(135,eixoY,largura,altura);
         botaoConferencia.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

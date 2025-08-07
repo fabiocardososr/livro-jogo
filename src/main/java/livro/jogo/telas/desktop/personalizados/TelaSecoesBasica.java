@@ -177,7 +177,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             switch (secao.getCodSecaoLivro()){
                 case 14: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,1);
                     break;
-                case 12,32: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
+                case 12,32,36: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
                     break;
             }
         }

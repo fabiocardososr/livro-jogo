@@ -24,28 +24,26 @@ public class TelaSecao_34 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,702, 50,50);
-        botaoOpcao1.setBounds(120,710,40,50);
-        lbTextoOpcao1.setBounds(170,697,700,60);
+        labelNumOpcao1.setBounds(116,562, 50,50);
+        botaoOpcao1.setBounds(120,570,40,50);
+        lbTextoOpcao1.setBounds(170,557,700,60);
 
-        acaoBotoes(secao);
 
         carregaBotoesDeGanhoHabilidadeEnergiaOuSorte();
     }
 
     private void carregaBotoesDeGanhoHabilidadeEnergiaOuSorte() {
-        int largura = 260;
+        int largura = 200;
         int altura = 80;
-        int eixoY = 600;
+        int eixoY = 480;
 
         //Texto botão repor habilidade
         JLabel textoBotaoHabilidade = new JLabel("<html><center>Habilidade</center></html>");
-        textoBotaoHabilidade.setBounds(155,eixoY+28,140,20);
+        textoBotaoHabilidade.setBounds(125,eixoY+28,140,20);
         textoBotaoHabilidade.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoHabilidade.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoHabilidade.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,16));
         textoBotaoHabilidade.setForeground(new Color(128,0,0));
         textoBotaoHabilidade.setToolTipText("Restabeleça sua Habilidade ao nível inicial.");
         textoBotaoHabilidade.addMouseListener(new MouseListener() {
@@ -114,11 +112,11 @@ public class TelaSecao_34 extends TelaSecoesBasica {
 
         //Texto botão repor Energia
         JLabel textoBotaoEnergia = new JLabel("<html><center>Energia</center></html>");
-        textoBotaoEnergia.setBounds(415,eixoY+23,140,30);
+        textoBotaoEnergia.setBounds(355,eixoY+23,140,30);
         textoBotaoEnergia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoEnergia.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoEnergia.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoEnergia.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoEnergia.setFont(new Font(Font.SERIF,Font.BOLD,16));
         textoBotaoEnergia.setForeground(new Color(128,0,0));
         textoBotaoEnergia.setToolTipText("Restabeleça sua energia ao nível inicial.");
         textoBotaoEnergia.addMouseListener(new MouseListener() {
@@ -152,7 +150,7 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         //Botão repor Energia
         JLabelOpcoesTelaSecao botaoReporEnergia = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoReporEnergia.setBounds(355,eixoY,largura,altura);
+        botaoReporEnergia.setBounds(325,eixoY,largura,altura);
         botaoReporEnergia.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -186,11 +184,11 @@ public class TelaSecao_34 extends TelaSecoesBasica {
 
         //Texto botão repor Sorte
         JLabel textoBotaoSorte = new JLabel("<html><center>Sorte</center></html>");
-        textoBotaoSorte.setBounds(675,eixoY+23,140,30);
+        textoBotaoSorte.setBounds(585,eixoY+23,140,30);
         textoBotaoSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoSorte.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoSorte.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoSorte.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        textoBotaoSorte.setFont(new Font(Font.SERIF,Font.BOLD,16));
         textoBotaoSorte.setForeground(new Color(128,0,0));
         textoBotaoSorte.setToolTipText("Restabeleça sua sorte ao nível inicial.");
         textoBotaoSorte.addMouseListener(new MouseListener() {
@@ -223,7 +221,7 @@ public class TelaSecao_34 extends TelaSecoesBasica {
         //Botão repor Energia
         JLabelOpcoesTelaSecao botaoReporSorte = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoReporSorte.setBounds(615,eixoY,largura,altura);
+        botaoReporSorte.setBounds(555,eixoY,largura,altura);
         botaoReporSorte.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

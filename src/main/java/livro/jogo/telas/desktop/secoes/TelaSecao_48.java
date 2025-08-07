@@ -25,23 +25,22 @@ public class TelaSecao_48 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        botaoOpcao1.setBounds(120,720,40,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
 
-        acaoBotoes(secao);
+        labelNumOpcao1.setBounds(116,562, 50,50);
+        botaoOpcao1.setBounds(120,570,40,50);
+        lbTextoOpcao1.setBounds(170,557,700,60);
+
         carregaBotaoRolagemDado();
     }
 
     private void carregaBotaoRolagemDado() {
-        int largura = 550;
-        int altura = 150;
-        int eixoY = 570;
+        int largura = 530;
+        int altura = 130;
+        int eixoY = 440;
 
         //Texto botão repor habilidade
         JLabel textoBotaoRolagemDado = new JLabel("<html><center>Rolar o dado</center></html>");
-        textoBotaoRolagemDado.setBounds(310,eixoY+42,250,60);
+        textoBotaoRolagemDado.setBounds(285,eixoY+32,250,60);
         textoBotaoRolagemDado.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoRolagemDado.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoRolagemDado.setVerticalAlignment(SwingConstants.CENTER);
@@ -81,7 +80,7 @@ public class TelaSecao_48 extends TelaSecoesBasica {
         //Botão de conferência
         JLabelOpcoesTelaSecao botaoRolagemDado = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoRolagemDado.setBounds(165,eixoY,largura,altura);
+        botaoRolagemDado.setBounds(145,eixoY,largura,altura);
         botaoRolagemDado.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -126,15 +125,17 @@ public class TelaSecao_48 extends TelaSecoesBasica {
             return;
         }
 
-
         //Calcula o dano
         resultadoDaRolagemDoDado = AcoesSecao_48.rolarDadoDeterminandoQuantoDeDano();
 
+        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+
         //Informa o resultado da rolagem de dados, consequentemente o dano causado
-        if (resultadoDaRolagemDoDado == 1)
-            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
-                    ",\n\nUm estilhaço o acertou!\n\n"+
-                "Você perde "+resultadoDaRolagemDoDado+" de energia");
+        if (resultadoDaRolagemDoDado == 1) {
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                    ",\n\nUm estilhaço o acertou!\n\n" +
+                    "Você perde " + resultadoDaRolagemDoDado + " de energia");
+        }
         else
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nVários estilhaços o acertaram!\n\n"+

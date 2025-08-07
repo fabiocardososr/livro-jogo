@@ -23,19 +23,16 @@ public class TelaSecao_43 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(446,592, 50,50);
-        botaoOpcao1.setBounds(450,600,40,50);
-        lbTextoOpcao1.setBounds(500,587,700,60);
 
-        opcao2(secao);
-        labelNumOpcao2.setBounds(446,652, 50,50);
-        botaoOpcao2.setBounds(450,660,40,50);
+        labelNumOpcao1.setBounds(446,452, 50,50);
+        botaoOpcao1.setBounds(450,460,40,50);
+        lbTextoOpcao1.setBounds(500,447,700,60);
+
+        labelNumOpcao2.setBounds(446,522, 50,50);
+        botaoOpcao2.setBounds(450,530,40,50);
         botaoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
-        lbTextoOpcao2.setBounds(500,647,700,60);
+        lbTextoOpcao2.setBounds(500,517,700,60);
         lbTextoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
-
-        acaoBotoes(secao);
 
         configurandoBotoesBatalha(secao);
     }
@@ -43,10 +40,10 @@ public class TelaSecao_43 extends TelaSecoesBasica {
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
+                100,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
-                280,570,150,165);
+                280,450,150,165);
 
     }
 
