@@ -19,13 +19,12 @@ public class TelaSecao_49 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(456,612, 50,50);
-        lbTextoOpcao1.setBounds(510,607,700,60);
-        botaoOpcao1.setBounds(460,620,40,50);
+
+        labelNumOpcao1.setBounds(416,492, 50,50);
+        lbTextoOpcao1.setBounds(470,487,700,60);
+        botaoOpcao1.setBounds(420,500,40,50);
         botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        acaoBotoes(secao);
 
         //Inimigos
         configurandoBotoesBatalha(secao);
@@ -34,10 +33,10 @@ public class TelaSecao_49 extends TelaSecoesBasica {
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
+                100,460,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
-                280,570,150,165);
+                280,460,150,165);
 
     }
 

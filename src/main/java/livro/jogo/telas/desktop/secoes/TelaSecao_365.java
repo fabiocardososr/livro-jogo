@@ -19,7 +19,7 @@ public class TelaSecao_365 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_365.removerDaBolsaFiltrosNasais();
+                //AcoesSecao_365.removerDaBolsaFiltrosNasais();
                 AcoesSecao_365.ganhaCaixaDePrata();
             }
 

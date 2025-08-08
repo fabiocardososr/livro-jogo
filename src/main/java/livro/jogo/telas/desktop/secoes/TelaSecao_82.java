@@ -13,7 +13,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaSecao_82 extends TelaSecoesBasica {
-    boolean bebeuPocaoDaImobilidade = false;
     TelaSecoesBasica tela = this;
 
     public TelaSecao_82(Secao secao) {
@@ -22,9 +21,7 @@ public class TelaSecao_82 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        opcao2(secao);
-        acaoBotoes(secao);
+
     }
 
     @Override

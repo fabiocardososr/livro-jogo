@@ -70,19 +70,19 @@ public class TelaSecao_129 extends TelaSecoesBasica {
     protected void carregarComponentesEspecificos(Secao secao) {
 
         //Tela de escolha de item para ser descartado
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
+        //carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
 
-        opcao1(secao);
+       // opcao1(secao);
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao1.setBounds(120,660,40,50);
-        labelNumOpcao1.setBounds(116,652, 50,50);
-        lbTextoOpcao1.setBounds(170,647,700,60);
+        botaoOpcao1.setBounds(120,560,40,50);
+        labelNumOpcao1.setBounds(116,552, 50,50);
+        lbTextoOpcao1.setBounds(170,547,700,60);
 
         carregaBotaoOpcaoMoedas();
 
         carregarListaItensParaDar();
 
-        acaoBotoes(secao);
+        //acaoBotoes(secao);
 
 
     }
@@ -90,7 +90,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
     private void carregarListaItensParaDar() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(430,470,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
@@ -137,7 +137,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 1 item</center></html>");
-        texto.setBounds(555,585,130,25);
+        texto.setBounds(535,495,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
@@ -197,7 +197,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
         //Botão
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(90,560,340,80);
+        botao.setBounds(90,470,340,80);
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -259,7 +259,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Pagar 10 moedas</center></html>");
-        texto.setBounds(185,587,150,25);
+        texto.setBounds(185,497,150,25);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));

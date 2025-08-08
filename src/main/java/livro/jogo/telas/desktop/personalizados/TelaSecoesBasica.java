@@ -175,7 +175,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
             /// coloque aqui todas as seções onde precisam aparecer a tela de escolha de itens
             switch (secao.getCodSecaoLivro()){
-                case 14: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,1);
+                case 14,129: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,1);
                     break;
                 case 12,32,36: carregaListaDeItensNaBolsaQuePodemSerEntregues(80,430,400,190,2);
                     break;

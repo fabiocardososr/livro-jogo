@@ -25,12 +25,11 @@ public class TelaSecao_146 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,642, 50,50);
-        botaoOpcao1.setBounds(120,650,40,50);
-        lbTextoOpcao1.setBounds(170,637,700,60);
 
-        acaoBotoes(secao);
+        labelNumOpcao1.setBounds(116,492, 50,50);
+        botaoOpcao1.setBounds(120,500,40,50);
+        lbTextoOpcao1.setBounds(170,487,700,60);
+
         carregaBotaoPegarPedacoBichoRochedo();
     }
 
@@ -39,7 +38,7 @@ public class TelaSecao_146 extends TelaSecoesBasica {
         //Botão
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",420, 130,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(370,605,420,130);
+        botao.setBounds(350,450,420,130);
         botao.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -76,7 +75,7 @@ public class TelaSecao_146 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Pegar pedaço<br>do Bicho Rochedo</center></html>");
-        texto.setBounds(500,643,150,50);
+        texto.setBounds(480,488,150,50);
         //texto.setBorder(BorderFactory.createLineBorder(Color.RED));
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);

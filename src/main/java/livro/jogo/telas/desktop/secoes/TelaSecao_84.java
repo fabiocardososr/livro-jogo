@@ -11,6 +11,7 @@ import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilPersonagem;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -23,19 +24,19 @@ public class TelaSecao_84 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(266,592, 50,50);
-        botaoOpcao1.setBounds(270,600,40,50);
-        lbTextoOpcao1.setBounds(320,587,700,60);
+        //Redimensionando o botão da opção 1
+        labelNumOpcao1.setBounds(236,465, 50,50);
+        lbTextoOpcao1.setBounds(290,460,700,60);
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        botaoOpcao1.setBounds(240,473,40,50);
+        botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        opcao2(secao);
-        labelNumOpcao2.setBounds(266,652, 50,50);
-        botaoOpcao2.setBounds(270,660,40,50);
-        botaoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
-        lbTextoOpcao2.setBounds(320,647,700,60);
-        lbTextoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
 
-        acaoBotoes(secao);
+        labelNumOpcao2.setBounds(236,515, 50,50);
+        lbTextoOpcao2.setBounds(290,510,700,60);
+        botaoOpcao2.setBounds(240,523,40,50);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        botaoOpcao2.setToolTipText("Escolha esta opção sendo covarde. Corra antes de enfrentar quaisquer inimigos.");
 
         configurandoBotoesBatalha(secao);
     }
@@ -43,7 +44,7 @@ public class TelaSecao_84 extends TelaSecoesBasica {
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().getFirst(),
-                100,570,150,165);
+                100,450,150,165);
 
     }
 
