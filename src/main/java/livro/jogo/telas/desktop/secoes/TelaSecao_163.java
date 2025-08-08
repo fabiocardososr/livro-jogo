@@ -14,13 +14,6 @@ import java.awt.event.WindowListener;
 public class TelaSecao_163 extends TelaSecoesBasica {
     public TelaSecao_163(Secao secao) {
         super(secao);
-    }
-
-    @Override
-    protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        acaoBotoes(secao);
-
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -62,6 +55,11 @@ public class TelaSecao_163 extends TelaSecoesBasica {
                 // Código a ser executado quando o diálogo é desativado
             }
         });
+    }
+
+    @Override
+    protected void carregarComponentesEspecificos(Secao secao) {
+
     }
 
     @Override

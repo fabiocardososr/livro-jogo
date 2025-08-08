@@ -15,10 +15,7 @@ public class TelaSecao_152 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        opcao2(secao);
-        opcao3(secao);
-        acaoBotoes(secao);
+
     }
 
     @Override
