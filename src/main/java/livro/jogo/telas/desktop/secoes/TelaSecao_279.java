@@ -345,21 +345,13 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //está sendo chamada antes e vem zerado quando tento mostrá-la no label
         this.qtdPagar5itens = 5;
 
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250);
+        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,390,420,250);
 
-        opcao1(secao);
 
         //posicionando as opção mais abaixo
-        botaoOpcao1.setBounds(120,710,40,50);
-        labelNumOpcao1.setBounds(116,702, 50,50);
-        lbTextoOpcao1.setBounds(170,697,700,60);
-
-
-        //Ação ao clicar
-        acaoBotoes(secao);
-
-        //Escolher moedas para dar ao Gnomo
-        //carregaBotaoOpcaoMoedas();
+        botaoOpcao1.setBounds(120,570,40,50);
+        labelNumOpcao1.setBounds(116,562, 50,50);
+        lbTextoOpcao1.setBounds(170,557,700,60);
 
         //Carrega faixa de informações de quantos itens faltam
         carregaFaixaDeInformacaoDeQuantitativoDeitensFaltantes();
@@ -375,7 +367,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
         JLabelOpcoesTelaSecao faixaInfoQtdItensFaltam = new JLabelOpcoesTelaSecao(null,
                 200,120,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
-        faixaInfoQtdItensFaltam.setBounds(340,560,200,120);
+        faixaInfoQtdItensFaltam.setBounds(340,460,200,120);
         faixaInfoQtdItensFaltam.setCursor(null);
         //faixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -384,7 +376,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         lbFaixaInfoQtdItensFaltam.setFont(new Font(Font.SERIF,Font.BOLD,22));
         lbFaixaInfoQtdItensFaltam.setForeground(new Color(139,0,0));
         lbFaixaInfoQtdItensFaltam.setHorizontalAlignment(SwingConstants.CENTER);
-        lbFaixaInfoQtdItensFaltam.setBounds(365,580,150,80);
+        lbFaixaInfoQtdItensFaltam.setBounds(365,480,150,80);
         lbFaixaInfoQtdItensFaltam.setCursor(null);
         //lbFaixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -398,7 +390,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Botão
         botaoDarMoedas = new JLabelOpcoesTelaSecao("",250, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoDarMoedas.setBounds(100, 581,250,80);
+        botaoDarMoedas.setBounds(100, 481,250,80);
         botaoDarMoedas.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -433,7 +425,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>+1 Moeda</center></html>");
-        texto.setBounds(180,606,90,25);
+        texto.setBounds(180,506,90,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
         texto.setForeground(new Color(128,0,0));
@@ -503,7 +495,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //Botão
         botaoEscolhaItens = new JLabelOpcoesTelaSecao("",250, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoEscolhaItens.setBounds(530, 581,250,80);
+        botaoEscolhaItens.setBounds(530, 481,250,80);
 
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
@@ -539,7 +531,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Itens</center></html>");
-        texto.setBounds(605,606,90,25);
+        texto.setBounds(605,506,90,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
         texto.setForeground(new Color(128,0,0));

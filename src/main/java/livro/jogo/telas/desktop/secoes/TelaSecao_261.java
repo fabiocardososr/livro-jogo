@@ -35,14 +35,11 @@ public class TelaSecao_261 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        //posicionando as opção mais abaixo
-        botaoOpcao1.setBounds(120,705,40,50);
-        labelNumOpcao1.setBounds(116,697, 50,50);
-        lbTextoOpcao1.setBounds(170,692,700,60);
 
-        //Ação ao clicar
-        acaoBotoes(secao);
+        //posicionando as opção mais abaixo
+        botaoOpcao1.setBounds(110,565,40,50);
+        labelNumOpcao1.setBounds(106,557, 50,50);
+        lbTextoOpcao1.setBounds(160,552,700,60);
 
         //Botão para acessar a lista de itens de Yazstromo
         carregaBotaoListaDeItens();
@@ -53,7 +50,7 @@ public class TelaSecao_261 extends TelaSecoesBasica {
         //Botão
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",470, 90,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(205,580,470,90);
+        botao.setBounds(205,480,470,90);
         //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botao.addMouseListener(new MouseListener() {
             @Override
@@ -84,7 +81,7 @@ public class TelaSecao_261 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Lista de artigos à venda</center></html>");
-        texto.setBounds(315,610,250,25);
+        texto.setBounds(315,510,250,25);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));

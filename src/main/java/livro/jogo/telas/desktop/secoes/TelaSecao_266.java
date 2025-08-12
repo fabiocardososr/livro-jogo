@@ -27,19 +27,17 @@ public class TelaSecao_266 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
+
+        labelNumOpcao1.setBounds(116,522, 50,50);
+        botaoOpcao1.setBounds(120,530,40,50);
         botaoOpcao1.setToolTipText("Resultado do teste: SUCESSO - igual ou menor que a Habilidade");
-        lbTextoOpcao1.setBounds(170,657,700,60);
+        lbTextoOpcao1.setBounds(170,517,700,60);
 
-        opcao2(secao);
-        labelNumOpcao2.setBounds(116,712, 50,50);
-        botaoOpcao2.setBounds(120,720,40,50);
+        labelNumOpcao2.setBounds(116,567, 50,50);
+        botaoOpcao2.setBounds(120,575,40,50);
         botaoOpcao2.setToolTipText("Resultado do teste: FALHA - maior que a Habilidade");
-        lbTextoOpcao2.setBounds(170,707,700,60);
+        lbTextoOpcao2.setBounds(170,562,700,60);
 
-        acaoBotoes(secao);
         carregaBotaoTestarHabilidade();
     }
 
@@ -86,7 +84,7 @@ public class TelaSecao_266 extends TelaSecoesBasica {
     private void carregaBotaoTestarHabilidade() {
         int largura = 500;
         int altura = 100;
-        int eixoY = 570;
+        int eixoY = 435;
         int eixoX = 190;
 
         //Texto botão repor habilidade
