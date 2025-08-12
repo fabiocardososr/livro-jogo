@@ -32,7 +32,7 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(176);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(212);
         CarregarTelas.carregarSecao(secao);
 
 
