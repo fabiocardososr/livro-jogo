@@ -31,7 +31,6 @@ public class TelaSecao_279 extends TelaSecoesBasica {
 
     public TelaSecao_279(Secao secao) {
         super(secao);
-
     }
 
     //Atualiza infos que mostra quanto falta de itens ou moedas a serem pagas
@@ -100,7 +99,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
     }
 
     private void incluirItemEscolhido(JLabelOpcoesTelaSecao imagemItem) {
-        int posicaoX = 85;
+        int posicaoX = 95;
         int posicaoY = 75;
 
         //Excluir seleção anterior
@@ -331,8 +330,11 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         panelListaSuspensaItens.add(scrollListaSuspensaDeItens);
         panelListaSuspensaItens.add(fundoPanel);
 
-        add(panelListaItensEscolhidos);
-        add(panelListaSuspensaItens);
+        //setComponentZOrder para configurar o painel na frente dos outros componentes
+        getContentPane().add(panelListaItensEscolhidos);
+        getContentPane().setComponentZOrder(panelListaItensEscolhidos,0);
+        getContentPane().add(panelListaSuspensaItens);
+        getContentPane().setComponentZOrder(panelListaSuspensaItens,0);
 
 
         //Carrega, mas deixa invisível, pois nos testes demorou a ser carregada quando clicado no botão
@@ -345,7 +347,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
         //está sendo chamada antes e vem zerado quando tento mostrá-la no label
         this.qtdPagar5itens = 5;
 
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,390,420,250);
+        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,370,420,250);
 
 
         //posicionando as opção mais abaixo
