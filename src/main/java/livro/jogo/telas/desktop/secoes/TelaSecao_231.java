@@ -11,6 +11,7 @@ import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 import livro.jogo.utils.UtilPersonagem;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -24,31 +25,32 @@ public class TelaSecao_231 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(146,727, 50,50);
-        botaoOpcao1.setBounds(150,735,40,50);
-        lbTextoOpcao1.setBounds(200,722,700,60);
+        //Redimensionando o botão da opção 1
+        labelNumOpcao1.setBounds(431,465, 50,50);
+        lbTextoOpcao1.setBounds(485,460,700,60);
+        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        botaoOpcao1.setBounds(435,473,40,50);
+        botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
-        opcao2(secao);
-        labelNumOpcao2.setBounds(346,727, 50,50);
-        botaoOpcao2.setBounds(350,735,40,50);
-        lbTextoOpcao2.setBounds(400,722,700,60);
-        botaoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
-        lbTextoOpcao2.setToolTipText("Fuja do enfrentamento! Mas sofrerá 2 de dano com a possibilidade de usar a sorte para diminuir.");
-        acaoBotoes(secao);
+
+        labelNumOpcao2.setBounds(431,515, 50,50);
+        lbTextoOpcao2.setBounds(485,510,700,60);
+        botaoOpcao2.setBounds(435,523,40,50);
+        lbTextoOpcao2.setFont(new Font(Font.SERIF,Font.BOLD,16));
+        botaoOpcao2.setToolTipText("Escolha esta opção sendo covarde. Corra antes de enfrentar quaisquer inimigos.");
         configurandoBotoesBatalha(secao);
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
+                80,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
-                365,570,150,165);
+                195,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
-                630,570,150,165);
+                310,450,150,165);
     }
 
     @Override

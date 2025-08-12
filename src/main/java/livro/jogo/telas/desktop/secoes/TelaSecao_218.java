@@ -27,28 +27,23 @@ public class TelaSecao_218 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        //Tela de escolha de item para ser descartado
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
 
-        opcao1(secao);
-        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao1.setBounds(120,720,40,50);
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
+        //lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        botaoOpcao1.setBounds(120,575,40,50);
+        labelNumOpcao1.setBounds(116,567, 50,50);
+        lbTextoOpcao1.setBounds(170,562,700,60);
 
         carregaBotaoOpcaoMoedas();
 
         carregarListaItensParaDar();
 
         carregaBotaoNaoTemComoPagar();
-
-        acaoBotoes(secao);
     }
 
     private void carregaBotaoNaoTemComoPagar() {
 
         //Botão
-        JLabelOpcoesTelaSecao botaoNaoTemComoPagar = new BotaoFaixaOpcoes(272,640,340,80)
+        JLabelOpcoesTelaSecao botaoNaoTemComoPagar = new BotaoFaixaOpcoes(272,510,340,80)
                 .criarBotao();
         botaoNaoTemComoPagar.addMouseListener(new MouseListener() {
             @Override
@@ -84,7 +79,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Sem recursos</center></html>");
-        texto.setBounds(375,665,130,25);
+        texto.setBounds(375,535,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
@@ -155,7 +150,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
     private void carregarListaItensParaDar() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(450,560,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(430,440,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
@@ -202,7 +197,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 1 item</center></html>");
-        texto.setBounds(555,585,130,25);
+        texto.setBounds(535,467,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
@@ -290,7 +285,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
         //Botão
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(90,560,340,80);
+        botao.setBounds(90,440,340,80);
         //botao.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botao.addMouseListener(new MouseListener() {
             @Override
@@ -321,7 +316,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto = new JLabel("<html><center>Pagar 5 moedas</center></html>");
-        texto.setBounds(185,587,150,25);
+        texto.setBounds(185,467,150,25);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,19));

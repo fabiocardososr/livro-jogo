@@ -63,12 +63,11 @@ public class TelaSecao_257 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
-        lbTextoOpcao1.setBounds(170,657,700,60);
 
-        acaoBotoes(secao);
+        labelNumOpcao1.setBounds(116,562, 50,50);
+        botaoOpcao1.setBounds(120,570,40,50);
+        lbTextoOpcao1.setBounds(170,557,700,60);
+
         criarBotaoComerPaoElfo();
     }
 
@@ -125,7 +124,7 @@ public class TelaSecao_257 extends TelaSecoesBasica {
     private void criarBotaoComerPaoElfo(){
         int largura = 500;
         int altura = 100;
-        int eixoY = 570;
+        int eixoY = 470;
         int eixoX = 190;
 
         botaoComerPaoElfo = new JLabel("<html><center>Comer o pão elfo</center></html>");

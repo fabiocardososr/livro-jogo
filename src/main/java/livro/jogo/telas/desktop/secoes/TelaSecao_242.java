@@ -24,17 +24,12 @@ public class TelaSecao_242 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
-
-        opcao1(secao);
+        //carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
 
         //posicionando as opção mais abaixo
-        botaoOpcao1.setBounds(120,705,40,50);
-        labelNumOpcao1.setBounds(116,697, 50,50);
-        lbTextoOpcao1.setBounds(170,692,700,60);
-
-        //Ação ao clicar
-        acaoBotoes(secao);
+        botaoOpcao1.setBounds(120,565,40,50);
+        labelNumOpcao1.setBounds(116,557, 50,50);
+        lbTextoOpcao1.setBounds(170,552,700,60);
 
         //carrega opção de escolher o item
         carregarListaItensParaDascarte();
@@ -45,7 +40,7 @@ public class TelaSecao_242 extends TelaSecoesBasica {
         //Botão
         JLabelOpcoesTelaSecao botaoEscolhaItens = new JLabelOpcoesTelaSecao("",480, 140,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoEscolhaItens.setBounds(200,560,480,140);
+        botaoEscolhaItens.setBounds(200,440,480,140);
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -87,7 +82,7 @@ public class TelaSecao_242 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Descarte 1 item.<br>Ganhe o Lingote de Ouro</center></html>");
-        texto.setBounds(326,597,220,60);
+        texto.setBounds(326,477,220,60);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,18));
         texto.setForeground(new Color(128,0,0));
