@@ -15,7 +15,7 @@
   "inimigos":[
 	{
 		"idInimigo":"56",
-		"nome":"OGRO",
+		"nome":"Ogro",
 		"habilidade":"8",
 		"energia":"12",
 		"enderecoImagem": "livros/florestadadestruicao/imagens/inimigos/ogro.png"

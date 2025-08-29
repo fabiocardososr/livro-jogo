@@ -112,8 +112,8 @@ public class JButtonAbrirBatalha {
         JLabel label = new JLabel(inimigo.getNome());
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setForeground(new Color(139,0,0));
-        label.setFont(new Font(Font.SERIF,Font.BOLD,12));
-        label.setBounds(15,-10,110,50);
+        label.setFont(new Font(Font.SERIF,Font.BOLD,11));
+        label.setBounds(13,-10,110,50);
         //label.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         //Faixa onde fica as informações de habilidade
