@@ -23,8 +23,6 @@ public class TelaSecao_304 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        acaoBotoes(secao);
         carregaFaixaDeInformacaoQtdFaltamComer();
     }
 
@@ -32,7 +30,7 @@ public class TelaSecao_304 extends TelaSecoesBasica {
 
         JLabelOpcoesTelaSecao faixaInfo = new JLabelOpcoesTelaSecao(null,
                 200,160,ImagensDoLivroFlorestaDaDestruicao.FAIXA_INDICE_TELA_SECAO);
-        faixaInfo.setBounds(640,545,200,160);
+        faixaInfo.setBounds(505,445,200,160);
         faixaInfo.setCursor(null);
         //faixaInfoQtdItensFaltam.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
@@ -41,7 +39,7 @@ public class TelaSecao_304 extends TelaSecoesBasica {
         lbFaixaInfoQtdFaltamComer.setFont(new Font(Font.SERIF,Font.BOLD,20));
         lbFaixaInfoQtdFaltamComer.setForeground(new Color(139,0,0));
         lbFaixaInfoQtdFaltamComer.setHorizontalAlignment(SwingConstants.CENTER);
-        lbFaixaInfoQtdFaltamComer.setBounds(665,575,150,100);
+        lbFaixaInfoQtdFaltamComer.setBounds(530,475,150,100);
         lbFaixaInfoQtdFaltamComer.setCursor(null);
         //lbFaixaInfoQtdFaltamComer.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 

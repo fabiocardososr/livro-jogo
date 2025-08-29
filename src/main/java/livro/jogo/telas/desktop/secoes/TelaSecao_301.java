@@ -26,13 +26,11 @@ public class TelaSecao_301 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,722, 50,50);
-        botaoOpcao1.setBounds(120,730,40,50);
-        botaoOpcao1.setToolTipText("Resultado do teste: SUCESSO - igual ou menor que a Habilidade");
-        lbTextoOpcao1.setBounds(170,717,700,60);
 
-        acaoBotoes(secao);
+        //Opção 1
+        labelNumOpcao1.setBounds(86,562, 50,50);
+        botaoOpcao1.setBounds(90,570,40,50);
+        lbTextoOpcao1.setBounds(140,557,700,60);
 
         carregaBotaoPegarOuro();
         carregaBotaoPegarFlauta();
@@ -82,9 +80,9 @@ public class TelaSecao_301 extends TelaSecoesBasica {
     }
 
     private void carregaBotaoPegarOuro() {
-        int largura = 350;
+        int largura = 345;
         int altura  = 70;
-        int eixoY   = 570;
+        int eixoY   = 435;
         int eixoX   = 90;
 
         //Texto botão repor habilidade
@@ -163,9 +161,9 @@ public class TelaSecao_301 extends TelaSecoesBasica {
     }
 
     private void carregaBotaoPegarFlauta() {
-        int largura = 350;
+        int largura = 345;
         int altura = 70;
-        int eixoY = 570;
+        int eixoY = 420;
         int eixoX = 90;
 
         //Texto botão repor habilidade
@@ -244,10 +242,10 @@ public class TelaSecao_301 extends TelaSecoesBasica {
     }
 
     private void carregaBotaoPegarBiscoitos() {
-        int largura = 350;
+        int largura = 345;
         int altura  = 70;
-        int eixoY   = 570;
-        int eixoX   = 440;
+        int eixoY   = 435;
+        int eixoX   = 430;
 
         //Texto botão repor habilidade
         textoBotaoPagarBiscoitos = new JLabel("<html><center>Pegar biscoitos</center></html>");
@@ -325,10 +323,10 @@ public class TelaSecao_301 extends TelaSecoesBasica {
     }
 
     private void carregaBotaoPegarColar() {
-        int largura = 350;
+        int largura = 345;
         int altura  = 70;
-        int eixoY   = 570;
-        int eixoX   = 440;
+        int eixoY   = 420;
+        int eixoX   = 430;
 
         //Texto botão repor habilidade
         textoBotaoPagarColar = new JLabel("<html><center>Pegar colar</center></html>");

@@ -25,34 +25,22 @@ public class TelaSecao_309 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
-        lbTextoOpcao1.setBounds(170,657,700,60);
-
-        opcao2(secao);
-        labelNumOpcao2.setBounds(116,712, 50,50);
-        botaoOpcao2.setBounds(120,720,40,50);
-        lbTextoOpcao2.setBounds(170,707,700,60);
-
-        acaoBotoes(secao);
-
         carregaBotaoTestarSorte();
     }
 
     private void carregaBotaoTestarSorte() {
-        int largura = 500;
+        int largura = 350;
         int altura = 100;
-        int eixoY = 570;
-        int eixoX = 190;
+        int eixoY = 470;
+        int eixoX = 420;
 
         //Texto botão repor habilidade
         textoBotaoTesteSorte = new JLabel("<html><center>1º Teste de Sorte</center></html>");
-        textoBotaoTesteSorte.setBounds(eixoX+125,eixoY+18,250,60);
+        textoBotaoTesteSorte.setBounds(eixoX+50,eixoY+18,250,60);
         textoBotaoTesteSorte.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoTesteSorte.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoTesteSorte.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoTesteSorte.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        textoBotaoTesteSorte.setFont(new Font(Font.SERIF,Font.BOLD,18));
         textoBotaoTesteSorte.setForeground(new Color(128,0,0));
         textoBotaoTesteSorte.setToolTipText("REGRA: São jogados dois dados. Número obtido" +
                 " igual ou menor ao seu índice de SORTE, você teve sorte. Qualquer que seja o resultado, SEMPRE é diminuído em 1 seu índice.");
