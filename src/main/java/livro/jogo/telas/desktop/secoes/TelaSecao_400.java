@@ -41,10 +41,10 @@ public class TelaSecao_400 extends TelaSecoesBasica {
         //Texto
         JLabel texto = new JLabel("<html><center>"+ DadosLivroCarregado.getPersonagem().getNome() +
                 "<br>Parabéns! Você Venceu o Jogo.</center></html>");
-        texto.setBounds(305,630,360,70);
+        texto.setBounds(232,500,360,60);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
         texto.addMouseListener(new MouseListener() {
             @Override
@@ -75,9 +75,9 @@ public class TelaSecao_400 extends TelaSecoesBasica {
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 210,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",620, 170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(82,560,800,210);
+        botao.setBounds(100,450,620,170);
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botao.addMouseListener(new MouseListener() {

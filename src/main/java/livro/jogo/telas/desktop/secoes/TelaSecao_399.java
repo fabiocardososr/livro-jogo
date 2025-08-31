@@ -39,7 +39,7 @@ public class TelaSecao_399 extends TelaSecoesBasica {
     private void carregaBotao() {
         //Texto
         JLabel texto = new JLabel("<html><center>Sua nova vida te espera!</center></html>");
-        texto.setBounds(305,630,360,60);
+        texto.setBounds(220,500,360,60);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,25));
@@ -73,9 +73,9 @@ public class TelaSecao_399 extends TelaSecoesBasica {
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 210,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",600, 170,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(82,560,800,210);
+        botao.setBounds(100,450,600,170);
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botao.addMouseListener(new MouseListener() {
