@@ -23,33 +23,21 @@ public class TelaSecao_372 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(116,662, 50,50);
-        botaoOpcao1.setBounds(120,670,40,50);
-        lbTextoOpcao1.setBounds(170,657,700,60);
-        botaoOpcao1.setEnabled(false);
-
-        opcao2(secao);
-        labelNumOpcao2.setBounds(116,717, 50,50);
-        botaoOpcao2.setBounds(120,725,40,50);
-        lbTextoOpcao2.setBounds(170,712,700,60);
-
-        acaoBotoes(secao);
         carregaBotaoRolagemDado();
     }
 
     private void carregaBotaoRolagemDado() {
-        int largura = 550;
-        int altura = 120;
-        int eixoY = 550;
+        int largura = 350;
+        int altura = 100;
+        int eixoY = 440;
 
         //Texto botão repor habilidade
         textoBotaoRolagemDado = new JLabel("<html><center>Rolar os dados</center></html>");
-        textoBotaoRolagemDado.setBounds(310,eixoY+26,250,60);
+        textoBotaoRolagemDado.setBounds(455,eixoY+18,250,60);
         textoBotaoRolagemDado.setCursor(new Cursor(Cursor.HAND_CURSOR));
         textoBotaoRolagemDado.setHorizontalAlignment(SwingConstants.CENTER);
         textoBotaoRolagemDado.setVerticalAlignment(SwingConstants.CENTER);
-        textoBotaoRolagemDado.setFont(new Font(Font.SERIF,Font.BOLD,27));
+        textoBotaoRolagemDado.setFont(new Font(Font.SERIF,Font.BOLD,20));
         textoBotaoRolagemDado.setForeground(new Color(128,0,0));
         textoBotaoRolagemDado.addMouseListener(new MouseListener() {
             @Override
@@ -84,7 +72,7 @@ public class TelaSecao_372 extends TelaSecoesBasica {
         //Botão de conferência
         JLabelOpcoesTelaSecao botaoRolagemDado = new JLabelOpcoesTelaSecao("",largura, altura,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botaoRolagemDado.setBounds(165,eixoY,largura,altura);
+        botaoRolagemDado.setBounds(405,eixoY,largura,altura);
         botaoRolagemDado.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

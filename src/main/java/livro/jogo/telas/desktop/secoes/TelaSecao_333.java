@@ -42,10 +42,10 @@ public class TelaSecao_333 extends TelaSecoesBasica {
         //Texto
         JLabel texto = new JLabel("<html><center>Seu novo reino te espera.<br>"+
                 "Rei dos Guerreiros-Clones!</center></html>");
-        texto.setBounds(305,645,360,60);
+        texto.setBounds(225,495,360,60);
         texto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setFont(new Font(Font.SERIF,Font.BOLD,25));
+        texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
         texto.addMouseListener(new MouseListener() {
             @Override
@@ -76,9 +76,9 @@ public class TelaSecao_333 extends TelaSecoesBasica {
         //texto.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //Botão
-        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",800, 220,
+        JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",600, 180,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(82,560,800,230);
+        botao.setBounds(100,440,600,180);
         //botaoComecarJornada.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         botao.addMouseListener(new MouseListener() {

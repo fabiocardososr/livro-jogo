@@ -23,25 +23,25 @@ public class TelaSecao_330 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        labelNumOpcao1.setBounds(146,727, 50,50);
-        botaoOpcao1.setBounds(150,735,40,50);
-        lbTextoOpcao1.setBounds(200,722,700,60);
 
-        acaoBotoes(secao);
+        //Opção 1
+        labelNumOpcao1.setBounds(86,567, 50,50);
+        botaoOpcao1.setBounds(90,575,40,50);
+        lbTextoOpcao1.setBounds(140,562,700,60);
+
         configurandoBotoesBatalha(secao);
     }
 
     private void configurandoBotoesBatalha(Secao secao) {
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(0),
-                100,570,150,165);
+                100,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(1),
-                365,570,150,165);
+                365,450,150,165);
 
         JButtonAbrirBatalha.carregarBotoesBatalha(this, secao.getInimigos().get(2),
-                630,570,150,165);
+                630,450,150,165);
     }
 
     @Override

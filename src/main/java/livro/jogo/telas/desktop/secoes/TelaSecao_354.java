@@ -51,13 +51,11 @@ public class TelaSecao_354 extends TelaSecoesBasica {
                 // Código a ser executado quando o diálogo é desativado
             }
         });
-        //AQUI GANHA POEIRA DA LEVITAÇÃO
     }
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        acaoBotoes(secao);
+
     }
 
     @Override

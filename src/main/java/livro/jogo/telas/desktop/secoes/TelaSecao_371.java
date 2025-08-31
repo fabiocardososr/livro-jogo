@@ -27,7 +27,7 @@ public class TelaSecao_371 extends TelaSecoesBasica {
 
         JLabelOpcoesTelaSecao botao = new JLabelOpcoesTelaSecao("",340, 80,
                 ImagensDoLivroFlorestaDaDestruicao.FAIXA_OPCOES.getEnderecoImagem());
-        botao.setBounds(270,590,340,80);
+        botao.setBounds(270,480,340,80);
         botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botao.addMouseListener(new MouseListener() {
             @Override
@@ -58,7 +58,7 @@ public class TelaSecao_371 extends TelaSecoesBasica {
 
         //Texto
         texto = new JLabel("<html><center>Pegar mão de argila</center></html>");
-        texto.setBounds(370,615,140,25);
+        texto.setBounds(370,530,140,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,16));
         texto.setForeground(new Color(128,0,0));
@@ -113,13 +113,13 @@ public class TelaSecao_371 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
-        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao1.setBounds(120,720,40,50);
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
 
-        acaoBotoes(secao);
+//        lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
+//        botaoOpcao1.setBounds(120,720,40,50);
+//        labelNumOpcao1.setBounds(116,712, 50,50);
+//        lbTextoOpcao1.setBounds(170,707,700,60);
+
+
         carregarBotaoPegarMao();
     }
 

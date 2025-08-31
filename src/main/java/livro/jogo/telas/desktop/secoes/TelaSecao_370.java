@@ -26,23 +26,20 @@ public class TelaSecao_370 extends TelaSecoesBasica {
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
         //Tela de escolha de item para ser descartado
-        carregaListaDeItensNaBolsaQuePodemSerEntregues(80,550,420,250,1);
+        //carregaListaDeItensNaBolsaQuePodemSerEntregues(80,450,420,250,1);
 
-        opcao1(secao);
         lbTextoOpcao1.setFont(new Font(Font.SERIF,Font.BOLD,20));
-        botaoOpcao1.setBounds(120,720,40,50);
-        labelNumOpcao1.setBounds(116,712, 50,50);
-        lbTextoOpcao1.setBounds(170,707,700,60);
+        botaoOpcao1.setBounds(120,520,40,50);
+        labelNumOpcao1.setBounds(116,512, 50,50);
+        lbTextoOpcao1.setBounds(170,507,700,60);
 
         carregarListaItensParaDar();
-
-        acaoBotoes(secao);
     }
 
     private void carregarListaItensParaDar() {
 
         //Botão
-        botaoEscolhaItens = new BotaoFaixaOpcoes(270,590,340,80)
+        botaoEscolhaItens = new BotaoFaixaOpcoes(270,490,340,80)
                 .criarBotao();
         botaoEscolhaItens.addMouseListener(new MouseListener() {
             @Override
@@ -85,7 +82,7 @@ public class TelaSecao_370 extends TelaSecoesBasica {
 
         //Texto
         JLabel texto= new JLabel("<html><center>Escolha 1 item</center></html>");
-        texto.setBounds(375,615,130,25);
+        texto.setBounds(375,515,130,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,20));
         texto.setForeground(new Color(128,0,0));
