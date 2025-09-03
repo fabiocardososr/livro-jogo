@@ -32,8 +32,8 @@ public class Testes {
 
         //personagem.setMaldicaoLobisomem(false);
 
-        //Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(400);
-        CarregarTelas.carregarSecao(null);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(227);
+        CarregarTelas.carregarSecao(secao);
 
 
 //        System.out.println("Tamanho da bolsa: "+bolsa.size());

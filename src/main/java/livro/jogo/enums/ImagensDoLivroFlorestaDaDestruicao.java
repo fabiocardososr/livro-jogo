@@ -6,7 +6,9 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
 
     /*** IMAGENS DE ITENS ***/
     CAPA(DadosLivroCarregado.getLivro().getImagemCapa()),
-    TELA_SPLASH("livros/florestadadestruicao/imagens/fundo_splash.png"),
+    TELA_SPLASH_0("livros/florestadadestruicao/imagens/fundo_splash_0.png"),
+    TELA_SPLASH_1("livros/florestadadestruicao/imagens/fundo_splash_1.png"),
+    TELA_SPLASH_2("livros/florestadadestruicao/imagens/fundo_splash_2.png"),
     FUNDO_TELA_PRINCIPAL("livros/florestadadestruicao/imagens/fundo_tela_principal.png"),
     COROA_DE_OURO("livros/florestadadestruicao/imagens/itens/item_2.png"),
     FILTROS_NASAIS("livros/florestadadestruicao/imagens/itens/item_4.png"),

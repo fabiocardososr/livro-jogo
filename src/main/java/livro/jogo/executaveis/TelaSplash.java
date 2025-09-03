@@ -7,6 +7,7 @@ import livro.jogo.telas.desktop.CarregarTelas;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,7 +28,8 @@ public class TelaSplash extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                ImageIcon background = new ImageIcon(ImagensDoLivroFlorestaDaDestruicao.TELA_SPLASH.getEnderecoImagem());
+
+                ImageIcon background = new ImageIcon( escolheImagemParaFundoDaTelaDeSplash() );
                 g.drawImage(background.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -49,6 +51,24 @@ public class TelaSplash extends JFrame {
         }, 5000); // 5000 ms = 5 segundos
     }
 
+    private String escolheImagemParaFundoDaTelaDeSplash(){
+
+        //Escolhe imagem de fundo da tela de splash
+        var telaSplash = new Random().nextInt(3);
+        var stringImg = "";
+
+        switch (telaSplash){
+            case 0: stringImg = ImagensDoLivroFlorestaDaDestruicao.TELA_SPLASH_0.getEnderecoImagem();
+                break;
+            case 1: stringImg = ImagensDoLivroFlorestaDaDestruicao.TELA_SPLASH_1.getEnderecoImagem();
+                break;
+            case 2: stringImg = ImagensDoLivroFlorestaDaDestruicao.TELA_SPLASH_2.getEnderecoImagem();
+                break;
+        }
+
+        return stringImg;
+    }
+
     private void carregaJogo(){
         //Carrega o livro
         CarregarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CarregarLivroFlorestaDaDestruicao();
@@ -62,8 +82,16 @@ public class TelaSplash extends JFrame {
 
         // Barra de progresso
         progressBar = new JProgressBar(0, 100);
-        progressBar.setStringPainted(true);
-        panel.add(progressBar, BorderLayout.SOUTH);
+        progressBar.setStringPainted(false);
+       // progressBar.setPreferredSize(new Dimension(getWidth(), 20)); // altura de 5 pixels
+
+        progressBar.setForeground(new Color(255, 255, 255, 100)); // branco translúcido
+        progressBar.setBackground(new Color(0, 0, 0, 50)); // fundo escuro translúcido
+
+        panel.add(progressBar);
+
+        panel.setLayout(null);
+        progressBar.setBounds(20, getHeight() - 30, getWidth() - 40, 7); // margem de 20px nas laterais
 
         add(panel);
 
