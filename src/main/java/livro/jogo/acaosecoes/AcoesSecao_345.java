@@ -12,14 +12,14 @@ public class AcoesSecao_345 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(4) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\nO fungo venenoso fez estrago em seu organismo, seu corpo não suporta tamanho sofrimento."+
                     "\n\nSua aventura acaba aqui!");
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 }

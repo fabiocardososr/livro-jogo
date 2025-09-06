@@ -37,7 +37,7 @@ public class EfeitoDeItens {
 
     //Poção da Força adquirido na seção 341
     private boolean efeitoItem_33() {
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
         UtilPersonagem.recuperaEnergia(5);
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORCA.getIdItem());
         return true;
@@ -166,7 +166,7 @@ public class EfeitoDeItens {
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
 
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORTUNA.getIdItem());
@@ -189,7 +189,7 @@ public class EfeitoDeItens {
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
 
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_ENERGIA.getIdItem());
@@ -209,7 +209,7 @@ public class EfeitoDeItens {
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
 
         //Achar o item e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem());
@@ -233,7 +233,7 @@ public class EfeitoDeItens {
 
         //Achar um item do tipo provisão e removê-lo da bolsa
         UtilBolsa.removerItem(ItensMapeamento.PROVISAO.getIdItem());
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/mastigacao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/mastigacao.mp3", null);
 
         //Recuperando o índice atual e o índice máximo em que o personagem pode chegar
         var indiceAtual   = personagem.getEnergiaAtual();

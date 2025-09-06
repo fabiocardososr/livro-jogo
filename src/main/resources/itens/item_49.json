@@ -1,0 +1,15 @@
+  {
+	"idItem":"49",
+	"tipoEfeito":"ENERGIA",
+	"nome":"Provisão(Refeição)",
+	"descricao":"Comer uma refeição repõe 4 pontos de ENERGIA.",
+	"valorCusto":"0",
+	"modificador":"4",   
+	"quantidadeUso":"1",
+	"flgUsoTemporario":"S",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_49.png"
+  }

@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "34",
+  "texto": "\t\t\t\tQuando você esfrega a lâmpada, uma fumaça verde começa a subir lentamente do pavio e toma forma. Delineando o perfil de um velho gordo e careca sentado em uma almofada.\n\n\t\t\t\tSua boca se abre lentamente e, com uma voz profunda, ele diz:\n\n\t\t\t\t - Bem, o que você quer?\n\n\t\t\t\tVocê conta a ele sobre sua missão, mas ele diz que não pode oferecer ganho ou riquezas materiais. Só pode oferecer bem-estar pessoal.\n\n\t\t\t\tVocê pode fazer com que seu índice de HABILIDADE, ENERGIA ou SORTE retorne ao nível Inicial.\n\n\t\t\t\tLogo que você faz sua escolha, o gênio desaparece e a lanterna se torna negra. Você a atira ao chão e segue para o norte.",
+  "enderecoAudio":"audio/secao_34.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "231"
+    }
+  ]
+  }

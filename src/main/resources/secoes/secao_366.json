@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "366",
+  "texto": "\t\t\t\tVocê diz adeus ao Centauro, ao que ele responde de maneira semelhante. É agradável encontrar alguém que não ataca você logo de saída!\n\n\t\t\t\tVocê pergunta ao Centauro se ele tem alguma informação que poderia levar você à sua meta, mas ele não sabe nada.\n\n\t\t\t\tEle diz que não perambula muito ultimamente, pois está ficando velho. Só quer possuir um pouco de ouro para a sua velhice.\n\n\t\t\t\tEle se oferece para carregá-lo para o outro lado do rio por 3 Peças de Ouro.",
+  "enderecoAudio":"audio/secao_366.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Aceitará a oferta dele?",
+      "codProximaSecao": "127"
+    },
+	{	  
+      "textoOpcao": "Recusará delicadamente e entrará no rio para vadeá-lo?",
+      "codProximaSecao": "178"
+    }
+  ]
+}

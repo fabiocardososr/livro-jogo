@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "197",
+  "texto": "Uma sensação estranha lhe acomete...",
+  "enderecoAudio":"audio/secao_197.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Você possui Poção Antiveneno?",
+      "codProximaSecao": "24"
+    },
+	 {
+      "textoOpcao": "Se não possuir ou não quiser tomar a poção.",
+      "codProximaSecao": "53"
+    }
+  ]
+}

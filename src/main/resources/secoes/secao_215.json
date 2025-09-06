@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "215",
+  "texto": "\t\t\t\tNo interior do barril, você encontra um pesado escudo de ferro.",
+  "enderecoAudio":"audio/secao_215.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Levá-lo com você?",
+      "codProximaSecao": "248"
+    },
+	{	  
+      "textoOpcao": "Não quiser nem tocá-lo?",
+      "codProximaSecao": "201"
+    }
+  ]
+  }

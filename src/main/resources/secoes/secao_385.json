@@ -1,0 +1,19 @@
+{  	
+  "codSecaoLivro": "385",
+  "texto": "Quando o Ogro tomba ao solo, a criatura na jaula pula de um lado para outro ainda mais freneticamente que antes.",
+  "enderecoAudio":"audio/secao_385.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dá uma olhada mais de perto na criatura dentro da jaula?",
+      "codProximaSecao": "168"
+    },
+	{	  
+      "textoOpcao": "Examina os objetos que a caverna contém?",
+      "codProximaSecao": "313"
+    },
+	{	  
+      "textoOpcao": "Sai da caverna imediatamente e continua na direção do norte?",
+      "codProximaSecao": "358"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{  	
+  "codSecaoLivro": "96",
+  "texto": "\n\t\t\t\tQuando você ergue o braço para golpear um dos cães, ele rosna ferozmente e salta sobre você.\n\n\t\t\t\tEnfrente-os!",
+  "enderecoAudio":"audio/secao_96.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Após derrotar todos os inimigos.",
+      "codProximaSecao": "62"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"18",
+		"nome":"Cão",
+		"habilidade":"6",
+		"energia":"6",
+		"enderecoImagem": "imagens/inimigos/cao_1.png"
+	},
+	{
+		"idInimigo":"19",
+		"nome":"Cão",
+		"habilidade":"5",
+		"energia":"6",
+		"enderecoImagem": "imagens/inimigos/cao_2.png"
+	},
+	{
+		"idInimigo":"20",
+		"nome":"Cão",
+		"habilidade":"6",
+		"energia":"5",
+		"enderecoImagem": "imagens/inimigos/cao_3.png"
+	},
+	{
+		"idInimigo":"21",
+		"nome":"Mascarado",
+		"habilidade":"8",
+		"energia":"7",
+		"enderecoImagem": "imagens/inimigos/cacador_mascarado.png"
+	}
+  ]
+ }

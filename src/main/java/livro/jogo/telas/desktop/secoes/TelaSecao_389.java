@@ -18,7 +18,7 @@ import java.awt.event.WindowListener;
 
 public class TelaSecao_389 extends TelaSecoesBasica {
     public TelaSecao_389(Secao secao) {
-        //new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        //new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         super(secao);
 
         addWindowListener(new WindowListener() {

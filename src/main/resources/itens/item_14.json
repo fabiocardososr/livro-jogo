@@ -1,0 +1,15 @@
+ {
+	"idItem":"14",
+	"tipoEfeito":"NENHUM",
+	"nome":"Beladona",
+	"descricao":"Embora venenosa é eficiente contra mordida de Lobisomens.",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_14.png"
+  }

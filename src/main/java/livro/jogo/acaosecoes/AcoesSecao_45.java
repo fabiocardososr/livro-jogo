@@ -11,7 +11,7 @@ public class AcoesSecao_45 {
     public static boolean perde2PontosDeEnergiaEverificaSePersonagemVivo(){
         if ( !UtilPersonagem.personagemPerdeEnergia(2) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nO ferimento em sua coxa é gravíssimo, atingiu a veia femoral.\nO dano foi mortal."+
                     "\nSua aventura acaba aqui!");
@@ -19,7 +19,7 @@ public class AcoesSecao_45 {
 
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 

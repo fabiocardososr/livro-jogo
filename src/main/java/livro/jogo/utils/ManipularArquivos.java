@@ -1,16 +1,19 @@
 //Classe responsável por ler os dados de uim arquivo
 package livro.jogo.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class ManipularArquivos {
 
     public static StringBuilder lerTexto(String nomeArq) {
         StringBuilder texto = new StringBuilder();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(nomeArq));
+            InputStream inputStream = ManipularArquivos.class.getClassLoader().getResourceAsStream(nomeArq);
+            if (inputStream == null) {
+                throw new IllegalArgumentException("Arquivo não encontrado: " + nomeArq);
+            }
+
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = bufferedReader.readLine();
             texto = new StringBuilder();
 

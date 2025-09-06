@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "362",
+  "texto": "\t\t\t\tEm que direção você está rumando?",
+  "enderecoAudio":"audio/secao_362.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o leste?",
+      "codProximaSecao": "281"
+    },
+	{	  
+      "textoOpcao": "Continuar para o oeste?",
+      "codProximaSecao": "238"
+    }
+  ]
+}

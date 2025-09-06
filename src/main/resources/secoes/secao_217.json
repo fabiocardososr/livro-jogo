@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "217",
+  "texto": "\t\t\t\tVocê contorna a massa sem vida do verme para examinar o que há no seu covil.\n\n\t\t\t\tHá diversos esqueletos, talvez pertencentes a outros aventureiros menos afortunados.\n\n\t\t\t\tAo lado de um deles, você acha uma mochila de couro, e dentro dela 4 Peças de ouro e uma pequena garrafa arrolhada que contém um líquido incolor.",
+  "enderecoAudio":"audio/secao_217.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Beber o líquido incolor?",
+      "codProximaSecao": "262"
+    },
+	{	  
+      "textoOpcao": "Sair da caverna e subir de volta para a trilha levando somente o ouro?",
+      "codProximaSecao": "337"
+    }
+  ]
+  }

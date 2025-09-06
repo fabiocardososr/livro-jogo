@@ -67,7 +67,7 @@ public class DadosLivroCarregado {
             item = objMapper.readValue(json, Item.class);
         } catch (JsonProcessingException e) {
             System.out.println("Ocorreu problema no arquivo: "+enderecoDoArquivoDoItem);
-            //throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
         return item;

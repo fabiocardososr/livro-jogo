@@ -1,0 +1,15 @@
+ {
+	"idItem":"22",
+	"tipoEfeito":"NENHUM",
+	"nome":"Luva D. Arremesso",
+	"descricao":"Luva de Destreza de Arremesso. Aplica força e distância aos arremessos.",
+	"valorCusto":"2",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_22.png"
+  }

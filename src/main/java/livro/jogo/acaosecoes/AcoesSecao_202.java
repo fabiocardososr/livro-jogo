@@ -9,8 +9,8 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_202 {
 
     public static void colocaNaBosaBrincosDeOuroDaMulherGato(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.BRINCOS_DE_OURO.getIdItem()) )
-            UtilBolsa.incluirItem(ItensMapeamento.BRINCOS_DE_OURO);
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.BRINCOS_DE_OURO.getIdItem()));
     }
 }

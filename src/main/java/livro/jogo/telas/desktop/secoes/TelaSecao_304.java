@@ -64,7 +64,7 @@ public class TelaSecao_304 extends TelaSecoesBasica {
                 }
 
                 if ( (UtilItens.quantidadeProvisoesRestantes() == 0) && (getQuantProvisoesComidas() < 5)) {
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                     CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                             ",\n\nVocê não possui provisões suficientes para se restabelecer.\n\nSua aventura acaba aqui.");
                     personagemVivo(false);

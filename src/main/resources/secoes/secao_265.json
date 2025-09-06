@@ -1,0 +1,20 @@
+{  	
+  "codSecaoLivro": "265",
+  "texto": "\t\t\t\tOs baques e ruídos vão ficando mais altos, e, de repente, você vê uma perna enorme aparecer na sua frente.\n\n\t\t\t\tOlhando para cima, você vê que a perna pertence a um homem de uns cinco metros de altura. Ele está usando roupas de lona marrom e botas de pele.\n\n\t\t\t\tParece estar com pressa e vai destruindo o mato rasteiro como se não existisse. É um GIGANTE DA FLORESTA.\n\n\t\t\t\tAo ver você, seus olhos se arregalam, e ele ergue sua grande clava de madeira.\n\n\t\t\t\tVocê tem que lutar contra ele.\n\n",    
+	"enderecoAudio":"audio/secao_265.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "356"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"48",
+		"nome":"Gigante",
+		"habilidade":"9",
+		"energia":"9",
+		"enderecoImagem": "imagens/inimigos/gigante_da_floresta.png"
+	}
+  ]
+}

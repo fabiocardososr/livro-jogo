@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "229",
+  "texto": "\t\t\t\tQuando você toca a caixa de madeira, a tampa se abre sem que você tenha que levantá-la.\n\n\t\t\t\tSaindo da caixa, surge uma minúscula criatura de pele verde com uma cabeça enorme. Possui um nariz comprido e orelhas pontudas, e suas roupas são feitas de sacos de aninhagem.\n\n\t\t\t\tVocê é pego de surpresa, e o GREMLIN tenta esfaqueá-lo com sua adaga.\n\n\t\t\t\tTeste a sua Sorte.",
+  "enderecoAudio":"audio/secao_229.mp3",
+  "enderecoImagem": "imagens/secao/secao_229.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! Você se esquiva da lâmina agressora.",
+      "codProximaSecao": "165"
+    },
+	{	  
+      "textoOpcao": "Azar! A lâmina mergulha na sua coxa.",
+      "codProximaSecao": "45"
+    }
+  ]
+}

@@ -68,7 +68,7 @@ public class TelaSecao_388 extends TelaSecoesBasica {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if ( !DadosLivroCarregado.getPersonagem().isMaldicaoLobisomem() ) {
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                     DadosLivroCarregado.getPersonagem().setMaldicaoLobisomem(false);
                     UtilPersonagem.recuperaSorte(1);
                     abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());

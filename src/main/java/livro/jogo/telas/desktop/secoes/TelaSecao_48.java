@@ -128,7 +128,7 @@ public class TelaSecao_48 extends TelaSecoesBasica {
         //Calcula o dano
         resultadoDaRolagemDoDado = AcoesSecao_48.rolarDadoDeterminandoQuantoDeDano();
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
 
         //Informa o resultado da rolagem de dados, consequentemente o dano causado
         if (resultadoDaRolagemDoDado == 1) {

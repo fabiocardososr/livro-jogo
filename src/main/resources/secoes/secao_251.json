@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "251",
+  "texto": "\t\t\t\tQuando você desembainha sua espada, o Centauro lança mão de seu arco e flechas.\n\n\t\t\t\tAntes que você possa chegar até ele, uma flecha é disparada diretamente em você.\n\n\t\t\t\tJogue dois dados.",
+  "enderecoAudio":"audio/secao_251.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sucesso! Você consegue se esquivar.",
+      "codProximaSecao": "63"
+    },
+	{	  
+      "textoOpcao": "Falha! Você é atingido. A flecha se aloja em seu ombro.",
+      "codProximaSecao": "260"
+    }
+  ]
+}

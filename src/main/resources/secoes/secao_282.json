@@ -1,0 +1,17 @@
+
+{  	
+  "codSecaoLivro": "282",
+  "texto": "\t\t\t\tOs fungos de topo vermelho estão sendo cuidados por três dos humanóides.",
+  "enderecoAudio":"audio/secao_282.mp3",
+  "enderecoImagem": "imagens/secao/secao_282.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer comer um pouco do fungo?",
+      "codProximaSecao": "16"
+    },
+	{	  
+      "textoOpcao": "Sair da caverna pelos degraus da parede do outro lado?",
+      "codProximaSecao": "293"
+    }
+  ]
+  }

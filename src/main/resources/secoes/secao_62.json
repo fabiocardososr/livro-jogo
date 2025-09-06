@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "62",
+  "texto": "\t\t\t\tQuando você retira sua espada de seu último oponente, o corcel branco galopa se afastando para o leste pela trilha até se perder na distância.\n\n\t\t\t\tVocê se volta e parte para o oeste de novo.",
+  "enderecoAudio":"audio/secao_62.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o oeste.",
+      "codProximaSecao": "208"
+    }
+  ]
+}

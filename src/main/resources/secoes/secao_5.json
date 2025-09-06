@@ -1,0 +1,22 @@
+{  
+  "codSecaoLivro":"5",
+  "texto":"\t\t\t\tSentado no trono ornamentado, você se sente estranhamente desconfortável. Os Dois Guerreiros - Clones rastejam no chão à sua frente em completa subserviência.\n\n\t\t\t\tSerá que eles esperam que você se torne o novo senhor deles?",
+  "enderecoImagem": "",
+  "enderecoAudio":"audio/secao_5.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Colocar a coroa de ouro sobre sua cabeça?",
+      "codProximaSecao":"333"
+    },
+    {
+      "textoOpcao":"Sair do nicho e subir o restante dos degraus até o teto da caverna?",
+      "codProximaSecao":"249"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"2"
+  }
+  ]
+ }
+

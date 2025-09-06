@@ -12,14 +12,14 @@ public class AcoesSecao_278 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(perdePonto) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nvocê não resiste a queda."+
                     "\n\nSua aventura acaba aqui!");
             return false;
         }
 
-        //new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        //new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 }

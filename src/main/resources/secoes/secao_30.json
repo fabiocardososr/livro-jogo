@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"30",
+  "texto":"\t\t\t\tVocê perde 2 pontos de ENERGIA por causa do profundo corte na sua testa.",
+  "enderecoAudio":"audio/secao_30.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Siga seu caminho.",
+      "codProximaSecao":"225"
+    }
+  ]
+ }

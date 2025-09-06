@@ -1,0 +1,15 @@
+  {
+	"idItem":"53",
+	"tipoEfeito":"NENHUM",
+	"nome":"Colar",
+	"descricao":"Feito de crânios de camundongos.",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_53.png"
+  }

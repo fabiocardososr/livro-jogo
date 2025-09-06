@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "201",
+  "texto": "\t\t\t\tSe você ainda não o tiver feito, escolha uma das opções.",
+  "enderecoAudio":"audio/secao_201.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Poderá tentar abrir a arca de madeira.",
+      "codProximaSecao": "389"
+    },
+	 {
+      "textoOpcao": "Sair do nicho e subir mais pelos degraus?",
+      "codProximaSecao": "88"
+    }
+  ]
+}

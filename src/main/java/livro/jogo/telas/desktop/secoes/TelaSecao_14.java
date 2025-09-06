@@ -177,7 +177,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 3){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você entrega 3 moedas para o caçador.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
@@ -239,7 +239,7 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 3){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você entrega 3 moedas para o Caçador.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());

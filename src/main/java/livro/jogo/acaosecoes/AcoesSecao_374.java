@@ -27,7 +27,7 @@ public class AcoesSecao_374 {
     }
 
     public static void ganhaManoplaDeHabilidade(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
 
         //Se já existir não deixe incluir (só por precaução, acredito que no livro não tem como se repetir)
         if ( !UtilItemEquipado.verificaSeItemEquipado(ItensMapeamento.MANOPLA_DE_FERRO.getIdItem()) )

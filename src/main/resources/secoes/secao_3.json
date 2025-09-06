@@ -1,0 +1,18 @@
+{
+  "codSecaoLivro": "3",
+  "texto": "\t\t\t\tVocê segue mais cinco setas até o tronco de uma velha árvore já morta, mas ainda enraizada no solo.\n\n\t\t\t\tVocê vê que o tronco é oco, e que o buraco continua pelo chão adentro, formando um túnel.\n\n\t\t\t\tEstá escuro no buraco, e você não consegue ver a que distância está o fundo.",
+  "enderecoImagem": "imagens/secao/secao_3.png",
+  "enderecoAudio":"audio/secao_3.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Você tem um Anel da Luz? Coloque-o no dedo.",
+      "codProximaSecao": "322"
+    },
+    {
+      "textoOpcao": "Não possui o Anel de Luz ou não quer utilizá-lo, caso o possua.",
+      "codProximaSecao": "120"
+    }
+  ]
+}
+
+

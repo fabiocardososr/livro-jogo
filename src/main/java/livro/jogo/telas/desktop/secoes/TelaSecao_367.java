@@ -22,7 +22,7 @@ public class TelaSecao_367 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/estalo.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/estalo.mp3", null);
                 possuiFiltrosNasais = AcoesSecao_240.verificaSePossuiFiltrosNasais();
             }
 

@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "396",
+  "texto": "\t\t\t\tVocê desembainha sua espada e se prepara para enfrentar a matilha de cães. Eles surgem em meio a uma nuvem de poeira na distância.\n\n\t\t\t\tGalopando atrás deles, há um cavaleiro mascarado, usando um longo manto esvoaçante e cavalgando um garanhão branco.\n\n\t\t\t\tEle sopra numa trompa, e a matilha de cães estaca subitamente à sua frente. Há três deles, e você pode ver que são cães-de-caça.\n\n\t\t\t\tO garanhão fica imóvel atrás deles, fumaça saindo de suas narinas em dois jatos compridos.\n\n\t\t\t\tO homem mascarado olha para você sem falar.",
+  "enderecoImagem": "imagens/secao/secao_396.png",
+  "enderecoAudio":"audio/secao_396.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Iniciará uma conversa com ele?",
+      "codProximaSecao": "364"
+    },
+	{	  
+      "textoOpcao": "Atacará o cão mais próximo de você?",
+      "codProximaSecao": "96"
+    }
+  ]
+}

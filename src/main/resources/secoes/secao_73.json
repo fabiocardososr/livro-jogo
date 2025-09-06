@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "73",
+  "texto": "\t\t\t\tVocê recua e, em seguida, dá carga contra a porta.\n\n\t\t\t\tVocê precisará fazer um teste para saber se conseguiu abrir a porta.",
+  "enderecoAudio":"audio/secao_73.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Abriu a porta.",
+      "codProximaSecao": "327"
+    },
+	{	  
+      "textoOpcao": "Não abriu a porta. Siga para o norte.",
+      "codProximaSecao": "112"
+    }
+  ]
+}

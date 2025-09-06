@@ -1,0 +1,20 @@
+{  	
+  "codSecaoLivro": "128",
+  "texto": "\t\t\t\tVocê corta as cordas grossas que prendem o Bárbaro. Ele grunhe e senta, esfregando os pulsos e tornozelos. Olha para você e ri com desprezo.\n\n\t\t\t\tEstá delirante ou é ingrato, pois ele arranca uma das estacas de madeira do chão e se volta para atacar você!",
+  "enderecoAudio":"audio/secao_128.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "272"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"31",
+		"nome":"Bárbaro",
+		"habilidade":"9",
+		"energia":"7",
+		"enderecoImagem": "imagens/inimigos/barbaro_solto_por_voce.png"
+	}
+  ]
+}

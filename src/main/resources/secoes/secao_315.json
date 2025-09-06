@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "315",
+  "texto": "\t\t\t\tVocê abre a rústica porta de madeira e entra numa cabana em péssimas condições.",
+  "enderecoAudio":"audio/secao_315.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Falar com a velha?",
+      "codProximaSecao": "42"
+    },
+	{	  
+      "textoOpcao": "Desembainhará sua espada?",
+      "codProximaSecao": "342"
+    }
+  ]
+}

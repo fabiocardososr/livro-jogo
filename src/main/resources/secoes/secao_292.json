@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "292",
+  "texto": "\t\t\t\tA luz da vela projeta sombras fantasmagóricas pelo aposento. Na luz amarelada, você vê o rosto de um velho entalhado na tampa de pedra da caixa.\n\n\t\t\t\tEm seguida, você repara numa perna de esqueleto que surge das sombras do outro lado do aposento. Você caminha até o esqueleto para examiná-lo.\n\n\t\t\t\tO esqueleto é pequeno, e o crânio possui dentes afiados e proeminentes. Poderia ser o esqueleto de um Goblin ou de um Orc.\n\n\t\t\t\tVocê caminha até a caixa de pedra. A tampa sobre ela dá a impressão de poder ser deslocada.",
+  "enderecoAudio":"audio/secao_292.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Erguer a tampa de pedra?",
+      "codProximaSecao": "95"
+    },
+	{	  
+      "textoOpcao": "Ignorar a tampa e retornar à trilha e seguir para o norte?",
+      "codProximaSecao": "112"
+    }
+  ]
+  }

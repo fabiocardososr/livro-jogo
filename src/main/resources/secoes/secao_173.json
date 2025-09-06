@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "173",
+  "texto": "\t\t\t\tVocê tira de sua mochila o frasco de vidro contendo a Poeira da Levitação e pulveriza-a sobre a tampa de pedra.\n\n\t\t\t\tLentamente, a laje de pedra começa a subir pelo ar. Você dá uma olhada na caixa e fica horrorizado ao ver um cadáver em decomposição estirado lá. Roupas em farrapos cobrem um corpo de esqueleto com pedaços de carne solta pendentes.\n\n\t\t\t\tVocê retirou a tampa de um caixão contendo alguma criatura amaldiçoada, um morto-vivo, e salta para trás aterrorizado ao ver os olhos do monstro se abrirem de supetão.\n\n\t\t\t\tVocê está em uma cripta tornada a abjeta moradia de algum desconhecido ser das trevas.\n\n\t\t\t\tVagarosamente, a criatura se ergue, saindo do caixão, e avança na sua direção com braços estendidos.",
+  "enderecoAudio":"audio/secao_173.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Você possui Água Benta?",
+      "codProximaSecao": "58"
+    },
+	{
+      "textoOpcao": "Você não possui Água Benta?",
+      "codProximaSecao": "227"
+    }
+  ]
+}

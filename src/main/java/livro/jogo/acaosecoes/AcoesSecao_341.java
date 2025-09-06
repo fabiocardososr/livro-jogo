@@ -9,7 +9,7 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_341 {
 
     public static void pegar5moedasDeOuro(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
         UtilPersonagem.somarValorOuro(5);
     }
 
@@ -18,7 +18,7 @@ public class AcoesSecao_341 {
     }
 
     public static void ganharDenteDeDragaoEPocaoDaForca(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.DENTE_DE_DRAGAO.getIdItem()));
         UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.POCAO_DA_FORCA.getIdItem()));
     }

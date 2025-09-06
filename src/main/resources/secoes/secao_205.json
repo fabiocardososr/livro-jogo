@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "205",
+  "texto": "\t\t\t\tCada Pigmeu tem uma pequena bolsa de couro presa em volta do pescoço.\n\n\t\t\t\tVocê acha 3 peças de ouro em cada.\n\n\t\t\t\tVocê pega o ouro e retorna à trilha para continuar sua jornada na direção norte.",  
+  "enderecoAudio":"audio/secao_205.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "92"
+    }
+  ]
+  }

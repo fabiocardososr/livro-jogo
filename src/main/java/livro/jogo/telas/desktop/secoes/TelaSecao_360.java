@@ -67,7 +67,7 @@ public class TelaSecao_360 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/cuspe.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/cuspe.mp3", null);
                 abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
             }
 

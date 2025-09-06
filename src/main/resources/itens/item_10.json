@@ -1,0 +1,15 @@
+ {
+	"idItem":"10",
+	"tipoEfeito":"HABILIDADE",
+	"nome":"Espada Magnífica",
+	"descricao":"Aumenta em 2 pontos o seu índice de HABILIDADE atual quando equipado.",
+	"valorCusto":"0",
+	"modificador":"2",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"S",
+    "flgAfetaRolagemDados":"S", 
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_10.png"
+  }

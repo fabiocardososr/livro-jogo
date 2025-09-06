@@ -22,7 +22,7 @@ public class TelaSecao_285 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/lobo.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/lobo.mp3", null);
             }
 
             @Override

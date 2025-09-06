@@ -485,7 +485,7 @@ public class TelaSecao_279 extends TelaSecoesBasica {
            return;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
        UtilPersonagem.reduzirValorOuro(1);
         --qtdPagar5itens;
        atualizaInfoPagamento();

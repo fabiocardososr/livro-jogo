@@ -7,7 +7,7 @@ import livro.jogo.utils.UtilBolsa;
 public class AcoesSecao_24 {
 
     public static void consumirPocaoAntiveneno(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         UtilBolsa.removerItem(ItensMapeamento.POCAO_ANTIVENENO.getIdItem());
     }
 }

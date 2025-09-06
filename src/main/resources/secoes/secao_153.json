@@ -1,0 +1,24 @@
+{  	
+  "codSecaoLivro": "153",
+  "texto": "\t\t\t\tA Mulher-Gato rosna e ruge antes de saltar da árvore para atacar você.\n\n\t\t\t\tVocê recua e se prepara para lutar.",
+  "enderecoAudio":"audio/secao_153.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "202"
+    },
+	 {	  
+      "textoOpcao": "Fugir, correndo para o leste ao longo da trilha?",
+      "codProximaSecao": "355"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"32",
+		"nome":"Mulher-Gato",
+		"habilidade":"8",
+		"energia":"5",
+		"enderecoImagem": "imagens/inimigos/mulher_gato.png"
+	}
+  ]
+  }

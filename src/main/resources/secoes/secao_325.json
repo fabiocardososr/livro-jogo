@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "325",
+  "texto": "\t\t\t\tVocê está dormindo há mais ou menos uma hora, quando o barulho suave de asas batendo o acorda.\n\n\t\t\t\tVocê senta e apanha sua espada, e, na luz da lua cheia, vê três sombras grandes que voam na sua direção.\n\n\t\t\t\tParecem ser morcegos grandes, mas, quando eles se aproximam num rasante, você vê os inconfundíveis caninos dos MORCEGOS VAMPIROS.",
+  "enderecoAudio":"audio/secao_325.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Possui Cabeça de Alho?",
+      "codProximaSecao": "268"
+    },
+	{	  
+      "textoOpcao": "Não possui Cabeça de Alho?",
+      "codProximaSecao": "79"
+    }
+  ]
+}

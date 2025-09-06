@@ -43,13 +43,13 @@ public class TelaSecao_182 extends TelaSecoesBasica {
             return;
 
         if ( AcoesSecao_182.testarHabilidadeRemoverEspada() ){
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
             CarregarTelas.telaMensagem("Resultado dos dados: "+AcoesSecao_182.getResultado2Dados()+
                             "\n\nHabilidade: "+DadosLivroCarregado.getPersonagem().getHabilidadeAtual()+
                     "\n\nSUCESSO!");
             botaoOpcao2.setEnabled(false);
         }else {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
             CarregarTelas.telaMensagem("Resultado dos dados: "+AcoesSecao_182.getResultado2Dados()+
                     "\n\nHabilidade: "+DadosLivroCarregado.getPersonagem().getHabilidadeAtual()+
                     "\n\nFALHA!");

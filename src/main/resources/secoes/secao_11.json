@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"11",
+  "texto":"\t\t\t\tVocê começa a perder o equilíbrio, à medida que a ilusão vai distorcendo sua mente. Você fecha os olhos e segura a cabeça nas mãos, mas não adianta nada. Você gira às cegas pelo aposento e depois cai no chão inconsciente.",
+  "enderecoAudio":"audio/secao_11.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Continue.",
+      "codProximaSecao":"353"
+    }
+  ]
+ }

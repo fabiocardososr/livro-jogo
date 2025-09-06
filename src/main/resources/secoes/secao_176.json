@@ -1,0 +1,16 @@
+{
+  "codSecaoLivro": "176",
+  "texto": "\t\t\t\tVocê se inclina sobre o corpo sem vida do Goblin louco e examina a vara presa a seu pescoço: Ela é feita de ébano, e há uma rosca de tarraxa numa das extremidades.\n\n\t\t\t\tVocê fica excitado ao ver a letra G nitidamente gravada na outra extremidade do que deve ser o cabo do martelo de guerra dos anões.\n\n\t\t\t\tVocê põe seu achado na mochila e sai da caverna para continuar para o norte em sua missão.",
+  "enderecoAudio":"audio/secao_176.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "358"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"25"
+  }
+  ]
+}

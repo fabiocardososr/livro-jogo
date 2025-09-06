@@ -22,7 +22,7 @@ public class AcoesSecao_48 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(resultadoDaRolagemDoDado) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
 
             if (resultadoDaRolagemDoDado == 1)
                 CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+

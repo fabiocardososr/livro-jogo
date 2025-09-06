@@ -6,7 +6,7 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_127 {
 
     public static void pagar3PecasDeOuroAoCentauro(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
         UtilPersonagem.reduzirValorOuro(3);
     }
 }

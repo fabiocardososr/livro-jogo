@@ -6,8 +6,11 @@ import javazoom.jl.player.Player;
 import livro.jogo.entidades.*;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
+import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
+import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.telas.desktop.principal.TelaPrincipal;
 
 
 import javax.imageio.ImageIO;
@@ -63,7 +66,17 @@ public class Util {
     public static ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
         ImageIcon imageIcon;
         try {
-            BufferedImage img = ImageIO.read(new File(enderecoImagem));
+            InputStream inputStream = Util.class.getClassLoader().getResourceAsStream(enderecoImagem);
+            if (inputStream == null) {
+                throw new RuntimeException("Imagem não encontrada: " + enderecoImagem);
+            }
+
+            BufferedImage img = ImageIO.read(inputStream);
+
+            if (img == null) {
+                System.err.println("Falha ao decodificar imagem: " + enderecoImagem);
+            }
+
             Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
             imageIcon = new ImageIcon(imgDimensionada);
         } catch (IOException e) {
@@ -101,8 +114,8 @@ public class Util {
 
         public void run() {
             try {
-                InputStream inputstream = new FileInputStream(audio);
-                player = new Player(inputstream);
+                InputStream inputStream = Util.class.getClassLoader().getResourceAsStream(audio);
+                player = new Player(inputStream);
                 player.play();
 
                 if (player.isComplete()){
@@ -113,7 +126,7 @@ public class Util {
                 }
 
 
-            } catch (FileNotFoundException | JavaLayerException e) {
+            } catch (JavaLayerException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -153,6 +166,16 @@ public class Util {
     //lista todos os nomes arquivos dos jogos salvos
     public static ArrayList<String> listarJogosSalvos(){
         File file = new File("save/");
+
+        // Verifica se a pasta existe; se não, cria
+        if (!file.exists()) {
+            boolean criada = file.mkdirs(); // cria diretórios, se necessário
+            if (!criada) {
+                System.err.println("Não foi possível criar a pasta 'save/'.");
+                return new ArrayList<>(); // retorna lista vazia em caso de erro
+            }
+        }
+
         File arquivos[] = file.listFiles();
         ArrayList<String> listaNomesArquivos = new ArrayList<>();
 
@@ -205,9 +228,9 @@ public class Util {
         sorte = UtilPersonagem.testarSorte();
 
         if ( sorte )
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         else
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
 
         return sorte;
     }

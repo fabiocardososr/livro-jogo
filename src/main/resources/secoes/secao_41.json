@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "41",
+  "texto": "\t\t\t\tVocê corre de volta para a encruzilhada pela trilha, onde o corvo ainda está pousado sobre o letreiro.\n\n\t\t\t\tVocê vira para a esquerda e corre para o leste, gritando: - BOA TARDE! - para o corvo enquanto passa por ele.",
+  "enderecoAudio":"audio/secao_41.mp3",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Continue seu caminho.",
+      "codProximaSecao":"239"
+    }
+  ]
+}

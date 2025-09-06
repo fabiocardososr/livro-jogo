@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "148",
+  "texto": "\t\t\t\tA trilha continua para o norte, e logo você chega a uma outra encruzilhada.",
+  "enderecoAudio":"audio/secao_148.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "97"
+    },
+	 {	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "20"
+    }
+  ]
+  }

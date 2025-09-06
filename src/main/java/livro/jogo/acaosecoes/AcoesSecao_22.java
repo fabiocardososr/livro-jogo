@@ -7,7 +7,7 @@ import livro.jogo.utils.*;
 public class AcoesSecao_22 {
 
     public static void perde2DeHabilidade(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         UtilPersonagem.personagemPerdeHabilidade(2);
     }
 
@@ -22,7 +22,7 @@ public class AcoesSecao_22 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(resultadoDoisDado) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nSeu corpo não resistiu ao gás tóxico. Você morreu!"+
                     "\n\nSua aventura acaba aqui!");
@@ -36,7 +36,7 @@ public class AcoesSecao_22 {
     }
 
     public static void ganhaCaixaDePrata(){
-        //new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        //new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
 
         //Se já existir não deixe incluir (só por precaução, acredito que no livro não tem como se repetir)
         if ( !UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.CAIXA_DE_PRATA.getIdItem()) )

@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "115",
+  "texto": "\t\t\t\tA trilha logo chega a uma encruzilhada.",  
+  "enderecoAudio":"audio/secao_115.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "382"
+    },
+	{	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "277"
+    }
+  ]
+  }

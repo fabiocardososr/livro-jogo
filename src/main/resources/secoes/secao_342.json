@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "342",
+  "texto": "\t\t\t\tQuando você desembainha sua espada, o rosto da velha se transforma de uma expressão de desinteresse para uma de raiva.\n\n\t\t\t\tDe uma gaveta em uma mesa próxima, ela tira umas flores mortas e passa a esfregar algumas pétalas nas palmas da mão, enchendo a cabana com um cheiro doce.\n\n\t\t\t\tQuando isso acontece, o aposento começa a rodar diante de seus olhos.",
+  "enderecoAudio":"audio/secao_342.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui Fita de Cabeça da Concentração?",
+      "codProximaSecao": "158"
+    },
+    {
+      "textoOpcao": "Não possui Fita de Cabeça da Concentração?",
+      "codProximaSecao": "11"
+    }
+  ]
+  }

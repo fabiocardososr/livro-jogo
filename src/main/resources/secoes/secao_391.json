@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "391",
+  "texto": "\t\t\t\tA construção mede apenas três metros por três metros e não tem janelas. Não há maçaneta. Mas, você repara num cadeado na porta.",
+  "enderecoAudio":"audio/secao_391.mp3",
+  "enderecoImagem": "imagens/secao/secao_391.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui a Chave de Prata?",
+      "codProximaSecao": "200"
+    },
+	{	  
+      "textoOpcao": "Não possui a Chave de Prata",
+      "codProximaSecao": "379"
+    }
+  ]
+}

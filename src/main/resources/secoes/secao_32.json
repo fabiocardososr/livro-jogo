@@ -1,0 +1,11 @@
+{  
+  "codSecaoLivro":"32",
+  "texto":"\t\t\t\tVocê enfia a mão em sua mochila e entrega 10 Peças de Ouro e dois objetos a Arragon.\n\n\t\t\t\tArragon então ordena que você vá embora, e você sai rápido da casa e volta à encruzilhada na trilha.\n\n\t\t\t\tPerde por isso, 1 ponto de SORTE e se dirige para o norte ao longo da trilha.",
+  "enderecoAudio":"audio/secao_32.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Siga para o norte.",
+      "codProximaSecao":"150"
+    }
+  ]
+ }

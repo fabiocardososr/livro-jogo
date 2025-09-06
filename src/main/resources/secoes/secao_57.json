@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "57",
+  "texto": "\t\t\t\tVocê caminha para investigar o covil mas, subitamente, se dá conta de que uma sombra escura se espalha por toda parte à sua volta.\n\n\t\t\t\tVocê ouve um rugido alto, acima de você e levanta os olhos, avistando uma criatura semelhante a um dragão, com duas pernas e pele verde coberta de escamas, que desce voando para seu covil.\n\n\t\t\t\tUm jato de fogo parte de sua boca na direção em que você se encontra.\n\n\t\t\t\tTeste sua Sorte.",
+  "enderecoAudio":"audio/secao_57.mp3",
+  "enderecoImagem": "imagens/secao/secao_57.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! O jato de fogo não o atinge e explode a seus pés.",
+      "codProximaSecao": "132"
+    },
+    {
+      "textoOpcao": "Azar! O jato de fogo se abate sobre suas costas, derrubando-o.",
+      "codProximaSecao": "35"
+    }
+  ]
+  }

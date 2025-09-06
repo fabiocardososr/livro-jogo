@@ -18,8 +18,9 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
+import java.io.InputStream;
 
 /*System.exit(0) = Fecha aplicação toda*/
 
@@ -49,7 +50,7 @@ public class TelaPrincipal extends TelaBasica {
         super(largura,altura); //indico aqui o tamanho da tela
         getContentPane().setBackground(new Color(210,180,140));
         setUndecorated(true);
-        //new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/trilha_principal.mp3", null);
+        //new Util().reproduzirAudioMp3("audio/trilha_principal.mp3", null);
 
         //Dados do livro
         livro = DadosLivroCarregado.getLivro();
@@ -60,7 +61,9 @@ public class TelaPrincipal extends TelaBasica {
 
         // Carrega a imagem de fundo
         try {
-            imagemFundo = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem()));
+            InputStream inputStream = TelaPrincipal.class.getClassLoader()
+                    .getResourceAsStream(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem());
+            imagemFundo = ImageIO.read(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao carregar a imagem de fundo");
@@ -89,7 +92,7 @@ public class TelaPrincipal extends TelaBasica {
         addWindowFocusListener(new WindowFocusListener() {
             @Override
             public void windowGainedFocus(WindowEvent e) {
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/trilha_principal.mp3", null);
+                util.reproduzirAudioMp3("audio/trilha_principal.mp3", null);
             }
 
             @Override
@@ -353,7 +356,7 @@ public class TelaPrincipal extends TelaBasica {
                 if ( !labelVoz.isEnabled() )
                     return;
 
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/introducao.mp3", null);
+                util.reproduzirAudioMp3("audio/introducao.mp3", null);
                 labelVoz.setEnabled(false);
             }
 

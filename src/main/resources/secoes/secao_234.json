@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "234",
+  "texto": "\t\t\t\tVocê chega de volta à encruzilhada na trilha. Ignorando o caminho que vai para o sul, você ruma para o oeste.",
+  "enderecoAudio":"audio/secao_234.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o oeste.",
+      "codProximaSecao": "382"
+    }
+  ]
+}

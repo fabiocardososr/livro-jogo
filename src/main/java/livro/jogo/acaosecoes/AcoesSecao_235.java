@@ -8,7 +8,7 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_235 {
 
     public static void consumirPocaoDaImobilidade(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_IMOBILIDADE.getIdItem());
         UtilPersonagem.recuperaSorte(1);
     }

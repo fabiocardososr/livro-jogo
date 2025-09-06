@@ -1,0 +1,15 @@
+ {
+	"idItem":"35",
+	"tipoEfeito":"NENHUM",
+	"nome":"Cabeças de Alho",
+	"descricao":"Ótimo para afastar criaturas da noite e perfeito para temperar comida.",
+	"valorCusto":"2",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_35.png"
+  }

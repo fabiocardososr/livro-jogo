@@ -1,0 +1,12 @@
+
+{  	
+  "codSecaoLivro": "280",
+  "texto": "\t\t\t\tSua caminhada para o oeste é árdua mas sem novidades. Você passa por duas ramificações da trilha que conduzem para o sul, as quais você ignora.\n\n\t\t\t\tFinalmente, você chega a uma encruzilhada. Mais uma vez ignorando o caminho para o sul, você ruma para o norte.",
+  "enderecoAudio":"audio/secao_280.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "306"
+    }
+  ]
+  }

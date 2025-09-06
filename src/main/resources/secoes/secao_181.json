@@ -1,0 +1,20 @@
+{
+  "codSecaoLivro": "181",
+  "texto": "\t\t\t\tVocê caminha pelos degraus, atravessando a cachoeira e entrando numa grande caverna, onde há um lago de água parada.\n\n\t\t\t\tOs degraus contornam as margens do lago, e há, do outro lado, uma mesa e uma cadeira, ambas de pedra. Você vai até a mesa e vê restos de peixe sobre ela.\n\n\t\t\t\tDe repente, você ouve um ruído de água atrás de você. Uma estranha criatura sai do lago e avança na sua direção. Tem pernas como as de um homem, mas seu rosto e tronco se assemelham a um grande peixe verde com olhos arregalados.\n\n\t\t\t\tOs braços dele são como os seus, mas estão cobertos por escamas grandes.\n\n\t\t\t\tTrata-se de um HOMEM-PEIXE, e você terá que lutar contra ele.",    
+	"enderecoAudio":"audio/secao_181.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "162"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"35",
+		"nome":"Homem-Peixe",
+		"habilidade":"7",
+		"energia":"6",
+		"enderecoImagem": "imagens/inimigos/homem_peixe.png"
+	}
+  ]
+}

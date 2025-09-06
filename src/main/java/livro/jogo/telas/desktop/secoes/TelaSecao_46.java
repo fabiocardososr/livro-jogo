@@ -23,7 +23,7 @@ public class TelaSecao_46 extends TelaSecoesBasica {
             public void windowOpened(WindowEvent e) {
                 // Código a ser executado quando o diálogo é aberto
 
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
 
                 //Perda de 2 pontos de sorte
                 AcoesSecao_46.perde2Sorte();

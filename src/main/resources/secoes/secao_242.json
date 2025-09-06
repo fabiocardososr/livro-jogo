@@ -1,0 +1,17 @@
+
+{  	
+  "codSecaoLivro": "242",
+  "texto": "\t\t\t\tRemexendo em meio a umas roupas de cama em uma cômoda, você acha um LINGOTE DE OURO. Vale 28 Peças de Ouro.\n\n\t\t\t\tContudo, é muito pesado e, se você quiser levá-lo com você, terá que deixar para trás algum outro objeto de sua mochila.\n\n\t\t\t\tNão há outra saída na caverna, e você tem que engatinhar de volta pelo túnel para a encruzilhada.",
+  "enderecoAudio":"audio/secao_242.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "121"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"30"
+  }
+  ]
+  }

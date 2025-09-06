@@ -1,0 +1,20 @@
+{
+  "codSecaoLivro": "169",
+  "texto": "\t\t\t\tO gás é tóxico, e seus olhos começam a lacrimejar. Você tosse e prende a respiração, enquanto corre pela caverna na tentativa de escapar da nuvem de gás que o envolve.\n\n\t\t\t\tSeus pulmões parecem estar prestes a estourar, e você é forçado a inspirar.\n\n\t\t\t\tSua HABILIDADE será reduzida em 2 pontos e sua ENERGIA segundo o resultado de um lance de dados.\n\n\t\t\t\tEstando vivo, você verá a nuvem de gás se dissipar.\n\n\t\t\t\tVocê coloca a caixa de prata na sua mochila.",
+  "enderecoAudio":"audio/secao_169.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Caminhar até a criatura que está na jaula?",
+      "codProximaSecao": "85"
+    },
+	{
+      "textoOpcao": "Sair da caverna e continuar sua jornada na direção do norte?",
+      "codProximaSecao": "358"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"43"
+  }
+  ]
+}

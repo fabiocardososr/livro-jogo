@@ -23,11 +23,11 @@ public class AcoesSecao_251 {
 System.out.println(resultadoDoisDados);
         //Faz a comparação seguindo as regras da seção
         if ( resultadoDoisDados <= habilidadeAtualPersonagem ) {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
             return true;
         }
         else {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
             return false;
         }
     }
@@ -37,7 +37,7 @@ System.out.println(resultadoDoisDados);
 
         if ( !UtilPersonagem.personagemPerdeEnergia(4) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\nApesar da flecha se alojar no ombro, o ferimento foi bastante grave pois você já estava ferido."+
                     "\n\nVocê morreu!");

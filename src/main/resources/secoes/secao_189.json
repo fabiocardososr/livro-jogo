@@ -1,0 +1,16 @@
+{
+  "codSecaoLivro": "189",
+  "texto": "\t\t\t\tOs fungos de topo verde estão sendo regados por dois humanóides.",
+  "enderecoAudio":"audio/secao_189.mp3",
+  "enderecoImagem": "imagens/secao/secao_189_269.png",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Quer comer um pouco de fungo?",
+      "codProximaSecao": "269"
+    },
+	{
+      "textoOpcao": "Sair da caverna pelos degraus na parede do outro lado?",
+      "codProximaSecao": "293"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "129",
+  "texto": "\t\t\t\tSeu braço está dolorido do esforço e a perda de suas posses para Quin faz você ficar deprimido.\n\n\t\t\t\tVocê perde 2 pontos de SORTE.\n\n\t\t\t\tEm seguida, sai da cabana e se afasta do sorridente Quin.",
+  "enderecoAudio":"audio/secao_129.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "349"
+    }
+  ]
+}

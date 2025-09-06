@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"28",
+  "texto":"Um artigo que pode ser útil neste momento é uma Braçaderia da Força.",
+  "enderecoAudio":"audio/secao_28.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Possui uma Braçadeira da Força?",
+      "codProximaSecao":"52"
+    },
+	{	  
+      "textoOpcao":"Não possui a Braçadeira da Força ou não quer usá-la.",
+      "codProximaSecao":"266"
+    }
+  ]
+ }

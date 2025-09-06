@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "162",
+  "texto": "\t\t\t\tNão há nada de valor ou que tenha uso na caverna do Homem-Peixe, portanto você caminha até a parede do lado norte.\n\n\t\t\t\tHá degraus que levam de volta através da cachoeira, subindo pela parede norte da garganta até o topo.\n\n\t\t\t\tVocê está no sopé de umas colinas e pode ver a trilha que sobe em meio a elas para o norte.\n\n\t\t\t\tEstá ficando escuro, e a noite está chegando, por isso, você resolve acampar atrás de umas rochas à direita da trilha. Você faz um fogo grande e se instala para dormir com sua espada a seu lado.",
+  "enderecoAudio":"audio/secao_162.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "285"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "182",
+  "texto": "\t\t\t\tVocê segura a espada e coloca o pé na rocha.\n\n\t\t\t\tJogue dois dados.",
+  "enderecoAudio":"audio/secao_182.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Sucesso!",
+      "codProximaSecao": "70"
+    },
+	{
+      "textoOpcao": "Falha!",
+      "codProximaSecao": "334"
+    }
+  ]
+}

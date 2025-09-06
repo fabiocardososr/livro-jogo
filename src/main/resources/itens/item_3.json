@@ -1,0 +1,15 @@
+ {
+	"idItem":"3",
+	"tipoEfeito":"NENHUM",
+	"nome":"Poção Antiveneno",
+	"descricao":"Cura qualquer tipo de veneno.",
+	"valorCusto":"2",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_3.png"
+  }

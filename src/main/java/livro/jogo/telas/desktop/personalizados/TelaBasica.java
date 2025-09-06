@@ -3,14 +3,16 @@ package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.utils.DadosLivroCarregado;
+import livro.jogo.utils.ManipularArquivos;
 import livro.jogo.utils.Util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
+import java.io.InputStream;
 
 
 public class TelaBasica extends JFrame {
@@ -39,7 +41,10 @@ public class TelaBasica extends JFrame {
     private void carregarIconTela(){
         BufferedImage img;
         try {
-            img = ImageIO.read(new File(DadosLivroCarregado.getLivro().getImagemCapa()));
+            var imagem = DadosLivroCarregado.getLivro().getImagemCapa();
+            InputStream inputStream = TelaBasica.class.getClassLoader()
+                    .getResourceAsStream(imagem);
+            img = ImageIO.read(inputStream);
             setIconImage(img);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -51,7 +56,7 @@ public class TelaBasica extends JFrame {
 
         var largura = 600;
         var altura = 500;
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/rolar_dados.mp3", null);
         JDialog telaDadosRolando = new JDialog();
         telaDadosRolando.setTitle("Rolando Dados");
         telaDadosRolando.setModal(true);

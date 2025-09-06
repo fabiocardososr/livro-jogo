@@ -109,7 +109,7 @@ public class TelaSecao_383 extends TelaSecoesBasica {
     }
 
     private void ganharEnergiaComendoOCoelhoAssado(){
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/mastigacao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/mastigacao.mp3", null);
         AcoesSecao_383.ganha2PontosDeEnergia();
         atualizaIndicesNaTelaDoPersonagem();
         txtBotaoGanhaEnergiaComendoOCoelhoAssado.setText("<html><center>Delícia!</center></html>");;

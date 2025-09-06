@@ -1,0 +1,20 @@
+{
+  "codSecaoLivro": "196",
+  "texto": "\t\t\t\tVocê penetra na caverna escura com a espada na mão. O ar é frio e úmido.\n\n\t\t\t\tVocê ouve roncos altos e vê, quando seus olhos se habituam à escuridão, a massa enorme de um TROLL DA CAVERNA dormindo em uma cadeira de pedra.\n\n\t\t\t\tA pele dele é marrom e enrugada, e ele está vestindo peles de animais.\n\n\t\t\t\tHá uma clava de madeira em seu colo e uma grande bolsa de couroque pende das costas da cadeira de pedra.",
+  "enderecoAudio":"audio/secao_196.mp3",
+  "enderecoImagem": "imagens/secao/secao_196.png",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Entrará na ponta dos pés e rouba a bolsa enquanto o Troll dorme?",
+      "codProximaSecao": "376"
+    },
+	 {
+      "textoOpcao": "Pegará sua Rede de Aprisionamento (se você tiver uma) na sua mochila?",
+      "codProximaSecao": "39"
+    },
+	{
+      "textoOpcao": "Caminhará de volta para a encruzilhada e rumará para o norte? ",
+      "codProximaSecao": "25"
+    }
+  ]
+}

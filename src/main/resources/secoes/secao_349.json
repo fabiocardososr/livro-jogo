@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "349",
+  "texto": "\t\t\t\tVocê chega de volta ao cruzamento. Ignorando o caminho para o sul, que volta para a floresta.",
+  "enderecoAudio":"audio/secao_349.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ir para o norte?",
+      "codProximaSecao": "291"
+    },
+	{	  
+      "textoOpcao": "Continuar para o leste?",
+      "codProximaSecao": "102"
+    }
+  ]
+}

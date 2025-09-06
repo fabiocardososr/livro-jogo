@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "210",
+  "texto": "\t\t\t\tOs homens xingam e pulam de um lado para o outro de raiva por não o terem acertado. Eles começam a discutir e dar empurrões uns nos outros. Parecem esquecer de você totalmente.",
+  "enderecoAudio":"audio/secao_210.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Atacar os MONTANHESES SELVAGENS?",
+      "codProximaSecao": "43"
+    },
+	{	  
+      "textoOpcao": "Passar por eles pela trilha enquanto ainda estão discutindo?",
+      "codProximaSecao": "188"
+    }
+  ]
+  }

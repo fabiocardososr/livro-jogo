@@ -18,14 +18,14 @@ public class AcoesSecao_222 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(resultadoDoisDado) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nSeu corpo não resistiu ao gás tóxico. Você morreu!"+
                     "\n\nSua aventura acaba aqui!");
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                 ",\n\nseu corpo resistiu ao gás venenoso. Mas perde "+ resultadoDoisDado +" de energia.");
 

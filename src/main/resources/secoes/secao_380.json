@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "380",
+  "texto": "\t\t\t\tQual sua decisão?",
+  "enderecoAudio":"audio/secao_380.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Pular pelo tronco oco da árvore, para o fundo do túnel lá embaixo?",
+      "codProximaSecao": "237"
+    },
+	{	  
+      "textoOpcao": "Voltar à trilha para seguir para o norte de novo?",
+      "codProximaSecao": "144"
+    }
+  ]
+}

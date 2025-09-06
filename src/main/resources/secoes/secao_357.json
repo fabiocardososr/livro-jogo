@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "357",
+  "texto": "\t\t\t\tNa sua caminhada para o oeste pela trilha sinuosa, você passa por uma outra ramificação que conduz para o sul, na direção do vale.\n\n\t\t\t\tVocê a ignora e prossegue para o oeste. Finalmente, a trilha termina numa encruzilhada. Mais uma vez, ignorando o caminho para o vale no rumo sul, você vira para o norte.",
+  "enderecoAudio":"audio/secao_357.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para norte.",
+      "codProximaSecao": "306"
+    }
+  ]
+}

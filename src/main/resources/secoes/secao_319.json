@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "319",
+  "texto": "\t\t\t\tVocê possui Botas Saltadoras?",
+  "enderecoAudio":"audio/secao_319.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Sim.",
+      "codProximaSecao": "228"
+    },
+	{	  
+      "textoOpcao": "Não.",
+      "codProximaSecao": "14"
+    }
+  ]
+}

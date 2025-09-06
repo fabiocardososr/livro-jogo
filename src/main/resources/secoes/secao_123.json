@@ -1,0 +1,24 @@
+{  	
+  "codSecaoLivro": "123",
+  "texto": "\t\t\t\tO HOMEM-ÁRVORE desfere um golpe contra você com dois de seus galhos principais, e você salta para atacar.",
+  "enderecoAudio":"audio/secao_123.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo.",
+      "codProximaSecao": "27"
+    },
+	{	  
+      "textoOpcao": "Fugir! Corra de volta para a encruzilhada na trilha.",
+      "codProximaSecao": "234"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"30",
+		"nome":"H. Árvore",
+		"habilidade":"8",
+		"energia":"8",
+		"enderecoImagem": "imagens/inimigos/homem_arvore.png"
+	}
+  ]
+  }

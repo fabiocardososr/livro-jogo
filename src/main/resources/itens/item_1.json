@@ -1,0 +1,15 @@
+ {
+	"idItem":"1",
+	"tipoEfeito":"NENHUM",
+	"nome":"Anel da Luz",
+	"descricao":"Ilumina ambientes escuros.",
+	"valorCusto":"3",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_1.png"
+  }

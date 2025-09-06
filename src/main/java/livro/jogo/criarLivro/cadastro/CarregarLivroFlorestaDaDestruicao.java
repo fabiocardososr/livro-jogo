@@ -8,8 +8,6 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.utils.ManipularArquivos;
 import livro.jogo.utils.DadosLivroCarregado;
 
-import java.io.File;
-
 public class CarregarLivroFlorestaDaDestruicao {
     public void carregarLivroFlorestaDestruicao(){
 
@@ -30,8 +28,8 @@ public class CarregarLivroFlorestaDaDestruicao {
     private Livro carregaLivro(ObjectMapper objMapper)  {
 
         try {
-            var json = ManipularArquivos.lerTexto("livros/florestadadestruicao/livro/livroFlorestaDaDestruicao.Json").toString();
-            return objMapper.readValue(json, Livro.class); //Transformando JSDON em objeto (API Jackson)
+            var json = ManipularArquivos.lerTexto("livro/livroFlorestaDaDestruicao.json").toString();
+            return objMapper.readValue(json, Livro.class); //Transformando JSON em objeto (API Jackson)
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -44,13 +42,8 @@ public class CarregarLivroFlorestaDaDestruicao {
 
         //São exatas 400 seções
         for (int i=1; i<=400; i++) {
-            var endereco = "livros/florestadadestruicao/secoes/secao_"+i+".json";
-            var existe = (new File(endereco)).exists();
-
-            if (existe)
-                lerSecao(objMapper, endereco);
-            else
-                System.out.println("INEXISTENTE o Arquivo: "+endereco);
+            var endereco = "secoes/secao_" +i+".json";
+            lerSecao(objMapper, endereco);
         }
     }
 
@@ -70,19 +63,12 @@ public class CarregarLivroFlorestaDaDestruicao {
 
     private void inserirItens(ObjectMapper objMapper) {
 
-        //São 53 itens
+        //São 58 itens
         for (int i=1; i<=58; i++) {
-            var endereco = "livros/florestadadestruicao/itens/item_"+i+".json";
-            var existe = (new File(endereco)).exists();
-
-            if (existe)
-                lerItem(objMapper, endereco);
-            else
-                System.out.println("INEXISTENTE o Arquivo: "+endereco);
+            var endereco = "itens/item_" +i+".json";
+            lerItem(objMapper, endereco);
         }
 
-        //Apenas para verificar se tudo ocorreu bem(depois pode remover)
-        //ManipularDadosLivro.imprimirInfoItens();
     }
 
     private void lerItem(ObjectMapper objMapper, String enderecoDoArquivoDoItem){

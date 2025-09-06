@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "295",
+  "texto": "\t\t\t\tVocê bate com a cabeça violentamente no lado do poço ao cair.",
+  "enderecoAudio":"audio/secao_295.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você está usando um elmo?",
+      "codProximaSecao": "225"
+    },
+    {
+      "textoOpcao": "Não está usando um elmo?",
+      "codProximaSecao": "30"
+    }
+  ]
+  }

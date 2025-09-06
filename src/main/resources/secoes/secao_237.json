@@ -1,0 +1,16 @@
+
+{  	
+  "codSecaoLivro": "237",
+  "texto": "\t\t\t\tVocê aterrisa pesadamente no chão e ouve um estalo sonoro e assustador.\n\n\t\t\t\tA dor se espalha pela sua perna, e você compreende que ela está quebrada.\n\n\t\t\t\tVocê perde 2 pontos de SORTE.",
+  "enderecoAudio":"audio/secao_237.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui Poção Curativa?",
+      "codProximaSecao": "214"
+    },
+	{	  
+      "textoOpcao": "Não possui Poção Curativa?",
+      "codProximaSecao": "304"
+    }
+  ]
+  }

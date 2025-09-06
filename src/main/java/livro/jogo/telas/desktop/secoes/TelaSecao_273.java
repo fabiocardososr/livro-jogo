@@ -52,7 +52,7 @@ public class TelaSecao_273 extends TelaSecoesBasica {
                 // Código a ser executado quando o diálogo é desativado
             }
         });
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
     }
 
     @Override

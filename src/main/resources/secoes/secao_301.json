@@ -1,0 +1,22 @@
+{  	
+  "codSecaoLivro": "301",
+  "texto": "\t\t\t\tVocê revista os bolsos dos Hobgoblins e acha 3 Peças de Ouro, uma minúscula flauta de metal e dois biscoitos cheios de bichos.\n\n\t\t\t\tHá também um colar feito de crânios de camundongos em volta do pescoço de um deles. ",
+  "enderecoAudio":"audio/secao_301.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "157"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"21"
+  },
+  {
+	"idItem":"52"
+  },
+  {
+	"idItem":"53"
+  }
+  ]
+  }

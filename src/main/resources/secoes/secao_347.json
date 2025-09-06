@@ -1,0 +1,20 @@
+{  	
+  "codSecaoLivro": "347",
+  "texto": "\t\t\t\tO Anão é um velho e experiente guerreiro, e brande seu machado com grande habilidade.",
+  "enderecoAudio":"audio/secao_347.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "363"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"65",
+		"nome":"Anão",
+		"habilidade":"8",
+		"energia":"5",
+		"enderecoImagem": "imagens/inimigos/anao.png"
+	}
+  ]
+  }

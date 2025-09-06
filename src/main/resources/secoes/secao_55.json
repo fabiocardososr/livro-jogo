@@ -1,0 +1,20 @@
+{  
+  "codSecaoLivro":"55",
+  "texto":"\t\t\t\tVocê remexe em sua mochila e retira a luva de seda roxa. Ela serve perfeitamente na sua mão.\n\n\t\t\t\tEm seguida, você se abaixa e apanha uma pedra de bom tamanho. Faz mira e atira esta pedra, com toda a força, no Ogro, ela voa como uma flecha para atingi-lo no lado da cabeça, derrubando-o inconsciente.\n\n\t\t\t\tA criatura na jaula pula para todos os lados ainda mais freneticamente do que antes.",
+  "enderecoAudio":"audio/secao_55.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Você dá uma olhada mais de perto na criatura da gaiola?",
+      "codProximaSecao":"168"
+    },
+	{	  
+      "textoOpcao":"Você examina os objetos que a caverna contém?",
+      "codProximaSecao":"313"
+    },
+	{	  
+      "textoOpcao":"Você sai da caverna imediatamente e continua para o norte?",
+      "codProximaSecao":"358"
+    }
+  ]
+ }
+

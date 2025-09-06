@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "291",
+  "texto": "\t\t\t\tÀ medida em que você vai caminhando na direção do norte, atravessando a planície, o mato vai se tornando gradualmente mais baixo, e o terreno começa a se elevar suavemente.\n\n\t\t\t\tVocê ouve o ruído de uma queda d'água adiante. Logo, você chega à margem de um rio largo que se divide em dois níveis.\n\n\t\t\t\tÀ sua direita, a água é calma e se movimenta lentamente, mas à sua frente ela despenca ruidosamente numa grande cachoeira até uma garganta lá embaixo, onde o rio se estreita e corre velozmente para o oeste por sobre rochas e penedos.\n\n\t\t\t\tHá degraus que conduzem para o fundo da garganta pelo lado da cachoeira, embora seja difícil ver onde eles terminam devido à nuvem de vapor d'água que sobe lá debaixo.\n\n\t\t\t\tDo outro lado do rio, você vê a trilha rumando para o norte na distância. Um pequeno bote de madeira está amarrado a uma estaca à sua direita, onde o rio é calmo.",
+  "enderecoAudio":"audio/secao_291.mp3",
+  "enderecoImagem": "imagens/secao/secao_291.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Descer os degraus até a base da cachoeira?",
+      "codProximaSecao": "335"
+    },
+	{	  
+      "textoOpcao": "Remar no bote de madeira para atravessar o rio?",
+      "codProximaSecao": "145"
+    }
+  ]
+  }

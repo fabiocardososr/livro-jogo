@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "35",
+  "texto": "\t\t\t\tVocê perde 4 pontos de ENERGIA devido ao ferimento causado pela terrível queimadura.",
+  "enderecoAudio":"audio/secao_35.mp3",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Continue.",
+      "codProximaSecao":"132"
+    }
+  ]
+  }

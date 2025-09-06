@@ -103,14 +103,14 @@ public class TelaSecao_29 extends TelaSecoesBasica {
             public void mouseClicked(MouseEvent e) {
                 if (e.getSource() == botaoOpcao2){
                     if ( AcoesSecao_29.fuga(estaTela) ) {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/correndo.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/correndo.mp3", null);
                         atualizaIndicesNaTelaDoPersonagem();
                         abrirProximaSecao(secao.getProximasSecoes().get(1).getCodProximaSecao());
                     }
 
                     //Após a fuga e perda de energia, verifica se o personagem está vivo.
                     if ( !UtilPersonagem.retornaSePersonagemVivo() )
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                         if (referenciaTelaPrincipal != null)
                             referenciaTelaPrincipal.setVisible(true);
                 }

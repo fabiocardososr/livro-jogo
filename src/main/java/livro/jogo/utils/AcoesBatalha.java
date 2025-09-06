@@ -93,11 +93,11 @@ public class AcoesBatalha {
 
 
                     if (resultadoSorte) {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
                     }
                     else {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
                     }
                 }
@@ -115,7 +115,7 @@ public class AcoesBatalha {
                 }
             }
             else{
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                 CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
                         "Sua aventura acaba aqui.");
                 telaPai.dispose();
@@ -152,11 +152,11 @@ public class AcoesBatalha {
 
 
                     if (resultadoSorte) {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
                     }
                     else {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nNo momento da fuga você escorregou e caiu de mau jeito.\nSeu dano será aumentado em mais 1 ponto.");
                     }
                 }
@@ -174,7 +174,7 @@ public class AcoesBatalha {
                 }
             }
             else{
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                 CarregarTelas.telaMensagem("Você foi ferido gravemente, sua energia chegou a zero.\n\n"+
                         "Sua aventura acaba aqui.");
                 telaPai.dispose();
@@ -208,7 +208,7 @@ public class AcoesBatalha {
                 +"</center></html>");
 
         ///Calculando ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
-        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
+        util.reproduzirAudioMp3("audio/efeitos_sonoros/suspense.mp3", null);
         animacaoRolagemDados("Calculando ataque do inimigo...");
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
@@ -216,12 +216,12 @@ public class AcoesBatalha {
 
         ///Mostrar resultado no painel (escudo) do lado direito (inimigo)
         telaBatalha.getLabelMostradorResultDadosInimigo().setText(Integer.toString(forcaDeAtaqueInimigo));
-        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/calculo_ataque.mp3", null);
+        util.reproduzirAudioMp3("audio/efeitos_sonoros/calculo_ataque.mp3", null);
         mensagemComDelay(milisegundos,"<html><center>Ataque do inimigo calculado!</center></html>");
 
 
         ///Calculando ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
-        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/suspense.mp3", null);
+        util.reproduzirAudioMp3("audio/efeitos_sonoros/suspense.mp3", null);
         animacaoRolagemDados("Calculando seu ataque...");
 
         //Verifica se existe alguma desvantagem no ataque do personagem em alguma seção
@@ -237,7 +237,7 @@ public class AcoesBatalha {
 
         ///Mostrar resultado no painel (escudo) do lado esquerdo (personagem)
         telaBatalha.getLabelMostradorResultDadosPersonagem().setText(Integer.toString(forcaDeAtaquePersonagem));
-        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/calculo_ataque.mp3", null);
+        util.reproduzirAudioMp3("audio/efeitos_sonoros/calculo_ataque.mp3", null);
         mensagemComDelay(milisegundos,"<html><center>Seu ataque foi calculado!</center></html>");
 
 
@@ -245,7 +245,7 @@ public class AcoesBatalha {
         /**************** COMPARANDO ATAQUES ****************/
 
         ///PERSONAGEM GANHA TURNO DE BATALHA
-        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/resultado_turno_batalha.mp3", null);
+        util.reproduzirAudioMp3("audio/efeitos_sonoros/resultado_turno_batalha.mp3", null);
         if (forcaDeAtaquePersonagem > forcaDeAtaqueInimigo){
             resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
 
@@ -255,7 +255,7 @@ public class AcoesBatalha {
 
             if ( !inimigoVivo ){
                 resultadoTurnoBatalha = ResultadoBatalha.INIMIGO_MORTO;
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/vitoria.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/vitoria.mp3", null);
                 mensagemComDelay(milisegundos,"<html><center>Inimigo derrotado!</center></html>");
                 removerComponentesPanelETrocarImagem( telaSecao, telaBatalha.getPanelBotao() );
 
@@ -270,7 +270,7 @@ public class AcoesBatalha {
         else if (forcaDeAtaqueInimigo > forcaDeAtaquePersonagem) {
             resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_PERDEU_TURNO;
 
-            util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/dor.mp3", null);
+            util.reproduzirAudioMp3("audio/efeitos_sonoros/dor.mp3", null);
             mensagemComDelay(milisegundos,"<html><center>Inimigo o atinge</center></html>");
 
             //Regra é perder 2 pontos de energia por turno de batalha não vencido.
@@ -299,14 +299,14 @@ public class AcoesBatalha {
                     TelaBasica.mostrarDadosRolando(milisegundos, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
 
                     if (resultadoSorte) {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
                         personagem.setEnergiaAtual(personagem.getEnergiaAtual() + 1);
                         if (personagem.getEnergiaAtual() > 0)
                             personagemVivo = true;
                     }
                     else {
-                        util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                        util.reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                         CarregarTelas.telaMensagem("Fracasso no teste de sorte. Você é azarado! \n\nSeu dano será aumentado em mais 1 ponto.");
                         personagemVivo = UtilPersonagem.personagemPerdeEnergia(1);
                     }
@@ -316,7 +316,7 @@ public class AcoesBatalha {
             //Personagem morto
             if ( !personagemVivo )
              {
-                 util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/perdeu.mp3", null);
+                 util.reproduzirAudioMp3("audio/efeitos_sonoros/perdeu.mp3", null);
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_MORTO;
                 telaBatalha.atualizarIndicesPersonagemInimigo();
                 mensagemComDelay(milisegundos,"<html><center>"+personagem.getNome()+",<br>sua energia<br>chegou a 0.</center></html>");
@@ -324,7 +324,7 @@ public class AcoesBatalha {
         }
         ///EMPATE
         else {
-            util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/empate.mp3", null);
+            util.reproduzirAudioMp3("audio/efeitos_sonoros/empate.mp3", null);
             mensagemComDelay(milisegundos,"<html><center>Empate!<br>Ambos desviam do ataque</center></html>");
             //No empate ambos escapam do ataque um do outro
             resultadoTurnoBatalha = ResultadoBatalha.EMPATE_TURNO;
@@ -386,21 +386,21 @@ public class AcoesBatalha {
 
         //Regra: sucesso -> Causa 2 a mais de dano; Fracasso -> Devolve 1 de energia para a criatura
         if ( resultadoBatalha == ResultadoBatalha.PERSONAGEM_GANHOU_TURNO ){
-            //util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
+            //util.reproduzirAudioMp3("audio/efeitos_sonoros/rolar_dados.mp3", null);
             mensagemComDelay(2000, "<html><center>Teste de sorte...<center><html>");
             TelaBasica.mostrarDadosRolando(milisegundos, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
             var teveSorte = UtilPersonagem.testarSorte();
             mensagemComDelay(milisegundos, "<html><center>Teste realizado!<center><html>");
 
             if ( teveSorte ){
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                 mensagemComDelay(milisegundos, "<html><center>SORTE!<br>O inimigo sofre<br>+2 de dano<center><html>");
                 var inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
 
                 if ( inimigoVivo )
                     resultadoTesteSorte = ResultadoBatalha.INIMIGO_VIVO;
                 else {
-                    util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/vitoria.mp3", null);
+                    util.reproduzirAudioMp3("audio/efeitos_sonoros/vitoria.mp3", null);
                     removerComponentesPanelETrocarImagem( telaSecao, telaBatalha.getPanelBotao() );
                     telaBatalha.atualizarIndicesPersonagemInimigo();
                     return ResultadoBatalha.INIMIGO_MORTO;
@@ -408,7 +408,7 @@ public class AcoesBatalha {
             }
             else{
                 //Se falhar no teste de sorte, devolve 1 ponto de energia para a criatura
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                 mensagemComDelay(milisegundos, "<html><center>AZAR!<br>inimigo recupera<br>1 ponto<center><html>");
                 inimigo.setEnergia(inimigo.getEnergia() + 1);
                 telaBatalha.atualizarIndicesPersonagemInimigo();
@@ -422,20 +422,20 @@ public class AcoesBatalha {
             - SORTE -> reponha 1 ponto de ENERGIA.
             - AZAR  -> Subtraia 1 ponto a mais de ENERGIA.*/
         if ( resultadoBatalha == ResultadoBatalha.PERSONAGEM_PERDEU_TURNO ){
-            //util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/rolar_dados.mp3", null);
+            //util.reproduzirAudioMp3("audio/efeitos_sonoros/rolar_dados.mp3", null);
             mensagemComDelay(2000, "<html><center>Teste de sorte...<center><html>");
             TelaBasica.mostrarDadosRolando(milisegundos, ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
             var teveSorte = UtilPersonagem.testarSorte();
             mensagemComDelay(milisegundos, "<html><center>Teste realizado!<center><html>");
 
             if ( teveSorte ){
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                 mensagemComDelay(milisegundos, "<html><center>SORTE!<br>Recupera 1 ponto<center><html>");
                 personagem.setEnergiaAtual(personagem.getEnergiaAtual() + 1);
                 telaBatalha.atualizarIndicesPersonagemInimigo();
             }
             else{
-                util.reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                util.reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                 mensagemComDelay(milisegundos, "<html><center>AZAR!<br>+1 ponto de dano<center><html>");
                 var personagemVivo = UtilPersonagem.personagemPerdeEnergia(1);
                 telaBatalha.atualizarIndicesPersonagemInimigo();

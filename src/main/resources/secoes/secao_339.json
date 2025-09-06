@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "339",
+  "texto": "\t\t\t\tLogo, você atinge a margem de um rio que flui suavemente. Você vê que a trilha continua para o norte sobre o rio, via uma ponte velha e instável de madeira.",
+  "enderecoAudio":"audio/secao_339.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Quer atravessar o rio por essa ponte?",
+      "codProximaSecao": "65"
+    },
+	{	  
+      "textoOpcao": "Nadar para o outro lado do rio segurando sua mochila fora da água?",
+      "codProximaSecao": "75"
+    }
+  ]
+}

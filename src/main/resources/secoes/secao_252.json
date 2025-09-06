@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "252",
+  "texto": "\t\t\t\tVocê chega a um cruzamento de quatro caminhos na trilha.\n\n\t\t\t\tO que vai para o sul conduz de volta à floresta, portanto você descarta esta alternativa.",
+  "enderecoAudio":"audio/secao_252.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Rumar para o norte?",
+      "codProximaSecao": "309"
+    },
+	{	  
+      "textoOpcao": "Continuar para o leste?",
+      "codProximaSecao": "72"
+    }
+  ]
+}

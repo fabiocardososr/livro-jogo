@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "235",
+  "texto": "\t\t\t\tVocê procura rapidamente na sua mochila e retira a pequena garrafa arrolhada que contém a poção.\n\n\t\t\t\tVocê engole o líquido.\n\n\t\t\t\tUma calma se espalha pelo seu corpo, apesar do caos à sua volta. Subitamente, a cabana desaba e desmonta no chão.\n\n\t\t\t\tVocê decide que está na hora de sair desse lugar e correr de volta para a trilha, rumando para o norte.\n\n\t\t\t\tSerá somado 1 ponto ao seu índice de SORTE",
+  "enderecoAudio":"audio/secao_235.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "149"
+    }
+  ]
+  }

@@ -1,0 +1,15 @@
+ {
+	"idItem":"36",
+	"tipoEfeito":"NENHUM",
+	"nome":"Medalhão de Ouro",
+	"descricao":"Bastante valioso. Deve valer ao menos 9 peças de ouro no mercado da cidade.",
+	"valorCusto":"9",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_36.png"
+  }

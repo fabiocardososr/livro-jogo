@@ -123,7 +123,7 @@ public class TelaBolsa extends JDialog {
         atualizarBolsa();
     }
 
-    /// Usado basicamente quando incluir clicar em um item para equipar ou consumir.
+    /// Usado quando incluir clicar em um item para equipar ou consumir.
     ///O primeiro coloca a tarja "Equipado" o outro some.
     private void atualizarBolsa(){
         JLabelOpcoesTelaSecao imgItem;
@@ -310,7 +310,7 @@ public class TelaBolsa extends JDialog {
     private void configuraTelaSuspensaInfoItem(JLabelOpcoesTelaSecao imgLabel) {
 
         Item item = mapItens.get(imgLabel);
-        panelInfoItem.setBounds(imgLabel.getX()+210,imgLabel.getY(),LARGURA_IMG, ALTURA_IMG);
+        panelInfoItem.setBounds(imgLabel.getX()+240,imgLabel.getY(),LARGURA_IMG, ALTURA_IMG);
         panelInfoItem.setVisible(true);
         descricaoItem.setText( item.getDescricao() );
         tituloTelaSuspensaInfo.setText( item.getNome() );

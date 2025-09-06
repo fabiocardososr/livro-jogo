@@ -1,0 +1,15 @@
+ {
+	"idItem":"7",
+	"tipoEfeito":"NENHUM",
+	"nome":"Água Benta",
+	"descricao":"Afasta criaturas do mal.",
+	"valorCusto":"3",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_7.png"
+  }

@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "105",
+  "texto": "\t\t\t\tNa distância, à direita da trilha, você vê pássaros grandes que descrevem círculos no céu. Ao se aproximar, reconhece que são abutres.",
+  "enderecoAudio":"audio/secao_105.mp3",
+  "enderecoImagem": "imagens/secao/secao_105.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Ver quem ou o quê está despertando o interesse dos abutre?",
+      "codProximaSecao": "384"
+    },
+	{	  
+      "textoOpcao": "Ignorar os abutres e continuar caminhando para o norte?",
+      "codProximaSecao": "394"
+    }
+  ]
+}

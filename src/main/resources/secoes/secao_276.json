@@ -1,0 +1,42 @@
+
+{  	
+  "codSecaoLivro": "276",
+  "texto": "\t\t\t\tQuando você recua para atacar o cavaleiro mascarado, o maior dos três cães salta sobre você, o que o obriga a lutar.\n\n\t\t\t\tEnfrente-os!",
+  "enderecoAudio":"audio/secao_276.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "62"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"50",
+		"nome":"Cão",
+		"habilidade":"6",
+		"energia":"6",
+		"enderecoImagem": "imagens/inimigos/cao_1.png"
+	},
+	{
+		"idInimigo":"51",
+		"nome":"Cão",
+		"habilidade":"5",
+		"energia":"6",
+		"enderecoImagem": "imagens/inimigos/cao_2.png"
+	},
+	{
+		"idInimigo":"52",
+		"nome":"Cão",
+		"habilidade":"6",
+		"energia":"5",
+		"enderecoImagem": "imagens/inimigos/cao_3.png"
+	},
+	{
+		"idInimigo":"53",
+		"nome":"Mascarado",
+		"habilidade":"8",
+		"energia":"7",
+		"enderecoImagem": "imagens/inimigos/cacador_mascarado.png"
+	}
+  ]
+  }

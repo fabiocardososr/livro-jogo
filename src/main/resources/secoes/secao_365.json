@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "365",
+  "texto": "\t\t\t\tO gás é tóxico, e seus olhos começam a lacrimejar. Você prende a respiração por tempo suficiente para encontrar os Filtros Nasais e colocá-los em posição no interior das narinas.\n\n\t\t\t\tVocê inspira cautelosamente, mas tudo está bem. Depois de algum tempo, a nuvem de gás em torno de seu rosto se dissipa.\n\n\t\t\t\tVocê coloca a caixa de prata na sua mochila e deixa a caverna para continuar na sua missão rumo ao norte.",
+  "enderecoAudio":"audio/secao_365.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte.",
+      "codProximaSecao": "358"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"43"
+  }
+  ]
+}

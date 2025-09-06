@@ -1,0 +1,15 @@
+ {
+	"idItem":"16",
+	"tipoEfeito":"NENHUM",
+	"nome":"Controle dos Insetos",
+	"descricao":"Cria uma barreira protetora contra insetos.",
+	"valorCusto":"2",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_16.png"
+  }

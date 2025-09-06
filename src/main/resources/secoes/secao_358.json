@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "358",
+  "texto": "\t\t\t\tCaminhando ao longo da trilha, você não repara num laço de corda escondido por baixo de umas folhas caídas à sua frente.\n\n\t\t\t\tSeu pé fica preso no nó corrediço e, subitamente, você é erguido no ar pela corda, que está amarrada a uma árvore curvada até o chão.\n\n\t\t\t\tNum segundo, você está pendurado de cabeça para baixo, suspenso pelo seu pé preso.\n\n\t\t\t\tTeste a sua Sorte.",
+  "enderecoAudio":"audio/secao_358.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! Você consegue usar sua espada para cortar a corda.",
+      "codProximaSecao": "40"
+    },
+	{	  
+      "textoOpcao": "Azar! Sua espada escorrega da bainha e cai no chão.",
+      "codProximaSecao": "218"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+
+{  	
+  "codSecaoLivro": "239",
+  "texto": "\t\t\t\tA trilha continua, abrindo caminho em meio à vegetação espessa, e você se sente um pouco claustrofóbico com as árvores se inclinando sobre você de ambos os lados.\n\n\t\t\t\tDepois de algum tempo, a trilha faz uma curva fechada para a esquerda, onde há uma árvore que dá uma fruta estranha.",
+  "enderecoAudio":"audio/secao_239.mp3",
+  "enderecoImagem": "imagens/secao/secao_239.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Parar para comer um pouco da fruta?",
+      "codProximaSecao": "37"
+    },
+	{	  
+      "textoOpcao": "Prosseguir para o norte sem parar para comer?",
+      "codProximaSecao": "226"
+    }
+  ]
+  }

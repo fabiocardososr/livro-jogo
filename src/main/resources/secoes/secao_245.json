@@ -1,0 +1,20 @@
+
+{  	
+  "codSecaoLivro": "245",
+  "texto": "\t\t\t\tChegando ao fundo do vale, você descobre que a trilha se bifurca.",
+  "enderecoAudio":"audio/secao_245.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continuar para o norte?",
+      "codProximaSecao": "163"
+    },
+	{	  
+      "textoOpcao": "Ir para o oeste?",
+      "codProximaSecao": "233"
+    },
+	{	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "393"
+    }
+  ]
+  }

@@ -130,7 +130,7 @@ public class TelaSecao_278 extends TelaSecoesBasica {
             CarregarTelas.telaMensagem("Parabéns!\n\nVocê foi bem sucedido no teste de sorte.\nMas ainda perde 2 pontos de energia pela queda.");
             AcoesSecao_278.perdePontosDeEnergia(2);
             botaoOpcao2.setEnabled(false);
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         }else {
             CarregarTelas.telaMensagem("Azarado!\n\nVocê foi malsucedido no teste de sorte. Perde 4 pontos de energia.");
             AcoesSecao_278.perdePontosDeEnergia(4);

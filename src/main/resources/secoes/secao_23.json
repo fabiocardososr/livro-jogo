@@ -1,0 +1,12 @@
+{  
+  "codSecaoLivro":"23",
+  "texto":"\t\t\t\tVocê enxuga o suor da sua testa e fica imaginando o que mais essas terras cruéis terão reservado para você.\n\n\t\t\t\tVocê senta e descansa um pouco. Depois, parte na direção do som de água corrente.",
+  "enderecoAudio":"audio/secao_23.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Siga na direção do som da água corrente.",
+      "codProximaSecao":"339"
+    }
+  ]
+ }
+

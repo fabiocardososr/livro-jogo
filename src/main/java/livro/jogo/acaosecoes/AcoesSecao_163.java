@@ -12,14 +12,14 @@ public class AcoesSecao_163 {
 
         if ( !UtilPersonagem.personagemPerdeEnergia(3) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nUma nuvem escura e estranha apareceu e lançou um raio.\nVocê perdeu 3 pontos de energia."+
                     "\nVocê morreu. Sua aventura acaba aqui!");
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 }

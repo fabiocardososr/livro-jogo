@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "150",
+  "texto": "\t\t\t\tCaminhando para o norte através do verde vale, você vê a muralha verde e escura da Floresta de Darkwood erguer-se diante de você.\n\n\t\t\t\tA trilha leva diretamente para a vegetação baixa e espessa, e logo você está andando entre árvores altas e moitas de espinhos.\n\n\t\t\t\tEstá escuro e quieto, e a trilha termina abruptamente em uma encruzilhada.",
+  "enderecoAudio":"audio/secao_150.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Caminhar para o oeste?",
+      "codProximaSecao": "357"
+    },
+	 {	  
+      "textoOpcao": "Ir para leste?",
+      "codProximaSecao": "171"
+    }
+  ]
+  }

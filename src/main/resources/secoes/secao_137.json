@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "137",
+  "texto": "\t\t\t\tVeja as opções",
+  "enderecoAudio":"audio/secao_137.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui Luva de Destreza de Arremesso?",
+      "codProximaSecao": "55"
+    },
+	{	  
+      "textoOpcao": "Não possui Luva de Destreza de Arremesso",
+      "codProximaSecao": "10"
+    }
+  ]
+}

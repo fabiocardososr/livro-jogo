@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "131",
+  "texto": "\t\t\t\tVocê se esforça até sair da água na margem do outro lado do rio.\n\n\t\t\t\tVocê vê que a trilha continua para o norte e penetra nas montanhas, mas, como está ficando escuro, decide acampar por esta noite sob uma grande árvore solitária à direita da trilha.\n\n\t\t\t\tVocê acende um fogo bem forte e se instala para dormir com a espada a seu lado.",
+  "enderecoAudio":"audio/secao_131.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "325"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "379",
+  "texto": "Qual sua decisão?",
+  "enderecoAudio":"audio/secao_379.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Tentar arrombar a porta?",
+      "codProximaSecao": "73"
+    },
+	{	  
+      "textoOpcao": "Retornar à trilha e rumar para o norte?",
+      "codProximaSecao": "112"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+ {
+	"idItem":"25",
+	"tipoEfeito":"NENHUM",
+	"nome":"Cabo do Martelo G",
+	"descricao":"Faz parte do martelo dos anões e é um dos itens necessários para cumprir seu objetivo.",
+	"valorCusto":"10",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_25.png"
+  }

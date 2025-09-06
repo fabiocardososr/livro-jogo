@@ -34,7 +34,7 @@ public class TelaSecao_19 extends TelaSecoesBasica {
                     abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
                 }
                 else {
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                     CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                             ",\nvocê não resistiu ao ferimento, sua energia chegou a 0.\n\nSua aventura acaba aqui.");
                     dispose();

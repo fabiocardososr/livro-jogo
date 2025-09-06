@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "260",
+  "texto": "\t\t\t\tAo ver que a flecha não matou você, o Centauro empina sobre as patas traseiras e avança na sua direção a galope. Você tem que saltar de lado para evitar ser atropelado.\n\n\t\t\t\tEle passa trovejando por você, numa nuvem de poeira, e para a uns dez metros de distância, mais abaixo na trilha, a mesma pela qual você chegou.\n\n\t\t\t\tTalvez lutar contra o nobre Centauro não seja uma ideia tão boa, afinal de contas.\n\n\t\t\t\tVocê põe a espada na bainha e resolve atravessar o rio.",
+  "enderecoAudio":"audio/secao_260.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Atravesse o rio.",
+      "codProximaSecao": "178"
+    }
+  ]
+}

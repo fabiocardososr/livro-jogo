@@ -6,8 +6,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class JButtonEscolhaPocao extends JButton {
     private final Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
@@ -29,7 +29,8 @@ public class JButtonEscolhaPocao extends JButton {
     private ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
         ImageIcon imageIcon;
         try {
-            BufferedImage img = ImageIO.read(new File(enderecoImagem));
+            InputStream inputStream = JButtonEscolhaPocao.class.getClassLoader().getResourceAsStream(enderecoImagem);
+            BufferedImage img = ImageIO.read(inputStream);
             Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
             imageIcon = new ImageIcon(imgDimensionada);
         } catch (IOException e) {

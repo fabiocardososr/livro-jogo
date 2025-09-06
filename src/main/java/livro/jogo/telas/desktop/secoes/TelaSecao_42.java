@@ -21,7 +21,7 @@ public class TelaSecao_42 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
                 // Código a ser executado quando o diálogo é aberto
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                 //Perda de 1 ponto de sorte
                 UtilPersonagem.personagemPerdeSorte(1);
                 atualizaIndicesNaTelaDoPersonagem();

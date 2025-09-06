@@ -20,7 +20,7 @@ public class TelaSecao_370 extends TelaSecoesBasica {
 
     public TelaSecao_370(Secao secao) {
         super(secao);
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
     }
 
     @Override

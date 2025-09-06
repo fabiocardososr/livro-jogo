@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "398",
+  "texto": "\t\t\t\tVocê chega ao fim do túnel e está prestes a começar a subir a escada na parede do poço quando ouve passos acima de você.\n\n\t\t\t\tAlguém está descendo pela escada.",
+  "enderecoAudio":"audio/secao_398.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Esticar o braço para tentar agarrar a primeira perna que aparecer?",
+      "codProximaSecao": "320"
+    },
+	{	  
+      "textoOpcao": "Esperar pelo visitante, até que ele entre no túnel?",
+      "codProximaSecao": "193"
+    }
+  ]
+}

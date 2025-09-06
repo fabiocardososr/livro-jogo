@@ -19,13 +19,13 @@ public class AcoesSecao_328 {
         var vivo = UtilPersonagem.personagemPerdeEnergia(4);
 
         if ( !vivo ) {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
                     ",\n\nVocê sentou em uma Cadeira de Sugamento da Vida, apesar da porção de suas Provisões comida,"+
                     " não foi suficiente para mantê-lo vivo.");
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return vivo;
     }
 }

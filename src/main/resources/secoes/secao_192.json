@@ -1,0 +1,15 @@
+{
+  "codSecaoLivro": "192",
+  "texto": "\t\t\t\tVocê desembainha sua espada, mas o Gnomo fica sentado de pernas cruzadas e sorri.\n\n\t\t\t\tVocê olha para sua mão e vê que você não está mais segurando sua espada - ela se transformou numa cenoura!",
+  "enderecoAudio":"audio/secao_192.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Se desculpar com o Gnomo por ser tão ríspido?",
+      "codProximaSecao": "12"
+    },
+	{
+      "textoOpcao": "Prefere jogar a cenoura nele?",
+      "codProximaSecao": "46"
+    }
+  ]
+}

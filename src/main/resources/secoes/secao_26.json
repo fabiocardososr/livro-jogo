@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"26",
+  "texto":"\t\t\t\tVocê resolve começar sua busca pelas estantes de madeira. Todos os livros estão escritos em uma língua que você não conhece e contêm estranhos diagramas.\n\n\t\t\t\tOs mapas e pergaminhos também são ininteligíveis para você. Você abre os armários e gavetas, mas tudo que você encontra são mais livros, empoeirados e encadernados em couro.\n\n\t\t\t\tVocê está prestes a desistir de sua busca no aposento quando repara em ainda mais um livro no chão, servindo de apoio para uma perna de mesa quebrada.",
+  "enderecoAudio":"audio/secao_26.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Apanhará o livro?",
+      "codProximaSecao":"91"
+    },
+	{	  
+      "textoOpcao":"Desistirá de sua busca e retornará à trilha para prosseguir para o norte?",
+      "codProximaSecao":"220"
+    }
+  ]
+ }

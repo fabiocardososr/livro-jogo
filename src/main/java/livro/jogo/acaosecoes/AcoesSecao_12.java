@@ -36,10 +36,12 @@ public class AcoesSecao_12 {
                     break;
                 }
             if ( !jaPossuiEspadaMagnifica )
-                UtilItemEquipado.incluirItem(ItensMapeamento.ESPADA_MAGNIFICA);
+                UtilItemEquipado.incluirItem( DadosLivroCarregado.getMapItem().
+                          get(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem()) );
         }
         else
-            UtilItemEquipado.incluirItem(ItensMapeamento.ESPADA);
+            UtilItemEquipado.incluirItem(DadosLivroCarregado.getMapItem().
+                    get(ItensMapeamento.ESPADA.getIdItem()));
 
         UtilItemEquipado.removerItem(ItensMapeamento.CENOURA.getIdItem());
         UtilBolsa.removerItem(ItensMapeamento.CENOURA.getIdItem());

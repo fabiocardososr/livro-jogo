@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "83",
+  "texto": "\t\t\t\tVocê procura na sua mochila e tira a beladona. É venenosa, mas seu efeito impedirá que você mesmo se torne um Lobisomem.\n\n\t\t\t\tVocê perde 2 pontos de ENERGIA por causa dos efeitos do veneno.",
+  "enderecoAudio":"audio/secao_83.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "139"
+    }
+  ]
+}

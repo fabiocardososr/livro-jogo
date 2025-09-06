@@ -1,0 +1,24 @@
+{  	
+  "codSecaoLivro": "290",
+  "texto": "\t\t\t\tVocê desembainha sua espada ao entrar na caverna. O OGRO joga a cumbuca de madeira no chão e ergue a grande clava de madeira presa a seu cinto.\n\n\t\t\t\tEle grunhe e salta na sua direção.\n\n\t\t\t\tPrepare-se para a batalha.",
+  "enderecoAudio":"audio/secao_290.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "385"
+    },
+	{	  
+      "textoOpcao": "Fugir, correndo para a trilha e rumando para o norte?",
+      "codProximaSecao": "358"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"56",
+		"nome":"Ogro",
+		"habilidade":"8",
+		"energia":"12",
+		"enderecoImagem": "imagens/inimigos/ogro.png"
+	}
+  ]
+  }

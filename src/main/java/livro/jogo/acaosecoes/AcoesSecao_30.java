@@ -10,13 +10,13 @@ public class AcoesSecao_30 {
     public static boolean perde2PontosDeEnergiaEverificaSePersonagemVivo(){
         if ( !UtilPersonagem.personagemPerdeEnergia(2) )
         {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem("Devido ao profundo corte na sua testa, você foi ferido gravemente, sua energia chegou a zero.\n\n"+
                     "Sua aventura acaba aqui.");
             return false;
         }
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 }

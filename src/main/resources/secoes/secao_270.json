@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "270",
+  "texto": "\t\t\t\tO túnel termina na entrada de uma caverna. Ao entrar numa caverna, você vê que o teto não é mais alto do que o túnel, e que você não tem como ficar de pé.\n\n\t\t\t\tA caverna é o covil de alguma criatura inteligente, pois contém pequenas peças de mobiliário. Há uma caixa de madeira com pouco mais de um metro de comprimento no fundo da caverna.",
+  "enderecoAudio":"audio/secao_270.mp3",
+  "enderecoImagem": "imagens/secao/secao_270.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Erguer a tampa da caixa?",
+      "codProximaSecao": "229"
+    },
+	{	  
+      "textoOpcao": "Dar meia volta e retornar à encruzilhada no túnel?",
+      "codProximaSecao": "121"
+    }
+  ]
+}

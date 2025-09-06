@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "361",
+  "texto": "\t\t\t\tVindo não de muito longe, adiante, chega a você o ruído penetrante de cachorros que se aproximam latindo.\n\n\t\t\t\tDe repente, uma raposa marrom com os olhos arregalados de medo passa em disparada por você, correndo para o leste.\n\n\t\t\t\tO latido frenético dos cães fica mais alto.",
+  "enderecoAudio":"audio/secao_361.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer enfrentar a matilha que se aproxima?",
+      "codProximaSecao": "396"
+    },
+	{	  
+      "textoOpcao": "Se esconder no mato e deixar que eles passem em perseguição à raposa?",
+      "codProximaSecao": "86"
+    }
+  ]
+}

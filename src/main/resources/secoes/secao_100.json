@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "100",
+  "texto": "\t\t\t\tAo remexer na sua mochila, você se dá conta, com horror, que os grandes insetos que zumbem acima de você são ABELHAS ASSASSINAS.\n\n\t\t\t\tVocê pega a garrafa em que está escrito Poção do Controle dos Insetos e engole seu conteúdo.\n\n\t\t\t\tAs Abelhas Assassinas mergulham para atacar você, mas são subitamente repelidas, como se tivessem se chocado contra uma tela invisível.\n\n\t\t\t\tElas pairam por toda parte à sua volta, mas não mordem.\n\n\t\t\t\tCom o coração aliviado, você puxa sua espada e a gira pelo ar. Você atinge uma das Abelhas Assassinas, que cai no chão. Você pisa nela com sua sandália de couro. As outras então voam, se afastando na distância.\n\n\t\t\t\tVocê continua na direção norte, aproximando-se do som de água corrente.",
+  "enderecoAudio":"audio/secao_100.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue para o norte.",
+      "codProximaSecao": "339"
+    }
+  ]
+ }

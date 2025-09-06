@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "329",
+  "texto": "\t\t\t\tA luz do dia aparece entre as árvores de ambos os lados da trilha, à medida em que a floresta se torna menos espessa.\n\n\t\t\t\tLogo a trilha conduz para fora das árvores a uma grande planície com mato alto. Além dela, você vê o terreno que se eleva, conduzindo a umas montanhas baixas.\n\n\t\t\t\tUma nova ramificação da trilha leva para o leste.",
+  "enderecoAudio":"audio/secao_329.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Seguir caminho para o norte?",
+      "codProximaSecao": "180"
+    },
+	{	  
+      "textoOpcao": "Ir para o leste?",
+      "codProximaSecao": "252"
+    }
+  ]
+}

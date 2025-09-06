@@ -1,0 +1,16 @@
+{  
+  "codSecaoLivro":"51",
+  "texto":"\t\t\t\tVocê vai andando pelo vale verdejante até chegar a uma encruzilhada na trilha.",
+  "enderecoAudio":"audio/secao_51.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Se quiser dirigir-se ao norte.",
+      "codProximaSecao":"199"
+    },
+	{	  
+      "textoOpcao":"Se desejar continuar para o leste.",
+      "codProximaSecao":"397"
+    }
+  ]
+ }
+

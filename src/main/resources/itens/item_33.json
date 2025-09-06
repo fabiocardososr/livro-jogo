@@ -1,0 +1,15 @@
+  {
+	"idItem":"33",
+	"tipoEfeito":"ENERGIA",
+	"nome":"Poção da Força",
+	"descricao":"Repõe 5 pontos de Energia.",
+	"valorCusto":"0",
+	"modificador":"5",   
+	"quantidadeUso":"1",
+	"flgUsoTemporario":"S",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"S",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_33.png"
+  }

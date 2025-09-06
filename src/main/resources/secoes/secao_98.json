@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "98",
+  "texto": "\t\t\t\tNa sua longa caminhada contornando a Floresta de Darkwood, você é atacado por um bando numeroso de Montanheses Selvagens, provavelmente o mesmo grupo que atacou Perna Grande e seu grupo dois dias antes.\n\n\t\t\t\tTeste a sua Sorte.\n\n\t\t\t\tSe você Tiver sorte, consegue fugir deles sem ser atingido pela chuva de flechas que cai por toda parte à sua volta.",
+  "enderecoAudio":"audio/secao_98.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sorte! Recomece deste ponto sua aventura escolhendo outro caminho.",
+      "codProximaSecao": "1"
+    },
+	{	  
+      "textoOpcao": "Azar...",
+      "codProximaSecao": ""
+    }
+  ]
+ }

@@ -1,0 +1,15 @@
+ {
+	"idItem":"44",
+	"tipoEfeito":"NENHUM",
+	"nome":"Dente de Dragão",
+	"descricao":"Ótimo para fazer um colar!",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_44.png"
+  }

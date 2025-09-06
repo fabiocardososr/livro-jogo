@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "226",
+  "texto": "\t\t\t\tÀ direita da trilha, você ouve vozes que discutem numa estranha língua, vindas das árvores.",
+  "enderecoAudio":"audio/secao_226.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Sair da trilha para investigar?",
+      "codProximaSecao": "29"
+    },
+	{	  
+      "textoOpcao": "Ignorar as vozes e seguir adiante para o norte ao longo da trilha?",
+      "codProximaSecao": "254"
+    }
+  ]
+}

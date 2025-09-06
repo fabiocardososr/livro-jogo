@@ -21,8 +21,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 
 public abstract class TelaSecoesBasica extends JDialog {
@@ -190,7 +191,12 @@ public abstract class TelaSecoesBasica extends JDialog {
     private void carregaImagemDefundo(){
         // Carrega a imagem de fundo
         try {
-            imagemFundo = ImageIO.read(new File(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem()));
+            InputStream input = TelaSecoesBasica.class.getClassLoader().getResourceAsStream(ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem());
+            if (input == null) {
+                throw new RuntimeException("Recurso não encontrado: " + ImagensDoLivroFlorestaDaDestruicao.FUNDO_TELA_PRINCIPAL.getEnderecoImagem());
+            }
+
+            imagemFundo = ImageIO.read(input);
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao carregar a imagem de fundo");
@@ -572,8 +578,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Ao descartar um item, ganha-se o lingote de ouro.
         if (secao.getCodSecaoLivro() == 242){
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
-            UtilBolsa.incluirItem(ItensMapeamento.LINGOTE_DE_OURO);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.LINGOTE_DE_OURO.getIdItem()));
         }
     }
 
@@ -1489,7 +1495,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 if (UtilItens.quantidadeProvisoesRestantes() == 0) {
 
                     if ( (secao.getCodSecaoLivro() == 304) && (quantProvisoesComidas < 5) ){
-                        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+                        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
                         CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
                                 "\n\nVocê não tem provisões suficientes para se restabelecer.\n\nVocê Morreu!");
                         personagemVivo(false);

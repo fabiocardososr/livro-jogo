@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "304",
+  "texto": "\t\t\t\tSua perna vai levar muito tempo para ficar curada. Você encontra dois galhos no chão e os amarra à sua perna quebrada com o cinto de couro que está na sua cintura.\n\n\t\t\t\tVocê se recosta e começa a descansar. Terá que comer cinco porções de suas Provisões antes de estar forte o suficiente para seguir adiante.\n\n\t\t\t\tSe você não tiver mais cinco porções de suas Provisões, VOCÊ MORRERÁ DE FOME E SUA AVENTURA ACABA AGORA.\n\n\t\t\t\tSe sobreviver comendo 5 porções de suas provisões, será reduzido seu índice de HABILIDADE em 2 pontos, devido à sua deficiência.",
+  "enderecoAudio":"audio/secao_304.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você tem que engatinhar para explorar o túnel.",
+      "codProximaSecao": "69"
+    }
+  ]
+}

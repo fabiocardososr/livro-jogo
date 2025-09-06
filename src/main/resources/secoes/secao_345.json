@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "345",
+  "texto": "\t\t\t\tA dor no seu estômago se intensifica, e o suor brota na sua testa.\n\n\t\t\t\tVocê começa a tremer, e perde 4 pontos de ENERGIA.\n\n\t\t\t\tSe ainda estiver vivo, a dor gradualmente vai sumindo. Não parece haver muito motivo para continuar aqui por mais tempo, e você caminha até os degraus na parede do outro lado.",
+  "enderecoAudio":"audio/secao_345.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Continue.",
+      "codProximaSecao": "293"
+    }
+  ]
+  }

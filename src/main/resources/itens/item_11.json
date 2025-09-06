@@ -1,0 +1,15 @@
+ {
+	"idItem":"11",
+	"tipoEfeito":"NENHUM",
+	"nome":"Poeira da Levitação",
+	"descricao":"Pulverizado em um objeto o faz levitar. Ótimo para levantar pedras!",
+	"valorCusto":"0",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_11.png"
+  }

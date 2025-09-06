@@ -130,7 +130,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
                 (!escolheuItensDaListaSuspensa) &&
                 (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() < 5) &&
                 (UtilBolsa.retornaListaDeBensNaBolsa().length == 0) ){
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
             CarregarTelas.telaMensagem("Você não tem como pagar e o garotinho o deixa pendurado."+
                     "\n\nA morte o espera.\nSua aventura acaba aqui!");
             dispose();
@@ -269,7 +269,7 @@ public class TelaSecao_218 extends TelaSecoesBasica {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         if (personagem.getQuantidadeOuro() >= 5){
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
             CarregarTelas.telaMensagem("Você entrega 5 moedas para o garotinho.");
             personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
             atualizaIndicesNaTelaDoPersonagem();

@@ -29,7 +29,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
                 UtilPersonagem.personagemPerdeSorte(2);
                 atualizaIndicesNaTelaDoPersonagem();
             }
@@ -216,7 +216,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
                     entregouMoedas = true;
@@ -283,7 +283,7 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 10){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
                     entregouMoedas = true;

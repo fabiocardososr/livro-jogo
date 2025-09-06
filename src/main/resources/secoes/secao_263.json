@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "263",
+  "texto": "\t\t\t\tNão há muita coisa de interesse a ser encontrada na caverna.\n\n\t\t\t\tUma cama de palha, recipientes de pedra, uma mesa e uma cadeira são tudo que está imediatamente visível, mas, numa prateleira de pedra acima da cama, uma pequena caixa de prata chama a sua atenção.",
+  "enderecoAudio":"audio/secao_263.mp3",
+  "enderecoImagem": "imagens/secao/secao_263_313.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Abrir a caixa de prata?",
+      "codProximaSecao": "126"
+    },
+	{	  
+      "textoOpcao": "Sair da caverna e subir a trilha para o norte sem a caixa de prata?",
+      "codProximaSecao": "358"
+    }
+  ]
+}

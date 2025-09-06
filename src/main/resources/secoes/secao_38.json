@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "38",
+  "texto": "\t\t\t\tVocê dá uma olhada pela pequena janela suja da cabana e vê uma velha com roupas rotas, rosto enrugado e nariz cheio de verrugas, lendo um dos diversos livros que estão junto à lareira da parede do outro lado da cabana.\n\n\t\t\t\tUm servo corcunda está trazendo mais livros para ela, das estantes atulhadas de livros velhos, mapas e pergaminhos.",
+  "enderecoImagem": "imagens/secao/secao_38.png",
+  "enderecoAudio":"audio/secao_38.mp3",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Você quer entrar na cabana?",
+      "codProximaSecao":"315"
+    },
+	{	  
+      "textoOpcao":"Prefere retornar à trilha e se dirigir para o norte novamente?",
+      "codProximaSecao":"220"
+    }
+  ]
+  }

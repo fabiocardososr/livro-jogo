@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "36",
+  "texto": "\t\t\t\tPensando a respeito do estranho de vestes longas, você se sente um pouco desconfortável.\n\n\t\t\t\tHavia alguma coisa na sua maneira de ser que não inspirava confiança.\n\n\t\t\t\tVocê para para dar uma olhada na sua mochila e fica aborrecido ao descobrir que algumas coisas desapareceram.\n\n\t\t\t\tO homem era um ladrão! Você perde todas as peças de ouro restantes ou dois artigos mágicos.\n\n\t\t\t\tVocê fica em dúvida se deve ou não sair correndo atrás do ladrão, mas pressente que ele não estará onde disse que iria.\n\n\t\t\t\tVocê xinga o gatuno e prossegue na direção norte.\n\n",
+  "enderecoAudio":"audio/secao_36.mp3",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Siga para o norte.",
+      "codProximaSecao":"187"
+    }
+  ]
+  }

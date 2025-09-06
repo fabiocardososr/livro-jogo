@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "348",
+  "texto": "\t\t\t\tOs homens estão pulando para todos os lados com os braços levantados para o ar em acessos de alegria, ao verem que você está lutando para tirar a flecha de seu ombro.\n\n\t\t\t\tVocê aperta os dentes e puxa a flecha com força; ela finalmente se solta.\n\n\t\t\t\tOs dois homens estão rindo alto e incontrolavelmente.",
+  "enderecoAudio":"audio/secao_348.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer atacar os MONTANHESES SELVAGENS?",
+      "codProximaSecao": "43"
+    },
+	{	  
+      "textoOpcao": "Passar por eles caminhando pela trilha, enquanto eles continuam a rir?",
+      "codProximaSecao": "188"
+    }
+  ]
+}

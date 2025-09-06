@@ -23,11 +23,11 @@ public class AcoesSecao_73 {
         //Faz a comparação seguindo as regras da seção
         if ( (resultadoDoisDados <= sorteAtualPersonagem) &&
                 (resultadoDoisDados <= habilidadeAtualPersonagem)) {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
             return true;
         }
         else {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
             return false;
         }
     }

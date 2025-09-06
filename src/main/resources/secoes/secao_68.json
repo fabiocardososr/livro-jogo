@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "68",
+  "texto": "\t\t\t\tVocê bebe o líquido claro da garrafa lentamente. O gosto é muito amargo, e você fica apreensivo com o que está fazendo. Mas, em seguida, um bem-estar se irradia pelo seu corpo e você se sente revigorado.\n\n\t\t\t\tVocê bebeu uma poção da saúde - você soma 3 pontos de ENERGIA a seu índice.\n\n\t\t\t\tVocê parte para o leste pela trilha.",
+  "enderecoAudio":"audio/secao_68.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o leste.",
+      "codProximaSecao": "59"
+    }
+  ]
+}

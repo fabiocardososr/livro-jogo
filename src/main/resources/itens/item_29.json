@@ -1,0 +1,15 @@
+ {
+	"idItem":"29",
+	"tipoEfeito":"NENHUM",
+	"nome":"Dardo feito de prata",
+	"descricao":"Dardo feito de prata.\nDeve valer algumas peças de ouro.",
+	"valorCusto":"5",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_29.png"
+  }

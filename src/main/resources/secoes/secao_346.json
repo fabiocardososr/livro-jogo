@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "346",
+  "texto": "\t\t\t\tArragon ergue o braço direito e abre os dedos da mão, dizendo:\n\n\t\t\t\t- Bem, estranho, qual é a sua decisão?",
+  "enderecoAudio":"audio/secao_346.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar a Arragon o que ele está requisitando?",
+      "codProximaSecao": "32"
+    },
+	{	  
+      "textoOpcao": "Ignorar a ameaça dele e desembainhar sua espada?",
+      "codProximaSecao": "111"
+    }
+  ]
+  }

@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "204",
+  "texto": "\t\t\t\tA trilha conduz através do campo até uma ponte de pedra sobre um riacho límpido.\n\n\t\t\t\tDepois da ponte, há pequenas casas e cabanas de madeira, formando uma aldeia. Um letreiro na ponte diz Stonebridge.\n\n\t\t\t\tVocê vê dois anões velhos com longas barbas brancas, de pé.",
+  "enderecoImagem": "imagens/secao/secao_204.png",
+  "enderecoAudio":"audio/secao_204.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Você tem a cabeça e o cabo do martelo com a letra G gravada neles?",
+      "codProximaSecao": "400"
+    },
+    {
+      "textoOpcao": "Se possuir nenhum ou apenas um desses artigos",
+      "codProximaSecao": "381"
+    }
+  ]
+  }

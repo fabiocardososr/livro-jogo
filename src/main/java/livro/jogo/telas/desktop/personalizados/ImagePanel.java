@@ -1,10 +1,8 @@
 package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -48,8 +46,12 @@ public class ImagePanel extends JPanel {
         setBackground(Color.BLACK);
         //BufferedImage imagem;
         try {
-            InputStream arquivo =  new FileInputStream(enderecoImagem.getEnderecoImagem());
-            setImage(ImageIO.read(arquivo));
+            InputStream imgStream = ImagePanel.class.getClassLoader().getResourceAsStream(enderecoImagem.getEnderecoImagem());
+            if (imgStream == null) {
+                throw new RuntimeException("Imagem não encontrada: " + enderecoImagem.getEnderecoImagem());
+            }
+
+            setImage(ImageIO.read(imgStream));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -60,8 +62,11 @@ public class ImagePanel extends JPanel {
         setBackground(Color.BLACK);
         //BufferedImage imagem;
         try {
-            InputStream arquivo =  new FileInputStream(enderecoImagem);
-            setImage(ImageIO.read(arquivo));
+            InputStream imgStream = ImagePanel.class.getClassLoader().getResourceAsStream(enderecoImagem);
+            if (imgStream == null) {
+                throw new RuntimeException("Imagem não encontrada: " + enderecoImagem);
+            }
+            setImage(ImageIO.read(imgStream));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -71,8 +76,9 @@ public class ImagePanel extends JPanel {
         setBackground(Color.BLACK);
         //BufferedImage imagem;
         try {
-            InputStream arquivo =  new FileInputStream(enderecoImagem.getEnderecoImagem());
-            setImage(ImageIO.read(arquivo));
+            InputStream inputStream = ImagePanel.class.getClassLoader()
+                    .getResourceAsStream(enderecoImagem.getEnderecoImagem());
+            setImage(ImageIO.read(inputStream));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

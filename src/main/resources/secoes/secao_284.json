@@ -1,0 +1,16 @@
+
+{  	
+  "codSecaoLivro": "284",
+  "texto": "\t\t\t\tVocê logo chega a uma outra encruzilhada no túnel.",
+  "enderecoAudio":"audio/secao_284.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Rumar para o norte?",
+      "codProximaSecao": "81"
+    },
+	{	  
+      "textoOpcao": "Se dirigir ao sul?",
+      "codProximaSecao": "270"
+    }
+  ]
+  }

@@ -1,0 +1,15 @@
+ {
+	"idItem":"24",
+	"tipoEfeito":"NENHUM",
+	"nome":"Grande Anel de ouro",
+	"descricao":"Anel valioso!\nFeito de puro ouro.",
+	"valorCusto":"10",
+	"modificador":"0",   
+	"quantidadeUso":"0",
+	"flgUsoTemporario":"N",
+	"flgUsoPermanente":"N",
+    "flgAfetaRolagemDados":"N",
+	"flgAfetaNivelAtualPersonagem":"N",
+	"flgAfetaNivelMaxPersonagem":"N",
+	"enderecoImagem":"imagens/itens/item_24.png"
+  }

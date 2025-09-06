@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "159",
+  "texto": "\t\t\t\tA despeito de seus esforços, a Erva Enredante consegue agarrar seus membros e arrastá-lo para o chão.\n\n\t\t\t\tVocê vê o mato começar a se enroscar em volta de seu pescoço e apertar. Você sufoca e tosse.\n\n\t\t\t\tEntão você se dá conta de que a Erva Enredante não está tentando estrangular você - está apenas tentando fazer tanto contato quanto possível com sua pele exposta para poder sugar seu sangue!\n\n\t\t\t\tHorrorizado, você vê centenas de minúsculas perfurações circundadas por sangue nos seus braços e pernas. Finalmente, a erva, tendo bebido o suficiente, afrouxa o aperto.\n\n\t\t\t\tVocê perdeu 3 pontos de ENERGIA.",
+  "enderecoAudio":"audio/secao_159.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Vivo? Você Levanta e esfrega suas feridas. Continue para o norte.",
+      "codProximaSecao": "142"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{  	
+  "codSecaoLivro": "374",
+  "texto": "\t\t\t\tVocê coloca a manopla na sua mão e segura a espada. Desferindo golpes no ar com ela, você se sente mais habilidoso do que o habitual com sua arma.\n\n\t\t\t\tVocê agora possui uma Manopla de Habilidade com Arma, que permitirá que você acrescente 1 ponto a todos os seus lances de dados futuros, quando estiver calculando sua própria Força de Ataque durante os combates, por tanto tempo quanto a usar.",
+  "enderecoAudio":"audio/secao_374.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Experimentar o anel de ouro?",
+      "codProximaSecao": "133"
+    },
+	{	  
+      "textoOpcao": "Ignorar o anel de ouro (ou se já experimentou), rumar para o norte?",
+      "codProximaSecao": "360"
+    }
+  ],
+  "itens":[
+  {
+	"idItem":"39"
+  }
+  ]
+}

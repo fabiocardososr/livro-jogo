@@ -16,7 +16,7 @@ public class TelaSecao_400 extends TelaSecoesBasica {
     public TelaSecao_400(Secao secao) {
         super(secao);
 
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/final_secao_400.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/final_secao_400.mp3", null);
     }
 
     @Override

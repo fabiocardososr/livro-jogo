@@ -129,7 +129,7 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                 Personagem personagem = DadosLivroCarregado.getPersonagem();
 
                 if (personagem.getQuantidadeOuro() >= 5){
-                    new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+                    new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
                     personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
                     labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());

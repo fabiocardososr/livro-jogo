@@ -1,0 +1,19 @@
+{
+  "codSecaoLivro": "172",
+  "texto": "\t\t\t\tUma escada desce pelo interior do poço até a água lá embaixo.\n\n\t\t\t\tPorém, parece existir um túnel logo acima da superfície da água, o qual conduz para o norte. É circular e tem o diâmetro de um metro.",
+  "enderecoAudio":"audio/secao_172.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Jogar uma Peça de Ouro no poço e formular um desejo?",
+      "codProximaSecao": "89"
+    },
+	{
+      "textoOpcao": "Descer a escada para dar uma olhada no túnel?",
+      "codProximaSecao": "256"
+    },
+	{
+      "textoOpcao": "Retornar à trilha para rumar para o leste?",
+      "codProximaSecao": "281"
+    }
+  ]
+}

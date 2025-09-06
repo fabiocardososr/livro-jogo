@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "103",
+  "texto": "\t\t\t\tA trilha se alarga e forma uma pequena clareira. À sua direita, você vê uma pilha de galhos, mato e pedaços de restos de comida, o covil de alguma criatura de grande porte.\n\n\t\t\t\tEntre os resíduos e ossos velhos espalhados por toda parte, você avista alguma coisa que reluz.",
+  "enderecoAudio":"audio/secao_103.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Quer olhar mais de perto?",
+      "codProximaSecao": "57"
+    },
+	{	  
+      "textoOpcao": "Prefere apressar-se pela trilha para o norte?",
+      "codProximaSecao": "360"
+    }
+  ]
+ }

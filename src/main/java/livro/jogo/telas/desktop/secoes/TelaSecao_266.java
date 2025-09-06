@@ -51,20 +51,20 @@ public class TelaSecao_266 extends TelaSecoesBasica {
             //incrementa sucessos
             ++contadorDeSucessos;
 
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/sorte.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
             CarregarTelas.telaMensagem("Resultado dos dados: "+AcoesSecao_266.getResultado2Dados()+
                     "\n\nHabilidade: "+DadosLivroCarregado.getPersonagem().getHabilidadeAtual()+
                     "\n\n"+contadorDeSucessos+" SUCESSO(S)!");
 
             //Após 3 tentativas de sucesso, libera o botão 1 de vitorioso.
             if (contadorDeSucessos == 3) {
-                new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/vitoria.mp3", null);
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/vitoria.mp3", null);
                 botaoOpcao2.setEnabled(false);
             }
 
 
         }else {
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
             CarregarTelas.telaMensagem("Resultado dos dados: "+AcoesSecao_266.getResultado2Dados()+
                     "\n\nHabilidade: "+DadosLivroCarregado.getPersonagem().getHabilidadeAtual()+
                     "\n\nFALHA!");

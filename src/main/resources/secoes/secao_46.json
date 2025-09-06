@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "46",
+  "texto": "\t\t\t\tA cenoura sai voando pelo ar mas, antes de chegar ao Gnomo, ela se transforma numa borboleta e se afasta, esvoaçando na brisa.\n\n\t\t\t\tO Gnomo começa a cortar lascas de um pedaço de madeira com uma faca pequena, tendo no rosto uma expressão enfastiada.\n\n\t\t\t\tVocê perde 2 pontos de SORTE.\n\n\t\t\t\tResolve então que deveria tratá-lo com um pouco mais de respeito e pede desculpas ao Gnomo.",
+  "enderecoAudio":"audio/secao_46.mp3",
+  "proximasSecoes":[
+    {	  
+      "textoOpcao":"Peça desculpas.",
+      "codProximaSecao":"12"
+    }
+  ]
+}

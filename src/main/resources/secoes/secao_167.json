@@ -1,0 +1,20 @@
+{
+  "codSecaoLivro": "167",
+  "texto": "\t\t\t\tA longa cauda do Dragão Alado chicoteia de um lado para o outro, e a fumaça sobe de suas narinas.\n\n\t\t\t\tVocê desembainha sua espada e se prepara para lutar contra este temível monstro.",
+  "enderecoAudio":"audio/secao_167.mp3",
+  "proximasSecoes": [
+    {
+      "textoOpcao": "Vencendo",
+      "codProximaSecao": "305"
+    }
+  ],
+  "inimigos":[
+	{
+		"idInimigo":"34",
+		"nome":"DRAGÃO",
+		"habilidade":"10",
+		"energia":"11",
+		"enderecoImagem": "imagens/secao/secao_57.png"
+	}
+  ]
+}

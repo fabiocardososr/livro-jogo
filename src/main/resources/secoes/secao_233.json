@@ -1,0 +1,16 @@
+{  	
+  "codSecaoLivro": "233",
+  "texto": "\t\t\t\tÀ direita da trilha, você vê um poço de pedra com um balde e uma manivela.",
+  "enderecoAudio":"audio/secao_233.mp3",
+  "enderecoImagem": "imagens/secao/secao_233.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Dar uma olhada mais de perto no poço?",
+      "codProximaSecao": "17"
+    },
+	{	  
+      "textoOpcao": "Prefere continuar sua caminhada para o oeste?",
+      "codProximaSecao": "238"
+    }
+  ]
+}

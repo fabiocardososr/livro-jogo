@@ -454,7 +454,7 @@ public class LojaDoMago extends JDialog {
 
         //Verifica se possui ouro suficiente para a compra
         if ( itemSelecionado.getValorCusto() > personagem.getQuantidadeOuro() ){
-            new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/azar.mp3", null);
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
             CarregarTelas.telaMensagem(personagem.getNome()+
                     ",\n\nVocê não possui ouro suficiente para comprar o(a) "+itemSelecionado.getNome()+".");
             return;
@@ -468,7 +468,7 @@ public class LojaDoMago extends JDialog {
         }
 
         //Efeito sonoro de moedas
-        new Util().reproduzirAudioMp3("livros/florestadadestruicao/audio/efeitos_sonoros/moedas.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
 
         //Decrementar valor em ouro
         UtilPersonagem.reduzirValorOuro( itemSelecionado.getValorCusto() );

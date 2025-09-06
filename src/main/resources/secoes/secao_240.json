@@ -1,0 +1,17 @@
+
+{  	
+  "codSecaoLivro": "240",
+  "texto": "\t\t\t\tVocê pressiona suavemente para soltar a tampa da caixa, mas, ao fazê-lo, um gás amarelo escapa e envolve seu rosto.",
+  "enderecoAudio":"audio/secao_240.mp3",
+  "enderecoImagem": "imagens/secao/secao_240.png",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Possui Filtros Nasais?",
+      "codProximaSecao": "338"
+    },
+	{	  
+      "textoOpcao": "Não possui Filtros Nasais?",
+      "codProximaSecao": "169"
+    }
+  ]
+  }

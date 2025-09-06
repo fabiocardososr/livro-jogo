@@ -1,0 +1,11 @@
+{  	
+  "codSecaoLivro": "139",
+  "texto": "\t\t\t\tOs efeitos da beladona e da mordida do Lobisomem vão diminuindo, e você finalmente consegue voltar a dormir.\n\n\t\t\t\tDe manhã, você recolhe seus pertences e ruma para o norte pela trilha, penetrando nas montanhas.",
+  "enderecoAudio":"audio/secao_139.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao": "Siga para o norte pela trilha.",
+      "codProximaSecao": "198"
+    }
+  ]
+}

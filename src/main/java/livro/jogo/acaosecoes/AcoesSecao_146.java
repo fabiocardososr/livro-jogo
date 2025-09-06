@@ -2,6 +2,7 @@ package livro.jogo.acaosecoes;
 
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.UtilBolsa;
 
 public class AcoesSecao_146 {
@@ -12,7 +13,7 @@ public class AcoesSecao_146 {
         if (UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.PEDACO_BICHO_ROCHEDO.getIdItem()))
             return true;
 
-        var adicionado = UtilBolsa.incluirItem(ItensMapeamento.PEDACO_BICHO_ROCHEDO);
+        var adicionado = UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.PEDACO_BICHO_ROCHEDO.getIdItem()));
 
         if (adicionado)
             CarregarTelas.telaMensagem("O pedaço de rocha do Bicho Rochedo foi adicionado a sua bolsa.");

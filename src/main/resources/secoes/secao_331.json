@@ -1,0 +1,15 @@
+{  	
+  "codSecaoLivro": "331",
+  "texto": "\t\t\t\tVocê logo chega a uma outra encruzilhada na trilha.\n\n\t\t\t\tVocê vê que a trilha que conduz ao sul ruma direto de volta para a floresta e resolve não ir por ela.",
+  "enderecoAudio":"audio/secao_331.mp3",
+  "proximasSecoes": [    
+	{	  
+      "textoOpcao": "Continuar para o oeste?",
+      "codProximaSecao": "124"
+    },
+	{	  
+      "textoOpcao": "Ir para o norte?",
+      "codProximaSecao": "309"
+    }
+  ]
+}

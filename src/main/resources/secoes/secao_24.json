@@ -1,0 +1,15 @@
+{  
+  "codSecaoLivro":"24",
+  "texto":"\t\t\t\tOs músculos do seu pescoço começam a endurecer, e você sente os efeitos do veneno dos dardos percorrendo seu corpo.\n\n\t\t\t\tVocê procura rapidamente na sua mochila e retira a pequena garrafa com o rótulo Poção Antiveneno, depois engole o conteúdo.\n\n\t\t\t\tSeu corpo relaxa, e os efeitos do veneno vão sumindo. Ao ver isso, os Pigmeus voltam-se e fogem para o mato.",
+  "enderecoAudio":"audio/secao_24.mp3",
+  "proximasSecoes": [
+    {	  
+      "textoOpcao":"Desembainhará sua espada e correrá atrás dos Pigmeus?",
+      "codProximaSecao":"377"
+    },
+	{	  
+      "textoOpcao":"Continuará para o norte pela trilha?",
+      "codProximaSecao":"92"
+    }
+  ]
+ }
