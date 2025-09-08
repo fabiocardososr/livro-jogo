@@ -75,7 +75,7 @@ public class TelaBasica extends JFrame {
         moldura.setBounds(0,0,largura,altura+25);
         telaDadosRolando.add(moldura);
 
-        ImageIcon imageIcon = new ImageIcon(enderecoImagem.getEnderecoImagem());
+        ImageIcon imageIcon = new ImageIcon(TelaBasica.class.getClassLoader().getResource(enderecoImagem.getEnderecoImagem()));
         //ImageIcon imageIcon = Util.dimensionarImagem(largura,altura,enderecoImagem.getEnderecoImagem());
         JLabel label = new JLabel(imageIcon);
 

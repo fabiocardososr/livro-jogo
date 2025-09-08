@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.CarregarTelas;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -28,8 +29,8 @@ public class TelaSplash extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-
-                ImageIcon background = new ImageIcon( escolheImagemParaFundoDaTelaDeSplash() );
+                //TelaSplash.class.getClassLoader().getResourceAsStream(audio);
+                ImageIcon background = new ImageIcon(getClass().getClassLoader().getResource(escolheImagemParaFundoDaTelaDeSplash()));
                 g.drawImage(background.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };

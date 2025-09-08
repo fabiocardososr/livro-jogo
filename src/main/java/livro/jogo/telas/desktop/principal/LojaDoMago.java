@@ -452,6 +452,9 @@ public class LojaDoMago extends JDialog {
     private void confirmarEscolhaItens() {
         Personagem personagem = DadosLivroCarregado.getPersonagem();
 
+        if (itemSelecionado == null)
+            return;
+
         //Verifica se possui ouro suficiente para a compra
         if ( itemSelecionado.getValorCusto() > personagem.getQuantidadeOuro() ){
             new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);

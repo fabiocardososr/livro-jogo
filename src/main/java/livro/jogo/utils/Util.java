@@ -6,11 +6,9 @@ import javazoom.jl.player.Player;
 import livro.jogo.entidades.*;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.telas.desktop.personalizados.ImagePanel;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
-import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.telas.desktop.principal.TelaPrincipal;
+
 
 
 import javax.imageio.ImageIO;

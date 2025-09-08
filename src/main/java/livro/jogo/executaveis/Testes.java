@@ -38,7 +38,7 @@ public class Testes {
 //        System.out.println();
 //        System.out.println(DadosLivroCarregado.getItensEquipados());
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(1);
+        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(261);
         CarregarTelas.carregarSecao(secao);
 
     }
