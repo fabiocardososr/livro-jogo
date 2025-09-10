@@ -483,8 +483,8 @@ public class LojaDoMago extends JDialog {
         UtilBolsa.incluirItem( itemSelecionado );
 
         //Aviso que adquiriu o item
-        CarregarTelas.telaMensagem(personagem.getNome()+
-                ",\n\nVocê comprou o(a) "+itemSelecionado.getNome()+".");
+//        CarregarTelas.telaMensagem(personagem.getNome()+
+//                ",\n\nVocê comprou o(a) "+itemSelecionado.getNome()+".");
 
         //Apagar informações do artefato
         removerItemSelecionado();

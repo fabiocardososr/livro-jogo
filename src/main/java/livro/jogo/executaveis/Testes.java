@@ -10,6 +10,7 @@ import livro.jogo.utils.DadosLivroCarregado;
 
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Testes {
     public static void main(String[] args) {
@@ -38,9 +39,23 @@ public class Testes {
 //        System.out.println();
 //        System.out.println(DadosLivroCarregado.getItensEquipados());
 
-        Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(261);
-        CarregarTelas.carregarSecao(secao);
+        Scanner scanner = new Scanner(System.in);
+        int numero = 0;
+        do {
+            System.out.print("Digite a seção: ");
+            String input = scanner.nextLine().trim();
 
+            if (!input.equalsIgnoreCase("null") && !input.isEmpty()) {
+                try {
+                    numero = Integer.parseInt(input);
+                    if (numero == 0){ continue; }
+                    Secao secao = DadosLivroCarregado.getLivro().getMapSecao().get(numero);
+                    CarregarTelas.carregarSecao(secao);
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida! Usando null.");
+                }
+            }
+        }while(numero != 0);
     }
 
     public static ArrayList<Item> recuperaItensIniciaisEquipados() {
@@ -51,8 +66,8 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "itens/item_12.json"));
 
-       //for (int i=1; i<=58; i++)
-           itensEquipados.add(DadosLivroCarregado.getMapItem().get(2));
+       for (int i=1; i<=57; i++)
+           itensEquipados.add(DadosLivroCarregado.getMapItem().get(i));
 //
         //Equipando uma espada magnífica(10)
         itensEquipados.add(DadosLivroCarregado.getMapItem().get(1));
@@ -83,8 +98,9 @@ public class Testes {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
-           bolsa.add(DadosLivroCarregado.getMapItem().get(4));
-        bolsa.add(DadosLivroCarregado.getMapItem().get(57));
+       // for (int i=1; i<=57; i++)
+           //bolsa.add(DadosLivroCarregado.getMapItem().get(i));
+        //bolsa.add(DadosLivroCarregado.getMapItem().get(45));
 
 
         return bolsa;
