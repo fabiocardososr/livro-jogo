@@ -15,7 +15,7 @@ public class AcoesSecao_16 {
 
     //Seta variável para informar que a poção foi consumida. Essa informação é necessária para liberar o botão
     public static boolean consumiuPocaoAntiveneno() {
-        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/bebendo_pocao.mp3", null);
         consumiuPocaoAntiveneno = true;
         UtilBolsa.removerItem( ItensMapeamento.POCAO_ANTIVENENO.getIdItem() );
 
