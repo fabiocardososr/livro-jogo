@@ -30,7 +30,7 @@ public class AcoesSecao_16 {
         //Se possui a Poção Antiveneno, mas encontra-se na bolsa, informa que ele deve ser equipado antes
         if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.POCAO_ANTIVENENO.getIdItem()) )
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
-                    ",\nvocê possui o item. Mas precisa equipá-lo.\n\nProcure-o na sua bolsa.");
+                    ",\nvocê possui o item. Beba-o.\n\nProcure-o na sua bolsa.");
         else
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
                     ",\nvocê não possui uma poção Antiveneno.");
