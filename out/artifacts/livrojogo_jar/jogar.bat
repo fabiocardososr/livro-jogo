@@ -1,4 +1,4 @@
 
+
 @echo off
-java -jar livrojogo.jar
-exit
+powershell -window minimized -command "java -jar livrojogo.jar

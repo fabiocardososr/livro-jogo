@@ -19,11 +19,11 @@ public class TelaSecao_9 extends TelaSecoesBasica {
 
     @Override
     protected void carregarComponentesEspecificos(Secao secao) {
-        opcao1(secao);
+
         //Redimensionando o botão da opção 1 (direcionando para a próxima seção)
-        labelNumOpcao1.setBounds(116,732, 50,50);
-        lbTextoOpcao1.setBounds(170,727,700,60);
-        botaoOpcao1.setBounds(120,740,40,50);
+        labelNumOpcao1.setBounds(116,542, 50,50);
+        lbTextoOpcao1.setBounds(170,537,700,60);
+        botaoOpcao1.setBounds(120,550,40,50);
         botaoOpcao1.setToolTipText("Somente após vencer todos os inimigos você pode escolher esta opção.");
 
         //Botão de batalha
