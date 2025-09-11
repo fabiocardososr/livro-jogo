@@ -66,7 +66,7 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "itens/item_12.json"));
 
-       for (int i=1; i<=57; i++)
+       for (int i=21; i<=57; i++)
            itensEquipados.add(DadosLivroCarregado.getMapItem().get(i));
 //
         //Equipando uma espada magnífica(10)
@@ -98,8 +98,8 @@ public class Testes {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
-       // for (int i=1; i<=57; i++)
-           //bolsa.add(DadosLivroCarregado.getMapItem().get(i));
+        for (int i=1; i<=20; i++)
+           bolsa.add(DadosLivroCarregado.getMapItem().get(i));
         //bolsa.add(DadosLivroCarregado.getMapItem().get(45));
 
 
