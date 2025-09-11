@@ -1277,7 +1277,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(panelTelaEspera);
     }
 
-    protected void opcao1(Secao secao){
+    private void opcao1(Secao secao){
         String texto = "1";            //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 0;           //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
@@ -1308,7 +1308,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(botaoOpcao1);
     }
 
-    protected void opcao2(Secao secao){
+    private void opcao2(Secao secao){
         String texto = "2";             //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 1;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
@@ -1336,7 +1336,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(botaoOpcao2);
     }
 
-    protected void opcao3(Secao secao){
+    private void opcao3(Secao secao){
         String texto = "3";             //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 2;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
@@ -1364,7 +1364,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         add(botaoOpcao3);
     }
 
-    protected void opcao4(Secao secao){
+    private void opcao4(Secao secao){
         String texto = "4";             //Número da opção que aparecerá para o usuário (label)
         int indiceOpcao = 3;            //Para recuperar o texto da opção da seção (índice no array das próximas seções)
 
