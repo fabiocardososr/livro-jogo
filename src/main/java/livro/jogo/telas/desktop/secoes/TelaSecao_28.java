@@ -63,7 +63,13 @@ public class TelaSecao_28 extends TelaSecoesBasica {
         botaoOpcao2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
+                if ( AcoesSecao_28.bracadeiraDaForcaEquipada() ) {
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() +
+                            ",\nVocê vestiu a Braçadeira da Força.");
+                    return;
+                }
+
+                    abrirProximaSecao( secao.getProximasSecoes().get(1).getCodProximaSecao() );
             }
 
             @Override
