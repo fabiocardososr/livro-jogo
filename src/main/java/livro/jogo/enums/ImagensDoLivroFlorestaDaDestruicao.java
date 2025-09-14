@@ -6,6 +6,7 @@ public enum ImagensDoLivroFlorestaDaDestruicao {
 
     /*** IMAGENS DE ITENS ***/
     CAPA(DadosLivroCarregado.getLivro().getImagemCapa()),
+    TELA_SOBRE("imagens/fundo_sobre.png"),
     TELA_SPLASH_0("imagens/fundo_splash_0.png"),
     TELA_SPLASH_1("imagens/fundo_splash_1.png"),
     TELA_SPLASH_2("imagens/fundo_splash_2.png"),

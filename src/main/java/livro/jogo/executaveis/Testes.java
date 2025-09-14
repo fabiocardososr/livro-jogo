@@ -6,9 +6,11 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
+import livro.jogo.telas.desktop.principal.TelaSobre;
 import livro.jogo.utils.DadosLivroCarregado;
 
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,6 +40,12 @@ public class Testes {
 //        System.out.println(DadosLivroCarregado.getBolsa());
 //        System.out.println();
 //        System.out.println(DadosLivroCarregado.getItensEquipados());
+
+        //Chamada a tela Sobre
+//        SwingUtilities.invokeLater(() -> {
+//            TelaSobre janela = new TelaSobre();
+//            janela.setVisible(true);
+//        });
 
         Scanner scanner = new Scanner(System.in);
         int numero = 0;
