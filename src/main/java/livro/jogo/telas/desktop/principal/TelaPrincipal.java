@@ -366,18 +366,22 @@ public class TelaPrincipal extends TelaBasica {
             }
 
             if ( (e.getSource() == labelRegras) || (e.getSource() == botaoRegras) ){
+                util.pararAudioMp3();
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_REGRAS_OPCOES,"","","");
             }
 
             if ( (e.getSource() == labelCarregarPersonagem) ||  (e.getSource() == botaoCarregarPersonagem)){
+                util.pararAudioMp3();
                 carregarTelas.carregarTela(TelasDisponiveisParaCarregamento.TELA_CARREGAR_JOGO,"","","");
             }
 
             if ( (e.getSource() == labelIniciarJogo) || (e.getSource() == botaoIniciarJogo) ){
+                util.pararAudioMp3();
                 carregarTelaCriacaoPersonagem();
             }
 
             if ( (e.getSource() == labelSair) || (e.getSource() == botaoSair) ){
+                util.pararAudioMp3();
                 System.exit(0);
             }
         }

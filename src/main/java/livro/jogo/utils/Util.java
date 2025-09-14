@@ -135,16 +135,32 @@ public class Util {
     }
 
     //Salvar o jogo em arquivo
-    public static void salvarJogoEmArquivo(String nomeArq, SaveJogo save){
+    public static void salvarJogoEmArquivo(String nomeArq, SaveJogo save) {
         ObjectOutputStream objectOutputStream = null;
         try {
-            objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("save/"+nomeArq+".sav")));
+            // Garante que o diretório "save" exista
+            File diretorio = new File("save");
+            if (!diretorio.exists()) {
+                diretorio.mkdirs(); // Cria o diretório e subdiretórios se necessário
+            }
+
+            // Cria o arquivo dentro do diretório
+            File arquivo = new File(diretorio, nomeArq + ".sav");
+            objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(arquivo)));
             objectOutputStream.writeObject(save);
-            objectOutputStream.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (objectOutputStream != null) {
+                try {
+                    objectOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
+
 
     //Carrega dados do jogo salvo
     public static SaveJogo carregarJogoEmArquivo(String nomeArq){
