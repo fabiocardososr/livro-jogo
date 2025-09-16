@@ -35,7 +35,7 @@ public class AcoesSecao_259 {
             return false;
         }
 
-        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
+        //new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
         return true;
     }
 }
