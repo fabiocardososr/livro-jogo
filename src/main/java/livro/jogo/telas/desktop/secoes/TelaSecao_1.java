@@ -5,6 +5,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,6 +15,8 @@ public class TelaSecao_1 extends TelaSecoesBasica {
 
     public TelaSecao_1(Secao secao) {
         super(secao);
+
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/gongo.mp3", null);
 
         textoHistoria.setText( secao.getTexto() );
 
