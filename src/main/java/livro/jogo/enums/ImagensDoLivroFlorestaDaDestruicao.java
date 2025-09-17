@@ -5,6 +5,8 @@ import livro.jogo.utils.DadosLivroCarregado;
 public enum ImagensDoLivroFlorestaDaDestruicao {
 
     /*** IMAGENS DE ITENS ***/
+    BOTAO_SOBRE("imagens/sobre.png"),
+    BOTAO_SOBRE_2("imagens/sobre_sombra.png"),
     CAPA(DadosLivroCarregado.getLivro().getImagemCapa()),
     TELA_SOBRE("imagens/fundo_sobre.png"),
     TELA_SPLASH_0("imagens/fundo_splash_0.png"),

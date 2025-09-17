@@ -45,6 +45,7 @@ public class TelaPrincipal extends TelaBasica {
     private int angle = 0;
     private Timer timer;
     private JPanel panelTelaEspera;
+    JLabelOpcoesTelaSecao botaoSobre;
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
@@ -101,6 +102,17 @@ public class TelaPrincipal extends TelaBasica {
             }
         });
 
+    }
+
+    private void configurarBotaoSobre(TelaPrincipalAcaoDosLabelsBotoes acao) {
+        botaoSobre = new JLabelOpcoesTelaSecao("",
+                70, 70, ImagensDoLivroFlorestaDaDestruicao.BOTAO_SOBRE);
+        botaoSobre.setBounds(1170,420, 70, 70);
+        botaoSobre.setFont(new Font(Font.SERIF,Font.BOLD,19));
+        botaoSobre.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoSobre.setToolTipText("Sobre o jogos");
+        botaoSobre.addMouseListener(acao);
+        add(botaoSobre);
     }
 
     private void criarTelaEspera() {
@@ -160,6 +172,8 @@ public class TelaPrincipal extends TelaBasica {
     }
 
     private void configurandoTelaPrincipal(){
+
+        configurarBotaoSobre(acaoBotoes);
 
         //Carregar capa do livro
         JLabelOpcoesTelaSecao labelImgCapaLivro = new JLabelOpcoesTelaSecao("",
@@ -350,6 +364,13 @@ public class TelaPrincipal extends TelaBasica {
         @Override
         public void mouseClicked(MouseEvent e) {
 
+            if (e.getSource() == botaoSobre) {
+                SwingUtilities.invokeLater(() -> {
+                    TelaSobre janela = new TelaSobre();
+                    janela.setVisible(true);
+                });
+            }
+
             if (e.getSource() == labelVoz){
 
                 //Não deixar ativar o som mais de uma vez
@@ -405,6 +426,12 @@ public class TelaPrincipal extends TelaBasica {
                 repaint();
             }
 
+            if (e.getSource() == botaoSobre){
+                botaoSobre.setIcon(Util.dimensionarImagem(botaoSobre.getWidth(),
+                        botaoSobre.getHeight(), ImagensDoLivroFlorestaDaDestruicao.BOTAO_SOBRE_2.getEnderecoImagem()));
+                repaint();
+            }
+
             if (e.getSource() == labelVozParar){
                 labelVozParar.setIcon(Util.dimensionarImagem(labelVozParar.getWidth(),
                         labelVozParar.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ_PARAR_SELECIONADO.getEnderecoImagem()));
@@ -444,6 +471,12 @@ public class TelaPrincipal extends TelaBasica {
             if (e.getSource() == labelVoz){
                 labelVoz.setIcon(Util.dimensionarImagem(labelVoz.getWidth(),
                         labelVoz.getHeight(), ImagensDoLivroFlorestaDaDestruicao.SIMBOLO_VOZ.getEnderecoImagem()));
+                repaint();
+            }
+
+            if (e.getSource() == botaoSobre){
+                botaoSobre.setIcon(Util.dimensionarImagem(botaoSobre.getWidth(),
+                        botaoSobre.getHeight(), ImagensDoLivroFlorestaDaDestruicao.BOTAO_SOBRE.getEnderecoImagem()));
                 repaint();
             }
 

@@ -46,7 +46,7 @@ public class TelaSobre extends JWindow {
 
         JTextArea info = new JTextArea(
                 "Este jogo é totalmente gratuito e criado por um fã dos livros-jogos clássicos!\n"
-                        + "Inspirado por 'A Floresta da Destruição', do mestre Ian Livingstone, e cenários sombrios de RPG."
+                        + "Inspirado por 'A Floresta da Destruição', do mestre Ian Livingstone e publicado pela editora Jambô, e cenários sombrios de RPG."
         );
         info.setFont(new Font("Serif", Font.BOLD, 16));
         info.setLineWrap(true);
@@ -129,10 +129,11 @@ public class TelaSobre extends JWindow {
         setContentPane(painelPrincipal);
     }
 
+    /*
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             TelaSobre janela = new TelaSobre();
             janela.setVisible(true);
         });
-    }
+    }*/
 }
