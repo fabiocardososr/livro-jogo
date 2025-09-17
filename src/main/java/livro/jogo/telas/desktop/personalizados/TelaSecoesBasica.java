@@ -1408,8 +1408,11 @@ public abstract class TelaSecoesBasica extends JDialog {
                     return;
 
                 if ( ( (enderecoAudioHistoriaInicial == null) ||
-                        (enderecoAudioHistoriaInicial.isEmpty()) ) && (secao != null) )
+                        (enderecoAudioHistoriaInicial.isEmpty()) ) && (secao != null) ) {
+                    util.pararAudioMp3();
                     util.reproduzirAudioMp3(secao.getEnderecoAudio(), labelVoz);
+
+                }
                 else
                     util.reproduzirAudioMp3(enderecoAudioHistoriaInicial, labelVoz);
 
@@ -1419,6 +1422,8 @@ public abstract class TelaSecoesBasica extends JDialog {
             if (e.getSource() == labelVozParar){
                 util.pararAudioMp3();
                 labelVoz.setEnabled(true);
+                if (secao!=null && secao.getCodSecaoLivro() == 400)
+                    util.reproduzirAudioMp3("audio/efeitos_sonoros/final_secao_400.mp3", null);
             }
 
             if (e.getSource() == labelAumentaTexto){
