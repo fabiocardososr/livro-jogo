@@ -58,7 +58,7 @@ public class TelaSecao_371 extends TelaSecoesBasica {
 
         //Texto
         texto = new JLabel("<html><center>Pegar mão de argila</center></html>");
-        texto.setBounds(370,530,140,25);
+        texto.setBounds(370,505,140,25);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setFont(new Font(Font.SERIF,Font.BOLD,16));
         texto.setForeground(new Color(128,0,0));
