@@ -53,7 +53,7 @@ public class TelaSobre extends JWindow {
         info.setWrapStyleWord(true);
         info.setEditable(false);
         info.setOpaque(false);
-        info.setForeground(new Color(255, 235, 190, 170));
+        info.setForeground(new Color(255, 235, 190, 200));
         info.setMaximumSize(new Dimension(650, 60));
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
         painelPrincipal.add(info);
@@ -97,19 +97,6 @@ public class TelaSobre extends JWindow {
 
         painelPrincipal.add(Box.createRigidArea(new Dimension(0, 9)));
 
-        JTextArea homenagem = new JTextArea(
-                "Toda a ambientação deste jogo é uma homenagem ao legado de Ian Livingstone."
-        );
-        homenagem.setFont(new Font("Serif", Font.ITALIC, 15));
-        homenagem.setLineWrap(true);
-        homenagem.setWrapStyleWord(true);
-        homenagem.setEditable(false);
-        homenagem.setOpaque(false);
-        homenagem.setForeground(new Color(230, 225, 200, 140));
-        homenagem.setMaximumSize(new Dimension(560, 38));
-        homenagem.setAlignmentX(Component.CENTER_ALIGNMENT);
-        painelPrincipal.add(homenagem);
-
         painelPrincipal.add(Box.createVerticalGlue());
 
         painelPrincipal.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -117,7 +104,7 @@ public class TelaSobre extends JWindow {
         JButton btnFechar = new JButton("Fechar");
         btnFechar.setBackground(new Color(80, 16, 16, 90));
         btnFechar.setForeground(new Color(235, 232, 200, 210));
-        btnFechar.setFont(new Font("Serif", Font.BOLD, 16));
+        btnFechar.setFont(new Font("Serif", Font.BOLD, 14));
         btnFechar.setFocusPainted(false);
         btnFechar.setOpaque(true);
         btnFechar.setContentAreaFilled(true);

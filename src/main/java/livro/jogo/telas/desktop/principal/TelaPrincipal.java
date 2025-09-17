@@ -106,11 +106,11 @@ public class TelaPrincipal extends TelaBasica {
 
     private void configurarBotaoSobre(TelaPrincipalAcaoDosLabelsBotoes acao) {
         botaoSobre = new JLabelOpcoesTelaSecao("",
-                70, 70, ImagensDoLivroFlorestaDaDestruicao.BOTAO_SOBRE);
-        botaoSobre.setBounds(1170,420, 70, 70);
+                60, 60, ImagensDoLivroFlorestaDaDestruicao.BOTAO_SOBRE);
+        botaoSobre.setBounds(430,560, 60, 60);
         botaoSobre.setFont(new Font(Font.SERIF,Font.BOLD,19));
         botaoSobre.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        botaoSobre.setToolTipText("Sobre o jogos");
+        botaoSobre.setToolTipText("Informações importantes");
         botaoSobre.addMouseListener(acao);
         add(botaoSobre);
     }
