@@ -7,10 +7,14 @@ import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.secoes.InfoSecoes;
 
 //Classe responsável por carregar o jogo salvo propriamente dito
-public class CarregarJogoSalvo {
+public class ManipulaArqJogoSalvo {
     private SaveJogo save;
 
-    public CarregarJogoSalvo(String nomeArquivo) {
+    public ManipulaArqJogoSalvo() {
+
+    }
+
+    public void carregaJogo(String nomeArquivo){
         this.save = Util.carregarJogoEmArquivo(nomeArquivo);
         Personagem personagem = save.getPersonagem();
         Secao secao = save.getSecao();
@@ -22,5 +26,9 @@ public class CarregarJogoSalvo {
 
         //Carregar tela
         CarregarTelas.carregarSecao(secao);
+    }
+
+    public void apagaJogo(String nomeArquivo){
+        Util.apagaJogoSalvo(nomeArquivo);
     }
 }

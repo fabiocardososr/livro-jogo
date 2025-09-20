@@ -53,7 +53,7 @@ public class TelaSobre extends JWindow {
         info.setWrapStyleWord(true);
         info.setEditable(false);
         info.setOpaque(false);
-        info.setForeground(new Color(255, 235, 190, 200));
+        info.setForeground(new Color(255, 235, 190, 250));
         info.setMaximumSize(new Dimension(650, 60));
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
         painelPrincipal.add(info);

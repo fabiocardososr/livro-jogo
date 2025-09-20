@@ -4,7 +4,7 @@ import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.CarregarJogoSalvo;
+import livro.jogo.utils.ManipulaArqJogoSalvo;
 import livro.jogo.utils.Util;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -16,9 +16,11 @@ import java.util.ArrayList;
 
 public class TelaCarregarJogoSalvo extends JDialog {
     private JLabelOpcoesTelaSecao botaoCarregar;
+    private JLabelOpcoesTelaSecao botaoApagar;
     private JLabelOpcoesTelaSecao botaoSair;
     private final AcaoBotoes acao = new AcaoBotoes();
     private String nomeArquivo;
+    private JList<String> jListNomesArqs;
 
     public TelaCarregarJogoSalvo(int largura, int altura) {
         setSize(largura+160,altura+30);
@@ -47,7 +49,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
     private void carregarBotoes() {
         JLabel labelCarregar = new JLabel("Carregar");
-        labelCarregar.setBounds(123, 252, 80,60);
+        labelCarregar.setBounds(73, 252, 80,60);
         labelCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelCarregar.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelCarregar.setVerticalTextPosition(SwingConstants.CENTER);
@@ -55,14 +57,28 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         botaoCarregar = new JLabelOpcoesTelaSecao(null,
                 100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoCarregar.setBounds(100,260,100,50);
+        botaoCarregar.setBounds(50,260,100,50);
         botaoCarregar.setHorizontalAlignment(SwingConstants.CENTER);
         botaoCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         //botaoSair.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         botaoCarregar.addMouseListener(acao);
 
+        JLabel labelApagar = new JLabel("Apagar");
+        labelApagar.setBounds(178, 252, 80,60);
+        labelApagar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelApagar.setFont(new Font(Font.SERIF,Font.BOLD,14));
+        labelApagar.setVerticalTextPosition(SwingConstants.CENTER);
+        labelApagar.setForeground(new Color(139,0,0));
+
+        botaoApagar = new JLabelOpcoesTelaSecao(null,
+                100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
+        botaoApagar.setBounds(150,260,100,50);
+        botaoApagar.setHorizontalAlignment(SwingConstants.CENTER);
+        botaoApagar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        botaoApagar.addMouseListener(acao);
+
         JLabel labelSair = new JLabel("Sair");
-        labelSair.setBounds(250, 252, 80,60);
+        labelSair.setBounds(290, 252, 80,60);
         labelSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelSair.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelSair.setVerticalTextPosition(SwingConstants.CENTER);
@@ -70,7 +86,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         botaoSair = new JLabelOpcoesTelaSecao(null,
                 100, 50, ImagensDoLivroFlorestaDaDestruicao.FAIXA_3);
-        botaoSair.setBounds(210,260,100,50);
+        botaoSair.setBounds(250,260,100,50);
         botaoSair.setHorizontalAlignment(SwingConstants.CENTER);
         botaoSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botaoSair.addMouseListener(acao);
@@ -79,32 +95,57 @@ public class TelaCarregarJogoSalvo extends JDialog {
         add(botaoSair);
         add(labelCarregar);
         add(botaoCarregar);
+        add(labelApagar);
+        add(botaoApagar);
     }
 
     private void carregaListaDeArquivos() {
         ArrayList<String> arrayList = Util.listarJogosSalvos();
         String[] listaNomesArquivos = arrayList.toArray(new String[0]);
 
-        JList<String> jListNomesArqs = new JList<String>(listaNomesArquivos);
-        jListNomesArqs.setVisibleRowCount(5);
-        jListNomesArqs.setBackground(new Color(210,180,140));
-        JScrollPane scroll = new JScrollPane(jListNomesArqs);
-        scroll.setBounds(78,45,240,210);
+        if (jListNomesArqs == null) {
+            jListNomesArqs = new JList<String>(listaNomesArquivos);
+            jListNomesArqs.setVisibleRowCount(5);
+            jListNomesArqs.setBackground(new Color(210, 180, 140));
+            JScrollPane scroll = new JScrollPane(jListNomesArqs);
+            scroll.setBounds(78, 45, 240, 210);
+            add(scroll);
 
-        add(scroll);
+            jListNomesArqs.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    nomeArquivo = jListNomesArqs.getSelectedValue();
+                }
+            });
+        } else {
+            // Atualiza os dados da lista
+            jListNomesArqs.setListData(listaNomesArquivos);
+        }
 
-        jListNomesArqs.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                nomeArquivo = jListNomesArqs.getSelectedValue();
-            }
-        });
+
     }
 
     private class AcaoBotoes implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == botaoApagar){
+
+                if (nomeArquivo == null){
+                    CarregarTelas.telaMensagem("Escolha um arquivo para apagar.");
+                    return;
+                }
+                try {
+                    CarregarTelas.telaMensagem("Jogo apagado!");
+                    new ManipulaArqJogoSalvo().apagaJogo(nomeArquivo);
+                    nomeArquivo = "";
+                    carregaListaDeArquivos();
+                }
+                catch (Exception exception){
+                    CarregarTelas.telaMensagem("Erro ao apagar jogo salvo.");
+                }
+            }
+
             if (e.getSource() == botaoCarregar){
 
                 if (nomeArquivo == null){
@@ -115,7 +156,8 @@ public class TelaCarregarJogoSalvo extends JDialog {
                 setVisible(false);
                 try {
                     CarregarTelas.telaMensagem("Jogo carregado!");
-                    new CarregarJogoSalvo(nomeArquivo);
+                    new ManipulaArqJogoSalvo().carregaJogo(nomeArquivo);
+                    nomeArquivo = "";
                 }
                 catch (Exception exception){
                     CarregarTelas.telaMensagem("Erro ao carregar jogo salvo.");
@@ -141,6 +183,12 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == botaoApagar){
+                botaoApagar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
+                        botaoApagar.getWidth(), botaoApagar.getHeight()).getImageIcon());
+                repaint();
+            }
+
             if (e.getSource() == botaoCarregar){
                 botaoCarregar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3_SELECIONADA.getEnderecoImagem(),
                         botaoCarregar.getWidth(), botaoCarregar.getHeight()).getImageIcon());
@@ -156,6 +204,12 @@ public class TelaCarregarJogoSalvo extends JDialog {
 
         @Override
         public void mouseExited(MouseEvent e) {
+            if (e.getSource() == botaoApagar){
+                botaoApagar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
+                        botaoApagar.getWidth(), botaoApagar.getHeight()).getImageIcon());
+                //repaint();
+            }
+
             if (e.getSource() == botaoCarregar){
                 botaoCarregar.setIcon(new RedimensionarImagem(ImagensDoLivroFlorestaDaDestruicao.FAIXA_3.getEnderecoImagem(),
                         botaoCarregar.getWidth(), botaoCarregar.getHeight()).getImageIcon());

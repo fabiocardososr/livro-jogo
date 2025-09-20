@@ -177,6 +177,17 @@ public class Util {
         return carregaSave;
     }
 
+    public static boolean apagaJogoSalvo(String nomeArq){
+
+        File arquivo = new File("save/" + nomeArq);
+        if (arquivo.exists()) {
+            return arquivo.delete(); // retorna true se o arquivo foi excluído com sucesso
+        } else {
+            System.out.println("Arquivo não encontrado: " + nomeArq);
+            return false;
+        }
+    }
+
     //lista todos os nomes arquivos dos jogos salvos
     public static ArrayList<String> listarJogosSalvos(){
         File file = new File("save/");
