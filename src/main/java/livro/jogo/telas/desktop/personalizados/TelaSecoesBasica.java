@@ -969,7 +969,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 labelImagemSecao.getHeight()).getImageIcon());
 
         labelImagemSecao.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelImagemSecao.setToolTipText("Ampliar");
+        labelImagemSecao.setToolTipText("Clique para ampliar");
         labelImagemSecao.addMouseListener(acaoLabels);
 
         //Configura clique na imagem para ampliar em uma nova tela
