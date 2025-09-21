@@ -70,15 +70,6 @@ public class TelaSplash extends JFrame {
         return stringImg;
     }
 
-    private void carregaJogo(){
-        //Carrega o livro
-        CarregarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CarregarLivroFlorestaDaDestruicao();
-        livroFlorestaDaDestruicao.carregarLivroFlorestaDestruicao();
-
-        //Carregar Tela Principal
-        new CarregarTelas().carregarTela(TelasDisponiveisParaCarregamento.TELA_PRINCIPAL,"","","");
-    }
-
     private void barraDeProgresso() {
 
         // Barra de progresso
@@ -112,8 +103,33 @@ public class TelaSplash extends JFrame {
         }, 0, 100); // Atualiza a cada 100ms
     }
 
+    //Config cor de toda mensagem via tooltrip, ou seja, imformações quando se colocar o cursor em cima
+    private static void configuracaoGlobalDoToolTip(){
+        try {
+            // Configuração global do ToolTipManager
+
+// Configuração global do ToolTipManager
+            ToolTipManager toolTipManager = ToolTipManager.sharedInstance();
+            toolTipManager.setInitialDelay(500);     // Tempo antes de aparecer (default: 750 ms)
+            toolTipManager.setDismissDelay(20000);   // Tempo até desaparecer (default: 4000 ms)
+            toolTipManager.setReshowDelay(200);      // Tempo entre reaparecimentos (default: 500 ms)
+
+
+            // Configura o tempo de exibição do tooltip (em milissegundos)
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+            UIManager.put("ToolTip.background", new Color(244,164,96));
+            UIManager.put("ToolTip.foreground", Color.BLACK);
+            UIManager.put("ToolTip.font", new Font("Arial", Font.ITALIC, 12));
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException |
+                 UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+
+            configuracaoGlobalDoToolTip();
 
             //Carrega o livro
             CarregarLivroFlorestaDaDestruicao livroFlorestaDaDestruicao = new CarregarLivroFlorestaDaDestruicao();
