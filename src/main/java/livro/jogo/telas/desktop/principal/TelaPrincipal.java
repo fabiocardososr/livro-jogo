@@ -12,6 +12,7 @@ import livro.jogo.utils.Util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -46,6 +47,7 @@ public class TelaPrincipal extends TelaBasica {
     private Timer timer;
     private JPanel panelTelaEspera;
     JLabelOpcoesTelaSecao botaoSobre;
+    private JScrollPane scrollTextoIntrodutorio;
 
     public TelaPrincipal(int largura, int altura) {
         super(largura,altura); //indico aqui o tamanho da tela
@@ -218,8 +220,43 @@ public class TelaPrincipal extends TelaBasica {
         textoCapaLivro.setEditable(false);
         textoCapaLivro.setFocusable(false);
         textoCapaLivro.setText(livro.getDescricao());
-        JScrollPane scrollTextoIntrodutorio = new JScrollPane(textoCapaLivro);
+        scrollTextoIntrodutorio = new JScrollPane(textoCapaLivro);
         scrollTextoIntrodutorio.setBounds(602,108,560,272);
+        scrollTextoIntrodutorio.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                //this.thumbColor = new Color(210,105,30);
+                //this.trackColor = new Color(210,180,140);
+            }
+            @Override
+            protected void paintThumb(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(245,222,179));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+            @Override
+            protected void paintTrack(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(210,180,140));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+
+
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                JButton button = new JButton();
+                button.setBackground(new Color(160,82,45)); // cor da ponta superior
+                button.setBorder(BorderFactory.createEmptyBorder());
+                return button;
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                JButton button = new JButton();
+                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
+                button.setBorder(BorderFactory.createEmptyBorder());
+                return button;
+            }
+
+        });
 
         //Fundo do texto (moldura)
         JLabelOpcoesTelaSecao labelMolduraTextoTelaPrincipal = new JLabelOpcoesTelaSecao("",
