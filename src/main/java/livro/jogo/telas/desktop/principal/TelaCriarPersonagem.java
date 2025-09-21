@@ -207,7 +207,7 @@ public class TelaCriarPersonagem extends TelaBasica {
         painelImgBolsa.setForeground(new Color(139,0,0));
         painelImgBolsa.setFont(new Font(Font.SERIF,Font.PLAIN,20));
         painelImgBolsa.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        painelImgBolsa.setToolTipText("Carrega todos os itens que não estejam equipados");
+        painelImgBolsa.setToolTipText("Carrega todos os seus itens");
         painelImgBolsa.setBounds(755,365,70,70);
 
         /*** Itens iniciais ***/

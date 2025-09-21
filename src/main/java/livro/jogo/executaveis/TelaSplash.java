@@ -107,8 +107,6 @@ public class TelaSplash extends JFrame {
     private static void configuracaoGlobalDoToolTip(){
         try {
             // Configuração global do ToolTipManager
-
-// Configuração global do ToolTipManager
             ToolTipManager toolTipManager = ToolTipManager.sharedInstance();
             toolTipManager.setInitialDelay(500);     // Tempo antes de aparecer (default: 750 ms)
             toolTipManager.setDismissDelay(20000);   // Tempo até desaparecer (default: 4000 ms)
