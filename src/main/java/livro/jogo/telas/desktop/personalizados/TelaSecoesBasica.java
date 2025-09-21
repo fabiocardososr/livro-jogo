@@ -15,6 +15,7 @@ import livro.jogo.utils.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -301,9 +302,59 @@ public abstract class TelaSecoesBasica extends JDialog {
         jListItem.setBackground(new Color(0,0,0,0));
         jListItem.setOpaque(false);
         JScrollPane scrollListaSuspensaDeItens = new JScrollPane(jListItem);
+        scrollListaSuspensaDeItens.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                //this.thumbColor = new Color(210,105,30);
+                //this.trackColor = new Color(210,180,140);
+            }
+            @Override
+            protected void paintThumb(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(245,222,179));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+            @Override
+            protected void paintTrack(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(210,180,140));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+
+
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                //JButton button = new JButton();
+                // button.setBackground(new Color(160,82,45)); // cor da ponta superior
+                // button.setBorder(BorderFactory.createEmptyBorder());
+                return createInvisibleButton();
+            }
+
+
+            private JButton createInvisibleButton() {
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                button.setVisible(false);
+                return button;
+            }
+
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+//                JButton button = new JButton();
+//                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
+//                button.setBorder(BorderFactory.createEmptyBorder());
+//                return button;
+                return createInvisibleButton();
+            }
+
+        });
         scrollListaSuspensaDeItens.setBounds(65,35,280,altura-70);
         scrollListaSuspensaDeItens.setOpaque(false);
         scrollListaSuspensaDeItens.getViewport().setOpaque(false);
+
+
+
         jListItem.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -688,6 +739,53 @@ public abstract class TelaSecoesBasica extends JDialog {
         JScrollPane scrollTextoHistoria = new JScrollPane(textoHistoria);
         scrollTextoHistoria.setFocusable(true);
         scrollTextoHistoria.setBorder(null);
+        scrollTextoHistoria.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                //this.thumbColor = new Color(210,105,30);
+                //this.trackColor = new Color(210,180,140);
+            }
+            @Override
+            protected void paintThumb(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(245,222,179));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+            @Override
+            protected void paintTrack(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(210,180,140));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+
+
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                //JButton button = new JButton();
+               // button.setBackground(new Color(160,82,45)); // cor da ponta superior
+               // button.setBorder(BorderFactory.createEmptyBorder());
+                return createInvisibleButton();
+            }
+
+
+            private JButton createInvisibleButton() {
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                button.setVisible(false);
+                return button;
+            }
+
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+//                JButton button = new JButton();
+//                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
+//                button.setBorder(BorderFactory.createEmptyBorder());
+//                return button;
+                return createInvisibleButton();
+            }
+
+        });
 
         //Carregando texto no componente
         if (secao != null)

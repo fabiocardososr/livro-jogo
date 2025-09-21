@@ -13,6 +13,7 @@ import livro.jogo.telas.desktop.personalizados.util.ListaDeItensComImagem;
 import livro.jogo.utils.*;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -271,6 +272,54 @@ public class LojaDoMago extends JDialog {
         scrollListaSuspensaDeItens.setBounds(posicaoX+95,posicaoY+143,largura-579,altura-187);
         scrollListaSuspensaDeItens.setOpaque(false);
         scrollListaSuspensaDeItens.getViewport().setOpaque(false);
+        scrollListaSuspensaDeItens.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                //this.thumbColor = new Color(210,105,30);
+                //this.trackColor = new Color(210,180,140);
+            }
+            @Override
+            protected void paintThumb(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(245,222,179));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+            @Override
+            protected void paintTrack(Graphics g, JComponent c, Rectangle r) {
+                g.setColor(new Color(210,180,140));
+                g.fillRect(r.x, r.y, r.width, r.height);
+            }
+
+
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                //JButton button = new JButton();
+                // button.setBackground(new Color(160,82,45)); // cor da ponta superior
+                // button.setBorder(BorderFactory.createEmptyBorder());
+                return createInvisibleButton();
+            }
+
+
+            private JButton createInvisibleButton() {
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                button.setVisible(false);
+                return button;
+            }
+
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+//                JButton button = new JButton();
+//                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
+//                button.setBorder(BorderFactory.createEmptyBorder());
+//                return button;
+                return createInvisibleButton();
+            }
+
+        });
+
         //scrollListaSuspensaDeItens.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         //desabilitar teclas UP e Down

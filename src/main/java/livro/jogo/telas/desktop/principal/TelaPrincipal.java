@@ -242,18 +242,29 @@ public class TelaPrincipal extends TelaBasica {
 
             @Override
             protected JButton createDecreaseButton(int orientation) {
+//                JButton button = new JButton();
+//                button.setBackground(new Color(160,82,45)); // cor da ponta superior
+//                button.setBorder(BorderFactory.createEmptyBorder());
+//                return button;
+                return createInvisibleButton();
+            }
+
+            private JButton createInvisibleButton() {
                 JButton button = new JButton();
-                button.setBackground(new Color(160,82,45)); // cor da ponta superior
-                button.setBorder(BorderFactory.createEmptyBorder());
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                button.setVisible(false);
                 return button;
             }
 
             @Override
             protected JButton createIncreaseButton(int orientation) {
-                JButton button = new JButton();
-                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
-                button.setBorder(BorderFactory.createEmptyBorder());
-                return button;
+//                JButton button = new JButton();
+//                button.setBackground(new Color(160,82,45)); // cor da ponta inferior
+//                button.setBorder(BorderFactory.createEmptyBorder());
+//                return button;
+                return createInvisibleButton();
             }
 
         });
