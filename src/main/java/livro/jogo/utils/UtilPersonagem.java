@@ -99,6 +99,14 @@ public class UtilPersonagem {
         return indiceMax - indiceAtual;
     }
 
+    ///retorna se possui recursos para debitar valor
+    public static boolean verificaValorOuroSuficiente(int valorASerReduzido){
+        if (valorASerReduzido > personagem.getQuantidadeOuro())
+            return false;
+
+        return true;
+    }
+
     ///Dedução de ouro
     public static boolean reduzirValorOuro(int valorASerReduzido){
         if (valorASerReduzido > personagem.getQuantidadeOuro())

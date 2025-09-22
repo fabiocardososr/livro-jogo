@@ -27,7 +27,7 @@ public class TelaSecao_17 extends TelaSecoesBasica {
         botaoOpcao1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (UtilPersonagem.reduzirValorOuro(1)) {
+                if (UtilPersonagem.verificaValorOuroSuficiente(1)) {
 
                     abrirProximaSecao(secao.getProximasSecoes().getFirst().getCodProximaSecao());
 
