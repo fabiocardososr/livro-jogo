@@ -95,6 +95,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private int angle = 0;
     private Timer timer;
     private JPanel panelTelaEspera;
+    private static boolean jogoFoiCarregado = false;
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -172,6 +173,17 @@ public abstract class TelaSecoesBasica extends JDialog {
                     referenciaTelaPrincipal.setVisible(true);
             }
         });
+    }
+
+    //Só vai retornar true um vez. Isso ajudar a resolver o problema de ganhar itens ou moedas etc toda vez que carregar a tela
+    public static boolean isJogoFoiCarregado() {
+        var jogoCarregado = TelaSecoesBasica.jogoFoiCarregado;
+        TelaSecoesBasica.jogoFoiCarregado = false;
+        return jogoCarregado;
+    }
+
+    public static void setJogoFoiCarregado(boolean jogoFoiCarregado) {
+        TelaSecoesBasica.jogoFoiCarregado = jogoFoiCarregado;
     }
 
     private void carregarEscolhaDeItens(Secao secao) {

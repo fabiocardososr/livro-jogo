@@ -3,6 +3,7 @@ package livro.jogo.telas.desktop.principal;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
+import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.ManipulaArqJogoSalvo;
 import livro.jogo.utils.Util;
@@ -204,6 +205,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
                 setVisible(false);
                 try {
                     CarregarTelas.telaMensagem("Jogo carregado!");
+                    TelaSecoesBasica.setJogoFoiCarregado(true);
                     new ManipulaArqJogoSalvo().carregaJogo(nomeArquivo);
                     nomeArquivo = "";
                 }
