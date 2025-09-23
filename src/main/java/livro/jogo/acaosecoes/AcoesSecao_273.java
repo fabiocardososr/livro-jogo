@@ -9,6 +9,8 @@ public class AcoesSecao_273 {
 
     public static void pegarMedalhao(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MEDALHAO_DE_OURO.getIdItem()));
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.MEDALHAO_DE_OURO.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MEDALHAO_DE_OURO.getIdItem()));
+        }
     }
 }

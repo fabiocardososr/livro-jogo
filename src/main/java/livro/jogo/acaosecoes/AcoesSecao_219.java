@@ -10,7 +10,11 @@ public class AcoesSecao_219 {
 
     public static void recebe1PontosDeSorteEDardoDePrata(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.DARDO_FEITO_DE_PRATA.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.DARDO_FEITO_DE_PRATA.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.DARDO_FEITO_DE_PRATA.getIdItem()));
+        }
+
         UtilPersonagem.recuperaSorte(1);
     }
 }

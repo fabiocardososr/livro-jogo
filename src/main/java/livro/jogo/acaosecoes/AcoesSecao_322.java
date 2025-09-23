@@ -10,7 +10,10 @@ public class AcoesSecao_322 {
 
     public static void pegarMedalhao(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MEDALHAO_DE_OURO_EM_UMA_FITA_DE_SEDA.getIdItem()));
+        }
     }
 
     public static boolean verificaSePossuiCordaDeEscalada(){

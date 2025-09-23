@@ -8,7 +8,9 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_116 {
 
     public static void pegarColeiraDeCouroComAplicacoesEmOuro(){
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.COLEIRA_DE_COURO_COM_APLICACAO_EM_OURO.getIdItem()));
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.COLEIRA_DE_COURO_COM_APLICACAO_EM_OURO.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.COLEIRA_DE_COURO_COM_APLICACAO_EM_OURO.getIdItem()));
+        }
     }
 
 }

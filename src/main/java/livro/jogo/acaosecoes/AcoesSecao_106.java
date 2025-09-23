@@ -8,7 +8,9 @@ import livro.jogo.utils.UtilPersonagem;
 public class AcoesSecao_106 {
 
     public static void recebe2PontosDeSorteEAnelDeOuroComGrandeEsmeralda(){
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.ANEL_DE_OURO_COM_GRANDE_ESMERALDA.getIdItem()));
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.ANEL_DE_OURO_COM_GRANDE_ESMERALDA.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.ANEL_DE_OURO_COM_GRANDE_ESMERALDA.getIdItem()));
+        }
         UtilPersonagem.recuperaSorte(2);
     }
 }

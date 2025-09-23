@@ -15,7 +15,11 @@ public class AcoesSecao_371 {
 
     public static boolean pegarMao(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MAO_DE_ARGILA.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.MAO_DE_ARGILA.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.MAO_DE_ARGILA.getIdItem()));
+        }
+
         return true;
     }
 }

@@ -33,20 +33,6 @@ public class Testes {
         personagem.setSorteAtual(2);
         DadosLivroCarregado.setPersonagem(personagem);
 
-        //personagem.setMaldicaoLobisomem(false);
-
-//        System.out.println(DadosLivroCarregado.getMapItem());
-//        System.out.println();
-//        System.out.println(DadosLivroCarregado.getBolsa());
-//        System.out.println();
-//        System.out.println(DadosLivroCarregado.getItensEquipados());
-
-        //Chamada a tela Sobre
-//        SwingUtilities.invokeLater(() -> {
-//            TelaSobre janela = new TelaSobre();
-//            janela.setVisible(true);
-//        });
-
         Scanner scanner = new Scanner(System.in);
         int numero = 0;
         do {
@@ -74,11 +60,11 @@ public class Testes {
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(
 //                "itens/item_12.json"));
 
-       for (int i=32; i<=57; i++)
-           itensEquipados.add(DadosLivroCarregado.getMapItem().get(i));
-//
-        //Equipando uma espada magnífica(10)
-        itensEquipados.add(DadosLivroCarregado.getMapItem().get(1));
+//       for (int i=32; i<=57; i++)
+//           itensEquipados.add(DadosLivroCarregado.getMapItem().get(i));
+////
+//        //Equipando uma espada magnífica(10)
+//        itensEquipados.add(DadosLivroCarregado.getMapItem().get(1));
 //
 //        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson("itens/item_38.json"));
 //
@@ -106,17 +92,17 @@ public class Testes {
         ObjectMapper objMapper = new ObjectMapper();
         var bolsa = new ArrayList<Item>();
 
-        for (int i=1; i<=20; i++)
-           bolsa.add(DadosLivroCarregado.getMapItem().get(i));
-
-
-        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
-        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
-        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
-        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
-        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
-
-        bolsa.add(DadosLivroCarregado.getMapItem().get(31));
+//        for (int i=1; i<=20; i++)
+//           bolsa.add(DadosLivroCarregado.getMapItem().get(i));
+//
+//
+        bolsa.add(DadosLivroCarregado.getMapItem().get(5));
+//        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
+//        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
+//        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
+//        bolsa.add(DadosLivroCarregado.getMapItem().get(49));
+//
+//        bolsa.add(DadosLivroCarregado.getMapItem().get(31));
 
         return bolsa;
     }

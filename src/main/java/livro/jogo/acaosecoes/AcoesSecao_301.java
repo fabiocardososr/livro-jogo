@@ -14,8 +14,11 @@ public class AcoesSecao_301 {
     }
 
     public static void pegarFlauta(){
-        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.FLAUTA_DO_SONO_DO_DRAGAO.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.FLAUTA_DO_SONO_DO_DRAGAO.getIdItem())) {
+            new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.FLAUTA_DO_SONO_DO_DRAGAO.getIdItem()));
+        }
     }
 
     public static void pegarBiscoitos(){

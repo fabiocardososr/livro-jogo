@@ -10,7 +10,11 @@ public class AcoesSecao_232 {
 
     public static void recebe1PontosDeSorteECaboDoMarteloDosAnoes(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.CABO_DO_MARTELO_DE_GUERRA_DOS_ANOES.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.CABO_DO_MARTELO_DE_GUERRA_DOS_ANOES.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.CABO_DO_MARTELO_DE_GUERRA_DOS_ANOES.getIdItem()));
+        }
+
         UtilPersonagem.recuperaSorte(1);
     }
 }

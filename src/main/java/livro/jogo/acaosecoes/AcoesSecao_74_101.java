@@ -11,6 +11,9 @@ public class AcoesSecao_74_101 {
     public static void receba5PecasDeOuroESinoDeMetal(){
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
         UtilPersonagem.somarValorOuro(5);
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.SINO_DE_METAL.getIdItem()));
+
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.SINO_DE_METAL.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.SINO_DE_METAL.getIdItem()));
+        }
     }
 }

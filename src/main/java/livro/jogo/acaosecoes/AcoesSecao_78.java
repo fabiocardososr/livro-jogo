@@ -7,7 +7,9 @@ import livro.jogo.utils.UtilBolsa;
 public class AcoesSecao_78 {
 
     public static void incluirNaBolsaPoeiraDaLevitacao(){
-        UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.POEIRA_DA_LEVITACAO.getIdItem()));
+        if (!UtilBolsa.verificarExistenciaDeItemNaBolsa(ItensMapeamento.POEIRA_DA_LEVITACAO.getIdItem())) {
+            UtilBolsa.incluirItem(DadosLivroCarregado.getMapItem().get(ItensMapeamento.POEIRA_DA_LEVITACAO.getIdItem()));
+        }
     }
 
 }
