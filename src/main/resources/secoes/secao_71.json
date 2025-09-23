@@ -12,7 +12,7 @@
   "inimigos":[
 	{
 		"idInimigo":"12",
-		"nome":"GREMLIN",
+		"nome":"Gremlin",
 		"habilidade":"5",
 		"energia":"5",
 		"enderecoImagem": "imagens/inimigos/gremlin_medalhao_pescoco.png"
