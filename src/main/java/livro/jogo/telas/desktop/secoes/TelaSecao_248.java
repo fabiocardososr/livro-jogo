@@ -20,6 +20,9 @@ public class TelaSecao_248 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
+
                 AcoesSecao_248.ganha1PontoDeSorte();
                 AcoesSecao_248.equiparEscudo();
                 atualizaIndicesNaTelaDoPersonagem();

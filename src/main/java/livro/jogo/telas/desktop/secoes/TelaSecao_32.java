@@ -25,7 +25,8 @@ public class TelaSecao_32 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                // Código a ser executado quando o diálogo é aberto
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
 
                 //Não há necessidade de verificar a disponibilidade dos recursos.
                 //Essa validação já vai ser feita na seção 346 que chama esta 32

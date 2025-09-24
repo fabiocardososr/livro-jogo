@@ -18,6 +18,9 @@ public class TelaSecao_312 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
+
                 AcoesSecao_312.pegar25moedasDeOuro();
                 AcoesSecao_312.ganharCabecaDeMartelo();
                 atualizaIndicesNaTelaDoPersonagem();

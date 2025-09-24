@@ -20,6 +20,10 @@ public class TelaSecao_106 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
+
                 new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                 AcoesSecao_106.recebe2PontosDeSorteEAnelDeOuroComGrandeEsmeralda();
                 atualizaIndicesNaTelaDoPersonagem();

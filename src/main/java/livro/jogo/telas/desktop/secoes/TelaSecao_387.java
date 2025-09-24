@@ -13,6 +13,9 @@ public class TelaSecao_387 extends TelaSecoesBasica {
     public TelaSecao_387(Secao secao) {
         super(secao);
 
+        if ( TelaSecoesBasica.isJogoFoiCarregado() )
+            return;
+
         AcoesSecao_387.ganha1DeSorteE1Moeda();
         atualizaIndicesNaTelaDoPersonagem();
     }

@@ -24,6 +24,9 @@ public class TelaSecao_389 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
+
                 AcoesSecao_389.abrirArca();
                 atualizaIndicesNaTelaDoPersonagem();
             }

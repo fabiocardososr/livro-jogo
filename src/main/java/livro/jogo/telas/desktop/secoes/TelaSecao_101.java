@@ -19,6 +19,9 @@ public class TelaSecao_101 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( TelaSecoesBasica.isJogoFoiCarregado() )
+                    return;
+
                 new Util().reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                 AcoesSecao_74_101.receba5PecasDeOuroESinoDeMetal();
                 atualizaIndicesNaTelaDoPersonagem();
