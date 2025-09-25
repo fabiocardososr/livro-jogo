@@ -19,8 +19,6 @@ public class TelaSecao_269 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
 
                 AcoesSecao_269.recupera4PontosDeEnergia();
                 atualizaIndicesNaTelaDoPersonagem();

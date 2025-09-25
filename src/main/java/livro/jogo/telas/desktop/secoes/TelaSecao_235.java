@@ -20,9 +20,6 @@ public class TelaSecao_235 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
-
                 AcoesSecao_235.consumirPocaoDaImobilidade();
                 atualizaIndicesNaTelaDoPersonagem();
             }

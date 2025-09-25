@@ -6,7 +6,7 @@ import livro.jogo.entidades.Personagem;
 import java.util.ArrayList;
 
 public class UtilPersonagem {
-    private static final Personagem personagem = DadosLivroCarregado.getPersonagem();
+    //private static final Personagem personagem = DadosLivroCarregado.getPersonagem();
 
     //Calcula força de ataque do personagem
     //desvantagem é usada por exemplo na seção 49 quando o personagem encontra-se lutando agachado (-3 pontos de ataque)
@@ -25,7 +25,8 @@ public class UtilPersonagem {
         var resultadoDadosPersonagem = Util.rolarDados(6,2);
 
         //Força de ataque
-        return resultadoDadosPersonagem + modificador + personagem.getHabilidadeAtual() - desvantagem;
+        return resultadoDadosPersonagem + modificador + DadosLivroCarregado.getPersonagem()
+                .getHabilidadeAtual() - desvantagem;
     }
 
     //Calcula força de ataque menos alguma desvantagem
@@ -34,7 +35,7 @@ public class UtilPersonagem {
 
     //Personagem perda de energia. E retorna TRUE se personagem continuar vivo
     public static boolean personagemPerdeEnergia(int valorEnergiaAPerder){
-        var nivelDeEnergiaAtual = personagem.getEnergiaAtual();
+        var nivelDeEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
 
         DadosLivroCarregado.getPersonagem().setEnergiaAtual(nivelDeEnergiaAtual - valorEnergiaAPerder);
 
@@ -43,7 +44,7 @@ public class UtilPersonagem {
 
     //Personagem perda habilidade.
     public static void personagemPerdeHabilidade(int valorHabilidadeAperder){
-        var nivelDeHabilidadeAtual = personagem.getHabilidadeAtual();
+        var nivelDeHabilidadeAtual = DadosLivroCarregado.getPersonagem().getHabilidadeAtual();
 
         var novoNivelDeHabilidade = nivelDeHabilidadeAtual - valorHabilidadeAperder;
 
@@ -55,7 +56,7 @@ public class UtilPersonagem {
 
     //Personagem perda sorte
     public static void personagemPerdeSorte(int valorSorteAPerder){
-        var nivelDeSorteAtual = personagem.getSorteAtual();
+        var nivelDeSorteAtual = DadosLivroCarregado.getPersonagem().getSorteAtual();
 
         var novoNivelDeSorte = nivelDeSorteAtual - valorSorteAPerder;
 
@@ -75,8 +76,8 @@ public class UtilPersonagem {
     //Retorna diferença entre o valor máximo e o atual de ENERGIA do personagem
     public static int retornaDiferencaEntreEnergiaMaxEAtual(){
 
-        var indiceEnergiaAtual = personagem.getEnergiaAtual();
-        var indiceEnergiaMax   = personagem.getEnergiaMax();
+        var indiceEnergiaAtual = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
+        var indiceEnergiaMax   = DadosLivroCarregado.getPersonagem().getEnergiaMax();
 
         return indiceEnergiaMax - indiceEnergiaAtual;
     }
@@ -84,8 +85,8 @@ public class UtilPersonagem {
     //Retorna diferença entre o valor máximo e o atual de HABILIDADE do personagem
     public static int retornaDiferencaEntreHabilidadeMaxEAtual(){
 
-        var indiceAtual = personagem.getHabilidadeAtual();
-        var indiceMax   = personagem.getHabilidadeMax();
+        var indiceAtual = DadosLivroCarregado.getPersonagem().getHabilidadeAtual();
+        var indiceMax   = DadosLivroCarregado.getPersonagem().getHabilidadeMax();
 
         return indiceMax - indiceAtual;
     }
@@ -93,15 +94,15 @@ public class UtilPersonagem {
     //Retorna diferença entre o valor máximo e o atual de SORTE do personagem
     public static int retornaDiferencaEntreSorteMaxEAtual(){
 
-        var indiceAtual = personagem.getSorteAtual();
-        var indiceMax   = personagem.getSorteMax();
+        var indiceAtual = DadosLivroCarregado.getPersonagem().getSorteAtual();
+        var indiceMax   = DadosLivroCarregado.getPersonagem().getSorteMax();
 
         return indiceMax - indiceAtual;
     }
 
     ///retorna se possui recursos para debitar valor
     public static boolean verificaValorOuroSuficiente(int valorASerReduzido){
-        if (valorASerReduzido > personagem.getQuantidadeOuro())
+        if (valorASerReduzido > DadosLivroCarregado.getPersonagem().getQuantidadeOuro())
             return false;
 
         return true;
@@ -109,10 +110,11 @@ public class UtilPersonagem {
 
     ///Dedução de ouro
     public static boolean reduzirValorOuro(int valorASerReduzido){
-        if (valorASerReduzido > personagem.getQuantidadeOuro())
+        if (valorASerReduzido > DadosLivroCarregado.getPersonagem().getQuantidadeOuro())
             return false;
 
-        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - valorASerReduzido);
+        DadosLivroCarregado.getPersonagem()
+                .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - valorASerReduzido);
 
         return true;
     }
@@ -120,13 +122,14 @@ public class UtilPersonagem {
     /// Soma ouro
     public static void somarValorOuro(int valorASerSomado){
 
-        personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() + valorASerSomado);
+        DadosLivroCarregado.getPersonagem()
+                .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() + valorASerSomado);
 
     }
 
     /// Perde TODO o ouro
     public static void perdeTodoOuro(){
-        personagem.setQuantidadeOuro(0);
+        DadosLivroCarregado.getPersonagem().setQuantidadeOuro(0);
     }
 
     ///Equipa ou coloca-o na bolsa novamente.
@@ -149,17 +152,18 @@ public class UtilPersonagem {
 
     //Repõe o índice de habilidade ao valor inicial (valor máximo no momento da criação do personagem)
     public static void repoeHabilidadeAoNivelMaximo(){
-        personagem.setHabilidadeAtual(personagem.getHabilidadeMax());
+        DadosLivroCarregado.getPersonagem()
+                .setHabilidadeAtual(DadosLivroCarregado.getPersonagem().getHabilidadeMax());
     }
 
     //Repõe o índice de energia ao valor inicial (valor máximo no momento da criação do personagem)
     public static void repoeEnergiaAoNivelMaximo(){
-        personagem.setEnergiaAtual(personagem.getEnergiaMax());
+        DadosLivroCarregado.getPersonagem().setEnergiaAtual(DadosLivroCarregado.getPersonagem().getEnergiaMax());
     }
 
     //Repõe o índice de sorte ao valor inicial (valor máximo no momento da criação do personagem)
     public static void repoeSorteAoNivelMaximo(){
-        personagem.setSorteAtual(personagem.getSorteMax());
+        DadosLivroCarregado.getPersonagem().setSorteAtual(DadosLivroCarregado.getPersonagem().getSorteMax());
     }
 
     /*REGRA: Jogue dois dados. Se o número obtido for igual ou menor do que o seu índice de SORTE atual,
@@ -167,7 +171,7 @@ public class UtilPersonagem {
              índice de SORTE atual, você não teve sorte.
     Na função: Retornando TRUE significa que foi bem sucedido no teste*/
     public static boolean testarSorte(){
-        int indiceAtualSorte = personagem.getSorteAtual();
+        int indiceAtualSorte = DadosLivroCarregado.getPersonagem().getSorteAtual();
 
         if (indiceAtualSorte <= 0)
             return false;
@@ -176,7 +180,7 @@ public class UtilPersonagem {
         var resultadoDoisDados  = Util.rolarDados(6,2);
 
         //Independentemente de qualquer resultado a sorte é diminuida em 1.
-        personagem.setSorteAtual(indiceAtualSorte - 1);
+        DadosLivroCarregado.getPersonagem().setSorteAtual(indiceAtualSorte - 1);
 
         if (resultadoDoisDados <= indiceAtualSorte)
             return true;
@@ -187,12 +191,12 @@ public class UtilPersonagem {
     //Recupera energia
     public static void recuperaEnergia(int somaEnergia){
 
-        personagem.setEnergiaAtual(personagem.getEnergiaAtual() + somaEnergia);
+        DadosLivroCarregado.getPersonagem().setEnergiaAtual(DadosLivroCarregado.getPersonagem().getEnergiaAtual() + somaEnergia);
     }
 
     //Recupera Sorte
     public static void recuperaSorte(int somaSorte){
 
-        personagem.setSorteAtual(personagem.getSorteAtual() + somaSorte);
+        DadosLivroCarregado.getPersonagem().setSorteAtual(DadosLivroCarregado.getPersonagem().getSorteAtual() + somaSorte);
     }
 }

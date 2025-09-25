@@ -21,9 +21,6 @@ public class TelaSecao_219 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
-
                 AcoesSecao_219.recebe1PontosDeSorteEDardoDePrata();
                 atualizaIndicesNaTelaDoPersonagem();
             }

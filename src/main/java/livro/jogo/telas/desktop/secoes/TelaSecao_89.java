@@ -17,8 +17,6 @@ public class TelaSecao_89 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
 
                 AcoesSecao_89.jogarMoedaNoPoco();
                 atualizaIndicesNaTelaDoPersonagem();

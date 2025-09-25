@@ -19,8 +19,7 @@ public class TelaSecao_111 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
+
 
                 AcoesSecao_111.ganha5PecasDeOuro();
                 atualizaIndicesNaTelaDoPersonagem();

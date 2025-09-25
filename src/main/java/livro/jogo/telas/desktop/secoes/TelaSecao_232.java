@@ -19,9 +19,6 @@ public class TelaSecao_232 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
-
                 AcoesSecao_232.recebe1PontosDeSorteECaboDoMarteloDosAnoes();
                 atualizaIndicesNaTelaDoPersonagem();
             }

@@ -19,8 +19,6 @@ public class TelaSecao_68 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                if ( TelaSecoesBasica.isJogoFoiCarregado() )
-                    return;
 
                 AcoesSecao_68.soma3PontosDeEnergia();
                 atualizaIndicesNaTelaDoPersonagem();

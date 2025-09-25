@@ -104,6 +104,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = CarregarTelas.getReferenciaTelaPrincipal();
 
+
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
         Container tela = getContentPane();
         tela.setBackground(new Color(210,180,140));
