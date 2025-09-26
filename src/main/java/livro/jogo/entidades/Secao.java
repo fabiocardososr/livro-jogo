@@ -12,9 +12,18 @@ public class Secao implements Serializable {
     private final ArrayList<ProximaSecao> proximasSecoes = new ArrayList<>();
     private final ArrayList<SecaoItem> itens = new ArrayList<>();
     private final ArrayList<Inimigo> inimigos = new ArrayList<>();
+    private boolean secaoCarregadaDeArquivoSave = false; //informa se a seção foi carregada de jogo salvo
 
 
     public Secao() {
+    }
+
+    public boolean isSecaoCarregadaDeArquivoSave() {
+        return secaoCarregadaDeArquivoSave;
+    }
+
+    public void setSecaoCarregadaDeArquivoSave(boolean secaoCarregadaDeArquivoSave) {
+        this.secaoCarregadaDeArquivoSave = secaoCarregadaDeArquivoSave;
     }
 
     public String getEnderecoAudio() {

@@ -17,6 +17,9 @@ public class TelaSecao_106 extends TelaSecoesBasica {
     public TelaSecao_106(Secao secao) {
         super(secao);
 
+        if ( secao.isSecaoCarregadaDeArquivoSave() )
+            return;
+
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {

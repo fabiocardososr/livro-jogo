@@ -21,6 +21,9 @@ public class TelaSecao_248 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_248.ganha1PontoDeSorte();
                 AcoesSecao_248.equiparEscudo();
                 atualizaIndicesNaTelaDoPersonagem();

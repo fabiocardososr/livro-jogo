@@ -18,6 +18,9 @@ public class TelaSecao_341 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_341.pegar5moedasDeOuro();
                 AcoesSecao_341.ganharDenteDeDragaoEPocaoDaForca();
                 AcoesSecao_341.ganha1PontoDeSorte();

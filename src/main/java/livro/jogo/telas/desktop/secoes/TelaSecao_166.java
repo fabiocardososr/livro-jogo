@@ -20,6 +20,9 @@ public class TelaSecao_166 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_166.doa1MoedaParaOFrade();
                 AcoesSecao_166.ganha2PontosDeSorte();
                 atualizaIndicesNaTelaDoPersonagem();

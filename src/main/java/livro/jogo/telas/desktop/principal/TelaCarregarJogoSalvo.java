@@ -205,7 +205,7 @@ public class TelaCarregarJogoSalvo extends JDialog {
                 setVisible(false);
                 try {
                     CarregarTelas.telaMensagem("Jogo carregado!");
-                    TelaSecoesBasica.setJogoFoiCarregado(true);
+                    //TelaSecoesBasica.setJogoFoiCarregado(true);
                     new ManipulaArqJogoSalvo().carregaJogo(nomeArquivo);
                     nomeArquivo = "";
                 }

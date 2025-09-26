@@ -20,6 +20,9 @@ public class TelaSecao_371 extends TelaSecoesBasica {
     public TelaSecao_371(Secao secao) {
         super(secao);
 
+        if ( secao.isSecaoCarregadaDeArquivoSave() )
+            return;
+
         AcoesSecao_371.ganhar3Moedas();
         atualizaIndicesNaTelaDoPersonagem();
     }

@@ -18,6 +18,8 @@ public class TelaSecao_262 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 AcoesSecao_262.tomaPocaoDeHabilidadeComArmas();
                 AcoesSecao_262.pegar4PecasDeOuro();

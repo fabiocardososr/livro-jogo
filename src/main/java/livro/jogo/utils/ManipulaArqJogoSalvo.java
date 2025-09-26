@@ -18,6 +18,10 @@ public class ManipulaArqJogoSalvo {
         this.save = Util.carregarJogoEmArquivo(nomeArquivo);
         Personagem personagem = save.getPersonagem();
         Secao secao = save.getSecao();
+
+        //Informa que a seção foi carregada a partir de um arquivo save
+        secao.setSecaoCarregadaDeArquivoSave(true);
+
         InfoSecoes infoSecoes = save.getInfoSecoes();
 
         DadosLivroCarregado.setPersonagem(personagem);

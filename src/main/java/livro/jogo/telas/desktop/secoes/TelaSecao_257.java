@@ -26,6 +26,9 @@ public class TelaSecao_257 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
 
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_257.ganha1DeSorte();
                 atualizaIndicesNaTelaDoPersonagem();
             }

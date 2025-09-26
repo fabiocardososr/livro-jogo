@@ -22,6 +22,8 @@ public class TelaSecao_58 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 AcoesSecao_58.ganha25OuroECabecaDoMarteloDosAnoes();
                 AcoesSecao_58.removerDaBolsaAguaBenta();
