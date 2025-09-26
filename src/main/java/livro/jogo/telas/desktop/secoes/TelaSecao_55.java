@@ -20,6 +20,9 @@ public class TelaSecao_55 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_55.vesteASLuvasDEAremesso();
             }
 

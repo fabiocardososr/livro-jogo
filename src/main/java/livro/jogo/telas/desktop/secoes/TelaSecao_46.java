@@ -21,7 +21,8 @@ public class TelaSecao_46 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                // Código a ser executado quando o diálogo é aberto
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
 

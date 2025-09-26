@@ -30,6 +30,9 @@ public class TelaSecao_22 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_22.perde2DeHabilidade();
                 AcoesSecao_22.ganhaCaixaDePrata();
                 atualizaIndicesNaTelaDoPersonagem();

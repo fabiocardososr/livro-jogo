@@ -18,6 +18,8 @@ public class TelaSecao_50 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 //Pega a chave e coloca na bolsa
                 AcoesSecao_50.incluirChaveDePrataNaBolsa();

@@ -28,6 +28,9 @@ public class TelaSecao_169 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_169.perde2DeHabilidade();
                 AcoesSecao_169.colocaCaixaNaBolsa();
                 atualizaIndicesNaTelaDoPersonagem();

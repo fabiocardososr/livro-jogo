@@ -19,6 +19,9 @@ public class TelaSecao_374 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 if ( !AcoesSecao_374.verificaSePossuiManopla() )
                     AcoesSecao_374.ganhaManoplaDeHabilidade();
             }

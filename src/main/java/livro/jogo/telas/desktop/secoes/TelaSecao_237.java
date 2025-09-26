@@ -22,8 +22,12 @@ public class TelaSecao_237 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                AcoesSecao_237.perde2PontoDeSorte();
                 possuiPocaoCurativa = AcoesSecao_237.verificaSePossuiPocaoCurativa();
+
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
+                AcoesSecao_237.perde2PontoDeSorte();
                 atualizaIndicesNaTelaDoPersonagem();
             }
 

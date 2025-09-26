@@ -22,6 +22,10 @@ public class TelaSecao_322 extends TelaSecoesBasica {
             @Override
             public void windowOpened(WindowEvent e) {
                 possuiCordaDeEscalada = AcoesSecao_322.verificaSePossuiCordaDeEscalada();
+
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_322.pegarMedalhao();
             }
 
