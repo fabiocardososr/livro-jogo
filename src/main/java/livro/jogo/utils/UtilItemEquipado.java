@@ -7,20 +7,15 @@ import livro.jogo.enums.ItensMapeamento;
 import java.util.ArrayList;
 
 public class UtilItemEquipado {
-    private static final ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
-
-//    public static void incluirItem(ItensMapeamento itemMapeado){
-//        itensEquipados.add(DadosLivroCarregado.recuperaItemDoJson(itemMapeado.getEnderecoJson()));
-//    }
 
     public static void removerItem(int idItem){
 
-        itensEquipados.removeIf(item -> item.getIdItem() == idItem);
+        DadosLivroCarregado.getItensEquipados().removeIf(item -> item.getIdItem() == idItem);
     }
 
     public static boolean verificaSeItemEquipado(int idItem){
 
-        for (Item item : itensEquipados){
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
             if ( item.getIdItem() == idItem ){
                 return true;
             }
@@ -31,7 +26,7 @@ public class UtilItemEquipado {
 
     public static boolean incluirItem(Item item){
         try {
-            itensEquipados.add(item);
+            DadosLivroCarregado.getItensEquipados().add(item);
             return true;
         } catch (Exception e) {
             return false;
@@ -40,7 +35,7 @@ public class UtilItemEquipado {
 
     public static Item verificaSeItemEquipadoERetornaItem(int idItem){
 
-        for (Item item : itensEquipados){
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
             if ( item.getIdItem() == idItem ){
                 return item;
             }
