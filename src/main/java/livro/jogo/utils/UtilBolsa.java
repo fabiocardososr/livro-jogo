@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class UtilBolsa {
-    private static final ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-    private static final ArrayList<Item> itensEquipados = DadosLivroCarregado.getItensEquipados();
-
 
     /// Usado, por exemplo, para montar a lista de itens(combo).
     /// Exemplo seção 12 que pede uma lista e deve ser escolhido
@@ -21,8 +18,8 @@ public class UtilBolsa {
         //Recupera os itens da bolsa
         ArrayList<ListItem> listaDeItensNaBolsa = new ArrayList<>();
         Item item;
-        for (int i=0; i<bolsa.size(); i++) {
-            item = bolsa.get(i);
+        for (int i=0; i<DadosLivroCarregado.getBolsa().size(); i++) {
+            item = DadosLivroCarregado.getBolsa().get(i);
 
             //Não crio o objeto Icon diretamente, mas pela classe que redimensiona colocando n otalamnho que quero
             RedimensionarImagem imagem = new RedimensionarImagem(item.getEnderecoImagem(), 20, 20);
@@ -33,18 +30,9 @@ public class UtilBolsa {
         return listaDeItensNaBolsa.toArray(new ListItem[0]);
     }
 
-//    public static boolean incluirItem(ItensMapeamento itemMapeado){
-//        try {
-//            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(itemMapeado.getEnderecoJson()));
-//            return true;
-//        } catch (Exception e) {
-//            return false;
-//        }
-//    }
-
     public static boolean incluirItem(Item item){
         try {
-            bolsa.add(item);
+            DadosLivroCarregado.getBolsa().add(item);
             return true;
         } catch (Exception e) {
             return false;
@@ -54,9 +42,9 @@ public class UtilBolsa {
     //Remove item da bolsa passando apenas o código do item
     public static void removerItem(int idItem){
 
-        for (Item item : bolsa)
+        for (Item item : DadosLivroCarregado.getBolsa())
             if (item.getIdItem() == idItem) {
-                bolsa.remove(item);
+                DadosLivroCarregado.getBolsa().remove(item);
                 break;
             }
     }
@@ -65,18 +53,18 @@ public class UtilBolsa {
     public static void removerTodosItensEspecificado(int idItem){
 
         //O laço tem que ser do último para o início
-        for (int i = bolsa.size() - 1; i >= 0; i--)
-            if (bolsa.get(i).getIdItem() == idItem)
-                bolsa.remove(i);
+        for (int i = DadosLivroCarregado.getBolsa().size() - 1; i >= 0; i--)
+            if (DadosLivroCarregado.getBolsa().get(i).getIdItem() == idItem)
+                DadosLivroCarregado.getBolsa().remove(i);
     }
 
     //Remove item passando o objeto item
     public static void removerItemEspecifico(Item item){
 
         //Estando na bolsa
-        for (Item it : bolsa){
+        for (Item it : DadosLivroCarregado.getBolsa()){
             if ( it.getIdItem() == item.getIdItem() ){
-                bolsa.remove(it);
+                DadosLivroCarregado.getBolsa().remove(it);
                 break;
             }
         }
@@ -90,14 +78,14 @@ public class UtilBolsa {
     public static boolean verificarExistenciaDeItemNaBolsaOuEquipado(int idItem){
 
         //Estando na bolsa
-        for (Item item : bolsa){
+        for (Item item : DadosLivroCarregado.getBolsa()){
             if ( item.getIdItem() == idItem ){
                 return true;
             }
         }
 
         //Equipado
-        for (Item item : itensEquipados){
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
             if ( item.getIdItem() == idItem ){
                 return true;
             }
@@ -110,7 +98,7 @@ public class UtilBolsa {
     public static boolean verificarExistenciaDeItemNaBolsa(int idItem){
 
         //Estando na bolsa
-        for (Item item : bolsa){
+        for (Item item : DadosLivroCarregado.getBolsa()){
             if ( item.getIdItem() == idItem ){
                 return true;
             }
@@ -123,7 +111,7 @@ public class UtilBolsa {
     public static Item verificarExistenciaDeItemNaBolsaERetornaItem(int idItem){
 
         //Estando na bolsa
-        for (Item item : bolsa){
+        for (Item item : DadosLivroCarregado.getBolsa()){
             if ( item.getIdItem() == idItem ){
                 return item;
             }
@@ -137,7 +125,7 @@ public class UtilBolsa {
     public static HashMap<String, Integer> listarNomesItensNaBolsa(){
         HashMap<String, Integer> listaNomesDeItens = new HashMap<>();
 
-        for (Item item : bolsa){
+        for (Item item : DadosLivroCarregado.getBolsa()){
             listaNomesDeItens.put(item.getNome(),item.getIdItem());
         }
 
@@ -147,7 +135,7 @@ public class UtilBolsa {
     //Verifica se o personagem possui determinado item equipado
     public static boolean verificarExistenciaDeItemEquipado(int idItem){
 
-        for (Item item : itensEquipados){
+        for (Item item : DadosLivroCarregado.getItensEquipados()){
             if ( item.getIdItem() == idItem ){
                 return true;
             }
@@ -156,7 +144,7 @@ public class UtilBolsa {
     }
 
     public static int quantidadeDeItensNaBolsa(){
-        return bolsa.size();
+        return DadosLivroCarregado.getBolsa().size();
     }
 
 }
