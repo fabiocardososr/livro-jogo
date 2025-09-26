@@ -5,7 +5,7 @@
   "enderecoAudio":"audio/secao_384.mp3",
   "proximasSecoes": [
     {	  
-      "textoOpcao": "Você quiser libertá-lo?",
+      "textoOpcao": "Você deseja libertá-lo?",
       "codProximaSecao": "128"
     },
 	{	  
