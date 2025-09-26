@@ -23,6 +23,7 @@ public class TelaSecao_325 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/asas_batendo.mp3", null);
                 possuiCabecaDeAlho = AcoesSecao_325.verificaSePossuiCabecaDeAlho();
             }
 
