@@ -18,6 +18,8 @@ public class TelaSecao_83 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 //Consumir Beladona(14)
                 AcoesSecao_83.consumirBeladona();

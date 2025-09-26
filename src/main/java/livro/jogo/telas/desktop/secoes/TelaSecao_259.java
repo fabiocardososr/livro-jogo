@@ -27,6 +27,8 @@ public class TelaSecao_259 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 //Se personagem morto, fecha a tela de seção e abre a principal
                 personagemVivo( AcoesSecao_259.perde3PontosDeEnergia() );

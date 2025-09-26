@@ -19,7 +19,8 @@ public class TelaSecao_44 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
-                // Código a ser executado quando o diálogo é aberto
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
 
                 //Perda de 2 pontos de energia. Caso a energia zerar, retorna false
                 if ( !AcoesSecao_44.perde2PontosDeEnergiaEverificaSePersonagemVivo() ){

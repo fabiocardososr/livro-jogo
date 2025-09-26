@@ -22,6 +22,9 @@ public class TelaSecao_277 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 personagemVivo(AcoesSecao_277.perde1PontosDeEnergia());
                 atualizaIndicesNaTelaDoPersonagem();
             }
