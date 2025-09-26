@@ -18,6 +18,9 @@ public class TelaSecao_302 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 AcoesSecao_302.equiparPulseiraDeHabilidade();
             }
 

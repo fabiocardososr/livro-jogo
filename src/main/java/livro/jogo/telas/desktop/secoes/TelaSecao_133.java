@@ -21,6 +21,9 @@ public class TelaSecao_133 extends TelaSecoesBasica {
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
+                if ( secao.isSecaoCarregadaDeArquivoSave() )
+                    return;
+
                 if ( !AcoesSecao_133.verificaSePossuiAnel() )
                     AcoesSecao_133.colocaAnelDaLentidaoNoDedo();
             }
