@@ -1,8 +1,6 @@
 package livro.jogo.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import livro.jogo.entidades.Item;
-import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.util.ListItem;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 

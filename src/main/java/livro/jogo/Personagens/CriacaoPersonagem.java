@@ -43,11 +43,6 @@ public class CriacaoPersonagem {
             bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                     ItensMapeamento.PROVISAO.getEnderecoJson()));
 
-        //teste
-//        bolsa.add(DadosLivroCarregado.recuperaItemDoJson(objMapper,
-//                ItensMapeamento.ESPADA_MAGNIFICA.getEnderecoJson()));
-
-
         if (ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem() == pocaoEscolhida)
            bolsa.add(DadosLivroCarregado.recuperaItemDoJson(
                    ItensMapeamento.POCAO_DE_HABILIDADE.getEnderecoJson()));

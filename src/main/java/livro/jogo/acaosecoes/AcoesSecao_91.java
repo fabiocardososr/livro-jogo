@@ -5,8 +5,6 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.UtilPersonagem;
 
-import java.util.HashMap;
-
 public class AcoesSecao_91 {
 
     public static void ganha1PontoDeSorte(){

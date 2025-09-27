@@ -2,7 +2,6 @@ package livro.jogo.acaosecoes;
 
 import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
-import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilItemEquipado;
 
 public class AcoesSecao_295 {

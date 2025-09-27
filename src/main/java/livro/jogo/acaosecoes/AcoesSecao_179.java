@@ -4,7 +4,6 @@ import livro.jogo.entidades.Item;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
-import livro.jogo.utils.UtilBolsa;
 import livro.jogo.utils.UtilPersonagem;
 
 public class AcoesSecao_179 {
