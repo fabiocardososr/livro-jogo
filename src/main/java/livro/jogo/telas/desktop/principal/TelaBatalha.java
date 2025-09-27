@@ -2,12 +2,10 @@ package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
-import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
 import livro.jogo.utils.*;
@@ -22,7 +20,6 @@ public class TelaBatalha extends JDialog {
     private final Inimigo inimigoSecao;
     private static boolean respostaTelaConfirmacao;
     private final TelaBatalha tela = this;
-    private final Personagem personagem = DadosLivroCarregado.getPersonagem();
     private final TelaSecoesBasica telaPai; //Tela que chama esta tela. Usada para voltar a aparecer a tela da seção
     private JLabel labelPainelMensagens; //Aqui vai ser mostrado o resultado da batalha, quem venceu.
     private JLabel labelInfoRodada; //Informação da rodada que deve ser incrementada a cada rodada de luta
@@ -244,8 +241,8 @@ public class TelaBatalha extends JDialog {
     public void atualizarIndicesPersonagemInimigo(){
         String textoHabilidadeInimigo = "H: "+ inimigoTemporario.getHabilidade();
         String textoEnergiaInimigo = "E: "+ inimigoTemporario.getEnergia();
-        String textoEnergiaPersonagem = "E: "+personagem.getEnergiaAtual();
-        String textoSortePersonagem = "S: "+personagem.getSorteAtual();
+        String textoEnergiaPersonagem = "E: "+DadosLivroCarregado.getPersonagem().getEnergiaAtual();
+        String textoSortePersonagem = "S: "+DadosLivroCarregado.getPersonagem().getSorteAtual();
 
         labelEnergiaPersonagem.setText(textoEnergiaPersonagem);
         labelSortePersonagem.setText(textoSortePersonagem);
@@ -382,7 +379,7 @@ public class TelaBatalha extends JDialog {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if ( (podeUsarASorte) && (personagem.getSorteAtual() > 0) && (labelInfoRodada.isEnabled()) ) {
+                if ( (podeUsarASorte) && (DadosLivroCarregado.getPersonagem().getSorteAtual() > 0) && (labelInfoRodada.isEnabled()) ) {
                     testarSorte();
 
                     //Só pode usar uma vez
@@ -759,7 +756,7 @@ public class TelaBatalha extends JDialog {
 
             //Se o inimigo morreu
             if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
-                CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
+                CarregarTelas.telaMensagem("Congratulações!\n\n"+DadosLivroCarregado.getPersonagem().getNome()+", você conseguiu sobrepujar o inimigo."+
                         "\n\nVocê venceu a batalha!");
                 inimigoSecao.setEnergia(0);
                 dispose();
@@ -800,7 +797,7 @@ public class TelaBatalha extends JDialog {
 
             //Se o inimigo morreu
             if (resultadoBatalha == ResultadoBatalha.INIMIGO_MORTO) {
-                CarregarTelas.telaMensagem("Congratulações!\n\n"+personagem.getNome()+", você conseguiu sobrepujar o inimigo."+
+                CarregarTelas.telaMensagem("Congratulações!\n\n"+DadosLivroCarregado.getPersonagem().getNome()+", você conseguiu sobrepujar o inimigo."+
                         "\n\nVocê venceu a batalha!");
                 inimigoSecao.setEnergia(0);
                 dispose();
@@ -912,7 +909,7 @@ public class TelaBatalha extends JDialog {
         faixaNomePeronsagem.setBounds(238,270,150,80);
         faixaNomePeronsagem.setCursor(null);
 
-        JLabel labelPersonagem = new JLabel(personagem.getNome());
+        JLabel labelPersonagem = new JLabel(DadosLivroCarregado.getPersonagem().getNome());
         labelPersonagem.setBounds(258,285,110,40);
         labelPersonagem.setForeground(new Color(139,0,0));
         labelPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
@@ -935,7 +932,7 @@ public class TelaBatalha extends JDialog {
 
 
         //Imagem do personagem se mulher ou homem
-        if (personagem.getGenero() == 1)
+        if (DadosLivroCarregado.getPersonagem().getGenero() == 1)
             imgPersonagem = new JLabelOpcoesTelaSecao(null, 65,80,
                     ImagensDoLivroFlorestaDaDestruicao.BARBARO.getEnderecoImagem());
         else

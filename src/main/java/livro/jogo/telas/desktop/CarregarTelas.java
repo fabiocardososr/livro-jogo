@@ -1,7 +1,6 @@
 package livro.jogo.telas.desktop;
 
 import livro.jogo.entidades.Inimigo;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.TelasDisponiveisParaCarregamento;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -9,6 +8,7 @@ import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.principal.*;
 import livro.jogo.telas.desktop.secoes.*;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import java.awt.*;
@@ -136,8 +136,8 @@ public class CarregarTelas {
         tela.setVisible(true);
     }
 
-    public static void telaAnotacoes(Personagem personagem){
-        TelaAnotacoes tela = new TelaAnotacoes(personagem);
+    public static void telaAnotacoes(){
+        TelaAnotacoes tela = new TelaAnotacoes();
         tela.setVisible(true);
 
     }

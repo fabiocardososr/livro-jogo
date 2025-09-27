@@ -1,11 +1,8 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_12;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.BotaoFaixaOpcoes;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
@@ -174,13 +171,12 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 3){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 3){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você entrega 3 moedas para o caçador.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 3);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     repaint();
                     entregou3Moedas = true;
                     botaoOpcao2.setEnabled(false);
@@ -236,13 +232,12 @@ public class TelaSecao_14 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 3){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 3){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você entrega 3 moedas para o Caçador.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 3);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 3);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     repaint();
                     entregou3Moedas = true;
                     botaoOpcao2.setEnabled(false);

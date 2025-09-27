@@ -2,7 +2,6 @@ package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.acaosecoes.AcoesLojaDoMago;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
@@ -499,22 +498,21 @@ public class LojaDoMago extends JDialog {
     }
 
     private void confirmarEscolhaItens() {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         if (itemSelecionado == null)
             return;
 
         //Verifica se possui ouro suficiente para a compra
-        if ( itemSelecionado.getValorCusto() > personagem.getQuantidadeOuro() ){
+        if ( itemSelecionado.getValorCusto() > DadosLivroCarregado.getPersonagem().getQuantidadeOuro() ){
             new Util().reproduzirAudioMp3("audio/efeitos_sonoros/azar.mp3", null);
-            CarregarTelas.telaMensagem(personagem.getNome()+
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nVocê não possui ouro suficiente para comprar o(a) "+itemSelecionado.getNome()+".");
             return;
         }
 
 
         if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ){
-            CarregarTelas.telaMensagem(personagem.getNome()+
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nSomente é possivel adquirir um artefato. Você já comprou o(a) "+itemSelecionado.getNome()+".");
             return;
         }
@@ -530,10 +528,6 @@ public class LojaDoMago extends JDialog {
 
         //Inclui na bolsa
         UtilBolsa.incluirItem( itemSelecionado );
-
-        //Aviso que adquiriu o item
-//        CarregarTelas.telaMensagem(personagem.getNome()+
-//                ",\n\nVocê comprou o(a) "+itemSelecionado.getNome()+".");
 
         //Apagar informações do artefato
         removerItemSelecionado();

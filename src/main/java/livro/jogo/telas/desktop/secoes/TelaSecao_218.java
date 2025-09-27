@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -266,12 +265,11 @@ public class TelaSecao_218 extends TelaSecoesBasica {
             return;
         }
 
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-        if (personagem.getQuantidadeOuro() >= 5){
+        if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 5){
             new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
             CarregarTelas.telaMensagem("Você entrega 5 moedas para o garotinho.");
-            personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
+            DadosLivroCarregado.getPersonagem()
+                    .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 5);
             atualizaIndicesNaTelaDoPersonagem();
             entregou5Moedas = true;
         }

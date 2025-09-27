@@ -1,7 +1,6 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_12;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -178,12 +177,11 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 10){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 10){
                     CarregarTelas.telaMensagem("Você entrega 10 moedas para o Gnomo.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 10);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
                     AcoesSecao_12.recuperaEspadaDoGnomo();
@@ -240,13 +238,12 @@ public class TelaSecao_12 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 10){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 10){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você entrega 10 moedas para o Gnomo.\n\nSua espada é devolvida!");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 10);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     repaint();
                     entregou10Moedas = true;
                     AcoesSecao_12.recuperaEspadaDoGnomo();

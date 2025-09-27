@@ -2,7 +2,6 @@ package livro.jogo.telas.desktop.personalizados;
 
 import livro.jogo.acaosecoes.AcoesSecao_12;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.entidades.Secao;
@@ -29,7 +28,7 @@ import java.util.HashMap;
 
 public abstract class TelaSecoesBasica extends JDialog {
     private final Secao secao;
-    private final Personagem personagem;
+    //private final Personagem personagem;
     private final TelaSecoesBasicaAcaoDosLabels acaoLabels = new TelaSecoesBasicaAcaoDosLabels();
     private Item pocaoInicial; //É a poção escolhida na criação do personagem
     private String enderecoImagem = DadosLivroCarregado.getLivro().getImagemComplementar();
@@ -101,7 +100,6 @@ public abstract class TelaSecoesBasica extends JDialog {
     public TelaSecoesBasica(Secao secao) {
         setSize(1275,622);
         this.secao = secao;
-        this.personagem = DadosLivroCarregado.getPersonagem();
         this.referenciaTelaPrincipal = CarregarTelas.getReferenciaTelaPrincipal();
 
         //Caso necessite alterar layout da tela para uma especifica. Necessário o Container
@@ -586,7 +584,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             return;
 
         if (mapItens.size() < limiteDeEscolhaDeItens) {
-            CarregarTelas.telaMensagem(personagem.getNome()+
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\nVocê precisa escolher "+limiteDeEscolhaDeItens+" itens.");
             return;
         }
@@ -862,7 +860,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         painelPersonagem.setLayout(null);
 
         //Nome do personagem
-        JLabel lbNomePersonagem = new JLabel(personagem.getNome());
+        JLabel lbNomePersonagem = new JLabel(DadosLivroCarregado.getPersonagem().getNome());
         lbNomePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,20));
         lbNomePersonagem.setForeground(new Color(139,0,0));
         lbNomePersonagem.setHorizontalAlignment(SwingConstants.CENTER);
@@ -882,8 +880,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Habilidade
         lbHabilidadePersonagem = new JLabel("Habilidade: "+
-                String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                String.valueOf(personagem.getHabilidadeMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeMax()));
         lbHabilidadePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbHabilidadePersonagem.setForeground(new Color(139,0,0));
         lbHabilidadePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
@@ -892,8 +890,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Energia
         lbEnergiaPersonagem = new JLabel("Energia: "+
-                String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                String.valueOf(personagem.getEnergiaMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
         lbEnergiaPersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbEnergiaPersonagem.setForeground(new Color(139,0,0));
         lbEnergiaPersonagem.setHorizontalAlignment(SwingConstants.LEFT);
@@ -902,8 +900,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //Sorte
         lbSortePersonagem = new JLabel("Sorte: "+
-                String.valueOf(personagem.getSorteAtual())+ "/"+
-                String.valueOf(personagem.getSorteMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getSorteAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getSorteMax()));
         lbSortePersonagem.setFont(new Font(Font.SERIF,Font.BOLD,16));
         lbSortePersonagem.setForeground(new Color(139,0,0));
         lbSortePersonagem.setHorizontalAlignment(SwingConstants.LEFT);
@@ -914,7 +912,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         //1 = Homem; 2 = Mulher
         String enderecoImgPersonagem;
         String toolTip;
-        if (personagem.getGenero() == 1) {
+        if (DadosLivroCarregado.getPersonagem().getGenero() == 1) {
             enderecoImgPersonagem = ImagensDoLivroFlorestaDaDestruicao.BARBARO.getEnderecoImagem();
             toolTip = "Este é você!";
         }
@@ -1046,7 +1044,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregarBotaoSalvar();
 
         //Ouro
-        labelOuro = new JLabel("Ouro: " + personagem.getQuantidadeOuro());
+        labelOuro = new JLabel("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
         labelOuro.setFont(new Font(Font.SERIF,Font.BOLD,14));
         labelOuro.setForeground(new Color(139,0,0));
         labelOuro.setBounds(1147,75,85,55);
@@ -1245,7 +1243,7 @@ public abstract class TelaSecoesBasica extends JDialog {
         carregaImagemDePocaoInicialConsumida();
 
         //Mensagem para o jogador
-        CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                 ",\nvocê toma a poção e se sente bem.\n\nSeu índice de " +
                 pocaoInicial.getTipoEfeito().name().toLowerCase()
                 + " encontra-se no nível máximo."+complementoTexto);
@@ -1267,18 +1265,18 @@ public abstract class TelaSecoesBasica extends JDialog {
     public void atualizaIndicesNaTelaDoPersonagem(){
 
         lbSortePersonagem.setText("Sorte: "+
-                String.valueOf(personagem.getSorteAtual())+ "/"+
-                String.valueOf(personagem.getSorteMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getSorteAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getSorteMax()));
 
         lbEnergiaPersonagem.setText("Energia: "+
-                String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                String.valueOf(personagem.getEnergiaMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
 
         lbHabilidadePersonagem.setText("Habilidade: "+
-                String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                String.valueOf(personagem.getHabilidadeMax()));
+                String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeAtual())+ "/"+
+                String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeMax()));
 
-        labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+        labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
 
         labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
 
@@ -1583,7 +1581,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 pocaoInicial = Util.retornaPocaoInicialDaBolsa();
 
                 if ( ( pocaoInicial == null ) || ( pocaoInicialConsumido ) ){
-                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                             ",\nvocê não possui mais uma poção especial(inicial).");
                     return;
                 }
@@ -1600,7 +1598,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                     pocaoInicial = null;
                 }
                 else
-                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase()+
                             ", seu índice de "+pocaoInicial.getTipoEfeito().name().toLowerCase()+
                             " encontra-se no nível máximo."+
                             "\n\nNão existe necessidade de tomar a poção.");
@@ -1612,13 +1610,13 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                     if ( (secao.getCodSecaoLivro() == 304) && (quantProvisoesComidas < 5) ){
                         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/risada_sinistra_fim_de_jogo.mp3", null);
-                        CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                        CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                                 "\n\nVocê não tem provisões suficientes para se restabelecer.\n\nVocê Morreu!");
                         personagemVivo(false);
                         return;
                     }
 
-                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                             "\n\nVocê não tem provisões para se alimentar.");
                     return;
                 }
@@ -1631,7 +1629,7 @@ public abstract class TelaSecoesBasica extends JDialog {
                 //próxima seção
                 if ( (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0) &&
                     secao.getCodSecaoLivro() != 304){
-                    CarregarTelas.telaMensagem(personagem.getNome().toUpperCase()+", sua energia está completa."+
+                    CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase()+", sua energia está completa."+
                             "\n\nNão existe necessidade de se alimentar.");
                     return;
                 }
@@ -1645,7 +1643,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
 
             if ( (e.getSource() ==  labelAnotacoes) || (e.getSource() ==  botaoLabelFundoAnotacoes) ){
-                CarregarTelas.telaAnotacoes(personagem);
+                CarregarTelas.telaAnotacoes();
             }
 
             if ( (e.getSource() ==  labelSalvar) || (e.getSource() == botaoLabelFundoSalvar) ){
@@ -1653,7 +1651,7 @@ public abstract class TelaSecoesBasica extends JDialog {
 
                 //Se resposta da tela telaMensagem positiva, salva o jogo
                 if (isRespostaTelaMensagem())
-                    Util.salvarJogoEmArquivo(personagem.getNome(),new SaveJogo(personagem,secao));
+                    Util.salvarJogoEmArquivo(DadosLivroCarregado.getPersonagem().getNome(),new SaveJogo(DadosLivroCarregado.getPersonagem(),secao));
             }
 
             if (e.getSource() ==  dialogImagemMapa){
@@ -1812,12 +1810,12 @@ public abstract class TelaSecoesBasica extends JDialog {
                 }
 
                 lbEnergiaPersonagem.setText("Energia: " +
-                        String.valueOf(personagem.getEnergiaAtual()) + "/" +
-                        String.valueOf(personagem.getEnergiaMax()));
+                        String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual()) + "/" +
+                        String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
                 labelProvisoes.setText("<html>Provisões: " + UtilItens.quantidadeProvisoesRestantes() + "</html>");
                 repaint();
 
-                CarregarTelas.telaMensagem(personagem.getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
+                CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome() + ", você recuperou 4 pontos de energia ao comer uma provisão(refeição).");
             }
         }
         else {

@@ -2,7 +2,6 @@ package livro.jogo.utils;
 
 import livro.jogo.entidades.Inimigo;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ResultadoBatalha;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -14,7 +13,6 @@ import livro.jogo.telas.desktop.principal.TelaBatalha;
 import javax.swing.*;
 
 public class AcoesBatalha {
-    private final Personagem personagem = DadosLivroCarregado.getPersonagem();
     private final Inimigo inimigo;
     private final TelaBatalha telaBatalha; //Necessário para interagir enviando mensagens para o painel (label)
     private final TelaSecoesBasica telaSecao;
@@ -73,13 +71,13 @@ public class AcoesBatalha {
         boolean resultadoSorte = false; //Resultado do teste da sorte, caso feito.
 
         CarregarTelas.telaMensagem("Deseja abandonar a luta?"+
-                "\n\n"+personagem.getNome() +", você perderá 2 pontos de energia."+
+                "\n\n"+DadosLivroCarregado.getPersonagem().getNome() +", você perderá 2 pontos de energia."+
                 "\nEsse é o preço de sua covardia.", telaBatalha);
 
         if ( TelaBatalha.isRespostaTelaConfirmacao() ) {
 
             //Se tiver índice de sorte para usar
-            if (personagem.getSorteAtual() > 0) {
+            if (DadosLivroCarregado.getPersonagem().getSorteAtual() > 0) {
 
                 //Perguntar se o jogador quer Testar a Sorte para diminuir o dano
                 CarregarTelas.telaMensagem("Deseja tentar a sorte para diminuir o " +
@@ -250,7 +248,7 @@ public class AcoesBatalha {
             resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_GANHOU_TURNO;
 
             inimigoVivo = Util.inimigoPerdeEnergia(2,inimigo);
-            mensagemComDelay(milisegundos,"<html><center>"+ personagem.getNome()+
+            mensagemComDelay(milisegundos,"<html><center>"+ DadosLivroCarregado.getPersonagem().getNome()+
                     "<br>acerta o inimigo</center></html>");
 
             if ( !inimigoVivo ){
@@ -286,7 +284,8 @@ public class AcoesBatalha {
             /*Se após dedução da energia do personagem o índice chegar a zero(NÃO abaixo de zero), existe
               a possibilidade de testar sorte e recupera 1 ponto e com isso evitar a morte do personagem ou
               perde +1 de dano em caso de azar*/
-            if ( (!personagemVivo) && (personagem.getEnergiaAtual() == 0) && (personagem.getSorteAtual() > 0) ){
+            if ( (!personagemVivo) && (DadosLivroCarregado.getPersonagem().getEnergiaAtual() == 0)
+                    && (DadosLivroCarregado.getPersonagem().getSorteAtual() > 0) ){
 
                 //Perguntar se o jogador quer Testar a Sorte para diminuir o dano
                 CarregarTelas.telaMensagem("Deseja tentar a sorte para diminuir o " +
@@ -301,8 +300,9 @@ public class AcoesBatalha {
                     if (resultadoSorte) {
                         util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                         CarregarTelas.telaMensagem("Sucesso no teste de sorte. Seu dano será reduzido em 1 ponto.");
-                        personagem.setEnergiaAtual(personagem.getEnergiaAtual() + 1);
-                        if (personagem.getEnergiaAtual() > 0)
+                        DadosLivroCarregado.getPersonagem().setEnergiaAtual(DadosLivroCarregado.getPersonagem()
+                                .getEnergiaAtual() + 1);
+                        if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() > 0)
                             personagemVivo = true;
                     }
                     else {
@@ -319,7 +319,8 @@ public class AcoesBatalha {
                  util.reproduzirAudioMp3("audio/efeitos_sonoros/perdeu.mp3", null);
                 resultadoTurnoBatalha = ResultadoBatalha.PERSONAGEM_MORTO;
                 telaBatalha.atualizarIndicesPersonagemInimigo();
-                mensagemComDelay(milisegundos,"<html><center>"+personagem.getNome()+",<br>sua energia<br>chegou a 0.</center></html>");
+                mensagemComDelay(milisegundos,"<html><center>"+DadosLivroCarregado.getPersonagem().getNome()
+                        +",<br>sua energia<br>chegou a 0.</center></html>");
             }
         }
         ///EMPATE
@@ -335,7 +336,7 @@ public class AcoesBatalha {
         telaBatalha.atualizarIndicesPersonagemInimigo();
 
         //liberar uso da sorte
-        if (  (inimigoVivo) && (personagemVivo) && (personagem.getSorteAtual() > 0) &&
+        if (  (inimigoVivo) && (personagemVivo) && (DadosLivroCarregado.getPersonagem().getSorteAtual() > 0) &&
                 (resultadoTurnoBatalha != ResultadoBatalha.EMPATE_TURNO) && ( !sorteJaUsada ) ) {
             telaBatalha.podeUsarASorte();
 
@@ -431,7 +432,7 @@ public class AcoesBatalha {
             if ( teveSorte ){
                 util.reproduzirAudioMp3("audio/efeitos_sonoros/sorte.mp3", null);
                 mensagemComDelay(milisegundos, "<html><center>SORTE!<br>Recupera 1 ponto<center><html>");
-                personagem.setEnergiaAtual(personagem.getEnergiaAtual() + 1);
+                DadosLivroCarregado.getPersonagem().setEnergiaAtual(DadosLivroCarregado.getPersonagem().getEnergiaAtual() + 1);
                 telaBatalha.atualizarIndicesPersonagemInimigo();
             }
             else{
@@ -443,7 +444,8 @@ public class AcoesBatalha {
                 if ( !personagemVivo )
                 {
                     telaBatalha.atualizarIndicesPersonagemInimigo();
-                    mensagemComDelay(milisegundos,"<html><center>"+personagem.getNome()+",<br>sua energia<br>chegou a 0.</center></html>");
+                    mensagemComDelay(milisegundos,"<html><center>"
+                            +DadosLivroCarregado.getPersonagem().getNome()+",<br>sua energia<br>chegou a 0.</center></html>");
                     return ResultadoBatalha.PERSONAGEM_MORTO;
                 }
             }

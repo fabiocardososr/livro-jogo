@@ -1,6 +1,5 @@
 package livro.jogo.acaosecoes;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 import livro.jogo.utils.DadosLivroCarregado;
@@ -13,7 +12,6 @@ public class AcoesSecao_266 {
     ///SUCESSO -> Se resultado dos 2 dados igual ou menor que o índice de habilidade
     ///FALHA   -> Se o resultado dos dados maior que o índice de habilidade
     public static boolean testarHabilidadeRemoverEspada(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Rolagem de 2 dados
 
@@ -21,7 +19,7 @@ public class AcoesSecao_266 {
         resultado2Dados = Util.rolarDados(6,2);
 
         //Comparar com a habilidade do personagem
-        if ( resultado2Dados <= personagem.getHabilidadeAtual() )
+        if ( resultado2Dados <= DadosLivroCarregado.getPersonagem().getHabilidadeAtual() )
             return true;
         else
             return false;

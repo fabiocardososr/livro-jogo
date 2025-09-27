@@ -1,6 +1,4 @@
 package livro.jogo.utils;
-
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.SaveJogo;
 import livro.jogo.entidades.Secao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -16,7 +14,6 @@ public class ManipulaArqJogoSalvo {
 
     public void carregaJogo(String nomeArquivo){
         this.save = Util.carregarJogoEmArquivo(nomeArquivo);
-        Personagem personagem = save.getPersonagem();
         Secao secao = save.getSecao();
 
         //Informa que a seção foi carregada a partir de um arquivo save
@@ -24,7 +21,7 @@ public class ManipulaArqJogoSalvo {
 
         InfoSecoes infoSecoes = save.getInfoSecoes();
 
-        DadosLivroCarregado.setPersonagem(personagem);
+        DadosLivroCarregado.setPersonagem(save.getPersonagem());
 
         DadosLivroCarregado.setInfoSecoes(infoSecoes);
 

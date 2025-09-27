@@ -1,10 +1,8 @@
 package livro.jogo.acaosecoes;
 
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.utils.DadosLivroCarregado;
-import livro.jogo.utils.UtilPersonagem;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,7 +16,7 @@ public class AcoesSecao_36 {
     /// "6 - Cabeça de martelo de bronze com a letra G"
     public static String ladraoRouba(){
         ArrayList<Item> bolsa = DadosLivroCarregado.getBolsa();
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
+
         int quantidadeItensBolsa = 0;
         String mensagem = "";
 
@@ -33,7 +31,7 @@ public class AcoesSecao_36 {
 
         //Faça um sorteio entre ouro e itens caso possuam ambos os objetos
         //1 - ouro; 2 - itens
-        if ( (quantidadeItensBolsa >= 2) && (personagem.getQuantidadeOuro() > 0) ){
+        if ( (quantidadeItensBolsa >= 2) && (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 0) ){
             var resultado = 1 + new Random().nextInt(2 );
             switch (resultado){
                 case 1 -> mensagem = roubadoOuro();
@@ -41,7 +39,7 @@ public class AcoesSecao_36 {
             }
         } else if (quantidadeItensBolsa >= 2) {
             mensagem = remover2Itens(bolsa,quantidadeItensBolsa);
-        } else if (personagem.getQuantidadeOuro() > 0) {
+        } else if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 0) {
             mensagem = roubadoOuro();
         } else{
             mensagem = removerItem(bolsa,quantidadeItensBolsa);

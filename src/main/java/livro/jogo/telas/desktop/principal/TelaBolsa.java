@@ -2,7 +2,6 @@ package livro.jogo.telas.desktop.principal;
 
 import livro.jogo.acaosecoes.AcoesSecao_16;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.enums.ItensMapeamento;
@@ -331,7 +330,6 @@ public class TelaBolsa extends JDialog {
     //FUTURAMENTE MELHORAR ESTA FUNÇÃO, POIS PODERIA ATUALIZAR OS ÍNDICE COM APENAS UMA FUNÇÃO CHAMADA
     private void atualizarCamposTelaSecao(JLabelOpcoesTelaSecao imgLabel, Item item,
                                           boolean consumiuItem) {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         ///Poção Antiveneno(3)
         if (item.getIdItem() == ItensMapeamento.POCAO_ANTIVENENO.getIdItem()){
@@ -364,14 +362,14 @@ public class TelaBolsa extends JDialog {
 
             //Muda informação do índice do personagem
             lbHabilidadePersonagem.setText("Habilidade: "+
-                    String.valueOf(personagem.getHabilidadeAtual())+ "/"+
-                    String.valueOf(personagem.getHabilidadeMax()));
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeAtual())+ "/"+
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getHabilidadeMax()));
 
             //Destrói o objeto
             imgLabel.setVisible(false);
 
             //Mensagem
-            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                     ", você toma a poção e se sente bem.\n\nSeu índice de habilidade" +
                     " encontra-se no nível máximo.");
         }
@@ -391,14 +389,14 @@ public class TelaBolsa extends JDialog {
 
             //Muda informação do índice do personagem
             lbEnergiaPersonagem.setText("Energia: "+
-                    String.valueOf(personagem.getEnergiaAtual())+ "/"+
-                    String.valueOf(personagem.getEnergiaMax()));
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaAtual())+ "/"+
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getEnergiaMax()));
 
             //Destrói o objeto
             imgLabel.setVisible(false);
 
             //Mensagem
-            CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+            CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                     ", você toma a poção e se sente bem.\n\nSeu índice de energia" +
                     " encontra-se no nível máximo.");
         }
@@ -418,14 +416,14 @@ public class TelaBolsa extends JDialog {
 
             //Atualiza informação do índice do personagem
             lbSortePersonagem.setText("Sorte: "+
-                    String.valueOf(personagem.getSorteAtual())+ "/"+
-                    String.valueOf(personagem.getSorteMax()));
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getSorteAtual())+ "/"+
+                    String.valueOf(DadosLivroCarregado.getPersonagem().getSorteMax()));
 
            //Destrói o objeto
            imgLabel.setVisible(false);
 
            //Mensagem
-           CarregarTelas.telaMensagem(personagem.getNome().toUpperCase() +
+           CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome().toUpperCase() +
                         ", você toma a poção e se sente bem.\n\nSeu índice de sorte" +
                         " encontra-se no nível máximo. Além do incremento de 1 ponto no seu nível.");
         }

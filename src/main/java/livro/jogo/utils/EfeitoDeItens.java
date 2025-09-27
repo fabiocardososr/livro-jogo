@@ -2,7 +2,6 @@ package livro.jogo.utils;
 
 import livro.jogo.acaosecoes.AcoesSecao_16;
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ItensMapeamento;
 
@@ -109,7 +108,6 @@ public class EfeitoDeItens {
     ///Espada magnífica deve ser equipada e desequipar a espada comum.
     ///E acrescentar +2 no índice de habilidade (seção 70)
     private boolean efeitoItem_10() {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Recupera o item
         Item espadaMagnifica = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem());
@@ -120,20 +118,19 @@ public class EfeitoDeItens {
         //desequipar a espada incial e incluir na bolsa
         Item espadaInicial = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA.getIdItem());
         DadosLivroCarregado.removeItemEquipado(espadaInicial);
-        personagem.getBolsa().add(espadaInicial);
+        DadosLivroCarregado.getPersonagem().getBolsa().add(espadaInicial);
 
         //Equipa a espada magnífica(idItem 10)
-        personagem.getItensEquipados().add(espadaMagnifica);
+        DadosLivroCarregado.getPersonagem().getItensEquipados().add(espadaMagnifica);
         UtilBolsa.removerItem(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem());
 
         //Efeito mágico da espada(idItem=10): aumenta a habilidade atual do personagem em 2 pontos(seção 70)
-        personagem.setHabilidadeAtual(personagem.getHabilidadeAtual() + 2);
+        DadosLivroCarregado.getPersonagem().setHabilidadeAtual(DadosLivroCarregado.getPersonagem().getHabilidadeAtual() + 2);
 
         return true;
     }
 
     private boolean efeitoItem_50() {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Recupera o item espada comum
         Item item = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA.getIdItem());
@@ -145,21 +142,20 @@ public class EfeitoDeItens {
         //desequipar a espada magnífica e incluir na bolsa
         Item espadaMagnifica = DadosLivroCarregado.getMapItem().get(ItensMapeamento.ESPADA_MAGNIFICA.getIdItem());
         DadosLivroCarregado.removeItemEquipado(espadaMagnifica);
-        personagem.getBolsa().add(espadaMagnifica);
+        DadosLivroCarregado.getPersonagem().getBolsa().add(espadaMagnifica);
 
         //Equipa a espada comum(idItem 50)
-        personagem.getItensEquipados().add(item);
+        DadosLivroCarregado.getPersonagem().getItensEquipados().add(item);
         UtilBolsa.removerItem(ItensMapeamento.ESPADA.getIdItem());
 
         //Efeito mágico da espada(idItem=10): aumenta a habilidade atual do personagem em 2 pontos(seção 70)
-        personagem.setHabilidadeAtual(personagem.getHabilidadeAtual() - 2);
+        DadosLivroCarregado.getPersonagem().setHabilidadeAtual(DadosLivroCarregado.getPersonagem().getHabilidadeAtual() - 2);
 
         return true;
     }
 
     ///Poção da fortuna(sorte)
     private boolean efeitoItem_47() {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreSorteMaxEAtual() == 0){
@@ -172,17 +168,16 @@ public class EfeitoDeItens {
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DA_FORTUNA.getIdItem());
 
         //Aumenta em 1 o nível inicial(máximo) de sorte
-        personagem.setSorteMax( personagem.getSorteMax() + 1 );
+        DadosLivroCarregado.getPersonagem().setSorteMax( DadosLivroCarregado.getPersonagem().getSorteMax() + 1 );
 
         //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
-        personagem.setSorteAtual( personagem.getSorteMax() );
+        DadosLivroCarregado.getPersonagem().setSorteAtual( DadosLivroCarregado.getPersonagem().getSorteMax() );
 
         return true;
     }
 
     ///Poção de força(energia)
     private boolean efeitoItem_46() {
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreEnergiaMaxEAtual() == 0){
@@ -195,14 +190,13 @@ public class EfeitoDeItens {
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_ENERGIA.getIdItem());
 
         //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
-        personagem.setEnergiaAtual( personagem.getEnergiaMax() );
+        DadosLivroCarregado.getPersonagem().setEnergiaAtual( DadosLivroCarregado.getPersonagem().getEnergiaMax() );
 
         return true;
     }
 
     ///Poção de Habilidade inicial
     private boolean efeitoItem_45(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Se personagem com índice no máximo, não fazer nada
         if (UtilPersonagem.retornaDiferencaEntreHabilidadeMaxEAtual() == 0){
@@ -215,14 +209,13 @@ public class EfeitoDeItens {
         UtilBolsa.removerItem(ItensMapeamento.POCAO_DE_HABILIDADE.getIdItem());
 
         //Recupera índice ao valor máximo (valor inicial do momento da criação do personagem)
-        personagem.setHabilidadeAtual( personagem.getHabilidadeMax() );
+        DadosLivroCarregado.getPersonagem().setHabilidadeAtual( DadosLivroCarregado.getPersonagem().getHabilidadeMax() );
 
         return true;
     }
 
     ///Provisão
     private boolean efeitoItem_49(){
-        Personagem personagem = DadosLivroCarregado.getPersonagem();
 
         //Se personagem com energia máxima, não fazer nada
         //Exceto na seção 304 que exige que se coma 5 provisões independentemente se a energia estiver cheia
@@ -236,8 +229,8 @@ public class EfeitoDeItens {
         new Util().reproduzirAudioMp3("audio/efeitos_sonoros/mastigacao.mp3", null);
 
         //Recuperando o índice atual e o índice máximo em que o personagem pode chegar
-        var indiceAtual   = personagem.getEnergiaAtual();
-        var indiceMaximo  = personagem.getEnergiaMax();
+        var indiceAtual   = DadosLivroCarregado.getPersonagem().getEnergiaAtual();
+        var indiceMaximo  = DadosLivroCarregado.getPersonagem().getEnergiaMax();
 
         //reposição de 4 pontos de energia do personagem
         var indiceAtualComReposicao = indiceAtual + 4;
@@ -247,7 +240,7 @@ public class EfeitoDeItens {
             indiceAtualComReposicao = indiceMaximo;
 
         //Atualizando índice
-        personagem.setEnergiaAtual(indiceAtualComReposicao);
+        DadosLivroCarregado.getPersonagem().setEnergiaAtual(indiceAtualComReposicao);
 
         return true;
     }

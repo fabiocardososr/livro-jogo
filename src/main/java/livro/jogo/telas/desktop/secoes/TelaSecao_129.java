@@ -1,7 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.acaosecoes.AcoesSecao_55;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -216,19 +214,18 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 10){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 10){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 10);
                     entregouMoedas = true;
                 }
                 else{
-                    if (personagem.getQuantidadeOuro() > 0) {
+                    if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 0) {
                         CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar a Quin,"+
-                                " mas ele aceita suas últimas "+personagem.getQuantidadeOuro()+ " peças de ouro.");
-                        personagem.setQuantidadeOuro(0);
+                                " mas ele aceita suas últimas "+DadosLivroCarregado.getPersonagem().getQuantidadeOuro()+ " peças de ouro.");
+                        DadosLivroCarregado.getPersonagem().setQuantidadeOuro(0);
                         entregouMoedas = true;
                     }
                     else
@@ -283,19 +280,18 @@ public class TelaSecao_129 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 10){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 10){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você paga sua aposta de 10 moedas de ouro para Quin.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 10);
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 10);
                     entregouMoedas = true;
                 }
                 else{
-                    if (personagem.getQuantidadeOuro() > 0) {
+                    if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() > 0) {
                         CarregarTelas.telaMensagem("Você não tem 10 moedas para entregar a Quin,"+
-                                " mas ele aceita suas últimas "+personagem.getQuantidadeOuro()+ " peças de ouro.");
-                        personagem.setQuantidadeOuro(0);
+                                " mas ele aceita suas últimas "+DadosLivroCarregado.getPersonagem().getQuantidadeOuro()+ " peças de ouro.");
+                        DadosLivroCarregado.getPersonagem().setQuantidadeOuro(0);
                         entregouMoedas = true;
                     }
                     else

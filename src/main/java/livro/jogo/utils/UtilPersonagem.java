@@ -1,12 +1,10 @@
 package livro.jogo.utils;
 
 import livro.jogo.entidades.Item;
-import livro.jogo.entidades.Personagem;
 
 import java.util.ArrayList;
 
 public class UtilPersonagem {
-    //private static final Personagem personagem = DadosLivroCarregado.getPersonagem();
 
     //Calcula força de ataque do personagem
     //desvantagem é usada por exemplo na seção 49 quando o personagem encontra-se lutando agachado (-3 pontos de ataque)

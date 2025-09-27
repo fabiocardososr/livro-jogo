@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.principal;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
@@ -17,7 +16,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaDeMensagensAoJogador extends JDialog {
-    private Personagem personagem;
     private String texto;
     private JLabelOpcoesTelaSecao botaoSair;
     private JLabelOpcoesTelaSecao botaoConfirmarESair;

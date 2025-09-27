@@ -1,9 +1,9 @@
 package livro.jogo.telas.desktop.principal;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.DadosLivroCarregado;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -15,15 +15,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class TelaAnotacoes extends JDialog {
-    private Personagem personagem;
     private JTextPane anotacao;
     private JLabelOpcoesTelaSecao labelBotaoSalvarESair;
     private JLabelOpcoesTelaSecao labelBotaoSair;
     private final TelaAnotacoesBotoes acao = new TelaAnotacoesBotoes();
 
-    public TelaAnotacoes(Personagem personagem) {
+    public TelaAnotacoes() {
         setSize(850,600);
-        this.personagem = personagem;
         setLocationRelativeTo(null);
         setResizable(false);
         setUndecorated(true);
@@ -158,7 +156,7 @@ public class TelaAnotacoes extends JDialog {
         });
 
         //Carregar anotações do personagem
-        anotacao.setText(personagem.getAnotacoes());
+        anotacao.setText(DadosLivroCarregado.getPersonagem().getAnotacoes());
 
         add(scrollTexto);
     }
@@ -179,7 +177,7 @@ public class TelaAnotacoes extends JDialog {
         @Override
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == labelBotaoSalvarESair){
-                personagem.setAnotacoes(anotacao.getText());
+                DadosLivroCarregado.getPersonagem().setAnotacoes(anotacao.getText());
                 dispose();
             }
 

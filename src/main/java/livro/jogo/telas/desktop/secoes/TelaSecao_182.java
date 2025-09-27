@@ -74,8 +74,8 @@ public class TelaSecao_182 extends TelaSecoesBasica {
         textoBotaoTesteHabilidade.setVerticalAlignment(SwingConstants.CENTER);
         textoBotaoTesteHabilidade.setFont(new Font(Font.SERIF,Font.BOLD,25));
         textoBotaoTesteHabilidade.setForeground(new Color(128,0,0));
-        textoBotaoTesteHabilidade.setToolTipText("SUCESSO: igual ou menor que a Habilidade" +
-                " - FALHA: maior que a Habilidade");
+        textoBotaoTesteHabilidade.setToolTipText("SUCESSO: igual ou menor que a sua Habilidade" +
+                " - FALHA: maior que a sua Habilidade");
         textoBotaoTesteHabilidade.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

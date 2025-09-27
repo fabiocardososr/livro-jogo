@@ -1,14 +1,12 @@
 package livro.jogo.telas.desktop.secoes;
 
 import livro.jogo.acaosecoes.AcoesSecao_146;
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
-import livro.jogo.utils.DadosLivroCarregado;
 import livro.jogo.utils.Util;
 
 import javax.swing.*;

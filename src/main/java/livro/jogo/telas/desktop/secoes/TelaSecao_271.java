@@ -1,6 +1,5 @@
 package livro.jogo.telas.desktop.secoes;
 
-import livro.jogo.entidades.Personagem;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
@@ -67,12 +66,11 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 5){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 5){
                     CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 5);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     entregou5Moedas = true;
                     repaint();
                 }
@@ -126,13 +124,12 @@ public class TelaSecao_271 extends TelaSecoesBasica {
                     return;
                 }
 
-                Personagem personagem = DadosLivroCarregado.getPersonagem();
-
-                if (personagem.getQuantidadeOuro() >= 5){
+                if (DadosLivroCarregado.getPersonagem().getQuantidadeOuro() >= 5){
                     new Util().reproduzirAudioMp3("audio/efeitos_sonoros/moedas.mp3", null);
                     CarregarTelas.telaMensagem("Você pagou 5 moedas ao ganancioso Gnomo.");
-                    personagem.setQuantidadeOuro(personagem.getQuantidadeOuro() - 5);
-                    labelOuro.setText("Ouro: " + personagem.getQuantidadeOuro());
+                    DadosLivroCarregado.getPersonagem()
+                            .setQuantidadeOuro(DadosLivroCarregado.getPersonagem().getQuantidadeOuro() - 5);
+                    labelOuro.setText("Ouro: " + DadosLivroCarregado.getPersonagem().getQuantidadeOuro());
                     entregou5Moedas = true;
                     repaint();
                 }

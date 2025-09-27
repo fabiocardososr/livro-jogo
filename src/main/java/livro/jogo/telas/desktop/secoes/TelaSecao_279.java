@@ -4,7 +4,6 @@ import livro.jogo.entidades.Item;
 import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.CarregarTelas;
-import livro.jogo.telas.desktop.personalizados.BotaoFaixaOpcoes;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.PanelCircular;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
