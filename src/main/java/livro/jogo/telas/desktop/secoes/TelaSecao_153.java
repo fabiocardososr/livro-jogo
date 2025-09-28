@@ -21,6 +21,8 @@ public class TelaSecao_153 extends TelaSecoesBasica {
 
     public TelaSecao_153(Secao secao) {
         super(secao);
+
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/gata.mp3", null);
     }
 
     @Override
