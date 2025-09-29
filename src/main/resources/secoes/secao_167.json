@@ -11,7 +11,7 @@
   "inimigos":[
 	{
 		"idInimigo":"34",
-		"nome":"DRAGÃO",
+		"nome":"Dragão",
 		"habilidade":"10",
 		"energia":"11",
 		"enderecoImagem": "imagens/secao/secao_57.png"
