@@ -20,6 +20,8 @@ public class TelaSecao_57 extends TelaSecoesBasica {
 
     public TelaSecao_57(Secao secao) {
         super(secao);
+
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/rugido_dragao.mp3", null);
     }
 
     private void carregaBotaoTestarSorte() {
