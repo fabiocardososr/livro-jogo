@@ -40,7 +40,9 @@ build/
 
 /save/*
 
-/out/artifacts/livrojogo_jar/save/*.sav
-/out/artifacts/livrojogo_jar/livrojogo.jar
+/out/save/*.sav
+/out/livrojogo.jar
 /.idea/artifacts/livrojogo_jar.xml
 /para gerar exe a partir do bat.zip
+/out/*.jar
+

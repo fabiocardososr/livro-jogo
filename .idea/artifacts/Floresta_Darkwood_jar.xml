@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Floresta_Darkwood:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Floresta_Darkwood_jar</output-path>
-    <root id="archive" name="livrojogo.jar">
+    <output-path>$PROJECT_DIR$/out/</output-path>
+    <root id="archive" name="FlorestaDarkwood.jar">
       <element id="module-output" name="livrojogo" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.18.2/jackson-annotations-2.18.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../jl1.0.1.jar" path-in-jar="/" />
