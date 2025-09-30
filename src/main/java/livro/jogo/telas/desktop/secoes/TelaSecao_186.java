@@ -15,6 +15,8 @@ import java.awt.event.MouseListener;
 public class TelaSecao_186 extends TelaSecoesBasica {
     public TelaSecao_186(Secao secao) {
         super(secao);
+
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/enguia.mp3", null);
     }
 
     @Override

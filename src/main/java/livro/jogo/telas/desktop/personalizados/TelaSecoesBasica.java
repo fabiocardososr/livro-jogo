@@ -167,10 +167,23 @@ public abstract class TelaSecoesBasica extends JDialog {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent  e) {
+                //System.out.println("JDialog fechado: secao: "+secao.getCodSecaoLivro());
                 util.pararAudioMp3();
                 if (referenciaTelaPrincipal != null)
                     referenciaTelaPrincipal.setVisible(true);
             }
+
+            public void windowClosing(java.awt.event.WindowEvent  e) {
+                //System.out.println("JDialog está sendo fechada. Secao: "+secao.getCodSecaoLivro());
+            }
+
+            public void windowOpened(java.awt.event.WindowEvent  e) {
+                //System.out.println("JDialog aberto: secao: "+secao.getCodSecaoLivro());
+                if (referenciaTelaPrincipal != null)
+                    referenciaTelaPrincipal.setVisible(false);
+            }
+
+
         });
     }
 
@@ -1319,11 +1332,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         timer.start();
 
         Timer timerFechar = new Timer(3000, e -> {
-            timer.stop();
             this.dispose();
             CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
             panelTelaEspera.setVisible(false);
-           // this.dispose();
+            timer.stop();
         });
         timerFechar.setRepeats(false);
         timerFechar.start();

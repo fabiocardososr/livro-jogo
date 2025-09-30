@@ -750,9 +750,9 @@ public class TelaCriarPersonagem extends TelaBasica {
 
         Timer timerFechar = new Timer(3000, e -> {
             timer.stop();
+            this.dispose();
             CarregarTelas.carregarSecao(null);
             panelTelaEspera.setVisible(false);
-            this.dispose();
         });
         timerFechar.setRepeats(false);
         timerFechar.start();
