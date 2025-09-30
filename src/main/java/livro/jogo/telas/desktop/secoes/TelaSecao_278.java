@@ -21,6 +21,7 @@ public class TelaSecao_278 extends TelaSecoesBasica {
 
     public TelaSecao_278(Secao secao) {
         super(secao);
+        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/caindo.mp3", null);
     }
 
     @Override
