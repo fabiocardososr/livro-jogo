@@ -1334,8 +1334,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         Timer timerFechar = new Timer(3000, e -> {
             this.dispose();
             CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
-            panelTelaEspera.setVisible(false);
             timer.stop();
+            panelTelaEspera.setVisible(false);
         });
         timerFechar.setRepeats(false);
         timerFechar.start();
