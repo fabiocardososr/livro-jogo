@@ -15,6 +15,8 @@ import livro.jogo.utils.UtilPersonagem;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class TelaSecao_153 extends TelaSecoesBasica {
     private TelaSecoesBasica estaTela = this;
@@ -22,7 +24,43 @@ public class TelaSecao_153 extends TelaSecoesBasica {
     public TelaSecao_153(Secao secao) {
         super(secao);
 
-        new Util().reproduzirAudioMp3("audio/efeitos_sonoros/gata.mp3", null);
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/gata.mp3", null);
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
     }
 
     @Override
