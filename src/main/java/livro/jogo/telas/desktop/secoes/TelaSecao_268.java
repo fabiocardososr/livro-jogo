@@ -4,13 +4,54 @@ import livro.jogo.entidades.Secao;
 import livro.jogo.enums.ImagensDoLivroFlorestaDaDestruicao;
 import livro.jogo.telas.desktop.personalizados.TelaSecoesBasica;
 import livro.jogo.telas.desktop.personalizados.util.RedimensionarImagem;
+import livro.jogo.utils.Util;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class TelaSecao_268 extends TelaSecoesBasica {
     public TelaSecao_268(Secao secao) {
         super(secao);
+
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+                new Util().reproduzirAudioMp3("audio/efeitos_sonoros/morcego.mp3", null);
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Código a ser executado quando o diálogo está fechando
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                // Código a ser executado quando o diálogo é fechado
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é minimizado
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                // Código a ser executado quando o diálogo é restaurado
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é ativado
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                // Código a ser executado quando o diálogo é desativado
+            }
+        });
     }
 
     @Override
