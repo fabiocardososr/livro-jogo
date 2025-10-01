@@ -982,10 +982,10 @@ public class TelaBatalha extends JDialog {
         moldura.setBounds(0,0, 110,120);
 
         //Imagem do inimigo
-        JLabelOpcoesTelaSecao imgPersonagem = new JLabelOpcoesTelaSecao(null, 65,80,
+        JLabelOpcoesTelaSecao imgPersonagem = new JLabelOpcoesTelaSecao(null, 65,84,
                     inimigoTemporario.getEnderecoImagem());
         imgPersonagem.setHorizontalAlignment(SwingConstants.CENTER);
-        imgPersonagem.setBounds(30,25,65,80);
+        imgPersonagem.setBounds(25,19,65,84);
         imgPersonagem.setCursor(null);
         //imgPersonagem.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
