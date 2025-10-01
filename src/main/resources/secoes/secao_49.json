@@ -11,14 +11,14 @@
   "inimigos":[
 	{
 		"idInimigo":"10",
-		"nome":"GREMLIN",
+		"nome":"Gremlin",
 		"habilidade":"4",
 		"energia":"3",
 		"enderecoImagem": "imagens/inimigos/gremlin_1.png"
 	},
 	{
 		"idInimigo":"11",
-		"nome":"GREMLIN",
+		"nome":"Gremlin",
 		"habilidade":"3",
 		"energia":"2",
 		"enderecoImagem": "imagens/inimigos/gremlin_2.png"
