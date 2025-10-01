@@ -449,7 +449,8 @@ public class LojaDoMago extends JDialog {
         tituloTelaSuspensaInfo.setText( itemSelecionado.getNome() );
 
         //Se já comprou, não pode adquirir outro
-        if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ) {
+        if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ||
+                (UtilBolsa.verificarExistenciaDeItemEquipado(itemSelecionado.getIdItem())) ) {
             lbCusto.setText("0");
             lbBotaoConfirmar.setFont(new Font(Font.SERIF,Font.BOLD,12));
             lbBotaoConfirmar.setText("Comprado!");
@@ -511,7 +512,8 @@ public class LojaDoMago extends JDialog {
         }
 
 
-        if ( UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem()) ){
+        if ( (UtilBolsa.verificarExistenciaDeItemNaBolsa(itemSelecionado.getIdItem())) ||
+                (UtilBolsa.verificarExistenciaDeItemEquipado(itemSelecionado.getIdItem()))){
             CarregarTelas.telaMensagem(DadosLivroCarregado.getPersonagem().getNome()+
                     ",\n\nSomente é possivel adquirir um artefato. Você já comprou o(a) "+itemSelecionado.getNome()+".");
             return;
