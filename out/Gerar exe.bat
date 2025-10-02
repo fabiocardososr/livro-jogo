@@ -1,0 +1,1 @@
+python -m PyInstaller --onefile --windowed --add-data "FlorestaDarkwood.jar;." --icon icone.ico florestaDarkwood.py

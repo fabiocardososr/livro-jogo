@@ -45,4 +45,5 @@ build/
 /.idea/artifacts/livrojogo_jar.xml
 /out/*.jar
 /out/*.exe
-
+/out/dist/*
+/out/*.spec
