@@ -1330,8 +1330,8 @@ public abstract class TelaSecoesBasica extends JDialog {
         try {
             //para áudio
             util.pararAudioMp3();
-            this.dispose();
             CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+            this.dispose();
         } catch (Exception ex) {
             ex.printStackTrace();
             CarregarTelas.telaMensagem("Erro ao carregar a próxima seção.");

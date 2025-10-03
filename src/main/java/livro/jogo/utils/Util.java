@@ -73,10 +73,10 @@ public class Util {
 
             if (img == null) {
                 System.err.println("Falha ao decodificar imagem: " + enderecoImagem);
+            }else {
+                Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
+                imageIcon = new ImageIcon(imgDimensionada);
             }
-
-            Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
-            imageIcon = new ImageIcon(imgDimensionada);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
