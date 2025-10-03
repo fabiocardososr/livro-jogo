@@ -109,7 +109,11 @@ public class ImagePanel extends JPanel {
     }
 
     public void setImage(BufferedImage image) {
+        if (this.image != null) {
+            this.image.flush(); // Libera recursos da imagem anterior
+        }
         this.image = image;
+
     }
 
     public void setImage(Image image) {
