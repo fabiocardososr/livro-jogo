@@ -1321,8 +1321,10 @@ public abstract class TelaSecoesBasica extends JDialog {
     //Chamado para abrir a próxima seção que foi escolhida como opção
     protected void abrirProximaSecao(int codSecao){
 
-        if (secaoJaFoiAberta) return;
-            secaoJaFoiAberta = true;
+        if (secaoJaFoiAberta)
+            return;
+
+        secaoJaFoiAberta = true;
 
 
         try {
