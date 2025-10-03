@@ -1324,10 +1324,17 @@ public abstract class TelaSecoesBasica extends JDialog {
         if (secaoJaFoiAberta) return;
             secaoJaFoiAberta = true;
 
-        //para áudio
-        util.pararAudioMp3();
-        this.dispose();
-        CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+
+        try {
+            //para áudio
+            util.pararAudioMp3();
+            this.dispose();
+            CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            CarregarTelas.telaMensagem("Erro ao carregar a próxima seção.");
+        }
+
     }
 
     //Cria a tela de espera. Para usá-la basta setar o setVisible(deve-se criar Thread para o efeito de animação para as outras telas)
