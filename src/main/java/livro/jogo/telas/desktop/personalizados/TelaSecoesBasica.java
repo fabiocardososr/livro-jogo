@@ -17,7 +17,6 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.text.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
@@ -1325,16 +1324,6 @@ public abstract class TelaSecoesBasica extends JDialog {
         //para áudio
         util.pararAudioMp3();
 
-
-        if (timer != null && timer.isRunning()) {
-            timer.stop();
-            for (ActionListener al : timer.getActionListeners()) {
-                timer.removeActionListener(al);
-            }
-            timer = null;
-        }
-
-
         timer = new Timer(30, e -> {
             angle = (angle + 5) % 360;
             panelTelaEspera.setVisible(true);
@@ -1343,10 +1332,10 @@ public abstract class TelaSecoesBasica extends JDialog {
         timer.start();
 
         Timer timerFechar = new Timer(3000, e -> {
-            timer.stop();
-            panelTelaEspera.setVisible(false);
             this.dispose();
             CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
+            timer.stop();
+            panelTelaEspera.setVisible(false);
         });
         timerFechar.setRepeats(false);
         timerFechar.start();

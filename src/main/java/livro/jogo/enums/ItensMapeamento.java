@@ -30,7 +30,7 @@ public enum ItensMapeamento {
     POCAO_CURATIVA("itens/item_27.json",27),
     ESCUDO_DE_FERRO("itens/item_28.json",28),
     DARDO_FEITO_DE_PRATA("itens/item_29.json",29),
-    LINGOTE_DE_OURO("itens/item_30.json",31),
+    LINGOTE_DE_OURO("itens/item_30.json",30),
     BOTAS_SALTADORAS("itens/item_31.json",31),
     REDE_DE_APRISIONAMENTO("itens/item_32.json",32),
     POCAO_DA_FORCA("itens/item_33.json",33),
