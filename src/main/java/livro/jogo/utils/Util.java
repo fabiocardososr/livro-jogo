@@ -62,7 +62,7 @@ public class Util {
 
     //Caso a imagem seja maior que o label (por exemplo) redimensionar de modo caber no componente
     public static ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
-        ImageIcon imageIcon;
+        ImageIcon imageIcon = null;
         try {
             InputStream inputStream = Util.class.getClassLoader().getResourceAsStream(enderecoImagem);
             if (inputStream == null) {
