@@ -167,14 +167,13 @@ public abstract class TelaSecoesBasica extends JDialog {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent  e) {
-                //System.out.println("JDialog fechado: secao: "+secao.getCodSecaoLivro());
+               // System.out.println("JDialog fechado: secao: "+secao.getCodSecaoLivro());
                 util.pararAudioMp3();
-                if (referenciaTelaPrincipal != null)
-                    referenciaTelaPrincipal.setVisible(true);
+
             }
 
             public void windowClosing(java.awt.event.WindowEvent  e) {
-                //System.out.println("JDialog está sendo fechada. Secao: "+secao.getCodSecaoLivro());
+                System.out.println("JDialog está sendo fechada. Secao: "+secao.getCodSecaoLivro());
             }
 
             public void windowOpened(java.awt.event.WindowEvent  e) {
@@ -1323,22 +1322,8 @@ public abstract class TelaSecoesBasica extends JDialog {
 
         //para áudio
         util.pararAudioMp3();
-
-//        timer = new Timer(30, e -> {
-//            angle = (angle + 5) % 360;
-//            panelTelaEspera.setVisible(true);
-//            repaint();
-//        });
-//        timer.start();
-
-       // Timer timerFechar = new Timer(3000, e -> {
-            this.dispose();
-            CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
-           // timer.stop();
-           // panelTelaEspera.setVisible(false);
-//        });
-//        timerFechar.setRepeats(false);
-//        timerFechar.start();
+        this.dispose();
+        CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
     }
 
     //Cria a tela de espera. Para usá-la basta setar o setVisible(deve-se criar Thread para o efeito de animação para as outras telas)
