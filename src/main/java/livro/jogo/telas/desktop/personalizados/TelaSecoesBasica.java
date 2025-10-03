@@ -1324,21 +1324,21 @@ public abstract class TelaSecoesBasica extends JDialog {
         //para áudio
         util.pararAudioMp3();
 
-        timer = new Timer(30, e -> {
-            angle = (angle + 5) % 360;
-            panelTelaEspera.setVisible(true);
-            repaint();
-        });
-        timer.start();
+//        timer = new Timer(30, e -> {
+//            angle = (angle + 5) % 360;
+//            panelTelaEspera.setVisible(true);
+//            repaint();
+//        });
+//        timer.start();
 
-        Timer timerFechar = new Timer(3000, e -> {
+       // Timer timerFechar = new Timer(3000, e -> {
             this.dispose();
             CarregarTelas.carregarSecao(DadosLivroCarregado.getLivro().getMapSecao().get(codSecao));
-            timer.stop();
-            panelTelaEspera.setVisible(false);
-        });
-        timerFechar.setRepeats(false);
-        timerFechar.start();
+           // timer.stop();
+           // panelTelaEspera.setVisible(false);
+//        });
+//        timerFechar.setRepeats(false);
+//        timerFechar.start();
     }
 
     //Cria a tela de espera. Para usá-la basta setar o setVisible(deve-se criar Thread para o efeito de animação para as outras telas)
