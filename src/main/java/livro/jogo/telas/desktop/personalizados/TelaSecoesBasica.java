@@ -170,7 +170,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             public void windowClosed(java.awt.event.WindowEvent  e) {
                // System.out.println("JDialog fechado: secao: "+secao.getCodSecaoLivro());
                 util.pararAudioMp3();
-
+                System.gc();
             }
 
             public void windowClosing(java.awt.event.WindowEvent  e) {
