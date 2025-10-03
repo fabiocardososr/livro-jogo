@@ -95,6 +95,7 @@ public abstract class TelaSecoesBasica extends JDialog {
     private Timer timer;
     private JPanel panelTelaEspera;
     private static boolean jogoFoiCarregado = false;
+    private boolean secaoJaFoiAberta = false;
 
 
     public TelaSecoesBasica(Secao secao) {
@@ -1319,6 +1320,9 @@ public abstract class TelaSecoesBasica extends JDialog {
 
     //Chamado para abrir a próxima seção que foi escolhida como opção
     protected void abrirProximaSecao(int codSecao){
+
+        if (secaoJaFoiAberta) return;
+            secaoJaFoiAberta = true;
 
         //para áudio
         util.pararAudioMp3();
