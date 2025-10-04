@@ -200,7 +200,8 @@ public class LojaDoMago extends JDialog {
             @Override
             public void mouseClicked(MouseEvent e) {
                 removerItemSelecionado();
-                setVisible(false);
+               // setVisible(false);
+                dispose();
             }
 
             @Override
