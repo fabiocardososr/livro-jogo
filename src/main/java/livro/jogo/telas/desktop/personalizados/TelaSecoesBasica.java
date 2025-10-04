@@ -178,6 +178,7 @@ public abstract class TelaSecoesBasica extends JDialog {
             }
 
             public void windowOpened(java.awt.event.WindowEvent  e) {
+                System.gc();
                 //System.out.println("JDialog aberto: secao: "+secao.getCodSecaoLivro());
                 if (referenciaTelaPrincipal != null)
                     referenciaTelaPrincipal.setVisible(false);
