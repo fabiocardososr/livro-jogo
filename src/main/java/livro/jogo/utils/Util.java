@@ -9,20 +9,21 @@ import livro.jogo.enums.ItensMapeamento;
 import livro.jogo.telas.desktop.personalizados.JLabelOpcoesTelaSecao;
 import livro.jogo.telas.desktop.personalizados.TelaBasica;
 
-
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
-
 
 public class Util {
     private static Player player; //Reproduzir mp3
     private Audio audio; //Thread que executa o áudio sem travar a tela (mp3)
+    // Cache simples para imagens carregadas
+    private static final Map<String, ImageIcon> cacheImagens = new HashMap<>();
 
     //Simula a rolagem de dados, passando o tipo de dado(numeroDeFaces) e a quantidade de dados que serão rolados.
     public static int rolarDados(int numeroDeFaces, int quantidadeDeDados){
@@ -61,28 +62,41 @@ public class Util {
     }
 
     //Caso a imagem seja maior que o label (por exemplo) redimensionar de modo caber no componente
-    public static ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem){
+    public static ImageIcon dimensionarImagem(int largura, int altura, String enderecoImagem) {
+        String chaveCache = enderecoImagem + "_" + largura + "x" + altura;
+
+        // Verifica se imagem já está no cache
+        if (cacheImagens.containsKey(chaveCache)) {
+            return cacheImagens.get(chaveCache);
+        }
+
         ImageIcon imageIcon = null;
-        try {
-            InputStream inputStream = Util.class.getClassLoader().getResourceAsStream(enderecoImagem);
+
+        try (InputStream inputStream = Util.class.getClassLoader().getResourceAsStream(enderecoImagem)) {
             if (inputStream == null) {
                 throw new RuntimeException("Imagem não encontrada: " + enderecoImagem);
             }
 
             BufferedImage img = ImageIO.read(inputStream);
-
             if (img == null) {
                 System.err.println("Falha ao decodificar imagem: " + enderecoImagem);
-            }else {
+            } else {
                 Image imgDimensionada = img.getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
                 imageIcon = new ImageIcon(imgDimensionada);
+                img.flush(); // libera memória da imagem original
             }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+        // Adiciona imagem ao cache
+        cacheImagens.put(chaveCache, imageIcon);
+
         return imageIcon;
     }
+
+
 
     public void reproduzirAudioMp3(String nomeAudio, JLabelOpcoesTelaSecao label){
         audio = new Audio(nomeAudio, label);

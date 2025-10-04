@@ -168,9 +168,9 @@ public abstract class TelaSecoesBasica extends JDialog {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent  e) {
-               // System.out.println("JDialog fechado: secao: "+secao.getCodSecaoLivro());
+                System.out.println("JDialog fechado:");
                 util.pararAudioMp3();
-                System.gc();
+                System.gc(); //que o coletor de lixo (Garbage Collector - GC) seja executado para liberar memória de objetos não utilizados na heap
             }
 
             public void windowClosing(java.awt.event.WindowEvent  e) {
