@@ -169,6 +169,12 @@ public abstract class TelaSecoesBasica extends JDialog {
             @Override
             public void windowClosed(java.awt.event.WindowEvent  e) {
                 //System.out.println("JDialog fechado:");
+
+                //Carrega tela principal quando personagem morre
+                if (DadosLivroCarregado.getPersonagem().getEnergiaAtual() <= 0)
+                    personagemVivo(false);
+
+
                 util.pararAudioMp3();
                 System.gc(); //que o coletor de lixo (Garbage Collector - GC) seja executado para liberar memória de objetos não utilizados na heap
             }

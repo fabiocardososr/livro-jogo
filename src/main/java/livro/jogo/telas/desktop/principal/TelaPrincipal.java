@@ -54,6 +54,7 @@ public class TelaPrincipal extends TelaBasica {
         getContentPane().setBackground(new Color(210,180,140));
         setUndecorated(true);
         //new Util().reproduzirAudioMp3("audio/trilha_principal.mp3", null);
+        util.reproduzirAudioMp3("audio/trilha_principal.mp3", null);
 
         //Dados do livro
         livro = DadosLivroCarregado.getLivro();
@@ -95,7 +96,7 @@ public class TelaPrincipal extends TelaBasica {
         addWindowFocusListener(new WindowFocusListener() {
             @Override
             public void windowGainedFocus(WindowEvent e) {
-                util.reproduzirAudioMp3("audio/trilha_principal.mp3", null);
+                //util.reproduzirAudioMp3("audio/trilha_principal.mp3", null);
             }
 
             @Override
