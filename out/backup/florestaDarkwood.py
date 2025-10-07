@@ -13,10 +13,8 @@ logging.basicConfig(
 )
 
 def mostrar_mensagem(titulo, texto):
-    try:
-        ctypes.windll.user32.MessageBoxW(0, texto, titulo, 0x10)  # 0x10 = MB_ICONERROR
-    except Exception as e:
-        logging.warning(f"Não foi possível exibir a mensagem: {e}")
+    # Exibe uma caixa de mensagem de erro no Windows
+    ctypes.windll.user32.MessageBoxW(0, texto, titulo, 0x10)  # 0x10 = MB_ICONERROR
 
 def verificar_versao_java(min_versao=22):
     try:
@@ -41,30 +39,10 @@ def verificar_versao_java(min_versao=22):
             logging.error(mensagem)
             return False
     except FileNotFoundError:
-        mensagem = "Java não está instalado nesta máquina. Iniciando instalação automática..."
+        mensagem = "Java não está instalado nesta máquina. A aplicação não poderá ser executada."
         mostrar_mensagem("Java não encontrado", mensagem)
-        logging.warning(mensagem)
-
-        try:
-            jdk_installer_path = os.path.join(os.path.dirname(__file__), "jdk-setup.exe")
-
-            # Executa o instalador com privilégios elevados
-            subprocess.run([
-                "powershell",
-                "-Command",
-                f"Start-Process '{jdk_installer_path}' -Verb runAs"
-            ], check=True)
-
-            logging.info("Instalação do JDK iniciada com elevação.")
-
-            # Após instalação, aguarda o usuário concluir e tenta verificar uma única vez
-            mostrar_mensagem("Instalação do JDK", "A instalação do JDK foi iniciada. Após concluir, pressione OK para continuar.")
-            return verificar_versao_java(min_versao)
-        except Exception as install_error:
-            mensagem = f"Falha ao instalar o JDK: {install_error}"
-            mostrar_mensagem("Erro na instalação do Java", mensagem)
-            logging.error(mensagem)
-            return False
+        logging.error(mensagem)
+        return False
     except Exception as e:
         mensagem = f"Erro ao verificar a versão do Java: {e}"
         mostrar_mensagem("Erro inesperado", mensagem)
@@ -74,11 +52,10 @@ def verificar_versao_java(min_versao=22):
 def executar_jar():
     try:
         jar_path = os.path.join(os.path.dirname(__file__), "FlorestaDarkwood.jar")
-        command = ["java", "-jar", jar_path]
-        logging.info(f"Executando comando: {' '.join(command)}")
-        resultado = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        logging.info(f"Saída do JAR:\n{resultado.stdout}")
-        logging.error(f"Erros do JAR:\n{resultado.stderr}")
+        command = f'powershell -window minimized -command "java -jar \\"{jar_path}\\""'
+        logging.info(f"Executando comando: {command}")
+        subprocess.run(command, shell=True)
+        logging.info("Comando executado com sucesso.")
     except Exception as e:
         mensagem = f"Erro ao executar o JAR: {e}"
         mostrar_mensagem("Erro na execução", mensagem)
