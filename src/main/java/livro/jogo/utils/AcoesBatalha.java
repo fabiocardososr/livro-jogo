@@ -207,7 +207,7 @@ public class AcoesBatalha {
 
         ///Calculando ataque do inimigo: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("audio/efeitos_sonoros/suspense.mp3", null);
-        animacaoRolagemDados("Calculando ataque do inimigo...");
+        animacaoRolagemDados("Calculando ataque do inimigo...",2000);
         var resultadoDadosInimigo = Util.rolarDados(6,2);
         var forcaDeAtaqueInimigo  = resultadoDadosInimigo + inimigo.getHabilidade();
 
@@ -220,7 +220,7 @@ public class AcoesBatalha {
 
         ///Calculando ataque do personagem: Ataque é o resultado de 2 dados somado a sua habilidade
         util.reproduzirAudioMp3("audio/efeitos_sonoros/suspense.mp3", null);
-        animacaoRolagemDados("Calculando seu ataque...");
+        animacaoRolagemDados("Calculando seu ataque...",2000);
 
         //Verifica se existe alguma desvantagem no ataque do personagem em alguma seção
         switch ( telaSecao.getSecao().getCodSecaoLivro() ){
@@ -375,6 +375,12 @@ public class AcoesBatalha {
 
     //Pode ser usado por outras telas que não sejam a tela de batalha
     public void animacaoRolagemDados(String mensagem){
+        mensagemComDelay(2000,"<html><center>"+mensagem+"</center></html>");
+        TelaBasica.mostrarDadosRolando(milisegundos,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+    }
+
+    //Pode ser usado por outras telas que não sejam a tela de batalha
+    public void animacaoRolagemDados(String mensagem, int milisegundos){
         mensagemComDelay(2000,"<html><center>"+mensagem+"</center></html>");
         TelaBasica.mostrarDadosRolando(milisegundos,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
     }
