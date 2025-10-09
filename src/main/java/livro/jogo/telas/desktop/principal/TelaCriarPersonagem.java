@@ -640,9 +640,9 @@ public class TelaCriarPersonagem extends TelaBasica {
     private void carregarBotoesGravarResetarFechar() {
 
         //Botao Gravar
-        labelGravar = new JLabel("Gravar");
-        labelGravar.setBounds(435, 495,100,60);
-        labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,20));
+        labelGravar = new JLabel("Iniciar jogo");
+        labelGravar.setBounds(429, 497,100,60);
+        labelGravar.setFont(new Font(Font.SERIF,Font.BOLD,16));
         labelGravar.setVerticalTextPosition(SwingConstants.CENTER);
         labelGravar.setCursor(cursor);
         labelGravar.setForeground(new Color(139,0,0));
@@ -767,21 +767,21 @@ public class TelaCriarPersonagem extends TelaBasica {
             int altura = 330;
 
             if ( (e.getSource() == botaoRolarDadosSorte) && (sorteInicial == 0)){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(2000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 sorteInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceSorte.setText(String.valueOf(sorteInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadosEnergia) && (energiaInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(2000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 energiaInicial = Util.obterIndiceEnergiaInicial();
                 labelIndiceEnergia.setText(String.valueOf(energiaInicial));
                 habilitarBotaoGravar();
             }
 
             if ( (e.getSource() == botaoRolarDadosHabilidade) && (habilidadeInicial == 0) ){
-                TelaBasica.mostrarDadosRolando(4000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
+                TelaBasica.mostrarDadosRolando(2000,ImagensDoLivroFlorestaDaDestruicao.GIF_ROLANDO_DADOS);
                 habilidadeInicial = Util.obterIndiceHabilidadeOuSorteInicial();
                 labelIndiceHabilidade.setText(String.valueOf(habilidadeInicial));
                 habilitarBotaoGravar();
